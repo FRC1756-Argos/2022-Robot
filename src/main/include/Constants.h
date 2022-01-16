@@ -5,19 +5,6 @@
 #pragma once
 #include <units/length.h>
 
-/**
- * The Constants header provides a convenient place for teams to hold robot-wide
- * numerical or boolean constants.  This should not be used for any other
- * purpose.
- *
- * It is generally a good idea to place constants into subsystem- or
- * command-specific namespaces within this header, which can then be used where
- * they are needed.
- */
-
-//TODO rename namespaces to have snake case(lower)
-
-
 namespace address{
   namespace motor{
     constexpr const char frontLeftDrive = NULL;
@@ -40,12 +27,12 @@ namespace address{
 
 }
 
-namespace measureUp {
+namespace measure_up {
   namespace chassis {
     constexpr units::inch_t width{28.0};
     constexpr units::inch_t length{31.0};
   }  // namesp
-  namespace swerveOffsets {
+  namespace swerve_offsets {
     constexpr auto frontLeftLOffset = 4.0_in;
     constexpr auto frontLeftWOffset = 4.0_in;
     constexpr auto frontRightLOffset = 4.0_in;

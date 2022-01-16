@@ -4,8 +4,7 @@
 
 #include "RobotContainer.h"
 
-RobotContainer::RobotContainer():
-  m_swerveDrive() {
+RobotContainer::RobotContainer(){
   // Initialize all of your commands and subsystems here
   // Configure the button bindings
 
