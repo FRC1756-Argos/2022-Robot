@@ -5,8 +5,8 @@
 #pragma once
 #include <units/length.h>
 
-namespace address{
-  namespace motor{
+namespace address {
+  namespace motor {
     constexpr const char frontLeftDrive = NULL;
     constexpr const char frontLeftTurn = NULL;
     constexpr const char frontRightDrive = NULL;
@@ -15,23 +15,21 @@ namespace address{
     constexpr const char backRightTurn = NULL;
     constexpr const char backLeftDrive = NULL;
     constexpr const char backLeftTurn = NULL;
-    }
-  namespace encoders
-  {
+  }  // namespace motor
+  namespace encoders {
     constexpr const char frontLeftEncoder = NULL;
     constexpr const char frontRightEncoder = NULL;
     constexpr const char backRightEncoder = NULL;
     constexpr const char backLeftEncoder = NULL;
-  }
+  }  // namespace encoders
 
-
-}
+}  // namespace address
 
 namespace measure_up {
   namespace chassis {
     constexpr units::inch_t width{28.0};
     constexpr units::inch_t length{31.0};
-  }  // namesp
+  }  // namespace chassis
   namespace swerve_offsets {
     constexpr auto frontLeftLOffset = 4.0_in;
     constexpr auto frontLeftWOffset = 4.0_in;
@@ -41,5 +39,5 @@ namespace measure_up {
     constexpr auto backRightLOffset = 4.0_in;
     constexpr auto backLeftWOffset = 4.0_in;
     constexpr auto backLeftLOffset = 4.0_in;
-  }
-}
+  }  // namespace swerve_offsets
+}  // namespace measure_up
