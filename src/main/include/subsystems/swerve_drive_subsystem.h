@@ -13,10 +13,10 @@
 class SwerveModule
 {
   public:
-  //MOTORS
+  // MOTORS
   WPI_TalonFX m_drive;
   WPI_TalonFX m_turn;
-  //ENCODER
+  // ENCODER
   CANCoder m_encoder;
 
   SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr);

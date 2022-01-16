@@ -11,7 +11,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem()
 , m_backRight(address::motor::backRightDrive, address::motor::backRightTurn, address::encoders::backRightEncoder)
 ,m_backLeft(address::motor::backLeftDrive, address::motor::backLeftTurn, address::encoders::backLeftEncoder){
 
-  //create our translation objects
+  // create our translation objects
   frc::Translation2d frontLeftCenterOffset(-1 * measure_up::chassis::width / 2 + measure_up::swerve_offsets::frontLeftWOffset,
                                             measure_up::chassis::length - measure_up::swerve_offsets::frontLeftLOffset);
 
@@ -22,13 +22,13 @@ void SwerveDriveSubsystem::Periodic() {
 
 }
 
-//SEWRVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
+// SEWRVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 void SwerveDriveSubsystem::m_drive(){
 
 
 }
 
-//SWERVE MODULE SUBSYSTEM FUNCTIONS
+// SWERVE MODULE SUBSYSTEM FUNCTIONS
 SwerveModule::SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr)
 
 //TODO add addresses to "constants.h"
