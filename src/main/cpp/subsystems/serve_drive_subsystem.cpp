@@ -31,7 +31,7 @@ void SwerveDriveSubsystem::m_drive(){
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
 SwerveModule::SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr)
 
-//TODO add addresses to "constants.h"
+// TODO add addresses to "constants.h"
 
 : m_drive(driveAddr)
 , m_turn(turnAddr)
