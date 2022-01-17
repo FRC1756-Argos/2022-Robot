@@ -18,7 +18,7 @@ First install the prerequisites:
   * You may need to add the pip install path to your shell's path if you're using Git Bash.  In git bash:
     1. Open (or create) new file `~/.bashrc` by running `vim ~/.bashrc`
     2. Add this to the end: `PATH=$PATH:$LOCALAPPDATA/Programs/Python/Python39/Scripts/` (change `Python39` to match your python version)
-    3. Exit by typing `:wq` and pressing <kbd>Enter</kbd>
+    3. Exit by pressing <kbd>Esc</kbd> then type `:wq` and press <kbd>Enter</kbd>
     4. Run `source ~/.bashrc` to update your session
   * wpiformat - `pip install wpiformat`
   * pre-commit - `pip install pre-commit`
