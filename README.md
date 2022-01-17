@@ -18,6 +18,7 @@ First install the prerequisites:
   * You may need to add the pip install path to your shell's path if you're using Git Bash.  In git bash:
     1. Open (or create) new file `~/.bashrc` by running `vim ~/.bashrc`
     2. Add this to the end: `PATH=$PATH:$LOCALAPPDATA/Programs/Python/Python39/Scripts/` (change `Python39` to match your python version)
+       * **Note**: The actual path you need to add (`$LOCALAPPDATA/Programs/Python/Python39/Scripts/` in the above example) depends on your Python installation.  If y ou do the `pip install` steps first, pip will print the path you need to add.
        * To type in Vim, type <kbd>i</kbd> and you should see `INSERT` at the bottom of the window to indicate you're editing in insert mode
     3. Exit by pressing <kbd>Esc</kbd> then type `:wq` and press <kbd>Enter</kbd>
     4. Run `source ~/.bashrc` to update your session
