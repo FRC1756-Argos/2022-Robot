@@ -17,4 +17,4 @@ repos:
     rev: 0dd545e86828870ebdeb630731ab1a974a01dbc6
     hooks:
     -   id: wpiformat
-        args: [-clang=10]
+        args: [-no-format]
