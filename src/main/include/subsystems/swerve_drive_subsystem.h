@@ -10,6 +10,7 @@
 #include <frc2/command/SubsystemBase.h>
 
 #include "ctre/Phoenix.h"
+#include <memory>
 
 class SwerveModule {
  public:
@@ -40,5 +41,4 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   SwerveModule m_frontRight;
   SwerveModule m_backRight;
   SwerveModule m_backLeft;
-
 };

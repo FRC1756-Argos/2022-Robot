@@ -4,8 +4,12 @@
 
 #include <units/angle.h>
 
+#include <memory>
+
 #include "Constants.h"
 #include "subsystems/swerve_drive_subsystem.h"
+
+// test commit
 
 SwerveDriveSubsystem::SwerveDriveSubsystem()
     : m_frontLeft(address::motor::frontLeftDrive, address::motor::frontLeftTurn, address::encoders::frontLeftEncoder)
@@ -37,9 +41,6 @@ SwerveDriveSubsystem::SwerveDriveSubsystem()
     m_pSwerveDriveKinematics = std::make_unique<frc::SwerveDriveKinematics<4>>(
         frontLeftCenterOffset, frontRightCenterOffset, backRightCenterOffset, backLeftCenterOffset
     );
-
-
-
 }
 
 // This method will be called once per scheduler run
@@ -47,10 +48,7 @@ void SwerveDriveSubsystem::Periodic() {}
 
 // SEWRVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 void SwerveDriveSubsystem::m_drive(const double &fwVelocity, const double &reVelocity, const double &rotVelocity) {
-
     /// @todo fix build error here
-    /// @todo
-
     frc::ChassisSpeeds speeds{units::make_unit<units::meters_per_second_t>(fwVelocity)
     , units::make_unit<units::velocity::meters_per_second_t>(reVelocity)
     , units::make_unit<units::radians_per_second_t>(rotVelocity)};
