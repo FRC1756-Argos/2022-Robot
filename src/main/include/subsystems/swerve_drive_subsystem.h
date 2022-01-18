@@ -9,8 +9,9 @@
 #include <frc/kinematics/SwerveModuleState.h>
 #include <frc2/command/SubsystemBase.h>
 
-#include "ctre/Phoenix.h"
 #include <memory>
+
+#include "ctre/Phoenix.h"
 
 class SwerveModule {
  public:
@@ -26,7 +27,7 @@ class SwerveModule {
 class SwerveDriveSubsystem : public frc2::SubsystemBase {
  public:
   SwerveDriveSubsystem();
-  void m_drive(const double &fwVelocity, const double &reVelocity, const double &rotVelocity);
+  void m_drive(const double& fwVelocity, const double& reVelocity, const double& rotVelocity);
   std::unique_ptr<frc::SwerveDriveKinematics<4>> m_pSwerveDriveKinematics;
 
   /**
