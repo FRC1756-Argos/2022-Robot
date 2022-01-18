@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <frc/kinematics/ChassisSpeeds.h>
 #include <frc/kinematics/SwerveDriveKinematics.h>
 #include <frc/kinematics/SwerveModuleState.h>
 #include <frc2/command/SubsystemBase.h>
@@ -24,13 +25,13 @@ class SwerveModule {
 class SwerveDriveSubsystem : public frc2::SubsystemBase {
  public:
   SwerveDriveSubsystem();
+  void m_drive(const double &fwVelocity, const double &reVelocity, const double &rotVelocity);
+  std::unique_ptr<frc::SwerveDriveKinematics<4>> m_pSwerveDriveKinematics;
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
   void Periodic() override;
-
-  void m_drive();
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
@@ -39,4 +40,5 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   SwerveModule m_frontRight;
   SwerveModule m_backRight;
   SwerveModule m_backLeft;
+
 };

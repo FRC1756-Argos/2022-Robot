@@ -20,5 +20,10 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
-  "editor.rulers": [100]
+  "editor.rulers": [
+    100
+  ],
+  "files.associations": {
+    "*.inc": "cpp"
+  }
 }
