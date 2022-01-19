@@ -23,6 +23,7 @@ First install the prerequisites:
     3. Exit by pressing <kbd>Esc</kbd> then type `:wq` and press <kbd>Enter</kbd>
     4. Run `source ~/.bashrc` to update your session
   * wpiformat - `pip install wpiformat`
+  * clang-format - `pip install clang-format`
   * pre-commit - `pip install pre-commit`
 
 Then initialize:
@@ -34,4 +35,4 @@ pre-commit run
 
 The first run may take a moment, but subsequent automatic runs are very fast.
 
-You'll now have the linter run before each commit!  Due to limitations with Windows, the clang-format based formatting is only run as a GitHub action, but the action will make a commit or pull request with fixes.
+You'll now have the linter run before each commit!  For compatibility with Windows, we recommend the pip version of clang-format, but wpi-format will find any installed `clang-format` binary in the system path.
