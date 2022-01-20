@@ -5,6 +5,8 @@
 #pragma once
 #include <units/length.h>
 
+#include "argos_lib/general/interpolation.h"
+
 namespace address {
   namespace motor {
     constexpr const char frontLeftDrive = NULL;
@@ -22,6 +24,10 @@ namespace address {
     constexpr const char backRightEncoder = NULL;
     constexpr const char backLeftEncoder = NULL;
   }  // namespace encoders
+  namespace controllers {
+    constexpr const char driver = NULL;
+    constexpr const char secondary = NULL;
+  }  // namespace controllers
 
 }  // namespace address
 
@@ -41,3 +47,31 @@ namespace measure_up {
     constexpr auto backLeftLOffset = 4.0_in;
   }  // namespace swerve_offsets
 }  // namespace measure_up
+
+namespace indexes {
+  namespace swerveModules {
+    constexpr char frontLeftIndex = 0;
+    constexpr char frontRightIndex = 1;
+    constexpr char backRightIndex = 2;
+    constexpr char backLeftIndex = 3;
+  }  // namespace swerveModules
+}  // namespace indexes
+
+namespace controllerMap {
+  using argos_lib::InterpMapPoint;
+
+  [[maybe_unused]] constexpr std::array driveLongSpeed{InterpMapPoint{-1.0, 0.6},
+                                                       InterpMapPoint{-0.75, 0.4},
+                                                       InterpMapPoint{-0.15, 0.0},
+                                                       InterpMapPoint{0.15, 0.0},
+                                                       InterpMapPoint{0.75, -0.4},
+                                                       InterpMapPoint{1.0, -0.6}};
+  [[maybe_unused]] constexpr std::array driveLatSpeed{InterpMapPoint{-1.0, -0.6},
+                                                      InterpMapPoint{-0.75, -0.4},
+                                                      InterpMapPoint{-0.15, 0.0},
+                                                      InterpMapPoint{0.15, 0.0},
+                                                      InterpMapPoint{0.75, 0.4},
+                                                      InterpMapPoint{1.0, 0.6}};
+  [[maybe_unused]] constexpr std::array driveRotSpeed{
+      InterpMapPoint{-1.0, -1.0}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 1.0}};
+}  // namespace controllerMap

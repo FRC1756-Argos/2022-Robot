@@ -2,12 +2,14 @@
 ///            Open Source Software; you can modify and/or share it under the terms of
 ///            the license file in the root directory of this project.
 
+#include "subsystems/swerve_drive_subsystem.h"
+
 #include <units/angle.h>
+#include <units/velocity.h>
 
 #include <memory>
 
 #include "Constants.h"
-#include "subsystems/swerve_drive_subsystem.h"
 
 // test commit
 
@@ -43,16 +45,33 @@ SwerveDriveSubsystem::SwerveDriveSubsystem()
 void SwerveDriveSubsystem::Periodic() {}
 
 // SEWRVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
-void SwerveDriveSubsystem::m_drive(const double& fwVelocity, const double& reVelocity, const double& rotVelocity) {
-  /// @todo fix build error here
-  frc::ChassisSpeeds speeds{units::make_unit<units::meters_per_second_t>(fwVelocity),
-                            units::make_unit<units::velocity::meters_per_second_t>(reVelocity),
-                            units::make_unit<units::radians_per_second_t>(rotVelocity)};
+void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
+                                       const double& sideVelocity,
+                                       const double& rotVelocity) {
+  frc::ChassisSpeeds speeds{units::make_unit<units::velocity::meters_per_second_t>(fwVelocity),
+                            units::make_unit<units::velocity::meters_per_second_t>(sideVelocity),
+                            units::make_unit<units::angular_velocity::radians_per_second_t>(rotVelocity)};
+
+  // IF SPEEDS ZERO, SET MOTORS TO ZERO AND RETURN
+  if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
+    m_frontRight.m_drive.Set(0);
+    m_frontRight.m_turn.Set(0);
+
+    m_frontLeft.m_drive.Set(0);
+    m_frontLeft.m_turn.Set(0);
+
+    m_backRight.m_drive.Set(0);
+    m_backRight.m_turn.Set(0);
+
+    m_backLeft.m_drive.Set(0);
+    m_backLeft.m_turn.Set(0);
+  }
 
   auto moduleStates = m_pSwerveDriveKinematics->ToSwerveModuleStates(speeds);
 
   /// @todo change all of these to go into a for-each in future
 
+  /// @todo switch to argosLib optimize functions in time (create overload for meters per second?)
   moduleStates.at(0).Optimize(moduleStates.at(0),
                               units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()));
   moduleStates.at(1).Optimize(moduleStates.at(1),
@@ -62,16 +81,40 @@ void SwerveDriveSubsystem::m_drive(const double& fwVelocity, const double& reVel
   moduleStates.at(3).Optimize(moduleStates.at(3),
                               units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()));
 
-  // Give module state values to motors
+  // Give module state values to motors-----------------------------------------------------------------------------------
   /// @todo also put this in a for-each loop
 
+  // FROMT LEFT
   m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
-                          moduleStates.at(0).speed.to<double>());
+                          moduleStates.at(indexes::swerveModules::frontLeftIndex).speed.to<double>());
 
   /// @todo check with david if the degree to double conversion is valid
 
   m_frontLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-                         moduleStates.at(0).angle.Degrees().to<double>());
+                         moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees().to<double>());
+
+  // FRONT RIGHT
+  m_frontRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+                           moduleStates.at(indexes::swerveModules::frontRightIndex).speed.to<double>());
+
+  m_frontRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                          moduleStates.at(indexes::swerveModules::frontRightIndex).angle.Degrees().to<double>());
+
+  // BACK RIGHT
+  m_backRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+                          moduleStates.at(indexes::swerveModules::backRightIndex).speed.to<double>());
+
+  m_backRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                         moduleStates.at(indexes::swerveModules::backRightIndex).angle.Degrees().to<double>());
+
+  // BACK LEFT
+  m_backLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+                         moduleStates.at(indexes::swerveModules::backLeftIndex).speed.to<double>());
+
+  m_backLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                        moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
+
+  // END GIVE MODULE STATES TO MOTORS ------------------------------------------------------------------------------------
 }
 
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
