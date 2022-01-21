@@ -65,6 +65,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
     m_backLeft.m_drive.Set(0);
     m_backLeft.m_turn.Set(0);
+    return;
   }
 
   auto moduleStates = m_pSwerveDriveKinematics->ToSwerveModuleStates(speeds);
