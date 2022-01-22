@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['operator_28_29_525',['operator()',['../classargos__lib_1_1_interpolation_map.html#acc2eb12aabd5ed579bfbaf477c2b9068',1,'argos_lib::InterpolationMap']]],
-  ['operator_3c_526',['operator&lt;',['../structargos__lib_1_1_interp_map_point.html#a2d761db78ade0c771300ef681a03a555',1,'argos_lib::InterpMapPoint::operator&lt;()'],['../namespaceargos__lib.html#a8ed2d3f18efcdd9aa1e5b19535e380aa',1,'argos_lib::operator&lt;(const InterpMapPoint&lt; T &gt; &amp;a, const T &amp;b)'],['../namespaceargos__lib.html#a6ce4f96310a8fed0c43bba8c5cdb31f1',1,'argos_lib::operator&lt;(const T &amp;a, const InterpMapPoint&lt; T &gt; &amp;b)']]],
-  ['operator_3d_3d_527',['operator==',['../structargos__lib_1_1_interp_map_point.html#aae6d6d0df96790c21e676755d99c49c3',1,'argos_lib::InterpMapPoint']]],
-  ['operatorcontroller_528',['OperatorController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#a6a137c6ef1768f6f621799055c66582b',1,'argos_lib::SwappableControllersSubsystem']]],
-  ['optimize_529',['Optimize',['../namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454',1,'argos_lib::swerve']]]
+  ['main_560',['main',['../_robot_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;Robot.cpp'],['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp']]],
+  ['manualaim_561',['ManualAim',['../classshooter__subsystem.html#a4899c8d83454e71395dd24c2c5561570',1,'shooter_subsystem']]],
+  ['map_562',['Map',['../classargos__lib_1_1_interpolation_map.html#a2a6738de142ccdcc99bc6fa6faa47a33',1,'argos_lib::InterpolationMap']]]
 ];

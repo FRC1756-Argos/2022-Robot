@@ -109,6 +109,11 @@ var annotated_dup =
       [ "SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", "classargos__lib_1_1_swappable_controllers_subsystem" ]
     ] ],
     [ "motorConfig", "namespacemotor_config.html", [
+      [ "climber", "namespacemotor_config_1_1climber.html", [
+        [ "liftRight", "structmotor_config_1_1climber_1_1lift_right.html", "structmotor_config_1_1climber_1_1lift_right" ],
+        [ "liftLeft", "structmotor_config_1_1climber_1_1lift_left.html", "structmotor_config_1_1climber_1_1lift_left" ],
+        [ "moveHook", "structmotor_config_1_1climber_1_1move_hook.html", "structmotor_config_1_1climber_1_1move_hook" ]
+      ] ],
       [ "drive", "namespacemotor_config_1_1drive.html", [
         [ "genericDrive", "structmotor_config_1_1drive_1_1generic_drive.html", "structmotor_config_1_1drive_1_1generic_drive" ],
         [ "frontLeftTurn", "structmotor_config_1_1drive_1_1front_left_turn.html", "structmotor_config_1_1drive_1_1front_left_turn" ],
@@ -128,6 +133,8 @@ var annotated_dup =
         [ "rotationControl", "structmotor_config_1_1shooter_1_1rotation_control.html", "structmotor_config_1_1shooter_1_1rotation_control" ]
       ] ]
     ] ],
+    [ "climber_subsystem", "classclimber__subsystem.html", "classclimber__subsystem" ],
+    [ "intake_subsystem", "classintake__subsystem.html", "classintake__subsystem" ],
     [ "Robot", "class_robot.html", "class_robot" ],
     [ "RobotContainer", "class_robot_container.html", "class_robot_container" ],
     [ "shooter_subsystem", "classshooter__subsystem.html", "classshooter__subsystem" ],

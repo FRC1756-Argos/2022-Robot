@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['vibrationstatus_435',['VibrationStatus',['../structargos__lib_1_1_vibration_status.html',1,'argos_lib']]]
+  ['robot_447',['Robot',['../class_robot.html',1,'']]],
+  ['robotcontainer_448',['RobotContainer',['../class_robot_container.html',1,'']]],
+  ['rotationcontrol_449',['rotationControl',['../structmotor_config_1_1shooter_1_1rotation_control.html',1,'motorConfig::shooter']]]
 ];

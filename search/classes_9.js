@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['robot_422',['Robot',['../class_robot.html',1,'']]],
-  ['robotcontainer_423',['RobotContainer',['../class_robot_container.html',1,'']]],
-  ['rotationcontrol_424',['rotationControl',['../structmotor_config_1_1shooter_1_1rotation_control.html',1,'motorConfig::shooter']]]
+  ['liftleft_443',['liftLeft',['../structmotor_config_1_1climber_1_1lift_left.html',1,'motorConfig::climber']]],
+  ['liftright_444',['liftRight',['../structmotor_config_1_1climber_1_1lift_right.html',1,'motorConfig::climber']]]
 ];

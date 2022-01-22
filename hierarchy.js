@@ -68,6 +68,9 @@ var hierarchy =
     [ "argos_lib::InterpolationMap< decltype(controllerMap::driveLatSpeed.front().inVal), controllerMap::driveLongSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::driveLongSpeed.front().inVal), controllerMap::driveLongSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "motorConfig::climber::liftLeft", "structmotor_config_1_1climber_1_1lift_left.html", null ],
+    [ "motorConfig::climber::liftRight", "structmotor_config_1_1climber_1_1lift_right.html", null ],
+    [ "motorConfig::climber::moveHook", "structmotor_config_1_1climber_1_1move_hook.html", null ],
     [ "RobotContainer", "class_robot_container.html", null ],
     [ "motorConfig::shooter::rotationControl", "structmotor_config_1_1shooter_1_1rotation_control.html", null ],
     [ "motorConfig::shooter::shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", null ],
@@ -75,6 +78,8 @@ var hierarchy =
     [ "frc2::SubsystemBase", null, [
       [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html", null ],
       [ "argos_lib::SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", null ],
+      [ "climber_subsystem", "classclimber__subsystem.html", null ],
+      [ "intake_subsystem", "classintake__subsystem.html", null ],
       [ "shooter_subsystem", "classshooter__subsystem.html", null ]
     ] ],
     [ "argos_lib::swerve::SwerveHomeStorageInterface", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html", [

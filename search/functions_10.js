@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['vibrateall_552',['VibrateAll',['../classargos__lib_1_1_swappable_controllers_subsystem.html#ac6723631d6da5d864ed219ec2b75513d',1,'argos_lib::SwappableControllersSubsystem']]],
-  ['vibrationalternatepulse_553',['VibrationAlternatePulse',['../namespaceargos__lib.html#ad60f0b7c80267a6a8e576ef289de00e8',1,'argos_lib']]],
-  ['vibrationalternatewave_554',['VibrationAlternateWave',['../namespaceargos__lib.html#a489dff46429e8ae8064c6b37a744e2f5',1,'argos_lib']]],
-  ['vibrationconstant_555',['VibrationConstant',['../namespaceargos__lib.html#aadda81a361b1738ff80d513f9a74c32e',1,'argos_lib::VibrationConstant(double intensity)'],['../namespaceargos__lib.html#af48079b006bba7c41aae85cce88ff3e1',1,'argos_lib::VibrationConstant(double intensityLeft, double intensityRight)']]],
-  ['vibrationoff_556',['VibrationOff',['../namespaceargos__lib.html#a9bdc8d0bc40d923285b6350108692133',1,'argos_lib']]],
-  ['vibrationsyncpulse_557',['VibrationSyncPulse',['../namespaceargos__lib.html#af417e6c76c86d4cebf77851dca11c23d',1,'argos_lib']]],
-  ['vibrationsyncwave_558',['VibrationSyncWave',['../namespaceargos__lib.html#ae562daa4c83e3bdb85b2a17aadd00855',1,'argos_lib']]]
+  ['talonsrxconfig_587',['TalonSRXConfig',['../namespaceargos__lib_1_1talonsrx__config.html#a74630ad5eec9e25a58e71810fc317b4d',1,'argos_lib::talonsrx_config']]],
+  ['teleopinit_588',['TeleopInit',['../class_robot.html#aa3e246794bfbbb4406fc87f351762038',1,'Robot']]],
+  ['teleopperiodic_589',['TeleopPeriodic',['../class_robot.html#a324322627c63b3870daf7c7ddc5bea63',1,'Robot']]],
+  ['testperiodic_590',['TestPeriodic',['../class_robot.html#af0ac44a962e609e9b042285e699d1db8',1,'Robot']]]
 ];

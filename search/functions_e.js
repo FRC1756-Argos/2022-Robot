@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['talonsrxconfig_546',['TalonSRXConfig',['../namespaceargos__lib_1_1talonsrx__config.html#a74630ad5eec9e25a58e71810fc317b4d',1,'argos_lib::talonsrx_config']]],
-  ['teleopinit_547',['TeleopInit',['../class_robot.html#aa3e246794bfbbb4406fc87f351762038',1,'Robot']]],
-  ['teleopperiodic_548',['TeleopPeriodic',['../class_robot.html#a324322627c63b3870daf7c7ddc5bea63',1,'Robot']]],
-  ['testperiodic_549',['TestPeriodic',['../class_robot.html#af0ac44a962e609e9b042285e699d1db8',1,'Robot']]]
+  ['robotcontainer_571',['RobotContainer',['../class_robot_container.html#ac508e6c51edfa97eb18e3412fe83ad8f',1,'RobotContainer']]],
+  ['robotinit_572',['RobotInit',['../class_robot.html#a66f23dae271748d525cf3ab046375f79',1,'Robot']]],
+  ['robotperiodic_573',['RobotPeriodic',['../class_robot.html#a8fad82c2250bcfb83b743b5c0dd6ed27',1,'Robot']]]
 ];

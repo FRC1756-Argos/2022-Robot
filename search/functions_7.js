@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['load_519',['Load',['../classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a28e16e477e81da4a0205078ff6dd1a54',1,'argos_lib::swerve::NetworkTablesHomingStorage::Load()'],['../classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#ab07c5957ddf0719698788c1e45b1b9bb',1,'argos_lib::swerve::SwerveHomeStorageInterface::Load()']]]
+  ['hookextend_550',['hookExtend',['../classclimber__subsystem.html#a21399de2dfd18a89e96b5c5bdd21f1c4',1,'climber_subsystem']]],
+  ['hookretract_551',['hookRetract',['../classclimber__subsystem.html#a36d5370bcf0d3d118dc0ce28faab415e',1,'climber_subsystem']]]
 ];
