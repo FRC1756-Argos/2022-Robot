@@ -10,6 +10,8 @@
 #include <memory>
 
 #include "Constants.h"
+#include "argos_lib/config/cancoder_config.h"
+#include "argos_lib/config/falcon_config.h"
 
 // test commit
 
@@ -20,6 +22,24 @@ SwerveDriveSubsystem::SwerveDriveSubsystem()
     , m_backRight(address::motor::backRightDrive, address::motor::backRightTurn, address::encoders::backRightEncoder)
     , m_backLeft(address::motor::backLeftDrive, address::motor::backLeftTurn, address::encoders::backLeftEncoder) {
   // create our translation objects
+
+  // TURN MOTORS CONFIG
+  argos_lib::falcon_config::FalconConfig<motorConfig::drive::frontLeftTurn>(m_frontLeft.m_turn, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::drive::frontRightTurn>(m_frontRight.m_turn, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::drive::backRightTurn>(m_backRight.m_turn, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_turn, 100_ms);
+
+  // DRIVE MOTOR CONFIGS
+  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_frontLeft.m_drive, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_frontRight.m_drive, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_backLeft.m_drive, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_backRight.m_drive, 100_ms);
+
+  // CAN ENCODER CONFIG
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::frontLeftTurn>(m_frontLeft.m_encoder, 100_ms);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::frontRightTurn>(m_frontRight.m_encoder, 100_ms);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backRightTurn>(m_backRight.m_encoder, 100_ms);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_encoder, 100_ms);
 
   /// @todo add these to the swerve module class?
 
@@ -119,6 +139,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 }
 
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
+
 SwerveModule::SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr)
 
     /// @todo add addresses to "constants.h"

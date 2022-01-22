@@ -75,3 +75,96 @@ namespace controllerMap {
   [[maybe_unused]] constexpr std::array driveRotSpeed{
       InterpMapPoint{-1.0, -1.0}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 1.0}};
 }  // namespace controllerMap
+
+namespace controlLoop {
+  namespace drive {
+    namespace rotate {
+      constexpr double kP = 1.4;
+      constexpr double kI = 0.01;
+      constexpr double kD = 0.0;
+      constexpr double kF = 0.0;
+      constexpr double iZone = 100.0;
+      constexpr double allowableError = 0.0;
+    }  // namespace rotate
+  }    // namespace drive
+}  // namespace controlLoop
+
+namespace motorConfig {
+  namespace drive {
+    struct genericDrive {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+    struct frontLeftTurn {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto remoteFilter0_addr = address::encoders::frontLeftEncoder;
+      constexpr static auto remoteFilter0_type =
+          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
+      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
+      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
+      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
+      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
+      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+    };
+    struct frontRightTurn {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto remoteFilter0_addr = address::encoders::frontRightEncoder;
+      constexpr static auto remoteFilter0_type =
+          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
+      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
+      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
+      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
+      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
+      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+    };
+    struct backRightTurn {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto remoteFilter0_addr = address::encoders::backRightEncoder;
+      constexpr static auto remoteFilter0_type =
+          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
+      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
+      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
+      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
+      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
+      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+    };
+    struct backLeftTurn {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto remoteFilter0_addr = address::encoders::backLeftEncoder;
+      constexpr static auto remoteFilter0_type =
+          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
+      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
+      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
+      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
+      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
+      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+    };
+  }  // namespace drive
+}  // namespace motorConfig
