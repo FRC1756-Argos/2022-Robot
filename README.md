@@ -36,3 +36,53 @@ pre-commit run
 The first run may take a moment, but subsequent automatic runs are very fast.
 
 You'll now have the linter run before each commit!  For compatibility with Windows, we recommend the pip version of clang-format, but wpi-format will find any installed `clang-format` binary in the system path.
+
+## controls
+
+**Driver:**
+| Button          | Function |
+| --------------- | -------- |
+| Left JS X       | drive |
+| Left JS Y       | drive |
+| Right JS X      | turn |
+| Right JS Y      | unused |
+| DPad Up         | initates climb|
+| DPad Right      | unused |
+| DPad Down       | redo climb |
+| DPad Left       | retract hook |
+| A               | Unused |
+| B               | Unused |
+| X               | Unused |
+| Y               | Unused |
+| LB              | Unused |
+| RB              | reverse intake |
+| LT              | shooting |
+| RT              | intake |
+| Back            | Unused |
+| Start           | Unused |
+| Left JS Button  | Unused |
+| Right JS Button | Unused |
+
+**operator:**
+| Button          | Function |
+| --------------- | -------- |
+| Left JS X       | manual aiming |
+| Left JS Y       | manual hood |
+| Right JS X      | climbing hooks |
+| Right JS Y      | climbing arm |
+| DPad Up         | raises arms |
+| DPad Right      | extend hook |
+| DPad Down       | lowers arms |
+| DPad Left       | retract hook |
+| A               | Unused |
+| B               | Unused |
+| X               | Unused |
+| Y               | raises frame |
+| LB              | unused |
+| RB              | Unused |
+| LT              | Unused |
+| RT              | vision |
+| Back            | Unused |
+| Start           | Unused |
+| Left JS Button  | Unused |
+| Right JS Button | Unused |
