@@ -4,10 +4,26 @@
 
 #include "RobotContainer.h"
 
-RobotContainer::RobotContainer() {
-  // Initialize all of your commands and subsystems here
+#include <frc2/command/RunCommand.h>
 
-  // Configure the button bindings
+RobotContainer::RobotContainer()
+    : m_driveLonSpeedMap(controllerMap::driveLongSpeed)
+    , m_driveLatSpeedMap(controllerMap::driveLatSpeed)
+    , m_driveRotSpeed(controllerMap::driveRotSpeed)
+    , m_controllers(address::controllers::driver, address::controllers::secondary)
+    , m_swerveDrive() {
+  m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
+      [this] {
+        m_swerveDrive.SwerveDrive(
+            m_driveLonSpeedMap(
+                m_controllers.DriverController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand)),
+            m_driveLatSpeedMap(
+                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
+            m_driveRotSpeed(
+                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
+      },
+      {&m_swerveDrive}));
+
   ConfigureButtonBindings();
 }
 

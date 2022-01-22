@@ -5,6 +5,7 @@
     "cschlosser.doxdocgen",
     "wpilibsuite.vscode-wpilib",
     "tyriar.sort-lines",
-    "xaver.clang-format"
+    "xaver.clang-format",
+    "gruntfuggly.todo-tree"
   ]
 }

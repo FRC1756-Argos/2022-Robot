@@ -3,13 +3,169 @@
 ///            the license file in the root directory of this project.
 
 #pragma once
+#include <units/length.h>
 
-/**
- * The Constants header provides a convenient place for teams to hold robot-wide
- * numerical or boolean constants.  This should not be used for any other
- * purpose.
- *
- * It is generally a good idea to place constants into subsystem- or
- * command-specific namespaces within this header, which can then be used where
- * they are needed.
- */
+#include "argos_lib/general/interpolation.h"
+#include "ctre/Phoenix.h"
+
+namespace address {
+  namespace motor {
+    constexpr const char frontLeftDrive = 1;
+    constexpr const char frontLeftTurn = 2;
+    constexpr const char frontRightDrive = 3;
+    constexpr const char frontRightTurn = 4;
+    constexpr const char backRightDrive = 5;
+    constexpr const char backRightTurn = 6;
+    constexpr const char backLeftDrive = 7;
+    constexpr const char backLeftTurn = 8;
+  }  // namespace motor
+  namespace encoders {
+    constexpr const char frontLeftEncoder = 1;
+    constexpr const char frontRightEncoder = 2;
+    constexpr const char backRightEncoder = 3;
+    constexpr const char backLeftEncoder = 4;
+  }  // namespace encoders
+  namespace controllers {
+    constexpr const char driver = 0;
+    constexpr const char secondary = 1;
+  }  // namespace controllers
+
+}  // namespace address
+
+namespace measure_up {
+  namespace chassis {
+    constexpr units::inch_t width{28.0};
+    constexpr units::inch_t length{31.0};
+  }  // namespace chassis
+  namespace swerve_offsets {
+    constexpr auto frontLeftLOffset = 4.0_in;
+    constexpr auto frontLeftWOffset = 4.0_in;
+    constexpr auto frontRightLOffset = 4.0_in;
+    constexpr auto frontRightWOffset = 4.0_in;
+    constexpr auto backRightWOffset = 4.0_in;
+    constexpr auto backRightLOffset = 4.0_in;
+    constexpr auto backLeftWOffset = 4.0_in;
+    constexpr auto backLeftLOffset = 4.0_in;
+  }  // namespace swerve_offsets
+}  // namespace measure_up
+
+namespace indexes {
+  namespace swerveModules {
+    constexpr char frontLeftIndex = 0;
+    constexpr char frontRightIndex = 1;
+    constexpr char backRightIndex = 2;
+    constexpr char backLeftIndex = 3;
+  }  // namespace swerveModules
+}  // namespace indexes
+
+namespace controllerMap {
+  using argos_lib::InterpMapPoint;
+
+  [[maybe_unused]] constexpr std::array driveLongSpeed{InterpMapPoint{-1.0, 0.6},
+                                                       InterpMapPoint{-0.75, 0.4},
+                                                       InterpMapPoint{-0.15, 0.0},
+                                                       InterpMapPoint{0.15, 0.0},
+                                                       InterpMapPoint{0.75, -0.4},
+                                                       InterpMapPoint{1.0, -0.6}};
+  [[maybe_unused]] constexpr std::array driveLatSpeed{InterpMapPoint{-1.0, -0.6},
+                                                      InterpMapPoint{-0.75, -0.4},
+                                                      InterpMapPoint{-0.15, 0.0},
+                                                      InterpMapPoint{0.15, 0.0},
+                                                      InterpMapPoint{0.75, 0.4},
+                                                      InterpMapPoint{1.0, 0.6}};
+  [[maybe_unused]] constexpr std::array driveRotSpeed{
+      InterpMapPoint{-1.0, -1.0}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 1.0}};
+}  // namespace controllerMap
+
+namespace controlLoop {
+  namespace drive {
+    namespace rotate {
+      constexpr double kP = 1.4;
+      constexpr double kI = 0.01;
+      constexpr double kD = 0.0;
+      constexpr double kF = 0.0;
+      constexpr double iZone = 100.0;
+      constexpr double allowableError = 0.0;
+    }  // namespace rotate
+  }    // namespace drive
+}  // namespace controlLoop
+
+namespace motorConfig {
+  namespace drive {
+    struct genericDrive {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+    struct frontLeftTurn {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto remoteFilter0_addr = address::encoders::frontLeftEncoder;
+      constexpr static auto remoteFilter0_type =
+          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
+      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
+      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
+      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
+      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
+      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+    };
+    struct frontRightTurn {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto remoteFilter0_addr = address::encoders::frontRightEncoder;
+      constexpr static auto remoteFilter0_type =
+          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
+      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
+      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
+      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
+      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
+      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+    };
+    struct backRightTurn {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto remoteFilter0_addr = address::encoders::backRightEncoder;
+      constexpr static auto remoteFilter0_type =
+          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
+      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
+      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
+      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
+      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
+      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+    };
+    struct backLeftTurn {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto remoteFilter0_addr = address::encoders::backLeftEncoder;
+      constexpr static auto remoteFilter0_type =
+          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
+      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
+      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
+      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
+      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
+      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+    };
+  }  // namespace drive
+}  // namespace motorConfig
