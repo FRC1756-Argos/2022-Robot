@@ -245,5 +245,29 @@ namespace motorConfig {
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
     };
+
   }  // namespace intake
+  namespace climber {
+    struct liftRight {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+    struct liftLeft {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+    struct moveHook {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+  }  // namespace climber
 }  // namespace motorConfig
