@@ -1,8 +1,23 @@
 var namespaceaddress =
 [
+    [ "climber", "namespaceaddress_1_1climber.html", [
+      [ "liftLeft", "namespaceaddress_1_1climber.html#ad534766a7739ddd29c2cc1ac19949103", null ],
+      [ "liftRight", "namespaceaddress_1_1climber.html#a3c990371737e89302d30125fdd56c1ce", null ],
+      [ "motorMoveHook", "namespaceaddress_1_1climber.html#a0ec1a5c8daba591b848c3be5350fc320", null ]
+    ] ],
     [ "controllers", "namespaceaddress_1_1controllers.html", [
       [ "driver", "namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea", null ],
       [ "secondary", "namespaceaddress_1_1controllers.html#a0488a7ab97c7d7d3edc83663cb5615bf", null ]
+    ] ],
+    [ "drive", "namespaceaddress_1_1drive.html", [
+      [ "backLeftDrive", "namespaceaddress_1_1drive.html#a98a7e02054821ec30e4fd64260815f7e", null ],
+      [ "backLeftTurn", "namespaceaddress_1_1drive.html#a1535782909380d160c010c6353ea0690", null ],
+      [ "backRightDrive", "namespaceaddress_1_1drive.html#a5c83d1926e47524b4c0e7f3c2da0c475", null ],
+      [ "backRightTurn", "namespaceaddress_1_1drive.html#aa479489eb896adaf260b2cf03b030ece", null ],
+      [ "frontLeftDrive", "namespaceaddress_1_1drive.html#a11e7a047da5a285365f8d7e75b6f9fe7", null ],
+      [ "frontLeftTurn", "namespaceaddress_1_1drive.html#a1f146fab4e2875d5f15f224658b0dfa9", null ],
+      [ "frontRightDrive", "namespaceaddress_1_1drive.html#a021878cee66ba4104c9918bd708b9a44", null ],
+      [ "frontRightTurn", "namespaceaddress_1_1drive.html#a300b75ab9e5e06749ae327af9285b476", null ]
     ] ],
     [ "encoders", "namespaceaddress_1_1encoders.html", [
       [ "backLeftEncoder", "namespaceaddress_1_1encoders.html#a03266ba3f13ff6f4dcec6b6bb1fe60a7", null ],
@@ -10,14 +25,18 @@ var namespaceaddress =
       [ "frontLeftEncoder", "namespaceaddress_1_1encoders.html#a12603dae336435a9cccdb37008b0dc87", null ],
       [ "frontRightEncoder", "namespaceaddress_1_1encoders.html#ae6890c0de99d504f07d47db443bd1779", null ]
     ] ],
-    [ "motor", "namespaceaddress_1_1motor.html", [
-      [ "backLeftDrive", "namespaceaddress_1_1motor.html#adaed97389cc12c5e1714e2b1918fe3e9", null ],
-      [ "backLeftTurn", "namespaceaddress_1_1motor.html#af3f27d88beba4c926272bbeac56efde3", null ],
-      [ "backRightDrive", "namespaceaddress_1_1motor.html#a1548046b64fcde808b02ace91e35ce0c", null ],
-      [ "backRightTurn", "namespaceaddress_1_1motor.html#a938c52e0ccccbf7388bc8a1fff3bf725", null ],
-      [ "frontLeftDrive", "namespaceaddress_1_1motor.html#a0b5e2a8d3dfabfe99da1e557d9d42ecd", null ],
-      [ "frontLeftTurn", "namespaceaddress_1_1motor.html#a1901ce4d8f0a8839fb062702bcdec1d9", null ],
-      [ "frontRightDrive", "namespaceaddress_1_1motor.html#ab890abeba9faa0f961679c6f80132fd1", null ],
-      [ "frontRightTurn", "namespaceaddress_1_1motor.html#af0dcf786d49d02c066225547da9489c1", null ]
+    [ "intake", "namespaceaddress_1_1intake.html", [
+      [ "beltDrive", "namespaceaddress_1_1intake.html#a37e5b3b6891613c3d9e6e473d3ee8d95", null ],
+      [ "elevatorIntakeDrive", "namespaceaddress_1_1intake.html#a49442bf1c94fc2facf994f5dc7261cf9", null ],
+      [ "intakeDrive", "namespaceaddress_1_1intake.html#a09905ba0db96d230f0dee9a8342af050", null ]
+    ] ],
+    [ "shooter", "namespaceaddress_1_1shooter.html", [
+      [ "angleControl", "namespaceaddress_1_1shooter.html#a8ccf49a3a139153b0ca33a501343ddec", null ],
+      [ "rotationControl", "namespaceaddress_1_1shooter.html#a39ec5c668dd89f28290dc5520efea371", null ],
+      [ "shooterWheelLeft", "namespaceaddress_1_1shooter.html#a3b796d887b91768a68a3994df6faf72f", null ],
+      [ "shooterWheelRight", "namespaceaddress_1_1shooter.html#a8df1fe036b101508f70754a9960de8d2", null ]
+    ] ],
+    [ "solenoids", "namespaceaddress_1_1solenoids.html", [
+      [ "intake", "namespaceaddress_1_1solenoids.html#a8747c76adbdb4ff6e6582a91a3bf1bac", null ]
     ] ]
 ];

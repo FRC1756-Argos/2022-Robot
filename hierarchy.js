@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "motorConfig::shooter::angleControl", "structmotor_config_1_1shooter_1_1angle_control.html", null ],
     [ "motorConfig::drive::backLeftTurn", "structmotor_config_1_1drive_1_1back_left_turn.html", null ],
     [ "motorConfig::drive::backRightTurn", "structmotor_config_1_1drive_1_1back_right_turn.html", null ],
     [ "frc2::CommandHelper", null, [
@@ -65,9 +66,13 @@ var hierarchy =
     [ "argos_lib::InterpolationMap< decltype(controllerMap::driveLongSpeed.front().inVal), controllerMap::driveLongSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "RobotContainer", "class_robot_container.html", null ],
+    [ "motorConfig::shooter::rotationControl", "structmotor_config_1_1shooter_1_1rotation_control.html", null ],
+    [ "motorConfig::shooter::shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", null ],
+    [ "motorConfig::shooter::shooterWheelRight", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html", null ],
     [ "frc2::SubsystemBase", null, [
       [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html", null ],
-      [ "argos_lib::SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", null ]
+      [ "argos_lib::SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", null ],
+      [ "shooter_subsystem", "classshooter__subsystem.html", null ]
     ] ],
     [ "argos_lib::swerve::SwerveHomeStorageInterface", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html", [
       [ "argos_lib::swerve::NetworkTablesHomingStorage", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html", null ]

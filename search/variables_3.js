@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['debounceactive_527',['debounceActive',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#a6309274d7ea7260c5525dfc00ef3c4ec',1,'argos_lib::XboxController::UpdateStatus']]],
-  ['debouncepress_528',['debouncePress',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ab2ccf7dddb335a48096822e9425e8d44',1,'argos_lib::XboxController::UpdateStatus']]],
-  ['debouncerelease_529',['debounceRelease',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac501c6389960221bfa08cf7615155eb3',1,'argos_lib::XboxController::UpdateStatus']]],
-  ['down_530',['down',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a43a245198029386d12c9cb8ed29ec218',1,'argos_lib::XboxController::DPadButtons']]],
-  ['drivelatspeed_531',['driveLatSpeed',['../namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162',1,'controllerMap']]],
-  ['drivelongspeed_532',['driveLongSpeed',['../namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf',1,'controllerMap']]],
-  ['driver_533',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
-  ['driverotspeed_534',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]]
+  ['debounceactive_571',['debounceActive',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#a6309274d7ea7260c5525dfc00ef3c4ec',1,'argos_lib::XboxController::UpdateStatus']]],
+  ['debouncepress_572',['debouncePress',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ab2ccf7dddb335a48096822e9425e8d44',1,'argos_lib::XboxController::UpdateStatus']]],
+  ['debouncerelease_573',['debounceRelease',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac501c6389960221bfa08cf7615155eb3',1,'argos_lib::XboxController::UpdateStatus']]],
+  ['down_574',['down',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a43a245198029386d12c9cb8ed29ec218',1,'argos_lib::XboxController::DPadButtons']]],
+  ['drivelatspeed_575',['driveLatSpeed',['../namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162',1,'controllerMap']]],
+  ['drivelongspeed_576',['driveLongSpeed',['../namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf',1,'controllerMap']]],
+  ['driver_577',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
+  ['driverotspeed_578',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]]
 ];

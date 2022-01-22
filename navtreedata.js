@@ -41,7 +41,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ]
@@ -61,8 +61,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"namespaceargos__lib.html#ad60f0b7c80267a6a8e576ef289de00e8",
-"swerve__drive__subsystem_8h.html"
+"functions_t.html",
+"structmotor_config_1_1drive_1_1back_left_turn.html#ad662b59ddef283290d6d20057c5bc9ed"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

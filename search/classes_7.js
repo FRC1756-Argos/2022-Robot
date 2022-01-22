@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['robot_390',['Robot',['../class_robot.html',1,'']]],
-  ['robotcontainer_391',['RobotContainer',['../class_robot_container.html',1,'']]]
+  ['networktableshomingstorage_416',['NetworkTablesHomingStorage',['../classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html',1,'argos_lib::swerve']]]
 ];

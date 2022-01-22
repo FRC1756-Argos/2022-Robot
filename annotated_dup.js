@@ -115,10 +115,17 @@ var annotated_dup =
         [ "frontRightTurn", "structmotor_config_1_1drive_1_1front_right_turn.html", "structmotor_config_1_1drive_1_1front_right_turn" ],
         [ "backRightTurn", "structmotor_config_1_1drive_1_1back_right_turn.html", "structmotor_config_1_1drive_1_1back_right_turn" ],
         [ "backLeftTurn", "structmotor_config_1_1drive_1_1back_left_turn.html", "structmotor_config_1_1drive_1_1back_left_turn" ]
+      ] ],
+      [ "shooter", "namespacemotor_config_1_1shooter.html", [
+        [ "shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", "structmotor_config_1_1shooter_1_1shooter_wheel_left" ],
+        [ "shooterWheelRight", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html", "structmotor_config_1_1shooter_1_1shooter_wheel_right" ],
+        [ "angleControl", "structmotor_config_1_1shooter_1_1angle_control.html", "structmotor_config_1_1shooter_1_1angle_control" ],
+        [ "rotationControl", "structmotor_config_1_1shooter_1_1rotation_control.html", "structmotor_config_1_1shooter_1_1rotation_control" ]
       ] ]
     ] ],
     [ "Robot", "class_robot.html", "class_robot" ],
     [ "RobotContainer", "class_robot_container.html", "class_robot_container" ],
+    [ "shooter_subsystem", "classshooter__subsystem.html", "classshooter__subsystem" ],
     [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html", "class_swerve_drive_subsystem" ],
     [ "SwerveModule", "class_swerve_module.html", "class_swerve_module" ]
 ];

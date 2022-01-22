@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['frontleftturn_319',['frontLeftTurn',['../structmotor_config_1_1drive_1_1front_left_turn.html',1,'motorConfig::drive']]],
-  ['frontrightturn_320',['frontRightTurn',['../structmotor_config_1_1drive_1_1front_right_turn.html',1,'motorConfig::drive']]]
+  ['debouncesettings_344',['DebounceSettings',['../structargos__lib_1_1_debounce_settings.html',1,'argos_lib']]],
+  ['dpadbuttons_345',['DPadButtons',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html',1,'argos_lib::XboxController']]]
 ];
