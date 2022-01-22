@@ -219,5 +219,5 @@ namespace motorConfig {
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
       constexpr static auto voltCompSat = 11.0_V;
     };
-  }
+  }  // namespace shooter
 }  // namespace motorConfig
