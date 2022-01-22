@@ -1,5 +1,7 @@
 var hierarchy =
 [
+    [ "motorConfig::drive::backLeftTurn", "structmotor_config_1_1drive_1_1back_left_turn.html", null ],
+    [ "motorConfig::drive::backRightTurn", "structmotor_config_1_1drive_1_1back_right_turn.html", null ],
     [ "frc2::CommandHelper", null, [
       [ "argos_lib::SwapControllersCommand", "classargos__lib_1_1_swap_controllers_command.html", null ]
     ] ],
@@ -51,18 +53,26 @@ var hierarchy =
       [ "argos_lib::talonsrx_config::has_sensorPhase< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__sensor_phase.html", null ],
       [ "argos_lib::talonsrx_config::has_voltCompSat< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html", null ]
     ] ],
+    [ "motorConfig::drive::frontLeftTurn", "structmotor_config_1_1drive_1_1front_left_turn.html", null ],
+    [ "motorConfig::drive::frontRightTurn", "structmotor_config_1_1drive_1_1front_right_turn.html", null ],
+    [ "motorConfig::drive::genericDrive", "structmotor_config_1_1drive_1_1generic_drive.html", null ],
     [ "frc::GenericHID", null, [
       [ "argos_lib::XboxController", "classargos__lib_1_1_xbox_controller.html", null ]
     ] ],
     [ "argos_lib::InterpMapPoint< T >", "structargos__lib_1_1_interp_map_point.html", null ],
     [ "argos_lib::InterpolationMap< T, size >", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::driveLatSpeed.front().inVal), controllerMap::driveLongSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::driveLongSpeed.front().inVal), controllerMap::driveLongSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "RobotContainer", "class_robot_container.html", null ],
     [ "frc2::SubsystemBase", null, [
+      [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html", null ],
       [ "argos_lib::SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", null ]
     ] ],
     [ "argos_lib::swerve::SwerveHomeStorageInterface", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html", [
       [ "argos_lib::swerve::NetworkTablesHomingStorage", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html", null ]
     ] ],
+    [ "SwerveModule", "class_swerve_module.html", null ],
     [ "argos_lib::swerve::SwerveModulePositions", "structargos__lib_1_1swerve_1_1_swerve_module_positions.html", null ],
     [ "frc::TimedRobot", null, [
       [ "Robot", "class_robot.html", null ]

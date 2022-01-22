@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('class_robot_container.html',''); initR
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_robot_container-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">RobotContainer Class Reference</div>  </div>
@@ -104,6 +105,19 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:aa1b33cbe7d850dfd456ad0b352b82ba5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#aa1b33cbe7d850dfd456ad0b352b82ba5">ConfigureButtonBindings</a> ()</td></tr>
 <tr class="separator:aa1b33cbe7d850dfd456ad0b352b82ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae784d802621537d8aea50fd7ce9bf7d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt; decltype(controllerMap::driveLongSpeed.front().inVal), controllerMap::driveLongSpeed.size()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#ae784d802621537d8aea50fd7ce9bf7d7">m_driveLonSpeedMap</a></td></tr>
+<tr class="separator:ae784d802621537d8aea50fd7ce9bf7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed3707f34d64d5966bf2e7ca95ab60d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt; decltype(controllerMap::driveLatSpeed.front().inVal), controllerMap::driveLongSpeed.size()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#aed3707f34d64d5966bf2e7ca95ab60d8">m_driveLatSpeedMap</a></td></tr>
+<tr class="separator:aed3707f34d64d5966bf2e7ca95ab60d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae8be08073f8706872ffc7e7ac873af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt; decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#a8ae8be08073f8706872ffc7e7ac873af">m_driveRotSpeed</a></td></tr>
+<tr class="separator:a8ae8be08073f8706872ffc7e7ac873af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ef9d6a42ca8cf49d8b844fd470bba7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#ac4ef9d6a42ca8cf49d8b844fd470bba7">m_controllers</a></td></tr>
+<tr class="separator:ac4ef9d6a42ca8cf49d8b844fd470bba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab3558d41d41be5d63c928968d98f5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_swerve_drive_subsystem.html">SwerveDriveSubsystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#a5ab3558d41d41be5d63c928968d98f5b">m_swerveDrive</a></td></tr>
+<tr class="separator:a5ab3558d41d41be5d63c928968d98f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. This class is where the bulk of the robot should be declared. Since Command-based is a "declarative" paradigm, very little robot logic should actually be handled in the <a class="el" href="class_robot.html">Robot</a> periodic methods (other than the scheduler calls). Instead, the structure of the robot (including subsystems, commands, and button mappings) should be declared here. </dd></dl>
@@ -165,6 +179,117 @@ Private Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac4ef9d6a42ca8cf49d8b844fd470bba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4ef9d6a42ca8cf49d8b844fd470bba7">&#9670;&nbsp;</a></span>m_controllers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a> RobotContainer::m_controllers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed3707f34d64d5966bf2e7ca95ab60d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed3707f34d64d5966bf2e7ca95ab60d8">&#9670;&nbsp;</a></span>m_driveLatSpeedMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt;decltype(controllerMap::driveLatSpeed.front().inVal), controllerMap::driveLongSpeed.size()&gt; RobotContainer::m_driveLatSpeedMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae784d802621537d8aea50fd7ce9bf7d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae784d802621537d8aea50fd7ce9bf7d7">&#9670;&nbsp;</a></span>m_driveLonSpeedMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt;decltype(controllerMap::driveLongSpeed.front().inVal), controllerMap::driveLongSpeed.size()&gt; RobotContainer::m_driveLonSpeedMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ae8be08073f8706872ffc7e7ac873af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ae8be08073f8706872ffc7e7ac873af">&#9670;&nbsp;</a></span>m_driveRotSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt;decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()&gt; RobotContainer::m_driveRotSpeed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ab3558d41d41be5d63c928968d98f5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ab3558d41d41be5d63c928968d98f5b">&#9670;&nbsp;</a></span>m_swerveDrive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_swerve_drive_subsystem.html">SwerveDriveSubsystem</a> RobotContainer::m_swerveDrive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

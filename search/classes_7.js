@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vibrationstatus_300',['VibrationStatus',['../structargos__lib_1_1_vibration_status.html',1,'argos_lib']]]
+  ['robot_390',['Robot',['../class_robot.html',1,'']]],
+  ['robotcontainer_391',['RobotContainer',['../class_robot_container.html',1,'']]]
 ];

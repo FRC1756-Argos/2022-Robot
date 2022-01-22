@@ -26,11 +26,13 @@ var NAVTREE =
 [
   [ "2022-Robot", "index.html", [
     [ "Source", "md_src_argos_lib__readme.html", null ],
+    [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ]
       ] ]
     ] ],
@@ -59,7 +61,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"structargos__lib_1_1falcon__config_1_1has__peak_output_reverse_3_01_t_00_01decltype_07_07void_0814bc5bcb4c61a1ac948dffcbdc9dea51.html"
+"namespaceargos__lib.html#ad60f0b7c80267a6a8e576ef289de00e8",
+"swerve__drive__subsystem_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

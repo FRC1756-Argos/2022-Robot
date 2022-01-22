@@ -108,6 +108,17 @@ var annotated_dup =
       [ "InterpolationMap", "classargos__lib_1_1_interpolation_map.html", "classargos__lib_1_1_interpolation_map" ],
       [ "SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", "classargos__lib_1_1_swappable_controllers_subsystem" ]
     ] ],
+    [ "motorConfig", "namespacemotor_config.html", [
+      [ "drive", "namespacemotor_config_1_1drive.html", [
+        [ "genericDrive", "structmotor_config_1_1drive_1_1generic_drive.html", "structmotor_config_1_1drive_1_1generic_drive" ],
+        [ "frontLeftTurn", "structmotor_config_1_1drive_1_1front_left_turn.html", "structmotor_config_1_1drive_1_1front_left_turn" ],
+        [ "frontRightTurn", "structmotor_config_1_1drive_1_1front_right_turn.html", "structmotor_config_1_1drive_1_1front_right_turn" ],
+        [ "backRightTurn", "structmotor_config_1_1drive_1_1back_right_turn.html", "structmotor_config_1_1drive_1_1back_right_turn" ],
+        [ "backLeftTurn", "structmotor_config_1_1drive_1_1back_left_turn.html", "structmotor_config_1_1drive_1_1back_left_turn" ]
+      ] ]
+    ] ],
     [ "Robot", "class_robot.html", "class_robot" ],
-    [ "RobotContainer", "class_robot_container.html", "class_robot_container" ]
+    [ "RobotContainer", "class_robot_container.html", "class_robot_container" ],
+    [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html", "class_swerve_drive_subsystem" ],
+    [ "SwerveModule", "class_swerve_module.html", "class_swerve_module" ]
 ];
