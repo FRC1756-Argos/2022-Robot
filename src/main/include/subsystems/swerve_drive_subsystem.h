@@ -21,12 +21,26 @@ class SwerveModule {
   // ENCODER
   CANCoder m_encoder;
 
+  /**
+   * @brief Construct a new Swerve Module object
+   *
+   * @param driveAddr address of the drive motor on the module
+   * @param turnAddr address of the turn motor on the module
+   * @param encoderAddr address of the encoder on this module
+   */
   SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr);
 };
 
 class SwerveDriveSubsystem : public frc2::SubsystemBase {
  public:
   SwerveDriveSubsystem();
+  /**
+ * @brief Main drive function for the robot
+ *
+ * @param fwVelocity velocity in meters per second forward
+ * @param sideVelocity velocity in meters per second perpendicular to the robots front
+ * @param rotVelocity velocity in radians per second of rotation of the chasis
+ */
   void SwerveDrive(const double& fwVelocity, const double& reVelocity, const double& rotVelocity);
   std::unique_ptr<frc::SwerveDriveKinematics<4>> m_pSwerveDriveKinematics;
 
