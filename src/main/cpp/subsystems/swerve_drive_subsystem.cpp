@@ -41,8 +41,6 @@ SwerveDriveSubsystem::SwerveDriveSubsystem()
   argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backRightTurn>(m_backRight.m_encoder, 100_ms);
   argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_encoder, 100_ms);
 
-  /// @todo add these to the swerve module class?
-
   frc::Translation2d frontLeftCenterOffset(
       -1 * measure_up::chassis::width / 2 + measure_up::swerve_offsets::frontLeftWOffset,
       measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontLeftLOffset);
@@ -109,8 +107,6 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
                           moduleStates.at(indexes::swerveModules::frontLeftIndex).speed.to<double>());
 
-  /// @todo check with david if the degree to double conversion is valid
-
   m_frontLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
                          moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees().to<double>());
 
@@ -141,7 +137,5 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
 
 SwerveModule::SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr)
-
-    /// @todo add addresses to "constants.h"
 
     : m_drive(driveAddr), m_turn(turnAddr), m_encoder(encoderAddr) {}
