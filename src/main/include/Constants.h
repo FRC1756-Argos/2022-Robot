@@ -9,7 +9,7 @@
 #include "ctre/Phoenix.h"
 
 namespace address {
-  namespace motor {
+  namespace drive {
     constexpr const char frontLeftDrive = 1;
     constexpr const char frontLeftTurn = 2;
     constexpr const char frontRightDrive = 3;
@@ -18,7 +18,23 @@ namespace address {
     constexpr const char backRightTurn = 6;
     constexpr const char backLeftDrive = 7;
     constexpr const char backLeftTurn = 8;
-  }  // namespace motor
+  }  // namespace drive
+  namespace climber {
+    constexpr const char liftLeft = 9;
+    constexpr const char liftRight = 10;
+    constexpr const char motorMoveHook = 11;
+  }  // namespace climber
+  namespace shooter {
+    constexpr const char shooterWheelLeft = 12;
+    constexpr const char shooterWheelRight = 13;
+    constexpr const char angleControl = 14;
+    constexpr const char rotationControl = 15;
+  }  // namespace shooter
+  namespace intake {
+    constexpr const char beltDrive = 16;
+    constexpr const char elevatorIntakeDrive = 17;
+    constexpr const char intakeDrive = 18;
+  }  // namespace intake
   namespace encoders {
     constexpr const char frontLeftEncoder = 1;
     constexpr const char frontRightEncoder = 2;
@@ -29,6 +45,9 @@ namespace address {
     constexpr const char driver = 0;
     constexpr const char secondary = 1;
   }  // namespace controllers
+  namespace solenoids {
+    constexpr const char intake = 0;
+  }  // namespace solenoids
 
 }  // namespace address
 
@@ -168,4 +187,37 @@ namespace motorConfig {
       constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
     };
   }  // namespace drive
+  namespace shooter {
+    struct shooterWheelLeft {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+
+    struct shooterWheelRight {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+
+    struct angleControl {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+
+    struct rotationControl {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+  }  // namespace shooter
 }  // namespace motorConfig
