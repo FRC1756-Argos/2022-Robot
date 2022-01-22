@@ -41,6 +41,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem()
   argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backRightTurn>(m_backRight.m_encoder, 100_ms);
   argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_encoder, 100_ms);
 
+  // TRANSLATION2D OBJECTS DESCRIBING LOCATION OF SWERVE MODULES
   frc::Translation2d frontLeftCenterOffset(
       -1 * measure_up::chassis::width / 2 + measure_up::swerve_offsets::frontLeftWOffset,
       measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontLeftLOffset);
@@ -63,6 +64,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem()
 void SwerveDriveSubsystem::Periodic() {}
 
 // SEWRVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
+
 void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                        const double& sideVelocity,
                                        const double& rotVelocity) {
@@ -135,7 +137,6 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 }
 
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
-
 SwerveModule::SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr)
 
     : m_drive(driveAddr), m_turn(turnAddr), m_encoder(encoderAddr) {}
