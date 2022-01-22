@@ -187,4 +187,37 @@ namespace motorConfig {
       constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
     };
   }  // namespace drive
+  namespace shooter {
+    struct shooterWheelLeft {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+
+    struct shooterWheelRight {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+
+    struct angleControl {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+
+    struct rotationControl {
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static bool sensorPhase = false;
+      constexpr static auto neutralDeadband = 0.001;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto voltCompSat = 11.0_V;
+    };
+  }
 }  // namespace motorConfig
