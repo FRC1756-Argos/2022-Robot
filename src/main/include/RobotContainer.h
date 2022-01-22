@@ -24,6 +24,8 @@ class RobotContainer {
 
   frc2::Command* GetAutonomousCommand();
 
+ private:
+  // The robot's subsystems and commands are defined here...
   argos_lib::InterpolationMap<decltype(controllerMap::driveLongSpeed.front().inVal),
                               controllerMap::driveLongSpeed.size()>
       m_driveLonSpeedMap;
@@ -34,9 +36,6 @@ class RobotContainer {
   argos_lib::InterpolationMap<decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()>
       m_driveRotSpeed;
   argos_lib::SwappableControllersSubsystem m_controllers;
-
- private:
-  // The robot's subsystems and commands are defined here...
   SwerveDriveSubsystem m_swerveDrive;
 
   void ConfigureButtonBindings();

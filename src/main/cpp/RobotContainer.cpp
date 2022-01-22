@@ -7,11 +7,11 @@
 #include <frc2/command/RunCommand.h>
 
 RobotContainer::RobotContainer()
-    : m_swerveDrive()
-    , m_controllers(address::controllers::driver, address::controllers::secondary)
-    , m_driveLonSpeedMap(controllerMap::driveLongSpeed)
+    : m_driveLonSpeedMap(controllerMap::driveLongSpeed)
     , m_driveLatSpeedMap(controllerMap::driveLatSpeed)
-    , m_driveRotSpeed(controllerMap::driveRotSpeed) {
+    , m_driveRotSpeed(controllerMap::driveRotSpeed)
+    , m_controllers(address::controllers::driver, address::controllers::secondary)
+    , m_swerveDrive() {
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(

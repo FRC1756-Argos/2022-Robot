@@ -10,24 +10,24 @@
 
 namespace address {
   namespace motor {
-    constexpr const char frontLeftDrive = NULL;
-    constexpr const char frontLeftTurn = NULL;
-    constexpr const char frontRightDrive = NULL;
-    constexpr const char frontRightTurn = NULL;
-    constexpr const char backRightDrive = NULL;
-    constexpr const char backRightTurn = NULL;
-    constexpr const char backLeftDrive = NULL;
-    constexpr const char backLeftTurn = NULL;
+    constexpr const char frontLeftDrive = 1;
+    constexpr const char frontLeftTurn = 2;
+    constexpr const char frontRightDrive = 3;
+    constexpr const char frontRightTurn = 4;
+    constexpr const char backRightDrive = 5;
+    constexpr const char backRightTurn = 6;
+    constexpr const char backLeftDrive = 7;
+    constexpr const char backLeftTurn = 8;
   }  // namespace motor
   namespace encoders {
-    constexpr const char frontLeftEncoder = NULL;
-    constexpr const char frontRightEncoder = NULL;
-    constexpr const char backRightEncoder = NULL;
-    constexpr const char backLeftEncoder = NULL;
+    constexpr const char frontLeftEncoder = 1;
+    constexpr const char frontRightEncoder = 2;
+    constexpr const char backRightEncoder = 3;
+    constexpr const char backLeftEncoder = 4;
   }  // namespace encoders
   namespace controllers {
-    constexpr const char driver = NULL;
-    constexpr const char secondary = NULL;
+    constexpr const char driver = 0;
+    constexpr const char secondary = 1;
   }  // namespace controllers
 
 }  // namespace address
