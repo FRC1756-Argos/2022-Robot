@@ -116,6 +116,11 @@ var annotated_dup =
         [ "backRightTurn", "structmotor_config_1_1drive_1_1back_right_turn.html", "structmotor_config_1_1drive_1_1back_right_turn" ],
         [ "backLeftTurn", "structmotor_config_1_1drive_1_1back_left_turn.html", "structmotor_config_1_1drive_1_1back_left_turn" ]
       ] ],
+      [ "intake", "namespacemotor_config_1_1intake.html", [
+        [ "beltDrive", "structmotor_config_1_1intake_1_1belt_drive.html", "structmotor_config_1_1intake_1_1belt_drive" ],
+        [ "elevatorIntakeDrive", "structmotor_config_1_1intake_1_1elevator_intake_drive.html", "structmotor_config_1_1intake_1_1elevator_intake_drive" ],
+        [ "intakeDrive", "structmotor_config_1_1intake_1_1intake_drive.html", "structmotor_config_1_1intake_1_1intake_drive" ]
+      ] ],
       [ "shooter", "namespacemotor_config_1_1shooter.html", [
         [ "shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", "structmotor_config_1_1shooter_1_1shooter_wheel_left" ],
         [ "shooterWheelRight", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html", "structmotor_config_1_1shooter_1_1shooter_wheel_right" ],

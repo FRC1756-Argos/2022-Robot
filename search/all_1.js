@@ -12,6 +12,6 @@ var searchData=
   ['backrightloffset_30',['backRightLOffset',['../namespacemeasure__up_1_1swerve__offsets.html#ab7f31ac9d15a17d67ebcc2e0976aa861',1,'measure_up::swerve_offsets']]],
   ['backrightturn_31',['backRightTurn',['../namespaceaddress_1_1drive.html#aa479489eb896adaf260b2cf03b030ece',1,'address::drive::backRightTurn()'],['../structmotor_config_1_1drive_1_1back_right_turn.html',1,'motorConfig::drive::backRightTurn']]],
   ['backrightwoffset_32',['backRightWOffset',['../namespacemeasure__up_1_1swerve__offsets.html#a4a79bffd93818af42fe1894b26de550b',1,'measure_up::swerve_offsets']]],
-  ['beltdrive_33',['beltDrive',['../namespaceaddress_1_1intake.html#a37e5b3b6891613c3d9e6e473d3ee8d95',1,'address::intake']]],
+  ['beltdrive_33',['beltDrive',['../namespaceaddress_1_1intake.html#a37e5b3b6891613c3d9e6e473d3ee8d95',1,'address::intake::beltDrive()'],['../structmotor_config_1_1intake_1_1belt_drive.html',1,'motorConfig::intake::beltDrive']]],
   ['button_34',['Button',['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fc',1,'argos_lib::XboxController']]]
 ];

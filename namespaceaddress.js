@@ -3,7 +3,7 @@ var namespaceaddress =
     [ "climber", "namespaceaddress_1_1climber.html", [
       [ "liftLeft", "namespaceaddress_1_1climber.html#ad534766a7739ddd29c2cc1ac19949103", null ],
       [ "liftRight", "namespaceaddress_1_1climber.html#a3c990371737e89302d30125fdd56c1ce", null ],
-      [ "motorMoveHook", "namespaceaddress_1_1climber.html#a0ec1a5c8daba591b848c3be5350fc320", null ]
+      [ "moveHook", "namespaceaddress_1_1climber.html#a26c2cdc3fea30c6ee00180a3c4172393", null ]
     ] ],
     [ "controllers", "namespaceaddress_1_1controllers.html", [
       [ "driver", "namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea", null ],

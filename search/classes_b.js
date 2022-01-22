@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vibrationstatus_430',['VibrationStatus',['../structargos__lib_1_1_vibration_status.html',1,'argos_lib']]]
+  ['updatestatus_434',['UpdateStatus',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html',1,'argos_lib::XboxController']]]
 ];
