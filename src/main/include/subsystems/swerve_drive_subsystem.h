@@ -21,11 +21,6 @@ class SwerveModule {
   // ENCODER
   CANCoder m_encoder;
 
-  template <typename T>
-  void ConfigureTurnMotor() {
-    argos_lib::falcon_config::FalconConfig<T>(m_turn, 100_ms);
-  }
-
   SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr);
 };
 

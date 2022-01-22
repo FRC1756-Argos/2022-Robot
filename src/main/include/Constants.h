@@ -6,6 +6,7 @@
 #include <units/length.h>
 
 #include "argos_lib/general/interpolation.h"
+#include "ctre/Phoenix.h"
 
 namespace address {
   namespace motor {

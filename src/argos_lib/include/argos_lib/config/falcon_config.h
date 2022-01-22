@@ -7,6 +7,8 @@
 #include <units/current.h>
 #include <units/time.h>
 
+#include <iostream>
+
 #include "compile_time_member_check.h"
 #include "ctre/Phoenix.h"
 
