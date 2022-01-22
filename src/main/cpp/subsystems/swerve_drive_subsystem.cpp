@@ -16,11 +16,11 @@
 // test commit
 
 SwerveDriveSubsystem::SwerveDriveSubsystem()
-    : m_frontLeft(address::motor::frontLeftDrive, address::motor::frontLeftTurn, address::encoders::frontLeftEncoder)
+    : m_frontLeft(address::drive::frontLeftDrive, address::drive::frontLeftTurn, address::encoders::frontLeftEncoder)
     , m_frontRight(
-          address::motor::frontRightDrive, address::motor::frontRightTurn, address::encoders::frontRightEncoder)
-    , m_backRight(address::motor::backRightDrive, address::motor::backRightTurn, address::encoders::backRightEncoder)
-    , m_backLeft(address::motor::backLeftDrive, address::motor::backLeftTurn, address::encoders::backLeftEncoder) {
+          address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
+    , m_backRight(address::drive::backRightDrive, address::drive::backRightTurn, address::encoders::backRightEncoder)
+    , m_backLeft(address::drive::backLeftDrive, address::drive::backLeftTurn, address::encoders::backLeftEncoder) {
   // create our translation objects
 
   // TURN MOTORS CONFIG
