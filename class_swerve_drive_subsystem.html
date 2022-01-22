@@ -105,6 +105,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3966d1b99e83b3a311d035796a5f4581"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a3966d1b99e83b3a311d035796a5f4581">SwerveDriveSubsystem</a> ()</td></tr>
 <tr class="separator:a3966d1b99e83b3a311d035796a5f4581"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef051147a97ebb848a81c6773d7aeac9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#aef051147a97ebb848a81c6773d7aeac9">SwerveDrive</a> (const double &amp;fwVelocity, const double &amp;reVelocity, const double &amp;rotVelocity)</td></tr>
+<tr class="memdesc:aef051147a97ebb848a81c6773d7aeac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main drive function for the robot.  <a href="class_swerve_drive_subsystem.html#aef051147a97ebb848a81c6773d7aeac9">More...</a><br /></td></tr>
 <tr class="separator:aef051147a97ebb848a81c6773d7aeac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac11787e2a63cf67785aee01665d040ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ac11787e2a63cf67785aee01665d040ba">Periodic</a> () override</td></tr>
 <tr class="separator:ac11787e2a63cf67785aee01665d040ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,6 +203,16 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Main drive function for the robot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fwVelocity</td><td>velocity in meters per second forward </td></tr>
+    <tr><td class="paramname">sideVelocity</td><td>velocity in meters per second perpendicular to the robots front </td></tr>
+    <tr><td class="paramname">rotVelocity</td><td>velocity in radians per second of rotation of the chasis </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>change all of these to go into a for-each in future </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>switch to argosLib optimize functions in time (create overload for meters per second?) </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>also put this in a for-each loop </dd></dl>
