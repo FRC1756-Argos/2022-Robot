@@ -4,7 +4,19 @@
 
 #include "subsystems/intake_subsystem.h"
 
-intake_subsystem::intake_subsystem() = default;
+#include "Constants.h"
+#include "argos_lib/config/talonsrx_config.h"
+
+intake_subsystem::intake_subsystem()
+    : beltDrive(address::intake::beltDrive)
+    , elevatorIntakeDrive(address::intake::elevatorIntakeDrive)
+    , intakeDrive(address::intake::intakeDrive)
+    , intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake) {
+  // MOTOR CONFIGURATION
+  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::beltDrive>(beltDrive, 50_ms);
+  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::elevatorIntakeDrive>(elevatorIntakeDrive, 50_ms);
+  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::intakeDrive>(intakeDrive, 50_ms);
+}
 
 // This method will be called once per scheduler run
 void intake_subsystem::Periodic() {}
