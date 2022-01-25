@@ -11,6 +11,7 @@
 
 #include <memory>
 
+#include "argos_lib/general/swerve_utils.h"
 #include "ctre/Phoenix.h"
 
 class SwerveModule {
@@ -42,6 +43,14 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
  * @param rotVelocity velocity in radians per second of rotation of the chasis
  */
   void SwerveDrive(const double& fwVelocity, const double& reVelocity, const double& rotVelocity);
+
+  /**
+ * @brief Home all of the modules back to zero
+ *
+ * @param angle the angle of the module in it's current state
+ */
+  void Home(const units::degree_t& angle);
+
   std::unique_ptr<frc::SwerveDriveKinematics<4>> m_pSwerveDriveKinematics;
 
   /**

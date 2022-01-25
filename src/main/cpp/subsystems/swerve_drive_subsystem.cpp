@@ -136,6 +136,20 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   // END GIVE MODULE STATES TO MOTORS ------------------------------------------------------------------------------------
 }
 
+void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
+  // GET CURRENT HOME POSITION AND SAVE IT
+  const argos_lib::swerve::SwerveModulePositions homes{
+      // GET OUR ABSOLUTE POSITION AND SET IT TO HOME (0 - 360)
+      argos_lib::swerve::ConstrainAngle(
+          units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()), 0_deg, 360_deg),
+      argos_lib::swerve::ConstrainAngle(
+          units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition()), 0_deg, 360_deg),
+      argos_lib::swerve::ConstrainAngle(
+          units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition()), 0_deg, 360_deg),
+      argos_lib::swerve::ConstrainAngle(
+          units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()), 0_deg, 360_deg)};
+}
+
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
 SwerveModule::SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr)
 
