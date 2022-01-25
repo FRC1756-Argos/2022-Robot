@@ -25,6 +25,12 @@ class intake_subsystem : public frc2::SubsystemBase {
   void Intake();
 
   /**
+   * @brief Retracts intake. Does not run rollers.
+   *
+   */
+  void StopIntake();
+
+  /**
    * @brief Reverses the intake to dump balls
    *
    */
@@ -42,10 +48,11 @@ class intake_subsystem : public frc2::SubsystemBase {
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   // MOTORS
-  WPI_TalonSRX beltDrive;            ///< Motor that drives the belts on the elevator
-  WPI_TalonSRX elevatorIntakeDrive;  ///< Motor for the roller on the front of the elevator
-  WPI_TalonSRX intakeDrive;          ///< Motor for the intake rollers
+  WPI_TalonSRX m_beltDrive;            ///< Motor that drives the belts on the elevator (Positive towards shooter, Negative away from shooter)
+  //Possibly might not exist
+  //WPI_TalonSRX m_elevatorIntakeDrive;  ///< Motor for the roller on the front of the elevator
+  WPI_TalonSRX m_intakeDrive;          ///< Motor for the intake rollers (Positive is in, Negative is out)
 
   // SOLENOIDS
-  frc::Solenoid intakeDeploy;  ///< Solenoid for intake actuation
+  frc::Solenoid m_intakeDeploy;  ///< Solenoid for intake actuation (True is extend, False is retract)
 };

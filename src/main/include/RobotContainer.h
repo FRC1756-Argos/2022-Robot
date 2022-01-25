@@ -10,6 +10,7 @@
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
+#include "subsystems/intake_subsystem.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -37,6 +38,7 @@ class RobotContainer {
       m_driveRotSpeed;
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
+  intake_subsystem m_intake;
 
   void ConfigureButtonBindings();
 };

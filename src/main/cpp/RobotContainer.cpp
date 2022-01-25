@@ -5,6 +5,7 @@
 #include "RobotContainer.h"
 
 #include <frc2/command/RunCommand.h>
+#include <frc2/command/button/Trigger.h>
 
 RobotContainer::RobotContainer()
     : m_driveLonSpeedMap(controllerMap::driveLongSpeed)
@@ -28,8 +29,20 @@ RobotContainer::RobotContainer()
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-  // Configure your button bindings here
-}
+auto intake =
+      (frc2::Trigger{[this]() {
+         return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
+       }});
+auto outtake =
+      (frc2::Trigger{[this]() {
+         return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperRight);
+       }});
+// Configure your button bindings here
+intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
+intake.WhenInactive([this]() { m_intake.StopIntake(); }, {&m_intake});
+outtake.WhenActive([this]() { m_intake.DumpBall(); }, {&m_intake});
+outtake.WhenInactive([this]() { m_intake.StopIntake(); }, {&m_intake});
+       }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous
