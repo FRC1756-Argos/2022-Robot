@@ -29,3 +29,9 @@ void climber_subsystem::armToBar() {}
 void climber_subsystem::bodyUp() {}
 
 void climber_subsystem::startingPosition() {}
+
+void climber_subsystem::manualControl(double hookSpeed,double armSpeed) {
+  m_motorliftright.Set(armSpeed);
+  m_motorliftleft.Set(armSpeed);
+  m_motormovehook.Set(hookSpeed);
+  }

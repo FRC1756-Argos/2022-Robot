@@ -24,6 +24,14 @@ RobotContainer::RobotContainer()
       },
       {&m_swerveDrive}));
 
+ m_climber.SetDefaultCommand(frc2::RunCommand(
+      [this] {
+        m_climber.manualControl(
+            m_driveLonSpeedMap(
+                m_controllers.OperatorController().GetY(argos_lib::XboxController::JoystickHand::kRightHand)),
+            m_driveLatSpeedMap(
+                m_controllers.OperatorController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
+      }, {&m_climber}));
   ConfigureButtonBindings();
 }
 
