@@ -5,10 +5,11 @@
 #pragma once
 
 #include <frc2/command/Command.h>
-#include "subsystems/climber_subsystem.h"
+
 #include "Constants.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "subsystems/climber_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
 
 /**
@@ -37,6 +38,6 @@ class RobotContainer {
       m_driveRotSpeed;
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
-climber_subsystem m_climber;
+  climber_subsystem m_climber;
   void ConfigureButtonBindings();
 };

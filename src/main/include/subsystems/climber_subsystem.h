@@ -65,14 +65,14 @@ class climber_subsystem : public frc2::SubsystemBase {
 
   void startingPosition();
 
-/**
+  /**
  * @brief manually moves the hook, and/or arm
  *
  * @param hookSpeed moves hook up or down based on the climber a full forward input is 1.0 and a
  *                  backwards input is -1.0
  * @param armSpeed moves arm up or down based on the climber a full up input is 1.0 and a full down input is -1.0
  */
-void manualControl(double hookSpeed,double armSpeed);
+  void manualControl(double hookSpeed, double armSpeed);
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
