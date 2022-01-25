@@ -1,0 +1,69 @@
+[ "ReflectivePipelineSettings", {
+  "pipelineIndex" : 0,
+  "pipelineType" : "Reflective",
+  "inputImageFlipMode" : "NONE",
+  "inputImageRotationMode" : "DEG_0",
+  "pipelineNickname" : "redTest",
+  "cameraExposure" : 0.0,
+  "cameraBrightness" : 40,
+  "cameraGain" : 10,
+  "cameraVideoModeIndex" : 1,
+  "streamingFrameDivisor" : "HALF",
+  "ledMode" : true,
+  "inputShouldShow" : true,
+  "outputShouldShow" : true,
+  "hsvHue" : {
+    "first" : 10,
+    "second" : 40
+  },
+  "hsvSaturation" : {
+    "first" : 150,
+    "second" : 255
+  },
+  "hsvValue" : {
+    "first" : 60,
+    "second" : 255
+  },
+  "outputShouldDraw" : true,
+  "outputShowMultipleTargets" : true,
+  "contourArea" : {
+    "first" : 0.0,
+    "second" : 3.0
+  },
+  "contourRatio" : {
+    "first" : 1.0,
+    "second" : 5.0
+  },
+  "contourFullness" : {
+    "first" : 40.0,
+    "second" : 90.0
+  },
+  "contourSpecklePercentage" : 5,
+  "contourSortMode" : "Rightmost",
+  "contourTargetOffsetPointEdge" : "Center",
+  "contourTargetOrientation" : "Landscape",
+  "offsetRobotOffsetMode" : "None",
+  "offsetSinglePoint" : {
+    "x" : 0.0,
+    "y" : 0.0
+  },
+  "offsetDualPointA" : {
+    "x" : 0.0,
+    "y" : 0.0
+  },
+  "offsetDualPointAArea" : 0.0,
+  "offsetDualPointB" : {
+    "x" : 0.0,
+    "y" : 0.0
+  },
+  "offsetDualPointBArea" : 0.0,
+  "contourGroupingMode" : "Single",
+  "contourIntersection" : "Up",
+  "solvePNPEnabled" : false,
+  "targetModel" : "k2020HighGoalOuter",
+  "cornerDetectionStrategy" : "APPROX_POLY_DP_AND_EXTREME_CORNERS",
+  "cornerDetectionUseConvexHulls" : true,
+  "cornerDetectionExactSideCount" : false,
+  "cornerDetectionSideCount" : 4,
+  "cornerDetectionAccuracyPercentage" : 10.0
+} ]
