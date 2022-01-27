@@ -13,16 +13,16 @@ namespace speeds {
     constexpr double beltForward = 1;
     constexpr double beltReverse = -0.8;
     constexpr double intakeForward = 1;
-    constexpr double intakeReverse= -1;
-  }
-}
+    constexpr double intakeReverse = -1;
+  }  // namespace intake
+}  // namespace speeds
 
 namespace pneumatics {
   namespace directions {
     constexpr bool intakeExtend = true;
     constexpr bool intakeRetract = false;
-  }
-}
+  }  // namespace directions
+}  // namespace pneumatics
 
 namespace address {
   namespace drive {

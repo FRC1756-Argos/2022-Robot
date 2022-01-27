@@ -13,8 +13,7 @@ RobotContainer::RobotContainer()
     , m_driveRotSpeed(controllerMap::driveRotSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive()
-    , m_compressor(frc::PneumaticsModuleType::REVPH )
-    {
+    , m_compressor(frc::PneumaticsModuleType::REVPH) {
   m_compressor.EnableDigital();
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
@@ -32,20 +31,18 @@ RobotContainer::RobotContainer()
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-auto intake =
-      (frc2::Trigger{[this]() {
-         return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
-       }});
-auto outtake =
-      (frc2::Trigger{[this]() {
-         return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperRight);
-       }});
-auto nottake = !intake && !outtake;
-// Configure your button bindings here
-intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
-outtake.WhenActive([this]() { m_intake.DumpBall(); }, {&m_intake});
-nottake.WhenActive([this]() { m_intake.StopIntake(); }, {&m_intake});
-       }
+  auto intake = (frc2::Trigger{[this]() {
+    return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
+  }});
+  auto outtake = (frc2::Trigger{[this]() {
+    return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperRight);
+  }});
+  auto nottake = !intake && !outtake;
+  // Configure your button bindings here
+  intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
+  outtake.WhenActive([this]() { m_intake.DumpBall(); }, {&m_intake});
+  nottake.WhenActive([this]() { m_intake.StopIntake(); }, {&m_intake});
+}
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous

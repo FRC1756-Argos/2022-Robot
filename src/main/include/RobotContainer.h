@@ -4,14 +4,14 @@
 
 #pragma once
 
+#include <frc/Compressor.h>
 #include <frc2/command/Command.h>
 
 #include "Constants.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
-#include "subsystems/swerve_drive_subsystem.h"
 #include "subsystems/intake_subsystem.h"
-#include <frc/Compressor.h>
+#include "subsystems/swerve_drive_subsystem.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -41,8 +41,7 @@ class RobotContainer {
   SwerveDriveSubsystem m_swerveDrive;
   intake_subsystem m_intake;
 
-frc::Compressor m_compressor;
-
+  frc::Compressor m_compressor;
 
   void ConfigureButtonBindings();
 };
