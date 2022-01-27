@@ -108,6 +108,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acbc3253b5b161fd992ddbfeed895285d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#acbc3253b5b161fd992ddbfeed895285d">Intake</a> ()</td></tr>
 <tr class="memdesc:acbc3253b5b161fd992ddbfeed895285d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deploys intake and starts rollers inwards. Handles elevator logic of cycling balls.  <a href="classintake__subsystem.html#acbc3253b5b161fd992ddbfeed895285d">More...</a><br /></td></tr>
 <tr class="separator:acbc3253b5b161fd992ddbfeed895285d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e9d96fba8c423879f1fa0f504cdeed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#af2e9d96fba8c423879f1fa0f504cdeed">StopIntake</a> ()</td></tr>
+<tr class="memdesc:af2e9d96fba8c423879f1fa0f504cdeed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retracts intake. Does not run rollers.  <a href="classintake__subsystem.html#af2e9d96fba8c423879f1fa0f504cdeed">More...</a><br /></td></tr>
+<tr class="separator:af2e9d96fba8c423879f1fa0f504cdeed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf0129aab9590cd783ff0bb0a34f62b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#acf0129aab9590cd783ff0bb0a34f62b0">DumpBall</a> ()</td></tr>
 <tr class="memdesc:acf0129aab9590cd783ff0bb0a34f62b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the intake to dump balls.  <a href="classintake__subsystem.html#acf0129aab9590cd783ff0bb0a34f62b0">More...</a><br /></td></tr>
 <tr class="separator:acf0129aab9590cd783ff0bb0a34f62b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,18 +120,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a24eaaec42f126a63bcb4d121b3b11d04"><td class="memItemLeft" align="right" valign="top">WPI_TalonSRX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#a24eaaec42f126a63bcb4d121b3b11d04">beltDrive</a></td></tr>
-<tr class="memdesc:a24eaaec42f126a63bcb4d121b3b11d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor that drives the belts on the elevator.  <a href="classintake__subsystem.html#a24eaaec42f126a63bcb4d121b3b11d04">More...</a><br /></td></tr>
-<tr class="separator:a24eaaec42f126a63bcb4d121b3b11d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8127b0478c3dde4a3e811592665a46e"><td class="memItemLeft" align="right" valign="top">WPI_TalonSRX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#af8127b0478c3dde4a3e811592665a46e">elevatorIntakeDrive</a></td></tr>
-<tr class="memdesc:af8127b0478c3dde4a3e811592665a46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor for the roller on the front of the elevator.  <a href="classintake__subsystem.html#af8127b0478c3dde4a3e811592665a46e">More...</a><br /></td></tr>
-<tr class="separator:af8127b0478c3dde4a3e811592665a46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fd8c85d1acbadf78e27ba1e8dfd5215"><td class="memItemLeft" align="right" valign="top">WPI_TalonSRX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#a1fd8c85d1acbadf78e27ba1e8dfd5215">intakeDrive</a></td></tr>
-<tr class="memdesc:a1fd8c85d1acbadf78e27ba1e8dfd5215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor for the intake rollers.  <a href="classintake__subsystem.html#a1fd8c85d1acbadf78e27ba1e8dfd5215">More...</a><br /></td></tr>
-<tr class="separator:a1fd8c85d1acbadf78e27ba1e8dfd5215"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae70c4403f4d5a135a09cc6271e4571d6"><td class="memItemLeft" align="right" valign="top">frc::Solenoid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#ae70c4403f4d5a135a09cc6271e4571d6">intakeDeploy</a></td></tr>
-<tr class="memdesc:ae70c4403f4d5a135a09cc6271e4571d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solenoid for intake actuation.  <a href="classintake__subsystem.html#ae70c4403f4d5a135a09cc6271e4571d6">More...</a><br /></td></tr>
-<tr class="separator:ae70c4403f4d5a135a09cc6271e4571d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a854335f8114c329a0a531889817ffe70"><td class="memItemLeft" align="right" valign="top">WPI_TalonSRX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#a854335f8114c329a0a531889817ffe70">m_beltDrive</a></td></tr>
+<tr class="memdesc:a854335f8114c329a0a531889817ffe70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor that drives the belts on the elevator (Positive towards shooter, Negative away from shooter)  <a href="classintake__subsystem.html#a854335f8114c329a0a531889817ffe70">More...</a><br /></td></tr>
+<tr class="separator:a854335f8114c329a0a531889817ffe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4efe9fdc727094a8b2a557809dd26a91"><td class="memItemLeft" align="right" valign="top">WPI_TalonSRX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#a4efe9fdc727094a8b2a557809dd26a91">m_intakeDrive</a></td></tr>
+<tr class="memdesc:a4efe9fdc727094a8b2a557809dd26a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor for the intake rollers (Positive is in, Negative is out)  <a href="classintake__subsystem.html#a4efe9fdc727094a8b2a557809dd26a91">More...</a><br /></td></tr>
+<tr class="separator:a4efe9fdc727094a8b2a557809dd26a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361821b7bd4aae06749dce1eec8c2769"><td class="memItemLeft" align="right" valign="top">frc::Solenoid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classintake__subsystem.html#a361821b7bd4aae06749dce1eec8c2769">m_intakeDeploy</a></td></tr>
+<tr class="memdesc:a361821b7bd4aae06749dce1eec8c2769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solenoid for intake actuation (True is extend, False is retract)  <a href="classintake__subsystem.html#a361821b7bd4aae06749dce1eec8c2769">More...</a><br /></td></tr>
+<tr class="separator:a361821b7bd4aae06749dce1eec8c2769"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
@@ -253,9 +253,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af2e9d96fba8c423879f1fa0f504cdeed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2e9d96fba8c423879f1fa0f504cdeed">&#9670;&nbsp;</a></span>StopIntake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void intake_subsystem::StopIntake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retracts intake. Does not run rollers. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a24eaaec42f126a63bcb4d121b3b11d04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24eaaec42f126a63bcb4d121b3b11d04">&#9670;&nbsp;</a></span>beltDrive</h2>
+<a id="a854335f8114c329a0a531889817ffe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a854335f8114c329a0a531889817ffe70">&#9670;&nbsp;</a></span>m_beltDrive</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,7 +283,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">WPI_TalonSRX intake_subsystem::beltDrive</td>
+          <td class="memname">WPI_TalonSRX intake_subsystem::m_beltDrive</td>
         </tr>
       </table>
   </td>
@@ -274,12 +293,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Motor that drives the belts on the elevator. </p>
+<p>Motor that drives the belts on the elevator (Positive towards shooter, Negative away from shooter) </p>
 
 </div>
 </div>
-<a id="af8127b0478c3dde4a3e811592665a46e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8127b0478c3dde4a3e811592665a46e">&#9670;&nbsp;</a></span>elevatorIntakeDrive</h2>
+<a id="a361821b7bd4aae06749dce1eec8c2769"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a361821b7bd4aae06749dce1eec8c2769">&#9670;&nbsp;</a></span>m_intakeDeploy</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,7 +307,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">WPI_TalonSRX intake_subsystem::elevatorIntakeDrive</td>
+          <td class="memname">frc::Solenoid intake_subsystem::m_intakeDeploy</td>
         </tr>
       </table>
   </td>
@@ -298,12 +317,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Motor for the roller on the front of the elevator. </p>
+<p>Solenoid for intake actuation (True is extend, False is retract) </p>
 
 </div>
 </div>
-<a id="ae70c4403f4d5a135a09cc6271e4571d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae70c4403f4d5a135a09cc6271e4571d6">&#9670;&nbsp;</a></span>intakeDeploy</h2>
+<a id="a4efe9fdc727094a8b2a557809dd26a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4efe9fdc727094a8b2a557809dd26a91">&#9670;&nbsp;</a></span>m_intakeDrive</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -312,7 +331,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">frc::Solenoid intake_subsystem::intakeDeploy</td>
+          <td class="memname">WPI_TalonSRX intake_subsystem::m_intakeDrive</td>
         </tr>
       </table>
   </td>
@@ -322,31 +341,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Solenoid for intake actuation. </p>
-
-</div>
-</div>
-<a id="a1fd8c85d1acbadf78e27ba1e8dfd5215"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fd8c85d1acbadf78e27ba1e8dfd5215">&#9670;&nbsp;</a></span>intakeDrive</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">WPI_TalonSRX intake_subsystem::intakeDrive</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Motor for the intake rollers. </p>
+<p>Motor for the intake rollers (Positive is in, Negative is out) </p>
 
 </div>
 </div>

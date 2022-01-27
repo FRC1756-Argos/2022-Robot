@@ -5,8 +5,8 @@ var classintake__subsystem =
     [ "ElevatorCycle", "classintake__subsystem.html#a6e984ae2f30aecc01cc0d3e668d19f5b", null ],
     [ "Intake", "classintake__subsystem.html#acbc3253b5b161fd992ddbfeed895285d", null ],
     [ "Periodic", "classintake__subsystem.html#adcc24b2004eba693db2370fd16d8e0cf", null ],
-    [ "beltDrive", "classintake__subsystem.html#a24eaaec42f126a63bcb4d121b3b11d04", null ],
-    [ "elevatorIntakeDrive", "classintake__subsystem.html#af8127b0478c3dde4a3e811592665a46e", null ],
-    [ "intakeDeploy", "classintake__subsystem.html#ae70c4403f4d5a135a09cc6271e4571d6", null ],
-    [ "intakeDrive", "classintake__subsystem.html#a1fd8c85d1acbadf78e27ba1e8dfd5215", null ]
+    [ "StopIntake", "classintake__subsystem.html#af2e9d96fba8c423879f1fa0f504cdeed", null ],
+    [ "m_beltDrive", "classintake__subsystem.html#a854335f8114c329a0a531889817ffe70", null ],
+    [ "m_intakeDeploy", "classintake__subsystem.html#a361821b7bd4aae06749dce1eec8c2769", null ],
+    [ "m_intakeDrive", "classintake__subsystem.html#a4efe9fdc727094a8b2a557809dd26a91", null ]
 ];

@@ -118,6 +118,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac4ef9d6a42ca8cf49d8b844fd470bba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ab3558d41d41be5d63c928968d98f5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_swerve_drive_subsystem.html">SwerveDriveSubsystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#a5ab3558d41d41be5d63c928968d98f5b">m_swerveDrive</a></td></tr>
 <tr class="separator:a5ab3558d41d41be5d63c928968d98f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95538475273e2c39701305c442cc6ace"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classintake__subsystem.html">intake_subsystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#a95538475273e2c39701305c442cc6ace">m_intake</a></td></tr>
+<tr class="separator:a95538475273e2c39701305c442cc6ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae41a29456d95fa8e37e6a8c09ddf9c80"><td class="memItemLeft" align="right" valign="top">frc::Compressor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#ae41a29456d95fa8e37e6a8c09ddf9c80">m_compressor</a></td></tr>
+<tr class="separator:ae41a29456d95fa8e37e6a8c09ddf9c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. This class is where the bulk of the robot should be declared. Since Command-based is a "declarative" paradigm, very little robot logic should actually be handled in the <a class="el" href="class_robot.html">Robot</a> periodic methods (other than the scheduler calls). Instead, the structure of the robot (including subsystems, commands, and button mappings) should be declared here. </dd></dl>
@@ -184,6 +188,28 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae41a29456d95fa8e37e6a8c09ddf9c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae41a29456d95fa8e37e6a8c09ddf9c80">&#9670;&nbsp;</a></span>m_compressor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::Compressor RobotContainer::m_compressor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac4ef9d6a42ca8cf49d8b844fd470bba7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac4ef9d6a42ca8cf49d8b844fd470bba7">&#9670;&nbsp;</a></span>m_controllers</h2>
 
@@ -261,6 +287,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt;decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()&gt; RobotContainer::m_driveRotSpeed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95538475273e2c39701305c442cc6ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95538475273e2c39701305c442cc6ace">&#9670;&nbsp;</a></span>m_intake</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classintake__subsystem.html">intake_subsystem</a> RobotContainer::m_intake</td>
         </tr>
       </table>
   </td>
