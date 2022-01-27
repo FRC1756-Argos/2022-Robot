@@ -148,10 +148,14 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
       ConstrainAngle(
           units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg)};
 
-  m_ntFrontLeft.SetDouble(homes.FrontLeft.to<double>());
-  m_ntFrontLeft.SetDouble(homes.FrontRight.to<double>());
-  m_ntFrontLeft.SetDouble(homes.RearRight.to<double>());
-  m_ntFrontLeft.SetDouble(homes.RearLeft.to<double>());
+  NetworkTables::swerveHomes::flHome.SetDouble(homes.FrontLeft.to<double>());
+  NetworkTables::swerveHomes::flHome.SetPersistent();
+  NetworkTables::swerveHomes::frHome.SetDouble(homes.FrontRight.to<double>());
+  NetworkTables::swerveHomes::frHome.SetPersistent();
+  NetworkTables::swerveHomes::brHome.SetDouble(homes.RearRight.to<double>());
+  NetworkTables::swerveHomes::brHome.SetPersistent();
+  NetworkTables::swerveHomes::blHome.SetDouble(homes.RearLeft.to<double>());
+  NetworkTables::swerveHomes::blHome.SetPersistent();
 }
 
 void SwerveDriveSubsystem::InitializeMotors() {
@@ -159,13 +163,18 @@ void SwerveDriveSubsystem::InitializeMotors() {
 
   // GET SAVED VALUES
   /// @todo create shorthand for converting to degrees?
-  units::degree_t frontLeft_saved = units::make_unit<units::degree_t>(m_ntFrontLeft.GetDouble(NAN));
-  units::degree_t frontRight_saved = units::make_unit<units::degree_t>(m_ntFrontRight.GetDouble(NAN));
-  units::degree_t backRight_saved = units::make_unit<units::degree_t>(m_ntBackRight.GetDouble(NAN));
-  units::degree_t backLeft_saved = units::make_unit<units::degree_t>(m_ntBackLeft.GetDouble(NAN));
+  units::degree_t frontLeft_saved =
+      units::make_unit<units::degree_t>(NetworkTables::swerveHomes::flHome.GetDouble(NAN));
+  units::degree_t frontRight_saved =
+      units::make_unit<units::degree_t>(NetworkTables::swerveHomes::frHome.GetDouble(NAN));
+  units::degree_t backRight_saved =
+      units::make_unit<units::degree_t>(NetworkTables::swerveHomes::brHome.GetDouble(NAN));
+  units::degree_t backLeft_saved = units::make_unit<units::degree_t>(NetworkTables::swerveHomes::blHome.GetDouble(NAN));
 
-  if (m_ntFrontLeft.GetDouble(NAN) == NAN || m_ntFrontRight.GetDouble(NAN) == NAN ||
-      m_ntBackRight.GetDouble(NAN) == NAN || m_ntBackLeft.GetDouble(NAN) == NAN) {
+  if (NetworkTables::swerveHomes::flHome.GetDouble(NAN) == NAN ||
+      NetworkTables::swerveHomes::frHome.GetDouble(NAN) == NAN ||
+      NetworkTables::swerveHomes::brHome.GetDouble(NAN) == NAN ||
+      NetworkTables::swerveHomes::blHome.GetDouble(NAN) == NAN) {
     return;
   }
 

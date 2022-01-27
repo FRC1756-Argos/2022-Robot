@@ -13,9 +13,6 @@
 
 #include "argos_lib/general/swerve_utils.h"
 #include "ctre/Phoenix.h"
-#include "networktables/NetworkTable.h"
-#include "networktables/NetworkTableEntry.h"
-#include "networktables/NetworkTableInstance.h"
 
 class SwerveModule {
  public:
@@ -74,20 +71,4 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   SwerveModule m_frontRight;  //< Front right swerve module
   SwerveModule m_backRight;   //< Back right swerve module
   SwerveModule m_backLeft;    //< Back left swerve module
-
-  // NETWORK TABLE INSTANCE & ENTRIES
-  nt::NetworkTableInstance ntInstance = nt::NetworkTableInstance::GetDefault();  //< Auto-Created network table instance
-
-  // NETWORK TABLES
-  std::shared_ptr<nt::NetworkTable> m_homeTable = ntInstance.GetTable("argos/motorHomes");
-
-  // ENTRIES
-  nt::NetworkTableEntry m_ntFrontLeft =
-      m_homeTable->GetEntry("frontLeft");  //< Absolute encoder value for front left home that denotes "forward"
-  nt::NetworkTableEntry m_ntFrontRight =
-      m_homeTable->GetEntry("frontRight");  //< Absolute encoder value for front right home that denotes "forward"
-  nt::NetworkTableEntry m_ntBackRight =
-      m_homeTable->GetEntry("backRight");  //< Absolute encoder value for back right home that denotes "forward"
-  nt::NetworkTableEntry m_ntBackLeft =
-      m_homeTable->GetEntry("backLeft");  //< Absolute encoder value for back left home that denotes "forward"
 };

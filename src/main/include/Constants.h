@@ -7,6 +7,8 @@
 
 #include "argos_lib/general/interpolation.h"
 #include "ctre/Phoenix.h"
+#include "networktables/NetworkTable.h"
+#include "networktables/NetworkTableInstance.h"
 
 namespace address {
   namespace drive {
@@ -76,6 +78,18 @@ namespace indexes {
     constexpr char backLeftIndex = 3;
   }  // namespace swerveModules
 }  // namespace indexes
+
+namespace networkTables {
+  namespace swerveHomes {
+    constexpr char* tableKey = "argos/swerveHomes";
+    namespace keys {
+      constexpr char* flHome = "flHome";
+      constexpr char* frHome = "frHome";
+      constexpr char* brHome = "brHome";
+      constexpr char* blHome = "blHome";
+    }  // namespace keys
+  }    // namespace swerveHomes
+}  // namespace networkTables
 
 namespace controllerMap {
   using argos_lib::InterpMapPoint;
