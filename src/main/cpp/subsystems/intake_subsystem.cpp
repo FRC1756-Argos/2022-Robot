@@ -22,21 +22,21 @@ intake_subsystem::intake_subsystem()
 void intake_subsystem::Periodic() {}
 
 void intake_subsystem::StopIntake() {
-  m_intakeDeploy.Set(false);
+  m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
   m_intakeDrive.Set(0);
   m_beltDrive.Set(0);
   }
 
 void intake_subsystem::Intake() {
-  m_intakeDeploy.Set(true);
-  m_intakeDrive.Set(1);
-  m_beltDrive.Set(1);
+  m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
+  m_intakeDrive.Set(speeds::intake::intakeForward);
+  m_beltDrive.Set(speeds::intake::beltForward);
   }
 
 void intake_subsystem::DumpBall() {
-  m_intakeDeploy.Set(true);
-  m_intakeDrive.Set(-1);
-  m_beltDrive.Set(-0.8);
+  m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
+  m_intakeDrive.Set(speeds::intake::intakeReverse);
+  m_beltDrive.Set(-speeds::intake::beltReverse);
   }
 
 void intake_subsystem::ElevatorCycle(bool direction, bool cycleLength) {}

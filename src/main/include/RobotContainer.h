@@ -11,6 +11,7 @@
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
 #include "subsystems/intake_subsystem.h"
+#include <frc/Compressor.h>
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -39,6 +40,9 @@ class RobotContainer {
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
   intake_subsystem m_intake;
+
+frc::Compressor m_compressor;
+
 
   void ConfigureButtonBindings();
 };

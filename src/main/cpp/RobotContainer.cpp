@@ -12,7 +12,10 @@ RobotContainer::RobotContainer()
     , m_driveLatSpeedMap(controllerMap::driveLatSpeed)
     , m_driveRotSpeed(controllerMap::driveRotSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
-    , m_swerveDrive() {
+    , m_swerveDrive()
+    , m_compressor(frc::PneumaticsModuleType::REVPH )
+    {
+  m_compressor.EnableDigital();
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
@@ -37,11 +40,11 @@ auto outtake =
       (frc2::Trigger{[this]() {
          return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperRight);
        }});
+auto nottake = !intake && !outtake;
 // Configure your button bindings here
 intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
-intake.WhenInactive([this]() { m_intake.StopIntake(); }, {&m_intake});
 outtake.WhenActive([this]() { m_intake.DumpBall(); }, {&m_intake});
-outtake.WhenInactive([this]() { m_intake.StopIntake(); }, {&m_intake});
+nottake.WhenActive([this]() { m_intake.StopIntake(); }, {&m_intake});
        }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
