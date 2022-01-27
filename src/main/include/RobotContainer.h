@@ -4,11 +4,13 @@
 
 #pragma once
 
+#include <frc/Compressor.h>
 #include <frc2/command/Command.h>
 
 #include "Constants.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "subsystems/intake_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
 
 /**
@@ -37,6 +39,9 @@ class RobotContainer {
       m_driveRotSpeed;
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
+  intake_subsystem m_intake;
+
+  frc::Compressor m_compressor;
 
   void ConfigureButtonBindings();
 };
