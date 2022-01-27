@@ -11,7 +11,8 @@ RobotContainer::RobotContainer()
     , m_driveLatSpeedMap(controllerMap::driveLatSpeed)
     , m_driveRotSpeed(controllerMap::driveRotSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
-    , m_swerveDrive() {
+    , m_swerveDrive()
+    , m_shooter() {
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
@@ -23,7 +24,14 @@ RobotContainer::RobotContainer()
                 m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
       },
       {&m_swerveDrive}));
-
+  m_shooter.SetDefaultCommand(frc2::RunCommand(
+      [this] {
+        m_shooter.ManualAim(m_driveLonSpeedMap(m_controllers.OperatorController().GetX(
+                                argos_lib::XboxController::JoystickHand::kLeftHand)),
+                            m_driveLatSpeedMap(m_controllers.OperatorController().GetY(
+                                argos_lib::XboxController::JoystickHand::kLeftHand)));
+      },
+      {&m_shooter}));
   ConfigureButtonBindings();
 }
 

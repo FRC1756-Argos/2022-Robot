@@ -8,7 +8,7 @@
 #include "argos_lib/config/falcon_config.h"
 #include "argos_lib/config/talonsrx_config.h"
 
-shooter_subsystem::shooter_subsystem()
+ShooterSubsystem::ShooterSubsystem()
     : m_shooterWheelLeft(address::shooter::shooterWheelLeft)
     , m_shooterWheelRight(address::shooter::shooterWheelRight)
     , m_angleControl(address::shooter::angleControl)
@@ -17,13 +17,20 @@ shooter_subsystem::shooter_subsystem()
   argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelRight>(m_shooterWheelRight, 50_ms);
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::angleControl>(m_angleControl, 50_ms);
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::rotationControl>(m_rotationControl, 50_ms);
+
+  m_shooterWheelRight.Follow(m_shooterWheelLeft);
 }
 
 // This method will be called once per scheduler run
-void shooter_subsystem::Periodic() {}
+void ShooterSubsystem::Periodic() {}
 
-void shooter_subsystem::AutoAim() {}
+void ShooterSubsystem::AutoAim() {}
 
-void shooter_subsystem::shooting() {}
+void ShooterSubsystem::shooting(double ballfiringspeed) {
+  m_shooterWheelLeft.Set(ballfiringspeed);
+}
 
-void shooter_subsystem::ManualAim(double turnSpeed, double hoodSpeed) {}
+void ShooterSubsystem::ManualAim(double turnSpeed, double hoodSpeed) {
+  m_rotationControl.Set(turnSpeed);
+  m_angleControl.Set(hoodSpeed);
+}
