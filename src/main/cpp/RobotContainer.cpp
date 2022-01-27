@@ -11,6 +11,8 @@ RobotContainer::RobotContainer()
     : m_driveLonSpeedMap(controllerMap::driveLongSpeed)
     , m_driveLatSpeedMap(controllerMap::driveLatSpeed)
     , m_driveRotSpeed(controllerMap::driveRotSpeed)
+    , m_hookSpeedMap(controllerMap::hookSpeed)
+    , m_armSpeedMap(controllerMap::armSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive()
     , m_compressor(frc::PneumaticsModuleType::REVPH) {
@@ -27,6 +29,14 @@ RobotContainer::RobotContainer()
       },
       {&m_swerveDrive}));
 
+  m_climber.SetDefaultCommand(frc2::RunCommand(
+      [this] {
+        m_climber.manualControl(m_hookSpeedMap(m_controllers.OperatorController().GetX(
+                                    argos_lib::XboxController::JoystickHand::kRightHand)),
+                                m_armSpeedMap(m_controllers.OperatorController().GetY(
+                                    argos_lib::XboxController::JoystickHand::kRightHand)));
+      },
+      {&m_climber}));
   ConfigureButtonBindings();
 }
 

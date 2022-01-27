@@ -105,7 +105,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   // Give module state values to motors-----------------------------------------------------------------------------------
   /// @todo also put this in a for-each loop
 
-  // FROMT LEFT
+  // FRONT LEFT
   m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
                           moduleStates.at(indexes::swerveModules::frontLeftIndex).speed.to<double>());
 
