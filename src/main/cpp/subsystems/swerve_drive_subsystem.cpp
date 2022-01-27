@@ -13,6 +13,8 @@
 
 #include "Constants.h"
 
+using namespace argos_lib::swerve;
+
 // test commit
 
 SwerveDriveSubsystem::SwerveDriveSubsystem()
@@ -63,7 +65,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem()
 // This method will be called once per scheduler run
 void SwerveDriveSubsystem::Periodic() {}
 
-// SEWRVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
+// SEWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 
 void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                        const double& sideVelocity,
@@ -90,8 +92,6 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
   auto moduleStates = m_pSwerveDriveKinematics->ToSwerveModuleStates(speeds);
 
-  /// @todo change all of these to go into a for-each in future
-
   /// @todo switch to argosLib optimize functions in time (create overload for meters per second?)
   moduleStates.at(0).Optimize(moduleStates.at(0),
                               units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()));
@@ -103,7 +103,6 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                               units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()));
 
   // Give module state values to motors-----------------------------------------------------------------------------------
-  /// @todo also put this in a for-each loop
 
   // FROMT LEFT
   m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
@@ -138,16 +137,55 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
 void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   // GET CURRENT HOME POSITION AND SAVE IT
-  const argos_lib::swerve::SwerveModulePositions homes{
+  const SwerveModulePositions homes{
       // GET OUR ABSOLUTE POSITION AND SET IT TO HOME (0 - 360)
-      argos_lib::swerve::ConstrainAngle(
-          units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()), 0_deg, 360_deg),
-      argos_lib::swerve::ConstrainAngle(
-          units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition()), 0_deg, 360_deg),
-      argos_lib::swerve::ConstrainAngle(
-          units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition()), 0_deg, 360_deg),
-      argos_lib::swerve::ConstrainAngle(
-          units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()), 0_deg, 360_deg)};
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg)};
+
+  m_ntFrontLeft.SetDouble(homes.FrontLeft.to<double>());
+  m_ntFrontLeft.SetDouble(homes.FrontRight.to<double>());
+  m_ntFrontLeft.SetDouble(homes.RearRight.to<double>());
+  m_ntFrontLeft.SetDouble(homes.RearLeft.to<double>());
+}
+
+void SwerveDriveSubsystem::InitializeMotors() {
+  // CHECK FOR NULL VALUES
+
+  // GET SAVED VALUES
+  /// @todo create shorthand for converting to degrees?
+  units::degree_t frontLeft_saved = units::make_unit<units::degree_t>(m_ntFrontLeft.GetDouble(NAN));
+  units::degree_t frontRight_saved = units::make_unit<units::degree_t>(m_ntFrontRight.GetDouble(NAN));
+  units::degree_t backRight_saved = units::make_unit<units::degree_t>(m_ntBackRight.GetDouble(NAN));
+  units::degree_t backLeft_saved = units::make_unit<units::degree_t>(m_ntBackLeft.GetDouble(NAN));
+
+  if (m_ntFrontLeft.GetDouble(NAN) == NAN || m_ntFrontRight.GetDouble(NAN) == NAN ||
+      m_ntBackRight.GetDouble(NAN) == NAN || m_ntBackLeft.GetDouble(NAN) == NAN) {
+    return;
+  }
+
+  // GET CURRENT VALUES
+  units::degree_t frontLeft_current = units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition());
+  units::degree_t frontRight_current = units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition());
+  units::degree_t backRight_current = units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition());
+  units::degree_t backLeft_current = units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition());
+
+  // SUBTRACT SAVED FROM CURRENT
+  double frontLeftCalibrated = frontLeft_saved.to<double>() - frontLeft_current.to<double>();
+  double frontRightCalibrated = frontRight_saved.to<double>() - frontRight_current.to<double>();
+  double backRightCalibrated = backRight_saved.to<double>() - backRight_current.to<double>();
+  double backLeftCalibrated = backLeft_saved.to<double>() - backLeft_current.to<double>();
+
+  // ASSIGN DIFFERENCE TO CURRENT MOTOR RELATIVE POSITION
+  m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated, 50);
+  m_frontRight.m_encoder.SetPosition(frontRightCalibrated, 50);
+  m_backRight.m_encoder.SetPosition(backRightCalibrated, 50);
+  m_backLeft.m_encoder.SetPosition(backLeftCalibrated, 50);
 }
 
 // SWERVE MODULE SUBSYSTEM FUNCTIONS

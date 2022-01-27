@@ -13,6 +13,9 @@
 
 #include "argos_lib/general/swerve_utils.h"
 #include "ctre/Phoenix.h"
+#include "networktables/NetworkTable.h"
+#include "networktables/NetworkTableEntry.h"
+#include "networktables/NetworkTableInstance.h"
 
 class SwerveModule {
  public:
@@ -51,6 +54,12 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
  */
   void Home(const units::degree_t& angle);
 
+  /**
+   * @brief Will load saved homes, and set the encoders to reset to true angle relative to robot "front"
+   *
+   */
+  void InitializeMotors();
+
   std::unique_ptr<frc::SwerveDriveKinematics<4>> m_pSwerveDriveKinematics;
 
   /**
@@ -61,8 +70,24 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  SwerveModule m_frontLeft;
-  SwerveModule m_frontRight;
-  SwerveModule m_backRight;
-  SwerveModule m_backLeft;
+  SwerveModule m_frontLeft;   //< Front left swerve module
+  SwerveModule m_frontRight;  //< Front right swerve module
+  SwerveModule m_backRight;   //< Back right swerve module
+  SwerveModule m_backLeft;    //< Back left swerve module
+
+  // NETWORK TABLE INSTANCE & ENTRIES
+  nt::NetworkTableInstance ntInstance = nt::NetworkTableInstance::GetDefault();  //< Auto-Created network table instance
+
+  // NETWORK TABLES
+  std::shared_ptr<nt::NetworkTable> m_homeTable = ntInstance.GetTable("argos/motorHomes");
+
+  // ENTRIES
+  nt::NetworkTableEntry m_ntFrontLeft =
+      m_homeTable->GetEntry("frontLeft");  //< Absolute encoder value for front left home that denotes "forward"
+  nt::NetworkTableEntry m_ntFrontRight =
+      m_homeTable->GetEntry("frontRight");  //< Absolute encoder value for front right home that denotes "forward"
+  nt::NetworkTableEntry m_ntBackRight =
+      m_homeTable->GetEntry("backRight");  //< Absolute encoder value for back right home that denotes "forward"
+  nt::NetworkTableEntry m_ntBackLeft =
+      m_homeTable->GetEntry("backLeft");  //< Absolute encoder value for back left home that denotes "forward"
 };
