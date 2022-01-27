@@ -61,8 +61,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"dir_68267d1309a1af8e8297ef4c3efbcdba.html",
-"structargos__lib_1_1falcon__config_1_1has__supply_current_threshold.html"
+"dir_1b5ab51e1de305e693feb9e8d9da64c0.html",
+"structargos__lib_1_1falcon__config_1_1has__reverse_limit__normal_state.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

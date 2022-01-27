@@ -7,6 +7,7 @@ var classclimber__subsystem =
     [ "hookExtend", "classclimber__subsystem.html#a21399de2dfd18a89e96b5c5bdd21f1c4", null ],
     [ "hookRetract", "classclimber__subsystem.html#a36d5370bcf0d3d118dc0ce28faab415e", null ],
     [ "lowerBody", "classclimber__subsystem.html#a2444f76109a5361ab594b3daf3c3a6a9", null ],
+    [ "manualControl", "classclimber__subsystem.html#af6c10ae0c16e383002b6fb670b2fc158", null ],
     [ "Periodic", "classclimber__subsystem.html#ab7ab4fd31585bdeb356f7c38b80156ed", null ],
     [ "startingPosition", "classclimber__subsystem.html#a7021e39d5ad270ee72729ffdea0067b4", null ],
     [ "m_motorliftleft", "classclimber__subsystem.html#a40aae9453b3858d7d2ba0404f1effa2e", null ],

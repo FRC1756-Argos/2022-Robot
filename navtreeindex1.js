@@ -1,5 +1,11 @@
 var NAVTREEINDEX1 =
 {
+"dir_1b5ab51e1de305e693feb9e8d9da64c0.html":[4,0,0,0,1,0,2],
+"dir_297090c629331b6211a5a9bae4ee7118.html":[4,0,0,0,1,0,1],
+"dir_2a59f1b00facdb43e21fc1c516c8806d.html":[4,0,0,1,0,0],
+"dir_449ae403f63c24360f06e13a33b5f84a.html":[4,0,0,0,0,1],
+"dir_5b31952f813df36dabbaa31d5b8f92e5.html":[4,0,0,1,1,0],
+"dir_5eb159725f84c66aafd839904a4acdd0.html":[4,0,0,1],
 "dir_68267d1309a1af8e8297ef4c3efbcdba.html":[4,0,0],
 "dir_74a079771991058d11b5f8805d16e2a9.html":[4,0,0,0,1,0,4],
 "dir_8cf9eb761aaef6c28ec6f7bfa4ab471f.html":[4,0,0,2,0],
@@ -121,9 +127,11 @@ var NAVTREEINDEX1 =
 "namespacecontrol_loop_1_1drive_1_1rotate.html#ac09c285b92e27e811bf9b5f39250526f":[2,0,3,0,0,3],
 "namespacecontrol_loop_1_1drive_1_1rotate.html#ad40f7a92823ce095e151032eaf2b66a7":[2,0,3,0,0,5],
 "namespacecontroller_map.html":[2,0,2],
-"namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb":[2,0,2,2],
-"namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf":[2,0,2,1],
-"namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162":[2,0,2,0],
+"namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb":[2,0,2,3],
+"namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf":[2,0,2,2],
+"namespacecontroller_map.html#a32c5da49786d39390beceeea3a735887":[2,0,2,4],
+"namespacecontroller_map.html#a380aa1e65ee269eb4a4b8a701befcedc":[2,0,2,0],
+"namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162":[2,0,2,1],
 "namespaceindexes.html":[2,0,4],
 "namespaceindexes_1_1swerve_modules.html":[2,0,4,0],
 "namespaceindexes_1_1swerve_modules.html#a3bbc6a04c968b7b8cdb3733eb01f07ed":[2,0,4,0,1],
@@ -241,13 +249,5 @@ var NAVTREEINDEX1 =
 "structargos__lib_1_1falcon__config_1_1has__remote_filter0__type.html":[3,0,0,1,36],
 "structargos__lib_1_1falcon__config_1_1has__remote_filter0__type_3_01_t_00_01decltype_07_07void_068a5291d2d3e52dd4fc9731086e23483.html":[3,0,0,1,37],
 "structargos__lib_1_1falcon__config_1_1has__reverse_limit__device_i_d.html":[3,0,0,1,38],
-"structargos__lib_1_1falcon__config_1_1has__reverse_limit__device_i_d_3_01_t_00_01decltype_07_07vf68ebe355f714defcc74df12f0fc3e07.html":[3,0,0,1,39],
-"structargos__lib_1_1falcon__config_1_1has__reverse_limit__normal_state.html":[3,0,0,1,40],
-"structargos__lib_1_1falcon__config_1_1has__reverse_limit__normal_state_3_01_t_00_01decltype_07_0a382814b0f38b30f034d150cee564e44.html":[3,0,0,1,41],
-"structargos__lib_1_1falcon__config_1_1has__reverse_limit__source.html":[3,0,0,1,42],
-"structargos__lib_1_1falcon__config_1_1has__reverse_limit__source_3_01_t_00_01decltype_07_07void_44a515af1f068a9815bdd41ed603153d.html":[3,0,0,1,43],
-"structargos__lib_1_1falcon__config_1_1has__sensor_phase.html":[3,0,0,1,44],
-"structargos__lib_1_1falcon__config_1_1has__sensor_phase_3_01_t_00_01decltype_07_07void_08_01_t_12047e01d755d4a3d7b29862e873d6f84.html":[3,0,0,1,45],
-"structargos__lib_1_1falcon__config_1_1has__supply_current_limit.html":[3,0,0,1,46],
-"structargos__lib_1_1falcon__config_1_1has__supply_current_limit_3_01_t_00_01decltype_07_07void_012cda0473719e58ee24f06eba96a52ba.html":[3,0,0,1,47]
+"structargos__lib_1_1falcon__config_1_1has__reverse_limit__device_i_d_3_01_t_00_01decltype_07_07vf68ebe355f714defcc74df12f0fc3e07.html":[3,0,0,1,39]
 };

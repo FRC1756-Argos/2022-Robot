@@ -126,6 +126,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7021e39d5ad270ee72729ffdea0067b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclimber__subsystem.html#a7021e39d5ad270ee72729ffdea0067b4">startingPosition</a> ()</td></tr>
 <tr class="memdesc:a7021e39d5ad270ee72729ffdea0067b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">detract hooks, bring arms down  <a href="classclimber__subsystem.html#a7021e39d5ad270ee72729ffdea0067b4">More...</a><br /></td></tr>
 <tr class="separator:a7021e39d5ad270ee72729ffdea0067b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6c10ae0c16e383002b6fb670b2fc158"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclimber__subsystem.html#af6c10ae0c16e383002b6fb670b2fc158">manualControl</a> (double hookSpeed, double armSpeed)</td></tr>
+<tr class="memdesc:af6c10ae0c16e383002b6fb670b2fc158"><td class="mdescLeft">&#160;</td><td class="mdescRight">manually moves the hook, and/or arm  <a href="classclimber__subsystem.html#af6c10ae0c16e383002b6fb670b2fc158">More...</a><br /></td></tr>
+<tr class="separator:af6c10ae0c16e383002b6fb670b2fc158"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -269,6 +272,43 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>lower body for center of gravity &amp; hook handoff </p>
+
+</div>
+</div>
+<a id="af6c10ae0c16e383002b6fb670b2fc158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6c10ae0c16e383002b6fb670b2fc158">&#9670;&nbsp;</a></span>manualControl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void climber_subsystem::manualControl </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>hookSpeed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>armSpeed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>manually moves the hook, and/or arm </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hookSpeed</td><td>moves hook up or down based on the climber a full forward input is 1.0 and a backwards input is -1.0 </td></tr>
+    <tr><td class="paramname">armSpeed</td><td>moves arm up or down based on the climber a full up input is 1.0 and a full down input is -1.0 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

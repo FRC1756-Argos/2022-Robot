@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width_374',['width',['../namespacemeasure__up_1_1chassis.html#aff61d4016fc44a7ba5a70ad24289f702',1,'measure_up::chassis']]]
+  ['width_386',['width',['../namespacemeasure__up_1_1chassis.html#aff61d4016fc44a7ba5a70ad24289f702',1,'measure_up::chassis']]]
 ];
