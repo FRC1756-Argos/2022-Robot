@@ -31,7 +31,7 @@ RobotContainer::RobotContainer()
 
   m_climber.SetDefaultCommand(frc2::RunCommand(
       [this] {
-        m_climber.manualControl(m_hookSpeedMap(m_controllers.OperatorController().GetX(
+        m_climber.ManualControl(m_hookSpeedMap(m_controllers.OperatorController().GetX(
                                     argos_lib::XboxController::JoystickHand::kRightHand)),
                                 m_armSpeedMap(m_controllers.OperatorController().GetY(
                                     argos_lib::XboxController::JoystickHand::kRightHand)));

@@ -9,9 +9,9 @@
 #include "ctre/Phoenix.h"
 #include "frc/Solenoid.h"
 
-class intake_subsystem : public frc2::SubsystemBase {
+class IntakeSubsystem : public frc2::SubsystemBase {
  public:
-  intake_subsystem();
+  IntakeSubsystem();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -50,8 +50,6 @@ class intake_subsystem : public frc2::SubsystemBase {
   // MOTORS
   WPI_TalonSRX
       m_beltDrive;  ///< Motor that drives the belts on the elevator (Positive towards shooter, Negative away from shooter)
-  // Possibly might not exist
-  // WPI_TalonSRX m_elevatorIntakeDrive;  ///< Motor for the roller on the front of the elevator
   WPI_TalonSRX m_intakeDrive;  ///< Motor for the intake rollers (Positive is in, Negative is out)
 
   // SOLENOIDS

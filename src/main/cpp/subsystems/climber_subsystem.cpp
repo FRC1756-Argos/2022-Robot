@@ -7,31 +7,31 @@
 #include "Constants.h"
 #include "argos_lib/config/falcon_config.h"
 
-climber_subsystem::climber_subsystem()
-    : m_motorliftright(address::climber::liftRight)
-    , m_motorliftleft(address::climber::liftLeft)
-    , m_motormovehook(address::climber::moveHook) {
-  argos_lib::falcon_config::FalconConfig<motorConfig::climber::liftRight>(m_motorliftright, 50_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::climber::liftLeft>(m_motorliftleft, 50_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::climber::moveHook>(m_motormovehook, 50_ms);
+ClimberSubsystem::ClimberSubsystem()
+    : m_motorLiftRight(address::climber::liftRight)
+    , m_motorLiftLeft(address::climber::liftLeft)
+    , m_motorMoveHook(address::climber::moveHook) {
+  argos_lib::falcon_config::FalconConfig<motorConfig::climber::liftRight>(m_motorLiftRight, 50_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::climber::liftLeft>(m_motorLiftLeft, 50_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::climber::moveHook>(m_motorMoveHook, 50_ms);
 }
 // This method will be called once per scheduler run
-void climber_subsystem::Periodic() {}
+void ClimberSubsystem::Periodic() {}
 
-void climber_subsystem::armReady() {}
+void ClimberSubsystem::ArmReady() {}
 
-void climber_subsystem::hookExtend() {}
+void ClimberSubsystem::HookExtend() {}
 
-void climber_subsystem::lowerBody() {}
+void ClimberSubsystem::LowerBody() {}
 
-void climber_subsystem::armToBar() {}
+void ClimberSubsystem::ArmToBar() {}
 
-void climber_subsystem::bodyUp() {}
+void ClimberSubsystem::BodyUp() {}
 
-void climber_subsystem::startingPosition() {}
+void ClimberSubsystem::StartingPosition() {}
 
-void climber_subsystem::manualControl(double hookSpeed, double armSpeed) {
-  m_motorliftright.Set(armSpeed);
-  m_motorliftleft.Set(armSpeed);
-  m_motormovehook.Set(hookSpeed);
+void ClimberSubsystem::ManualControl(double hookSpeed, double armSpeed) {
+  m_motorLiftRight.Set(armSpeed);
+  m_motorLiftLeft.Set(armSpeed);
+  m_motorMoveHook.Set(hookSpeed);
 }

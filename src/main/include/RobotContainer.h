@@ -45,8 +45,8 @@ class RobotContainer {
 
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
-  intake_subsystem m_intake;
-  climber_subsystem m_climber;
+  IntakeSubsystem m_intake;
+  ClimberSubsystem m_climber;
 
   frc::Compressor m_compressor;
 
