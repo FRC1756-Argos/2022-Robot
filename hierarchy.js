@@ -78,10 +78,10 @@ var hierarchy =
     [ "motorConfig::shooter::shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", null ],
     [ "motorConfig::shooter::shooterWheelRight", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html", null ],
     [ "frc2::SubsystemBase", null, [
+      [ "ClimberSubsystem", "class_climber_subsystem.html", null ],
+      [ "IntakeSubsystem", "class_intake_subsystem.html", null ],
       [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html", null ],
       [ "argos_lib::SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", null ],
-      [ "climber_subsystem", "classclimber__subsystem.html", null ],
-      [ "intake_subsystem", "classintake__subsystem.html", null ],
       [ "shooter_subsystem", "classshooter__subsystem.html", null ]
     ] ],
     [ "argos_lib::swerve::SwerveHomeStorageInterface", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html", [

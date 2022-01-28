@@ -133,8 +133,8 @@ var annotated_dup =
         [ "rotationControl", "structmotor_config_1_1shooter_1_1rotation_control.html", "structmotor_config_1_1shooter_1_1rotation_control" ]
       ] ]
     ] ],
-    [ "climber_subsystem", "classclimber__subsystem.html", "classclimber__subsystem" ],
-    [ "intake_subsystem", "classintake__subsystem.html", "classintake__subsystem" ],
+    [ "ClimberSubsystem", "class_climber_subsystem.html", "class_climber_subsystem" ],
+    [ "IntakeSubsystem", "class_intake_subsystem.html", "class_intake_subsystem" ],
     [ "Robot", "class_robot.html", "class_robot" ],
     [ "RobotContainer", "class_robot_container.html", "class_robot_container" ],
     [ "shooter_subsystem", "classshooter__subsystem.html", "classshooter__subsystem" ],

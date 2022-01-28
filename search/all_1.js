@@ -15,6 +15,6 @@ var searchData=
   ['beltdrive_36',['beltDrive',['../namespaceaddress_1_1intake.html#a37e5b3b6891613c3d9e6e473d3ee8d95',1,'address::intake::beltDrive()'],['../structmotor_config_1_1intake_1_1belt_drive.html',1,'motorConfig::intake::beltDrive']]],
   ['beltforward_37',['beltForward',['../namespacespeeds_1_1intake.html#ab46ee716e992f3e0b2b267886d9fb4f5',1,'speeds::intake']]],
   ['beltreverse_38',['beltReverse',['../namespacespeeds_1_1intake.html#afcbd92b7804dc8565fbd200d347ed857',1,'speeds::intake']]],
-  ['bodyup_39',['bodyUp',['../classclimber__subsystem.html#ac01f9b5929f50b58e42764810864ad07',1,'climber_subsystem']]],
+  ['bodyup_39',['BodyUp',['../class_climber_subsystem.html#a6cb96cb3b8ad170777914f1f043a2d1c',1,'ClimberSubsystem']]],
   ['button_40',['Button',['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fc',1,'argos_lib::XboxController']]]
 ];

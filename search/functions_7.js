@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hookextend_583',['hookExtend',['../classclimber__subsystem.html#a21399de2dfd18a89e96b5c5bdd21f1c4',1,'climber_subsystem']]],
-  ['hookretract_584',['hookRetract',['../classclimber__subsystem.html#a36d5370bcf0d3d118dc0ce28faab415e',1,'climber_subsystem']]]
+  ['hookextend_583',['HookExtend',['../class_climber_subsystem.html#a9fb5a5d1016e46c89947b106a8667baa',1,'ClimberSubsystem']]],
+  ['hookretract_584',['hookRetract',['../class_climber_subsystem.html#a568d7191aa8f78d3634f66536b1c569d',1,'ClimberSubsystem']]]
 ];

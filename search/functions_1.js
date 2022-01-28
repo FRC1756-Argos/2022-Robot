@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bodyup_560',['bodyUp',['../classclimber__subsystem.html#ac01f9b5929f50b58e42764810864ad07',1,'climber_subsystem']]]
+  ['bodyup_560',['BodyUp',['../class_climber_subsystem.html#a6cb96cb3b8ad170777914f1f043a2d1c',1,'ClimberSubsystem']]]
 ];
