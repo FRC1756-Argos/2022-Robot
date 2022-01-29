@@ -6,6 +6,7 @@
 
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
+
 RobotContainer::RobotContainer()
     : m_driveLonSpeedMap(controllerMap::driveLongSpeed)
     , m_driveLatSpeedMap(controllerMap::driveLatSpeed)
@@ -43,12 +44,8 @@ void RobotContainer::ConfigureButtonBindings() {
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
-shooter.WhenActive([this](){
-  m_shooter.shooting(1);
-}, {&m_shooter});
-shooter.WhenInactive([this](){
-  m_shooter.shooting(0);
-}, {&m_shooter});
+  shooter.WhenActive([this]() { m_shooter.shooting(1); }, {&m_shooter});
+  shooter.WhenInactive([this]() { m_shooter.shooting(0); }, {&m_shooter});
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

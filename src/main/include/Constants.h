@@ -94,14 +94,10 @@ namespace controllerMap {
                                                       InterpMapPoint{1.0, 0.6}};
   [[maybe_unused]] constexpr std::array driveRotSpeed{
       InterpMapPoint{-1.0, -1.0}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 1.0}};
-  [[maybe_unused]] constexpr std::array turretSpeed{InterpMapPoint{-1.0, -0.6},
-                                                       InterpMapPoint{-0.15, 0.0},
-                                                       InterpMapPoint{0.15, 0.0},
-                                                       InterpMapPoint{1.0, 0.6}};
-  [[maybe_unused]] constexpr std::array hoodSpeed{InterpMapPoint{-1.0, -0.6},
-                                                       InterpMapPoint{-0.15, 0.0},
-                                                       InterpMapPoint{0.15, 0.0},
-                                                       InterpMapPoint{1.0, 0.6}};
+  [[maybe_unused]] constexpr std::array turretSpeed{
+      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 0.6}};
+  [[maybe_unused]] constexpr std::array hoodSpeed{
+      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 0.6}};
 }  // namespace controllerMap
 
 namespace controlLoop {

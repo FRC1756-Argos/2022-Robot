@@ -37,11 +37,9 @@ class RobotContainer {
   argos_lib::InterpolationMap<decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()>
       m_driveRotSpeed;
 
-     argos_lib::InterpolationMap<decltype(controllerMap::turretSpeed.front().inVal),
-                              controllerMap::turretSpeed.size()>
+  argos_lib::InterpolationMap<decltype(controllerMap::turretSpeed.front().inVal), controllerMap::turretSpeed.size()>
       m_turretSpeedMap;
-  argos_lib::InterpolationMap<decltype(controllerMap::hoodSpeed.front().inVal),
-                              controllerMap::hoodSpeed.size()>
+  argos_lib::InterpolationMap<decltype(controllerMap::hoodSpeed.front().inVal), controllerMap::hoodSpeed.size()>
       m_hoodSpeedMap;
 
   argos_lib::SwappableControllersSubsystem m_controllers;
