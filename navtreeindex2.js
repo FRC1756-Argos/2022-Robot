@@ -1,5 +1,15 @@
 var NAVTREEINDEX2 =
 {
+"structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac5ead71c2f9168bb43650a18606a104f":[3,0,0,6,1,4],
+"structargos__lib_1_1_xbox_controller_1_1_update_status.html#ad769829e7275b925a9ec9cafc70e198e":[3,0,0,6,1,5],
+"structargos__lib_1_1cancoder__config_1_1has__direction.html":[3,0,0,0,0],
+"structargos__lib_1_1cancoder__config_1_1has__direction_3_01_t_00_01decltype_07_07void_08_01_t_1_1direction_00_01void_07_08_08_4.html":[3,0,0,0,1],
+"structargos__lib_1_1cancoder__config_1_1has__init_mode.html":[3,0,0,0,2],
+"structargos__lib_1_1cancoder__config_1_1has__init_mode_3_01_t_00_01decltype_07_07void_08_01_t_1_1init_mode_00_01void_07_08_08_4.html":[3,0,0,0,3],
+"structargos__lib_1_1cancoder__config_1_1has__mag_offset.html":[3,0,0,0,4],
+"structargos__lib_1_1cancoder__config_1_1has__mag_offset_3_01_t_00_01decltype_07_07void_08_01_t_1de2a467e5a7d6bbfd81fd01645e37d7d.html":[3,0,0,0,5],
+"structargos__lib_1_1cancoder__config_1_1has__range.html":[3,0,0,0,6],
+"structargos__lib_1_1cancoder__config_1_1has__range_3_01_t_00_01decltype_07_07void_08_01_t_1_1range_00_01void_07_08_08_4.html":[3,0,0,0,7],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d.html":[3,0,0,1,0],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d_3_01_t_00_01decltype_07_07v44ebeb962e49a9b1f260a076090b52d3.html":[3,0,0,1,1],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__normal_state.html":[3,0,0,1,2],
@@ -239,15 +249,5 @@ var NAVTREEINDEX2 =
 "talonsrx__config_8h.html":[4,0,0,0,1,0,1,3],
 "talonsrx__config_8h.html#a74630ad5eec9e25a58e71810fc317b4d":[4,0,0,0,1,0,1,3,26],
 "talonsrx__config_8h_source.html":[4,0,0,0,1,0,1,3],
-"todo.html":[1],
-"vibration_8cpp.html":[4,0,0,0,0,1,0],
-"vibration_8h.html":[4,0,0,0,1,0,2,0],
-"vibration_8h.html#a489dff46429e8ae8064c6b37a744e2f5":[4,0,0,0,1,0,2,0,3],
-"vibration_8h.html#a9bdc8d0bc40d923285b6350108692133":[4,0,0,0,1,0,2,0,6],
-"vibration_8h.html#aadda81a361b1738ff80d513f9a74c32e":[4,0,0,0,1,0,2,0,4],
-"vibration_8h.html#ad60f0b7c80267a6a8e576ef289de00e8":[4,0,0,0,1,0,2,0,2],
-"vibration_8h.html#ae562daa4c83e3bdb85b2a17aadd00855":[4,0,0,0,1,0,2,0,8],
-"vibration_8h.html#ae908a90a520f4c3aa7ed84f62295418c":[4,0,0,0,1,0,2,0,1],
-"vibration_8h.html#af417e6c76c86d4cebf77851dca11c23d":[4,0,0,0,1,0,2,0,7],
-"vibration_8h.html#af48079b006bba7c41aae85cce88ff3e1":[4,0,0,0,1,0,2,0,5]
+"todo.html":[1]
 };

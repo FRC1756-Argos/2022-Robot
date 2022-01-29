@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xboxcontroller_523',['XboxController',['../classargos__lib_1_1_xbox_controller.html',1,'argos_lib']]]
+  ['xboxcontroller_529',['XboxController',['../classargos__lib_1_1_xbox_controller.html',1,'argos_lib']]]
 ];
