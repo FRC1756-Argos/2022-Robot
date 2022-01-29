@@ -9,6 +9,7 @@
 #include "networktables/NetworkTable.h"
 #include "networktables/NetworkTableEntry.h"
 #include "networktables/NetworkTableInstance.h"
+#include "units/angle.h"
 
 class NetworkTablesWrapper {
  private:
@@ -19,6 +20,22 @@ class NetworkTablesWrapper {
   void InitSwerveTable();
 
  public:
+  /**
+   * @brief Set the Entry Degrees object with an angle
+   *
+   * @param entryKey The key value for the NetworkTableEntry
+   * @param degrees The angle value in degrees to write to the NetworkTableEntry
+   */
+  void SetEntryDegrees(nt::NetworkTableEntry& entry, const units::degree_t degrees);
+
+  /**
+   * @brief Get the entry's angle value
+   *
+   * @param entry Reference to the network table entry
+   * @return std::optional<units::degree_t> Standard library optional value
+   */
+  std::optional<units::degree_t> GetEntryDegrees(nt::NetworkTableEntry& entry);
+
   // Meant to contain all the initialization and configuration of table's instances
   NetworkTablesWrapper();
 
