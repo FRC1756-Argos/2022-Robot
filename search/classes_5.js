@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['frontleftturn_426',['frontLeftTurn',['../structmotor_config_1_1drive_1_1front_left_turn.html',1,'motorConfig::drive']]],
-  ['frontrightturn_427',['frontRightTurn',['../structmotor_config_1_1drive_1_1front_right_turn.html',1,'motorConfig::drive']]]
+  ['frontleftturn_428',['frontLeftTurn',['../structmotor_config_1_1drive_1_1front_left_turn.html',1,'motorConfig::drive']]],
+  ['frontrightturn_429',['frontRightTurn',['../structmotor_config_1_1drive_1_1front_right_turn.html',1,'motorConfig::drive']]]
 ];

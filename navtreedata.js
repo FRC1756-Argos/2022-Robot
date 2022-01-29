@@ -61,9 +61,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a28e16e477e81da4a0205078ff6dd1a54",
-"structargos__lib_1_1falcon__config_1_1has__forward_limit__normal_state.html",
-"xbox__controller_8h.html"
+"classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html",
+"structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d.html",
+"vibration_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

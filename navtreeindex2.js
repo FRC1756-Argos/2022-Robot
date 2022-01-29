@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d.html":[3,0,0,1,0],
+"structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d_3_01_t_00_01decltype_07_07v44ebeb962e49a9b1f260a076090b52d3.html":[3,0,0,1,1],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__normal_state.html":[3,0,0,1,2],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__normal_state_3_01_t_00_01decltype_07_0ecc9d7a2c7e7d191f194154e369f1861.html":[3,0,0,1,3],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__source.html":[3,0,0,1,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "vibration_8h.html#ae562daa4c83e3bdb85b2a17aadd00855":[4,0,0,0,1,0,2,0,8],
 "vibration_8h.html#ae908a90a520f4c3aa7ed84f62295418c":[4,0,0,0,1,0,2,0,1],
 "vibration_8h.html#af417e6c76c86d4cebf77851dca11c23d":[4,0,0,0,1,0,2,0,7],
-"vibration_8h.html#af48079b006bba7c41aae85cce88ff3e1":[4,0,0,0,1,0,2,0,5],
-"vibration_8h_source.html":[4,0,0,0,1,0,2,0],
-"xbox__controller_8cpp.html":[4,0,0,0,0,1,1]
+"vibration_8h.html#af48079b006bba7c41aae85cce88ff3e1":[4,0,0,0,1,0,2,0,5]
 };

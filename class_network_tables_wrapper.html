@@ -96,6 +96,12 @@ $(document).ready(function(){initNavTree('class_network_tables_wrapper.html','')
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:af32e3c046c38e77afa36422eaca4b800"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_tables_wrapper.html#af32e3c046c38e77afa36422eaca4b800">SetEntryDegrees</a> (nt::NetworkTableEntry &amp;entry, const units::degree_t degrees)</td></tr>
+<tr class="memdesc:af32e3c046c38e77afa36422eaca4b800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Entry Degrees object with an angle.  <a href="class_network_tables_wrapper.html#af32e3c046c38e77afa36422eaca4b800">More...</a><br /></td></tr>
+<tr class="separator:af32e3c046c38e77afa36422eaca4b800"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9604530b3b06554ee1d00ba5ee102873"><td class="memItemLeft" align="right" valign="top">std::optional&lt; units::degree_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_tables_wrapper.html#a9604530b3b06554ee1d00ba5ee102873">GetEntryDegrees</a> (nt::NetworkTableEntry &amp;entry)</td></tr>
+<tr class="memdesc:a9604530b3b06554ee1d00ba5ee102873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the entry's angle value.  <a href="class_network_tables_wrapper.html#a9604530b3b06554ee1d00ba5ee102873">More...</a><br /></td></tr>
+<tr class="separator:a9604530b3b06554ee1d00ba5ee102873"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad46441a6676b23543f3b020b34ef9695"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_tables_wrapper.html#ad46441a6676b23543f3b020b34ef9695">NetworkTablesWrapper</a> ()</td></tr>
 <tr class="separator:ad46441a6676b23543f3b020b34ef9695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -141,6 +147,33 @@ Private Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9604530b3b06554ee1d00ba5ee102873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9604530b3b06554ee1d00ba5ee102873">&#9670;&nbsp;</a></span>GetEntryDegrees()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; units::degree_t &gt; NetworkTablesWrapper::GetEntryDegrees </td>
+          <td>(</td>
+          <td class="paramtype">nt::NetworkTableEntry &amp;&#160;</td>
+          <td class="paramname"><em>entry</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the entry's angle value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entry</td><td>Reference to the network table entry </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::optional&lt;units::degree_t&gt; Standard library optional value </dd></dl>
+
+</div>
+</div>
 <a id="ad60bb4b0b866c7a91a2819405c577610"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad60bb4b0b866c7a91a2819405c577610">&#9670;&nbsp;</a></span>InitSwerveTable()</h2>
 
@@ -165,6 +198,43 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Create &amp; configure all swerveHomes table instances. </p>
+
+</div>
+</div>
+<a id="af32e3c046c38e77afa36422eaca4b800"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af32e3c046c38e77afa36422eaca4b800">&#9670;&nbsp;</a></span>SetEntryDegrees()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkTablesWrapper::SetEntryDegrees </td>
+          <td>(</td>
+          <td class="paramtype">nt::NetworkTableEntry &amp;&#160;</td>
+          <td class="paramname"><em>entry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const units::degree_t&#160;</td>
+          <td class="paramname"><em>degrees</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Entry Degrees object with an angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryKey</td><td>The key value for the NetworkTableEntry </td></tr>
+    <tr><td class="paramname">degrees</td><td>The angle value in degrees to write to the NetworkTableEntry</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
 
 </div>
@@ -253,7 +323,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      <a class="code" href="class_network_tables_wrapper.html#ac71fbeb4076e4cd2bec6b2b2da49d24f">m_NtInstance</a>.GetTable(<a class="code" href="namespacenetwork_tables_1_1swerve_homes.html#aa350ed756bc6429793662c7117ad1b7a">networkTables::swerveHomes::tableKey</a>)</div>
-<div class="ttc" id="aclass_network_tables_wrapper_html_ac71fbeb4076e4cd2bec6b2b2da49d24f"><div class="ttname"><a href="class_network_tables_wrapper.html#ac71fbeb4076e4cd2bec6b2b2da49d24f">NetworkTablesWrapper::m_NtInstance</a></div><div class="ttdeci">nt::NetworkTableInstance m_NtInstance</div><div class="ttdef"><b>Definition:</b> network_tables_wrapper.h:26</div></div>
+<div class="ttc" id="aclass_network_tables_wrapper_html_ac71fbeb4076e4cd2bec6b2b2da49d24f"><div class="ttname"><a href="class_network_tables_wrapper.html#ac71fbeb4076e4cd2bec6b2b2da49d24f">NetworkTablesWrapper::m_NtInstance</a></div><div class="ttdeci">nt::NetworkTableInstance m_NtInstance</div><div class="ttdef"><b>Definition:</b> network_tables_wrapper.h:43</div></div>
 <div class="ttc" id="anamespacenetwork_tables_1_1swerve_homes_html_aa350ed756bc6429793662c7117ad1b7a"><div class="ttname"><a href="namespacenetwork_tables_1_1swerve_homes.html#aa350ed756bc6429793662c7117ad1b7a">networkTables::swerveHomes::tableKey</a></div><div class="ttdeci">const std::string tableKey</div><div class="ttdef"><b>Definition:</b> Constants.h:102</div></div>
 </div><!-- fragment -->
 </div>
