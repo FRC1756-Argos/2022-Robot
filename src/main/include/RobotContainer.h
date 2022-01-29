@@ -7,6 +7,8 @@
 #include <frc/Compressor.h>
 #include <frc2/command/Command.h>
 
+#include <memory>
+
 #include "Constants.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
@@ -14,6 +16,7 @@
 #include "subsystems/intake_subsystem.h"
 #include "subsystems/shooter_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
+#include "utils/network_tables_wrapper.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -29,6 +32,8 @@ class RobotContainer {
   frc2::Command* GetAutonomousCommand();
 
  private:
+  std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;
+
   // The robot's subsystems and commands are defined here...
   argos_lib::InterpolationMap<decltype(controllerMap::driveLongSpeed.front().inVal),
                               controllerMap::driveLongSpeed.size()>

@@ -6,6 +6,7 @@
 
 #include <argos_lib/config/cancoder_config.h>
 #include <argos_lib/config/falcon_config.h>
+#include <argos_lib/general/swerve_utils.h>
 #include <units/angle.h>
 #include <units/velocity.h>
 
@@ -13,9 +14,9 @@
 
 #include "Constants.h"
 
-// test commit
+using namespace argos_lib::swerve;
 
-SwerveDriveSubsystem::SwerveDriveSubsystem()
+SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable)
     : m_frontLeft(address::drive::frontLeftDrive, address::drive::frontLeftTurn, address::encoders::frontLeftEncoder)
     , m_frontRight(
           address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
@@ -63,7 +64,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem()
 // This method will be called once per scheduler run
 void SwerveDriveSubsystem::Periodic() {}
 
-// SEWRVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
+// SEWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 
 void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                        const double& sideVelocity,
@@ -90,8 +91,6 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
   auto moduleStates = m_pSwerveDriveKinematics->ToSwerveModuleStates(speeds);
 
-  /// @todo change all of these to go into a for-each in future
-
   /// @todo switch to argosLib optimize functions in time (create overload for meters per second?)
   moduleStates.at(0).Optimize(moduleStates.at(0),
                               units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()));
@@ -102,8 +101,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   moduleStates.at(3).Optimize(moduleStates.at(3),
                               units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()));
 
-  // Give module state values to motors-----------------------------------------------------------------------------------
-  /// @todo also put this in a for-each loop
+  // Give module state values to motors
 
   // FRONT LEFT
   m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
@@ -132,8 +130,59 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
   m_backLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
                         moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
+}
 
-  // END GIVE MODULE STATES TO MOTORS ------------------------------------------------------------------------------------
+void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
+  // GET CURRENT HOME POSITION AND SAVE IT
+  const SwerveModulePositions homes{
+      // GET OUR ABSOLUTE POSITION AND SET IT TO HOME (0 - 360)
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg)};
+
+  /// @todo switch to argoslib struct save
+  m_pNetworkTable->m_flHome.SetDouble(homes.FrontLeft.to<double>());
+  m_pNetworkTable->m_frHome.SetDouble(homes.FrontRight.to<double>());
+  m_pNetworkTable->m_brHome.SetDouble(homes.RearRight.to<double>());
+  m_pNetworkTable->m_blHome.SetDouble(homes.RearLeft.to<double>());
+}
+
+void SwerveDriveSubsystem::InitializeMotors() {
+  // GET SAVED VALUES
+  units::degree_t frontLeft_saved = units::make_unit<units::degree_t>(m_pNetworkTable->m_flHome.GetDouble(NAN));
+  units::degree_t frontRight_saved = units::make_unit<units::degree_t>(m_pNetworkTable->m_frHome.GetDouble(NAN));
+  units::degree_t backRight_saved = units::make_unit<units::degree_t>(m_pNetworkTable->m_brHome.GetDouble(NAN));
+  units::degree_t backLeft_saved = units::make_unit<units::degree_t>(m_pNetworkTable->m_blHome.GetDouble(NAN));
+
+  if (m_pNetworkTable->m_flHome.GetDouble(NAN) == NAN || m_pNetworkTable->m_frHome.GetDouble(NAN) == NAN ||
+      m_pNetworkTable->m_brHome.GetDouble(NAN) == NAN || m_pNetworkTable->m_blHome.GetDouble(NAN) == NAN) {
+    // PREVENT MOTION HERE OF MOTOR
+    /// @todo IF NO HOMES LISTED, SET A FLAG SO WE CAN"T DRIVE
+    return;
+  }
+
+  // GET CURRENT VALUES
+  units::degree_t frontLeft_current = units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition());
+  units::degree_t frontRight_current = units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition());
+  units::degree_t backRight_current = units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition());
+  units::degree_t backLeft_current = units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition());
+
+  // SUBTRACT SAVED FROM CURRENT
+  const double frontLeftCalibrated = frontLeft_saved.to<double>() - frontLeft_current.to<double>();
+  const double frontRightCalibrated = frontRight_saved.to<double>() - frontRight_current.to<double>();
+  const double backRightCalibrated = backRight_saved.to<double>() - backRight_current.to<double>();
+  const double backLeftCalibrated = backLeft_saved.to<double>() - backLeft_current.to<double>();
+
+  // ASSIGN DIFFERENCE TO CURRENT MOTOR RELATIVE POSITION
+  m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated, 50);
+  m_frontRight.m_encoder.SetPosition(frontRightCalibrated, 50);
+  m_backRight.m_encoder.SetPosition(backRightCalibrated, 50);
+  m_backLeft.m_encoder.SetPosition(backLeftCalibrated, 50);
 }
 
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
