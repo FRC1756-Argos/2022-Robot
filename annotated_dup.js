@@ -137,7 +137,7 @@ var annotated_dup =
     [ "IntakeSubsystem", "class_intake_subsystem.html", "class_intake_subsystem" ],
     [ "Robot", "class_robot.html", "class_robot" ],
     [ "RobotContainer", "class_robot_container.html", "class_robot_container" ],
-    [ "shooter_subsystem", "classshooter__subsystem.html", "classshooter__subsystem" ],
+    [ "ShooterSubsystem", "class_shooter_subsystem.html", "class_shooter_subsystem" ],
     [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html", "class_swerve_drive_subsystem" ],
     [ "SwerveModule", "class_swerve_module.html", "class_swerve_module" ]
 ];

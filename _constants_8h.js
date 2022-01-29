@@ -50,6 +50,7 @@ var _constants_8h =
     [ "frontRightLOffset", "_constants_8h.html#af01a799446b54095bdee32a37906994a", null ],
     [ "frontRightTurn", "_constants_8h.html#a300b75ab9e5e06749ae327af9285b476", null ],
     [ "frontRightWOffset", "_constants_8h.html#a150522343e9e7af23a9cdc10915fd584", null ],
+    [ "hoodSpeed", "_constants_8h.html#a1dacaddb9145013bc537ff3ddf742751", null ],
     [ "hookSpeed", "_constants_8h.html#a32c5da49786d39390beceeea3a735887", null ],
     [ "intake", "_constants_8h.html#a8747c76adbdb4ff6e6582a91a3bf1bac", null ],
     [ "intakeDrive", "_constants_8h.html#a09905ba0db96d230f0dee9a8342af050", null ],
@@ -70,5 +71,6 @@ var _constants_8h =
     [ "secondary", "_constants_8h.html#a0488a7ab97c7d7d3edc83663cb5615bf", null ],
     [ "shooterWheelLeft", "_constants_8h.html#a3b796d887b91768a68a3994df6faf72f", null ],
     [ "shooterWheelRight", "_constants_8h.html#a8df1fe036b101508f70754a9960de8d2", null ],
+    [ "turretSpeed", "_constants_8h.html#addfaca7b509806dafab99c4008a9d250", null ],
     [ "width", "_constants_8h.html#aff61d4016fc44a7ba5a70ad24289f702", null ]
 ];

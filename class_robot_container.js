@@ -10,7 +10,10 @@ var class_robot_container =
     [ "m_driveLatSpeedMap", "class_robot_container.html#aed3707f34d64d5966bf2e7ca95ab60d8", null ],
     [ "m_driveLonSpeedMap", "class_robot_container.html#ae784d802621537d8aea50fd7ce9bf7d7", null ],
     [ "m_driveRotSpeed", "class_robot_container.html#a8ae8be08073f8706872ffc7e7ac873af", null ],
+    [ "m_hoodSpeedMap", "class_robot_container.html#a1b6b20300d96ead5ac31340755fa78e5", null ],
     [ "m_hookSpeedMap", "class_robot_container.html#a71ffe266d0767ce2c4246260dcc397f8", null ],
     [ "m_intake", "class_robot_container.html#ac524c1d088a263a7e25bb54ba7b8dbc5", null ],
-    [ "m_swerveDrive", "class_robot_container.html#a5ab3558d41d41be5d63c928968d98f5b", null ]
+    [ "m_shooter", "class_robot_container.html#adde272abb4f22f78ef7ffe441ff3b925", null ],
+    [ "m_swerveDrive", "class_robot_container.html#a5ab3558d41d41be5d63c928968d98f5b", null ],
+    [ "m_turretSpeedMap", "class_robot_container.html#af126d7be2e2f9740af3d66c055ad5842", null ]
 ];

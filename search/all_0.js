@@ -9,7 +9,7 @@ var searchData=
   ['armready_6',['ArmReady',['../class_climber_subsystem.html#afcbc4d7fae505d119c8fe3b45a1d3471',1,'ClimberSubsystem']]],
   ['armspeed_7',['armSpeed',['../namespacecontroller_map.html#a380aa1e65ee269eb4a4b8a701befcedc',1,'controllerMap']]],
   ['armtobar_8',['ArmToBar',['../class_climber_subsystem.html#a6534faaa04904c30e52b87591e968f4d',1,'ClimberSubsystem']]],
-  ['autoaim_9',['AutoAim',['../classshooter__subsystem.html#a6940220d7824bd62efd87fbb2be6bcf8',1,'shooter_subsystem']]],
+  ['autoaim_9',['AutoAim',['../class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3',1,'ShooterSubsystem']]],
   ['autonomousinit_10',['AutonomousInit',['../class_robot.html#a2136cfc015936285218c8a8db984d6bc',1,'Robot']]],
   ['autonomousperiodic_11',['AutonomousPeriodic',['../class_robot.html#ac11143dd674e0e02fef5329e2df24830',1,'Robot']]],
   ['axis_12',['Axis',['../classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86',1,'argos_lib::XboxController']]],
