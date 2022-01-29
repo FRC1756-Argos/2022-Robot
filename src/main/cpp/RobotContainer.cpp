@@ -26,16 +26,16 @@ RobotContainer::RobotContainer()
             m_driveLonSpeedMap(
                 -m_controllers.DriverController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand)),
             m_driveLatSpeedMap(
-                -m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
+                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
             m_driveRotSpeed(
-                -m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
+                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
       },
       {&m_swerveDrive}));
   m_shooter.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_shooter.ManualAim(m_turretSpeedMap(m_controllers.OperatorController().GetX(
                                 argos_lib::XboxController::JoystickHand::kLeftHand)),
-                            m_hoodSpeedMap(m_controllers.OperatorController().GetY(
+                            m_hoodSpeedMap(-m_controllers.OperatorController().GetY(
                                 argos_lib::XboxController::JoystickHand::kLeftHand)));
       },
       {&m_shooter}));
@@ -44,7 +44,7 @@ RobotContainer::RobotContainer()
       [this] {
         m_climber.ManualControl(m_hookSpeedMap(m_controllers.OperatorController().GetX(
                                     argos_lib::XboxController::JoystickHand::kRightHand)),
-                                m_armSpeedMap(m_controllers.OperatorController().GetY(
+                                m_armSpeedMap(-m_controllers.OperatorController().GetY(
                                     argos_lib::XboxController::JoystickHand::kRightHand)));
       },
       {&m_climber}));
