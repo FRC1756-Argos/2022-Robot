@@ -8,9 +8,9 @@
 
 #include "ctre/Phoenix.h"
 
-class climber_subsystem : public frc2::SubsystemBase {
+class ClimberSubsystem : public frc2::SubsystemBase {
  public:
-  climber_subsystem();
+  ClimberSubsystem();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -22,7 +22,7 @@ class climber_subsystem : public frc2::SubsystemBase {
  *
  */
 
-  void armReady();
+  void ArmReady();
   /**
  * @brief pull hook down
  *
@@ -35,40 +35,49 @@ class climber_subsystem : public frc2::SubsystemBase {
  *
  */
 
-  void hookExtend();
+  void HookExtend();
 
   /**
  * @brief lower body for center of gravity & hook handoff
  *
  */
 
-  void lowerBody();
+  void LowerBody();
 
   /**
  * @brief move arm to against bottom of bar
  *
  */
 
-  void armToBar();
+  void ArmToBar();
 
   /**
  * @brief pull body up to stabilize body
  *
  */
 
-  void bodyUp();
+  void BodyUp();
 
   /**
  * @brief detract hooks, bring arms down
  *
  */
 
-  void startingPosition();
+  void StartingPosition();
+
+  /**
+ * @brief manually moves the hook, and/or arm
+ *
+ * @param hookSpeed moves hook up or down based on the climber a full forward input is 1.0 and a
+ *                  backwards input is -1.0
+ * @param armSpeed moves arm up or down based on the climber a full up input is 1.0 and a full down input is -1.0
+ */
+  void ManualControl(double hookSpeed, double armSpeed);
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  WPI_TalonFX m_motorliftright;
-  WPI_TalonFX m_motorliftleft;
-  WPI_TalonFX m_motormovehook;
+  WPI_TalonFX m_motorLiftRight;
+  WPI_TalonFX m_motorLiftLeft;
+  WPI_TalonFX m_motorMoveHook;
 };

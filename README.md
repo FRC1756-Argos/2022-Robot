@@ -46,7 +46,7 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | Left JS Y       | drive |
 | Right JS X      | turn |
 | Right JS Y      | unused |
-| DPad Up         | initates climb|
+| DPad Up         | initiates climb|
 | DPad Right      | unused |
 | DPad Down       | redo climb |
 | DPad Left       | retract hook |

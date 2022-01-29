@@ -5,8 +5,28 @@
 #pragma once
 #include <units/length.h>
 
+#include <string>
+
 #include "argos_lib/general/interpolation.h"
 #include "ctre/Phoenix.h"
+#include "networktables/NetworkTable.h"
+#include "networktables/NetworkTableInstance.h"
+
+namespace speeds {
+  namespace intake {
+    constexpr double beltForward = 1;
+    constexpr double beltReverse = -0.8;
+    constexpr double intakeForward = 1;
+    constexpr double intakeReverse = -1;
+  }  // namespace intake
+}  // namespace speeds
+
+namespace pneumatics {
+  namespace directions {
+    constexpr bool intakeExtend = true;
+    constexpr bool intakeRetract = false;
+  }  // namespace directions
+}  // namespace pneumatics
 
 namespace address {
   namespace drive {
@@ -77,15 +97,27 @@ namespace indexes {
   }  // namespace swerveModules
 }  // namespace indexes
 
+namespace networkTables {
+  namespace swerveHomes {
+    const std::string tableKey = "argos/swerveHomes";
+    namespace keys {
+      const std::string flHome = "flHome";
+      const std::string frHome = "frHome";
+      const std::string brHome = "brHome";
+      const std::string blHome = "blHome";
+    }  // namespace keys
+  }    // namespace swerveHomes
+}  // namespace networkTables
+
 namespace controllerMap {
   using argos_lib::InterpMapPoint;
 
-  [[maybe_unused]] constexpr std::array driveLongSpeed{InterpMapPoint{-1.0, 0.6},
-                                                       InterpMapPoint{-0.75, 0.4},
+  [[maybe_unused]] constexpr std::array driveLongSpeed{InterpMapPoint{-1.0, -0.6},
+                                                       InterpMapPoint{-0.75, -0.4},
                                                        InterpMapPoint{-0.15, 0.0},
                                                        InterpMapPoint{0.15, 0.0},
-                                                       InterpMapPoint{0.75, -0.4},
-                                                       InterpMapPoint{1.0, -0.6}};
+                                                       InterpMapPoint{0.75, 0.4},
+                                                       InterpMapPoint{1.0, 0.6}};
   [[maybe_unused]] constexpr std::array driveLatSpeed{InterpMapPoint{-1.0, -0.6},
                                                       InterpMapPoint{-0.75, -0.4},
                                                       InterpMapPoint{-0.15, 0.0},
@@ -94,6 +126,16 @@ namespace controllerMap {
                                                       InterpMapPoint{1.0, 0.6}};
   [[maybe_unused]] constexpr std::array driveRotSpeed{
       InterpMapPoint{-1.0, -1.0}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 1.0}};
+
+  [[maybe_unused]] constexpr std::array hookSpeed{
+      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.2, 0.0}, InterpMapPoint{0.2, 0.0}, InterpMapPoint{1.0, 0.6}};
+  [[maybe_unused]] constexpr std::array armSpeed{
+      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.2, 0.0}, InterpMapPoint{0.2, 0.0}, InterpMapPoint{1.0, 0.6}};
+
+  [[maybe_unused]] constexpr std::array turretSpeed{
+      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 0.6}};
+  [[maybe_unused]] constexpr std::array hoodSpeed{
+      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 0.6}};
 }  // namespace controllerMap
 
 namespace controlLoop {
@@ -254,6 +296,10 @@ namespace motorConfig {
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
+      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
     };
     struct liftLeft {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
@@ -261,6 +307,10 @@ namespace motorConfig {
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
+      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
     };
     struct moveHook {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;

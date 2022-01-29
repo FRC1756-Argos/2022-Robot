@@ -12,6 +12,7 @@
 #include <memory>
 
 #include "ctre/Phoenix.h"
+#include "utils/network_tables_wrapper.h"
 
 class SwerveModule {
  public:
@@ -33,7 +34,7 @@ class SwerveModule {
 
 class SwerveDriveSubsystem : public frc2::SubsystemBase {
  public:
-  SwerveDriveSubsystem();
+  explicit SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable);
   /**
  * @brief Main drive function for the robot
  *
@@ -42,6 +43,20 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
  * @param rotVelocity velocity in radians per second of rotation of the chasis
  */
   void SwerveDrive(const double& fwVelocity, const double& reVelocity, const double& rotVelocity);
+
+  /**
+ * @brief Home all of the modules back to zero
+ *
+ * @param angle the angle of the module in it's current state
+ */
+  void Home(const units::degree_t& angle);
+
+  /**
+   * @brief Will load saved homes, and set the encoders to reset to true angle relative to robot "front"
+   *
+   */
+  void InitializeMotors();
+
   std::unique_ptr<frc::SwerveDriveKinematics<4>> m_pSwerveDriveKinematics;
 
   /**
@@ -52,8 +67,11 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  SwerveModule m_frontLeft;
-  SwerveModule m_frontRight;
-  SwerveModule m_backRight;
-  SwerveModule m_backLeft;
+  SwerveModule m_frontLeft;   ///< Front left swerve module
+  SwerveModule m_frontRight;  ///< Front right swerve module
+  SwerveModule m_backRight;   ///< Back right swerve module
+  SwerveModule m_backLeft;    ///< Back left swerve module
+
+  // POINTER TO NETWORK TABLE CLASS OBJECT
+  std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;  ///< Instance of network table class
 };
