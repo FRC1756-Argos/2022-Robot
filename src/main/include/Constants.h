@@ -3,6 +3,7 @@
 ///            the license file in the root directory of this project.
 
 #pragma once
+#include <frc/I2C.h>
 #include <units/length.h>
 
 #include "argos_lib/general/interpolation.h"
@@ -64,6 +65,11 @@ namespace address {
   namespace solenoids {
     constexpr const char intake = 0;
   }  // namespace solenoids
+  namespace sensors {
+    constexpr const char tofSensorIntake = 1;
+    constexpr const char tofSensorShooter = 2;
+    constexpr auto colorSensor = frc::I2C::Port::kOnboard;
+  }  // namespace sensors
 
 }  // namespace address
 

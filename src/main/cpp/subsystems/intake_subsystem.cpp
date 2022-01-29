@@ -10,7 +10,10 @@
 IntakeSubsystem::IntakeSubsystem()
     : m_beltDrive(address::intake::beltDrive)
     , m_intakeDrive(address::intake::intakeDrive)
-    , m_intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake) {
+    , m_intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake)
+    , m_ballPresentIntake(address::sensors::tofSensorIntake)
+    , m_ballPresentShooter(address::sensors::tofSensorShooter)
+    , m_ballColor(address::sensors::colorSensor) {
   // MOTOR CONFIGURATION
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::beltDrive>(m_beltDrive, 50_ms);
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::intakeDrive>(m_intakeDrive, 50_ms);
@@ -18,6 +21,10 @@ IntakeSubsystem::IntakeSubsystem()
 
 // This method will be called once per scheduler run
 void IntakeSubsystem::Periodic() {}
+
+bool IntakeSubsystem::getBallPresent(frc::TimeOfFlight& ballPresentSensor) {
+  return false;
+}
 
 void IntakeSubsystem::StopIntake() {
   m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
