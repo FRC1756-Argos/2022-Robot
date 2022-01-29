@@ -171,16 +171,16 @@ void SwerveDriveSubsystem::InitializeMotors() {
   units::degree_t backLeft_current = units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition());
 
   // SUBTRACT SAVED FROM CURRENT
-  const double frontLeftCalibrated = frontLeft_saved.value() - frontLeft_current.to<double>();
-  const double frontRightCalibrated = frontRight_saved.value() - frontRight_current.to<double>();
-  const double backRightCalibrated = backRight_saved.value() - backRight_current.to<double>();
-  const double backLeftCalibrated = backLeft_saved.value() - backLeft_current.to<double>();
+  const units::degree_t frontLeftCalibrated = frontLeft_saved.value() - frontLeft_current;
+  const units::degree_t frontRightCalibrated = frontRight_saved.value() - frontRight_current;
+  const units::degree_t backRightCalibrated = backRight_saved.value() - backRight_current;
+  const units::degree_t backLeftCalibrated = backLeft_saved.value() - backLeft_current;
 
   // ASSIGN DIFFERENCE TO CURRENT MOTOR RELATIVE POSITION
-  m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated, 50);
-  m_frontRight.m_encoder.SetPosition(frontRightCalibrated, 50);
-  m_backRight.m_encoder.SetPosition(backRightCalibrated, 50);
-  m_backLeft.m_encoder.SetPosition(backLeftCalibrated, 50);
+  m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated.to<double>(), 50);
+  m_frontRight.m_encoder.SetPosition(frontRightCalibrated.to<double>(), 50);
+  m_backRight.m_encoder.SetPosition(backRightCalibrated.to<double>(), 50);
+  m_backLeft.m_encoder.SetPosition(backLeftCalibrated.to<double>(), 50);
 }
 
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
