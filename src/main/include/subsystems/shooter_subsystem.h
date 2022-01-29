@@ -8,9 +8,9 @@
 
 #include "ctre/Phoenix.h"
 
-class shooter_subsystem : public frc2::SubsystemBase {
+class ShooterSubsystem : public frc2::SubsystemBase {
  public:
-  shooter_subsystem();
+  ShooterSubsystem();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -22,16 +22,16 @@ class shooter_subsystem : public frc2::SubsystemBase {
  */
   void AutoAim();
   /**
- * @brief pressing a button shooting ball into hub
- *
- */
-  void shooting();
-
+   * @brief pressing a button to fire a ball
+   *
+   * @param ballfiringspeed the speed at which the ball shoots out of the shooter 1.0
+   */
+  void shooting(double ballfiringspeed);
   /**
   * @brief manually aiming the turret
   *
   * @param turnSpeed turns the turret left or right full right turn is 1.0 full left turn is -1.0
-  * @param hoodSpeed move the hood up or down full retract movement is 1.0 full extend movememnt is -1.0
+  * @param hoodSpeed move the hood up or down full retract movement is 1.0 full extend movemnt is -1.0
   */
   void ManualAim(double turnSpeed, double hoodSpeed);
 

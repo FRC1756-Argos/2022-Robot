@@ -26,5 +26,8 @@
   ],
   "files.associations": {
     "*.inc": "cpp"
-  }
+  },
+  "cSpell.words": [
+    "talonsrx"
+  ]
 }

@@ -12,6 +12,7 @@
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "subsystems/climber_subsystem.h"
 #include "subsystems/intake_subsystem.h"
+#include "subsystems/shooter_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
 
 /**
@@ -43,10 +44,16 @@ class RobotContainer {
   argos_lib::InterpolationMap<decltype(controllerMap::armSpeed.front().inVal), controllerMap::armSpeed.size()>
       m_armSpeedMap;
 
+  argos_lib::InterpolationMap<decltype(controllerMap::turretSpeed.front().inVal), controllerMap::turretSpeed.size()>
+      m_turretSpeedMap;
+  argos_lib::InterpolationMap<decltype(controllerMap::hoodSpeed.front().inVal), controllerMap::hoodSpeed.size()>
+      m_hoodSpeedMap;
+
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
   IntakeSubsystem m_intake;
   ClimberSubsystem m_climber;
+  ShooterSubsystem m_shooter;
 
   frc::Compressor m_compressor;
 
