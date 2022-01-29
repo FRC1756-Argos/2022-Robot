@@ -5,6 +5,8 @@
 #pragma once
 #include <units/length.h>
 
+#include <string>
+
 #include "argos_lib/general/interpolation.h"
 #include "ctre/Phoenix.h"
 #include "networktables/NetworkTable.h"
@@ -81,12 +83,12 @@ namespace indexes {
 
 namespace networkTables {
   namespace swerveHomes {
-    constexpr char* tableKey = "argos/swerveHomes";
+    const std::string tableKey = "argos/swerveHomes";
     namespace keys {
-      constexpr char* flHome = "flHome";
-      constexpr char* frHome = "frHome";
-      constexpr char* brHome = "brHome";
-      constexpr char* blHome = "blHome";
+      const std::string flHome = "flHome";
+      const std::string frHome = "frHome";
+      const std::string brHome = "brHome";
+      const std::string blHome = "blHome";
     }  // namespace keys
   }    // namespace swerveHomes
 }  // namespace networkTables
@@ -94,18 +96,18 @@ namespace networkTables {
 namespace controllerMap {
   using argos_lib::InterpMapPoint;
 
-  [[maybe_unused]] constexpr std::array driveLongSpeed{InterpMapPoint{-1.0, 0.6},
-                                                       InterpMapPoint{-0.75, 0.4},
-                                                       InterpMapPoint{-0.15, 0.0},
+  [[maybe_unused]] constexpr std::array driveLongSpeed{InterpMapPoint{1.0, 0.6},
+                                                       InterpMapPoint{0.75, 0.4},
                                                        InterpMapPoint{0.15, 0.0},
-                                                       InterpMapPoint{0.75, -0.4},
-                                                       InterpMapPoint{1.0, -0.6}};
-  [[maybe_unused]] constexpr std::array driveLatSpeed{InterpMapPoint{-1.0, -0.6},
-                                                      InterpMapPoint{-0.75, -0.4},
-                                                      InterpMapPoint{-0.15, 0.0},
+                                                       InterpMapPoint{-0.15, 0.0},
+                                                       InterpMapPoint{-0.75, -0.4},
+                                                       InterpMapPoint{-1.0, -0.6}};
+  [[maybe_unused]] constexpr std::array driveLatSpeed{InterpMapPoint{1.0, -0.6},
+                                                      InterpMapPoint{0.75, -0.4},
                                                       InterpMapPoint{0.15, 0.0},
-                                                      InterpMapPoint{0.75, 0.4},
-                                                      InterpMapPoint{1.0, 0.6}};
+                                                      InterpMapPoint{-0.15, 0.0},
+                                                      InterpMapPoint{-0.75, 0.4},
+                                                      InterpMapPoint{-1.0, 0.6}};
   [[maybe_unused]] constexpr std::array driveRotSpeed{
       InterpMapPoint{-1.0, -1.0}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 1.0}};
 }  // namespace controllerMap

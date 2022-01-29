@@ -11,17 +11,25 @@
 #include "networktables/NetworkTableInstance.h"
 
 class network_tables {
+ private:
+  /**
+   * @brief Create & configure all swerveHomes table instances
+   *
+   */
+  void InitSwerveTable();
+
  public:
+  // Meant to contain all the initialization and configuration of table's instances
   network_tables();
 
   // MASTER INSTANCE
-  nt::NetworkTableInstance table_instance;
-
+  nt::NetworkTableInstance m_NtInstance;  //< The root instance of the network tables
   // TABLES
-  std::shared_ptr<nt::NetworkTable> swerveHomes = table_instance.GetTable(networkTables::swerveHomes::tableKey);
+  std::shared_ptr<nt::NetworkTable> m_swerveHomes =
+      m_NtInstance.GetTable(networkTables::swerveHomes::tableKey);  //< Instance of swerveHomes table
   // swerveHomes ENTRIES
-  nt::NetworkTableEntry flHome = swerveHomes->GetEntry(networkTables::swerveHomes::keys::flHome);
-  nt::NetworkTableEntry frHome = swerveHomes->GetEntry(networkTables::swerveHomes::keys::frHome);
-  nt::NetworkTableEntry brHome = swerveHomes->GetEntry(networkTables::swerveHomes::keys::brHome);
-  nt::NetworkTableEntry blHome = swerveHomes->GetEntry(networkTables::swerveHomes::keys::blHome);
+  nt::NetworkTableEntry m_flHome;  //< Front left module home position
+  nt::NetworkTableEntry m_frHome;  //< Front right module home position
+  nt::NetworkTableEntry m_brHome;  //< Back right module home position
+  nt::NetworkTableEntry m_blHome;  //< Back left module home position
 };

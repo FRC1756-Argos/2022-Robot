@@ -4,4 +4,21 @@
 
 #include "subsystems/network_tables.h"
 
-network_tables::network_tables() = default;
+void network_tables::InitSwerveTable() {
+  m_flHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::flHome);
+  m_flHome.SetPersistent();
+
+  m_frHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::frHome);
+  m_frHome.SetPersistent();
+
+  m_brHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::brHome);
+  m_brHome.SetPersistent();
+
+  m_blHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::blHome);
+  m_blHome.SetPersistent();
+}
+
+network_tables::network_tables() {
+  // PUT ALL TABLE INIT FUNCTIONS HERE
+  InitSwerveTable();
+}

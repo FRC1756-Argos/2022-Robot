@@ -15,9 +15,7 @@
 
 using namespace argos_lib::swerve;
 
-// test commit
-
-SwerveDriveSubsystem::SwerveDriveSubsystem()
+SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<network_tables> networkTable)
     : m_frontLeft(address::drive::frontLeftDrive, address::drive::frontLeftTurn, address::encoders::frontLeftEncoder)
     , m_frontRight(
           address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
@@ -102,7 +100,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   moduleStates.at(3).Optimize(moduleStates.at(3),
                               units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()));
 
-  // Give module state values to motors-----------------------------------------------------------------------------------
+  // Give module state values to motors
 
   // FROMT LEFT
   m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
@@ -131,8 +129,6 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
   m_backLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
                         moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
-
-  // END GIVE MODULE STATES TO MOTORS ------------------------------------------------------------------------------------
 }
 
 void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
@@ -148,33 +144,24 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
       ConstrainAngle(
           units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg)};
 
-  NetworkTables::swerveHomes::flHome.SetDouble(homes.FrontLeft.to<double>());
-  NetworkTables::swerveHomes::flHome.SetPersistent();
-  NetworkTables::swerveHomes::frHome.SetDouble(homes.FrontRight.to<double>());
-  NetworkTables::swerveHomes::frHome.SetPersistent();
-  NetworkTables::swerveHomes::brHome.SetDouble(homes.RearRight.to<double>());
-  NetworkTables::swerveHomes::brHome.SetPersistent();
-  NetworkTables::swerveHomes::blHome.SetDouble(homes.RearLeft.to<double>());
-  NetworkTables::swerveHomes::blHome.SetPersistent();
+  /// @todo switch to argoslib struct save
+  m_NetworkTable->m_flHome.SetDouble(homes.FrontLeft.to<double>());
+  m_NetworkTable->m_frHome.SetDouble(homes.FrontRight.to<double>());
+  m_NetworkTable->m_brHome.SetDouble(homes.RearRight.to<double>());
+  m_NetworkTable->m_blHome.SetDouble(homes.RearLeft.to<double>());
 }
 
 void SwerveDriveSubsystem::InitializeMotors() {
-  // CHECK FOR NULL VALUES
-
   // GET SAVED VALUES
-  /// @todo create shorthand for converting to degrees?
-  units::degree_t frontLeft_saved =
-      units::make_unit<units::degree_t>(NetworkTables::swerveHomes::flHome.GetDouble(NAN));
-  units::degree_t frontRight_saved =
-      units::make_unit<units::degree_t>(NetworkTables::swerveHomes::frHome.GetDouble(NAN));
-  units::degree_t backRight_saved =
-      units::make_unit<units::degree_t>(NetworkTables::swerveHomes::brHome.GetDouble(NAN));
-  units::degree_t backLeft_saved = units::make_unit<units::degree_t>(NetworkTables::swerveHomes::blHome.GetDouble(NAN));
+  units::degree_t frontLeft_saved = units::make_unit<units::degree_t>(m_NetworkTable->m_flHome.GetDouble(NAN));
+  units::degree_t frontRight_saved = units::make_unit<units::degree_t>(m_NetworkTable->m_frHome.GetDouble(NAN));
+  units::degree_t backRight_saved = units::make_unit<units::degree_t>(m_NetworkTable->m_brHome.GetDouble(NAN));
+  units::degree_t backLeft_saved = units::make_unit<units::degree_t>(m_NetworkTable->m_blHome.GetDouble(NAN));
 
-  if (NetworkTables::swerveHomes::flHome.GetDouble(NAN) == NAN ||
-      NetworkTables::swerveHomes::frHome.GetDouble(NAN) == NAN ||
-      NetworkTables::swerveHomes::brHome.GetDouble(NAN) == NAN ||
-      NetworkTables::swerveHomes::blHome.GetDouble(NAN) == NAN) {
+  if (m_NetworkTable->m_flHome.GetDouble(NAN) == NAN || m_NetworkTable->m_frHome.GetDouble(NAN) == NAN ||
+      m_NetworkTable->m_brHome.GetDouble(NAN) == NAN || m_NetworkTable->m_blHome.GetDouble(NAN) == NAN) {
+    // PREVENT MOTION HERE OF MOTOR
+    /// @todo IF NO HOMES LISTED, SET A FLAG SO WE CAN"T DRIVE
     return;
   }
 
@@ -185,10 +172,10 @@ void SwerveDriveSubsystem::InitializeMotors() {
   units::degree_t backLeft_current = units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition());
 
   // SUBTRACT SAVED FROM CURRENT
-  double frontLeftCalibrated = frontLeft_saved.to<double>() - frontLeft_current.to<double>();
-  double frontRightCalibrated = frontRight_saved.to<double>() - frontRight_current.to<double>();
-  double backRightCalibrated = backRight_saved.to<double>() - backRight_current.to<double>();
-  double backLeftCalibrated = backLeft_saved.to<double>() - backLeft_current.to<double>();
+  const double frontLeftCalibrated = frontLeft_saved.to<double>() - frontLeft_current.to<double>();
+  const double frontRightCalibrated = frontRight_saved.to<double>() - frontRight_current.to<double>();
+  const double backRightCalibrated = backRight_saved.to<double>() - backRight_current.to<double>();
+  const double backLeftCalibrated = backLeft_saved.to<double>() - backLeft_current.to<double>();
 
   // ASSIGN DIFFERENCE TO CURRENT MOTOR RELATIVE POSITION
   m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated, 50);

@@ -13,6 +13,7 @@
 
 #include "argos_lib/general/swerve_utils.h"
 #include "ctre/Phoenix.h"
+#include "subsystems/network_tables.h"
 
 class SwerveModule {
  public:
@@ -34,7 +35,7 @@ class SwerveModule {
 
 class SwerveDriveSubsystem : public frc2::SubsystemBase {
  public:
-  SwerveDriveSubsystem();
+  explicit SwerveDriveSubsystem(std::shared_ptr<network_tables> networkTable);
   /**
  * @brief Main drive function for the robot
  *
@@ -71,4 +72,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   SwerveModule m_frontRight;  //< Front right swerve module
   SwerveModule m_backRight;   //< Back right swerve module
   SwerveModule m_backLeft;    //< Back left swerve module
+
+  // POINTER TO NETWORK TABLE CLASS OBJECT
+  std::shared_ptr<network_tables> m_NetworkTable;  //< Instance of network table class
 };

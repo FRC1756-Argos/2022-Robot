@@ -11,16 +11,16 @@ RobotContainer::RobotContainer()
     , m_driveLatSpeedMap(controllerMap::driveLatSpeed)
     , m_driveRotSpeed(controllerMap::driveRotSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
-    , m_swerveDrive() {
+    , m_swerveDrive(m_networkTable) {
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
             m_driveLonSpeedMap(
-                m_controllers.DriverController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand)),
+                -m_controllers.DriverController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand)),
             m_driveLatSpeedMap(
-                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
+                -m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
             m_driveRotSpeed(
-                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
+                -m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
       },
       {&m_swerveDrive}));
 

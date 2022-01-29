@@ -6,9 +6,12 @@
 
 #include <frc2/command/Command.h>
 
+#include <memory>
+
 #include "Constants.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "subsystems/network_tables.h"
 #include "subsystems/swerve_drive_subsystem.h"
 
 /**
@@ -21,6 +24,8 @@
 class RobotContainer {
  public:
   RobotContainer();
+
+  std::shared_ptr<network_tables> m_networkTable;
 
   frc2::Command* GetAutonomousCommand();
 
