@@ -75,6 +75,7 @@ var hierarchy =
     [ "motorConfig::climber::liftLeft", "structmotor_config_1_1climber_1_1lift_left.html", null ],
     [ "motorConfig::climber::liftRight", "structmotor_config_1_1climber_1_1lift_right.html", null ],
     [ "motorConfig::climber::moveHook", "structmotor_config_1_1climber_1_1move_hook.html", null ],
+    [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", null ],
     [ "RobotContainer", "class_robot_container.html", null ],
     [ "motorConfig::shooter::rotationControl", "structmotor_config_1_1shooter_1_1rotation_control.html", null ],
     [ "motorConfig::shooter::shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", null ],

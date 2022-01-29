@@ -91,8 +91,11 @@ $(document).ready(function(){initNavTree('_constants_8h.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;units/length.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="interpolation_8h_source.html">argos_lib/general/interpolation.h</a>&quot;</code><br />
 <code>#include &quot;ctre/Phoenix.h&quot;</code><br />
+<code>#include &quot;networktables/NetworkTable.h&quot;</code><br />
+<code>#include &quot;networktables/NetworkTableInstance.h&quot;</code><br />
 </div>
 <p><a href="_constants_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -164,6 +167,12 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceindexes"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceindexes.html">indexes</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceindexes_1_1swerve_modules"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceindexes_1_1swerve_modules.html">indexes::swerveModules</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacenetwork_tables"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetwork_tables.html">networkTables</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacenetwork_tables_1_1swerve_homes"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetwork_tables_1_1swerve_homes.html">networkTables::swerveHomes</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacenetwork_tables_1_1swerve_homes_1_1keys"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetwork_tables_1_1swerve_homes_1_1keys.html">networkTables::swerveHomes::keys</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecontroller_map"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontroller_map.html">controllerMap</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -276,6 +285,16 @@ Variables</h2></td></tr>
 <tr class="separator:a3bbc6a04c968b7b8cdb3733eb01f07ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afda1c6bed84d2c9a557ad2a37d86545c"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceindexes_1_1swerve_modules.html#afda1c6bed84d2c9a557ad2a37d86545c">indexes::swerveModules::backLeftIndex</a> = 3</td></tr>
 <tr class="separator:afda1c6bed84d2c9a557ad2a37d86545c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa350ed756bc6429793662c7117ad1b7a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetwork_tables_1_1swerve_homes.html#aa350ed756bc6429793662c7117ad1b7a">networkTables::swerveHomes::tableKey</a> = &quot;argos/swerveHomes&quot;</td></tr>
+<tr class="separator:aa350ed756bc6429793662c7117ad1b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03b9a7e1aedaf4c173de8b1b307e789d"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a03b9a7e1aedaf4c173de8b1b307e789d">networkTables::swerveHomes::keys::flHome</a> = &quot;flHome&quot;</td></tr>
+<tr class="separator:a03b9a7e1aedaf4c173de8b1b307e789d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0cc2e92c1145d058c495d54a86ada3e"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetwork_tables_1_1swerve_homes_1_1keys.html#ab0cc2e92c1145d058c495d54a86ada3e">networkTables::swerveHomes::keys::frHome</a> = &quot;frHome&quot;</td></tr>
+<tr class="separator:ab0cc2e92c1145d058c495d54a86ada3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ecc849d0d8ed33ee48f5443e59a4f7"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a76ecc849d0d8ed33ee48f5443e59a4f7">networkTables::swerveHomes::keys::brHome</a> = &quot;brHome&quot;</td></tr>
+<tr class="separator:a76ecc849d0d8ed33ee48f5443e59a4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14c22b907cf617733054eb5637a4e85c"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a14c22b907cf617733054eb5637a4e85c">networkTables::swerveHomes::keys::blHome</a> = &quot;blHome&quot;</td></tr>
+<tr class="separator:a14c22b907cf617733054eb5637a4e85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05bdf6f0ae15f91cb8886e99ff5b17bf"><td class="memItemLeft" align="right" valign="top">constexpr std::array&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf">controllerMap::driveLongSpeed</a></td></tr>
 <tr class="separator:a05bdf6f0ae15f91cb8886e99ff5b17bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc91dc4d2e883f10ec2433773b906162"><td class="memItemLeft" align="right" valign="top">constexpr std::array&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162">controllerMap::driveLatSpeed</a></td></tr>

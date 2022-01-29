@@ -102,11 +102,17 @@ Inheritance diagram for SwerveDriveSubsystem:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3966d1b99e83b3a311d035796a5f4581"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a3966d1b99e83b3a311d035796a5f4581">SwerveDriveSubsystem</a> ()</td></tr>
-<tr class="separator:a3966d1b99e83b3a311d035796a5f4581"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6d578b7549e45263994a638479fcb07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ad6d578b7549e45263994a638479fcb07">SwerveDriveSubsystem</a> (std::shared_ptr&lt; <a class="el" href="class_network_tables_wrapper.html">NetworkTablesWrapper</a> &gt; networkTable)</td></tr>
+<tr class="separator:ad6d578b7549e45263994a638479fcb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef051147a97ebb848a81c6773d7aeac9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#aef051147a97ebb848a81c6773d7aeac9">SwerveDrive</a> (const double &amp;fwVelocity, const double &amp;reVelocity, const double &amp;rotVelocity)</td></tr>
 <tr class="memdesc:aef051147a97ebb848a81c6773d7aeac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main drive function for the robot.  <a href="class_swerve_drive_subsystem.html#aef051147a97ebb848a81c6773d7aeac9">More...</a><br /></td></tr>
 <tr class="separator:aef051147a97ebb848a81c6773d7aeac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a002a0509339ff38f00fd6ca2e74a85f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a002a0509339ff38f00fd6ca2e74a85f0">Home</a> (const units::degree_t &amp;angle)</td></tr>
+<tr class="memdesc:a002a0509339ff38f00fd6ca2e74a85f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Home all of the modules back to zero.  <a href="class_swerve_drive_subsystem.html#a002a0509339ff38f00fd6ca2e74a85f0">More...</a><br /></td></tr>
+<tr class="separator:a002a0509339ff38f00fd6ca2e74a85f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fb9ad0c77dfe6779902653b7ae7e405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a8fb9ad0c77dfe6779902653b7ae7e405">InitializeMotors</a> ()</td></tr>
+<tr class="memdesc:a8fb9ad0c77dfe6779902653b7ae7e405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will load saved homes, and set the encoders to reset to true angle relative to robot "front".  <a href="class_swerve_drive_subsystem.html#a8fb9ad0c77dfe6779902653b7ae7e405">More...</a><br /></td></tr>
+<tr class="separator:a8fb9ad0c77dfe6779902653b7ae7e405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac11787e2a63cf67785aee01665d040ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ac11787e2a63cf67785aee01665d040ba">Periodic</a> () override</td></tr>
 <tr class="separator:ac11787e2a63cf67785aee01665d040ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -118,34 +124,96 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a17d48ca26dd0b7ea3e8e18f8560be65a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_swerve_module.html">SwerveModule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a17d48ca26dd0b7ea3e8e18f8560be65a">m_frontLeft</a></td></tr>
+<tr class="memdesc:a17d48ca26dd0b7ea3e8e18f8560be65a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Front left swerve module.  <a href="class_swerve_drive_subsystem.html#a17d48ca26dd0b7ea3e8e18f8560be65a">More...</a><br /></td></tr>
 <tr class="separator:a17d48ca26dd0b7ea3e8e18f8560be65a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb0be7d1e13ba0aeb38652f6131945c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_swerve_module.html">SwerveModule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#abb0be7d1e13ba0aeb38652f6131945c2">m_frontRight</a></td></tr>
+<tr class="memdesc:abb0be7d1e13ba0aeb38652f6131945c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Front right swerve module.  <a href="class_swerve_drive_subsystem.html#abb0be7d1e13ba0aeb38652f6131945c2">More...</a><br /></td></tr>
 <tr class="separator:abb0be7d1e13ba0aeb38652f6131945c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a120f86cc2b1cfe872573ed823d6e2e43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_swerve_module.html">SwerveModule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a120f86cc2b1cfe872573ed823d6e2e43">m_backRight</a></td></tr>
+<tr class="memdesc:a120f86cc2b1cfe872573ed823d6e2e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Back right swerve module.  <a href="class_swerve_drive_subsystem.html#a120f86cc2b1cfe872573ed823d6e2e43">More...</a><br /></td></tr>
 <tr class="separator:a120f86cc2b1cfe872573ed823d6e2e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b74616606cb8b4fdfb5c8e699e2e5fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_swerve_module.html">SwerveModule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a5b74616606cb8b4fdfb5c8e699e2e5fb">m_backLeft</a></td></tr>
+<tr class="memdesc:a5b74616606cb8b4fdfb5c8e699e2e5fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Back left swerve module.  <a href="class_swerve_drive_subsystem.html#a5b74616606cb8b4fdfb5c8e699e2e5fb">More...</a><br /></td></tr>
 <tr class="separator:a5b74616606cb8b4fdfb5c8e699e2e5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaffa9a15da4f163ea55345c90050fd1b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_network_tables_wrapper.html">NetworkTablesWrapper</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#aaffa9a15da4f163ea55345c90050fd1b">m_pNetworkTable</a></td></tr>
+<tr class="memdesc:aaffa9a15da4f163ea55345c90050fd1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of network table class.  <a href="class_swerve_drive_subsystem.html#aaffa9a15da4f163ea55345c90050fd1b">More...</a><br /></td></tr>
+<tr class="separator:aaffa9a15da4f163ea55345c90050fd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a3966d1b99e83b3a311d035796a5f4581"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3966d1b99e83b3a311d035796a5f4581">&#9670;&nbsp;</a></span>SwerveDriveSubsystem()</h2>
+<a id="ad6d578b7549e45263994a638479fcb07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6d578b7549e45263994a638479fcb07">&#9670;&nbsp;</a></span>SwerveDriveSubsystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SwerveDriveSubsystem::SwerveDriveSubsystem </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_network_tables_wrapper.html">NetworkTablesWrapper</a> &gt;&#160;</td>
+          <td class="paramname"><em>networkTable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a002a0509339ff38f00fd6ca2e74a85f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a002a0509339ff38f00fd6ca2e74a85f0">&#9670;&nbsp;</a></span>Home()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SwerveDriveSubsystem::SwerveDriveSubsystem </td>
+          <td class="memname">void SwerveDriveSubsystem::Home </td>
+          <td>(</td>
+          <td class="paramtype">const units::degree_t &amp;&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Home all of the modules back to zero. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>the angle of the module in it's current state </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>switch to argoslib struct save </dd></dl>
+
+</div>
+</div>
+<a id="a8fb9ad0c77dfe6779902653b7ae7e405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fb9ad0c77dfe6779902653b7ae7e405">&#9670;&nbsp;</a></span>InitializeMotors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwerveDriveSubsystem::InitializeMotors </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
+
+<p>Will load saved homes, and set the encoders to reset to true angle relative to robot "front". </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>IF NO HOMES LISTED, SET A FLAG SO WE CAN"T DRIVE </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac11787e2a63cf67785aee01665d040ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac11787e2a63cf67785aee01665d040ba">&#9670;&nbsp;</a></span>Periodic()</h2>
 
@@ -213,9 +281,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>change all of these to go into a for-each in future </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>switch to argosLib optimize functions in time (create overload for meters per second?) </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>also put this in a for-each loop </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>switch to argosLib optimize functions in time (create overload for meters per second?) </dd></dl>
 
 </div>
 </div>
@@ -240,6 +306,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Back left swerve module. </p>
+
 </div>
 </div>
 <a id="a120f86cc2b1cfe872573ed823d6e2e43"></a>
@@ -261,6 +329,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Back right swerve module. </p>
 
 </div>
 </div>
@@ -284,6 +354,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Front left swerve module. </p>
+
 </div>
 </div>
 <a id="abb0be7d1e13ba0aeb38652f6131945c2"></a>
@@ -305,6 +377,32 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Front right swerve module. </p>
+
+</div>
+</div>
+<a id="aaffa9a15da4f163ea55345c90050fd1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaffa9a15da4f163ea55345c90050fd1b">&#9670;&nbsp;</a></span>m_pNetworkTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_network_tables_wrapper.html">NetworkTablesWrapper</a>&gt; SwerveDriveSubsystem::m_pNetworkTable</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Instance of network table class. </p>
 
 </div>
 </div>

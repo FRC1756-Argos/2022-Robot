@@ -135,6 +135,7 @@ var annotated_dup =
     ] ],
     [ "ClimberSubsystem", "class_climber_subsystem.html", "class_climber_subsystem" ],
     [ "IntakeSubsystem", "class_intake_subsystem.html", "class_intake_subsystem" ],
+    [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", "class_network_tables_wrapper" ],
     [ "Robot", "class_robot.html", "class_robot" ],
     [ "RobotContainer", "class_robot_container.html", "class_robot_container" ],
     [ "ShooterSubsystem", "class_shooter_subsystem.html", "class_shooter_subsystem" ],

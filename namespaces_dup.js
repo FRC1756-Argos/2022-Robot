@@ -15,6 +15,7 @@ var namespaces_dup =
     [ "indexes", "namespaceindexes.html", "namespaceindexes" ],
     [ "measure_up", "namespacemeasure__up.html", "namespacemeasure__up" ],
     [ "motorConfig", "namespacemotor_config.html", "namespacemotor_config" ],
+    [ "networkTables", "namespacenetwork_tables.html", "namespacenetwork_tables" ],
     [ "pneumatics", "namespacepneumatics.html", "namespacepneumatics" ],
     [ "speeds", "namespacespeeds.html", "namespacespeeds" ]
 ];
