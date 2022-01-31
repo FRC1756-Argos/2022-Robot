@@ -5,12 +5,12 @@
 #include "utils/network_tables_wrapper.h"
 
 // HELPER FUNCTIONS
-void NetworkTablesWrapper::SetEntryDegrees(nt::NetworkTableEntry& entry, const units::degree_t degrees) {
-  entry.SetDouble(degrees.to<double>());
+void NetworkTablesWrapper::SetEntryDegrees(const std::string& key, const units::degree_t degrees) {
+  m_swerveHomes->PutNumber(key, degrees.to<double>());
 }
 
-std::optional<units::degree_t> NetworkTablesWrapper::GetEntryDegrees(nt::NetworkTableEntry& entry) {
-  double savedAngle = entry.GetDouble(NAN);
+std::optional<units::degree_t> NetworkTablesWrapper::GetEntryDegrees(const std::string& key) {
+  double savedAngle = m_swerveHomes->GetNumber(key, NAN);
   if (savedAngle == NAN) {
     return std::nullopt;
   } else {
@@ -19,6 +19,7 @@ std::optional<units::degree_t> NetworkTablesWrapper::GetEntryDegrees(nt::Network
 }
 
 void NetworkTablesWrapper::InitSwerveTable() {
+  std::printf("%d\n", __LINE__);
   m_flHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::flHome);
   m_flHome.SetPersistent();
 
@@ -30,9 +31,11 @@ void NetworkTablesWrapper::InitSwerveTable() {
 
   m_blHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::blHome);
   m_blHome.SetPersistent();
+  std::printf("%d\n", __LINE__);
 }
 
 NetworkTablesWrapper::NetworkTablesWrapper() {
+  m_swerveHomes = m_NtInstance.GetTable(networkTables::swerveHomes::tableKey);
   // PUT ALL TABLE INIT FUNCTIONS HERE
   InitSwerveTable();
 }

@@ -21,22 +21,26 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
     , m_frontRight(
           address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
     , m_backRight(address::drive::backRightDrive, address::drive::backRightTurn, address::encoders::backRightEncoder)
-    , m_backLeft(address::drive::backLeftDrive, address::drive::backLeftTurn, address::encoders::backLeftEncoder) {
+    , m_backLeft(address::drive::backLeftDrive, address::drive::backLeftTurn, address::encoders::backLeftEncoder)
+    , m_pNetworkTable(networkTable) {
   // create our translation objects
 
   // TURN MOTORS CONFIG
+  std::printf("Configure turn\n");
   argos_lib::falcon_config::FalconConfig<motorConfig::drive::frontLeftTurn>(m_frontLeft.m_turn, 100_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::drive::frontRightTurn>(m_frontRight.m_turn, 100_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::drive::backRightTurn>(m_backRight.m_turn, 100_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_turn, 100_ms);
 
   // DRIVE MOTOR CONFIGS
+  std::printf("Configure drive\n");
   argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_frontLeft.m_drive, 100_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_frontRight.m_drive, 100_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_backLeft.m_drive, 100_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_backRight.m_drive, 100_ms);
 
   // CAN ENCODER CONFIG
+  std::printf("Configure encoders\n");
   argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::frontLeftTurn>(m_frontLeft.m_encoder, 100_ms);
   argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::frontRightTurn>(m_frontRight.m_encoder, 100_ms);
   argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backRightTurn>(m_backRight.m_encoder, 100_ms);
@@ -59,6 +63,9 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 
   m_pSwerveDriveKinematics = std::make_unique<frc::SwerveDriveKinematics<4>>(
       frontLeftCenterOffset, frontRightCenterOffset, backRightCenterOffset, backLeftCenterOffset);
+
+  // INITIALIZE MOTOR ANGLES FROM VALUES
+  InitializeMotors();
 }
 
 // This method will be called once per scheduler run
@@ -145,18 +152,24 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
       ConstrainAngle(
           units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg)};
 
-  m_pNetworkTable->SetEntryDegrees(m_pNetworkTable->m_flHome, homes.FrontLeft);
-  m_pNetworkTable->SetEntryDegrees(m_pNetworkTable->m_frHome, homes.FrontRight);
-  m_pNetworkTable->SetEntryDegrees(m_pNetworkTable->m_brHome, homes.RearRight);
-  m_pNetworkTable->SetEntryDegrees(m_pNetworkTable->m_blHome, homes.RearLeft);
+  m_pNetworkTable->SetEntryDegrees(networkTables::swerveHomes::keys::flHome, homes.FrontLeft);
+  m_pNetworkTable->SetEntryDegrees(networkTables::swerveHomes::keys::frHome, homes.FrontRight);
+  m_pNetworkTable->SetEntryDegrees(networkTables::swerveHomes::keys::brHome, homes.RearRight);
+  m_pNetworkTable->SetEntryDegrees(networkTables::swerveHomes::keys::blHome, homes.RearLeft);
 }
 
 void SwerveDriveSubsystem::InitializeMotors() {
+  std::printf("%d\n", __LINE__);
   // GET SAVED VALUES
-  std::optional<units::degree_t> frontLeft_saved = m_pNetworkTable->GetEntryDegrees(m_pNetworkTable->m_flHome);
-  std::optional<units::degree_t> frontRight_saved = m_pNetworkTable->GetEntryDegrees(m_pNetworkTable->m_frHome);
-  std::optional<units::degree_t> backRight_saved = m_pNetworkTable->GetEntryDegrees(m_pNetworkTable->m_brHome);
-  std::optional<units::degree_t> backLeft_saved = m_pNetworkTable->GetEntryDegrees(m_pNetworkTable->m_blHome);
+  std::optional<units::degree_t> frontLeft_saved =
+      m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::flHome);
+  std::optional<units::degree_t> frontRight_saved =
+      m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::frHome);
+  std::optional<units::degree_t> backRight_saved =
+      m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::brHome);
+  std::optional<units::degree_t> backLeft_saved =
+      m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::blHome);
+  std::printf("%d\n", __LINE__);
 
   if (!frontLeft_saved || !frontRight_saved || !backRight_saved || !backLeft_saved) {
     // PREVENT MOTION HERE OF MOTOR

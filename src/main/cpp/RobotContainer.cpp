@@ -18,8 +18,9 @@ RobotContainer::RobotContainer()
     , m_hoodSpeedMap(controllerMap::hoodSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable)
-    , m_compressor(frc::PneumaticsModuleType::REVPH) {
-  m_compressor.EnableDigital();
+//, m_compressor(frc::PneumaticsModuleType::REVPH)
+{
+  // m_compressor.EnableDigital();
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
@@ -52,12 +53,20 @@ RobotContainer::RobotContainer()
 }
 
 void RobotContainer::ConfigureButtonBindings() {
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kX, {1500_ms, 0_ms});
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kA, {1500_ms, 0_ms});
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
   // Configure your button bindings here
   auto intake = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
   }});
   auto outtake = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperRight);
+  }});
+  auto homeDrive = (frc2::Trigger{[this]() {
+    // NOTE: HAD TO REMOVE "COMPLEX" /**/ STYLE COMMENT (WPIFORMAT ERROR ON COMMIT ATTEMPT) THIS CURRENT LINE REFLECTS TESTING, USING A SINGLE BUTTON
+    // BE SURE TO CHANGE BACK WHEN NECESSARY
+    return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kA);
   }});
   auto nottake = !intake && !outtake;
   intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
@@ -69,6 +78,13 @@ void RobotContainer::ConfigureButtonBindings() {
   }});
   shooter.WhenActive([this]() { m_shooter.shooting(0.5); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_shooter.shooting(0); }, {&m_shooter});
+
+  homeDrive.WhenActive(
+      [this]() {
+        std::printf("%d\n", __LINE__);
+        m_swerveDrive.Home(0_deg);
+      },
+      {&m_swerveDrive});
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

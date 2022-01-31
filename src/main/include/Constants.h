@@ -99,12 +99,12 @@ namespace indexes {
 
 namespace networkTables {
   namespace swerveHomes {
-    const std::string tableKey = "argos/swerveHomes";
+    const std::string tableKey = "argos";
     namespace keys {
-      const std::string flHome = "flHome";
-      const std::string frHome = "frHome";
-      const std::string brHome = "brHome";
-      const std::string blHome = "blHome";
+      const std::string flHome = "swerveHomes/flHome";
+      const std::string frHome = "swerveHomes/frHome";
+      const std::string brHome = "swerveHomes/brHome";
+      const std::string blHome = "swerveHomes/blHome";
     }  // namespace keys
   }    // namespace swerveHomes
 }  // namespace networkTables
@@ -241,7 +241,7 @@ namespace motorConfig {
     };
 
     struct shooterWheelRight {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
@@ -257,7 +257,7 @@ namespace motorConfig {
     };
 
     struct rotationControl {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
@@ -296,9 +296,9 @@ namespace motorConfig {
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
-      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
     };
     struct liftLeft {
@@ -307,9 +307,9 @@ namespace motorConfig {
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
-      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
     };
     struct moveHook {

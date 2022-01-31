@@ -53,5 +53,5 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   WPI_TalonSRX m_intakeDrive;  ///< Motor for the intake rollers (Positive is in, Negative is out)
 
   // SOLENOIDS
-  frc::Solenoid m_intakeDeploy;  ///< Solenoid for intake actuation (True is extend, False is retract)
+  // frc::Solenoid m_intakeDeploy;  ///< Solenoid for intake actuation (True is extend, False is retract)
 };
