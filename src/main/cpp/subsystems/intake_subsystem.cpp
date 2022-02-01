@@ -20,10 +20,31 @@ IntakeSubsystem::IntakeSubsystem()
 }
 
 // This method will be called once per scheduler run
-void IntakeSubsystem::Periodic() {}
+void IntakeSubsystem::Periodic() {
+  if (WantToShoot() == true) {
+    m_beltDrive.Set(speeds::intake::beltForward);
+  } else if (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == false) {
+    m_beltDrive.Set(speeds::intake::beltReverse);  //< Ball is ejected when opposite color and intake is active
+  } else if (getBallPresent(m_ballPresentShooter) == true) {
+    m_beltDrive.Set(0);
+  } else if (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == true &&
+             getBallPresent(m_ballPresentShooter) == false) {
+    m_beltDrive.Set(speeds::intake::beltForward);
+  } else {
+    m_beltDrive.Set(0);
+  }
+}
+
+bool IntakeSubsystem::WantToShoot() {
+  return false;  //< Replace when integrated with shooter
+}
 
 bool IntakeSubsystem::getBallPresent(frc::TimeOfFlight& ballPresentSensor) {
-  return false;
+  return false;  //< Replace when sensors are integrated
+}
+
+bool IntakeSubsystem::getIsBallTeamColor() {
+  return false;  //< Replace when sensors are integrated
 }
 
 void IntakeSubsystem::StopIntake() {
@@ -33,15 +54,20 @@ void IntakeSubsystem::StopIntake() {
 }
 
 void IntakeSubsystem::Intake() {
-  m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
-  m_intakeDrive.Set(speeds::intake::intakeForward);
-  m_beltDrive.Set(speeds::intake::beltForward);
+  if (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == false) {
+    m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
+    m_intakeDrive.Set(speeds::intake::intakeReverse);
+  } else {
+    m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
+    m_intakeDrive.Set(speeds::intake::intakeForward);
+    m_beltDrive.Set(speeds::intake::beltForward);
+  }
 }
 
 void IntakeSubsystem::DumpBall() {
   m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
   m_intakeDrive.Set(speeds::intake::intakeReverse);
-  m_beltDrive.Set(-speeds::intake::beltReverse);
+  m_beltDrive.Set(speeds::intake::beltReverse);
 }
 
 void IntakeSubsystem::ElevatorCycle(bool direction, bool cycleLength) {}

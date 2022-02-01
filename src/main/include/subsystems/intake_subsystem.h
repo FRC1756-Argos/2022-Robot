@@ -33,7 +33,15 @@ class IntakeSubsystem : public frc2::SubsystemBase {
    * @return true - Ball is team color
    * @return false - Ball is not team color
    */
-  bool getIsBallTeamColor(frc::TMD37003);
+  bool getIsBallTeamColor();
+
+  /**
+ * @brief Placeholder to determine when shooter is active for purposes of logic
+ *
+ * @return true - Shooting is active
+ * @return false - Shooting is inactive
+ */
+  bool WantToShoot();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
