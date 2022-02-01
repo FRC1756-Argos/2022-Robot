@@ -28,9 +28,10 @@ RobotContainer::RobotContainer()
             m_driveLonSpeedMap(
                 -m_controllers.DriverController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand)),
             m_driveLatSpeedMap(
-                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
+                -m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
             m_driveRotSpeed(
-                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
+                // INVERTED FOR TESTING MAKE SURE TO CORRECT IN REFERENCE FRAME CONVERSION
+                -m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
 
         // DEBUG STUFF
         frc::SmartDashboard::PutNumber(
@@ -85,7 +86,7 @@ void RobotContainer::ConfigureButtonBindings() {
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
-  shooter.WhenActive([this]() { m_shooter.shooting(0.5); }, {&m_shooter});
+  shooter.WhenActive([this]() { m_shooter.shooting(0.40); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_shooter.shooting(0); }, {&m_shooter});
 
   homeDrive.WhenActive(

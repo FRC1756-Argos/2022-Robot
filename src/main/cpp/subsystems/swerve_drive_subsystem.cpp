@@ -49,16 +49,17 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 
   // TRANSLATION2D OBJECTS DESCRIBING LOCATION OF SWERVE MODULES
   frc::Translation2d frontLeftCenterOffset(
-      -1 * measure_up::chassis::width / 2 + measure_up::swerve_offsets::frontLeftWOffset,
-      measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontLeftLOffset);
+      measure_up::chassis::length / 2 + measure_up::swerve_offsets::frontLeftWOffset,
+      measure_up::chassis::width / 2 - measure_up::swerve_offsets::frontLeftLOffset);
   frc::Translation2d frontRightCenterOffset(
-      measure_up::chassis::width / 2 - measure_up::swerve_offsets::frontRightWOffset,
-      measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontRightLOffset);
+      measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontRightWOffset,
+      -measure_up::chassis::width / 2 - measure_up::swerve_offsets::frontRightLOffset);
   frc::Translation2d backRightCenterOffset(
-      measure_up::chassis::width / 2 - measure_up::swerve_offsets::backRightWOffset,
-      -measure_up::chassis::length / 2 + measure_up::swerve_offsets::backRightLOffset);
-  frc::Translation2d backLeftCenterOffset(-measure_up::chassis::width / 2 + measure_up::swerve_offsets::backLeftWOffset,
-                                          measure_up::chassis::width / 2 - measure_up::swerve_offsets::backLeftLOffset
+      -measure_up::chassis::length / 2 - measure_up::swerve_offsets::backRightWOffset,
+      -measure_up::chassis::width / 2 + measure_up::swerve_offsets::backRightLOffset);
+  frc::Translation2d backLeftCenterOffset(
+      -measure_up::chassis::length / 2 + measure_up::swerve_offsets::backLeftWOffset,
+      measure_up::chassis::width / 2 - measure_up::swerve_offsets::backLeftLOffset
 
   );
 
@@ -117,32 +118,36 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   // Give module state values to motors
 
   // FRONT LEFT
-  m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+  m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
                           moduleStates.at(indexes::swerveModules::frontLeftIndex).speed.to<double>());
 
-  m_frontLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-                         moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees().to<double>());
+  m_frontLeft.m_turn.Set(
+      ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+      (moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees() * (4096 / 360)).to<double>());
 
   // FRONT RIGHT
-  m_frontRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+  m_frontRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
                            moduleStates.at(indexes::swerveModules::frontRightIndex).speed.to<double>());
 
-  m_frontRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-                          moduleStates.at(indexes::swerveModules::frontRightIndex).angle.Degrees().to<double>());
+  m_frontRight.m_turn.Set(
+      ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+      (moduleStates.at(indexes::swerveModules::frontRightIndex).angle.Degrees() * (4096 / 360)).to<double>());
 
   // BACK RIGHT
-  m_backRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+  m_backRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
                           moduleStates.at(indexes::swerveModules::backRightIndex).speed.to<double>());
 
-  m_backRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-                         moduleStates.at(indexes::swerveModules::backRightIndex).angle.Degrees().to<double>());
+  m_backRight.m_turn.Set(
+      ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+      (moduleStates.at(indexes::swerveModules::backRightIndex).angle.Degrees() * (4096 / 360)).to<double>());
 
   // BACK LEFT
-  m_backLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+  m_backLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
                          moduleStates.at(indexes::swerveModules::backLeftIndex).speed.to<double>());
 
-  m_backLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-                        moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
+  m_backLeft.m_turn.Set(
+      ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+      (moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees() * (4096 / 360)).to<double>());
 
   // DEBUG STUFF
   frc::SmartDashboard::PutNumber("(DRIVETRAIN) FL speed",
@@ -162,7 +167,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
   frc::SmartDashboard::PutNumber("(DRIVETRAIN) BL speed",
                                  moduleStates.at(indexes::swerveModules::backLeftIndex).speed.to<double>());
-  frc::SmartDashboard::PutNumber("(DRIVLeftIndex turn",
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) BL turn",
                                  moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
 }
 

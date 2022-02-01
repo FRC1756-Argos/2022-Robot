@@ -20,21 +20,21 @@ std::optional<units::degree_t> NetworkTablesWrapper::GetEntryDegrees(const std::
 
 void NetworkTablesWrapper::InitSwerveTable() {
   std::printf("%d\n", __LINE__);
-  m_flHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::flHome);
   m_flHome.SetPersistent();
-
-  m_frHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::frHome);
   m_frHome.SetPersistent();
-
-  m_brHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::brHome);
   m_brHome.SetPersistent();
-
-  m_blHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::blHome);
   m_blHome.SetPersistent();
+
+  m_flHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::flHome);
+  m_frHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::frHome);
+  m_brHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::brHome);
+  m_blHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::blHome);
+
   std::printf("%d\n", __LINE__);
 }
 
 NetworkTablesWrapper::NetworkTablesWrapper() {
+  std::printf("%d\n", __LINE__);
   m_NtInstance = nt::NetworkTableInstance::GetDefault();
   m_swerveHomes = m_NtInstance.GetTable(networkTables::swerveHomes::tableKey);
   // PUT ALL TABLE INIT FUNCTIONS HERE
