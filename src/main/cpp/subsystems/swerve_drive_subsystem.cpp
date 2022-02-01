@@ -7,6 +7,7 @@
 #include <argos_lib/config/cancoder_config.h>
 #include <argos_lib/config/falcon_config.h>
 #include <argos_lib/general/swerve_utils.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 #include <units/angle.h>
 #include <units/velocity.h>
 
@@ -80,6 +81,11 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                             units::make_unit<units::velocity::meters_per_second_t>(sideVelocity),
                             units::make_unit<units::angular_velocity::radians_per_second_t>(rotVelocity)};
 
+  // DEBUG STUFF
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) fwVelocity", fwVelocity);
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) sideVelocity", sideVelocity);
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) rotVelocity", rotVelocity);
+
   // IF SPEEDS ZERO, SET MOTORS TO ZERO AND RETURN
   if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
     m_frontRight.m_drive.Set(0);
@@ -137,6 +143,27 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
   m_backLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
                         moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
+
+  // DEBUG STUFF
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) FL speed",
+                                 moduleStates.at(indexes::swerveModules::frontLeftIndex).speed.to<double>());
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) FL turn",
+                                 moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees().to<double>());
+
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) FR speed",
+                                 moduleStates.at(indexes::swerveModules::frontRightIndex).speed.to<double>());
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) FR turn",
+                                 moduleStates.at(indexes::swerveModules::frontRightIndex).angle.Degrees().to<double>());
+
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) BR speed",
+                                 moduleStates.at(indexes::swerveModules::backRightIndex).speed.to<double>());
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) BR turn",
+                                 moduleStates.at(indexes::swerveModules::backRightIndex).angle.Degrees().to<double>());
+
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) BL speed",
+                                 moduleStates.at(indexes::swerveModules::backLeftIndex).speed.to<double>());
+  frc::SmartDashboard::PutNumber("(DRIVLeftIndex turn",
+                                 moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
 }
 
 void SwerveDriveSubsystem::Home(const units::degree_t& angle) {

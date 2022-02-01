@@ -35,6 +35,7 @@ void NetworkTablesWrapper::InitSwerveTable() {
 }
 
 NetworkTablesWrapper::NetworkTablesWrapper() {
+  m_NtInstance = nt::NetworkTableInstance::GetDefault();
   m_swerveHomes = m_NtInstance.GetTable(networkTables::swerveHomes::tableKey);
   // PUT ALL TABLE INIT FUNCTIONS HERE
   InitSwerveTable();

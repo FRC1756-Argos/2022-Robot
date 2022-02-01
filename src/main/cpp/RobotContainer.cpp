@@ -4,6 +4,7 @@
 
 #include "RobotContainer.h"
 
+#include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
 
@@ -30,6 +31,14 @@ RobotContainer::RobotContainer()
                 m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
             m_driveRotSpeed(
                 m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
+
+        // DEBUG STUFF
+        frc::SmartDashboard::PutNumber(
+            "(DRIVER) Joystick Left Y",
+            m_controllers.DriverController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand));
+        frc::SmartDashboard::PutNumber(
+            "(DRIVER) Joystick Left X",
+            m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand));
       },
       {&m_swerveDrive}));
   m_shooter.SetDefaultCommand(frc2::RunCommand(
