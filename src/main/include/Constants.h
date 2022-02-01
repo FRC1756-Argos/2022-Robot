@@ -252,7 +252,7 @@ namespace motorConfig {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
     };
 
