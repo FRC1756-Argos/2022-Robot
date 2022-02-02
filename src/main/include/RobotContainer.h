@@ -60,7 +60,7 @@ class RobotContainer {
   ClimberSubsystem m_climber;
   ShooterSubsystem m_shooter;
 
-  //   frc::Compressor m_compressor;
+  frc::Compressor m_compressor;
 
   void ConfigureButtonBindings();
 };

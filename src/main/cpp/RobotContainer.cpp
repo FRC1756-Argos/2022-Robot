@@ -19,8 +19,7 @@ RobotContainer::RobotContainer()
     , m_hoodSpeedMap(controllerMap::hoodSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable)
-//, m_compressor(frc::PneumaticsModuleType::REVPH)
-{
+    , m_compressor(frc::PneumaticsModuleType::REVPH) {
   // m_compressor.EnableDigital();
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
@@ -92,7 +91,8 @@ void RobotContainer::ConfigureButtonBindings() {
   homeDrive.WhenActive(
       [this]() {
         std::printf("%d\n", __LINE__);
-        m_swerveDrive.Home(0_deg);
+        // m_swerveDrive.HomeToNetworkTables(0_deg);
+        m_swerveDrive.HomeToFS(0_deg);
       },
       {&m_swerveDrive});
 }

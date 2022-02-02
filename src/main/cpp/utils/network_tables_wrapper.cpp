@@ -20,15 +20,15 @@ std::optional<units::degree_t> NetworkTablesWrapper::GetEntryDegrees(const std::
 
 void NetworkTablesWrapper::InitSwerveTable() {
   std::printf("%d\n", __LINE__);
-  m_flHome.SetPersistent();
-  m_frHome.SetPersistent();
-  m_brHome.SetPersistent();
-  m_blHome.SetPersistent();
+  m_swerveHomes->SetPersistent(networkTables::swerveHomes::keys::flHomeFullPath);
+  m_swerveHomes->SetPersistent(networkTables::swerveHomes::keys::frHomeFullPath);
+  m_swerveHomes->SetPersistent(networkTables::swerveHomes::keys::brHomeFullPath);
+  m_swerveHomes->SetPersistent(networkTables::swerveHomes::keys::blHomeFullPath);
 
-  m_flHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::flHome);
-  m_frHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::frHome);
-  m_brHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::brHome);
-  m_blHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::blHome);
+  // m_flHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::flHome);
+  // m_frHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::frHome);
+  // m_brHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::brHome);
+  // m_blHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::blHome);
 
   std::printf("%d\n", __LINE__);
 }

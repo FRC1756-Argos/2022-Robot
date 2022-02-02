@@ -12,6 +12,7 @@
 #include <memory>
 
 #include "ctre/Phoenix.h"
+#include "utils/file_system_homing_storage.h"
 #include "utils/network_tables_wrapper.h"
 
 class SwerveModule {
@@ -45,17 +46,29 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   void SwerveDrive(const double& fwVelocity, const double& reVelocity, const double& rotVelocity);
 
   /**
- * @brief Home all of the modules back to zero
+ * @brief HomeToNetworkTables all of the modules back to zero
  *
  * @param angle the angle of the module in it's current state
  */
-  void Home(const units::degree_t& angle);
+  void HomeToNetworkTables(const units::degree_t& angle);
 
   /**
    * @brief Will load saved homes, and set the encoders to reset to true angle relative to robot "front"
    *
    */
-  void InitializeMotors();
+  void InitializeMotorsFromNetworkTables();
+
+  /**
+   * @brief Save homes to a file
+   *
+   */
+  void HomeToFS(const units::degree_t& angle);
+
+  /**
+   * @brief Initialize motors from saved file
+   *
+   */
+  void InitializeMotorsFromFS();
 
   std::unique_ptr<frc::SwerveDriveKinematics<4>> m_pSwerveDriveKinematics;
 
@@ -74,4 +87,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
 
   // POINTER TO NETWORK TABLE CLASS OBJECT
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;  ///< Instance of network table class
+
+  // std::FILE SYSTEM HOMING STORAGE
+  FileSystemHomingStorage m_fsStorage;
 };

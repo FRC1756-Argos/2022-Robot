@@ -97,14 +97,23 @@ namespace indexes {
   }  // namespace swerveModules
 }  // namespace indexes
 
+namespace paths {
+  const std::string swerveHomesPath = "homes/swerveHomes";
+}  // namespace paths
+
 namespace networkTables {
   namespace swerveHomes {
-    const std::string tableKey = "argos";
+    const std::string tableKey = "Argos";
     namespace keys {
       const std::string flHome = "swerveHomes/flHome";
       const std::string frHome = "swerveHomes/frHome";
       const std::string brHome = "swerveHomes/brHome";
       const std::string blHome = "swerveHomes/blHome";
+
+      const std::string flHomeFullPath = "swerveHomes/flHome";
+      const std::string frHomeFullPath = "swerveHomes/frHome";
+      const std::string brHomeFullPath = "swerveHomes/brHome";
+      const std::string blHomeFullPath = "swerveHomes/blHome";
     }  // namespace keys
   }    // namespace swerveHomes
 }  // namespace networkTables

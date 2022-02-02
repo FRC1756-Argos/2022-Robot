@@ -23,7 +23,8 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
           address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
     , m_backRight(address::drive::backRightDrive, address::drive::backRightTurn, address::encoders::backRightEncoder)
     , m_backLeft(address::drive::backLeftDrive, address::drive::backLeftTurn, address::encoders::backLeftEncoder)
-    , m_pNetworkTable(networkTable) {
+    , m_pNetworkTable(networkTable)
+    , m_fsStorage(paths::swerveHomesPath) {
   // create our translation objects
 
   // TURN MOTORS CONFIG
@@ -66,14 +67,17 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
   m_pSwerveDriveKinematics = std::make_unique<frc::SwerveDriveKinematics<4>>(
       frontLeftCenterOffset, frontRightCenterOffset, backRightCenterOffset, backLeftCenterOffset);
 
-  // INITIALIZE MOTOR ANGLES FROM VALUES
-  InitializeMotors();
+  // INITIALIZE MOTOR ANGLES FROM VALUES - NETWORKTABLES
+  //   InitializeMotorsFromNetworkTables();
+
+  // INITIALIZE MOTORS FROM std::FILE SYSTEM
+  InitializeMotorsFromFS();
 }
 
 // This method will be called once per scheduler run
 void SwerveDriveSubsystem::Periodic() {}
 
-// SEWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
+// SWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 
 void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                        const double& sideVelocity,
@@ -171,7 +175,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                  moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
 }
 
-void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
+void SwerveDriveSubsystem::HomeToNetworkTables(const units::degree_t& angle) {
   // GET CURRENT HOME POSITION AND SAVE IT
   const SwerveModulePositions homes{
       // GET OUR ABSOLUTE POSITION AND SET IT TO HOME (0 - 360)
@@ -190,7 +194,21 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   m_pNetworkTable->SetEntryDegrees(networkTables::swerveHomes::keys::blHome, homes.RearLeft);
 }
 
-void SwerveDriveSubsystem::InitializeMotors() {
+void SwerveDriveSubsystem::HomeToFS(const units::degree_t& angle) {
+  const argos_lib::swerve::SwerveModulePositions homes{
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
+      ConstrainAngle(
+          units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg)};
+
+  m_fsStorage.Save(homes);
+}
+
+void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables() {
   std::printf("%d\n", __LINE__);
   // GET SAVED VALUES
   std::optional<units::degree_t> frontLeft_saved =
@@ -220,6 +238,34 @@ void SwerveDriveSubsystem::InitializeMotors() {
   const units::degree_t frontRightCalibrated = frontRight_saved.value() - frontRight_current;
   const units::degree_t backRightCalibrated = backRight_saved.value() - backRight_current;
   const units::degree_t backLeftCalibrated = backLeft_saved.value() - backLeft_current;
+
+  // ASSIGN DIFFERENCE TO CURRENT MOTOR RELATIVE POSITION
+  m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated.to<double>(), 50);
+  m_frontRight.m_encoder.SetPosition(frontRightCalibrated.to<double>(), 50);
+  m_backRight.m_encoder.SetPosition(backRightCalibrated.to<double>(), 50);
+  m_backLeft.m_encoder.SetPosition(backLeftCalibrated.to<double>(), 50);
+}
+
+void SwerveDriveSubsystem::InitializeMotorsFromFS() {
+  std::optional<argos_lib::swerve::SwerveModulePositions> homes = m_fsStorage.Load();
+
+  if (!homes) {
+    // ALERT HERE THAT THERE ARE NO VALUES, BUT FOR NOW, JUST PRINT
+    std::printf("%d HEY NO SAVED VALUES IN std::FILE SYSTEM!!!!", __LINE__);
+    return;
+  }
+
+  // GET CURRENT VALUES
+  units::degree_t frontLeft_current = units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition());
+  units::degree_t frontRight_current = units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition());
+  units::degree_t backRight_current = units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition());
+  units::degree_t backLeft_current = units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition());
+
+  // SUBTRACT SAVED FROM CURRENT
+  const units::degree_t frontLeftCalibrated = homes.value().FrontLeft - frontLeft_current;
+  const units::degree_t frontRightCalibrated = homes.value().FrontRight - frontRight_current;
+  const units::degree_t backRightCalibrated = homes.value().RearRight - backRight_current;
+  const units::degree_t backLeftCalibrated = homes.value().RearLeft - backLeft_current;
 
   // ASSIGN DIFFERENCE TO CURRENT MOTOR RELATIVE POSITION
   m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated.to<double>(), 50);
