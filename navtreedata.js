@@ -62,8 +62,8 @@ var NAVTREEINDEX =
 [
 "_constants_8h.html",
 "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html",
-"structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac5ead71c2f9168bb43650a18606a104f",
-"vibration_8cpp.html"
+"structargos__lib_1_1_vibration_status.html",
+"swerve__drive__subsystem_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

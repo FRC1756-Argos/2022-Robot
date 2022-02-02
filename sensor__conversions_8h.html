@@ -100,6 +100,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacesensor__conversions_1_1turret"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1turret.html">sensor_conversions::turret</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacesensor__conversions_1_1hood"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html">sensor_conversions::hood</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -107,12 +109,28 @@ Functions</h2></td></tr>
 <tr class="separator:a3d8efded09604ebfb921689c6fb44a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bdc1122e95ea889aef812fde15e1e65"><td class="memItemLeft" align="right" valign="top">constexpr units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1turret.html#a0bdc1122e95ea889aef812fde15e1e65">sensor_conversions::turret::ToAngle</a> (const double sensorunit)</td></tr>
 <tr class="separator:a0bdc1122e95ea889aef812fde15e1e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07db1f9b38cd01bb25d5216f4148fd8c"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html#a07db1f9b38cd01bb25d5216f4148fd8c">sensor_conversions::hood::ToSensorUnit</a> (const units::degree_t degrees)</td></tr>
+<tr class="separator:a07db1f9b38cd01bb25d5216f4148fd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac502050673c24e8e8bb8d40512fe6364"><td class="memItemLeft" align="right" valign="top">constexpr units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html#ac502050673c24e8e8bb8d40512fe6364">sensor_conversions::hood::ToAngle</a> (const double sensorunit)</td></tr>
+<tr class="separator:ac502050673c24e8e8bb8d40512fe6364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a3ed393bf376ec988ae1bb351c442aec6"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6">sensor_conversions::turret::sensorConversionFactor</a> = 4096.0 / 360</td></tr>
-<tr class="memdesc:a3ed393bf376ec988ae1bb351c442aec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">sensor units per degree  <a href="namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6">More...</a><br /></td></tr>
+<tr class="memitem:a3ed393bf376ec988ae1bb351c442aec6"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6">sensor_conversions::turret::sensorConversionFactor</a></td></tr>
+<tr class="memdesc:a3ed393bf376ec988ae1bb351c442aec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply to convert turret rotation degrees to raw sensor units  <a href="namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6">More...</a><br /></td></tr>
 <tr class="separator:a3ed393bf376ec988ae1bb351c442aec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87ee5779dbd8b02023d67af21c85eca8"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html#a87ee5779dbd8b02023d67af21c85eca8">sensor_conversions::hood::sensorConversionFactor</a></td></tr>
+<tr class="memdesc:a87ee5779dbd8b02023d67af21c85eca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply to convert raw sensor units to motor output shaft degrees  <a href="namespacesensor__conversions_1_1hood.html#a87ee5779dbd8b02023d67af21c85eca8">More...</a><br /></td></tr>
+<tr class="separator:a87ee5779dbd8b02023d67af21c85eca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac94148bd0e34c526c21bee8c18885fd9"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html#ac94148bd0e34c526c21bee8c18885fd9">sensor_conversions::hood::sensorConversionDegTeeth</a></td></tr>
+<tr class="memdesc:ac94148bd0e34c526c21bee8c18885fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply to convert motor output shaft degrees to hood sproket teeth  <a href="namespacesensor__conversions_1_1hood.html#ac94148bd0e34c526c21bee8c18885fd9">More...</a><br /></td></tr>
+<tr class="separator:ac94148bd0e34c526c21bee8c18885fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a7cbf9b7c9dc8041bc27ccb7710d3e"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html#a51a7cbf9b7c9dc8041bc27ccb7710d3e">sensor_conversions::hood::sensorConversionTeethIn</a></td></tr>
+<tr class="memdesc:a51a7cbf9b7c9dc8041bc27ccb7710d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply to convert hood sproket teeth to hood extension distance  <a href="namespacesensor__conversions_1_1hood.html#a51a7cbf9b7c9dc8041bc27ccb7710d3e">More...</a><br /></td></tr>
+<tr class="separator:a51a7cbf9b7c9dc8041bc27ccb7710d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a121c403e6e03ee266dc94fd8c57b6506"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html#a121c403e6e03ee266dc94fd8c57b6506">sensor_conversions::hood::sensorConversionInAngle</a></td></tr>
+<tr class="memdesc:a121c403e6e03ee266dc94fd8c57b6506"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply to convert hood extension distance to hood angle  <a href="namespacesensor__conversions_1_1hood.html#a121c403e6e03ee266dc94fd8c57b6506">More...</a><br /></td></tr>
+<tr class="separator:a121c403e6e03ee266dc94fd8c57b6506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
