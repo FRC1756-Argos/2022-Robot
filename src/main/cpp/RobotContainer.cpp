@@ -24,13 +24,14 @@ RobotContainer::RobotContainer()
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
-            m_driveLonSpeedMap(
-                -m_controllers.DriverController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand)),
-            m_driveLatSpeedMap(
-                -m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
-            m_driveRotSpeed(
-                // INVERTED FOR TESTING MAKE SURE TO CORRECT IN REFERENCE FRAME CONVERSION
-                -m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
+            m_driveLonSpeedMap(-m_controllers.DriverController().GetY(
+                argos_lib::XboxController::JoystickHand::kLeftHand)),  // Y axis is negative forward
+            m_driveLatSpeedMap(-m_controllers.DriverController().GetX(
+                argos_lib::XboxController::JoystickHand::
+                    kLeftHand)),  // X axis is positive right, but swerve coordiates are positive left
+            m_driveRotSpeed(-m_controllers.DriverController().GetX(
+                argos_lib::XboxController::JoystickHand::
+                    kRightHand)));  // X axis is positive right (CW), but swerve coordinates are positive left (CCW)
 
         // DEBUG STUFF
         frc::SmartDashboard::PutNumber(
@@ -92,7 +93,7 @@ void RobotContainer::ConfigureButtonBindings() {
       [this]() {
         std::printf("%d\n", __LINE__);
         // m_swerveDrive.HomeToNetworkTables(0_deg);
-        m_swerveDrive.HomeToFS(0_deg);
+        m_swerveDrive.Home(0_deg);
       },
       {&m_swerveDrive});
 }

@@ -14,6 +14,7 @@
 #include <memory>
 
 #include "Constants.h"
+#include "utils/sensor_conversions.h"
 
 using namespace argos_lib::swerve;
 
@@ -49,29 +50,26 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
   argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_encoder, 100_ms);
 
   // TRANSLATION2D OBJECTS DESCRIBING LOCATION OF SWERVE MODULES
+  // Forward is positive X, left is positive Y
   frc::Translation2d frontLeftCenterOffset(
-      measure_up::chassis::length / 2 + measure_up::swerve_offsets::frontLeftWOffset,
-      measure_up::chassis::width / 2 - measure_up::swerve_offsets::frontLeftLOffset);
+      measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontLeftLOffset,
+      measure_up::chassis::width / 2 - measure_up::swerve_offsets::frontLeftWOffset);
   frc::Translation2d frontRightCenterOffset(
-      measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontRightWOffset,
-      -measure_up::chassis::width / 2 - measure_up::swerve_offsets::frontRightLOffset);
+      measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontRightLOffset,
+      -measure_up::chassis::width / 2 + measure_up::swerve_offsets::frontRightWOffset);
   frc::Translation2d backRightCenterOffset(
-      -measure_up::chassis::length / 2 - measure_up::swerve_offsets::backRightWOffset,
-      -measure_up::chassis::width / 2 + measure_up::swerve_offsets::backRightLOffset);
+      -measure_up::chassis::length / 2 + measure_up::swerve_offsets::backRightLOffset,
+      -measure_up::chassis::width / 2 + measure_up::swerve_offsets::backRightWOffset);
   frc::Translation2d backLeftCenterOffset(
-      -measure_up::chassis::length / 2 + measure_up::swerve_offsets::backLeftWOffset,
-      measure_up::chassis::width / 2 - measure_up::swerve_offsets::backLeftLOffset
+      -measure_up::chassis::length / 2 + measure_up::swerve_offsets::backLeftLOffset,
+      measure_up::chassis::width / 2 - measure_up::swerve_offsets::backLeftWOffset
 
   );
 
   m_pSwerveDriveKinematics = std::make_unique<frc::SwerveDriveKinematics<4>>(
       frontLeftCenterOffset, frontRightCenterOffset, backRightCenterOffset, backLeftCenterOffset);
 
-  // INITIALIZE MOTOR ANGLES FROM VALUES - NETWORKTABLES
-  //   InitializeMotorsFromNetworkTables();
-
-  // INITIALIZE MOTORS FROM std::FILE SYSTEM
-  InitializeMotorsFromFS();
+  InitializeMotors();
 }
 
 // This method will be called once per scheduler run
@@ -93,11 +91,11 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
   // IF SPEEDS ZERO, SET MOTORS TO ZERO AND RETURN
   if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
-    m_frontRight.m_drive.Set(0);
-    m_frontRight.m_turn.Set(0);
-
     m_frontLeft.m_drive.Set(0);
     m_frontLeft.m_turn.Set(0);
+
+    m_frontRight.m_drive.Set(0);
+    m_frontRight.m_turn.Set(0);
 
     m_backRight.m_drive.Set(0);
     m_backRight.m_turn.Set(0);
@@ -110,14 +108,18 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   auto moduleStates = m_pSwerveDriveKinematics->ToSwerveModuleStates(speeds);
 
   /// @todo switch to argosLib optimize functions in time (create overload for meters per second?)
-  moduleStates.at(0).Optimize(moduleStates.at(0),
-                              units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()));
-  moduleStates.at(1).Optimize(moduleStates.at(1),
-                              units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition()));
-  moduleStates.at(2).Optimize(moduleStates.at(2),
-                              units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition()));
-  moduleStates.at(3).Optimize(moduleStates.at(3),
-                              units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()));
+  moduleStates.at(0) = moduleStates.at(0).Optimize(
+      moduleStates.at(0),
+      sensor_conversions::swerve_drive::turn::ToAngle(m_frontLeft.m_turn.GetSelectedSensorPosition()));
+  moduleStates.at(1) = moduleStates.at(1).Optimize(
+      moduleStates.at(1),
+      sensor_conversions::swerve_drive::turn::ToAngle(m_frontRight.m_turn.GetSelectedSensorPosition()));
+  moduleStates.at(2) = moduleStates.at(2).Optimize(
+      moduleStates.at(2),
+      sensor_conversions::swerve_drive::turn::ToAngle(m_backRight.m_turn.GetSelectedSensorPosition()));
+  moduleStates.at(3) = moduleStates.at(3).Optimize(
+      moduleStates.at(3),
+      sensor_conversions::swerve_drive::turn::ToAngle(m_backLeft.m_turn.GetSelectedSensorPosition()));
 
   // Give module state values to motors
 
@@ -125,33 +127,33 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
                           moduleStates.at(indexes::swerveModules::frontLeftIndex).speed.to<double>());
 
-  m_frontLeft.m_turn.Set(
-      ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-      (moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees() * (4096 / 360)).to<double>());
+  m_frontLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                         sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                             moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees()));
 
   // FRONT RIGHT
   m_frontRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
                            moduleStates.at(indexes::swerveModules::frontRightIndex).speed.to<double>());
 
-  m_frontRight.m_turn.Set(
-      ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-      (moduleStates.at(indexes::swerveModules::frontRightIndex).angle.Degrees() * (4096 / 360)).to<double>());
+  m_frontRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                          sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                              moduleStates.at(indexes::swerveModules::frontRightIndex).angle.Degrees()));
 
   // BACK RIGHT
   m_backRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
                           moduleStates.at(indexes::swerveModules::backRightIndex).speed.to<double>());
 
-  m_backRight.m_turn.Set(
-      ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-      (moduleStates.at(indexes::swerveModules::backRightIndex).angle.Degrees() * (4096 / 360)).to<double>());
+  m_backRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                         sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                             moduleStates.at(indexes::swerveModules::backRightIndex).angle.Degrees()));
 
   // BACK LEFT
   m_backLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
                          moduleStates.at(indexes::swerveModules::backLeftIndex).speed.to<double>());
 
-  m_backLeft.m_turn.Set(
-      ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-      (moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees() * (4096 / 360)).to<double>());
+  m_backLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                        sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                            moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees()));
 
   // DEBUG STUFF
   frc::SmartDashboard::PutNumber("(DRIVETRAIN) FL speed",
@@ -173,6 +175,20 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                  moduleStates.at(indexes::swerveModules::backLeftIndex).speed.to<double>());
   frc::SmartDashboard::PutNumber("(DRIVETRAIN) BL turn",
                                  moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
+}
+
+void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
+  HomeToFS(angle);
+
+  // SetPosition expects a value in degrees
+  m_frontLeft.m_encoder.SetPosition(angle.to<double>(), 50);
+  m_frontRight.m_encoder.SetPosition(angle.to<double>(), 50);
+  m_backRight.m_encoder.SetPosition(angle.to<double>(), 50);
+  m_backLeft.m_encoder.SetPosition(angle.to<double>(), 50);
+}
+
+void SwerveDriveSubsystem::InitializeMotors() {
+  InitializeMotorsFromFS();
 }
 
 void SwerveDriveSubsystem::HomeToNetworkTables(const units::degree_t& angle) {
@@ -223,7 +239,7 @@ void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables() {
 
   if (!frontLeft_saved || !frontRight_saved || !backRight_saved || !backLeft_saved) {
     // PREVENT MOTION HERE OF MOTOR
-    /// @todo IF NO HOMES LISTED, SET A FLAG SO WE CAN"T DRIVE
+    /// @todo IF NO HOMES LISTED, SET A FLAG SO WE CAN'T DRIVE
     return;
   }
 
