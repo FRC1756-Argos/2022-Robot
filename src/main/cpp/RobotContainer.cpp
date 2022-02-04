@@ -7,6 +7,8 @@
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
 
+#include "argos_lib/commands/swap_controllers_command.h"
+
 RobotContainer::RobotContainer()
     : m_pNetworkTable(std::make_shared<NetworkTablesWrapper>())
     , m_driveLonSpeedMap(controllerMap::driveLongSpeed)
@@ -69,6 +71,24 @@ void RobotContainer::ConfigureButtonBindings() {
   }});
   shooter.WhenActive([this]() { m_shooter.shooting(0.5); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_shooter.shooting(0); }, {&m_shooter});
+
+  // Swap controllers config
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kStart, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kStart, {1500_ms, 0_ms});
+
+  frc2::Trigger driverTriggerSwapCombo{[this]() {
+    return m_controllers.DriverController().GetDebouncedButton(
+        {argos_lib::XboxController::Button::kBack, argos_lib::XboxController::Button::kStart});
+  }};
+  frc2::Trigger operatorTriggerSwapCombo{[this]() {
+    return m_controllers.OperatorController().GetDebouncedButton(
+        {argos_lib::XboxController::Button::kBack, argos_lib::XboxController::Button::kStart});
+  }};
+
+  (driverTriggerSwapCombo || operatorTriggerSwapCombo)
+      .WhileActiveOnce(argos_lib::SwapControllersCommand(&m_controllers));
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

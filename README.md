@@ -58,8 +58,8 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | RB              | reverse intake |
 | LT              | shooting |
 | RT              | intake |
-| Back            | Unused |
-| Start           | Unused |
+| Back            | Swap (hold with <kbd>Start</kbd>) |
+| Start           | Swap (hold with <kbd>Back</kbd>) |
 | Left JS Button  | Unused |
 | Right JS Button | Unused |
 
@@ -82,7 +82,7 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | RB              | Unused |
 | LT              | Unused |
 | RT              | vision |
-| Back            | Unused |
-| Start           | Unused |
+| Back            | Swap (hold with <kbd>Start</kbd>) |
+| Start           | Swap (hold with <kbd>Back</kbd>) |
 | Left JS Button  | Unused |
 | Right JS Button | Unused |
