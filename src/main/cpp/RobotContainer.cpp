@@ -20,7 +20,7 @@ RobotContainer::RobotContainer()
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable)
     , m_compressor(frc::PneumaticsModuleType::REVPH) {
-  // m_compressor.EnableDigital();
+  m_compressor.EnableDigital();
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
@@ -74,9 +74,9 @@ void RobotContainer::ConfigureButtonBindings() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperRight);
   }});
   auto homeDrive = (frc2::Trigger{[this]() {
-    // NOTE: HAD TO REMOVE "COMPLEX" /**/ STYLE COMMENT (WPIFORMAT ERROR ON COMMIT ATTEMPT) THIS CURRENT LINE REFLECTS TESTING, USING A SINGLE BUTTON
-    // BE SURE TO CHANGE BACK WHEN NECESSARY
-    return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kA);
+    return m_controllers.DriverController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
+                                                                argos_lib::XboxController::Button::kA,
+                                                                argos_lib::XboxController::Button::kB});
   }});
   auto nottake = !intake && !outtake;
   intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
@@ -91,8 +91,7 @@ void RobotContainer::ConfigureButtonBindings() {
 
   homeDrive.WhenActive(
       [this]() {
-        std::printf("%d\n", __LINE__);
-        // m_swerveDrive.HomeToNetworkTables(0_deg);
+        std::printf("********* %d *********\n", __LINE__);
         m_swerveDrive.Home(0_deg);
       },
       {&m_swerveDrive});

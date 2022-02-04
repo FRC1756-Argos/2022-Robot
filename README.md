@@ -50,9 +50,9 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | DPad Right      | unused |
 | DPad Down       | redo climb |
 | DPad Left       | retract hook |
-| A               | Unused |
-| B               | Unused |
-| X               | Unused |
+| A               | Home Swerve (hold with <kbd>B</kbd> and <kbd>X</kbd>) |
+| B               | Home Swerve (hold with <kbd>A</kbd> and <kbd>X</kbd>) |
+| X               | Home Swerve (hold with <kbd>A</kbd> and <kbd>B</kbd>) |
 | Y               | Unused |
 | LB              | Unused |
 | RB              | reverse intake |
