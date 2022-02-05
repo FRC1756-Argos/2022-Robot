@@ -69,7 +69,7 @@ void RobotContainer::ConfigureButtonBindings() {
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
-  shooter.WhenActive([this]() { m_shooter.shooting(0.5); }, {&m_shooter});
+  shooter.WhenActive([this]() { m_shooter.CloseLoopShoot(3000_rpm); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_shooter.shooting(0); }, {&m_shooter});
 
   // Swap controllers config

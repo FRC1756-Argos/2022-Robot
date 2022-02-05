@@ -7,6 +7,7 @@
 #include <frc2/command/SubsystemBase.h>
 
 #include "ctre/Phoenix.h"
+#include "units/angular_velocity.h"
 
 class ShooterSubsystem : public frc2::SubsystemBase {
  public:
@@ -34,6 +35,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   * @param hoodSpeed move the hood up or down full retract movement is 1.0 full extend movemnt is -1.0
   */
   void ManualAim(double turnSpeed, double hoodSpeed);
+  void CloseLoopShoot(units::revolutions_per_minute_t ShooterWheelSpeed);
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be

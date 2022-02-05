@@ -7,6 +7,7 @@
 #include "Constants.h"
 #include "argos_lib/config/falcon_config.h"
 #include "argos_lib/config/talonsrx_config.h"
+#include "utils/sensor_conversions.h"
 
 ShooterSubsystem::ShooterSubsystem()
     : m_shooterWheelLeft(address::shooter::shooterWheelLeft)
@@ -33,4 +34,12 @@ void ShooterSubsystem::shooting(double ballfiringspeed) {
 void ShooterSubsystem::ManualAim(double turnSpeed, double hoodSpeed) {
   m_rotationControl.Set(turnSpeed);
   m_angleControl.Set(hoodSpeed);
+}
+
+void ShooterSubsystem::CloseLoopShoot(units::revolutions_per_minute_t ShooterWheelSpeed) {
+  m_shooterWheelLeft.Set(ctre::phoenix::motorcontrol::ControlMode::Velocity,
+                         sensor_conversions::shooter::ToSensorUnit(ShooterWheelSpeed));
+  std::printf("targetRPM: %0.2f currentRPM: %0.2f\n",
+              ShooterWheelSpeed.to<double>(),
+              sensor_conversions::shooter::ToVelocity(m_shooterWheelLeft.GetSelectedSensorVelocity()).to<double>());
 }
