@@ -322,7 +322,7 @@ namespace motorConfig {
       constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
     };
     struct moveHook {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
