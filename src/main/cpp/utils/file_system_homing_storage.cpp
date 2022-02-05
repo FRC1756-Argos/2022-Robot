@@ -46,7 +46,7 @@ std::optional<argos_lib::swerve::SwerveModulePositions> FileSystemHomingStorage:
 }
 
 fs::path FileSystemHomingStorage::GetFilePath() {
-  static const fs::path homeDir{getenv("HOME")};
+  static const fs::path homeDir{"/home/lvuser"};
   static const fs::path configFile{homeDir / m_swerveHomesPath};
 
   // Create empty file if it doesn't exist yet
@@ -55,6 +55,8 @@ fs::path FileSystemHomingStorage::GetFilePath() {
     std::ofstream newFile(configFile);
     newFile.close();
   }
+
+  std::cout << configFile;
 
   return configFile;
 }
