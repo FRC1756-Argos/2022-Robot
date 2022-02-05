@@ -21,22 +21,36 @@ IntakeSubsystem::IntakeSubsystem()
 
 // This method will be called once per scheduler run
 void IntakeSubsystem::Periodic() {
-  if (WantToShoot() == true) {
-    m_beltDrive.Set(speeds::intake::beltForward);
-  } else if (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == false) {
-    m_beltDrive.Set(speeds::intake::beltReverse);  //< Ball is ejected when opposite color and intake is active
-  } else if (getBallPresent(m_ballPresentShooter) == true) {
-    m_beltDrive.Set(0);
-  } else if (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == true &&
-             getBallPresent(m_ballPresentShooter) == false) {
-    m_beltDrive.Set(speeds::intake::beltForward);
-  } else {
-    m_beltDrive.Set(0);
+  switch (m_intakeState) {
+    case IntakeState::Stop:
+      m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
+      m_intakeDrive.Set(0);
+      m_beltDrive.Set(0);
+      break;
+    case IntakeState::Intaking:
+      if (m_intakeButtonPressed == true) {
+        m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
+      } else {
+        m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
+      }
+      if (m_intakeButtonPressed == true) {
+        m_intakeDrive.Set(speeds::intake::intakeForward);
+      } else {
+        m_intakeDrive.Set(0);
+      }
+      if (m_shooterButtonPressed == true ||
+          (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == true)) {
+        m_beltDrive.Set(speeds::intake::beltForward);
+      } else {
+        m_beltDrive.Set(0);
+      }
+      break;
+    case IntakeState::Outtaking:
+      m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
+      m_intakeDrive.Set(speeds::intake::intakeReverse);
+      m_beltDrive.Set(speeds::intake::beltReverse);
+      break;
   }
-}
-
-bool IntakeSubsystem::WantToShoot() {
-  return false;  //< Replace when integrated with shooter
 }
 
 bool IntakeSubsystem::getBallPresent(frc::TimeOfFlight& ballPresentSensor) {
@@ -54,14 +68,9 @@ void IntakeSubsystem::StopIntake() {
 }
 
 void IntakeSubsystem::Intake() {
-  if (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == false) {
-    m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
-    m_intakeDrive.Set(speeds::intake::intakeReverse);
-  } else {
-    m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
-    m_intakeDrive.Set(speeds::intake::intakeForward);
-    m_beltDrive.Set(speeds::intake::beltForward);
-  }
+  m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
+  m_intakeDrive.Set(speeds::intake::intakeForward);
+  m_beltDrive.Set(speeds::intake::beltForward);
 }
 
 void IntakeSubsystem::DumpBall() {

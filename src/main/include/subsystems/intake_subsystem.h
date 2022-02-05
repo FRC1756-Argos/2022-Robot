@@ -16,6 +16,8 @@ class IntakeSubsystem : public frc2::SubsystemBase {
  public:
   IntakeSubsystem();
 
+  enum class IntakeState { Stop, Intaking, Outtaking };
+
   /**
    * @brief Determines whether ball is present at ToF sensors
    *
@@ -34,14 +36,6 @@ class IntakeSubsystem : public frc2::SubsystemBase {
    * @return false - Ball is not team color
    */
   bool getIsBallTeamColor();
-
-  /**
- * @brief Placeholder to determine when shooter is active for purposes of logic
- *
- * @return true - Shooting is active
- * @return false - Shooting is inactive
- */
-  bool WantToShoot();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -89,4 +83,10 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   frc::TimeOfFlight m_ballPresentIntake;
   frc::TimeOfFlight m_ballPresentShooter;
   frc::TMD37003 m_ballColor;  ///< at intake
+
+  IntakeState m_intakeState;
+
+  bool m_intakeButtonPressed;
+  bool m_outtakeButtonPressed;
+  bool m_shooterButtonPressed;
 };
