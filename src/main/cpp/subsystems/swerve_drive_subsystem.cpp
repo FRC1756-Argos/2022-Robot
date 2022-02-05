@@ -77,6 +77,28 @@ void SwerveDriveSubsystem::Periodic() {}
 
 // SWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 
+wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(DriveControlMode currentDriveMode,
+                                                                               const double& fwVelocity,
+                                                                               const double& sideVelocity,
+                                                                               const double& rotVelocity) {
+  switch (currentDriveMode) {
+    case (DriveControlMode::fieldCentricControl):
+      /*
+            Construct speeds with field-relative speeds and current IMU angle.
+        */
+      /// @todo look at side speed and document if positive is left or right.
+      frc::ChassisSpeeds filed_centric_speeds = frc::ChassisSpeeds::FromFieldRelativeSpeeds(
+          units::make_unit<units::meters_per_second_t>(fwVelocity),
+          units::make_unit<units::meters_per_second_t>(sideVelocity),
+          units::make_unit<units::angular_velocity::radians_per_second_t>(rotVelocity),
+          /*LAST THING HERE*/) break;
+
+    case (DriveControlMode::robotCentricControl):
+      // Construct speeds just the same as in the current main drive function
+      break;
+  }
+}
+
 void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                        const double& sideVelocity,
                                        const double& rotVelocity) {

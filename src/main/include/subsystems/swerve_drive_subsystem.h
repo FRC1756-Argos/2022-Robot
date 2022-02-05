@@ -72,6 +72,12 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   SwerveModule m_backRight;   ///< Back right swerve module
   SwerveModule m_backLeft;    ///< Back left swerve module
 
+  /**
+   * @brief Enumerator for either field-centric or robot centric drive modes.
+   *
+   */
+  enum DriveControlMode { fieldCentricControl, robotCentricControl };
+
   std::unique_ptr<frc::SwerveDriveKinematics<4>>
       m_pSwerveDriveKinematics;  ///< Kinematics model for swerve drive system
 
@@ -80,6 +86,11 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
 
   // std::FILE SYSTEM HOMING STORAGE
   FileSystemHomingStorage m_fsStorage;
+
+  wpi::array<frc::SwerveModuleState, 4> GetRawModuleStates(DriveControlMode currentDriveMode,
+                                                           const double& fwVelocity,
+                                                           const double& sideVelocity,
+                                                           const double& rotVelocity);
 
   /**
    * @brief HomeToNetworkTables all of the modules back to zero
