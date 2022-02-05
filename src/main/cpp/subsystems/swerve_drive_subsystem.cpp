@@ -250,10 +250,10 @@ void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables() {
   units::degree_t backLeft_current = units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition());
 
   // SUBTRACT SAVED FROM CURRENT
-  const units::degree_t frontLeftCalibrated = frontLeft_saved.value() - frontLeft_current;
-  const units::degree_t frontRightCalibrated = frontRight_saved.value() - frontRight_current;
-  const units::degree_t backRightCalibrated = backRight_saved.value() - backRight_current;
-  const units::degree_t backLeftCalibrated = backLeft_saved.value() - backLeft_current;
+  const units::degree_t frontLeftCalibrated = frontLeft_current - frontLeft_saved.value();
+  const units::degree_t frontRightCalibrated = frontRight_current - frontRight_saved.value();
+  const units::degree_t backRightCalibrated = backRight_current - backRight_saved.value();
+  const units::degree_t backLeftCalibrated = backLeft_current - backLeft_saved.value();
 
   // ASSIGN DIFFERENCE TO CURRENT MOTOR RELATIVE POSITION
   m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated.to<double>(), 50);
@@ -278,10 +278,10 @@ void SwerveDriveSubsystem::InitializeMotorsFromFS() {
   units::degree_t backLeft_current = units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition());
 
   // SUBTRACT SAVED FROM CURRENT
-  const units::degree_t frontLeftCalibrated = homes.value().FrontLeft - frontLeft_current;
-  const units::degree_t frontRightCalibrated = homes.value().FrontRight - frontRight_current;
-  const units::degree_t backRightCalibrated = homes.value().RearRight - backRight_current;
-  const units::degree_t backLeftCalibrated = homes.value().RearLeft - backLeft_current;
+  const units::degree_t frontLeftCalibrated = frontLeft_current - homes.value().FrontLeft;
+  const units::degree_t frontRightCalibrated = frontRight_current - homes.value().FrontRight;
+  const units::degree_t backRightCalibrated = backRight_current - homes.value().RearRight;
+  const units::degree_t backLeftCalibrated = backLeft_current - homes.value().RearLeft;
 
   // ASSIGN DIFFERENCE TO CURRENT MOTOR RELATIVE POSITION
   m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated.to<double>(), 50);
