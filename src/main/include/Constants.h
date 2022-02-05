@@ -14,8 +14,8 @@
 
 namespace speeds {
   namespace intake {
-    constexpr double beltForward = 1;
-    constexpr double beltReverse = -0.8;
+    constexpr double beltForward = -1;
+    constexpr double beltReverse = 0.8;
     constexpr double intakeForward = 1;
     constexpr double intakeReverse = -1;
   }  // namespace intake
@@ -97,14 +97,23 @@ namespace indexes {
   }  // namespace swerveModules
 }  // namespace indexes
 
+namespace paths {
+  const std::string swerveHomesPath = "homes/swerveHomes";
+}  // namespace paths
+
 namespace networkTables {
   namespace swerveHomes {
-    const std::string tableKey = "argos/swerveHomes";
+    const std::string tableKey = "Argos";
     namespace keys {
-      const std::string flHome = "flHome";
-      const std::string frHome = "frHome";
-      const std::string brHome = "brHome";
-      const std::string blHome = "blHome";
+      const std::string flHome = "swerveHomes/flHome";
+      const std::string frHome = "swerveHomes/frHome";
+      const std::string brHome = "swerveHomes/brHome";
+      const std::string blHome = "swerveHomes/blHome";
+
+      const std::string flHomeFullPath = "swerveHomes/flHome";
+      const std::string frHomeFullPath = "swerveHomes/frHome";
+      const std::string brHomeFullPath = "swerveHomes/brHome";
+      const std::string blHomeFullPath = "swerveHomes/blHome";
     }  // namespace keys
   }    // namespace swerveHomes
 }  // namespace networkTables
@@ -241,7 +250,7 @@ namespace motorConfig {
     };
 
     struct shooterWheelRight {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
@@ -252,12 +261,12 @@ namespace motorConfig {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
     };
 
     struct rotationControl {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
@@ -267,7 +276,7 @@ namespace motorConfig {
 
   namespace intake {
     struct beltDrive {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
@@ -296,9 +305,9 @@ namespace motorConfig {
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
-      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
     };
     struct liftLeft {
@@ -307,13 +316,13 @@ namespace motorConfig {
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
-      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyOpen;
+      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
     };
     struct moveHook {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;

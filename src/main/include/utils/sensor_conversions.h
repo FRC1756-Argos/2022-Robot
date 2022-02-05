@@ -6,6 +6,18 @@
 #include "units/Angle.h"
 
 namespace sensor_conversions {
+  namespace swerve_drive {
+    namespace turn {
+      constexpr double sensorConversionFactor =
+          360.0 / 4096;  ///< multiply to convert raw sensor units to module degrees
+      constexpr double ToSensorUnit(const units::degree_t degrees) {
+        return degrees.to<double>() / sensorConversionFactor;
+      }
+      constexpr units::degree_t ToAngle(const double sensorunit) {
+        return units::make_unit<units::degree_t>(sensorunit * sensorConversionFactor);
+      }
+    }  // namespace turn
+  }    // namespace swerve_drive
   namespace turret {
     constexpr double sensorConversionFactor =
         4096.0 / 360;  ///< multiply to convert turret rotation degrees to raw sensor units

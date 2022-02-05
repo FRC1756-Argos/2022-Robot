@@ -12,6 +12,7 @@
 #include <memory>
 
 #include "ctre/Phoenix.h"
+#include "utils/file_system_homing_storage.h"
 #include "utils/network_tables_wrapper.h"
 
 class SwerveModule {
@@ -36,28 +37,27 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
  public:
   explicit SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable);
   /**
- * @brief Main drive function for the robot
- *
- * @param fwVelocity velocity in meters per second forward
- * @param sideVelocity velocity in meters per second perpendicular to the robots front
- * @param rotVelocity velocity in radians per second of rotation of the chasis
- */
+   * @brief Main drive function for the robot
+   *
+   * @param fwVelocity Percent speed forward.  Range [-1.0, 1.0] where positive 1.0 is full speed forward
+   * @param sideVelocity Percent speed perpendicular to the robots front.  Range [-1.0, 1.0] where positive 1.0 is full speed left
+   * @param rotVelocity Percent speed of rotation of the chassis.  Range [-1.0, 1.0] where positive 1.0 is full speed counterclockwise
+   */
   void SwerveDrive(const double& fwVelocity, const double& reVelocity, const double& rotVelocity);
 
   /**
- * @brief Home all of the modules back to zero
- *
- * @param angle the angle of the module in it's current state
- */
+   * @brief Save homes to persistent storage and updates module motors
+   *
+   * @param angle Current angle of all the swerve modules.  They should all be oriented the same during homing.
+   *
+   */
   void Home(const units::degree_t& angle);
 
   /**
-   * @brief Will load saved homes, and set the encoders to reset to true angle relative to robot "front"
+   * @brief Initialize motors from persistent storage
    *
    */
   void InitializeMotors();
-
-  std::unique_ptr<frc::SwerveDriveKinematics<4>> m_pSwerveDriveKinematics;
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -72,6 +72,39 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   SwerveModule m_backRight;   ///< Back right swerve module
   SwerveModule m_backLeft;    ///< Back left swerve module
 
+  std::unique_ptr<frc::SwerveDriveKinematics<4>>
+      m_pSwerveDriveKinematics;  ///< Kinematics model for swerve drive system
+
   // POINTER TO NETWORK TABLE CLASS OBJECT
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;  ///< Instance of network table class
+
+  // std::FILE SYSTEM HOMING STORAGE
+  FileSystemHomingStorage m_fsStorage;
+
+  /**
+   * @brief HomeToNetworkTables all of the modules back to zero
+   *
+   * @param angle the angle of the module in it's current state
+   */
+  void HomeToNetworkTables(const units::degree_t& angle);
+
+  /**
+   * @brief Will load saved homes, and set the encoders to reset to true angle relative to robot "front"
+   *
+   */
+  void InitializeMotorsFromNetworkTables();
+
+  /**
+   * @brief Save homes to a file
+   *
+   * @param angle Current angle of all the swerve modules.  They should all be oriented the same during homing.
+   *
+   */
+  void HomeToFS(const units::degree_t& angle);
+
+  /**
+   * @brief Initialize motors from saved file
+   *
+   */
+  void InitializeMotorsFromFS();
 };

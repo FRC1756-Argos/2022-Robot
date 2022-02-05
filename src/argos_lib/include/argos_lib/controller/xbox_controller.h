@@ -242,7 +242,7 @@ namespace argos_lib {
     std::array<bool, static_cast<int>(Button::COUNT)> m_buttonDebounceStatus;
     std::array<bool, static_cast<int>(Button::COUNT)> m_rawButtonStatus;
     std::array<std::chrono::time_point<std::chrono::steady_clock>, static_cast<int>(Button::COUNT)>
-        m_buttonDebounceStableTime;
+        m_buttonDebounceTransitionTime;  ///< Time when new value was first seen
 
     VibrationModel m_vibrationModel;  ///< Active vibration model
   };

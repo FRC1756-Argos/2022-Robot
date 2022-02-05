@@ -4,6 +4,7 @@
 
 #include "RobotContainer.h"
 
+#include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
 
@@ -25,12 +26,22 @@ RobotContainer::RobotContainer()
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
-            m_driveLonSpeedMap(
-                -m_controllers.DriverController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand)),
-            m_driveLatSpeedMap(
-                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand)),
-            m_driveRotSpeed(
-                m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kRightHand)));
+            m_driveLonSpeedMap(-m_controllers.DriverController().GetY(
+                argos_lib::XboxController::JoystickHand::kLeftHand)),  // Y axis is negative forward
+            m_driveLatSpeedMap(-m_controllers.DriverController().GetX(
+                argos_lib::XboxController::JoystickHand::
+                    kLeftHand)),  // X axis is positive right, but swerve coordiates are positive left
+            m_driveRotSpeed(-m_controllers.DriverController().GetX(
+                argos_lib::XboxController::JoystickHand::
+                    kRightHand)));  // X axis is positive right (CW), but swerve coordinates are positive left (CCW)
+
+        // DEBUG STUFF
+        frc::SmartDashboard::PutNumber(
+            "(DRIVER) Joystick Left Y",
+            m_controllers.DriverController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand));
+        frc::SmartDashboard::PutNumber(
+            "(DRIVER) Joystick Left X",
+            m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand));
       },
       {&m_swerveDrive}));
   m_shooter.SetDefaultCommand(frc2::RunCommand(
@@ -54,12 +65,20 @@ RobotContainer::RobotContainer()
 }
 
 void RobotContainer::ConfigureButtonBindings() {
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kX, {1500_ms, 0_ms});
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kA, {1500_ms, 0_ms});
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
   // Configure your button bindings here
   auto intake = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
   }});
   auto outtake = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperRight);
+  }});
+  auto homeDrive = (frc2::Trigger{[this]() {
+    return m_controllers.DriverController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
+                                                                argos_lib::XboxController::Button::kA,
+                                                                argos_lib::XboxController::Button::kB});
   }});
   auto nottake = !intake && !outtake;
   intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
@@ -69,7 +88,7 @@ void RobotContainer::ConfigureButtonBindings() {
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
-  shooter.WhenActive([this]() { m_shooter.shooting(0.5); }, {&m_shooter});
+  shooter.WhenActive([this]() { m_shooter.shooting(0.40); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_shooter.shooting(0); }, {&m_shooter});
 
   // Swap controllers config
@@ -89,6 +108,8 @@ void RobotContainer::ConfigureButtonBindings() {
 
   (driverTriggerSwapCombo || operatorTriggerSwapCombo)
       .WhileActiveOnce(argos_lib::SwapControllersCommand(&m_controllers));
+
+  homeDrive.WhenActive([this]() { m_swerveDrive.Home(0_deg); }, {&m_swerveDrive});
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
