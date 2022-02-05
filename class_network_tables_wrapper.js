@@ -1,9 +1,9 @@
 var class_network_tables_wrapper =
 [
     [ "NetworkTablesWrapper", "class_network_tables_wrapper.html#ad46441a6676b23543f3b020b34ef9695", null ],
-    [ "GetEntryDegrees", "class_network_tables_wrapper.html#a9604530b3b06554ee1d00ba5ee102873", null ],
+    [ "GetEntryDegrees", "class_network_tables_wrapper.html#acec32613af01b41c0ac2fe1ddf80b45f", null ],
     [ "InitSwerveTable", "class_network_tables_wrapper.html#ad60bb4b0b866c7a91a2819405c577610", null ],
-    [ "SetEntryDegrees", "class_network_tables_wrapper.html#af32e3c046c38e77afa36422eaca4b800", null ],
+    [ "SetEntryDegrees", "class_network_tables_wrapper.html#ac4828595adca900c54c3f27c0b92e2e6", null ],
     [ "m_blHome", "class_network_tables_wrapper.html#a7f23ed488e8507f8eaa9fea443f9d6a4", null ],
     [ "m_brHome", "class_network_tables_wrapper.html#aeafd6854d1a2bb7ddf8ec70be626b706", null ],
     [ "m_flHome", "class_network_tables_wrapper.html#a37794a716be2482c6b485c568f5ee7d9", null ],

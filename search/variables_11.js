@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['up_854',['up',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a8ca185325796ee021b569cdc760d9cf4',1,'argos_lib::XboxController::DPadButtons']]]
+  ['up_0',['up',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a8ca185325796ee021b569cdc760d9cf4',1,'argos_lib::XboxController::DPadButtons']]]
 ];

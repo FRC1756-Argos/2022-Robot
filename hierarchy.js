@@ -88,6 +88,7 @@ var hierarchy =
       [ "argos_lib::SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", null ]
     ] ],
     [ "argos_lib::swerve::SwerveHomeStorageInterface", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html", [
+      [ "FileSystemHomingStorage", "class_file_system_homing_storage.html", null ],
       [ "argos_lib::swerve::NetworkTablesHomingStorage", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html", null ]
     ] ],
     [ "SwerveModule", "class_swerve_module.html", null ],

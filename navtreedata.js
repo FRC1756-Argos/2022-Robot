@@ -61,9 +61,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html",
-"structargos__lib_1_1_vibration_status.html",
-"swerve__drive__subsystem_8h_source.html"
+"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca30f767aa191cd5d261e767fd78393607",
+"namespaceargos__lib_1_1swerve.html#a15014cfdba3bfb6ea3ecec726e8ada71",
+"structargos__lib_1_1falcon__config_1_1has__remote_filter0__addr.html",
+"structmotor_config_1_1drive_1_1front_right_turn.html#a132d581a1afa5805adaf02c69f56d425"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,8 +1,8 @@
 var structmotor_config_1_1shooter_1_1shooter_wheel_right =
 [
-    [ "inverted", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#a6afee984e29fafded116334e05fb42e5", null ],
-    [ "neutralDeadband", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#acee9af1a9e4083d0e9366a3f49515012", null ],
-    [ "neutralMode", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#a9607191161940483d2a7a36e59e70bb2", null ],
-    [ "sensorPhase", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#a72d0e9cbd8b7c1137cd2b87e5dbf9b39", null ],
-    [ "voltCompSat", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#a5e2935cfa4064a75574ca488925bdb6c", null ]
+    [ "inverted", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#a0b646c97ad4a71e5eac985b4f588ad28", null ],
+    [ "neutralDeadband", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#a64665d938cf46f709e10ee3ebe792762", null ],
+    [ "neutralMode", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#a879207937f37de20c381d461fa6aa401", null ],
+    [ "sensorPhase", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#a7d69f1150704b01a1fe1f3e0f4bd6129", null ],
+    [ "voltCompSat", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html#a191046b8a648fbb46d95dadc5a55b59f", null ]
 ];

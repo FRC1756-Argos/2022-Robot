@@ -3,7 +3,7 @@ var searchData=
   ['activatetime_0',['activateTime',['../structargos__lib_1_1_debounce_settings.html#a9e481ebb97bd9182d285eb8059b4c3a8',1,'argos_lib::DebounceSettings']]],
   ['address_1',['address',['../namespaceaddress.html',1,'']]],
   ['allowableerror_2',['allowableError',['../namespacecontrol_loop_1_1drive_1_1rotate.html#ab10b82b1dc46a1f7ff3b29192a0db1d7',1,'controlLoop::drive::rotate']]],
-  ['analogtriggerthresh_3',['analogTriggerThresh',['../classargos__lib_1_1_xbox_controller.html#a9de4fc8cd310d323311b520b2ecdedf5',1,'argos_lib::XboxController']]],
+  ['analogtriggerthresh_3',['analogTriggerThresh',['../classargos__lib_1_1_xbox_controller.html#a9afb840b2012d822c97c628b2e373ad6',1,'argos_lib::XboxController']]],
   ['anglecontrol_4',['angleControl',['../namespaceaddress_1_1shooter.html#a8ccf49a3a139153b0ca33a501343ddec',1,'address::shooter::angleControl()'],['../structmotor_config_1_1shooter_1_1angle_control.html',1,'motorConfig::shooter::angleControl']]],
   ['argos_5flib_5',['argos_lib',['../namespaceargos__lib.html',1,'']]],
   ['armready_6',['ArmReady',['../class_climber_subsystem.html#afcbc4d7fae505d119c8fe3b45a1d3471',1,'ClimberSubsystem']]],

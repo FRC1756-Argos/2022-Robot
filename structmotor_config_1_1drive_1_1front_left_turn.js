@@ -1,17 +1,17 @@
 var structmotor_config_1_1drive_1_1front_left_turn =
 [
-    [ "inverted", "structmotor_config_1_1drive_1_1front_left_turn.html#aa7a039b04e585edd90ccb836a431a4dc", null ],
-    [ "neutralDeadband", "structmotor_config_1_1drive_1_1front_left_turn.html#a86413e46d6a8150b8e1e9c531687355e", null ],
-    [ "neutralMode", "structmotor_config_1_1drive_1_1front_left_turn.html#aa646d4ac90bda7f0959007c2e5c4d569", null ],
-    [ "pid0_allowableError", "structmotor_config_1_1drive_1_1front_left_turn.html#ac89c3e13bc035eb3e2366570516dd6b3", null ],
-    [ "pid0_iZone", "structmotor_config_1_1drive_1_1front_left_turn.html#a8ce6a18b93b52b51f1384c7e34a5ee53", null ],
-    [ "pid0_kD", "structmotor_config_1_1drive_1_1front_left_turn.html#a33d7b8d4427ed50a120828a4d7b19c3d", null ],
-    [ "pid0_kF", "structmotor_config_1_1drive_1_1front_left_turn.html#a1a7d2c3ffb7219214ce890db56d95874", null ],
-    [ "pid0_kI", "structmotor_config_1_1drive_1_1front_left_turn.html#a91e50d40723838be90c0d1171d66e9fb", null ],
-    [ "pid0_kP", "structmotor_config_1_1drive_1_1front_left_turn.html#a724abc4656eb27952c581f6d92054fc7", null ],
-    [ "pid0_selectedSensor", "structmotor_config_1_1drive_1_1front_left_turn.html#aa172308331f0f044d89bcc77199f0353", null ],
-    [ "remoteFilter0_addr", "structmotor_config_1_1drive_1_1front_left_turn.html#ad90693aa194a42ddb76d284920c4b990", null ],
-    [ "remoteFilter0_type", "structmotor_config_1_1drive_1_1front_left_turn.html#ac7ce2cb14649e8a0f334824d079aced6", null ],
-    [ "sensorPhase", "structmotor_config_1_1drive_1_1front_left_turn.html#ac20f76a1babe8a90acf319e870bac881", null ],
-    [ "voltCompSat", "structmotor_config_1_1drive_1_1front_left_turn.html#aa5bd0db745af05fdcc6506ceb4643747", null ]
+    [ "inverted", "structmotor_config_1_1drive_1_1front_left_turn.html#a8db2623d2e701fad86e34f769dfbb9a8", null ],
+    [ "neutralDeadband", "structmotor_config_1_1drive_1_1front_left_turn.html#a75357fce3ae57c30f318b6f34a106ec0", null ],
+    [ "neutralMode", "structmotor_config_1_1drive_1_1front_left_turn.html#a7be6ef6e1fc1dd6ae9b1f57b15143bfe", null ],
+    [ "pid0_allowableError", "structmotor_config_1_1drive_1_1front_left_turn.html#a82582619153e632b257c815a4d6cf298", null ],
+    [ "pid0_iZone", "structmotor_config_1_1drive_1_1front_left_turn.html#aee83d964439a1349e83f382e8a890ec4", null ],
+    [ "pid0_kD", "structmotor_config_1_1drive_1_1front_left_turn.html#af14a81af7d1bbbcc5f9569cbf6612931", null ],
+    [ "pid0_kF", "structmotor_config_1_1drive_1_1front_left_turn.html#ae8aad2172d115de94d042e32191ed3cc", null ],
+    [ "pid0_kI", "structmotor_config_1_1drive_1_1front_left_turn.html#ad9ebac52b25b004fce817dd433af2f3f", null ],
+    [ "pid0_kP", "structmotor_config_1_1drive_1_1front_left_turn.html#a71dd500fe5a935c454f70cbd7569f756", null ],
+    [ "pid0_selectedSensor", "structmotor_config_1_1drive_1_1front_left_turn.html#ad8dc3681fff5aaeea2e4809fe71dab6b", null ],
+    [ "remoteFilter0_addr", "structmotor_config_1_1drive_1_1front_left_turn.html#aff7036bf25956a333ae575a7f82b398b", null ],
+    [ "remoteFilter0_type", "structmotor_config_1_1drive_1_1front_left_turn.html#a3c1dd701f13d4491ab02ea2bf6644ce3", null ],
+    [ "sensorPhase", "structmotor_config_1_1drive_1_1front_left_turn.html#aecbbdfbe2e429f5bc021e5109c23d61d", null ],
+    [ "voltCompSat", "structmotor_config_1_1drive_1_1front_left_turn.html#ab68f2d6d2597ad860450a6708da2d1a1", null ]
 ];

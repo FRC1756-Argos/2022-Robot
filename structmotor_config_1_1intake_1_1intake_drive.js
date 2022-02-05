@@ -1,8 +1,8 @@
 var structmotor_config_1_1intake_1_1intake_drive =
 [
-    [ "inverted", "structmotor_config_1_1intake_1_1intake_drive.html#a5ae220854ac3c964bdfee6a5f828f267", null ],
-    [ "neutralDeadband", "structmotor_config_1_1intake_1_1intake_drive.html#a6023762df31f9b109303e8f3fbc85399", null ],
-    [ "neutralMode", "structmotor_config_1_1intake_1_1intake_drive.html#a3a14b06badc4371b03e5f97c4e7becbe", null ],
-    [ "sensorPhase", "structmotor_config_1_1intake_1_1intake_drive.html#a477608393b62c77649f9bc692f570169", null ],
-    [ "voltCompSat", "structmotor_config_1_1intake_1_1intake_drive.html#ae9801684862caed8beef2ee735b8e4f6", null ]
+    [ "inverted", "structmotor_config_1_1intake_1_1intake_drive.html#a04a2f58a4ef135734f4bf9765b1d0036", null ],
+    [ "neutralDeadband", "structmotor_config_1_1intake_1_1intake_drive.html#ae95fc9088e096ab24e5730995fdba16a", null ],
+    [ "neutralMode", "structmotor_config_1_1intake_1_1intake_drive.html#a9fb387ca532d2d7d206104bf7a0deb39", null ],
+    [ "sensorPhase", "structmotor_config_1_1intake_1_1intake_drive.html#abb83a166b1d4c525f6851eb9b3bd2208", null ],
+    [ "voltCompSat", "structmotor_config_1_1intake_1_1intake_drive.html#a46cba122f91edababd58ce0de76cdca1", null ]
 ];
