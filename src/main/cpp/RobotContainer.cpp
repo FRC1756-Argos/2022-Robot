@@ -64,13 +64,11 @@ RobotContainer::RobotContainer()
       },
       {&m_climber}));
 
-  auto robotEnableTrigger = (frc2::Trigger{[this]() {
-    return true;  /// @todo Use frc::DriverStation::IsEnabled() to detect robot enabled status (https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc_1_1_driver_station.html#a91be10d2d3cb68d5e3e383b5eda00485)
-  }});
+  auto robotEnableTrigger = (frc2::Trigger{[this]() { return frc::DriverStation::IsEnabled(); }});
 
-  /// @todo Add similar trigger to robotEnabledTrigger, but have it react to the hood being homed
+  auto hoodHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_shooter.IsHoodHomed(); }});
 
-  /// @todo Run hood home command when robotEnableTrigger is active and hood is not already homed (similar to intake below)
+  (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
 
   ConfigureButtonBindings();
 }

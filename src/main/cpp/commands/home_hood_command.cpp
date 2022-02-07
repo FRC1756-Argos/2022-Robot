@@ -12,21 +12,22 @@ HomeHoodCommand::HomeHoodCommand(ShooterSubsystem* shooter) : m_shooter(shooter)
 
 // Called when the command is initially scheduled.
 void HomeHoodCommand::Initialize() {
-  // @todo same as Execute()
+  m_shooter->ManualAim(0.0, -0.1);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void HomeHoodCommand::Execute() {
-  /// @todo Slowly move hood toward home position
+  m_shooter->ManualAim(0.0, -0.1);
 }
 
 // Called once the command ends or is interrupted.
 void HomeHoodCommand::End(bool interrupted) {
-  /// @todo Save home if ends normally (not interrupted)
+  if (!interrupted) {
+    m_shooter->UpdateHoodHome();
+  }
 }
 
 // Returns true when the command should end.
 bool HomeHoodCommand::IsFinished() {
-  /// @todo Return true when motor in home position (use debounced IsHoodMoving)
-  return false;
+  return m_hoodMovingDebounce(m_shooter->IsHoodMoving());
 }

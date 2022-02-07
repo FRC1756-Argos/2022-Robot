@@ -38,17 +38,14 @@ void ShooterSubsystem::ManualAim(double turnSpeed, double hoodSpeed) {
 }
 
 void ShooterSubsystem::UpdateHoodHome() {
-  /// @todo use set hood sensor position using SetSelectedSensorPosition method of m_angleControl
-  ///       (https://store.ctr-electronics.com/content/api/cpp/html/classctre_1_1phoenix_1_1motorcontrol_1_1can_1_1_base_motor_controller.html#afc9c5af29bb420fe03d9ef494ee6dda6)
+  m_angleControl.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(measure_up::hood::homeAngle));
+  m_hoodHomed = true;
 }
 
 bool ShooterSubsystem::IsHoodMoving() {
-  /// @todo detect hood speed using GetSelectedSensorVelocity method of m_angleControl
-  ///       (https://store.ctr-electronics.com/content/api/cpp/html/classctre_1_1phoenix_1_1motorcontrol_1_1can_1_1_base_motor_controller.html#a408f0bdeed05461f092a8c64146c075e)
-  return false;
+  return std::abs(m_angleControl.GetSelectedSensorVelocity()) < 0.1;
 }
 
 bool ShooterSubsystem::IsHoodHomed() {
-  /// @todo return hood home status
-  return false;
+  return m_hoodHomed;
 }
