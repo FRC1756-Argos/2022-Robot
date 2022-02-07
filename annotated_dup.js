@@ -100,6 +100,7 @@ var annotated_dup =
         [ "has_voltCompSat", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html", null ],
         [ "has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ]
       ] ],
+      [ "Debouncer", "classargos__lib_1_1_debouncer.html", "classargos__lib_1_1_debouncer" ],
       [ "DebounceSettings", "structargos__lib_1_1_debounce_settings.html", "structargos__lib_1_1_debounce_settings" ],
       [ "InterpMapPoint", "structargos__lib_1_1_interp_map_point.html", "structargos__lib_1_1_interp_map_point" ],
       [ "InterpolationMap", "classargos__lib_1_1_interpolation_map.html", "classargos__lib_1_1_interpolation_map" ],

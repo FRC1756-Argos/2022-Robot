@@ -3,6 +3,9 @@ var dir_ce90de3a31c0930a75a0088390301e44 =
     [ "debounce_settings.h", "debounce__settings_8h.html", [
       [ "argos_lib::DebounceSettings", "structargos__lib_1_1_debounce_settings.html", "structargos__lib_1_1_debounce_settings" ]
     ] ],
+    [ "debouncer.h", "debouncer_8h.html", [
+      [ "argos_lib::Debouncer", "classargos__lib_1_1_debouncer.html", "classargos__lib_1_1_debouncer" ]
+    ] ],
     [ "interpolation.h", "interpolation_8h.html", "interpolation_8h" ],
     [ "network_tables_homing_storage.h", "network__tables__homing__storage_8h.html", [
       [ "argos_lib::swerve::NetworkTablesHomingStorage", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage" ]

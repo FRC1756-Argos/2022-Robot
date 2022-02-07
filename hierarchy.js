@@ -7,6 +7,7 @@ var hierarchy =
     [ "frc2::CommandHelper", null, [
       [ "argos_lib::SwapControllersCommand", "classargos__lib_1_1_swap_controllers_command.html", null ]
     ] ],
+    [ "argos_lib::Debouncer", "classargos__lib_1_1_debouncer.html", null ],
     [ "argos_lib::DebounceSettings", "structargos__lib_1_1_debounce_settings.html", null ],
     [ "argos_lib::XboxController::DPadButtons", "structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html", null ],
     [ "motorConfig::intake::elevatorIntakeDrive", "structmotor_config_1_1intake_1_1elevator_intake_drive.html", null ],

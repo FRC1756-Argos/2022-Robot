@@ -43,7 +43,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
@@ -61,10 +61,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca30f767aa191cd5d261e767fd78393607",
-"namespaceargos__lib_1_1swerve.html#a15014cfdba3bfb6ea3ecec726e8ada71",
-"structargos__lib_1_1falcon__config_1_1has__remote_filter0__addr.html",
-"structmotor_config_1_1drive_1_1front_right_turn.html#a132d581a1afa5805adaf02c69f56d425"
+"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fc",
+"namespaceaddress_1_1drive.html#aa479489eb896adaf260b2cf03b030ece",
+"structargos__lib_1_1falcon__config_1_1has__peak_output_forward_3_01_t_00_01decltype_07_07void_08f9925878016540efcc21a0f90f55af80.html",
+"structmotor_config_1_1drive_1_1front_left_turn.html#a3c1dd701f13d4491ab02ea2bf6644ce3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

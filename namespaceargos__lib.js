@@ -4,6 +4,7 @@ var namespaceargos__lib =
     [ "falcon_config", "namespaceargos__lib_1_1falcon__config.html", "namespaceargos__lib_1_1falcon__config" ],
     [ "swerve", "namespaceargos__lib_1_1swerve.html", "namespaceargos__lib_1_1swerve" ],
     [ "talonsrx_config", "namespaceargos__lib_1_1talonsrx__config.html", "namespaceargos__lib_1_1talonsrx__config" ],
+    [ "Debouncer", "classargos__lib_1_1_debouncer.html", "classargos__lib_1_1_debouncer" ],
     [ "DebounceSettings", "structargos__lib_1_1_debounce_settings.html", "structargos__lib_1_1_debounce_settings" ],
     [ "InterpMapPoint", "structargos__lib_1_1_interp_map_point.html", "structargos__lib_1_1_interp_map_point" ],
     [ "InterpolationMap", "classargos__lib_1_1_interpolation_map.html", "classargos__lib_1_1_interpolation_map" ],
