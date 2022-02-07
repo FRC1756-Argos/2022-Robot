@@ -69,5 +69,7 @@ var searchData=
   ['hoodspeed_66',['hoodSpeed',['../namespacecontroller_map.html#a1dacaddb9145013bc537ff3ddf742751',1,'controllerMap']]],
   ['hookextend_67',['HookExtend',['../class_climber_subsystem.html#a9fb5a5d1016e46c89947b106a8667baa',1,'ClimberSubsystem']]],
   ['hookretract_68',['hookRetract',['../class_climber_subsystem.html#a568d7191aa8f78d3634f66536b1c569d',1,'ClimberSubsystem']]],
-  ['hookspeed_69',['hookSpeed',['../namespacecontroller_map.html#a32c5da49786d39390beceeea3a735887',1,'controllerMap']]]
+  ['hookspeed_69',['hookSpeed',['../namespacecontroller_map.html#a32c5da49786d39390beceeea3a735887',1,'controllerMap']]],
+  ['hysteresis_5ffilter_2eh_70',['hysteresis_filter.h',['../hysteresis__filter_8h.html',1,'']]],
+  ['hysteresisfilter_71',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib::HysteresisFilter&lt; T &gt;'],['../classargos__lib_1_1_hysteresis_filter.html#a48bc031f5d458919079c7329a1ab77ad',1,'argos_lib::HysteresisFilter::HysteresisFilter(T deactivateThreshold, T activateThreshold)'],['../classargos__lib_1_1_hysteresis_filter.html#a71893324ea8606f6716261b14d79a20b',1,'argos_lib::HysteresisFilter::HysteresisFilter()=delete']]]
 ];

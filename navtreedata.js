@@ -61,10 +61,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fc",
-"namespaceaddress_1_1drive.html#aa479489eb896adaf260b2cf03b030ece",
-"structargos__lib_1_1falcon__config_1_1has__peak_output_forward_3_01_t_00_01decltype_07_07void_08f9925878016540efcc21a0f90f55af80.html",
-"structmotor_config_1_1drive_1_1front_left_turn.html#a3c1dd701f13d4491ab02ea2bf6644ce3"
+"classargos__lib_1_1_swappable_controllers_subsystem.html#a838b20adf26856f0c543172253084e4f",
+"namespaceaddress.html",
+"structargos__lib_1_1falcon__config_1_1has__neutral_deadband_3_01_t_00_01decltype_07_07void_08_015c25ddef8ee00d07f9e2181984886a62.html",
+"structmotor_config_1_1drive_1_1back_right_turn.html#a859607bc932805b027e81819ac0c0c1a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

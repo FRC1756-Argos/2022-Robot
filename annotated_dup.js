@@ -102,6 +102,7 @@ var annotated_dup =
       ] ],
       [ "Debouncer", "classargos__lib_1_1_debouncer.html", "classargos__lib_1_1_debouncer" ],
       [ "DebounceSettings", "structargos__lib_1_1_debounce_settings.html", "structargos__lib_1_1_debounce_settings" ],
+      [ "HysteresisFilter", "classargos__lib_1_1_hysteresis_filter.html", "classargos__lib_1_1_hysteresis_filter" ],
       [ "InterpMapPoint", "structargos__lib_1_1_interp_map_point.html", "structargos__lib_1_1_interp_map_point" ],
       [ "InterpolationMap", "classargos__lib_1_1_interpolation_map.html", "classargos__lib_1_1_interpolation_map" ],
       [ "SwapControllersCommand", "classargos__lib_1_1_swap_controllers_command.html", "classargos__lib_1_1_swap_controllers_command" ],
