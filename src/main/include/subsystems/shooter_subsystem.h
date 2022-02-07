@@ -17,9 +17,9 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void Periodic() override;
   /**
- * @brief auto aims shooter to hub
- *
- */
+   * @brief auto aims shooter to hub
+   *
+   */
   void AutoAim();
   /**
    * @brief pressing a button to fire a ball
@@ -28,12 +28,32 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void shooting(double ballfiringspeed);
   /**
-  * @brief manually aiming the turret
-  *
-  * @param turnSpeed turns the turret left or right full right turn is 1.0 full left turn is -1.0
-  * @param hoodSpeed move the hood up or down full retract movement is 1.0 full extend movemnt is -1.0
-  */
+   * @brief manually aiming the turret
+   *
+   * @param turnSpeed turns the turret left or right full right turn is 1.0 full left turn is -1.0
+   * @param hoodSpeed move the hood up or down full retract movement is 1.0 full extend movemnt is -1.0
+   */
   void ManualAim(double turnSpeed, double hoodSpeed);
+
+  /**
+   * @brief Update hood home position
+   *
+   */
+  void UpdateHoodHome();
+
+  /**
+   * @brief Detect if hood is moving
+   *
+   * @return True if hood is currently in motion
+   */
+  bool IsHoodMoving();
+
+  /**
+   * @brief Detect if hood homing is complete
+   *
+   * @return True if hood is homed
+   */
+  bool IsHoodHomed();
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
@@ -42,4 +62,6 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   WPI_TalonFX m_shooterWheelRight;
   WPI_TalonSRX m_angleControl;
   WPI_TalonSRX m_rotationControl;
+
+  bool m_hoodHomed;  ///< True when hood has known closed loop position
 };

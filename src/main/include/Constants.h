@@ -86,6 +86,9 @@ namespace measure_up {
     constexpr auto backLeftWOffset = 4.0_in;
     constexpr auto backLeftLOffset = 4.0_in;
   }  // namespace swerve_offsets
+  namespace hood {
+    constexpr auto homeAngle = 0_deg;  /// @todo Set home angle for hood
+  }                                    // namespace hood
 }  // namespace measure_up
 
 namespace indexes {

@@ -4,6 +4,7 @@
 
 #include "RobotContainer.h"
 
+#include <frc/DriverStation.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
@@ -21,6 +22,7 @@ RobotContainer::RobotContainer()
     , m_hoodSpeedMap(controllerMap::hoodSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable)
+    , m_homeHoodCommand(&m_shooter)
     , m_compressor(frc::PneumaticsModuleType::REVPH) {
   m_compressor.EnableDigital();
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
@@ -61,6 +63,15 @@ RobotContainer::RobotContainer()
                                     argos_lib::XboxController::JoystickHand::kRightHand)));
       },
       {&m_climber}));
+
+  auto robotEnableTrigger = (frc2::Trigger{[this]() {
+    return true;  /// @todo Use frc::DriverStation::IsEnabled() to detect robot enabled status (https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc_1_1_driver_station.html#a91be10d2d3cb68d5e3e383b5eda00485)
+  }});
+
+  /// @todo Add similar trigger to robotEnabledTrigger, but have it react to the hood being homed
+
+  /// @todo Run hood home command when robotEnableTrigger is active and hood is not already homed (similar to intake below)
+
   ConfigureButtonBindings();
 }
 
