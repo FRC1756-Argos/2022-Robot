@@ -66,6 +66,9 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 
   );
 
+  /// @todo DEFAULT TO ROBOT CENTRIC FOR NOW (change later)
+  m_controlMode = SwerveDriveSubsystem::DriveControlMode::robotCentricControl;
+
   m_pSwerveDriveKinematics = std::make_unique<frc::SwerveDriveKinematics<4>>(
       frontLeftCenterOffset, frontRightCenterOffset, backRightCenterOffset, backLeftCenterOffset);
 
@@ -77,42 +80,10 @@ void SwerveDriveSubsystem::Periodic() {}
 
 // SWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 
-wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(DriveControlMode currentDriveMode,
-                                                                               const double& fwVelocity,
-                                                                               const double& sideVelocity,
-                                                                               const double& rotVelocity) {
-  switch (currentDriveMode) {
-    case (DriveControlMode::fieldCentricControl):
-      /*
-            Construct speeds with field-relative speeds and current IMU angle.
-        */
-      /// @todo look at side speed and document if positive is left or right.
-      frc::ChassisSpeeds filed_centric_speeds = frc::ChassisSpeeds::FromFieldRelativeSpeeds(
-          units::make_unit<units::meters_per_second_t>(fwVelocity),
-          units::make_unit<units::meters_per_second_t>(sideVelocity),
-          units::make_unit<units::angular_velocity::radians_per_second_t>(rotVelocity),
-          /*LAST THING HERE*/) break;
-
-    case (DriveControlMode::robotCentricControl):
-      // Construct speeds just the same as in the current main drive function
-      break;
-  }
-}
-
-void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
-                                       const double& sideVelocity,
-                                       const double& rotVelocity) {
-  frc::ChassisSpeeds speeds{units::make_unit<units::velocity::meters_per_second_t>(fwVelocity),
-                            units::make_unit<units::velocity::meters_per_second_t>(sideVelocity),
-                            units::make_unit<units::angular_velocity::radians_per_second_t>(rotVelocity)};
-
-  // DEBUG STUFF
-  frc::SmartDashboard::PutNumber("(DRIVETRAIN) fwVelocity", fwVelocity);
-  frc::SmartDashboard::PutNumber("(DRIVETRAIN) sideVelocity", sideVelocity);
-  frc::SmartDashboard::PutNumber("(DRIVETRAIN) rotVelocity", rotVelocity);
-
+wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
+    SwerveDriveSubsystem::Velocities velocities) {
   // IF SPEEDS ZERO, SET MOTORS TO ZERO AND RETURN
-  if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
+  if (velocities.fwVelocity == 0 && velocities.sideVelocity == 0 && velocities.rotVelocity == 0) {
     m_frontLeft.m_drive.Set(0);
     m_frontLeft.m_turn.Set(0);
 
@@ -127,21 +98,75 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
     return;
   }
 
-  auto moduleStates = m_pSwerveDriveKinematics->ToSwerveModuleStates(speeds);
+  switch (m_controlMode) {
+    case (DriveControlMode::fieldCentricControl):
+      // Construct speeds with field-relative speeds and current IMU Z angle.
+      frc::ChassisSpeeds fieldCentricSpeeds = frc::ChassisSpeeds::FromFieldRelativeSpeeds(
+          units::make_unit<units::meters_per_second_t>(velocities.fwVelocity),
+          units::make_unit<units::meters_per_second_t>(velocities.sideVelocity),
+          units::make_unit<units::angular_velocity::radians_per_second_t>(velocities.rotVelocity),
+          frc::Rotation2d(m_imu.GetGyroAngleZ()));
 
-  /// @todo switch to argosLib optimize functions in time (create overload for meters per second?)
-  moduleStates.at(0) = moduleStates.at(0).Optimize(
-      moduleStates.at(0),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_frontLeft.m_turn.GetSelectedSensorPosition()));
-  moduleStates.at(1) = moduleStates.at(1).Optimize(
-      moduleStates.at(1),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_frontRight.m_turn.GetSelectedSensorPosition()));
-  moduleStates.at(2) = moduleStates.at(2).Optimize(
-      moduleStates.at(2),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_backRight.m_turn.GetSelectedSensorPosition()));
-  moduleStates.at(3) = moduleStates.at(3).Optimize(
-      moduleStates.at(3),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_backLeft.m_turn.GetSelectedSensorPosition()));
+      // Return the speeds to consumer
+      return m_pSwerveDriveKinematics->ToSwerveModuleStates(fieldCentricSpeeds);
+
+    case (DriveControlMode::robotCentricControl):
+      // Construct speeds just the same as in the current main drive function
+      frc::ChassisSpeeds robotCentricSpeeds{
+          units::make_unit<units::velocity::meters_per_second_t>(velocities.fwVelocity),
+          units::make_unit<units::velocity::meters_per_second_t>(velocities.sideVelocity),
+          units::make_unit<units::angular_velocity::radians_per_second_t>(velocities.rotVelocity)};
+
+      return m_pSwerveDriveKinematics->ToSwerveModuleStates(robotCentricSpeeds);
+
+      break;
+  }
+}
+
+void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
+                                       const double& sideVelocity,
+                                       const double& rotVelocity) {
+  SwerveDriveSubsystem::Velocities velocities{fwVelocity, sideVelocity, rotVelocity};
+
+  frc::ChassisSpeeds speeds{units::make_unit<units::velocity::meters_per_second_t>(fwVelocity),
+                            units::make_unit<units::velocity::meters_per_second_t>(sideVelocity),
+                            units::make_unit<units::angular_velocity::radians_per_second_t>(rotVelocity)};
+
+  // DEBUG STUFF
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) fwVelocity", fwVelocity);
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) sideVelocity", sideVelocity);
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) rotVelocity", rotVelocity);
+
+  // SET MODULES BASED OFF OF CONTROL MODE
+  auto moduleStates = GetRawModuleStates(velocities);
+
+  moduleStates.at(indexes::swerveModules::frontLeftIndex) = argos_lib::swerve::Optimize(
+      moduleStates.at(indexes::swerveModules::frontLeftIndex),
+      units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()),
+      units::make_unit<units::angular_velocity::degrees_per_second_t>(m_frontLeft.m_encoder.GetVelocity()),
+      units::make_unit<units::velocity::feet_per_second_t>(m_frontLeft.m_drive.GetSelectedSensorVelocity()),
+      speeds::drive::maxAngular);
+
+  moduleStates.at(indexes::swerveModules::frontRightIndex) = argos_lib::swerve::Optimize(
+      moduleStates.at(indexes::swerveModules::frontRightIndex),
+      units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition()),
+      units::make_unit<units::angular_velocity::degrees_per_second_t>(m_frontRight.m_encoder.GetVelocity()),
+      units::make_unit<units::velocity::feet_per_second_t>(m_frontRight.m_drive.GetSelectedSensorVelocity()),
+      speeds::drive::maxAngular);
+
+  moduleStates.at(indexes::swerveModules::backRightIndex) = argos_lib::swerve::Optimize(
+      moduleStates.at(indexes::swerveModules::backRightIndex),
+      units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition()),
+      units::make_unit<units::angular_velocity::degrees_per_second_t>(m_backRight.m_encoder.GetVelocity()),
+      units::make_unit<units::velocity::feet_per_second_t>(m_backRight.m_drive.GetSelectedSensorVelocity()),
+      speeds::drive::maxAngular);
+
+  moduleStates.at(indexes::swerveModules::backLeftIndex) = argos_lib::swerve::Optimize(
+      moduleStates.at(indexes::swerveModules::backLeftIndex),
+      units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()),
+      units::make_unit<units::angular_velocity::degrees_per_second_t>(m_backLeft.m_encoder.GetVelocity()),
+      units::make_unit<units::velocity::feet_per_second_t>(m_backLeft.m_drive.GetSelectedSensorVelocity()),
+      speeds::drive::maxAngular);
 
   // Give module state values to motors
 
@@ -209,6 +234,17 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   m_backLeft.m_encoder.SetPosition(angle.to<double>(), 50);
 }
 
+void SwerveDriveSubsystem::SwapControlMode() {
+  switch (m_controlMode) {
+    case (SwerveDriveSubsystem::DriveControlMode::robotCentricControl):
+      m_controlMode = SwerveDriveSubsystem::DriveControlMode::fieldCentricControl;
+      break;
+    case (SwerveDriveSubsystem::DriveControlMode::fieldCentricControl):
+      m_controlMode = SwerveDriveSubsystem::DriveControlMode::robotCentricControl;
+      break;
+  }
+}
+
 void SwerveDriveSubsystem::InitializeMotors() {
   InitializeMotorsFromFS();
 }
@@ -260,7 +296,7 @@ void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables() {
   std::printf("%d\n", __LINE__);
 
   if (!frontLeft_saved || !frontRight_saved || !backRight_saved || !backLeft_saved) {
-    // PREVENT MOTION HERE OF MOTOR
+    // @todo PREVENT MOTION HERE OF MOTOR
     /// @todo IF NO HOMES LISTED, SET A FLAG SO WE CAN'T DRIVE
     return;
   }

@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <frc/ADIS16448_IMU.h>
 #include <frc/kinematics/ChassisSpeeds.h>
 #include <frc/kinematics/SwerveDriveKinematics.h>
 #include <frc/kinematics/SwerveModuleState.h>
@@ -35,6 +36,14 @@ class SwerveModule {
 
 class SwerveDriveSubsystem : public frc2::SubsystemBase {
  public:
+  /**
+   * @brief Enumerator for either field-centric or robot centric drive modes.
+   *
+   */
+  enum DriveControlMode { fieldCentricControl, robotCentricControl };
+
+  DriveControlMode m_controlMode;
+
   explicit SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable);
   /**
    * @brief Main drive function for the robot
@@ -43,7 +52,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    * @param sideVelocity Percent speed perpendicular to the robots front.  Range [-1.0, 1.0] where positive 1.0 is full speed left
    * @param rotVelocity Percent speed of rotation of the chassis.  Range [-1.0, 1.0] where positive 1.0 is full speed counterclockwise
    */
-  void SwerveDrive(const double& fwVelocity, const double& reVelocity, const double& rotVelocity);
+  void SwerveDrive(const double& fwVelocity, const double& sideVelocity, const double& rotVelocity);
 
   /**
    * @brief Save homes to persistent storage and updates module motors
@@ -52,6 +61,8 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    *
    */
   void Home(const units::degree_t& angle);
+
+  void SwapControlMode();
 
   /**
    * @brief Initialize motors from persistent storage
@@ -72,11 +83,18 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   SwerveModule m_backRight;   ///< Back right swerve module
   SwerveModule m_backLeft;    ///< Back left swerve module
 
+  // GYROSCOPIC SENSORS
+  frc::ADIS16448_IMU m_imu;
+
   /**
-   * @brief Enumerator for either field-centric or robot centric drive modes.
-   *
-   */
-  enum DriveControlMode { fieldCentricControl, robotCentricControl };
+ * @brief A struct for holding the 3 different input velocities, for organization
+ *
+ */
+  struct Velocities {
+    const double& fwVelocity;
+    const double& sideVelocity;
+    const double& rotVelocity;
+  };
 
   std::unique_ptr<frc::SwerveDriveKinematics<4>>
       m_pSwerveDriveKinematics;  ///< Kinematics model for swerve drive system
@@ -87,10 +105,16 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   // std::FILE SYSTEM HOMING STORAGE
   FileSystemHomingStorage m_fsStorage;
 
-  wpi::array<frc::SwerveModuleState, 4> GetRawModuleStates(DriveControlMode currentDriveMode,
-                                                           const double& fwVelocity,
-                                                           const double& sideVelocity,
-                                                           const double& rotVelocity);
+  /**
+ * @brief Get the Raw Module States object and switch between robot-centric and field-centric
+ *
+ * @param currentDriveMode The current drive mode see DriveControlMode enum
+ * @param fwVelocity Positive value results in forward movement
+ * @param sideVelocity Positive value results in left movement
+ * @param rotVelocity Positive value results in counter-clockwise movement
+ * @return wpi::array<frc::SwerveModuleState, 4>
+ */
+  wpi::array<frc::SwerveModuleState, 4> GetRawModuleStates(SwerveDriveSubsystem::Velocities velocities);
 
   /**
    * @brief HomeToNetworkTables all of the modules back to zero
