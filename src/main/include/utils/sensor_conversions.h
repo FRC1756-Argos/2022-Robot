@@ -37,7 +37,7 @@ namespace sensor_conversions {
   }  // namespace hood
   namespace shooter {
     constexpr double sensorConversionFactor =
-        1000 * 60 / 2048;  ///< multiply to convert shooter velocity to revolutions per minute
+        10.0 * 60 / 2048;  ///< multiply to convert shooter velocity to revolutions per minute
     constexpr double ToSensorUnit(const units::revolutions_per_minute_t rpm) {
       return rpm.to<double>() / sensorConversionFactor;
     }

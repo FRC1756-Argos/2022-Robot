@@ -154,7 +154,7 @@ namespace controlLoop {
       constexpr double kP = 0.0;
       constexpr double kI = 0.0;
       constexpr double kD = 0.0;
-      constexpr double kF = 0.5;
+      constexpr double kF = 0.2;
       constexpr double iZone = 100.0;
       constexpr double allowableError = 0.0;
     }  // namespace shooter
@@ -258,7 +258,7 @@ namespace motorConfig {
     };
 
     struct shooterWheelRight {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;

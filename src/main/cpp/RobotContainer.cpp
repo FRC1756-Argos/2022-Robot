@@ -20,7 +20,7 @@ RobotContainer::RobotContainer()
     , m_hoodSpeedMap(controllerMap::hoodSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable)
-    , m_compressor(frc::PneumaticsModuleType::REVPH) {
+    , m_compressor(1, frc::PneumaticsModuleType::REVPH) {
   m_compressor.EnableDigital();
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
@@ -69,7 +69,7 @@ void RobotContainer::ConfigureButtonBindings() {
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
-  shooter.WhenActive([this]() { m_shooter.CloseLoopShoot(3000_rpm); }, {&m_shooter});
+  shooter.WhileActiveContinous([this]() { m_shooter.CloseLoopShoot(3000_rpm); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_shooter.shooting(0); }, {&m_shooter});
 
   // Swap controllers config
