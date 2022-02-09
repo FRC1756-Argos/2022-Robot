@@ -50,7 +50,7 @@ namespace sensor_conversions {
   namespace climb_arms {
     constexpr double sensorToMotorRev = 1.0 / 2048;
     constexpr double gearboxReduction = 30.0 / 12;
-    constexpr double extensionInchesPerRevolution = 1.0;
+    constexpr double extensionInchesPerRevolution = 1.0;  /// @todo How many threads per inch?
     constexpr units::inch_t ToExtension(const double sensorUnit) {
       return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
                                              extensionInchesPerRevolution);
@@ -62,7 +62,7 @@ namespace sensor_conversions {
   namespace climb_hooks {
     constexpr double sensorToMotorRev = 1.0 / 2048;
     constexpr double gearboxReduction = 1.0 / 8;
-    constexpr double driveSprocketTeethPerRevolution = 16.0;
+    constexpr double driveSprocketTeethPerRevolution = 16.0;  /// @todo Confirm this
     constexpr double extensionInchesPerDriveSprocketTooth = 0.25 / 1;
     constexpr units::inch_t ToExtension(const double sensorUnit) {
       return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
