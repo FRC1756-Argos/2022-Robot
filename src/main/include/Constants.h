@@ -90,6 +90,12 @@ namespace measure_up {
   namespace hood {
     constexpr auto homeAngle = 0_deg;  /// @todo Set home angle for hood
   }                                    // namespace hood
+  namespace climber_arm {
+    constexpr auto homeExtension = 0_in;  ///< @todo Set home extension for climber arms
+  }                                       // namespace climber_arm
+  namespace climber_hook {
+    constexpr auto homeExtension = 0_in;  ///< @todo Set home extension for climber hooks
+  }                                       // namespace climber_hook
 }  // namespace measure_up
 
 namespace indexes {

@@ -23,6 +23,8 @@ RobotContainer::RobotContainer()
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable)
     , m_homeHoodCommand(&m_shooter)
+    , m_homeClimberArmCommand(&m_climber)
+    , m_homeClimberHookCommand(&m_climber)
     , m_compressor(frc::PneumaticsModuleType::REVPH) {
   m_compressor.EnableDigital();
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
@@ -69,11 +71,21 @@ RobotContainer::RobotContainer()
 
   // Homing triggers
   auto hoodHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_shooter.IsHoodHomed(); }});
+  auto climberHookHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_climber.IsHookHomed(); }});
+  auto climberArmHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_climber.IsArmHomed(); }});
 
   // Homing commands
   (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
+  (robotEnableTrigger && !climberArmHomingCompleteTrigger).WhenActive(m_homeClimberArmCommand);
+  (robotEnableTrigger && !climberHookHomingCompleteTrigger).WhenActive(m_homeClimberHookCommand);
+
   // Notify subsystems of disable
-  robotEnableTrigger.WhenInactive([this]() { m_shooter.Disable(); }, {&m_shooter});
+  robotEnableTrigger.WhenInactive(
+      [this]() {
+        m_shooter.Disable();
+        m_climber.Disable();
+      },
+      {&m_shooter, &m_climber});
 
   ConfigureButtonBindings();
 }

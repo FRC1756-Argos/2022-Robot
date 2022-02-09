@@ -4,6 +4,7 @@
 
 #pragma once
 #include "units/angle.h"
+#include "units/length.h"
 
 namespace sensor_conversions {
   namespace swerve_drive {
@@ -46,4 +47,30 @@ namespace sensor_conversions {
                                                sensorConversionTeethIn * sensorConversionInAngle);
     }
   }  // namespace hood
+  namespace climb_arms {
+    constexpr double sensorToMotorRev = 1.0 / 2048;
+    constexpr double gearboxReduction = 30.0 / 12;
+    constexpr double extensionInchesPerRevolution = 1.0;
+    constexpr units::inch_t ToExtension(const double sensorUnit) {
+      return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
+                                             extensionInchesPerRevolution);
+    }
+    constexpr double ToSensorUnit(const units::inch_t extension) {
+      return extension.to<double>() / extensionInchesPerRevolution / gearboxReduction / sensorToMotorRev;
+    }
+  }  // namespace climb_arms
+  namespace climb_hooks {
+    constexpr double sensorToMotorRev = 1.0 / 2048;
+    constexpr double gearboxReduction = 1.0 / 8;
+    constexpr double driveSprocketTeethPerRevolution = 16.0;
+    constexpr double extensionInchesPerDriveSprocketTooth = 0.25 / 1;
+    constexpr units::inch_t ToExtension(const double sensorUnit) {
+      return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
+                                             driveSprocketTeethPerRevolution * extensionInchesPerDriveSprocketTooth);
+    }
+    constexpr double ToSensorUnit(const units::inch_t extension) {
+      return extension.to<double>() / extensionInchesPerDriveSprocketTooth / driveSprocketTeethPerRevolution /
+             gearboxReduction / sensorToMotorRev;
+    }
+  }  // namespace climb_hooks
 }  // namespace sensor_conversions

@@ -12,6 +12,8 @@
 #include "Constants.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "commands/home_climber_arm_command.h"
+#include "commands/home_climber_hook_command.h"
 #include "commands/home_hood_command.h"
 #include "subsystems/climber_subsystem.h"
 #include "subsystems/intake_subsystem.h"
@@ -62,6 +64,8 @@ class RobotContainer {
   ShooterSubsystem m_shooter;
 
   HomeHoodCommand m_homeHoodCommand;
+  HomeClimberArmCommand m_homeClimberArmCommand;
+  HomeClimberHookCommand m_homeClimberHookCommand;
 
   frc::Compressor m_compressor;
 
