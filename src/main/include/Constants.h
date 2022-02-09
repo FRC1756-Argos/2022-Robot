@@ -151,10 +151,10 @@ namespace controlLoop {
   }    // namespace drive
   namespace shooter {
     namespace shooter {
-      constexpr double kP = 0.0;
+      constexpr double kP = 0.01;
       constexpr double kI = 0.0;
       constexpr double kD = 0.0;
-      constexpr double kF = 0.2;
+      constexpr double kF = 0.05;
       constexpr double iZone = 100.0;
       constexpr double allowableError = 0.0;
     }  // namespace shooter
