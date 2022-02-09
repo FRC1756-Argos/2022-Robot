@@ -3,6 +3,7 @@
 ///            the license file in the root directory of this project.
 
 #pragma once
+#include <units/angle.h>
 #include <units/length.h>
 
 #include <string>

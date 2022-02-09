@@ -6,28 +6,34 @@
 
 #include "units/time.h"
 
-HomeHoodCommand::HomeHoodCommand(ShooterSubsystem* shooter) : m_shooter(shooter), m_hoodMovingDebounce{{500_ms, 0_ms}} {
+HomeHoodCommand::HomeHoodCommand(ShooterSubsystem* shooter)
+    : m_pShooter(shooter), m_hoodMovingDebounce{{0_ms, 500_ms}, true} {
   AddRequirements(shooter);
 }
 
 // Called when the command is initially scheduled.
 void HomeHoodCommand::Initialize() {
-  m_shooter->ManualAim(0.0, -0.1);
+  m_pShooter->MoveHood(0.1);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void HomeHoodCommand::Execute() {
-  m_shooter->ManualAim(0.0, -0.1);
+  if (m_pShooter->IsManualOverride()) {
+    Cancel();
+  } else {
+    m_pShooter->MoveHood(0.1);
+  }
 }
 
 // Called once the command ends or is interrupted.
 void HomeHoodCommand::End(bool interrupted) {
   if (!interrupted) {
-    m_shooter->UpdateHoodHome();
+    m_pShooter->UpdateHoodHome();
   }
+  m_pShooter->MoveHood(0.0);
 }
 
 // Returns true when the command should end.
 bool HomeHoodCommand::IsFinished() {
-  return m_hoodMovingDebounce(m_shooter->IsHoodMoving());
+  return !m_hoodMovingDebounce(m_pShooter->IsHoodMoving());
 }

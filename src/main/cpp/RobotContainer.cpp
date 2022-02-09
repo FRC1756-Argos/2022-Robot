@@ -64,11 +64,16 @@ RobotContainer::RobotContainer()
       },
       {&m_climber}));
 
+  // Robot state triggers
   auto robotEnableTrigger = (frc2::Trigger{[this]() { return frc::DriverStation::IsEnabled(); }});
 
+  // Homing triggers
   auto hoodHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_shooter.IsHoodHomed(); }});
 
+  // Homing commands
   (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
+  // Notify subsystems of disable
+  robotEnableTrigger.WhenInactive([this]() { m_shooter.Disable(); }, {&m_shooter});
 
   ConfigureButtonBindings();
 }
@@ -97,8 +102,8 @@ void RobotContainer::ConfigureButtonBindings() {
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
-  shooter.WhenActive([this]() { m_shooter.shooting(0.40); }, {&m_shooter});
-  shooter.WhenInactive([this]() { m_shooter.shooting(0); }, {&m_shooter});
+  shooter.WhenActive([this]() { m_shooter.Shoot(0.40); }, {&m_shooter});
+  shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
 
   // Swap controllers config
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});

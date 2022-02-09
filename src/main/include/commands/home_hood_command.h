@@ -23,6 +23,6 @@ class HomeHoodCommand : public frc2::CommandHelper<frc2::CommandBase, HomeHoodCo
   bool IsFinished() override;
 
  private:
-  ShooterSubsystem* m_shooter;
+  ShooterSubsystem* m_pShooter;
   argos_lib::Debouncer m_hoodMovingDebounce;
 };

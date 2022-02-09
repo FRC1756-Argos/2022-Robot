@@ -17,8 +17,9 @@ namespace argos_lib {
      * @brief Construct a new Debouncer object with asymmetric times
      *
      * @param debounceSettings Configuration settings for activate and clear times
+     * @param initialValue Initializes debouncer to this value
      */
-    explicit Debouncer(const argos_lib::DebounceSettings debounceSettings);
+    explicit Debouncer(const argos_lib::DebounceSettings debounceSettings, bool initialValue = false);
 
     /**
      * @brief Construct a new Debouncer object with symmetric times

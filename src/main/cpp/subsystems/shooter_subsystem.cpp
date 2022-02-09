@@ -14,7 +14,8 @@ ShooterSubsystem::ShooterSubsystem()
     , m_shooterWheelRight(address::shooter::shooterWheelRight)
     , m_angleControl(address::shooter::angleControl)
     , m_rotationControl(address::shooter::rotationControl)
-    , m_hoodHomed(false) {
+    , m_hoodHomed(false)
+    , m_manualOverride(false) {
   argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelLeft>(m_shooterWheelLeft, 50_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelRight>(m_shooterWheelRight, 50_ms);
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::angleControl>(m_angleControl, 50_ms);
@@ -28,13 +29,25 @@ void ShooterSubsystem::Periodic() {}
 
 void ShooterSubsystem::AutoAim() {}
 
-void ShooterSubsystem::shooting(double ballfiringspeed) {
+void ShooterSubsystem::Shoot(double ballfiringspeed) {
   m_shooterWheelLeft.Set(ballfiringspeed);
 }
 
 void ShooterSubsystem::ManualAim(double turnSpeed, double hoodSpeed) {
-  m_rotationControl.Set(turnSpeed);
+  MoveTurret(turnSpeed);
+  MoveHood(hoodSpeed);
+
+  if (turnSpeed != 0 || hoodSpeed != 0) {
+    m_manualOverride = true;
+  }
+}
+
+void ShooterSubsystem::MoveHood(double hoodSpeed) {
   m_angleControl.Set(hoodSpeed);
+}
+
+void ShooterSubsystem::MoveTurret(double turnSpeed) {
+  m_rotationControl.Set(turnSpeed);
 }
 
 void ShooterSubsystem::UpdateHoodHome() {
@@ -48,4 +61,12 @@ bool ShooterSubsystem::IsHoodMoving() {
 
 bool ShooterSubsystem::IsHoodHomed() {
   return m_hoodHomed;
+}
+
+bool ShooterSubsystem::IsManualOverride() {
+  return m_manualOverride;
+}
+
+void ShooterSubsystem::Disable() {
+  m_manualOverride = false;
 }
