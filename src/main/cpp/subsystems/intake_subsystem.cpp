@@ -21,6 +21,13 @@ IntakeSubsystem::IntakeSubsystem()
 
 // This method will be called once per scheduler run
 void IntakeSubsystem::Periodic() {
+  if (((m_intakeButtonPressed == true || m_shooterButtonPressed == true) && m_outtakeButtonPressed == false)) {
+    m_intakeState = IntakeSubsystem::IntakeState::Intaking;
+  } else if (m_outtakeButtonPressed == true) {
+    m_intakeState = IntakeSubsystem::IntakeState::Outtaking;
+  } else {
+    m_intakeState = IntakeSubsystem::IntakeState::Stop;
+  }
   switch (m_intakeState) {
     case IntakeState::Stop:
       m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
@@ -35,11 +42,14 @@ void IntakeSubsystem::Periodic() {
       }
       if (m_intakeButtonPressed == true) {
         m_intakeDrive.Set(speeds::intake::intakeForward);
+      } else if (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == false) {
+        m_intakeDrive.Set(speeds::intake::intakeReverse);
       } else {
         m_intakeDrive.Set(0);
       }
       if (m_shooterButtonPressed == true ||
-          (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == true)) {
+          ((getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == true) &&
+           getBallPresent(m_ballPresentShooter) == false)) {
         m_beltDrive.Set(speeds::intake::beltForward);
       } else {
         m_beltDrive.Set(0);

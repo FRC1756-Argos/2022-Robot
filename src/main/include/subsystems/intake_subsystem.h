@@ -84,6 +84,8 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   frc::TimeOfFlight m_ballPresentShooter;
   frc::TMD37003 m_ballColor;  ///< at intake
 
+  // CARGO MANAGEMENT
+
   IntakeState m_intakeState;
 
   bool m_intakeButtonPressed;
