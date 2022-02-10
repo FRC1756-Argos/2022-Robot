@@ -90,7 +90,8 @@ $(document).ready(function(){initNavTree('_constants_8h.html',''); initResizable
   <div class="headertitle"><div class="title">Constants.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;units/length.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;frc/I2C.h&gt;</code><br />
+<code>#include &lt;units/length.h&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="interpolation_8h_source.html">argos_lib/general/interpolation.h</a>&quot;</code><br />
 <code>#include &quot;ctre/Phoenix.h&quot;</code><br />
@@ -157,6 +158,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceaddress_1_1controllers"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceaddress_1_1controllers.html">address::controllers</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceaddress_1_1solenoids"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceaddress_1_1solenoids.html">address::solenoids</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceaddress_1_1sensors"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceaddress_1_1sensors.html">address::sensors</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacemeasure__up"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemeasure__up.html">measure_up</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,6 +262,12 @@ Variables</h2></td></tr>
 <tr class="separator:a0488a7ab97c7d7d3edc83663cb5615bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8747c76adbdb4ff6e6582a91a3bf1bac"><td class="memItemLeft" align="right" valign="top">constexpr const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceaddress_1_1solenoids.html#a8747c76adbdb4ff6e6582a91a3bf1bac">address::solenoids::intake</a> = 0</td></tr>
 <tr class="separator:a8747c76adbdb4ff6e6582a91a3bf1bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c5552afd7b700b9e1eccaa08a6cb78e"><td class="memItemLeft" align="right" valign="top">constexpr const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceaddress_1_1sensors.html#a2c5552afd7b700b9e1eccaa08a6cb78e">address::sensors::tofSensorIntake</a> = 1</td></tr>
+<tr class="separator:a2c5552afd7b700b9e1eccaa08a6cb78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a205ea3477b82d4c9fe8aa7d28b9347"><td class="memItemLeft" align="right" valign="top">constexpr const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceaddress_1_1sensors.html#a8a205ea3477b82d4c9fe8aa7d28b9347">address::sensors::tofSensorShooter</a> = 2</td></tr>
+<tr class="separator:a8a205ea3477b82d4c9fe8aa7d28b9347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac09e441e095888f1847dc2450a86f847"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceaddress_1_1sensors.html#ac09e441e095888f1847dc2450a86f847">address::sensors::colorSensor</a> = frc::I2C::Port::kOnboard</td></tr>
+<tr class="separator:ac09e441e095888f1847dc2450a86f847"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff61d4016fc44a7ba5a70ad24289f702"><td class="memItemLeft" align="right" valign="top">constexpr units::inch_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemeasure__up_1_1chassis.html#aff61d4016fc44a7ba5a70ad24289f702">measure_up::chassis::width</a> {28.0}</td></tr>
 <tr class="separator:aff61d4016fc44a7ba5a70ad24289f702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae957e01d5b3460e5bce14a80300c2680"><td class="memItemLeft" align="right" valign="top">constexpr units::inch_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemeasure__up_1_1chassis.html#ae957e01d5b3460e5bce14a80300c2680">measure_up::chassis::length</a> {31.0}</td></tr>

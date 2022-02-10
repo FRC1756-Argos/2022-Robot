@@ -30,6 +30,11 @@ var namespaceaddress =
       [ "elevatorIntakeDrive", "namespaceaddress_1_1intake.html#a49442bf1c94fc2facf994f5dc7261cf9", null ],
       [ "intakeDrive", "namespaceaddress_1_1intake.html#a09905ba0db96d230f0dee9a8342af050", null ]
     ] ],
+    [ "sensors", "namespaceaddress_1_1sensors.html", [
+      [ "colorSensor", "namespaceaddress_1_1sensors.html#ac09e441e095888f1847dc2450a86f847", null ],
+      [ "tofSensorIntake", "namespaceaddress_1_1sensors.html#a2c5552afd7b700b9e1eccaa08a6cb78e", null ],
+      [ "tofSensorShooter", "namespaceaddress_1_1sensors.html#a8a205ea3477b82d4c9fe8aa7d28b9347", null ]
+    ] ],
     [ "shooter", "namespaceaddress_1_1shooter.html", [
       [ "angleControl", "namespaceaddress_1_1shooter.html#a8ccf49a3a139153b0ca33a501343ddec", null ],
       [ "rotationControl", "namespaceaddress_1_1shooter.html#a39ec5c668dd89f28290dc5520efea371", null ],

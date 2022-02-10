@@ -37,6 +37,7 @@ var _constants_8h =
     [ "blHomeFullPath", "_constants_8h.html#a5c47b6bcf26065b0aab95a2644692047", null ],
     [ "brHome", "_constants_8h.html#a76ecc849d0d8ed33ee48f5443e59a4f7", null ],
     [ "brHomeFullPath", "_constants_8h.html#aa8d9ed48bb92f653121fc87052fe5392", null ],
+    [ "colorSensor", "_constants_8h.html#ac09e441e095888f1847dc2450a86f847", null ],
     [ "driveLatSpeed", "_constants_8h.html#adc91dc4d2e883f10ec2433773b906162", null ],
     [ "driveLongSpeed", "_constants_8h.html#a05bdf6f0ae15f91cb8886e99ff5b17bf", null ],
     [ "driver", "_constants_8h.html#aa849663f6827b99ca886a1f050ba25ea", null ],
@@ -81,6 +82,8 @@ var _constants_8h =
     [ "shooterWheelRight", "_constants_8h.html#a8df1fe036b101508f70754a9960de8d2", null ],
     [ "swerveHomesPath", "_constants_8h.html#a409e68dc719283f90e4de04a5499bf18", null ],
     [ "tableKey", "_constants_8h.html#aa350ed756bc6429793662c7117ad1b7a", null ],
+    [ "tofSensorIntake", "_constants_8h.html#a2c5552afd7b700b9e1eccaa08a6cb78e", null ],
+    [ "tofSensorShooter", "_constants_8h.html#a8a205ea3477b82d4c9fe8aa7d28b9347", null ],
     [ "turretSpeed", "_constants_8h.html#addfaca7b509806dafab99c4008a9d250", null ],
     [ "width", "_constants_8h.html#aff61d4016fc44a7ba5a70ad24289f702", null ]
 ];

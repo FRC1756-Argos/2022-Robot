@@ -5,5 +5,6 @@ var searchData=
   ['operator_3d_3d_2',['operator==',['../structargos__lib_1_1_interp_map_point.html#aae6d6d0df96790c21e676755d99c49c3',1,'argos_lib::InterpMapPoint']]],
   ['operatorcontroller_3',['OperatorController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#a6a137c6ef1768f6f621799055c66582b',1,'argos_lib::SwappableControllersSubsystem']]],
   ['optimize_4',['Optimize',['../namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454',1,'argos_lib::swerve']]],
-  ['outval_5',['outVal',['../structargos__lib_1_1_interp_map_point.html#a8524389b28995815bf34092c9c0a9719',1,'argos_lib::InterpMapPoint']]]
+  ['outtaking_5',['Outtaking',['../class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7a41d4c71faaf9ec2d1d9883df8540e77c',1,'IntakeSubsystem']]],
+  ['outval_6',['outVal',['../structargos__lib_1_1_interp_map_point.html#a8524389b28995815bf34092c9c0a9719',1,'argos_lib::InterpMapPoint']]]
 ];

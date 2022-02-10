@@ -9,8 +9,9 @@ var searchData=
   ['encoders_6',['encoders',['../namespaceaddress_1_1encoders.html',1,'address']]],
   ['falcon_5fconfig_7',['falcon_config',['../namespaceargos__lib_1_1falcon__config.html',1,'argos_lib']]],
   ['intake_8',['intake',['../namespaceaddress_1_1intake.html',1,'address']]],
-  ['shooter_9',['shooter',['../namespaceaddress_1_1shooter.html',1,'address']]],
-  ['solenoids_10',['solenoids',['../namespaceaddress_1_1solenoids.html',1,'address']]],
-  ['swerve_11',['swerve',['../namespaceargos__lib_1_1swerve.html',1,'argos_lib']]],
-  ['talonsrx_5fconfig_12',['talonsrx_config',['../namespaceargos__lib_1_1talonsrx__config.html',1,'argos_lib']]]
+  ['sensors_9',['sensors',['../namespaceaddress_1_1sensors.html',1,'address']]],
+  ['shooter_10',['shooter',['../namespaceaddress_1_1shooter.html',1,'address']]],
+  ['solenoids_11',['solenoids',['../namespaceaddress_1_1solenoids.html',1,'address']]],
+  ['swerve_12',['swerve',['../namespaceargos__lib_1_1swerve.html',1,'argos_lib']]],
+  ['talonsrx_5fconfig_13',['talonsrx_config',['../namespaceargos__lib_1_1talonsrx__config.html',1,'argos_lib']]]
 ];

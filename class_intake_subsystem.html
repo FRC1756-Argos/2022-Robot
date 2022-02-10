@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_intake_subsystem.html',''); init
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_intake_subsystem-members.html">List of all members</a>  </div>
@@ -99,10 +100,24 @@ Inheritance diagram for IntakeSubsystem:</div>
   <img src="class_intake_subsystem.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ada38c6a012dab8dfb0819cf8994217e7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7">IntakeState</a> { <a class="el" href="class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7a11a755d598c0c417f9a36758c3da7481">Stop</a>
+, <a class="el" href="class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7a50ab33317386710725c02921307f769e">Intaking</a>
+, <a class="el" href="class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7a41d4c71faaf9ec2d1d9883df8540e77c">Outtaking</a>
+ }</td></tr>
+<tr class="separator:ada38c6a012dab8dfb0819cf8994217e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2990eeb8455a557ec9a757072e93f1b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a2990eeb8455a557ec9a757072e93f1b9">IntakeSubsystem</a> ()</td></tr>
 <tr class="separator:a2990eeb8455a557ec9a757072e93f1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f3e8452729eb15baf0c987bf0e2f79"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a57f3e8452729eb15baf0c987bf0e2f79">getBallPresent</a> (frc::TimeOfFlight &amp;ballPresentSensor)</td></tr>
+<tr class="memdesc:a57f3e8452729eb15baf0c987bf0e2f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether ball is present at ToF sensors.  <a href="class_intake_subsystem.html#a57f3e8452729eb15baf0c987bf0e2f79">More...</a><br /></td></tr>
+<tr class="separator:a57f3e8452729eb15baf0c987bf0e2f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adce433404ce688264082d01aa2b60980"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#adce433404ce688264082d01aa2b60980">getIsBallTeamColor</a> ()</td></tr>
+<tr class="memdesc:adce433404ce688264082d01aa2b60980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether ball is team color.  <a href="class_intake_subsystem.html#adce433404ce688264082d01aa2b60980">More...</a><br /></td></tr>
+<tr class="separator:adce433404ce688264082d01aa2b60980"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2ccc2c89807a28001aa2c8d3bdc9bed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#ad2ccc2c89807a28001aa2c8d3bdc9bed">Periodic</a> () override</td></tr>
 <tr class="separator:ad2ccc2c89807a28001aa2c8d3bdc9bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b1cffda4410f7bfaff4d8ab4e8fe89a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a9b1cffda4410f7bfaff4d8ab4e8fe89a">Intake</a> ()</td></tr>
@@ -129,10 +144,53 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aee66e46400271a45b259fe94ca1f7f9d"><td class="memItemLeft" align="right" valign="top">frc::Solenoid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#aee66e46400271a45b259fe94ca1f7f9d">m_intakeDeploy</a></td></tr>
 <tr class="memdesc:aee66e46400271a45b259fe94ca1f7f9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solenoid for intake actuation (True is extend, False is retract)  <a href="class_intake_subsystem.html#aee66e46400271a45b259fe94ca1f7f9d">More...</a><br /></td></tr>
 <tr class="separator:aee66e46400271a45b259fe94ca1f7f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeddac30d1e8ac8fa744e66dc9f03e0c7"><td class="memItemLeft" align="right" valign="top">frc::TimeOfFlight&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#aeddac30d1e8ac8fa744e66dc9f03e0c7">m_ballPresentIntake</a></td></tr>
+<tr class="separator:aeddac30d1e8ac8fa744e66dc9f03e0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd58051a0f0f78b3becabfeaf515b13"><td class="memItemLeft" align="right" valign="top">frc::TimeOfFlight&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a6fd58051a0f0f78b3becabfeaf515b13">m_ballPresentShooter</a></td></tr>
+<tr class="separator:a6fd58051a0f0f78b3becabfeaf515b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7735ed9a8c4a30123bcd5ab9e776453"><td class="memItemLeft" align="right" valign="top">frc::TMD37003&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#ab7735ed9a8c4a30123bcd5ab9e776453">m_ballColor</a></td></tr>
+<tr class="memdesc:ab7735ed9a8c4a30123bcd5ab9e776453"><td class="mdescLeft">&#160;</td><td class="mdescRight">at intake  <a href="class_intake_subsystem.html#ab7735ed9a8c4a30123bcd5ab9e776453">More...</a><br /></td></tr>
+<tr class="separator:ab7735ed9a8c4a30123bcd5ab9e776453"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc12b8e52981822a02b359c91f17375c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7">IntakeState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#abc12b8e52981822a02b359c91f17375c">m_intakeState</a></td></tr>
+<tr class="separator:abc12b8e52981822a02b359c91f17375c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ea4b501abc4614782316564df00ad6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a1ea4b501abc4614782316564df00ad6a">m_intakeButtonPressed</a></td></tr>
+<tr class="separator:a1ea4b501abc4614782316564df00ad6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a591701b5ff203ee9c4b6e718ca48bf63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a591701b5ff203ee9c4b6e718ca48bf63">m_outtakeButtonPressed</a></td></tr>
+<tr class="separator:a591701b5ff203ee9c4b6e718ca48bf63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56edb3f3ff3a830b7e42ed1806f0e097"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097">m_shooterButtonPressed</a></td></tr>
+<tr class="separator:a56edb3f3ff3a830b7e42ed1806f0e097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ada38c6a012dab8dfb0819cf8994217e7" name="ada38c6a012dab8dfb0819cf8994217e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada38c6a012dab8dfb0819cf8994217e7">&#9670;&nbsp;</a></span>IntakeState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7">IntakeSubsystem::IntakeState</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ada38c6a012dab8dfb0819cf8994217e7a11a755d598c0c417f9a36758c3da7481" name="ada38c6a012dab8dfb0819cf8994217e7a11a755d598c0c417f9a36758c3da7481"></a>Stop&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ada38c6a012dab8dfb0819cf8994217e7a50ab33317386710725c02921307f769e" name="ada38c6a012dab8dfb0819cf8994217e7a50ab33317386710725c02921307f769e"></a>Intaking&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ada38c6a012dab8dfb0819cf8994217e7a41d4c71faaf9ec2d1d9883df8540e77c" name="ada38c6a012dab8dfb0819cf8994217e7a41d4c71faaf9ec2d1d9883df8540e77c"></a>Outtaking&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2990eeb8455a557ec9a757072e93f1b9" name="a2990eeb8455a557ec9a757072e93f1b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2990eeb8455a557ec9a757072e93f1b9">&#9670;&nbsp;</a></span>IntakeSubsystem()</h2>
 
@@ -208,6 +266,58 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a57f3e8452729eb15baf0c987bf0e2f79" name="a57f3e8452729eb15baf0c987bf0e2f79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f3e8452729eb15baf0c987bf0e2f79">&#9670;&nbsp;</a></span>getBallPresent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IntakeSubsystem::getBallPresent </td>
+          <td>(</td>
+          <td class="paramtype">frc::TimeOfFlight &amp;&#160;</td>
+          <td class="paramname"><em>ballPresentSensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Determines whether ball is present at ToF sensors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ballPresentSensor</td><td>- Checks sensors to determine whether ball is present or not </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - Ball is present at checked sensor </dd>
+<dd>
+false - Ball is not present at checked sensor </dd></dl>
+
+</div>
+</div>
+<a id="adce433404ce688264082d01aa2b60980" name="adce433404ce688264082d01aa2b60980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adce433404ce688264082d01aa2b60980">&#9670;&nbsp;</a></span>getIsBallTeamColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IntakeSubsystem::getIsBallTeamColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Determines whether ball is team color. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>need to make function not placeholder </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true - Ball is team color </dd>
+<dd>
+false - Ball is not team color </dd></dl>
+
+</div>
+</div>
 <a id="a9b1cffda4410f7bfaff4d8ab4e8fe89a" name="a9b1cffda4410f7bfaff4d8ab4e8fe89a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b1cffda4410f7bfaff4d8ab4e8fe89a">&#9670;&nbsp;</a></span>Intake()</h2>
 
@@ -273,6 +383,74 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab7735ed9a8c4a30123bcd5ab9e776453" name="ab7735ed9a8c4a30123bcd5ab9e776453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7735ed9a8c4a30123bcd5ab9e776453">&#9670;&nbsp;</a></span>m_ballColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::TMD37003 IntakeSubsystem::m_ballColor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>at intake </p>
+
+</div>
+</div>
+<a id="aeddac30d1e8ac8fa744e66dc9f03e0c7" name="aeddac30d1e8ac8fa744e66dc9f03e0c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeddac30d1e8ac8fa744e66dc9f03e0c7">&#9670;&nbsp;</a></span>m_ballPresentIntake</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::TimeOfFlight IntakeSubsystem::m_ballPresentIntake</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fd58051a0f0f78b3becabfeaf515b13" name="a6fd58051a0f0f78b3becabfeaf515b13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd58051a0f0f78b3becabfeaf515b13">&#9670;&nbsp;</a></span>m_ballPresentShooter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::TimeOfFlight IntakeSubsystem::m_ballPresentShooter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af3679393abbf4d5ad009cb85c4a8ea46" name="af3679393abbf4d5ad009cb85c4a8ea46"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3679393abbf4d5ad009cb85c4a8ea46">&#9670;&nbsp;</a></span>m_beltDrive</h2>
 
@@ -294,6 +472,28 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Motor that drives the belts on the elevator (Positive towards shooter, Negative away from shooter) </p>
+
+</div>
+</div>
+<a id="a1ea4b501abc4614782316564df00ad6a" name="a1ea4b501abc4614782316564df00ad6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ea4b501abc4614782316564df00ad6a">&#9670;&nbsp;</a></span>m_intakeButtonPressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IntakeSubsystem::m_intakeButtonPressed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -342,6 +542,72 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Motor for the intake rollers (Positive is in, Negative is out) </p>
+
+</div>
+</div>
+<a id="abc12b8e52981822a02b359c91f17375c" name="abc12b8e52981822a02b359c91f17375c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc12b8e52981822a02b359c91f17375c">&#9670;&nbsp;</a></span>m_intakeState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7">IntakeState</a> IntakeSubsystem::m_intakeState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a591701b5ff203ee9c4b6e718ca48bf63" name="a591701b5ff203ee9c4b6e718ca48bf63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a591701b5ff203ee9c4b6e718ca48bf63">&#9670;&nbsp;</a></span>m_outtakeButtonPressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IntakeSubsystem::m_outtakeButtonPressed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56edb3f3ff3a830b7e42ed1806f0e097" name="a56edb3f3ff3a830b7e42ed1806f0e097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56edb3f3ff3a830b7e42ed1806f0e097">&#9670;&nbsp;</a></span>m_shooterButtonPressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IntakeSubsystem::m_shooterButtonPressed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
