@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # This grabs the WPILib docker container
-    container: wpilib/roborio-cross-ubuntu:2021-18.04
+    container: wpilib/roborio-cross-ubuntu:2022-18.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -28,10 +28,6 @@ jobs:
     # Grant execute permission for gradlew
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-
-    # Install toolchain
-    - name: Install RoboRIO toolchain
-      run: ./gradlew installRoboRioToolchain
 
     # Runs a single command using the runners shell
     - name: Compile and run tests on robot code

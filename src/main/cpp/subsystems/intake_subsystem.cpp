@@ -34,7 +34,7 @@ void IntakeSubsystem::Intake() {
 void IntakeSubsystem::DumpBall() {
   m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
   m_intakeDrive.Set(speeds::intake::intakeReverse);
-  m_beltDrive.Set(-speeds::intake::beltReverse);
+  m_beltDrive.Set(speeds::intake::beltReverse);
 }
 
 void IntakeSubsystem::ElevatorCycle(bool direction, bool cycleLength) {}

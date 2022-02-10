@@ -4,6 +4,7 @@
 
 #pragma once
 #include <memory>
+#include <string>
 
 #include "Constants.h"
 #include "networktables/NetworkTable.h"
@@ -26,7 +27,7 @@ class NetworkTablesWrapper {
    * @param entryKey The key value for the NetworkTableEntry
    * @param degrees The angle value in degrees to write to the NetworkTableEntry
    */
-  void SetEntryDegrees(nt::NetworkTableEntry& entry, const units::degree_t degrees);
+  void SetEntryDegrees(const std::string& key, const units::degree_t degrees);
 
   /**
    * @brief Get the entry's angle value
@@ -34,7 +35,7 @@ class NetworkTablesWrapper {
    * @param entry Reference to the network table entry
    * @return std::optional<units::degree_t> Standard library optional value
    */
-  std::optional<units::degree_t> GetEntryDegrees(nt::NetworkTableEntry& entry);
+  std::optional<units::degree_t> GetEntryDegrees(const std::string& key);
 
   // Meant to contain all the initialization and configuration of table's instances
   NetworkTablesWrapper();
@@ -42,8 +43,7 @@ class NetworkTablesWrapper {
   // MASTER INSTANCE
   nt::NetworkTableInstance m_NtInstance;  //< The root instance of the network tables
   // TABLES
-  std::shared_ptr<nt::NetworkTable> m_swerveHomes =
-      m_NtInstance.GetTable(networkTables::swerveHomes::tableKey);  //< Instance of swerveHomes table
+  std::shared_ptr<nt::NetworkTable> m_swerveHomes;  //< Instance of swerveHomes table
   // swerveHomes ENTRIES
   nt::NetworkTableEntry m_flHome;  //< Front left module home position
   nt::NetworkTableEntry m_frHome;  //< Front right module home position

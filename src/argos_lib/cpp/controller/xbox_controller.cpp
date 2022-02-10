@@ -10,7 +10,7 @@ XboxController::XboxController(int port) : frc::GenericHID(port), m_vibrationMod
   m_buttonDebounceSettings.fill({0_ms, 0_ms});
   m_buttonDebounceStatus.fill(false);
   m_rawButtonStatus.fill(false);
-  m_buttonDebounceStableTime.fill(std::chrono::steady_clock::now());
+  m_buttonDebounceTransitionTime.fill(std::chrono::steady_clock::now());
 }
 
 void XboxController::SetButtonDebounce(Button targetButton, DebounceSettings newSettings) {
@@ -24,8 +24,8 @@ void XboxController::SwapSettings(XboxController& other) {
   std::fill(m_buttonDebounceStatus.begin(), m_buttonDebounceStatus.end(), false);
   std::fill(other.m_buttonDebounceStatus.begin(), other.m_buttonDebounceStatus.end(), false);
   const auto now{std::chrono::steady_clock::now()};
-  std::fill(m_buttonDebounceStableTime.begin(), m_buttonDebounceStableTime.end(), now);
-  std::fill(other.m_buttonDebounceStableTime.begin(), other.m_buttonDebounceStableTime.end(), now);
+  std::fill(m_buttonDebounceTransitionTime.begin(), m_buttonDebounceTransitionTime.end(), now);
+  std::fill(other.m_buttonDebounceTransitionTime.begin(), other.m_buttonDebounceTransitionTime.end(), now);
 }
 
 double XboxController::GetX(JoystickHand hand) const {
@@ -181,33 +181,38 @@ XboxController::UpdateStatus XboxController::UpdateButton(Button buttonIdx) {
 
   const bool prevRawVal = m_rawButtonStatus.at(static_cast<int>(buttonIdx));
   const bool activeDebounceVal = m_buttonDebounceStatus.at(static_cast<int>(buttonIdx));
-  const auto activeStableTime = m_buttonDebounceStableTime.at(static_cast<int>(buttonIdx));
   const auto curTime = std::chrono::steady_clock::now();
 
-  if (newVal != activeDebounceVal) {
-    const auto timeSinceStable = units::millisecond_t{
-        static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(curTime - activeStableTime).count())};
-    if (newVal) {
-      if (timeSinceStable > m_buttonDebounceSettings.at(static_cast<int>(buttonIdx)).activateTime) {
-        retVal.debouncePress = true;
-        m_buttonDebounceStableTime.at(static_cast<int>(buttonIdx)) = curTime;
-        m_buttonDebounceStatus.at(static_cast<int>(buttonIdx)) = newVal;
-      }
-    } else {
-      if (timeSinceStable > m_buttonDebounceSettings.at(static_cast<int>(buttonIdx)).clearTime) {
-        retVal.debounceRelease = true;
-        m_buttonDebounceStableTime.at(static_cast<int>(buttonIdx)) = curTime;
-        m_buttonDebounceStatus.at(static_cast<int>(buttonIdx)) = newVal;
-      }
-    }
-  } else {
-    m_buttonDebounceStableTime.at(static_cast<int>(buttonIdx)) = curTime;
+  // Record time when first new button state was detected so debounce has reference time
+  if (prevRawVal == activeDebounceVal && newVal != activeDebounceVal) {
+    m_buttonDebounceTransitionTime.at(static_cast<int>(buttonIdx)) = curTime;
   }
+
+  const auto activeTransitionTime = m_buttonDebounceTransitionTime.at(static_cast<int>(buttonIdx));
 
   retVal.pressed = newVal && !prevRawVal;
   retVal.released = !newVal && prevRawVal;
+
+  if (newVal != activeDebounceVal) {
+    const auto timeSinceTransition = units::millisecond_t{static_cast<double>(
+        std::chrono::duration_cast<std::chrono::milliseconds>(curTime - activeTransitionTime).count())};
+    if (newVal) {
+      if (timeSinceTransition > m_buttonDebounceSettings.at(static_cast<int>(buttonIdx)).activateTime) {
+        retVal.debouncePress = true;
+        m_buttonDebounceStatus.at(static_cast<int>(buttonIdx)) = newVal;
+      }
+    } else {
+      if (timeSinceTransition > m_buttonDebounceSettings.at(static_cast<int>(buttonIdx)).clearTime) {
+        retVal.debounceRelease = true;
+        m_buttonDebounceStatus.at(static_cast<int>(buttonIdx)) = newVal;
+      }
+    }
+  }
+
   retVal.rawActive = newVal;
   retVal.debounceActive = m_buttonDebounceStatus.at(static_cast<int>(buttonIdx));
+
+  m_rawButtonStatus.at(static_cast<int>(buttonIdx)) = newVal;
 
   return retVal;
 }
