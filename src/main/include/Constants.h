@@ -4,6 +4,7 @@
 
 #pragma once
 #include <units/length.h>
+#include <units/velocity.h>
 
 #include <string>
 
@@ -20,7 +21,7 @@ namespace speeds {
     constexpr double intakeReverse = -1;
   }  // namespace intake
   namespace drive {
-    constexpr units::feet_per_second_t maxAngular = 12_fps;
+    constexpr units::velocity::feet_per_second_t maxAngular = 12_fps;
   }  // namespace drive
 }  // namespace speeds
 
