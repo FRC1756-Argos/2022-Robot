@@ -90,7 +90,7 @@ void RobotContainer::ConfigureButtonBindings() {
   }});
 
   auto controlMode = (frc2::Trigger{[this]() {
-    return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperLeft);
+    return m_controllers.DriverController().GetDebouncedButtonPressed(argos_lib::XboxController::Button::kBumperLeft);
   }});
 
   // SHOOTER TRIGGER
@@ -121,8 +121,8 @@ void RobotContainer::ConfigureButtonBindings() {
   // DRIVE TRIGGER ACTIVATION
   controlMode.WhenActive(
       [this]() {
+        std::printf("*****************SWAPPED********************");
         m_swerveDrive.SwapControlMode();
-        std::printf("*****************SWAPED********************");
       },
       {&m_swerveDrive});
 
