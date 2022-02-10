@@ -227,6 +227,9 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   HomeToFS(angle);
 
+  // RE-ZERO THE IMU
+  m_imu.Reset();
+
   // SetPosition expects a value in degrees
   m_frontLeft.m_encoder.SetPosition(angle.to<double>(), 50);
   m_frontRight.m_encoder.SetPosition(angle.to<double>(), 50);
