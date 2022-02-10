@@ -6,12 +6,36 @@
 
 #include <frc2/command/SubsystemBase.h>
 
+#include <TMD37003.h>
+#include <TimeOfFlight.h>
+
 #include "ctre/Phoenix.h"
 #include "frc/Solenoid.h"
 
 class IntakeSubsystem : public frc2::SubsystemBase {
  public:
   IntakeSubsystem();
+
+  enum class IntakeState { Stop, Intaking, Outtaking };
+
+  /**
+   * @brief Determines whether ball is present at ToF sensors
+   *
+   * @param ballPresentSensor - Checks sensors to determine whether ball is present or not
+   * @return true - Ball is present at checked sensor
+   * @return false - Ball is not present at checked sensor
+   */
+  bool getBallPresent(frc::TimeOfFlight& ballPresentSensor);
+
+  /**
+   *
+   * @todo need to make function not placeholder
+   * @brief Determines whether ball is team color
+   *
+   * @return true - Ball is team color
+   * @return false - Ball is not team color
+   */
+  bool getIsBallTeamColor();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -54,4 +78,17 @@ class IntakeSubsystem : public frc2::SubsystemBase {
 
   // SOLENOIDS
   frc::Solenoid m_intakeDeploy;  ///< Solenoid for intake actuation (True is extend, False is retract)
+
+  // SENSORS
+  frc::TimeOfFlight m_ballPresentIntake;
+  frc::TimeOfFlight m_ballPresentShooter;
+  frc::TMD37003 m_ballColor;  ///< at intake
+
+  // CARGO MANAGEMENT
+
+  IntakeState m_intakeState;
+
+  bool m_intakeButtonPressed;
+  bool m_outtakeButtonPressed;
+  bool m_shooterButtonPressed;
 };
