@@ -193,6 +193,24 @@ namespace controlLoop {
       constexpr double allowableError = 0.0;
     }  // namespace hood
   }    // namespace shooter
+  namespace climber {
+    namespace arm {
+      constexpr double kP = 0.0;
+      constexpr double kI = 0.0;
+      constexpr double kD = 0.0;
+      constexpr double kF = 0.0;
+      constexpr double iZone = 100.0;
+      constexpr double allowableError = 0.0;
+    }  // namespace arm
+    namespace hook {
+      constexpr double kP = 0.0;
+      constexpr double kI = 0.0;
+      constexpr double kD = 0.0;
+      constexpr double kF = 0.0;
+      constexpr double iZone = 100.0;
+      constexpr double allowableError = 0.0;
+    }  // namespace hook
+  }    // namespace climber
 }  // namespace controlLoop
 
 namespace motorConfig {
@@ -358,6 +376,13 @@ namespace motorConfig {
       constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
       constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::IntegratedSensor;
+      constexpr static auto pid0_kP = controlLoop::climber::arm::kP;
+      constexpr static auto pid0_kI = controlLoop::climber::arm::kI;
+      constexpr static auto pid0_kD = controlLoop::climber::arm::kD;
+      constexpr static auto pid0_kF = controlLoop::climber::arm::kF;
+      constexpr static auto pid0_iZone = controlLoop::climber::arm::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::climber::arm::allowableError;
     };
     struct liftLeft {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
@@ -369,6 +394,12 @@ namespace motorConfig {
       constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
       constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
       constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
+      constexpr static auto pid0_kP = controlLoop::climber::arm::kP;
+      constexpr static auto pid0_kI = controlLoop::climber::arm::kI;
+      constexpr static auto pid0_kD = controlLoop::climber::arm::kD;
+      constexpr static auto pid0_kF = controlLoop::climber::arm::kF;
+      constexpr static auto pid0_iZone = controlLoop::climber::arm::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::climber::arm::allowableError;
     };
     struct moveHook {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
@@ -376,6 +407,12 @@ namespace motorConfig {
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto pid0_kP = controlLoop::climber::hook::kP;
+      constexpr static auto pid0_kI = controlLoop::climber::hook::kI;
+      constexpr static auto pid0_kD = controlLoop::climber::hook::kD;
+      constexpr static auto pid0_kF = controlLoop::climber::hook::kF;
+      constexpr static auto pid0_iZone = controlLoop::climber::hook::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::climber::hook::allowableError;
     };
   }  // namespace climber
 }  // namespace motorConfig

@@ -329,6 +329,226 @@
           }
         }
       }
+    },
+    {
+      "title": "Climber Arm Tuning",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 1,
+        "tiles": {
+          "4,0": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Network Table Tree",
+              "_source0": "network_table:///argos/arm/status",
+              "_title": "argos/arm/status"
+            }
+          },
+          "7,0": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "Graph",
+              "_source0": "network_table:///argos/arm/status/setpoints",
+              "_source1": "network_table:///argos/arm/status/positions",
+              "_title": "Graph (2 sources)",
+              "Graph/Visible time": 30.0,
+              "Graph/X-axis auto scrolling": true,
+              "Y-axis/Automatic bounds": true,
+              "Y-axis/Upper bound": 1.0,
+              "Y-axis/Lower bound": -1.0,
+              "Y-axis/Unit": "ul",
+              "Visible data/argos/arm/status/positions[0]": true
+            }
+          },
+          "6,3": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/arm/tunes/IZone",
+              "_title": "argos/arm/tunes/IZone"
+            }
+          },
+          "4,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/arm/tunes/kP",
+              "_title": "argos/arm/tunes/kP"
+            }
+          },
+          "4,3": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/arm/tunes/kI",
+              "_title": "argos/arm/tunes/kI"
+            }
+          },
+          "4,4": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/arm/tunes/kD",
+              "_title": "argos/arm/tunes/kD"
+            }
+          },
+          "4,5": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/arm/tunes/kF",
+              "_title": "argos/arm/tunes/kF"
+            }
+          },
+          "4,6": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/manualSetpoints/armPosition",
+              "_title": "argos/manualSetpoints/armPosition"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Climber Hook Tuning",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 1,
+        "tiles": {
+          "4,0": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Network Table Tree",
+              "_source0": "network_table:///argos/hook/status",
+              "_title": "argos/hook/status"
+            }
+          },
+          "7,0": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "Graph",
+              "_source0": "network_table:///argos/hook/status/setpoints",
+              "_source1": "network_table:///argos/hook/status/positions",
+              "_title": "Graph (2 sources)",
+              "Graph/Visible time": 30.0,
+              "Graph/X-axis auto scrolling": true,
+              "Y-axis/Automatic bounds": true,
+              "Y-axis/Upper bound": 1.0,
+              "Y-axis/Lower bound": -1.0,
+              "Y-axis/Unit": "ul",
+              "Visible data/argos/hook/status/positions[0]": true
+            }
+          },
+          "6,3": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/hook/tunes/IZone",
+              "_title": "argos/hook/tunes/IZone"
+            }
+          },
+          "4,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/hook/tunes/kP",
+              "_title": "argos/hook/tunes/kP"
+            }
+          },
+          "4,3": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/hook/tunes/kI",
+              "_title": "argos/hook/tunes/kI"
+            }
+          },
+          "4,4": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/hook/tunes/kD",
+              "_title": "argos/hook/tunes/kD"
+            }
+          },
+          "4,5": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/hook/tunes/kF",
+              "_title": "argos/hook/tunes/kF"
+            }
+          },
+          "4,6": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/manualSetpoints/hookPosition",
+              "_title": "argos/manualSetpoints/hookPosition"
+            }
+          }
+        }
+      }
     }
   ],
   "windowGeometry": {

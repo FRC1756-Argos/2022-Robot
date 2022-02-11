@@ -73,6 +73,8 @@ class RobotContainer {
   // Tuning stuff
   units::degree_t m_hoodTargetPosition;
   units::revolutions_per_minute_t m_shooterTargetVelocity;
+  units::inch_t m_climberArmTargetExtension;
+  units::inch_t m_climberHookTargetExtension;
   argos_lib::NTSubscriber m_NTMonitor;
 
   void ConfigureButtonBindings();

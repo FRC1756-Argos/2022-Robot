@@ -6,7 +6,9 @@
 
 #include <frc2/command/SubsystemBase.h>
 
+#include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
+#include "units/length.h"
 
 class ClimberSubsystem : public frc2::SubsystemBase {
  public:
@@ -102,6 +104,20 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   void UpdateArmHome();
 
   /**
+   * @brief Sets arm linear actuator positions under closed loop control
+   *
+   * @param extension Arm position where positive is upward
+   */
+  void ArmSetPosition(units::inch_t extension);
+
+  /**
+   * @brief Set hooks to a given position under closed-loop control
+   *
+   * @param extension Hook position where 0 is at the shoulder and positive is outward
+   */
+  void HooksSetPosition(units::inch_t extension);
+
+  /**
    * @brief Detect if hook homing is complete
    *
    * @return True when hook is homed
@@ -152,4 +168,7 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   bool m_armHomed;
 
   bool m_manualOverride;
+
+  argos_lib::NTMotorPIDTuner m_armPIDTuner;
+  argos_lib::NTMotorPIDTuner m_hookPIDTuner;
 };

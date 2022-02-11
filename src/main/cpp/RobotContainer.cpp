@@ -29,6 +29,8 @@ RobotContainer::RobotContainer()
     , m_compressor(1, frc::PneumaticsModuleType::REVPH)
     , m_hoodTargetPosition(30_deg)
     , m_shooterTargetVelocity(3000_rpm)
+    , m_climberArmTargetExtension(2_in)
+    , m_climberHookTargetExtension(20_in)
     , m_NTMonitor("argos") {
   m_compressor.EnableDigital();
 
@@ -84,7 +86,7 @@ RobotContainer::RobotContainer()
 
   // Homing commands
   (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
-  (robotEnableTrigger && !climberArmHomingCompleteTrigger).WhenActive(m_homeClimberArmCommand);
+  // (robotEnableTrigger && !climberArmHomingCompleteTrigger).WhenActive(m_homeClimberArmCommand); // Disabled because arms crash into rear swerve motors
   (robotEnableTrigger && !climberHookHomingCompleteTrigger).WhenActive(m_homeClimberHookCommand);
 
   // Notify subsystems of disable
@@ -103,6 +105,14 @@ RobotContainer::RobotContainer()
       "manualSetpoints/shooterSpeed",
       [this](double newVal) { m_shooterTargetVelocity = units::make_unit<units::revolutions_per_minute_t>(newVal); },
       m_shooterTargetVelocity.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/armPosition",
+      [this](double newVal) { m_climberArmTargetExtension = units::make_unit<units::inch_t>(newVal); },
+      m_climberArmTargetExtension.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/hookPosition",
+      [this](double newVal) { m_climberHookTargetExtension = units::make_unit<units::inch_t>(newVal); },
+      m_climberHookTargetExtension.to<double>());
 
   ConfigureButtonBindings();
 }

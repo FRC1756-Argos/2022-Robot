@@ -11,7 +11,7 @@ HomeClimberHookCommand::HomeClimberHookCommand(ClimberSubsystem* subsystem)
 
 // Called when the command is initially scheduled.
 void HomeClimberHookCommand::Initialize() {
-  m_pClimberSubsystem->MoveHook(0.1);
+  m_pClimberSubsystem->MoveHook(0.07);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -19,7 +19,7 @@ void HomeClimberHookCommand::Execute() {
   if (m_pClimberSubsystem->IsManualOverride()) {
     Cancel();
   } else {
-    m_pClimberSubsystem->MoveHook(0.1);
+    m_pClimberSubsystem->MoveHook(0.07);
   }
 }
 

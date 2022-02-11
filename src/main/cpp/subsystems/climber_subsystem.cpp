@@ -14,7 +14,21 @@ ClimberSubsystem::ClimberSubsystem()
     , m_motorMoveHook(address::climber::moveHook)
     , m_hookHomed(false)
     , m_armHomed(false)
-    , m_manualOverride(false) {
+    , m_manualOverride(false)
+    , m_armPIDTuner{"argos/arm",
+                    {&m_motorLiftLeft, &m_motorLiftRight},
+                    0,
+                    argos_lib::ClosedLoopSensorConversions{
+                        argos_lib::GetSensorConversionFactor(sensor_conversions::climb_arms::ToExtension),
+                        1.0,
+                        argos_lib::GetSensorConversionFactor(sensor_conversions::climb_arms::ToExtension)}}
+    , m_hookPIDTuner{"argos/hook",
+                     {&m_motorMoveHook},
+                     0,
+                     argos_lib::ClosedLoopSensorConversions{
+                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension),
+                         1.0,
+                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension)}} {
   argos_lib::falcon_config::FalconConfig<motorConfig::climber::liftRight>(m_motorLiftRight, 50_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::climber::liftLeft>(m_motorLiftLeft, 50_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::climber::moveHook>(m_motorMoveHook, 50_ms);
@@ -35,10 +49,12 @@ void ClimberSubsystem::BodyUp() {}
 void ClimberSubsystem::StartingPosition() {}
 
 void ClimberSubsystem::ManualControl(double hookSpeed, double armSpeed) {
-  MoveHook(hookSpeed);
-  MoveArm(armSpeed);
   if (hookSpeed != 0 || armSpeed != 0) {
     m_manualOverride = true;
+  }
+  if (m_manualOverride) {
+    MoveHook(hookSpeed);
+    MoveArm(armSpeed);
   }
 }
 
@@ -65,6 +81,24 @@ void ClimberSubsystem::UpdateArmHome() {
   m_armHomed = true;
 }
 
+void ClimberSubsystem::ArmSetPosition(units::inch_t extension) {
+  if (m_armHomed) {
+    m_manualOverride = false;
+    m_motorLiftLeft.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
+                        sensor_conversions::climb_arms::ToSensorUnit(extension));
+    m_motorLiftRight.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
+                         sensor_conversions::climb_arms::ToSensorUnit(extension));
+  }
+}
+
+void ClimberSubsystem::HooksSetPosition(units::inch_t extension) {
+  if (m_armHomed) {
+    m_manualOverride = false;
+    m_motorMoveHook.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
+                        sensor_conversions::climb_arms::ToSensorUnit(extension));
+  }
+}
+
 bool ClimberSubsystem::IsHookHomed() {
   return m_hookHomed;
 }
@@ -74,12 +108,12 @@ bool ClimberSubsystem::IsArmHomed() {
 }
 
 bool ClimberSubsystem::IsHookMoving() {
-  return std::abs(m_motorMoveHook.GetSelectedSensorVelocity()) < 0.1;
+  return std::abs(m_motorMoveHook.GetSelectedSensorVelocity()) > 10;
 }
 
 bool ClimberSubsystem::IsArmMoving() {
-  return std::abs(m_motorLiftLeft.GetSelectedSensorVelocity()) < 0.1 &&
-         std::abs(m_motorLiftRight.GetSelectedSensorVelocity()) < 0.1;
+  return std::abs(m_motorLiftLeft.GetSelectedSensorVelocity()) > 10 &&
+         std::abs(m_motorLiftRight.GetSelectedSensorVelocity()) > 10;
 }
 
 bool ClimberSubsystem::IsManualOverride() {
