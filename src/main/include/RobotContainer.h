@@ -11,6 +11,7 @@
 
 #include "Constants.h"
 #include "argos_lib/general/interpolation.h"
+#include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "commands/home_hood_command.h"
 #include "subsystems/climber_subsystem.h"
@@ -64,6 +65,10 @@ class RobotContainer {
   HomeHoodCommand m_homeHoodCommand;
 
   frc::Compressor m_compressor;
+
+  // Tuning stuff
+  units::degree_t m_hoodTargetPosition;
+  argos_lib::NTSubscriber m_NTMonitor;
 
   void ConfigureButtonBindings();
 };

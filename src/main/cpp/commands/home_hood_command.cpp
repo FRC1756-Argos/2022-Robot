@@ -13,7 +13,7 @@ HomeHoodCommand::HomeHoodCommand(ShooterSubsystem* shooter)
 
 // Called when the command is initially scheduled.
 void HomeHoodCommand::Initialize() {
-  m_pShooter->MoveHood(0.23);
+  m_pShooter->MoveHood(0.15);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -21,7 +21,7 @@ void HomeHoodCommand::Execute() {
   if (m_pShooter->IsManualOverride()) {
     Cancel();
   } else {
-    m_pShooter->MoveHood(0.23);
+    m_pShooter->MoveHood(0.15);
   }
 }
 
@@ -29,7 +29,6 @@ void HomeHoodCommand::Execute() {
 void HomeHoodCommand::End(bool interrupted) {
   if (!interrupted) {
     m_pShooter->UpdateHoodHome();
-    std::printf("Save home!\n");
   }
   m_pShooter->MoveHood(0.0);
 }

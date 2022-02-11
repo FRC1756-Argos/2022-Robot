@@ -11,7 +11,10 @@ using argos_lib::NTSubscriber;
 NTSubscriber::NTSubscriber(const std::string& tableName)
     : m_pntTable{nt::NetworkTableInstance::GetDefault().GetTable(tableName)} {}
 
-void NTSubscriber::AddMonitor(const std::string& keyName, std::function<void(double)> onUpdateCallback) {
+void NTSubscriber::AddMonitor(const std::string& keyName,
+                              std::function<void(double)> onUpdateCallback,
+                              const double defaultValue) {
+  m_pntTable->SetDefaultNumber(keyName, defaultValue);
   m_pntTable->AddEntryListener(
       keyName,
       [onUpdateCallback](nt::NetworkTable* table,

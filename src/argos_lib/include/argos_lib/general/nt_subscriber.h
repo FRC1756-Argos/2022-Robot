@@ -27,8 +27,11 @@ namespace argos_lib {
      *
      * @param keyName Key to listen for updates.  Will be at tableName/keyName (keyName can have more slashes)
      * @param onUpdateCallback Callback to run when keyName changes
+     * @param defaultValue Default value to initialize key if it doesn't exist yet
      */
-    void AddMonitor(const std::string& keyName, std::function<void(double)> onUpdateCallback);
+    void AddMonitor(const std::string& keyName,
+                    std::function<void(double)> onUpdateCallback,
+                    const double defaultValue = 0.0);
 
    private:
     std::shared_ptr<nt::NetworkTable> m_pntTable;  ///< Table with monitored keys

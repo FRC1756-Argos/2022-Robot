@@ -28,6 +28,8 @@ ShooterSubsystem::ShooterSubsystem()
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::angleControl>(m_angleControl, 50_ms);
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::rotationControl>(m_rotationControl, 50_ms);
 
+  m_angleControl.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(0_deg));
+
   m_shooterWheelRight.Follow(m_shooterWheelLeft);
 }
 
@@ -41,11 +43,12 @@ void ShooterSubsystem::Shoot(double ballfiringspeed) {
 }
 
 void ShooterSubsystem::ManualAim(double turnSpeed, double hoodSpeed) {
-  MoveTurret(turnSpeed);
-  MoveHood(hoodSpeed);
-
   if (turnSpeed != 0 || hoodSpeed != 0) {
     m_manualOverride = true;
+  }
+  if (m_manualOverride) {
+    MoveTurret(turnSpeed);
+    MoveHood(hoodSpeed);
   }
 }
 
@@ -59,20 +62,16 @@ void ShooterSubsystem::MoveTurret(double turnSpeed) {
 
 void ShooterSubsystem::HoodSetPosition(units::degree_t angle) {
   if (IsHoodHomed()) {
-    std::printf("Desired angle: %0.2f, Current angle: %0.2f\n",
-                angle.to<double>(),
-                sensor_conversions::hood::ToAngle(m_angleControl.GetSelectedSensorPosition()).to<double>());
+    m_manualOverride = false;
+    angle *= -1;
     m_angleControl.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
                        sensor_conversions::hood::ToSensorUnit(angle));
-  } else {
-    std::printf("Not homed!\n");
   }
 }
 
 void ShooterSubsystem::UpdateHoodHome() {
   m_angleControl.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(measure_up::hood::homeAngle));
   m_hoodHomed = true;
-  std::printf("Homed!\n");
 }
 
 bool ShooterSubsystem::IsHoodMoving() {

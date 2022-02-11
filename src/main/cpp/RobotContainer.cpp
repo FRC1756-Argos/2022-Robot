@@ -5,6 +5,7 @@
 #include "RobotContainer.h"
 
 #include <frc/DriverStation.h>
+#include <frc/livewindow/LiveWindow.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
@@ -23,8 +24,14 @@ RobotContainer::RobotContainer()
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable)
     , m_homeHoodCommand(&m_shooter)
-    , m_compressor(frc::PneumaticsModuleType::REVPH) {
+    , m_compressor(1, frc::PneumaticsModuleType::REVPH)
+    , m_hoodTargetPosition(30_deg)
+    , m_NTMonitor("argos") {
   m_compressor.EnableDigital();
+
+  // Live window is causing various watchdog timeouts
+  frc::LiveWindow::DisableAllTelemetry();
+
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
@@ -46,14 +53,14 @@ RobotContainer::RobotContainer()
             m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand));
       },
       {&m_swerveDrive}));
-  // m_shooter.SetDefaultCommand(frc2::RunCommand(
-  //     [this] {
-  //       m_shooter.ManualAim(m_turretSpeedMap(m_controllers.OperatorController().GetX(
-  //                               argos_lib::XboxController::JoystickHand::kLeftHand)),
-  //                           m_hoodSpeedMap(-m_controllers.OperatorController().GetY(
-  //                               argos_lib::XboxController::JoystickHand::kLeftHand)));
-  //     },
-  //     {&m_shooter}));
+  m_shooter.SetDefaultCommand(frc2::RunCommand(
+      [this] {
+        m_shooter.ManualAim(m_turretSpeedMap(m_controllers.OperatorController().GetX(
+                                argos_lib::XboxController::JoystickHand::kLeftHand)),
+                            m_hoodSpeedMap(-m_controllers.OperatorController().GetY(
+                                argos_lib::XboxController::JoystickHand::kLeftHand)));
+      },
+      {&m_shooter}));
 
   m_climber.SetDefaultCommand(frc2::RunCommand(
       [this] {
@@ -74,6 +81,11 @@ RobotContainer::RobotContainer()
   (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
   // Notify subsystems of disable
   robotEnableTrigger.WhenInactive([this]() { m_shooter.Disable(); }, {&m_shooter});
+
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/hoodAngle",
+      [this](double newVal) { m_hoodTargetPosition = units::make_unit<units::degree_t>(newVal); },
+      m_hoodTargetPosition.to<double>());
 
   ConfigureButtonBindings();
 }
@@ -105,13 +117,13 @@ void RobotContainer::ConfigureButtonBindings() {
   shooter.WhenActive(
       [this]() {
         m_shooter.Shoot(0.40);
-        m_shooter.HoodSetPosition(-30_deg);
+        m_shooter.HoodSetPosition(m_hoodTargetPosition);
       },
       {&m_shooter});
   shooter.WhenInactive(
       [this]() {
         m_shooter.Shoot(0);
-        m_shooter.HoodSetPosition(-10_deg);
+        m_shooter.HoodSetPosition(10_deg);
       },
       {&m_shooter});
 

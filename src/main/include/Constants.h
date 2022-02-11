@@ -155,19 +155,19 @@ namespace controlLoop {
   namespace drive {
     namespace rotate {
       constexpr double kP = 1.4;
-      constexpr double kI = 0.01;
+      constexpr double kI = 0.0005;
       constexpr double kD = 0.0;
       constexpr double kF = 0.0;
-      constexpr double iZone = 100.0;
+      constexpr double iZone = 500.0;
       constexpr double allowableError = 0.0;
     }  // namespace rotate
   }    // namespace drive
   namespace hood {
-    constexpr double kP = 0.0001;
-    constexpr double kI = 0.0;
-    constexpr double kD = 0.0;
+    constexpr double kP = 0.25;
+    constexpr double kI = 0.01;
+    constexpr double kD = 0.01;
     constexpr double kF = 0.0;
-    constexpr double iZone = 100.0;
+    constexpr double iZone = 600.0;
     constexpr double allowableError = 0.0;
   }  // namespace hood
 }  // namespace controlLoop

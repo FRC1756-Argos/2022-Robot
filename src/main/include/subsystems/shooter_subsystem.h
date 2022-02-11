@@ -53,6 +53,11 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void MoveTurret(double turnSpeed);
 
+  /**
+   * @brief Closed loop go to position
+   *
+   * @param angle with 0 being parallel to ground, positive is raise hood
+   */
   void HoodSetPosition(units::degree_t angle);
 
   /**

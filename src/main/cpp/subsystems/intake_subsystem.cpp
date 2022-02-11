@@ -10,7 +10,7 @@
 IntakeSubsystem::IntakeSubsystem()
     : m_beltDrive(address::intake::beltDrive)
     , m_intakeDrive(address::intake::intakeDrive)
-    , m_intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake) {
+    , m_intakeDeploy(1, frc::PneumaticsModuleType::REVPH, address::solenoids::intake) {
   // MOTOR CONFIGURATION
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::beltDrive>(m_beltDrive, 50_ms);
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::intakeDrive>(m_intakeDrive, 50_ms);

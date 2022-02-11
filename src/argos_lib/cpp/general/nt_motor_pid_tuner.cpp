@@ -24,45 +24,54 @@ NTMotorPIDTuner::NTMotorPIDTuner(const std::string& tableName,
     , m_threadMutex()
     , m_threadStopCv()
     , m_statusUpdateThread{[this]() { UpdateClosedLoopMonitoringThread(); }} {
-  m_updateSubscriber.AddMonitor("tunes/kP", [this](double newVal) {
-    for (auto motor : m_pMotors) {
-      motor->Config_kP(m_pidSlot, newVal, 50);
-    }
-  });
-  m_updateSubscriber.AddMonitor("tunes/kI", [this](double newVal) {
-    for (auto motor : m_pMotors) {
-      motor->Config_kI(m_pidSlot, newVal, 50);
-    }
-  });
-  m_updateSubscriber.AddMonitor("tunes/kD", [this](double newVal) {
-    for (auto motor : m_pMotors) {
-      motor->Config_kD(m_pidSlot, newVal, 50);
-    }
-  });
-  m_updateSubscriber.AddMonitor("tunes/kF", [this](double newVal) {
-    for (auto motor : m_pMotors) {
-      motor->Config_kF(m_pidSlot, newVal, 50);
-    }
-  });
-  m_updateSubscriber.AddMonitor("tunes/IZone", [this](double newVal) {
-    for (auto motor : m_pMotors) {
-      motor->Config_IntegralZone(m_pidSlot, newVal, 50);
-    }
-  });
-  m_updateSubscriber.AddMonitor("tunes/allowedError", [this](double newVal) {
-    for (auto motor : m_pMotors) {
-      motor->ConfigAllowableClosedloopError(m_pidSlot, newVal, 50);
-    }
-  });
-
-  m_pntTable->SetDefaultNumber("tunes/kP", m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_P, m_pidSlot));
-  m_pntTable->SetDefaultNumber("tunes/kI", m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_I, m_pidSlot));
-  m_pntTable->SetDefaultNumber("tunes/kD", m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_D, m_pidSlot));
-  m_pntTable->SetDefaultNumber("tunes/kF", m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_F, m_pidSlot));
-  m_pntTable->SetDefaultNumber("tunes/IZone",
-                               m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_IZone, m_pidSlot));
-  m_pntTable->SetDefaultNumber("tunes/allowedError",
-                               m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_AllowableErr, m_pidSlot));
+  m_updateSubscriber.AddMonitor(
+      "tunes/kP",
+      [this](double newVal) {
+        for (auto motor : m_pMotors) {
+          motor->Config_kP(m_pidSlot, newVal, 50);
+        }
+      },
+      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_P, m_pidSlot));
+  m_updateSubscriber.AddMonitor(
+      "tunes/kI",
+      [this](double newVal) {
+        for (auto motor : m_pMotors) {
+          motor->Config_kI(m_pidSlot, newVal, 50);
+        }
+      },
+      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_I, m_pidSlot));
+  m_updateSubscriber.AddMonitor(
+      "tunes/kD",
+      [this](double newVal) {
+        for (auto motor : m_pMotors) {
+          motor->Config_kD(m_pidSlot, newVal, 50);
+        }
+      },
+      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_D, m_pidSlot));
+  m_updateSubscriber.AddMonitor(
+      "tunes/kF",
+      [this](double newVal) {
+        for (auto motor : m_pMotors) {
+          motor->Config_kF(m_pidSlot, newVal, 50);
+        }
+      },
+      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_F, m_pidSlot));
+  m_updateSubscriber.AddMonitor(
+      "tunes/IZone",
+      [this](double newVal) {
+        for (auto motor : m_pMotors) {
+          motor->Config_IntegralZone(m_pidSlot, newVal, 50);
+        }
+      },
+      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_IZone, m_pidSlot));
+  m_updateSubscriber.AddMonitor(
+      "tunes/allowedError",
+      [this](double newVal) {
+        for (auto motor : m_pMotors) {
+          motor->ConfigAllowableClosedloopError(m_pidSlot, newVal, 50);
+        }
+      },
+      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_AllowableErr, m_pidSlot));
 }
 
 NTMotorPIDTuner::~NTMotorPIDTuner() {
@@ -96,11 +105,18 @@ void NTMotorPIDTuner::UpdateClosedLoopMonitoringThread() {
       outputs.clear();
       errors.clear();
       for (auto motor : m_pMotors) {
-        setpoints.push_back(motor->GetClosedLoopTarget(m_pidSlot) * m_sensorConversions.setpoint);
+        const auto controlMode = motor->GetControlMode();
+        if (controlMode == ctre::phoenix::motorcontrol::ControlMode::MotionMagic ||
+            controlMode == ctre::phoenix::motorcontrol::ControlMode::MotionProfile ||
+            controlMode == ctre::phoenix::motorcontrol::ControlMode::MotionProfileArc ||
+            controlMode == ctre::phoenix::motorcontrol::ControlMode::Position ||
+            controlMode == ctre::phoenix::motorcontrol::ControlMode::Velocity) {
+          setpoints.push_back(motor->GetClosedLoopTarget(m_pidSlot) * m_sensorConversions.setpoint);
+          errors.push_back(motor->GetClosedLoopError(m_pidSlot) * m_sensorConversions.setpoint);
+        }
         positions.push_back(motor->GetSelectedSensorPosition(m_pidSlot) * m_sensorConversions.position);
         velocities.push_back(motor->GetSelectedSensorVelocity(m_pidSlot) * m_sensorConversions.velocity);
         outputs.push_back(motor->GetMotorOutputPercent());
-        errors.push_back(motor->GetClosedLoopError(m_pidSlot) * m_sensorConversions.setpoint);
       }
       m_pntTable->PutNumberArray("status/setpoints", setpoints);
       m_pntTable->PutNumberArray("status/positions", positions);
