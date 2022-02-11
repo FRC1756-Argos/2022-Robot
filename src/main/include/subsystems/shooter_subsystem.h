@@ -6,7 +6,9 @@
 
 #include <frc2/command/SubsystemBase.h>
 
+#include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
+#include "units/angular_velocity.h"
 
 class ShooterSubsystem : public frc2::SubsystemBase {
  public:
@@ -39,6 +41,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   void ManualAim(double turnSpeed, double hoodSpeed);
 
   /**
+   * @brief Run shooter at desired speed
+   *
+   * @param ShooterWheelSpeed Setpoint speed in RPM
+   */
+  void CloseLoopShoot(units::revolutions_per_minute_t ShooterWheelSpeed);
+
+  /**
    * @brief Move hood at specified percent speed
    *
    * @param hoodSpeed move the hood up or down full retract movement is 1.0 full extend movemnt is -1.0
@@ -51,6 +60,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @param turnSpeed turns the turret left or right full right turn is 1.0 full left turn is -1.0
    */
   void MoveTurret(double turnSpeed);
+
+  /**
+   * @brief Closed loop go to position
+   *
+   * @param angle with 0 being parallel to ground, positive is raise hood
+   */
+  void HoodSetPosition(units::degree_t angle);
 
   /**
    * @brief Update hood home position
@@ -94,4 +110,8 @@ class ShooterSubsystem : public frc2::SubsystemBase {
 
   bool m_hoodHomed;  ///< True when hood has known closed loop position
   bool m_manualOverride;
+
+  argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
+  argos_lib::NTMotorPIDTuner m_shooterPIDTuner;
+  argos_lib::NTMotorPIDTuner m_turretPIDTuner;
 };

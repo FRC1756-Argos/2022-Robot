@@ -13,7 +13,7 @@ HomeHoodCommand::HomeHoodCommand(ShooterSubsystem* shooter)
 
 // Called when the command is initially scheduled.
 void HomeHoodCommand::Initialize() {
-  m_pShooter->MoveHood(0.1);
+  m_pShooter->MoveHood(0.15);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -21,7 +21,7 @@ void HomeHoodCommand::Execute() {
   if (m_pShooter->IsManualOverride()) {
     Cancel();
   } else {
-    m_pShooter->MoveHood(0.1);
+    m_pShooter->MoveHood(0.15);
   }
 }
 

@@ -56,7 +56,5 @@ fs::path FileSystemHomingStorage::GetFilePath() {
     newFile.close();
   }
 
-  std::cout << configFile;
-
   return configFile;
 }

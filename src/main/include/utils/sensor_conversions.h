@@ -4,6 +4,7 @@
 
 #pragma once
 #include "units/angle.h"
+#include "units/angular_velocity.h"
 #include "units/length.h"
 
 namespace sensor_conversions {
@@ -37,7 +38,7 @@ namespace sensor_conversions {
     constexpr double sensorConversionTeethIn =
         4.0 / 16;  ///< multiply to convert hood sproket teeth to hood extension distance
     constexpr double sensorConversionInAngle =
-        2 * M_PI / (360 * 11.5);  ///< multiply to convert hood extension distance to hood angle
+        360.0 / (2 * M_PI * 11.5);  ///< multiply to convert hood extension distance to hood angle
     constexpr double ToSensorUnit(const units::degree_t degrees) {
       return degrees.to<double>() / sensorConversionInAngle / sensorConversionTeethIn / sensorConversionDegTeeth /
              sensorConversionFactor;
@@ -47,22 +48,32 @@ namespace sensor_conversions {
                                                sensorConversionTeethIn * sensorConversionInAngle);
     }
   }  // namespace hood
+  namespace shooter {
+    constexpr double sensorConversionFactor =
+        10.0 * 60 / 2048;  ///< multiply to convert shooter velocity to revolutions per minute
+    constexpr double ToSensorUnit(const units::revolutions_per_minute_t rpm) {
+      return rpm.to<double>() / sensorConversionFactor;
+    }
+    constexpr units::revolutions_per_minute_t ToVelocity(const double sensorunit) {
+      return units::make_unit<units::revolutions_per_minute_t>(sensorunit * sensorConversionFactor);
+    }
+  }  // namespace shooter
   namespace climb_arms {
     constexpr double sensorToMotorRev = 1.0 / 2048;
     constexpr double gearboxReduction = 30.0 / 12;
-    constexpr double extensionInchesPerRevolution = 1.0;  /// @todo How many threads per inch?
+    constexpr double extensionMillimetersPerRevolution = 4.0;
     constexpr units::inch_t ToExtension(const double sensorUnit) {
-      return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
-                                             extensionInchesPerRevolution);
+      return units::make_unit<units::millimeter_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
+                                                   extensionMillimetersPerRevolution);
     }
     constexpr double ToSensorUnit(const units::inch_t extension) {
-      return extension.to<double>() / extensionInchesPerRevolution / gearboxReduction / sensorToMotorRev;
+      return extension.to<double>() / extensionMillimetersPerRevolution / gearboxReduction / sensorToMotorRev;
     }
   }  // namespace climb_arms
   namespace climb_hooks {
     constexpr double sensorToMotorRev = 1.0 / 2048;
     constexpr double gearboxReduction = 1.0 / 8;
-    constexpr double driveSprocketTeethPerRevolution = 16.0;  /// @todo Confirm this
+    constexpr double driveSprocketTeethPerRevolution = 18.0;  /// @todo Confirm this
     constexpr double extensionInchesPerDriveSprocketTooth = 0.25 / 1;
     constexpr units::inch_t ToExtension(const double sensorUnit) {
       return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
