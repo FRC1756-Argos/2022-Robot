@@ -112,4 +112,6 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   bool m_manualOverride;
 
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
+  argos_lib::NTMotorPIDTuner m_shooterPIDTuner;
+  argos_lib::NTMotorPIDTuner m_turretPIDTuner;
 };

@@ -26,6 +26,7 @@ RobotContainer::RobotContainer()
     , m_homeHoodCommand(&m_shooter)
     , m_compressor(1, frc::PneumaticsModuleType::REVPH)
     , m_hoodTargetPosition(30_deg)
+    , m_shooterTargetVelocity(3000_rpm)
     , m_NTMonitor("argos") {
   m_compressor.EnableDigital();
 
@@ -86,6 +87,10 @@ RobotContainer::RobotContainer()
       "manualSetpoints/hoodAngle",
       [this](double newVal) { m_hoodTargetPosition = units::make_unit<units::degree_t>(newVal); },
       m_hoodTargetPosition.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/shooterSpeed",
+      [this](double newVal) { m_shooterTargetVelocity = units::make_unit<units::revolutions_per_minute_t>(newVal); },
+      m_shooterTargetVelocity.to<double>());
 
   ConfigureButtonBindings();
 }
@@ -116,8 +121,8 @@ void RobotContainer::ConfigureButtonBindings() {
   }});
   shooter.WhenActive(
       [this]() {
-        m_shooter.Shoot(0.40);
-        m_shooter.CloseLoopShoot(3000_rpm);
+        m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+        m_shooter.HoodSetPosition(m_hoodTargetPosition);
       },
       {&m_shooter});
   shooter.WhenInactive(

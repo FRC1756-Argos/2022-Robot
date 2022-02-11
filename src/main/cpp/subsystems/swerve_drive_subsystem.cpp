@@ -225,7 +225,6 @@ void SwerveDriveSubsystem::HomeToFS(const units::degree_t& angle) {
 }
 
 void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables() {
-  std::printf("%d\n", __LINE__);
   // GET SAVED VALUES
   std::optional<units::degree_t> frontLeft_saved =
       m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::flHome);
@@ -235,7 +234,6 @@ void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables() {
       m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::brHome);
   std::optional<units::degree_t> backLeft_saved =
       m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::blHome);
-  std::printf("%d\n", __LINE__);
 
   if (!frontLeft_saved || !frontRight_saved || !backRight_saved || !backLeft_saved) {
     // PREVENT MOTION HERE OF MOTOR

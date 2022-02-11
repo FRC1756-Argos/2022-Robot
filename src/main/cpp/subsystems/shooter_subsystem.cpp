@@ -22,7 +22,21 @@ ShooterSubsystem::ShooterSubsystem()
                      argos_lib::ClosedLoopSensorConversions{
                          argos_lib::GetSensorConversionFactor(sensor_conversions::hood::ToAngle),
                          1.0,
-                         argos_lib::GetSensorConversionFactor(sensor_conversions::hood::ToAngle)}} {
+                         argos_lib::GetSensorConversionFactor(sensor_conversions::hood::ToAngle)}}
+    , m_shooterPIDTuner{"argos/shooter",
+                        {&m_shooterWheelLeft},
+                        0,
+                        argos_lib::ClosedLoopSensorConversions{
+                            1.0,
+                            argos_lib::GetSensorConversionFactor(sensor_conversions::shooter::ToVelocity),
+                            argos_lib::GetSensorConversionFactor(sensor_conversions::shooter::ToVelocity)}}
+    , m_turretPIDTuner{"argos/turret",
+                       {&m_rotationControl},
+                       0,
+                       argos_lib::ClosedLoopSensorConversions{
+                           argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle),
+                           1.0,
+                           argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle)}} {
   argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelLeft>(m_shooterWheelLeft, 50_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelRight>(m_shooterWheelRight, 50_ms);
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::angleControl>(m_angleControl, 50_ms);
@@ -45,11 +59,6 @@ void ShooterSubsystem::Shoot(double ballfiringspeed) {
 void ShooterSubsystem::CloseLoopShoot(units::revolutions_per_minute_t ShooterWheelSpeed) {
   m_shooterWheelLeft.Set(ctre::phoenix::motorcontrol::ControlMode::Velocity,
                          sensor_conversions::shooter::ToSensorUnit(ShooterWheelSpeed));
-  std::printf("targetRPM: %0.2f currentRPM: %0.2f, raw: %0.2f, sensorUnitTarget: %0.2f\n",
-              ShooterWheelSpeed.to<double>(),
-              sensor_conversions::shooter::ToVelocity(m_shooterWheelLeft.GetSelectedSensorVelocity()).to<double>(),
-              m_shooterWheelLeft.GetSelectedSensorVelocity(),
-              sensor_conversions::shooter::ToSensorUnit(ShooterWheelSpeed));
 }
 
 void ShooterSubsystem::ManualAim(double turnSpeed, double hoodSpeed) {
