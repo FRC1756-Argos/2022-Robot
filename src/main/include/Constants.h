@@ -162,6 +162,14 @@ namespace controlLoop {
       constexpr double allowableError = 0.0;
     }  // namespace rotate
   }    // namespace drive
+  namespace hood {
+    constexpr double kP = 0.0001;
+    constexpr double kI = 0.0;
+    constexpr double kD = 0.0;
+    constexpr double kF = 0.0;
+    constexpr double iZone = 100.0;
+    constexpr double allowableError = 0.0;
+  }  // namespace hood
 }  // namespace controlLoop
 
 namespace motorConfig {
@@ -263,10 +271,17 @@ namespace motorConfig {
 
     struct angleControl {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
+      constexpr static bool sensorPhase = true;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
+      constexpr static auto pid0_kP = controlLoop::hood::kP;
+      constexpr static auto pid0_kI = controlLoop::hood::kI;
+      constexpr static auto pid0_kD = controlLoop::hood::kD;
+      constexpr static auto pid0_kF = controlLoop::hood::kF;
+      constexpr static auto pid0_iZone = controlLoop::hood::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::hood::allowableError;
     };
 
     struct rotationControl {

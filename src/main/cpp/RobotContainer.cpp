@@ -46,14 +46,14 @@ RobotContainer::RobotContainer()
             m_controllers.DriverController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand));
       },
       {&m_swerveDrive}));
-  m_shooter.SetDefaultCommand(frc2::RunCommand(
-      [this] {
-        m_shooter.ManualAim(m_turretSpeedMap(m_controllers.OperatorController().GetX(
-                                argos_lib::XboxController::JoystickHand::kLeftHand)),
-                            m_hoodSpeedMap(-m_controllers.OperatorController().GetY(
-                                argos_lib::XboxController::JoystickHand::kLeftHand)));
-      },
-      {&m_shooter}));
+  // m_shooter.SetDefaultCommand(frc2::RunCommand(
+  //     [this] {
+  //       m_shooter.ManualAim(m_turretSpeedMap(m_controllers.OperatorController().GetX(
+  //                               argos_lib::XboxController::JoystickHand::kLeftHand)),
+  //                           m_hoodSpeedMap(-m_controllers.OperatorController().GetY(
+  //                               argos_lib::XboxController::JoystickHand::kLeftHand)));
+  //     },
+  //     {&m_shooter}));
 
   m_climber.SetDefaultCommand(frc2::RunCommand(
       [this] {
@@ -102,8 +102,18 @@ void RobotContainer::ConfigureButtonBindings() {
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
-  shooter.WhenActive([this]() { m_shooter.Shoot(0.40); }, {&m_shooter});
-  shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
+  shooter.WhenActive(
+      [this]() {
+        m_shooter.Shoot(0.40);
+        m_shooter.HoodSetPosition(-30_deg);
+      },
+      {&m_shooter});
+  shooter.WhenInactive(
+      [this]() {
+        m_shooter.Shoot(0);
+        m_shooter.HoodSetPosition(-10_deg);
+      },
+      {&m_shooter});
 
   // Swap controllers config
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});

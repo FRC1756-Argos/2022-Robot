@@ -52,6 +52,8 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void MoveTurret(double turnSpeed);
 
+  void HoodSetPosition(units::degree_t angle);
+
   /**
    * @brief Update hood home position
    *

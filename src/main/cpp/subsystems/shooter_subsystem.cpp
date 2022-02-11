@@ -50,13 +50,26 @@ void ShooterSubsystem::MoveTurret(double turnSpeed) {
   m_rotationControl.Set(turnSpeed);
 }
 
+void ShooterSubsystem::HoodSetPosition(units::degree_t angle) {
+  if (IsHoodHomed()) {
+    std::printf("Desired angle: %0.2f, Current angle: %0.2f\n",
+                angle.to<double>(),
+                sensor_conversions::hood::ToAngle(m_angleControl.GetSelectedSensorPosition()).to<double>());
+    m_angleControl.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
+                       sensor_conversions::hood::ToSensorUnit(angle));
+  } else {
+    std::printf("Not homed!\n");
+  }
+}
+
 void ShooterSubsystem::UpdateHoodHome() {
   m_angleControl.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(measure_up::hood::homeAngle));
   m_hoodHomed = true;
+  std::printf("Homed!\n");
 }
 
 bool ShooterSubsystem::IsHoodMoving() {
-  return std::abs(m_angleControl.GetSelectedSensorVelocity()) < 0.1;
+  return std::fabs(m_angleControl.GetSelectedSensorVelocity()) > 5.0;
 }
 
 bool ShooterSubsystem::IsHoodHomed() {
