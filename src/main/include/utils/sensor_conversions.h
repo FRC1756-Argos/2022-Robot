@@ -4,6 +4,7 @@
 
 #pragma once
 #include "units/angle.h"
+#include "units/angular_velocity.h"
 
 namespace sensor_conversions {
   namespace swerve_drive {
@@ -46,4 +47,14 @@ namespace sensor_conversions {
                                                sensorConversionTeethIn * sensorConversionInAngle);
     }
   }  // namespace hood
+  namespace shooter {
+    constexpr double sensorConversionFactor =
+        10.0 * 60 / 2048;  ///< multiply to convert shooter velocity to revolutions per minute
+    constexpr double ToSensorUnit(const units::revolutions_per_minute_t rpm) {
+      return rpm.to<double>() / sensorConversionFactor;
+    }
+    constexpr units::revolutions_per_minute_t ToVelocity(const double sensorunit) {
+      return units::make_unit<units::revolutions_per_minute_t>(sensorunit * sensorConversionFactor);
+    }
+  }  // namespace shooter
 }  // namespace sensor_conversions

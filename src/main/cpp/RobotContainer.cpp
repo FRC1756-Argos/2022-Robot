@@ -117,7 +117,7 @@ void RobotContainer::ConfigureButtonBindings() {
   shooter.WhenActive(
       [this]() {
         m_shooter.Shoot(0.40);
-        m_shooter.HoodSetPosition(m_hoodTargetPosition);
+        m_shooter.CloseLoopShoot(3000_rpm);
       },
       {&m_shooter});
   shooter.WhenInactive(

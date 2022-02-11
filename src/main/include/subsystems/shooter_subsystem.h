@@ -8,6 +8,7 @@
 
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
+#include "units/angular_velocity.h"
 
 class ShooterSubsystem : public frc2::SubsystemBase {
  public:
@@ -38,6 +39,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @param hoodSpeed move the hood up or down full retract movement is 1.0 full extend movemnt is -1.0
    */
   void ManualAim(double turnSpeed, double hoodSpeed);
+
+  /**
+   * @brief Run shooter at desired speed
+   *
+   * @param ShooterWheelSpeed Setpoint speed in RPM
+   */
+  void CloseLoopShoot(units::revolutions_per_minute_t ShooterWheelSpeed);
 
   /**
    * @brief Move hood at specified percent speed

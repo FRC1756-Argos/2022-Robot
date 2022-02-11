@@ -42,6 +42,16 @@ void ShooterSubsystem::Shoot(double ballfiringspeed) {
   m_shooterWheelLeft.Set(ballfiringspeed);
 }
 
+void ShooterSubsystem::CloseLoopShoot(units::revolutions_per_minute_t ShooterWheelSpeed) {
+  m_shooterWheelLeft.Set(ctre::phoenix::motorcontrol::ControlMode::Velocity,
+                         sensor_conversions::shooter::ToSensorUnit(ShooterWheelSpeed));
+  std::printf("targetRPM: %0.2f currentRPM: %0.2f, raw: %0.2f, sensorUnitTarget: %0.2f\n",
+              ShooterWheelSpeed.to<double>(),
+              sensor_conversions::shooter::ToVelocity(m_shooterWheelLeft.GetSelectedSensorVelocity()).to<double>(),
+              m_shooterWheelLeft.GetSelectedSensorVelocity(),
+              sensor_conversions::shooter::ToSensorUnit(ShooterWheelSpeed));
+}
+
 void ShooterSubsystem::ManualAim(double turnSpeed, double hoodSpeed) {
   if (turnSpeed != 0 || hoodSpeed != 0) {
     m_manualOverride = true;
