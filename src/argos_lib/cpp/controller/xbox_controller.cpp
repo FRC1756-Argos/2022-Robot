@@ -142,6 +142,11 @@ void XboxController::UpdateVibration() {
 XboxController::UpdateStatus XboxController::UpdateButton(Button buttonIdx) {
   UpdateStatus retVal;
 
+  // Limit annoying joystick not connected errors
+  if (!IsConnected()) {
+    return retVal;
+  }
+
   bool newVal;
   switch (buttonIdx) {
     case Button::kA:

@@ -3,7 +3,9 @@
 ///            the license file in the root directory of this project.
 
 #pragma once
+
 #include <frc/I2C.h>
+#include <units/angle.h>
 #include <units/length.h>
 
 #include <string>
@@ -92,6 +94,9 @@ namespace measure_up {
     constexpr auto backLeftWOffset = 4.0_in;
     constexpr auto backLeftLOffset = 4.0_in;
   }  // namespace swerve_offsets
+  namespace hood {
+    constexpr auto homeAngle = 0_deg;  ///< Ain't that a nice design feature :)
+  }                                    // namespace hood
 }  // namespace measure_up
 
 namespace indexes {
@@ -157,13 +162,31 @@ namespace controlLoop {
   namespace drive {
     namespace rotate {
       constexpr double kP = 1.4;
-      constexpr double kI = 0.01;
+      constexpr double kI = 0.0005;
       constexpr double kD = 0.0;
       constexpr double kF = 0.0;
-      constexpr double iZone = 100.0;
+      constexpr double iZone = 500.0;
       constexpr double allowableError = 0.0;
     }  // namespace rotate
   }    // namespace drive
+  namespace shooter {
+    namespace shooter {
+      constexpr double kP = 0.01;
+      constexpr double kI = 0.0;
+      constexpr double kD = 0.0;
+      constexpr double kF = 0.05;
+      constexpr double iZone = 100.0;
+      constexpr double allowableError = 0.0;
+    }  // namespace shooter
+    namespace hood {
+      constexpr double kP = 0.25;
+      constexpr double kI = 0.01;
+      constexpr double kD = 0.01;
+      constexpr double kF = 0.0;
+      constexpr double iZone = 600.0;
+      constexpr double allowableError = 0.0;
+    }  // namespace hood
+  }    // namespace shooter
 }  // namespace controlLoop
 
 namespace motorConfig {
@@ -253,6 +276,13 @@ namespace motorConfig {
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
       constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::IntegratedSensor;
+      constexpr static auto pid0_kP = controlLoop::shooter::shooter::kP;
+      constexpr static auto pid0_kI = controlLoop::shooter::shooter::kI;
+      constexpr static auto pid0_kD = controlLoop::shooter::shooter::kD;
+      constexpr static auto pid0_kF = controlLoop::shooter::shooter::kF;
+      constexpr static auto pid0_iZone = controlLoop::shooter::shooter::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::shooter::shooter::allowableError;
     };
 
     struct shooterWheelRight {
@@ -265,10 +295,17 @@ namespace motorConfig {
 
     struct angleControl {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
+      constexpr static bool sensorPhase = true;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = 11.0_V;
+      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
+      constexpr static auto pid0_kP = controlLoop::shooter::hood::kP;
+      constexpr static auto pid0_kI = controlLoop::shooter::hood::kI;
+      constexpr static auto pid0_kD = controlLoop::shooter::hood::kD;
+      constexpr static auto pid0_kF = controlLoop::shooter::hood::kF;
+      constexpr static auto pid0_iZone = controlLoop::shooter::hood::iZone;
+      constexpr static auto pid0_allowableError = controlLoop::shooter::hood::allowableError;
     };
 
     struct rotationControl {

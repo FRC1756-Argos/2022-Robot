@@ -6,10 +6,10 @@
 
 using argos_lib::Debouncer;
 
-Debouncer::Debouncer(const argos_lib::DebounceSettings debounceSettings)
+Debouncer::Debouncer(const argos_lib::DebounceSettings debounceSettings, bool initialValue)
     : m_debounceSettings{debounceSettings}
-    , m_rawStatus{false}
-    , m_debouncedStatus{false}
+    , m_rawStatus{initialValue}
+    , m_debouncedStatus{initialValue}
     , m_debounceTransitionTime{std::chrono::steady_clock::now()} {}
 
 Debouncer::Debouncer(const units::millisecond_t symmetricDebounceTime)
