@@ -105,6 +105,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structargos__lib_1_1_closed_loop_sensor_conversions.html">ClosedLoopSensorConversions</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion factors to aid displaying sensor values as meaningful numbers.  <a href="structargos__lib_1_1_closed_loop_sensor_conversions.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_debouncer.html">Debouncer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structargos__lib_1_1_debounce_settings.html">DebounceSettings</a></td></tr>
@@ -116,6 +119,12 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_interpolation_map.html">InterpolationMap</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs linear interpolation of a value based on a set of input-&gt;output mapping points.  <a href="classargos__lib_1_1_interpolation_map.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">NTMotorPIDTuner</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows user to set PID parameters from network tables and update the motor configurations on updates. Also monitors status information from motors to aid tuning.  <a href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html">NTSubscriber</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribes to Network Tables entry updates and calls a specified callback to use the new value.  <a href="classargos__lib_1_1_n_t_subscriber.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_swap_controllers_command.html">SwapControllersCommand</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps rolls of two controllers. Useful if one controller breaks during a match.  <a href="classargos__lib_1_1_swap_controllers_command.html#details">More...</a><br /></td></tr>
@@ -162,6 +171,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a6ce4f96310a8fed0c43bba8c5cdb31f1"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a6ce4f96310a8fed0c43bba8c5cdb31f1"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#a6ce4f96310a8fed0c43bba8c5cdb31f1">operator&lt;</a> (const T &amp;a, const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T &gt; &amp;b)</td></tr>
 <tr class="separator:a6ce4f96310a8fed0c43bba8c5cdb31f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af83601904c4c880bf312db76eb3dbed2"><td class="memTemplParams" colspan="2">template&lt;class Callable &gt; </td></tr>
+<tr class="memitem:af83601904c4c880bf312db76eb3dbed2"><td class="memTemplItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2">GetSensorConversionFactor</a> (Callable toPhysicalUnitsFunction)</td></tr>
+<tr class="memdesc:af83601904c4c880bf312db76eb3dbed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a double value to convert raw sensor values to physical units represented as a double.  <a href="namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2">More...</a><br /></td></tr>
+<tr class="separator:af83601904c4c880bf312db76eb3dbed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
@@ -181,6 +194,49 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="af83601904c4c880bf312db76eb3dbed2" name="af83601904c4c880bf312db76eb3dbed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af83601904c4c880bf312db76eb3dbed2">&#9670;&nbsp;</a></span>GetSensorConversionFactor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Callable &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double argos_lib::GetSensorConversionFactor </td>
+          <td>(</td>
+          <td class="paramtype">Callable&#160;</td>
+          <td class="paramname"><em>toPhysicalUnitsFunction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a double value to convert raw sensor values to physical units represented as a double. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Callable</td><td>Function that generates a units value from a double </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toPhysicalUnitsFunction</td><td>Conversion function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double Physical unit value stripped of unit so it's just a double </dd></dl>
+
+</div>
+</div>
 <a id="a8ed2d3f18efcdd9aa1e5b19535e380aa" name="a8ed2d3f18efcdd9aa1e5b19535e380aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ed2d3f18efcdd9aa1e5b19535e380aa">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
 

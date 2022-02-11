@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('_constants_8h.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;frc/I2C.h&gt;</code><br />
+<code>#include &lt;units/angle.h&gt;</code><br />
 <code>#include &lt;units/length.h&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="interpolation_8h_source.html">argos_lib/general/interpolation.h</a>&quot;</code><br />
@@ -167,6 +168,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacemeasure__up_1_1swerve__offsets"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemeasure__up_1_1swerve__offsets.html">measure_up::swerve_offsets</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacemeasure__up_1_1hood"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemeasure__up_1_1hood.html">measure_up::hood</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceindexes"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceindexes.html">indexes</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceindexes_1_1swerve_modules"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceindexes_1_1swerve_modules.html">indexes::swerveModules</a></td></tr>
@@ -186,6 +189,12 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacecontrol_loop_1_1drive"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive.html">controlLoop::drive</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecontrol_loop_1_1drive_1_1rotate"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive_1_1rotate.html">controlLoop::drive::rotate</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecontrol_loop_1_1shooter"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter.html">controlLoop::shooter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecontrol_loop_1_1shooter_1_1shooter"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1shooter.html">controlLoop::shooter::shooter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecontrol_loop_1_1shooter_1_1hood"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html">controlLoop::shooter::hood</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacemotor_config"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotor_config.html">motorConfig</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -288,6 +297,9 @@ Variables</h2></td></tr>
 <tr class="separator:af2179c18778f9f25d833c806053f3190"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14928f156e9603af6c6ecb0833ce4168"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemeasure__up_1_1swerve__offsets.html#a14928f156e9603af6c6ecb0833ce4168">measure_up::swerve_offsets::backLeftLOffset</a> = 4.0_in</td></tr>
 <tr class="separator:a14928f156e9603af6c6ecb0833ce4168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a042e273914732857ea4a24d0af7e2ec4"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemeasure__up_1_1hood.html#a042e273914732857ea4a24d0af7e2ec4">measure_up::hood::homeAngle</a> = 0_deg</td></tr>
+<tr class="memdesc:a042e273914732857ea4a24d0af7e2ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ain't that a nice design feature :)  <a href="namespacemeasure__up_1_1hood.html#a042e273914732857ea4a24d0af7e2ec4">More...</a><br /></td></tr>
+<tr class="separator:a042e273914732857ea4a24d0af7e2ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad435bc6b1af006c01210ac292e6498bf"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceindexes_1_1swerve_modules.html#ad435bc6b1af006c01210ac292e6498bf">indexes::swerveModules::frontLeftIndex</a> = 0</td></tr>
 <tr class="separator:ad435bc6b1af006c01210ac292e6498bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af97938e5981a9b1072a5f23108ded996"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceindexes_1_1swerve_modules.html#af97938e5981a9b1072a5f23108ded996">indexes::swerveModules::frontRightIndex</a> = 1</td></tr>
@@ -332,16 +344,40 @@ Variables</h2></td></tr>
 <tr class="separator:a1dacaddb9145013bc537ff3ddf742751"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad40f7a92823ce095e151032eaf2b66a7"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive_1_1rotate.html#ad40f7a92823ce095e151032eaf2b66a7">controlLoop::drive::rotate::kP</a> = 1.4</td></tr>
 <tr class="separator:ad40f7a92823ce095e151032eaf2b66a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16907b738c3cc9730d15951da0258933"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive_1_1rotate.html#a16907b738c3cc9730d15951da0258933">controlLoop::drive::rotate::kI</a> = 0.01</td></tr>
+<tr class="memitem:a16907b738c3cc9730d15951da0258933"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive_1_1rotate.html#a16907b738c3cc9730d15951da0258933">controlLoop::drive::rotate::kI</a> = 0.0005</td></tr>
 <tr class="separator:a16907b738c3cc9730d15951da0258933"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a505ec9df1c920a1dd36768f8f9206a38"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive_1_1rotate.html#a505ec9df1c920a1dd36768f8f9206a38">controlLoop::drive::rotate::kD</a> = 0.0</td></tr>
 <tr class="separator:a505ec9df1c920a1dd36768f8f9206a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac09c285b92e27e811bf9b5f39250526f"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive_1_1rotate.html#ac09c285b92e27e811bf9b5f39250526f">controlLoop::drive::rotate::kF</a> = 0.0</td></tr>
 <tr class="separator:ac09c285b92e27e811bf9b5f39250526f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a9e0503732d258c7ef70b432fcb7885"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive_1_1rotate.html#a8a9e0503732d258c7ef70b432fcb7885">controlLoop::drive::rotate::iZone</a> = 100.0</td></tr>
+<tr class="memitem:a8a9e0503732d258c7ef70b432fcb7885"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive_1_1rotate.html#a8a9e0503732d258c7ef70b432fcb7885">controlLoop::drive::rotate::iZone</a> = 500.0</td></tr>
 <tr class="separator:a8a9e0503732d258c7ef70b432fcb7885"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab10b82b1dc46a1f7ff3b29192a0db1d7"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1drive_1_1rotate.html#ab10b82b1dc46a1f7ff3b29192a0db1d7">controlLoop::drive::rotate::allowableError</a> = 0.0</td></tr>
 <tr class="separator:ab10b82b1dc46a1f7ff3b29192a0db1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4a4f0daff0a468ddae8ff9c6913cd31"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1shooter.html#ab4a4f0daff0a468ddae8ff9c6913cd31">controlLoop::shooter::shooter::kP</a> = 0.01</td></tr>
+<tr class="separator:ab4a4f0daff0a468ddae8ff9c6913cd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb5e159eaee0bd3d445ec7701eea8ddf"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1shooter.html#adb5e159eaee0bd3d445ec7701eea8ddf">controlLoop::shooter::shooter::kI</a> = 0.0</td></tr>
+<tr class="separator:adb5e159eaee0bd3d445ec7701eea8ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4adcb179f31bdfe3612b1a0949fe9aae"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1shooter.html#a4adcb179f31bdfe3612b1a0949fe9aae">controlLoop::shooter::shooter::kD</a> = 0.0</td></tr>
+<tr class="separator:a4adcb179f31bdfe3612b1a0949fe9aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c032a4da78c284c39ad6aee9bfb52c6"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1shooter.html#a5c032a4da78c284c39ad6aee9bfb52c6">controlLoop::shooter::shooter::kF</a> = 0.05</td></tr>
+<tr class="separator:a5c032a4da78c284c39ad6aee9bfb52c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af259870f9df1be982bec89604f2a11c2"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1shooter.html#af259870f9df1be982bec89604f2a11c2">controlLoop::shooter::shooter::iZone</a> = 100.0</td></tr>
+<tr class="separator:af259870f9df1be982bec89604f2a11c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbb4c764110105596c2a06e24b4c9dff"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1shooter.html#acbb4c764110105596c2a06e24b4c9dff">controlLoop::shooter::shooter::allowableError</a> = 0.0</td></tr>
+<tr class="separator:acbb4c764110105596c2a06e24b4c9dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa90663d1beabba5969ae560e971adb8d"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#aa90663d1beabba5969ae560e971adb8d">controlLoop::shooter::hood::kP</a> = 0.25</td></tr>
+<tr class="separator:aa90663d1beabba5969ae560e971adb8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58513f7565745db1181c6db4288f6b02"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#a58513f7565745db1181c6db4288f6b02">controlLoop::shooter::hood::kI</a> = 0.01</td></tr>
+<tr class="separator:a58513f7565745db1181c6db4288f6b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab72f856632d37ac5542f659772b479f6"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#ab72f856632d37ac5542f659772b479f6">controlLoop::shooter::hood::kD</a> = 0.01</td></tr>
+<tr class="separator:ab72f856632d37ac5542f659772b479f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdf0817e95223cb15fbdddb393daaacd"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#afdf0817e95223cb15fbdddb393daaacd">controlLoop::shooter::hood::kF</a> = 0.0</td></tr>
+<tr class="separator:afdf0817e95223cb15fbdddb393daaacd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a707497feadb78a8743e6abccf786bff0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#a707497feadb78a8743e6abccf786bff0">controlLoop::shooter::hood::iZone</a> = 600.0</td></tr>
+<tr class="separator:a707497feadb78a8743e6abccf786bff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cf667f3d64283575198f196a21430bd"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#a9cf667f3d64283575198f196a21430bd">controlLoop::shooter::hood::allowableError</a> = 0.0</td></tr>
+<tr class="separator:a9cf667f3d64283575198f196a21430bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

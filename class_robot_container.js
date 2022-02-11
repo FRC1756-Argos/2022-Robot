@@ -10,11 +10,15 @@ var class_robot_container =
     [ "m_driveLatSpeedMap", "class_robot_container.html#aed3707f34d64d5966bf2e7ca95ab60d8", null ],
     [ "m_driveLonSpeedMap", "class_robot_container.html#ae784d802621537d8aea50fd7ce9bf7d7", null ],
     [ "m_driveRotSpeed", "class_robot_container.html#a8ae8be08073f8706872ffc7e7ac873af", null ],
+    [ "m_homeHoodCommand", "class_robot_container.html#a323bc2d53ee51aea06d26058af57ac0c", null ],
     [ "m_hoodSpeedMap", "class_robot_container.html#a1b6b20300d96ead5ac31340755fa78e5", null ],
+    [ "m_hoodTargetPosition", "class_robot_container.html#adb8f702b4b868e7a3e6f894c46e9fe79", null ],
     [ "m_hookSpeedMap", "class_robot_container.html#a71ffe266d0767ce2c4246260dcc397f8", null ],
     [ "m_intake", "class_robot_container.html#ac524c1d088a263a7e25bb54ba7b8dbc5", null ],
+    [ "m_NTMonitor", "class_robot_container.html#a00647f527c4b05f66579e22fd5b69241", null ],
     [ "m_pNetworkTable", "class_robot_container.html#a43a550b672298335ae731ad63e20a201", null ],
     [ "m_shooter", "class_robot_container.html#adde272abb4f22f78ef7ffe441ff3b925", null ],
+    [ "m_shooterTargetVelocity", "class_robot_container.html#a0f8072cd5eb25e81eeddcb979a598b3a", null ],
     [ "m_swerveDrive", "class_robot_container.html#a5ab3558d41d41be5d63c928968d98f5b", null ],
     [ "m_turretSpeedMap", "class_robot_container.html#af126d7be2e2f9740af3d66c055ad5842", null ]
 ];

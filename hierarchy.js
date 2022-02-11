@@ -4,7 +4,9 @@ var hierarchy =
     [ "motorConfig::drive::backLeftTurn", "structmotor_config_1_1drive_1_1back_left_turn.html", null ],
     [ "motorConfig::drive::backRightTurn", "structmotor_config_1_1drive_1_1back_right_turn.html", null ],
     [ "motorConfig::intake::beltDrive", "structmotor_config_1_1intake_1_1belt_drive.html", null ],
+    [ "argos_lib::ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", null ],
     [ "frc2::CommandHelper", null, [
+      [ "HomeHoodCommand", "class_home_hood_command.html", null ],
       [ "argos_lib::SwapControllersCommand", "classargos__lib_1_1_swap_controllers_command.html", null ]
     ] ],
     [ "argos_lib::Debouncer", "classargos__lib_1_1_debouncer.html", null ],
@@ -78,6 +80,8 @@ var hierarchy =
     [ "motorConfig::climber::liftRight", "structmotor_config_1_1climber_1_1lift_right.html", null ],
     [ "motorConfig::climber::moveHook", "structmotor_config_1_1climber_1_1move_hook.html", null ],
     [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", null ],
+    [ "argos_lib::NTMotorPIDTuner", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html", null ],
+    [ "argos_lib::NTSubscriber", "classargos__lib_1_1_n_t_subscriber.html", null ],
     [ "RobotContainer", "class_robot_container.html", null ],
     [ "motorConfig::shooter::rotationControl", "structmotor_config_1_1shooter_1_1rotation_control.html", null ],
     [ "motorConfig::shooter::shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", null ],

@@ -4,6 +4,9 @@ var namespacemeasure__up =
       [ "length", "namespacemeasure__up_1_1chassis.html#ae957e01d5b3460e5bce14a80300c2680", null ],
       [ "width", "namespacemeasure__up_1_1chassis.html#aff61d4016fc44a7ba5a70ad24289f702", null ]
     ] ],
+    [ "hood", "namespacemeasure__up_1_1hood.html", [
+      [ "homeAngle", "namespacemeasure__up_1_1hood.html#a042e273914732857ea4a24d0af7e2ec4", null ]
+    ] ],
     [ "swerve_offsets", "namespacemeasure__up_1_1swerve__offsets.html", [
       [ "backLeftLOffset", "namespacemeasure__up_1_1swerve__offsets.html#a14928f156e9603af6c6ecb0833ce4168", null ],
       [ "backLeftWOffset", "namespacemeasure__up_1_1swerve__offsets.html#af2179c18778f9f25d833c806053f3190", null ],

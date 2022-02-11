@@ -10,6 +10,7 @@ var searchData=
   ['todo_20list_7',['Todo List',['../todo.html',1,'']]],
   ['tofsensorintake_8',['tofSensorIntake',['../namespaceaddress_1_1sensors.html#a2c5552afd7b700b9e1eccaa08a6cb78e',1,'address::sensors']]],
   ['tofsensorshooter_9',['tofSensorShooter',['../namespaceaddress_1_1sensors.html#a8a205ea3477b82d4c9fe8aa7d28b9347',1,'address::sensors']]],
-  ['tosensorunit_10',['ToSensorUnit',['../namespacesensor__conversions_1_1swerve__drive_1_1turn.html#a4d73a4d9acb90513dead3cda4951426d',1,'sensor_conversions::swerve_drive::turn::ToSensorUnit()'],['../namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31',1,'sensor_conversions::turret::ToSensorUnit()'],['../namespacesensor__conversions_1_1hood.html#a07db1f9b38cd01bb25d5216f4148fd8c',1,'sensor_conversions::hood::ToSensorUnit()']]],
-  ['turretspeed_11',['turretSpeed',['../namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250',1,'controllerMap']]]
+  ['tosensorunit_10',['ToSensorUnit',['../namespacesensor__conversions_1_1swerve__drive_1_1turn.html#a4d73a4d9acb90513dead3cda4951426d',1,'sensor_conversions::swerve_drive::turn::ToSensorUnit()'],['../namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31',1,'sensor_conversions::turret::ToSensorUnit()'],['../namespacesensor__conversions_1_1hood.html#a07db1f9b38cd01bb25d5216f4148fd8c',1,'sensor_conversions::hood::ToSensorUnit()'],['../namespacesensor__conversions_1_1shooter.html#a97900f4d65956b5ac97598c92169dc52',1,'sensor_conversions::shooter::ToSensorUnit(const units::revolutions_per_minute_t rpm)']]],
+  ['tovelocity_11',['ToVelocity',['../namespacesensor__conversions_1_1shooter.html#a88eee78baebdaeff32473f4e8e9896ba',1,'sensor_conversions::shooter']]],
+  ['turretspeed_12',['turretSpeed',['../namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250',1,'controllerMap']]]
 ];

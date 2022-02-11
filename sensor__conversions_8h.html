@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('sensor__conversions_8h.html',''); init
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;units/angle.h&quot;</code><br />
+<code>#include &quot;units/angular_velocity.h&quot;</code><br />
 </div>
 <p><a href="sensor__conversions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -105,6 +106,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacesensor__conversions_1_1turret"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1turret.html">sensor_conversions::turret</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacesensor__conversions_1_1hood"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html">sensor_conversions::hood</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacesensor__conversions_1_1shooter"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1shooter.html">sensor_conversions::shooter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -121,6 +124,10 @@ Functions</h2></td></tr>
 <tr class="separator:a07db1f9b38cd01bb25d5216f4148fd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac502050673c24e8e8bb8d40512fe6364"><td class="memItemLeft" align="right" valign="top">constexpr units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html#ac502050673c24e8e8bb8d40512fe6364">sensor_conversions::hood::ToAngle</a> (const double sensorunit)</td></tr>
 <tr class="separator:ac502050673c24e8e8bb8d40512fe6364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97900f4d65956b5ac97598c92169dc52"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1shooter.html#a97900f4d65956b5ac97598c92169dc52">sensor_conversions::shooter::ToSensorUnit</a> (const units::revolutions_per_minute_t rpm)</td></tr>
+<tr class="separator:a97900f4d65956b5ac97598c92169dc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88eee78baebdaeff32473f4e8e9896ba"><td class="memItemLeft" align="right" valign="top">constexpr units::revolutions_per_minute_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1shooter.html#a88eee78baebdaeff32473f4e8e9896ba">sensor_conversions::shooter::ToVelocity</a> (const double sensorunit)</td></tr>
+<tr class="separator:a88eee78baebdaeff32473f4e8e9896ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -142,6 +149,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a121c403e6e03ee266dc94fd8c57b6506"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html#a121c403e6e03ee266dc94fd8c57b6506">sensor_conversions::hood::sensorConversionInAngle</a></td></tr>
 <tr class="memdesc:a121c403e6e03ee266dc94fd8c57b6506"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply to convert hood extension distance to hood angle  <a href="namespacesensor__conversions_1_1hood.html#a121c403e6e03ee266dc94fd8c57b6506">More...</a><br /></td></tr>
 <tr class="separator:a121c403e6e03ee266dc94fd8c57b6506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae516cf9d400944ff0b2e7e634cd7b218"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1shooter.html#ae516cf9d400944ff0b2e7e634cd7b218">sensor_conversions::shooter::sensorConversionFactor</a></td></tr>
+<tr class="memdesc:ae516cf9d400944ff0b2e7e634cd7b218"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply to convert shooter velocity to revolutions per minute  <a href="namespacesensor__conversions_1_1shooter.html#ae516cf9d400944ff0b2e7e634cd7b218">More...</a><br /></td></tr>
+<tr class="separator:ae516cf9d400944ff0b2e7e634cd7b218"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

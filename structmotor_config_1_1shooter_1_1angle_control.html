@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('structmotor_config_1_1shooter_1_1angle
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a8407f7f267ba3566a1005f9abf1b594f"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#a8407f7f267ba3566a1005f9abf1b594f">inverted</a> = ctre::phoenix::motorcontrol::InvertType::None</td></tr>
 <tr class="separator:a8407f7f267ba3566a1005f9abf1b594f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3b3eb67841d0d027c7838cd05b24b86"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#ad3b3eb67841d0d027c7838cd05b24b86">sensorPhase</a> = false</td></tr>
+<tr class="memitem:ad3b3eb67841d0d027c7838cd05b24b86"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#ad3b3eb67841d0d027c7838cd05b24b86">sensorPhase</a> = true</td></tr>
 <tr class="separator:ad3b3eb67841d0d027c7838cd05b24b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0becfbd21b69ab3a89b79335b47421da"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#a0becfbd21b69ab3a89b79335b47421da">neutralDeadband</a> = 0.001</td></tr>
 <tr class="separator:a0becfbd21b69ab3a89b79335b47421da"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,6 +104,20 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a53ff476620baeb4dfbf44c792489144b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9298a33dcd162b2f40bbf792a1346237"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#a9298a33dcd162b2f40bbf792a1346237">voltCompSat</a> = 11.0_V</td></tr>
 <tr class="separator:a9298a33dcd162b2f40bbf792a1346237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af06554e41e4892671c242686ae877df7"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#af06554e41e4892671c242686ae877df7">pid0_selectedSensor</a> = ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative</td></tr>
+<tr class="separator:af06554e41e4892671c242686ae877df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20cf2f22ceb3d1e80a40dbd92a25e146"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#a20cf2f22ceb3d1e80a40dbd92a25e146">pid0_kP</a> = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#aa90663d1beabba5969ae560e971adb8d">controlLoop::shooter::hood::kP</a></td></tr>
+<tr class="separator:a20cf2f22ceb3d1e80a40dbd92a25e146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df0f18e37168f812b4acd9326b7a517"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#a7df0f18e37168f812b4acd9326b7a517">pid0_kI</a> = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#a58513f7565745db1181c6db4288f6b02">controlLoop::shooter::hood::kI</a></td></tr>
+<tr class="separator:a7df0f18e37168f812b4acd9326b7a517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe42845bb23e6b7ec1b255526b0c844"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#a2fe42845bb23e6b7ec1b255526b0c844">pid0_kD</a> = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#ab72f856632d37ac5542f659772b479f6">controlLoop::shooter::hood::kD</a></td></tr>
+<tr class="separator:a2fe42845bb23e6b7ec1b255526b0c844"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54d2f04a42ad66dbb4188d66d9ad7554"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#a54d2f04a42ad66dbb4188d66d9ad7554">pid0_kF</a> = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#afdf0817e95223cb15fbdddb393daaacd">controlLoop::shooter::hood::kF</a></td></tr>
+<tr class="separator:a54d2f04a42ad66dbb4188d66d9ad7554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451877dafd507e42e3c1472cc4ad8f7e"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#a451877dafd507e42e3c1472cc4ad8f7e">pid0_iZone</a> = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#a707497feadb78a8743e6abccf786bff0">controlLoop::shooter::hood::iZone</a></td></tr>
+<tr class="separator:a451877dafd507e42e3c1472cc4ad8f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e32a99e9c92f85c7aea35df4275a35"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1angle_control.html#af4e32a99e9c92f85c7aea35df4275a35">pid0_allowableError</a> = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#a9cf667f3d64283575198f196a21430bd">controlLoop::shooter::hood::allowableError</a></td></tr>
+<tr class="separator:af4e32a99e9c92f85c7aea35df4275a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a8407f7f267ba3566a1005f9abf1b594f" name="a8407f7f267ba3566a1005f9abf1b594f"></a>
@@ -172,6 +186,160 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af4e32a99e9c92f85c7aea35df4275a35" name="af4e32a99e9c92f85c7aea35df4275a35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e32a99e9c92f85c7aea35df4275a35">&#9670;&nbsp;</a></span>pid0_allowableError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::shooter::angleControl::pid0_allowableError = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#a9cf667f3d64283575198f196a21430bd">controlLoop::shooter::hood::allowableError</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a451877dafd507e42e3c1472cc4ad8f7e" name="a451877dafd507e42e3c1472cc4ad8f7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a451877dafd507e42e3c1472cc4ad8f7e">&#9670;&nbsp;</a></span>pid0_iZone</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::shooter::angleControl::pid0_iZone = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#a707497feadb78a8743e6abccf786bff0">controlLoop::shooter::hood::iZone</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2fe42845bb23e6b7ec1b255526b0c844" name="a2fe42845bb23e6b7ec1b255526b0c844"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fe42845bb23e6b7ec1b255526b0c844">&#9670;&nbsp;</a></span>pid0_kD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::shooter::angleControl::pid0_kD = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#ab72f856632d37ac5542f659772b479f6">controlLoop::shooter::hood::kD</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54d2f04a42ad66dbb4188d66d9ad7554" name="a54d2f04a42ad66dbb4188d66d9ad7554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54d2f04a42ad66dbb4188d66d9ad7554">&#9670;&nbsp;</a></span>pid0_kF</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::shooter::angleControl::pid0_kF = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#afdf0817e95223cb15fbdddb393daaacd">controlLoop::shooter::hood::kF</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7df0f18e37168f812b4acd9326b7a517" name="a7df0f18e37168f812b4acd9326b7a517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7df0f18e37168f812b4acd9326b7a517">&#9670;&nbsp;</a></span>pid0_kI</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::shooter::angleControl::pid0_kI = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#a58513f7565745db1181c6db4288f6b02">controlLoop::shooter::hood::kI</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20cf2f22ceb3d1e80a40dbd92a25e146" name="a20cf2f22ceb3d1e80a40dbd92a25e146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20cf2f22ceb3d1e80a40dbd92a25e146">&#9670;&nbsp;</a></span>pid0_kP</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::shooter::angleControl::pid0_kP = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#aa90663d1beabba5969ae560e971adb8d">controlLoop::shooter::hood::kP</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af06554e41e4892671c242686ae877df7" name="af06554e41e4892671c242686ae877df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af06554e41e4892671c242686ae877df7">&#9670;&nbsp;</a></span>pid0_selectedSensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::shooter::angleControl::pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad3b3eb67841d0d027c7838cd05b24b86" name="ad3b3eb67841d0d027c7838cd05b24b86"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad3b3eb67841d0d027c7838cd05b24b86">&#9670;&nbsp;</a></span>sensorPhase</h2>
 
@@ -182,7 +350,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool motorConfig::shooter::angleControl::sensorPhase = false</td>
+          <td class="memname">constexpr bool motorConfig::shooter::angleControl::sensorPhase = true</td>
         </tr>
       </table>
   </td>

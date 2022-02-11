@@ -95,9 +95,9 @@ $(document).ready(function(){initNavTree('classargos__lib_1_1_debouncer.html',''
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1749b0deced295779d5918416530b838"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_debouncer.html#a1749b0deced295779d5918416530b838">Debouncer</a> (const <a class="el" href="structargos__lib_1_1_debounce_settings.html">argos_lib::DebounceSettings</a> debounceSettings)</td></tr>
-<tr class="memdesc:a1749b0deced295779d5918416530b838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classargos__lib_1_1_debouncer.html">Debouncer</a> object with asymmetric times.  <a href="classargos__lib_1_1_debouncer.html#a1749b0deced295779d5918416530b838">More...</a><br /></td></tr>
-<tr class="separator:a1749b0deced295779d5918416530b838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4747e062c711e8024fe0b477da7c1c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4">Debouncer</a> (const <a class="el" href="structargos__lib_1_1_debounce_settings.html">argos_lib::DebounceSettings</a> debounceSettings, bool initialValue=false)</td></tr>
+<tr class="memdesc:ad4747e062c711e8024fe0b477da7c1c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classargos__lib_1_1_debouncer.html">Debouncer</a> object with asymmetric times.  <a href="classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4">More...</a><br /></td></tr>
+<tr class="separator:ad4747e062c711e8024fe0b477da7c1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58a7ddbe4d21d9bf71d3d0b4fabe58e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_debouncer.html#a58a7ddbe4d21d9bf71d3d0b4fabe58e4">Debouncer</a> (const units::millisecond_t symmetricDebounceTime)</td></tr>
 <tr class="memdesc:a58a7ddbe4d21d9bf71d3d0b4fabe58e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classargos__lib_1_1_debouncer.html">Debouncer</a> object with symmetric times.  <a href="classargos__lib_1_1_debouncer.html#a58a7ddbe4d21d9bf71d3d0b4fabe58e4">More...</a><br /></td></tr>
 <tr class="separator:a58a7ddbe4d21d9bf71d3d0b4fabe58e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,8 +121,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:afa0df3dd72b5147b85801766fb9629c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1749b0deced295779d5918416530b838" name="a1749b0deced295779d5918416530b838"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1749b0deced295779d5918416530b838">&#9670;&nbsp;</a></span>Debouncer() <span class="overload">[1/2]</span></h2>
+<a id="ad4747e062c711e8024fe0b477da7c1c4" name="ad4747e062c711e8024fe0b477da7c1c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4747e062c711e8024fe0b477da7c1c4">&#9670;&nbsp;</a></span>Debouncer() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,8 +134,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">Debouncer::Debouncer </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structargos__lib_1_1_debounce_settings.html">argos_lib::DebounceSettings</a>&#160;</td>
-          <td class="paramname"><em>debounceSettings</em></td><td>)</td>
+          <td class="paramname"><em>debounceSettings</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>initialValue</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -149,6 +159,7 @@ Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">debounceSettings</td><td>Configuration settings for activate and clear times </td></tr>
+    <tr><td class="paramname">initialValue</td><td>Initializes debouncer to this value </td></tr>
   </table>
   </dd>
 </dl>

@@ -108,12 +108,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8453d10a1009bdc01d19a50631baedf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3">AutoAim</a> ()</td></tr>
 <tr class="memdesc:a8453d10a1009bdc01d19a50631baedf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">auto aims shooter to hub  <a href="class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3">More...</a><br /></td></tr>
 <tr class="separator:a8453d10a1009bdc01d19a50631baedf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31182e742859db02478df2561e77c2d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a31182e742859db02478df2561e77c2d1">shooting</a> (double ballfiringspeed)</td></tr>
-<tr class="memdesc:a31182e742859db02478df2561e77c2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">pressing a button to fire a ball  <a href="class_shooter_subsystem.html#a31182e742859db02478df2561e77c2d1">More...</a><br /></td></tr>
-<tr class="separator:a31182e742859db02478df2561e77c2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add97f4ce7b4a5a152eaec050920012e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#add97f4ce7b4a5a152eaec050920012e1">Shoot</a> (double ballfiringspeed)</td></tr>
+<tr class="memdesc:add97f4ce7b4a5a152eaec050920012e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">pressing a button to fire a ball  <a href="class_shooter_subsystem.html#add97f4ce7b4a5a152eaec050920012e1">More...</a><br /></td></tr>
+<tr class="separator:add97f4ce7b4a5a152eaec050920012e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e99c78a1d1c2277febd511018d8f2b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a2e99c78a1d1c2277febd511018d8f2b3">ManualAim</a> (double turnSpeed, double hoodSpeed)</td></tr>
 <tr class="memdesc:a2e99c78a1d1c2277febd511018d8f2b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">manually aiming the turret  <a href="class_shooter_subsystem.html#a2e99c78a1d1c2277febd511018d8f2b3">More...</a><br /></td></tr>
 <tr class="separator:a2e99c78a1d1c2277febd511018d8f2b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9dd762bb5d2db14c1ad03c21ad1cc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1">CloseLoopShoot</a> (units::revolutions_per_minute_t ShooterWheelSpeed)</td></tr>
+<tr class="memdesc:a9e9dd762bb5d2db14c1ad03c21ad1cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run shooter at desired speed.  <a href="class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1">More...</a><br /></td></tr>
+<tr class="separator:a9e9dd762bb5d2db14c1ad03c21ad1cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd27817cdd9939288c41f0c93c16fd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a4bd27817cdd9939288c41f0c93c16fd4">MoveHood</a> (double hoodSpeed)</td></tr>
+<tr class="memdesc:a4bd27817cdd9939288c41f0c93c16fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move hood at specified percent speed.  <a href="class_shooter_subsystem.html#a4bd27817cdd9939288c41f0c93c16fd4">More...</a><br /></td></tr>
+<tr class="separator:a4bd27817cdd9939288c41f0c93c16fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcb5881c3a5210dbed3a6f5048b7599c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#abcb5881c3a5210dbed3a6f5048b7599c">MoveTurret</a> (double turnSpeed)</td></tr>
+<tr class="memdesc:abcb5881c3a5210dbed3a6f5048b7599c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move turret at specified percent speed.  <a href="class_shooter_subsystem.html#abcb5881c3a5210dbed3a6f5048b7599c">More...</a><br /></td></tr>
+<tr class="separator:abcb5881c3a5210dbed3a6f5048b7599c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a059d48f9f9c5e421be265307b3363ca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3">HoodSetPosition</a> (units::degree_t angle)</td></tr>
+<tr class="memdesc:a059d48f9f9c5e421be265307b3363ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closed loop go to position.  <a href="class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3">More...</a><br /></td></tr>
+<tr class="separator:a059d48f9f9c5e421be265307b3363ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3043778fea359e6ba8fdcec1c78dc745"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a3043778fea359e6ba8fdcec1c78dc745">UpdateHoodHome</a> ()</td></tr>
+<tr class="memdesc:a3043778fea359e6ba8fdcec1c78dc745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update hood home position.  <a href="class_shooter_subsystem.html#a3043778fea359e6ba8fdcec1c78dc745">More...</a><br /></td></tr>
+<tr class="separator:a3043778fea359e6ba8fdcec1c78dc745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1115858f792e295d57030d2b4887f8b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ae1115858f792e295d57030d2b4887f8b">IsHoodMoving</a> ()</td></tr>
+<tr class="memdesc:ae1115858f792e295d57030d2b4887f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if hood is moving.  <a href="class_shooter_subsystem.html#ae1115858f792e295d57030d2b4887f8b">More...</a><br /></td></tr>
+<tr class="separator:ae1115858f792e295d57030d2b4887f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d716745d88799fa1561553d94778015"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a3d716745d88799fa1561553d94778015">IsHoodHomed</a> ()</td></tr>
+<tr class="memdesc:a3d716745d88799fa1561553d94778015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if hood homing is complete.  <a href="class_shooter_subsystem.html#a3d716745d88799fa1561553d94778015">More...</a><br /></td></tr>
+<tr class="separator:a3d716745d88799fa1561553d94778015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b11bec1713a289dc29d9303337dbf6d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a8b11bec1713a289dc29d9303337dbf6d">IsManualOverride</a> ()</td></tr>
+<tr class="memdesc:a8b11bec1713a289dc29d9303337dbf6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if manual control has been enabled.  <a href="class_shooter_subsystem.html#a8b11bec1713a289dc29d9303337dbf6d">More...</a><br /></td></tr>
+<tr class="separator:a8b11bec1713a289dc29d9303337dbf6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b2c295a9e14a48f87874e1427296b2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e">Disable</a> ()</td></tr>
+<tr class="memdesc:a5b2c295a9e14a48f87874e1427296b2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs on robot disable to reset manual control.  <a href="class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e">More...</a><br /></td></tr>
+<tr class="separator:a5b2c295a9e14a48f87874e1427296b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -125,6 +152,17 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a7c5468eb8a45ced700b9c5975ee4b41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4c6f09782003934a30d4ac2e347a70b"><td class="memItemLeft" align="right" valign="top">WPI_TalonSRX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#af4c6f09782003934a30d4ac2e347a70b">m_rotationControl</a></td></tr>
 <tr class="separator:af4c6f09782003934a30d4ac2e347a70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad90bf281ed60ec82338ca05b2fe84d14"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ad90bf281ed60ec82338ca05b2fe84d14">m_hoodHomed</a></td></tr>
+<tr class="memdesc:ad90bf281ed60ec82338ca05b2fe84d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when hood has known closed loop position.  <a href="class_shooter_subsystem.html#ad90bf281ed60ec82338ca05b2fe84d14">More...</a><br /></td></tr>
+<tr class="separator:ad90bf281ed60ec82338ca05b2fe84d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b30ad4a450d81f7df71f9989919a444"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a7b30ad4a450d81f7df71f9989919a444">m_manualOverride</a></td></tr>
+<tr class="separator:a7b30ad4a450d81f7df71f9989919a444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2db46e10af9c9b611e5a2a5c7c02a8ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a2db46e10af9c9b611e5a2a5c7c02a8ef">m_hoodPIDTuner</a></td></tr>
+<tr class="separator:a2db46e10af9c9b611e5a2a5c7c02a8ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac50ce8c7cecef48d016c873d7af5347e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ac50ce8c7cecef48d016c873d7af5347e">m_shooterPIDTuner</a></td></tr>
+<tr class="separator:ac50ce8c7cecef48d016c873d7af5347e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad27554d9f1ba1e5b70a360b16433a5d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ad27554d9f1ba1e5b70a360b16433a5d2">m_turretPIDTuner</a></td></tr>
+<tr class="separator:ad27554d9f1ba1e5b70a360b16433a5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
@@ -167,6 +205,137 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a9e9dd762bb5d2db14c1ad03c21ad1cc1" name="a9e9dd762bb5d2db14c1ad03c21ad1cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9dd762bb5d2db14c1ad03c21ad1cc1">&#9670;&nbsp;</a></span>CloseLoopShoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShooterSubsystem::CloseLoopShoot </td>
+          <td>(</td>
+          <td class="paramtype">units::revolutions_per_minute_t&#160;</td>
+          <td class="paramname"><em>ShooterWheelSpeed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run shooter at desired speed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ShooterWheelSpeed</td><td>Setpoint speed in RPM </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b2c295a9e14a48f87874e1427296b2e" name="a5b2c295a9e14a48f87874e1427296b2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b2c295a9e14a48f87874e1427296b2e">&#9670;&nbsp;</a></span>Disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShooterSubsystem::Disable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs on robot disable to reset manual control. </p>
+
+</div>
+</div>
+<a id="a059d48f9f9c5e421be265307b3363ca3" name="a059d48f9f9c5e421be265307b3363ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a059d48f9f9c5e421be265307b3363ca3">&#9670;&nbsp;</a></span>HoodSetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShooterSubsystem::HoodSetPosition </td>
+          <td>(</td>
+          <td class="paramtype">units::degree_t&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Closed loop go to position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>with 0 being parallel to ground, positive is raise hood </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3d716745d88799fa1561553d94778015" name="a3d716745d88799fa1561553d94778015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d716745d88799fa1561553d94778015">&#9670;&nbsp;</a></span>IsHoodHomed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ShooterSubsystem::IsHoodHomed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detect if hood homing is complete. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if hood is homed </dd></dl>
+
+</div>
+</div>
+<a id="ae1115858f792e295d57030d2b4887f8b" name="ae1115858f792e295d57030d2b4887f8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1115858f792e295d57030d2b4887f8b">&#9670;&nbsp;</a></span>IsHoodMoving()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ShooterSubsystem::IsHoodMoving </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detect if hood is moving. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if hood is currently in motion </dd></dl>
+
+</div>
+</div>
+<a id="a8b11bec1713a289dc29d9303337dbf6d" name="a8b11bec1713a289dc29d9303337dbf6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b11bec1713a289dc29d9303337dbf6d">&#9670;&nbsp;</a></span>IsManualOverride()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ShooterSubsystem::IsManualOverride </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detect if manual control has been enabled. </p>
+<dl class="section return"><dt>Returns</dt><dd>True when manual control is active </dd></dl>
+
+</div>
+</div>
 <a id="a2e99c78a1d1c2277febd511018d8f2b3" name="a2e99c78a1d1c2277febd511018d8f2b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e99c78a1d1c2277febd511018d8f2b3">&#9670;&nbsp;</a></span>ManualAim()</h2>
 
@@ -204,6 +373,58 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a4bd27817cdd9939288c41f0c93c16fd4" name="a4bd27817cdd9939288c41f0c93c16fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bd27817cdd9939288c41f0c93c16fd4">&#9670;&nbsp;</a></span>MoveHood()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShooterSubsystem::MoveHood </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>hoodSpeed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move hood at specified percent speed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hoodSpeed</td><td>move the hood up or down full retract movement is 1.0 full extend movemnt is -1.0 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abcb5881c3a5210dbed3a6f5048b7599c" name="abcb5881c3a5210dbed3a6f5048b7599c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcb5881c3a5210dbed3a6f5048b7599c">&#9670;&nbsp;</a></span>MoveTurret()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShooterSubsystem::MoveTurret </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>turnSpeed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move turret at specified percent speed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">turnSpeed</td><td>turns the turret left or right full right turn is 1.0 full left turn is -1.0 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ad8d2e05a252f65c20c489049ae18efd5" name="ad8d2e05a252f65c20c489049ae18efd5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad8d2e05a252f65c20c489049ae18efd5">&#9670;&nbsp;</a></span>Periodic()</h2>
 
@@ -230,14 +451,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a31182e742859db02478df2561e77c2d1" name="a31182e742859db02478df2561e77c2d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31182e742859db02478df2561e77c2d1">&#9670;&nbsp;</a></span>shooting()</h2>
+<a id="add97f4ce7b4a5a152eaec050920012e1" name="add97f4ce7b4a5a152eaec050920012e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add97f4ce7b4a5a152eaec050920012e1">&#9670;&nbsp;</a></span>Shoot()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ShooterSubsystem::shooting </td>
+          <td class="memname">void ShooterSubsystem::Shoot </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>ballfiringspeed</em></td><td>)</td>
@@ -253,6 +474,25 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a3043778fea359e6ba8fdcec1c78dc745" name="a3043778fea359e6ba8fdcec1c78dc745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3043778fea359e6ba8fdcec1c78dc745">&#9670;&nbsp;</a></span>UpdateHoodHome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShooterSubsystem::UpdateHoodHome </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update hood home position. </p>
 
 </div>
 </div>
@@ -279,6 +519,74 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad90bf281ed60ec82338ca05b2fe84d14" name="ad90bf281ed60ec82338ca05b2fe84d14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad90bf281ed60ec82338ca05b2fe84d14">&#9670;&nbsp;</a></span>m_hoodHomed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ShooterSubsystem::m_hoodHomed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True when hood has known closed loop position. </p>
+
+</div>
+</div>
+<a id="a2db46e10af9c9b611e5a2a5c7c02a8ef" name="a2db46e10af9c9b611e5a2a5c7c02a8ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2db46e10af9c9b611e5a2a5c7c02a8ef">&#9670;&nbsp;</a></span>m_hoodPIDTuner</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a> ShooterSubsystem::m_hoodPIDTuner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b30ad4a450d81f7df71f9989919a444" name="a7b30ad4a450d81f7df71f9989919a444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b30ad4a450d81f7df71f9989919a444">&#9670;&nbsp;</a></span>m_manualOverride</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ShooterSubsystem::m_manualOverride</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af4c6f09782003934a30d4ac2e347a70b" name="af4c6f09782003934a30d4ac2e347a70b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4c6f09782003934a30d4ac2e347a70b">&#9670;&nbsp;</a></span>m_rotationControl</h2>
 
@@ -290,6 +598,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">WPI_TalonSRX ShooterSubsystem::m_rotationControl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac50ce8c7cecef48d016c873d7af5347e" name="ac50ce8c7cecef48d016c873d7af5347e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50ce8c7cecef48d016c873d7af5347e">&#9670;&nbsp;</a></span>m_shooterPIDTuner</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a> ShooterSubsystem::m_shooterPIDTuner</td>
         </tr>
       </table>
   </td>
@@ -334,6 +664,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">WPI_TalonFX ShooterSubsystem::m_shooterWheelRight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad27554d9f1ba1e5b70a360b16433a5d2" name="ad27554d9f1ba1e5b70a360b16433a5d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad27554d9f1ba1e5b70a360b16433a5d2">&#9670;&nbsp;</a></span>m_turretPIDTuner</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a> ShooterSubsystem::m_turretPIDTuner</td>
         </tr>
       </table>
   </td>

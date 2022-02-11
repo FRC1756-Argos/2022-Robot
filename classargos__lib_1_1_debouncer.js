@@ -1,6 +1,6 @@
 var classargos__lib_1_1_debouncer =
 [
-    [ "Debouncer", "classargos__lib_1_1_debouncer.html#a1749b0deced295779d5918416530b838", null ],
+    [ "Debouncer", "classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4", null ],
     [ "Debouncer", "classargos__lib_1_1_debouncer.html#a58a7ddbe4d21d9bf71d3d0b4fabe58e4", null ],
     [ "operator()", "classargos__lib_1_1_debouncer.html#ac13b9fc486c9c8ba4860bc45ff9b4d54", null ],
     [ "m_debouncedStatus", "classargos__lib_1_1_debouncer.html#aabb628a3f28ebafb23c7abd2fb23ea50", null ],

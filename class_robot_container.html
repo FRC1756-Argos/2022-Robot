@@ -134,8 +134,16 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ad0f011e79ccf272951087071f81cf2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adde272abb4f22f78ef7ffe441ff3b925"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shooter_subsystem.html">ShooterSubsystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#adde272abb4f22f78ef7ffe441ff3b925">m_shooter</a></td></tr>
 <tr class="separator:adde272abb4f22f78ef7ffe441ff3b925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a323bc2d53ee51aea06d26058af57ac0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_home_hood_command.html">HomeHoodCommand</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#a323bc2d53ee51aea06d26058af57ac0c">m_homeHoodCommand</a></td></tr>
+<tr class="separator:a323bc2d53ee51aea06d26058af57ac0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41a29456d95fa8e37e6a8c09ddf9c80"><td class="memItemLeft" align="right" valign="top">frc::Compressor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#ae41a29456d95fa8e37e6a8c09ddf9c80">m_compressor</a></td></tr>
 <tr class="separator:ae41a29456d95fa8e37e6a8c09ddf9c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb8f702b4b868e7a3e6f894c46e9fe79"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#adb8f702b4b868e7a3e6f894c46e9fe79">m_hoodTargetPosition</a></td></tr>
+<tr class="separator:adb8f702b4b868e7a3e6f894c46e9fe79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f8072cd5eb25e81eeddcb979a598b3a"><td class="memItemLeft" align="right" valign="top">units::revolutions_per_minute_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#a0f8072cd5eb25e81eeddcb979a598b3a">m_shooterTargetVelocity</a></td></tr>
+<tr class="separator:a0f8072cd5eb25e81eeddcb979a598b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00647f527c4b05f66579e22fd5b69241"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html">argos_lib::NTSubscriber</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#a00647f527c4b05f66579e22fd5b69241">m_NTMonitor</a></td></tr>
+<tr class="separator:a00647f527c4b05f66579e22fd5b69241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. This class is where the bulk of the robot should be declared. Since Command-based is a "declarative" paradigm, very little robot logic should actually be handled in the <code><a class="el" href="class_robot.html">Robot</a></code> periodic methods (other than the scheduler calls). Instead, the structure of the robot (including subsystems, commands, and button mappings) should be declared here. </dd></dl>
@@ -356,6 +364,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a323bc2d53ee51aea06d26058af57ac0c" name="a323bc2d53ee51aea06d26058af57ac0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a323bc2d53ee51aea06d26058af57ac0c">&#9670;&nbsp;</a></span>m_homeHoodCommand</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_home_hood_command.html">HomeHoodCommand</a> RobotContainer::m_homeHoodCommand</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1b6b20300d96ead5ac31340755fa78e5" name="a1b6b20300d96ead5ac31340755fa78e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1b6b20300d96ead5ac31340755fa78e5">&#9670;&nbsp;</a></span>m_hoodSpeedMap</h2>
 
@@ -367,6 +397,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt;decltype(controllerMap::hoodSpeed.front().inVal), controllerMap::hoodSpeed.size()&gt; RobotContainer::m_hoodSpeedMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb8f702b4b868e7a3e6f894c46e9fe79" name="adb8f702b4b868e7a3e6f894c46e9fe79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb8f702b4b868e7a3e6f894c46e9fe79">&#9670;&nbsp;</a></span>m_hoodTargetPosition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::degree_t RobotContainer::m_hoodTargetPosition</td>
         </tr>
       </table>
   </td>
@@ -422,6 +474,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a00647f527c4b05f66579e22fd5b69241" name="a00647f527c4b05f66579e22fd5b69241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00647f527c4b05f66579e22fd5b69241">&#9670;&nbsp;</a></span>m_NTMonitor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html">argos_lib::NTSubscriber</a> RobotContainer::m_NTMonitor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a43a550b672298335ae731ad63e20a201" name="a43a550b672298335ae731ad63e20a201"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43a550b672298335ae731ad63e20a201">&#9670;&nbsp;</a></span>m_pNetworkTable</h2>
 
@@ -455,6 +529,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_shooter_subsystem.html">ShooterSubsystem</a> RobotContainer::m_shooter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f8072cd5eb25e81eeddcb979a598b3a" name="a0f8072cd5eb25e81eeddcb979a598b3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f8072cd5eb25e81eeddcb979a598b3a">&#9670;&nbsp;</a></span>m_shooterTargetVelocity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::revolutions_per_minute_t RobotContainer::m_shooterTargetVelocity</td>
         </tr>
       </table>
   </td>
