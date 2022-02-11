@@ -6,6 +6,7 @@
 
 #include <frc2/command/SubsystemBase.h>
 
+#include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 
 class ShooterSubsystem : public frc2::SubsystemBase {
@@ -96,4 +97,6 @@ class ShooterSubsystem : public frc2::SubsystemBase {
 
   bool m_hoodHomed;  ///< True when hood has known closed loop position
   bool m_manualOverride;
+
+  argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
 };

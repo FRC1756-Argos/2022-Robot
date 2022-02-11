@@ -15,7 +15,14 @@ ShooterSubsystem::ShooterSubsystem()
     , m_angleControl(address::shooter::angleControl)
     , m_rotationControl(address::shooter::rotationControl)
     , m_hoodHomed(false)
-    , m_manualOverride(false) {
+    , m_manualOverride(false)
+    , m_hoodPIDTuner{"argos/hood",
+                     {&m_angleControl},
+                     0,
+                     argos_lib::ClosedLoopSensorConversions{
+                         argos_lib::GetSensorConversionFactor(sensor_conversions::hood::ToAngle),
+                         1.0,
+                         argos_lib::GetSensorConversionFactor(sensor_conversions::hood::ToAngle)}} {
   argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelLeft>(m_shooterWheelLeft, 50_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelRight>(m_shooterWheelRight, 50_ms);
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::angleControl>(m_angleControl, 50_ms);
