@@ -97,6 +97,11 @@ namespace measure_up {
   namespace hood {
     constexpr auto homeAngle = 0_deg;  ///< Ain't that a nice design feature :)
   }                                    // namespace hood
+  namespace camera {
+    constexpr auto cameraHeight = 28.5_in;
+    constexpr auto upperHubHeight = 104_in;
+    constexpr auto cameraMountAngle = 39_deg;
+  }  // namespace camera
 }  // namespace measure_up
 
 namespace indexes {
