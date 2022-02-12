@@ -21,5 +21,9 @@ var namespaces_dup =
     ] ],
     [ "pneumatics", "namespacepneumatics.html", "namespacepneumatics" ],
     [ "sensor_conversions", "namespacesensor__conversions.html", "namespacesensor__conversions" ],
+    [ "shooterRange", "namespaceshooter_range.html", [
+      [ "hoodAngle", "namespaceshooter_range.html#acc94363d15c3cecc0952d70074def851", null ],
+      [ "shooterSpeed", "namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426", null ]
+    ] ],
     [ "speeds", "namespacespeeds.html", "namespacespeeds" ]
 ];
