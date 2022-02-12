@@ -95,8 +95,8 @@ namespace measure_up {
     constexpr auto backLeftLOffset = 4.0_in;
   }  // namespace swerve_offsets
   namespace hood {
-    constexpr auto homeAngle = 0_deg;  ///< Ain't that a nice design feature :)
-  }                                    // namespace hood
+    constexpr auto homeAngle = 1_deg * -1;
+  }  // namespace hood
 }  // namespace measure_up
 
 namespace indexes {
@@ -171,16 +171,16 @@ namespace controlLoop {
   }    // namespace drive
   namespace shooter {
     namespace shooter {
-      constexpr double kP = 0.01;
+      constexpr double kP = 0.02;
       constexpr double kI = 0.0;
       constexpr double kD = 0.0;
-      constexpr double kF = 0.05;
+      constexpr double kF = 0.055;
       constexpr double iZone = 100.0;
       constexpr double allowableError = 0.0;
     }  // namespace shooter
     namespace hood {
       constexpr double kP = 0.25;
-      constexpr double kI = 0.01;
+      constexpr double kI = 0.001;
       constexpr double kD = 0.01;
       constexpr double kF = 0.0;
       constexpr double iZone = 600.0;
