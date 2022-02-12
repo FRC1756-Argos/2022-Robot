@@ -99,6 +99,12 @@ namespace measure_up {
   }                                    // namespace hood
 }  // namespace measure_up
 
+namespace camera {
+  /// @todo replace with camera nickname
+  const std::string nickname = "photonvision";
+  constexpr char defaultPipelineIndex = 0;
+}  // namespace camera
+
 namespace indexes {
   namespace swerveModules {
     constexpr char frontLeftIndex = 0;

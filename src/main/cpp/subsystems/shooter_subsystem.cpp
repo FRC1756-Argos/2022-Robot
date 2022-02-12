@@ -14,6 +14,7 @@ ShooterSubsystem::ShooterSubsystem()
     , m_shooterWheelRight(address::shooter::shooterWheelRight)
     , m_angleControl(address::shooter::angleControl)
     , m_rotationControl(address::shooter::rotationControl)
+    , m_cameraInterface()
     , m_hoodHomed(false)
     , m_manualOverride(false)
     , m_hoodPIDTuner{"argos/hood",
@@ -107,4 +108,37 @@ bool ShooterSubsystem::IsManualOverride() {
 
 void ShooterSubsystem::Disable() {
   m_manualOverride = false;
+}
+
+// CAMERA INTERFACE -----------------------------------------------------------------------------
+CameraInterface::CameraInterface() : m_camera{camera::nickname} {
+  // SETS DEFAULT PIPELINE
+  m_camera.SetPipelineIndex(camera::defaultPipelineIndex);
+}
+
+std::optional<photonlib::PhotonTrackedTarget> CameraInterface::GetHighestTarget() {
+  // GET THE MOST RECENT RESULT
+  photonlib::PhotonPipelineResult latestResult = m_camera.GetLatestResult();
+
+  // CHECK IF NO TARGETS
+  if (!latestResult.HasTargets()) {
+    return std::nullopt;
+  }
+
+  // GET TARGETS FROM RESULT
+  const wpi::span<const photonlib::PhotonTrackedTarget> targets = latestResult.GetTargets();
+
+  // FIND HIGHEST TARGET
+  photonlib::PhotonTrackedTarget highestTarget;
+  for (const auto& target : targets) {
+    if (target.GetPitch() > highestTarget.GetPitch()) {
+      highestTarget = target;
+    }
+  }
+
+  return highestTarget;
+}
+
+void CameraInterface::swapDriverMode() {
+  m_camera.GetDriverMode() ? m_camera.SetDriverMode(false) : m_camera.SetDriverMode(true);
 }
