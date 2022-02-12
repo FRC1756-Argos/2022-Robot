@@ -4,6 +4,8 @@
 
 #include "RobotContainer.h"
 
+#include <frc/DriverStation.h>
+#include <frc/livewindow/LiveWindow.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
@@ -21,8 +23,16 @@ RobotContainer::RobotContainer()
     , m_hoodSpeedMap(controllerMap::hoodSpeed)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable)
-    , m_compressor(frc::PneumaticsModuleType::REVPH) {
+    , m_homeHoodCommand(&m_shooter)
+    , m_compressor(1, frc::PneumaticsModuleType::REVPH)
+    , m_hoodTargetPosition(30_deg)
+    , m_shooterTargetVelocity(3000_rpm)
+    , m_NTMonitor("argos") {
   m_compressor.EnableDigital();
+
+  // Live window is causing various watchdog timeouts
+  frc::LiveWindow::DisableAllTelemetry();
+
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
@@ -61,6 +71,27 @@ RobotContainer::RobotContainer()
                                     argos_lib::XboxController::JoystickHand::kRightHand)));
       },
       {&m_climber}));
+
+  // Robot state triggers
+  auto robotEnableTrigger = (frc2::Trigger{[this]() { return frc::DriverStation::IsEnabled(); }});
+
+  // Homing triggers
+  auto hoodHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_shooter.IsHoodHomed(); }});
+
+  // Homing commands
+  (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
+  // Notify subsystems of disable
+  robotEnableTrigger.WhenInactive([this]() { m_shooter.Disable(); }, {&m_shooter});
+
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/hoodAngle",
+      [this](double newVal) { m_hoodTargetPosition = units::make_unit<units::degree_t>(newVal); },
+      m_hoodTargetPosition.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/shooterSpeed",
+      [this](double newVal) { m_shooterTargetVelocity = units::make_unit<units::revolutions_per_minute_t>(newVal); },
+      m_shooterTargetVelocity.to<double>());
+
   ConfigureButtonBindings();
 }
 
@@ -97,6 +128,18 @@ void RobotContainer::ConfigureButtonBindings() {
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
+  shooter.WhenActive(
+      [this]() {
+        m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+        m_shooter.HoodSetPosition(m_hoodTargetPosition);
+      },
+      {&m_shooter});
+  shooter.WhenInactive(
+      [this]() {
+        m_shooter.Shoot(0);
+        m_shooter.HoodSetPosition(10_deg);
+      },
+      {&m_shooter});
 
   // Swap controllers config
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});
@@ -133,8 +176,8 @@ void RobotContainer::ConfigureButtonBindings() {
   nottake.WhenActive([this]() { m_intake.StopIntake(); }, {&m_intake});
 
   // SHOOTER TRIGGER ACTIVATION
-  shooter.WhenActive([this]() { m_shooter.shooting(0.40); }, {&m_shooter});
-  shooter.WhenInactive([this]() { m_shooter.shooting(0); }, {&m_shooter});
+  shooter.WhenActive([this]() { m_shooter.Shoot(0.40); }, {&m_shooter});
+  shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
 
   // SWAP CONTROLLERS TRIGGER ACTIVATION
   (driverTriggerSwapCombo || operatorTriggerSwapCombo)

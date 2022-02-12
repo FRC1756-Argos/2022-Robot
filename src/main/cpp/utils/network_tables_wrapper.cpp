@@ -19,7 +19,6 @@ std::optional<units::degree_t> NetworkTablesWrapper::GetEntryDegrees(const std::
 }
 
 void NetworkTablesWrapper::InitSwerveTable() {
-  std::printf("%d\n", __LINE__);
   m_swerveHomes->SetPersistent(networkTables::swerveHomes::keys::flHomeFullPath);
   m_swerveHomes->SetPersistent(networkTables::swerveHomes::keys::frHomeFullPath);
   m_swerveHomes->SetPersistent(networkTables::swerveHomes::keys::brHomeFullPath);
@@ -29,12 +28,9 @@ void NetworkTablesWrapper::InitSwerveTable() {
   // m_frHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::frHome);
   // m_brHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::brHome);
   // m_blHome = m_swerveHomes->GetEntry(networkTables::swerveHomes::keys::blHome);
-
-  std::printf("%d\n", __LINE__);
 }
 
 NetworkTablesWrapper::NetworkTablesWrapper() {
-  std::printf("%d\n", __LINE__);
   m_NtInstance = nt::NetworkTableInstance::GetDefault();
   m_swerveHomes = m_NtInstance.GetTable(networkTables::swerveHomes::tableKey);
   // PUT ALL TABLE INIT FUNCTIONS HERE
