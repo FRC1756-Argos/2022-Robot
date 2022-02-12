@@ -4,6 +4,7 @@ var class_shooter_subsystem =
     [ "AutoAim", "class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3", null ],
     [ "CloseLoopShoot", "class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1", null ],
     [ "Disable", "class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e", null ],
+    [ "GetTargetDistance", "class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7", null ],
     [ "HoodSetPosition", "class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3", null ],
     [ "IsHoodHomed", "class_shooter_subsystem.html#a3d716745d88799fa1561553d94778015", null ],
     [ "IsHoodMoving", "class_shooter_subsystem.html#ae1115858f792e295d57030d2b4887f8b", null ],

@@ -14,7 +14,8 @@ var searchData=
   ['getrawbuttonpressed_11',['GetRawButtonPressed',['../classargos__lib_1_1_xbox_controller.html#a932ee9d5507f553956cdccd270dca930',1,'argos_lib::XboxController::GetRawButtonPressed(Button buttonIdx)'],['../classargos__lib_1_1_xbox_controller.html#ad6df9e70767f0cad19362f66eca504f4',1,'argos_lib::XboxController::GetRawButtonPressed(std::initializer_list&lt; Button &gt; buttonCombo)']]],
   ['getrawbuttonreleased_12',['GetRawButtonReleased',['../classargos__lib_1_1_xbox_controller.html#acd543af0f487a0c8c0b80a6377cf168e',1,'argos_lib::XboxController::GetRawButtonReleased(Button buttonIdx)'],['../classargos__lib_1_1_xbox_controller.html#a3bfc8bc7c676b5e375d6e05ca97c8937',1,'argos_lib::XboxController::GetRawButtonReleased(std::initializer_list&lt; Button &gt; buttonCombo)']]],
   ['getsensorconversionfactor_13',['GetSensorConversionFactor',['../namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2',1,'argos_lib']]],
-  ['gettriggeraxis_14',['GetTriggerAxis',['../classargos__lib_1_1_xbox_controller.html#adfd321a87d96b003748b642fdf711601',1,'argos_lib::XboxController']]],
-  ['getx_15',['GetX',['../classargos__lib_1_1_xbox_controller.html#af845a5fb5316e2f8d9c68e8cb60966ff',1,'argos_lib::XboxController']]],
-  ['gety_16',['GetY',['../classargos__lib_1_1_xbox_controller.html#aa8e565e9547cea97e7bdd92143b7b8fa',1,'argos_lib::XboxController']]]
+  ['gettargetdistance_14',['GetTargetDistance',['../class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7',1,'ShooterSubsystem']]],
+  ['gettriggeraxis_15',['GetTriggerAxis',['../classargos__lib_1_1_xbox_controller.html#adfd321a87d96b003748b642fdf711601',1,'argos_lib::XboxController']]],
+  ['getx_16',['GetX',['../classargos__lib_1_1_xbox_controller.html#af845a5fb5316e2f8d9c68e8cb60966ff',1,'argos_lib::XboxController']]],
+  ['gety_17',['GetY',['../classargos__lib_1_1_xbox_controller.html#aa8e565e9547cea97e7bdd92143b7b8fa',1,'argos_lib::XboxController']]]
 ];

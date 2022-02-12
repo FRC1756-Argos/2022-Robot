@@ -39,6 +39,8 @@ var _constants_8h =
     [ "blHomeFullPath", "_constants_8h.html#a5c47b6bcf26065b0aab95a2644692047", null ],
     [ "brHome", "_constants_8h.html#a76ecc849d0d8ed33ee48f5443e59a4f7", null ],
     [ "brHomeFullPath", "_constants_8h.html#aa8d9ed48bb92f653121fc87052fe5392", null ],
+    [ "cameraHeight", "_constants_8h.html#aa02156baaefca0333ca8e962e9c8f0cc", null ],
+    [ "cameraMountAngle", "_constants_8h.html#a609f336767fd0a39791ff0f5b780be23", null ],
     [ "colorSensor", "_constants_8h.html#ac09e441e095888f1847dc2450a86f847", null ],
     [ "driveLatSpeed", "_constants_8h.html#adc91dc4d2e883f10ec2433773b906162", null ],
     [ "driveLongSpeed", "_constants_8h.html#a05bdf6f0ae15f91cb8886e99ff5b17bf", null ],
@@ -98,5 +100,6 @@ var _constants_8h =
     [ "tofSensorIntake", "_constants_8h.html#a2c5552afd7b700b9e1eccaa08a6cb78e", null ],
     [ "tofSensorShooter", "_constants_8h.html#a8a205ea3477b82d4c9fe8aa7d28b9347", null ],
     [ "turretSpeed", "_constants_8h.html#addfaca7b509806dafab99c4008a9d250", null ],
+    [ "upperHubHeight", "_constants_8h.html#a3c22068b76ca9c720e7c98dd4cd11c3e", null ],
     [ "width", "_constants_8h.html#aff61d4016fc44a7ba5a70ad24289f702", null ]
 ];

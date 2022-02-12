@@ -1,5 +1,10 @@
 var namespacemeasure__up =
 [
+    [ "camera", "namespacemeasure__up_1_1camera.html", [
+      [ "cameraHeight", "namespacemeasure__up_1_1camera.html#aa02156baaefca0333ca8e962e9c8f0cc", null ],
+      [ "cameraMountAngle", "namespacemeasure__up_1_1camera.html#a609f336767fd0a39791ff0f5b780be23", null ],
+      [ "upperHubHeight", "namespacemeasure__up_1_1camera.html#a3c22068b76ca9c720e7c98dd4cd11c3e", null ]
+    ] ],
     [ "chassis", "namespacemeasure__up_1_1chassis.html", [
       [ "length", "namespacemeasure__up_1_1chassis.html#ae957e01d5b3460e5bce14a80300c2680", null ],
       [ "width", "namespacemeasure__up_1_1chassis.html#aff61d4016fc44a7ba5a70ad24289f702", null ]
