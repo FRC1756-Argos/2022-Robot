@@ -125,12 +125,7 @@ void RobotContainer::ConfigureButtonBindings() {
         m_shooter.HoodSetPosition(m_hoodTargetPosition);
       },
       {&m_shooter});
-  shooter.WhenInactive(
-      [this]() {
-        m_shooter.Shoot(0);
-        m_shooter.HoodSetPosition(10_deg);
-      },
-      {&m_shooter});
+  shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
 
   // Swap controllers config
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});

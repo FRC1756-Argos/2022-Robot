@@ -128,7 +128,19 @@ namespace networkTables {
     }  // namespace keys
   }    // namespace swerveHomes
 }  // namespace networkTables
-
+namespace shooterRange {
+  using argos_lib::InterpMapPoint;
+  [[maybe_unused]] constexpr std::array shooterSpeed{InterpMapPoint{10, 2300},
+                                                     InterpMapPoint{60, 2600},
+                                                     InterpMapPoint{120, 3000},
+                                                     InterpMapPoint{180, 3000},
+                                                     InterpMapPoint{240, 3500}};
+  [[maybe_unused]] constexpr std::array hoodAngle{InterpMapPoint{10, 10},
+                                                  InterpMapPoint{60, 17},
+                                                  InterpMapPoint{120, 25},
+                                                  InterpMapPoint{180, 30},
+                                                  InterpMapPoint{240, 41}};
+}  // namespace shooterRange
 namespace controllerMap {
   using argos_lib::InterpMapPoint;
 
@@ -179,11 +191,11 @@ namespace controlLoop {
       constexpr double allowableError = 0.0;
     }  // namespace shooter
     namespace hood {
-      constexpr double kP = 0.25;
-      constexpr double kI = 0.001;
-      constexpr double kD = 0.01;
+      constexpr double kP = 0.75;
+      constexpr double kI = 0.008;
+      constexpr double kD = 0.0;
       constexpr double kF = 0.0;
-      constexpr double iZone = 600.0;
+      constexpr double iZone = 200.0;
       constexpr double allowableError = 0.0;
     }  // namespace hood
   }    // namespace shooter
