@@ -143,6 +143,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   frc::SmartDashboard::PutNumber("(DRIVETRAIN) sideVelocity", sideVelocity);
   frc::SmartDashboard::PutNumber("(DRIVETRAIN) rotVelocity", rotVelocity);
   frc::SmartDashboard::PutNumber("CONTROL MODE", m_controlMode);
+  frc::SmartDashboard::PutNumber("IMU ANGLE", m_imu.GetAngle().to<double>());
 
   // SET MODULES BASED OFF OF CONTROL MODE
   auto moduleStates = GetRawModuleStates(velocities);
@@ -228,6 +229,10 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   m_frontRight.m_encoder.SetPosition(angle.to<double>(), 50);
   m_backRight.m_encoder.SetPosition(angle.to<double>(), 50);
   m_backLeft.m_encoder.SetPosition(angle.to<double>(), 50);
+}
+
+void SwerveDriveSubsystem::FiledHome() {
+  m_imu.Reset();
 }
 
 void SwerveDriveSubsystem::SwapControlMode() {

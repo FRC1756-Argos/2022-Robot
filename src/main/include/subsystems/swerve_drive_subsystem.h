@@ -62,6 +62,12 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    */
   void Home(const units::degree_t& angle);
 
+  /**
+   * @brief Tell the robot it's in it's correct field-oriented "Front"
+   *
+   */
+  void FiledHome();
+
   void SwapControlMode();
 
   /**

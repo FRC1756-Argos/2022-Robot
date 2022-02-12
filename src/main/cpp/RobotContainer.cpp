@@ -101,6 +101,7 @@ void RobotContainer::ConfigureButtonBindings() {
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kA, {1500_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBumperLeft, {50_ms, 0_ms});
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kY, {1500_ms, 0_ms});
 
   // TRIGGERS -----------------------------------------------------------------------------------------------
 
@@ -121,8 +122,11 @@ void RobotContainer::ConfigureButtonBindings() {
   }});
 
   auto controlMode = (frc2::Trigger{[this]() {
-    return m_controllers.DriverController().GetDebouncedButtonPressed(argos_lib::XboxController::Button::kBumperLeft);
+    return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperLeft);
   }});
+
+  auto fieldHome = (frc2::Trigger{
+      [this]() { return m_controllers.DriverController().GetDebouncedButton(argos_lib::XboxController::Button::kY); }});
 
   // SHOOTER TRIGGER
   auto shooter = (frc2::Trigger{[this]() {
@@ -162,12 +166,9 @@ void RobotContainer::ConfigureButtonBindings() {
   // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
 
   // DRIVE TRIGGER ACTIVATION
-  controlMode.WhenActive(
-      [this]() {
-        std::printf("*****************SWAPPED********************");
-        m_swerveDrive.SwapControlMode();
-      },
-      {&m_swerveDrive});
+  controlMode.WhenActive([this]() { m_swerveDrive.SwapControlMode(); }, {&m_swerveDrive});
+
+  fieldHome.WhenActive([this]() { m_swerveDrive.FiledHome(); }, {&m_swerveDrive});
 
   // INTAKE TRIGGER ACTIVATION
   auto nottake = !intake && !outtake;
