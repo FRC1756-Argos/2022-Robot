@@ -9,6 +9,7 @@
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 #include "units/angular_velocity.h"
+#include "units/length.h"
 
 class ShooterSubsystem : public frc2::SubsystemBase {
  public:
@@ -99,6 +100,14 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @brief Runs on robot disable to reset manual control
    */
   void Disable();
+
+  /**
+   * @brief Gets from the target to the camera
+   *
+   * @param targetVerticalAngle The angle of the camera to the ground relative of the target
+   * @return Gives the distance in inches of the target to camera
+   */
+  units::inch_t GetTargetDistance(units::degree_t targetVerticalAngle);
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be

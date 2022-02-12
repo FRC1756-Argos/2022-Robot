@@ -7,6 +7,7 @@
 #include "Constants.h"
 #include "argos_lib/config/falcon_config.h"
 #include "argos_lib/config/talonsrx_config.h"
+#include "units/length.h"
 #include "utils/sensor_conversions.h"
 
 ShooterSubsystem::ShooterSubsystem()
@@ -107,4 +108,10 @@ bool ShooterSubsystem::IsManualOverride() {
 
 void ShooterSubsystem::Disable() {
   m_manualOverride = false;
+}
+
+units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
+  return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) *
+         std::tan(
+             static_cast<units::radian_t>(measure_up::camera::cameraMountAngle + targetVerticalAngle).to<double>());
 }
