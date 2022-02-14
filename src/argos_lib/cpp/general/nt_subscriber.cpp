@@ -13,8 +13,13 @@ NTSubscriber::NTSubscriber(const std::string& tableName)
 
 void NTSubscriber::AddMonitor(const std::string& keyName,
                               std::function<void(double)> onUpdateCallback,
-                              const double defaultValue) {
-  m_pntTable->SetDefaultNumber(keyName, defaultValue);
+                              const double defaultValue,
+                              const bool forceUpdate) {
+  if (forceUpdate) {
+    m_pntTable->PutNumber(keyName, defaultValue);
+  } else {
+    m_pntTable->SetDefaultNumber(keyName, defaultValue);
+  }
   m_pntTable->AddEntryListener(
       keyName,
       [onUpdateCallback](nt::NetworkTable* table,

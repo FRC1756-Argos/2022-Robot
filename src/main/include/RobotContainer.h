@@ -64,8 +64,6 @@ class RobotContainer {
 
   HomeHoodCommand m_homeHoodCommand;
 
-  frc::Compressor m_compressor;
-
   // Tuning stuff
   units::degree_t m_hoodTargetPosition;
   units::revolutions_per_minute_t m_shooterTargetVelocity;

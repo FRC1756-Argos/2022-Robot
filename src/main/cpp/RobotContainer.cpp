@@ -24,12 +24,9 @@ RobotContainer::RobotContainer()
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable)
     , m_homeHoodCommand(&m_shooter)
-    , m_compressor(1, frc::PneumaticsModuleType::REVPH)
     , m_hoodTargetPosition(30_deg)
     , m_shooterTargetVelocity(3000_rpm)
     , m_NTMonitor("argos") {
-  m_compressor.EnableDigital();
-
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
 
