@@ -65,6 +65,9 @@ var hierarchy =
     [ "frc::GenericHID", null, [
       [ "argos_lib::XboxController", "classargos__lib_1_1_xbox_controller.html", null ]
     ] ],
+    [ "HomingStorageInterface< T >", "class_homing_storage_interface.html", [
+      [ "FSHomingStorage< T >", "class_f_s_homing_storage.html", null ]
+    ] ],
     [ "argos_lib::HysteresisFilter< T >", "classargos__lib_1_1_hysteresis_filter.html", null ],
     [ "motorConfig::intake::intakeDrive", "structmotor_config_1_1intake_1_1intake_drive.html", null ],
     [ "argos_lib::InterpMapPoint< T >", "structargos__lib_1_1_interp_map_point.html", null ],

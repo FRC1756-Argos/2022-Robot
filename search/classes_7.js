@@ -63,5 +63,6 @@ var searchData=
   ['has_5fvoltcompsat_60',['has_voltCompSat',['../structargos__lib_1_1falcon__config_1_1has__volt_comp_sat.html',1,'argos_lib::falcon_config::has_voltCompSat&lt; T, typename &gt;'],['../structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html',1,'argos_lib::talonsrx_config::has_voltCompSat&lt; T, typename &gt;']]],
   ['has_5fvoltcompsat_3c_20t_2c_20decltype_28_28void_29_20t_3a_3avoltcompsat_2c_20void_28_29_29_3e_61',['has_voltCompSat&lt; T, decltype((void) T::voltCompSat, void())&gt;',['../structargos__lib_1_1falcon__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_t_ff539066508b6bf78d1739e6e53840e9.html',1,'argos_lib::falcon_config::has_voltCompSat&lt; T, decltype((void) T::voltCompSat, void())&gt;'],['../structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html',1,'argos_lib::talonsrx_config::has_voltCompSat&lt; T, decltype((void) T::voltCompSat, void())&gt;']]],
   ['homehoodcommand_62',['HomeHoodCommand',['../class_home_hood_command.html',1,'']]],
-  ['hysteresisfilter_63',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
+  ['homingstorageinterface_63',['HomingStorageInterface',['../class_homing_storage_interface.html',1,'']]],
+  ['hysteresisfilter_64',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
 ];

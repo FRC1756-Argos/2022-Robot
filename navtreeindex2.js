@@ -1,5 +1,14 @@
 var NAVTREEINDEX2 =
 {
+"classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a04d2e12d61fecb0bfab6d9456b9d5101":[2,0,1,2,1,0],
+"classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a04d2e12d61fecb0bfab6d9456b9d5101":[3,0,0,2,1,0],
+"classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a5be6c1c6349951055b78a4144fe64f6e":[3,0,0,2,1,1],
+"classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a5be6c1c6349951055b78a4144fe64f6e":[2,0,1,2,1,1],
+"classes.html":[3,1],
+"climber__subsystem_8cpp.html":[4,0,0,1,0,1,0],
+"climber__subsystem_8h.html":[4,0,0,1,1,1,0],
+"climber__subsystem_8h_source.html":[4,0,0,1,1,1,0],
+"compile__time__member__check_8h.html":[4,0,0,0,1,0,1,1],
 "compile__time__member__check_8h.html#a1f1b8f32581c639f261367d751c6e0aa":[4,0,0,0,1,0,1,1,0],
 "compile__time__member__check_8h_source.html":[4,0,0,0,1,0,1,1],
 "debounce__settings_8h.html":[4,0,0,0,1,0,3,0],
@@ -86,6 +95,8 @@ var NAVTREEINDEX2 =
 "home__hood__command_8cpp.html":[4,0,0,1,0,0,0],
 "home__hood__command_8h.html":[4,0,0,1,1,0,0],
 "home__hood__command_8h_source.html":[4,0,0,1,1,0,0],
+"homing__storage__interface_8h.html":[4,0,0,1,1,2,1],
+"homing__storage__interface_8h_source.html":[4,0,0,1,1,2,1],
 "hysteresis__filter_8h.html":[4,0,0,0,1,0,3,2],
 "hysteresis__filter_8h_source.html":[4,0,0,0,1,0,3,2],
 "index.html":[],
@@ -238,16 +249,5 @@ var NAVTREEINDEX2 =
 "namespacenetwork_tables_1_1swerve_homes_1_1keys.html#aa8d9ed48bb92f653121fc87052fe5392":[2,0,7,0,0,3],
 "namespacenetwork_tables_1_1swerve_homes_1_1keys.html#ab0cc2e92c1145d058c495d54a86ada3e":[2,0,7,0,0,6],
 "namespacenetwork_tables_1_1swerve_homes_1_1keys.html#ad0f540d08ab07e4110b98771f6ba7788":[2,0,7,0,0,7],
-"namespacepaths.html":[2,0,8],
-"namespacepaths.html#a409e68dc719283f90e4de04a5499bf18":[2,0,8,0],
-"namespacepneumatics.html":[2,0,9],
-"namespacepneumatics_1_1directions.html":[2,0,9,0],
-"namespacepneumatics_1_1directions.html#a39b4820304f320d7e16a166e323929c7":[2,0,9,0,1],
-"namespacepneumatics_1_1directions.html#a6e607a8f12b192fae355e3bace62c7d0":[2,0,9,0,0],
-"namespaces.html":[2,0],
-"namespacesensor__conversions.html":[2,0,10],
-"namespacesensor__conversions_1_1hood.html":[2,0,10,0],
-"namespacesensor__conversions_1_1hood.html#a07db1f9b38cd01bb25d5216f4148fd8c":[2,0,10,0,1],
-"namespacesensor__conversions_1_1hood.html#a121c403e6e03ee266dc94fd8c57b6506":[2,0,10,0,4],
-"namespacesensor__conversions_1_1hood.html#a51a7cbf9b7c9dc8041bc27ccb7710d3e":[2,0,10,0,5]
+"namespacepaths.html":[2,0,8]
 };
