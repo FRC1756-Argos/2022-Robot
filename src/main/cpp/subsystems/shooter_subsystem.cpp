@@ -129,14 +129,11 @@ std::optional<photonlib::PhotonTrackedTarget> CameraInterface::GetHighestTarget(
   const wpi::span<const photonlib::PhotonTrackedTarget> targets = latestResult.GetTargets();
 
   // FIND HIGHEST TARGET
-  photonlib::PhotonTrackedTarget highestTarget;
-  for (const auto& target : targets) {
-    if (target.GetPitch() > highestTarget.GetPitch()) {
-      highestTarget = target;
-    }
-  }
-
-  return highestTarget;
+  return *std::max_element(targets.begin(),
+                           targets.end(),
+                           [](const photonlib::PhotonTrackedTarget& lhs, const photonlib::PhotonTrackedTarget& rhs) {
+                             return lhs.GetPitch() < rhs.GetPitch();
+                           });
 }
 
 void CameraInterface::swapDriverMode() {
