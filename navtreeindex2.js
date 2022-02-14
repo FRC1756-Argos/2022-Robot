@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a04d2e12d61fecb0bfab6d9456b9d5101":[2,0,1,2,1,0],
 "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a04d2e12d61fecb0bfab6d9456b9d5101":[3,0,0,2,1,0],
 "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a5be6c1c6349951055b78a4144fe64f6e":[3,0,0,2,1,1],
 "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a5be6c1c6349951055b78a4144fe64f6e":[2,0,1,2,1,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "namespacenetwork_tables_1_1swerve_homes_1_1keys.html#aa8d9ed48bb92f653121fc87052fe5392":[2,0,7,0,0,3],
 "namespacenetwork_tables_1_1swerve_homes_1_1keys.html#ab0cc2e92c1145d058c495d54a86ada3e":[2,0,7,0,0,6],
 "namespacenetwork_tables_1_1swerve_homes_1_1keys.html#ad0f540d08ab07e4110b98771f6ba7788":[2,0,7,0,0,7],
-"namespacepaths.html":[2,0,8]
+"namespacepaths.html":[2,0,8],
+"namespacepaths.html#a409e68dc719283f90e4de04a5499bf18":[2,0,8,0]
 };

@@ -61,9 +61,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_swerve_module.html#a63838269b7ebf621a7fc02a79699e335",
+"class_swerve_module.html#a76388e8e69c98459a839f7c986417cc7",
 "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a04d2e12d61fecb0bfab6d9456b9d5101",
-"namespacepaths.html#a409e68dc719283f90e4de04a5499bf18",
+"namespacepneumatics.html",
 "structargos__lib_1_1swerve_1_1_swerve_module_positions.html",
 "structmotor_config_1_1intake_1_1belt_drive.html#a31a0becc742ed6a35eaf56d301e8690e"
 ];

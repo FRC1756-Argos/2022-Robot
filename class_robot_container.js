@@ -5,7 +5,6 @@ var class_robot_container =
     [ "GetAutonomousCommand", "class_robot_container.html#a4ac35c4eade0422c19b5d1e037cc7647", null ],
     [ "m_armSpeedMap", "class_robot_container.html#acbd5436f2dcbfa05e5d7b07c04c10453", null ],
     [ "m_climber", "class_robot_container.html#ad0f011e79ccf272951087071f81cf2a0", null ],
-    [ "m_compressor", "class_robot_container.html#ae41a29456d95fa8e37e6a8c09ddf9c80", null ],
     [ "m_controllers", "class_robot_container.html#ac4ef9d6a42ca8cf49d8b844fd470bba7", null ],
     [ "m_driveLatSpeedMap", "class_robot_container.html#aed3707f34d64d5966bf2e7ca95ab60d8", null ],
     [ "m_driveLonSpeedMap", "class_robot_container.html#ae784d802621537d8aea50fd7ce9bf7d7", null ],
