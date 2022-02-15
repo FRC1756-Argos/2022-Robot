@@ -18,6 +18,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
 
   enum class IntakeState { Stop, Intaking, Outtaking };
 
+  enum class BallColor { red, blue, other };
   /**
    * @brief Determines whether ball is present at ToF sensors
    *

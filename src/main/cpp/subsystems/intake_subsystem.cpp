@@ -21,6 +21,7 @@ IntakeSubsystem::IntakeSubsystem()
 
 // This method will be called once per scheduler run
 void IntakeSubsystem::Periodic() {
+  m_ballColor.GetColor();
   /// @todo Enable this again once we have sensors
   ///       Otherwise this conflicts with current manual control
   if constexpr (false) {
