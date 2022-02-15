@@ -4,6 +4,7 @@ var hierarchy =
     [ "motorConfig::drive::backLeftTurn", "structmotor_config_1_1drive_1_1back_left_turn.html", null ],
     [ "motorConfig::drive::backRightTurn", "structmotor_config_1_1drive_1_1back_right_turn.html", null ],
     [ "motorConfig::intake::beltDrive", "structmotor_config_1_1intake_1_1belt_drive.html", null ],
+    [ "CameraInterface", "class_camera_interface.html", null ],
     [ "argos_lib::ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", null ],
     [ "frc2::CommandHelper", null, [
       [ "HomeHoodCommand", "class_home_hood_command.html", null ],

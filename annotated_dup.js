@@ -138,6 +138,7 @@ var annotated_dup =
         [ "shooterWheelRight", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html", "structmotor_config_1_1shooter_1_1shooter_wheel_right" ]
       ] ]
     ] ],
+    [ "CameraInterface", "class_camera_interface.html", "class_camera_interface" ],
     [ "ClimberSubsystem", "class_climber_subsystem.html", "class_climber_subsystem" ],
     [ "FileSystemHomingStorage", "class_file_system_homing_storage.html", "class_file_system_homing_storage" ],
     [ "FSHomingStorage", "class_f_s_homing_storage.html", "class_f_s_homing_storage" ],

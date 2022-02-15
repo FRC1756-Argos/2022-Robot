@@ -16,6 +16,7 @@ var class_shooter_subsystem =
     [ "Shoot", "class_shooter_subsystem.html#add97f4ce7b4a5a152eaec050920012e1", null ],
     [ "UpdateHoodHome", "class_shooter_subsystem.html#a3043778fea359e6ba8fdcec1c78dc745", null ],
     [ "m_angleControl", "class_shooter_subsystem.html#a7c5468eb8a45ced700b9c5975ee4b41d", null ],
+    [ "m_cameraInterface", "class_shooter_subsystem.html#a4c621fd66825ba5408e65f4bd3f06939", null ],
     [ "m_hoodHomed", "class_shooter_subsystem.html#ad90bf281ed60ec82338ca05b2fe84d14", null ],
     [ "m_hoodPIDTuner", "class_shooter_subsystem.html#a2db46e10af9c9b611e5a2a5c7c02a8ef", null ],
     [ "m_manualOverride", "class_shooter_subsystem.html#a7b30ad4a450d81f7df71f9989919a444", null ],
