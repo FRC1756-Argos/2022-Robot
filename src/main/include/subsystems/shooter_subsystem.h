@@ -26,8 +26,9 @@ class CameraInterface {
   /**
    * @brief Turns the camera's driver mode on and off
    *
+   * @param mode True is drive control. False is no drive control
    */
-  void swapDriverMode();
+  void swapDriverMode(bool mode);
 };
 
 class ShooterSubsystem : public frc2::SubsystemBase {
