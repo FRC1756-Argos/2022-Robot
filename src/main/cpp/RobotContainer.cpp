@@ -9,6 +9,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
+#include <wpi/PortForwarder.h>
 
 #include "argos_lib/commands/swap_controllers_command.h"
 
