@@ -15,6 +15,7 @@ ShooterSubsystem::ShooterSubsystem()
     , m_shooterWheelRight(address::shooter::shooterWheelRight)
     , m_angleControl(address::shooter::angleControl)
     , m_rotationControl(address::shooter::rotationControl)
+    , m_cameraInterface()
     , m_hoodHomed(false)
     , m_manualOverride(false)
     , m_hoodPIDTuner{"argos/hood",
@@ -114,4 +115,34 @@ units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVertical
   return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) *
          std::tan(
              static_cast<units::radian_t>(measure_up::camera::cameraMountAngle + targetVerticalAngle).to<double>());
+}
+
+// CAMERA INTERFACE -----------------------------------------------------------------------------
+CameraInterface::CameraInterface() : m_camera{camera::nickname} {
+  // SETS DEFAULT PIPELINE
+  m_camera.SetPipelineIndex(camera::defaultPipelineIndex);
+}
+
+std::optional<photonlib::PhotonTrackedTarget> CameraInterface::GetHighestTarget() {
+  // GET THE MOST RECENT RESULT
+  photonlib::PhotonPipelineResult latestResult = m_camera.GetLatestResult();
+
+  // CHECK IF NO TARGETS
+  if (!latestResult.HasTargets()) {
+    return std::nullopt;
+  }
+
+  // GET TARGETS FROM RESULT
+  const wpi::span<const photonlib::PhotonTrackedTarget> targets = latestResult.GetTargets();
+
+  // FIND HIGHEST TARGET
+  return *std::max_element(targets.begin(),
+                           targets.end(),
+                           [](const photonlib::PhotonTrackedTarget& lhs, const photonlib::PhotonTrackedTarget& rhs) {
+                             return lhs.GetPitch() < rhs.GetPitch();
+                           });
+}
+
+void CameraInterface::SwapDriverMode(bool mode) {
+  m_camera.SetDriverMode(mode);
 }

@@ -8,8 +8,29 @@
 
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
+#include "photonlib/PhotonCamera.h"
 #include "units/angular_velocity.h"
 #include "units/length.h"
+
+class CameraInterface {
+ public:
+  CameraInterface();
+  photonlib::PhotonCamera m_camera;
+
+  /**
+   * @brief Get the highest target the camera can see CAN RETURN NONE
+   *
+   * @return std::optional<photonlib::PhotonTrackedTarget>
+   */
+  std::optional<photonlib::PhotonTrackedTarget> GetHighestTarget();
+
+  /**
+   * @brief Turns the camera's driver mode on and off
+   *
+   * @param mode True is drive control. False is no drive control
+   */
+  void SwapDriverMode(bool mode);
+};
 
 class ShooterSubsystem : public frc2::SubsystemBase {
  public:
@@ -116,6 +137,8 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   WPI_TalonFX m_shooterWheelRight;
   WPI_TalonSRX m_angleControl;
   WPI_TalonSRX m_rotationControl;
+
+  CameraInterface m_cameraInterface;
 
   bool m_hoodHomed;  ///< True when hood has known closed loop position
   bool m_manualOverride;
