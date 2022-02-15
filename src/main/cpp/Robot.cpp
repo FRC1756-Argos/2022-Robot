@@ -6,7 +6,6 @@
 
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/CommandScheduler.h>
-#include <wpi/PortForwarder.h>
 
 void Robot::RobotInit() {}
 
