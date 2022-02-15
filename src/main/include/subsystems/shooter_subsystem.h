@@ -109,6 +109,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   units::inch_t GetTargetDistance(units::degree_t targetVerticalAngle);
 
+  /**
+   * @brief Setting the shooter speed and hood angle depeneding on how far away the target is
+   *
+   * @param distanceToTarget The distance to the target from the robot
+   */
+  void SetShooterDistance(units::inches_t distanceToTarget);
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
