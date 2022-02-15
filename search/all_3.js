@@ -13,10 +13,11 @@ var searchData=
   ['disabledperiodic_10',['DisabledPeriodic',['../class_robot.html#a8c7309f5f1cb242ea8c74f1abf03b540',1,'Robot']]],
   ['down_11',['down',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a43a245198029386d12c9cb8ed29ec218',1,'argos_lib::XboxController::DPadButtons']]],
   ['dpadbuttons_12',['DPadButtons',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html',1,'argos_lib::XboxController']]],
-  ['drivelatspeed_13',['driveLatSpeed',['../namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162',1,'controllerMap']]],
-  ['drivelongspeed_14',['driveLongSpeed',['../namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf',1,'controllerMap']]],
-  ['driver_15',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
-  ['drivercontroller_16',['DriverController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#aab24f6aac86bd7a79f2e6af9de0d35e2',1,'argos_lib::SwappableControllersSubsystem']]],
-  ['driverotspeed_17',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]],
-  ['dumpball_18',['DumpBall',['../class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9',1,'IntakeSubsystem']]]
+  ['drivecontrolmode_13',['DriveControlMode',['../class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512c',1,'SwerveDriveSubsystem']]],
+  ['drivelatspeed_14',['driveLatSpeed',['../namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162',1,'controllerMap']]],
+  ['drivelongspeed_15',['driveLongSpeed',['../namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf',1,'controllerMap']]],
+  ['driver_16',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
+  ['drivercontroller_17',['DriverController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#aab24f6aac86bd7a79f2e6af9de0d35e2',1,'argos_lib::SwappableControllersSubsystem']]],
+  ['driverotspeed_18',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]],
+  ['dumpball_19',['DumpBall',['../class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9',1,'IntakeSubsystem']]]
 ];

@@ -19,5 +19,6 @@ var searchData=
   ['frontrightindex_16',['frontRightIndex',['../namespaceindexes_1_1swerve_modules.html#af97938e5981a9b1072a5f23108ded996',1,'indexes::swerveModules']]],
   ['frontrightloffset_17',['frontRightLOffset',['../namespacemeasure__up_1_1swerve__offsets.html#af01a799446b54095bdee32a37906994a',1,'measure_up::swerve_offsets']]],
   ['frontrightturn_18',['frontRightTurn',['../namespaceaddress_1_1drive.html#a300b75ab9e5e06749ae327af9285b476',1,'address::drive']]],
-  ['frontrightwoffset_19',['frontRightWOffset',['../namespacemeasure__up_1_1swerve__offsets.html#a150522343e9e7af23a9cdc10915fd584',1,'measure_up::swerve_offsets']]]
+  ['frontrightwoffset_19',['frontRightWOffset',['../namespacemeasure__up_1_1swerve__offsets.html#a150522343e9e7af23a9cdc10915fd584',1,'measure_up::swerve_offsets']]],
+  ['fwvelocity_20',['fwVelocity',['../struct_swerve_drive_subsystem_1_1_velocities.html#ad917d51ac19a2d103b21620c98a5ffa7',1,'SwerveDriveSubsystem::Velocities']]]
 ];

@@ -152,5 +152,6 @@ var hierarchy =
       [ "argos_lib::talonsrx_config::has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ]
     ] ],
     [ "argos_lib::XboxController::UpdateStatus", "structargos__lib_1_1_xbox_controller_1_1_update_status.html", null ],
+    [ "SwerveDriveSubsystem::Velocities", "struct_swerve_drive_subsystem_1_1_velocities.html", null ],
     [ "argos_lib::VibrationStatus", "structargos__lib_1_1_vibration_status.html", null ]
 ];

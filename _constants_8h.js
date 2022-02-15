@@ -91,6 +91,7 @@ var _constants_8h =
     [ "length", "_constants_8h.html#ae957e01d5b3460e5bce14a80300c2680", null ],
     [ "liftLeft", "_constants_8h.html#ad534766a7739ddd29c2cc1ac19949103", null ],
     [ "liftRight", "_constants_8h.html#a3c990371737e89302d30125fdd56c1ce", null ],
+    [ "maxAngular", "_constants_8h.html#aecb75fccf7b0cbb63a8e1cadb6504b93", null ],
     [ "moveHook", "_constants_8h.html#a26c2cdc3fea30c6ee00180a3c4172393", null ],
     [ "rotationControl", "_constants_8h.html#a39ec5c668dd89f28290dc5520efea371", null ],
     [ "secondary", "_constants_8h.html#a0488a7ab97c7d7d3edc83663cb5615bf", null ],
