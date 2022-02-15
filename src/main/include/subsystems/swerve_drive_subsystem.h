@@ -97,9 +97,9 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
  *
  */
   struct Velocities {
-    const double& fwVelocity;
-    const double& sideVelocity;
-    const double& rotVelocity;
+    const double fwVelocity;
+    const double sideVelocity;
+    const double rotVelocity;
   };
 
   std::unique_ptr<frc::SwerveDriveKinematics<4>>
