@@ -30,6 +30,9 @@ RobotContainer::RobotContainer()
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
 
+  // ALLOW ACCESS TO CAMERA STREAM OVER USB
+  wpi::PortForwarder::GetInstance().Add(5800, "photonvision.local", 5800);
+
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         m_swerveDrive.SwerveDrive(
