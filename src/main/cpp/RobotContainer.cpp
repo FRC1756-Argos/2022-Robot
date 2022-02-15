@@ -93,26 +93,39 @@ RobotContainer::RobotContainer()
 }
 
 void RobotContainer::ConfigureButtonBindings() {
+  // CONFIGURE DEBOUNCING
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kX, {1500_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kA, {1500_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBumperLeft, {50_ms, 0_ms});
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kY, {1500_ms, 0_ms});
+
+  // TRIGGERS -----------------------------------------------------------------------------------------------
+
   // Configure your button bindings here
+  // INTAKE TRIGGERS
   auto intake = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
   }});
   auto outtake = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperRight);
   }});
+
+  // DRIVE TRIGGERS
   auto homeDrive = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
                                                                 argos_lib::XboxController::Button::kA,
                                                                 argos_lib::XboxController::Button::kB});
   }});
-  auto nottake = !intake && !outtake;
-  intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
-  outtake.WhenActive([this]() { m_intake.DumpBall(); }, {&m_intake});
-  nottake.WhenActive([this]() { m_intake.StopIntake(); }, {&m_intake});
 
+  auto controlMode = (frc2::Trigger{[this]() {
+    return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperLeft);
+  }});
+
+  auto fieldHome = (frc2::Trigger{
+      [this]() { return m_controllers.DriverController().GetDebouncedButton(argos_lib::XboxController::Button::kY); }});
+
+  // SHOOTER TRIGGER
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
@@ -130,6 +143,7 @@ void RobotContainer::ConfigureButtonBindings() {
   m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});
   m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kStart, {1500_ms, 0_ms});
 
+  // SWAP CONTROLLER TRIGGERS
   frc2::Trigger driverTriggerSwapCombo{[this]() {
     return m_controllers.DriverController().GetDebouncedButton(
         {argos_lib::XboxController::Button::kBack, argos_lib::XboxController::Button::kStart});
@@ -139,11 +153,33 @@ void RobotContainer::ConfigureButtonBindings() {
         {argos_lib::XboxController::Button::kBack, argos_lib::XboxController::Button::kStart});
   }};
 
+  // --------------------------------------------------------------------------------------------------------
+
+  // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
+
+  // DRIVE TRIGGER ACTIVATION
+  controlMode.WhenActive([this]() { m_swerveDrive.SwapControlMode(); }, {&m_swerveDrive});
+
+  fieldHome.WhenActive([this]() { m_swerveDrive.FiledHome(); }, {&m_swerveDrive});
+
+  // INTAKE TRIGGER ACTIVATION
+  auto nottake = !intake && !outtake;
+  intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
+  outtake.WhenActive([this]() { m_intake.DumpBall(); }, {&m_intake});
+  nottake.WhenActive([this]() { m_intake.StopIntake(); }, {&m_intake});
+
+  // SHOOTER TRIGGER ACTIVATION
+  shooter.WhenActive([this]() { m_shooter.Shoot(0.40); }, {&m_shooter});
+  shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
+
+  // SWAP CONTROLLERS TRIGGER ACTIVATION
   (driverTriggerSwapCombo || operatorTriggerSwapCombo)
       .WhileActiveOnce(argos_lib::SwapControllersCommand(&m_controllers));
 
   homeDrive.WhenActive([this]() { m_swerveDrive.Home(0_deg); }, {&m_swerveDrive});
 }
+
+// ----------------------------------------------------------------------------------------------------------
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous
