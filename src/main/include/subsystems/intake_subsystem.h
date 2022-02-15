@@ -9,6 +9,7 @@
 #include <TMD37003.h>
 #include <TimeOfFlight.h>
 
+#include "argos_lib/general/hysteresis_filter.h"
 #include "ctre/Phoenix.h"
 #include "frc/Solenoid.h"
 
@@ -19,13 +20,22 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   enum class IntakeState { Stop, Intaking, Outtaking };
 
   /**
-   * @brief Determines whether ball is present at ToF sensors
+   * @brief Determines whether ball is present at intake
    *
    * @param ballPresentSensor - Checks sensors to determine whether ball is present or not
    * @return true - Ball is present at checked sensor
    * @return false - Ball is not present at checked sensor
    */
-  bool getBallPresent(frc::TimeOfFlight& ballPresentSensor);
+  bool getBallPresentIntake(frc::TimeOfFlight& ballPresentSensor);
+
+  /**
+   * @brief Determines whether ball is present at shooter
+   *
+   * @param ballPresentSensor - Checks sensors to determine whether ball is present or not
+   * @return true - Ball is present at checked sensor
+   * @return false - Ball is not present at checked sensor
+   */
+  bool getBallPresentShooter(frc::TimeOfFlight& ballPresentSensor);
 
   /**
    *
@@ -91,4 +101,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   bool m_intakeButtonPressed;
   bool m_outtakeButtonPressed;
   bool m_shooterButtonPressed;
+
+  argos_lib::HysteresisFilter<units::inch_t> m_hysteresisIntake;
+  argos_lib::HysteresisFilter<units::inch_t> m_hysteresisShooter;
 };
