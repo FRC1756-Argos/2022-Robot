@@ -7,6 +7,7 @@
 #include <frc/I2C.h>
 #include <units/angle.h>
 #include <units/length.h>
+#include <units/velocity.h>
 
 #include <string>
 
@@ -22,6 +23,9 @@ namespace speeds {
     constexpr double intakeForward = 1;
     constexpr double intakeReverse = -1;
   }  // namespace intake
+  namespace drive {
+    constexpr units::velocity::feet_per_second_t maxAngular = 12_fps;
+  }  // namespace drive
 }  // namespace speeds
 
 namespace pneumatics {

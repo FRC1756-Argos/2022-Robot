@@ -66,6 +66,9 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 
   );
 
+  /// @todo DEFAULT TO ROBOT CENTRIC FOR NOW (change later)
+  m_controlMode = SwerveDriveSubsystem::DriveControlMode::fieldCentricControl;
+
   m_pSwerveDriveKinematics = std::make_unique<frc::SwerveDriveKinematics<4>>(
       frontLeftCenterOffset, frontRightCenterOffset, backRightCenterOffset, backLeftCenterOffset);
 
@@ -77,20 +80,10 @@ void SwerveDriveSubsystem::Periodic() {}
 
 // SWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 
-void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
-                                       const double& sideVelocity,
-                                       const double& rotVelocity) {
-  frc::ChassisSpeeds speeds{units::make_unit<units::velocity::meters_per_second_t>(fwVelocity),
-                            units::make_unit<units::velocity::meters_per_second_t>(sideVelocity),
-                            units::make_unit<units::angular_velocity::radians_per_second_t>(rotVelocity)};
-
-  // DEBUG STUFF
-  frc::SmartDashboard::PutNumber("(DRIVETRAIN) fwVelocity", fwVelocity);
-  frc::SmartDashboard::PutNumber("(DRIVETRAIN) sideVelocity", sideVelocity);
-  frc::SmartDashboard::PutNumber("(DRIVETRAIN) rotVelocity", rotVelocity);
-
+wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
+    SwerveDriveSubsystem::Velocities velocities) {
   // IF SPEEDS ZERO, SET MOTORS TO ZERO AND RETURN
-  if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
+  if (velocities.fwVelocity == 0 && velocities.sideVelocity == 0 && velocities.rotVelocity == 0) {
     m_frontLeft.m_drive.Set(0);
     m_frontLeft.m_turn.Set(0);
 
@@ -102,10 +95,58 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
     m_backLeft.m_drive.Set(0);
     m_backLeft.m_turn.Set(0);
-    return;
+    /// @todo fix later
+    frc::ChassisSpeeds emptySpeeds{units::make_unit<units::velocity::meters_per_second_t>(0),
+                                   units::make_unit<units::velocity::meters_per_second_t>(0),
+                                   units::make_unit<units::angular_velocity::radians_per_second_t>(0)};
+
+    return m_pSwerveDriveKinematics->ToSwerveModuleStates(emptySpeeds);
   }
 
-  auto moduleStates = m_pSwerveDriveKinematics->ToSwerveModuleStates(speeds);
+  switch (m_controlMode) {
+    case (DriveControlMode::
+              fieldCentricControl): {  // Construct speeds with field-relative speeds and current IMU Z angle.
+      frc::ChassisSpeeds fieldCentricSpeeds = frc::ChassisSpeeds::FromFieldRelativeSpeeds(
+          units::make_unit<units::meters_per_second_t>(velocities.fwVelocity),
+          units::make_unit<units::meters_per_second_t>(velocities.sideVelocity),
+          units::make_unit<units::angular_velocity::radians_per_second_t>(velocities.rotVelocity),
+          frc::Rotation2d(-1 * m_imu.GetGyroAngleZ()));
+
+      // Return the speeds to consumer
+      return m_pSwerveDriveKinematics->ToSwerveModuleStates(fieldCentricSpeeds);
+    }
+
+    case (DriveControlMode::robotCentricControl): {
+      // Construct speeds just the same as in the current main drive function
+      frc::ChassisSpeeds robotCentricSpeeds{
+          units::make_unit<units::velocity::meters_per_second_t>(velocities.fwVelocity),
+          units::make_unit<units::velocity::meters_per_second_t>(velocities.sideVelocity),
+          units::make_unit<units::angular_velocity::radians_per_second_t>(velocities.rotVelocity)};
+
+      return m_pSwerveDriveKinematics->ToSwerveModuleStates(robotCentricSpeeds);
+    }
+  }
+  frc::ChassisSpeeds emptySpeeds{units::make_unit<units::velocity::meters_per_second_t>(0),
+                                 units::make_unit<units::velocity::meters_per_second_t>(0),
+                                 units::make_unit<units::angular_velocity::radians_per_second_t>(0)};
+
+  return m_pSwerveDriveKinematics->ToSwerveModuleStates(emptySpeeds);
+}
+
+void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
+                                       const double& sideVelocity,
+                                       const double& rotVelocity) {
+  SwerveDriveSubsystem::Velocities velocities{fwVelocity, sideVelocity, rotVelocity};
+
+  // DEBUG STUFF
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) fwVelocity", fwVelocity);
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) sideVelocity", sideVelocity);
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) rotVelocity", rotVelocity);
+  frc::SmartDashboard::PutNumber("CONTROL MODE", m_controlMode);
+  frc::SmartDashboard::PutNumber("IMU ANGLE", m_imu.GetAngle().to<double>());
+
+  // SET MODULES BASED OFF OF CONTROL MODE
+  auto moduleStates = GetRawModuleStates(velocities);
 
   /// @todo switch to argosLib optimize functions in time (create overload for meters per second?)
   moduleStates.at(0) = moduleStates.at(0).Optimize(
@@ -180,11 +221,29 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   HomeToFS(angle);
 
+  // RE-ZERO THE IMU
+  m_imu.Reset();
+
   // SetPosition expects a value in degrees
   m_frontLeft.m_encoder.SetPosition(angle.to<double>(), 50);
   m_frontRight.m_encoder.SetPosition(angle.to<double>(), 50);
   m_backRight.m_encoder.SetPosition(angle.to<double>(), 50);
   m_backLeft.m_encoder.SetPosition(angle.to<double>(), 50);
+}
+
+void SwerveDriveSubsystem::FiledHome() {
+  m_imu.Reset();
+}
+
+void SwerveDriveSubsystem::SwapControlMode() {
+  switch (m_controlMode) {
+    case (SwerveDriveSubsystem::DriveControlMode::robotCentricControl):
+      m_controlMode = SwerveDriveSubsystem::DriveControlMode::fieldCentricControl;
+      break;
+    case (SwerveDriveSubsystem::DriveControlMode::fieldCentricControl):
+      m_controlMode = SwerveDriveSubsystem::DriveControlMode::robotCentricControl;
+      break;
+  }
 }
 
 void SwerveDriveSubsystem::InitializeMotors() {
@@ -236,7 +295,7 @@ void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables() {
       m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::blHome);
 
   if (!frontLeft_saved || !frontRight_saved || !backRight_saved || !backLeft_saved) {
-    // PREVENT MOTION HERE OF MOTOR
+    // @todo PREVENT MOTION HERE OF MOTOR
     /// @todo IF NO HOMES LISTED, SET A FLAG SO WE CAN'T DRIVE
     return;
   }
