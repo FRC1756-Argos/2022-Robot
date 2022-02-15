@@ -136,6 +136,6 @@ std::optional<photonlib::PhotonTrackedTarget> CameraInterface::GetHighestTarget(
                            });
 }
 
-void CameraInterface::swapDriverMode(bool mode) {
-  mode ? m_camera.SetDriverMode(true) : m_camera.SetDriverMode(false);
+void CameraInterface::SwapDriverMode(bool mode) {
+  m_camera.SetDriverMode(mode);
 }
