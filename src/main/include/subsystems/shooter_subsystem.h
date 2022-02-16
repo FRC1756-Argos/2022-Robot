@@ -13,6 +13,7 @@
 #include "photonlib/PhotonCamera.h"
 #include "units/angular_velocity.h"
 #include "units/length.h"
+#include "utils/homing_storage_interface.h"
 
 class CameraInterface {
  public:
@@ -113,6 +114,40 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   bool IsHoodHomed();
 
   /**
+   * @brief Update turret home position
+   */
+  void UpdateTurretHome();
+
+  /**
+   * @brief Initialize turret position based on saved home
+   */
+  void InitializeTurretHome();
+
+  /**
+   * @brief Detect if turret homing is complete
+   *
+   * @return True if turret is homed
+   */
+  bool IsTurretHomed();
+
+  /**
+   * @brief Closed-loop go to turret position
+   *
+   * @param angle Setpoint where 0 degrees is intake direction and positive is counterclockwise
+   */
+  void TurretSetPosition(units::degree_t angle);
+
+  /**
+   * @brief Sets and enables soft angle limits for turret
+   */
+  void SetTurretSoftLimits();
+
+  /**
+   * @brief Disables soft angle limits for turret
+   */
+  void DisableTurretSoftLimits();
+
+  /**
    * @brief Detect if manual control has been enabled
    *
    * @return True when manual control is active
@@ -149,7 +184,10 @@ class ShooterSubsystem : public frc2::SubsystemBase {
 
   CameraInterface m_cameraInterface;
 
-  bool m_hoodHomed;  ///< True when hood has known closed loop position
+  FSHomingStorage<units::degree_t> m_turretHomingStorage;
+
+  bool m_hoodHomed;    ///< True when hood has known closed loop position
+  bool m_turretHomed;  ///< True when turret has known closed loop position
   bool m_manualOverride;
 
   argos_lib::InterpolationMap<decltype(shooterRange::shooterSpeed.front().inVal), shooterRange::shooterSpeed.size()>

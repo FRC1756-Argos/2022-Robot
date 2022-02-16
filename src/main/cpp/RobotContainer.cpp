@@ -94,6 +94,10 @@ RobotContainer::RobotContainer()
       "manualSetpoints/shooterSpeed",
       [this](double newVal) { m_shooterTargetVelocity = units::make_unit<units::revolutions_per_minute_t>(newVal); },
       m_shooterTargetVelocity.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/turretPosition",
+      [this](double newVal) { m_turretTargetPosition = units::make_unit<units::degree_t>(newVal); },
+      m_turretTargetPosition.to<double>());
 
   ConfigureButtonBindings();
 }
@@ -105,6 +109,10 @@ void RobotContainer::ConfigureButtonBindings() {
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBumperLeft, {50_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kY, {1500_ms, 0_ms});
+
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kX, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kA, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
 
   // TRIGGERS -----------------------------------------------------------------------------------------------
 
@@ -142,6 +150,19 @@ void RobotContainer::ConfigureButtonBindings() {
       },
       {&m_shooter});
   shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
+
+  // Aiming trigger
+  auto aimTrigger = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
+  }});
+  aimTrigger.WhenActive([this]() { m_shooter.TurretSetPosition(m_turretTargetPosition); }, {&m_shooter});
+
+  auto homeTurret = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
+                                                                  argos_lib::XboxController::Button::kA,
+                                                                  argos_lib::XboxController::Button::kB});
+  }});
+  homeTurret.WhenActive([this]() { m_shooter.UpdateTurretHome(); }, {&m_shooter});
 
   // Swap controllers config
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});
