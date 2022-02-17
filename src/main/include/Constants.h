@@ -66,7 +66,6 @@ namespace address {
   }  // namespace shooter
   namespace intake {
     constexpr const char beltDrive = 16;
-    constexpr const char elevatorIntakeDrive = 17;
     constexpr const char intakeDrive = 18;
   }  // namespace intake
   namespace encoders {
@@ -152,16 +151,16 @@ namespace networkTables {
 }  // namespace networkTables
 namespace shooterRange {
   using argos_lib::InterpMapPoint;
-  [[maybe_unused]] constexpr std::array shooterSpeed{InterpMapPoint{10, 2300},
-                                                     InterpMapPoint{60, 2600},
-                                                     InterpMapPoint{120, 3000},
-                                                     InterpMapPoint{180, 3000},
-                                                     InterpMapPoint{240, 3500}};
-  [[maybe_unused]] constexpr std::array hoodAngle{InterpMapPoint{10, 10},
-                                                  InterpMapPoint{60, 17},
-                                                  InterpMapPoint{120, 25},
-                                                  InterpMapPoint{180, 30},
-                                                  InterpMapPoint{240, 41}};
+  [[maybe_unused]] constexpr std::array shooterSpeed{InterpMapPoint{10.0, 2300.0},
+                                                     InterpMapPoint{60.0, 2600.0},
+                                                     InterpMapPoint{120.0, 3000.0},
+                                                     InterpMapPoint{180.0, 3000.0},
+                                                     InterpMapPoint{240.0, 3500.0}};
+  [[maybe_unused]] constexpr std::array hoodAngle{InterpMapPoint{10.0, 10.0},
+                                                  InterpMapPoint{60.0, 17.0},
+                                                  InterpMapPoint{120.0, 25.0},
+                                                  InterpMapPoint{180.0, 30.0},
+                                                  InterpMapPoint{240.0, 41.0}};
 }  // namespace shooterRange
 namespace controllerMap {
   using argos_lib::InterpMapPoint;
@@ -354,13 +353,6 @@ namespace motorConfig {
   namespace intake {
     struct beltDrive {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-    };
-    struct elevatorIntakeDrive {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
