@@ -32,7 +32,9 @@ RobotContainer::RobotContainer()
   frc::LiveWindow::DisableAllTelemetry();
 
   // ALLOW ACCESS TO CAMERA STREAM OVER USB
-  wpi::PortForwarder::GetInstance().Add(5800, "photonvision.local", 5800);
+  wpi::PortForwarder::GetInstance().Add(5800, "10.17.56.122", 5800);
+  wpi::PortForwarder::GetInstance().Add(1181, "10.17.56.122", 1181);
+  wpi::PortForwarder::GetInstance().Add(1182, "10.17.56.122", 1182);
 
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
