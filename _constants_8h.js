@@ -69,6 +69,8 @@ var _constants_8h =
     [ "hoodSpeed", "_constants_8h.html#a1dacaddb9145013bc537ff3ddf742751", null ],
     [ "hookSpeed", "_constants_8h.html#a32c5da49786d39390beceeea3a735887", null ],
     [ "intake", "_constants_8h.html#a8747c76adbdb4ff6e6582a91a3bf1bac", null ],
+    [ "intakeActivate", "_constants_8h.html#ab051a61981bb1ce2fbfaa24c059e14a4", null ],
+    [ "intakeDeactivate", "_constants_8h.html#a288db7faf4a58c20ed9878cb471a65d8", null ],
     [ "intakeDrive", "_constants_8h.html#a09905ba0db96d230f0dee9a8342af050", null ],
     [ "intakeExtend", "_constants_8h.html#a6e607a8f12b192fae355e3bace62c7d0", null ],
     [ "intakeForward", "_constants_8h.html#a013668ebd822e7534817c655606cfee8", null ],

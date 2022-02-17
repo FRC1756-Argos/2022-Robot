@@ -70,6 +70,7 @@ var hierarchy =
       [ "FSHomingStorage< T >", "class_f_s_homing_storage.html", null ]
     ] ],
     [ "argos_lib::HysteresisFilter< T >", "classargos__lib_1_1_hysteresis_filter.html", null ],
+    [ "argos_lib::HysteresisFilter< units::inch_t >", "classargos__lib_1_1_hysteresis_filter.html", null ],
     [ "motorConfig::intake::intakeDrive", "structmotor_config_1_1intake_1_1intake_drive.html", null ],
     [ "argos_lib::InterpMapPoint< T >", "structargos__lib_1_1_interp_map_point.html", null ],
     [ "argos_lib::InterpolationMap< T, size >", "classargos__lib_1_1_interpolation_map.html", null ],

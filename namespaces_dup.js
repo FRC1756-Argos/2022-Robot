@@ -29,5 +29,6 @@ var namespaces_dup =
       [ "hoodAngle", "namespaceshooter_range.html#acc94363d15c3cecc0952d70074def851", null ],
       [ "shooterSpeed", "namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426", null ]
     ] ],
-    [ "speeds", "namespacespeeds.html", "namespacespeeds" ]
+    [ "speeds", "namespacespeeds.html", "namespacespeeds" ],
+    [ "threshholds", "namespacethreshholds.html", "namespacethreshholds" ]
 ];

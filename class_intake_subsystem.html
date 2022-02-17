@@ -112,9 +112,12 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2990eeb8455a557ec9a757072e93f1b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a2990eeb8455a557ec9a757072e93f1b9">IntakeSubsystem</a> ()</td></tr>
 <tr class="separator:a2990eeb8455a557ec9a757072e93f1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57f3e8452729eb15baf0c987bf0e2f79"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a57f3e8452729eb15baf0c987bf0e2f79">getBallPresent</a> (frc::TimeOfFlight &amp;ballPresentSensor)</td></tr>
-<tr class="memdesc:a57f3e8452729eb15baf0c987bf0e2f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether ball is present at ToF sensors.  <a href="class_intake_subsystem.html#a57f3e8452729eb15baf0c987bf0e2f79">More...</a><br /></td></tr>
-<tr class="separator:a57f3e8452729eb15baf0c987bf0e2f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a161e42195b5339736dedbca4a6a62cf7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a161e42195b5339736dedbca4a6a62cf7">getBallPresentIntake</a> ()</td></tr>
+<tr class="memdesc:a161e42195b5339736dedbca4a6a62cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether ball is present at intake.  <a href="class_intake_subsystem.html#a161e42195b5339736dedbca4a6a62cf7">More...</a><br /></td></tr>
+<tr class="separator:a161e42195b5339736dedbca4a6a62cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b191046203468261a7d598112c1b229"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a2b191046203468261a7d598112c1b229">getBallPresentShooter</a> ()</td></tr>
+<tr class="memdesc:a2b191046203468261a7d598112c1b229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether ball is present at shooter.  <a href="class_intake_subsystem.html#a2b191046203468261a7d598112c1b229">More...</a><br /></td></tr>
+<tr class="separator:a2b191046203468261a7d598112c1b229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adce433404ce688264082d01aa2b60980"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#adce433404ce688264082d01aa2b60980">getIsBallTeamColor</a> ()</td></tr>
 <tr class="memdesc:adce433404ce688264082d01aa2b60980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether ball is team color.  <a href="class_intake_subsystem.html#adce433404ce688264082d01aa2b60980">More...</a><br /></td></tr>
 <tr class="separator:adce433404ce688264082d01aa2b60980"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,6 +162,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a591701b5ff203ee9c4b6e718ca48bf63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56edb3f3ff3a830b7e42ed1806f0e097"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097">m_shooterButtonPressed</a></td></tr>
 <tr class="separator:a56edb3f3ff3a830b7e42ed1806f0e097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5485814d18e72c925bb7a0a156dd3189"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_hysteresis_filter.html">argos_lib::HysteresisFilter</a>&lt; units::inch_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a5485814d18e72c925bb7a0a156dd3189">m_hysteresisIntake</a></td></tr>
+<tr class="separator:a5485814d18e72c925bb7a0a156dd3189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a85c77f69a2e922197a50c5b3cadcee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_hysteresis_filter.html">argos_lib::HysteresisFilter</a>&lt; units::inch_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a4a85c77f69a2e922197a50c5b3cadcee">m_hysteresisShooter</a></td></tr>
+<tr class="separator:a4a85c77f69a2e922197a50c5b3cadcee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
@@ -266,29 +273,44 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a57f3e8452729eb15baf0c987bf0e2f79" name="a57f3e8452729eb15baf0c987bf0e2f79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57f3e8452729eb15baf0c987bf0e2f79">&#9670;&nbsp;</a></span>getBallPresent()</h2>
+<a id="a161e42195b5339736dedbca4a6a62cf7" name="a161e42195b5339736dedbca4a6a62cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a161e42195b5339736dedbca4a6a62cf7">&#9670;&nbsp;</a></span>getBallPresentIntake()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool IntakeSubsystem::getBallPresent </td>
+          <td class="memname">bool IntakeSubsystem::getBallPresentIntake </td>
           <td>(</td>
-          <td class="paramtype">frc::TimeOfFlight &amp;&#160;</td>
-          <td class="paramname"><em>ballPresentSensor</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Determines whether ball is present at ToF sensors. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ballPresentSensor</td><td>- Checks sensors to determine whether ball is present or not </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Determines whether ball is present at intake. </p>
+<dl class="section return"><dt>Returns</dt><dd>true - Ball is present at checked sensor </dd>
+<dd>
+false - Ball is not present at checked sensor </dd></dl>
+
+</div>
+</div>
+<a id="a2b191046203468261a7d598112c1b229" name="a2b191046203468261a7d598112c1b229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b191046203468261a7d598112c1b229">&#9670;&nbsp;</a></span>getBallPresentShooter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IntakeSubsystem::getBallPresentShooter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Determines whether ball is present at shooter. </p>
 <dl class="section return"><dt>Returns</dt><dd>true - Ball is present at checked sensor </dd>
 <dd>
 false - Ball is not present at checked sensor </dd></dl>
@@ -473,6 +495,50 @@ false - Ball is not team color </dd></dl>
 </div><div class="memdoc">
 
 <p>Motor that drives the belts on the elevator (Positive towards shooter, Negative away from shooter) </p>
+
+</div>
+</div>
+<a id="a5485814d18e72c925bb7a0a156dd3189" name="a5485814d18e72c925bb7a0a156dd3189"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5485814d18e72c925bb7a0a156dd3189">&#9670;&nbsp;</a></span>m_hysteresisIntake</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_hysteresis_filter.html">argos_lib::HysteresisFilter</a>&lt;units::inch_t&gt; IntakeSubsystem::m_hysteresisIntake</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a85c77f69a2e922197a50c5b3cadcee" name="a4a85c77f69a2e922197a50c5b3cadcee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a85c77f69a2e922197a50c5b3cadcee">&#9670;&nbsp;</a></span>m_hysteresisShooter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_hysteresis_filter.html">argos_lib::HysteresisFilter</a>&lt;units::inch_t&gt; IntakeSubsystem::m_hysteresisShooter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
