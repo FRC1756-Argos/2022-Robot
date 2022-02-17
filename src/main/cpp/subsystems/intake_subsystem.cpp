@@ -73,7 +73,11 @@ bool IntakeSubsystem::getBallPresent(frc::TimeOfFlight& ballPresentSensor) {
 }
 
 bool IntakeSubsystem::getIsBallTeamColor() {
-  return false;  //< Replace when sensors are integrated
+  return false;                                         //< Replace when sensors are integrated
+  double ballHue = m_ballColor.GetHue();                // Red hue: 358 degrees; Blue hue: 206 degrees
+  double ballSaturation = m_ballColor.GetSaturation();  // Red saturation: 88.2%; Blue saturation: 100%
+  // m_ballColor.GetValue(); If only it existed ;-;. Red value: 92.9%; Blue value: 70.2%
+  // if(#<hue<#)
 }
 
 void IntakeSubsystem::StopIntake() {
