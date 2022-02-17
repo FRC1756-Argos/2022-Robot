@@ -18,10 +18,7 @@ namespace argos_lib {
      * @param activateThreshold Value above which output becomes true
      */
     HysteresisFilter(T deactivateThreshold, T activateThreshold)
-        : m_activateThreshold(activateThreshold), m_deactivateThreshold(deactivateThreshold) {
-      static_assert(m_activateThreshold >= m_deactivateThreshold,
-                    "Activate threshold must be greater than or equal to deactivate threshold");
-    }
+        : m_activateThreshold(activateThreshold), m_deactivateThreshold(deactivateThreshold) {}
 
     /**
      * @brief Gets new status after applying hysteresis

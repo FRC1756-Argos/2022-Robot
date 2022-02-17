@@ -16,6 +16,13 @@
 #include "networktables/NetworkTable.h"
 #include "networktables/NetworkTableInstance.h"
 
+namespace threshholds {
+  namespace intake {
+    const auto intakeDeactivate = 4.5_in;
+    const auto intakeActivate = 10_in;
+  }  // namespace intake
+}  // namespace threshholds
+
 namespace speeds {
   namespace intake {
     constexpr double beltForward = -1;

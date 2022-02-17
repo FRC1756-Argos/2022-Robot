@@ -10,10 +10,12 @@
 IntakeSubsystem::IntakeSubsystem()
     : m_beltDrive(address::intake::beltDrive)
     , m_intakeDrive(address::intake::intakeDrive)
-    , m_intakeDeploy(1, frc::PneumaticsModuleType::REVPH, address::solenoids::intake)
+    , m_intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake)
     , m_ballPresentIntake(address::sensors::tofSensorIntake)
     , m_ballPresentShooter(address::sensors::tofSensorShooter)
-    , m_ballColor(address::sensors::colorSensor) {
+    , m_ballColor(address::sensors::colorSensor)
+    , m_hysteresisIntake(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
+    , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate) {
   // MOTOR CONFIGURATION
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::beltDrive>(m_beltDrive, 50_ms);
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::intakeDrive>(m_intakeDrive, 50_ms);
@@ -23,56 +25,59 @@ IntakeSubsystem::IntakeSubsystem()
 void IntakeSubsystem::Periodic() {
   /// @todo Enable this again once we have sensors
   ///       Otherwise this conflicts with current manual control
-  if constexpr (false) {
-    if (((m_intakeButtonPressed == true || m_shooterButtonPressed == true) && m_outtakeButtonPressed == false)) {
-      m_intakeState = IntakeSubsystem::IntakeState::Intaking;
-    } else if (m_outtakeButtonPressed == true) {
-      m_intakeState = IntakeSubsystem::IntakeState::Outtaking;
-    } else {
-      m_intakeState = IntakeSubsystem::IntakeState::Stop;
-    }
-    switch (m_intakeState) {
-      case IntakeState::Stop:
-        m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
-        m_intakeDrive.Set(0);
-        m_beltDrive.Set(0);
-        break;
-      case IntakeState::Intaking:
-        if (m_intakeButtonPressed == true) {
-          m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
-        } else {
-          m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
-        }
-        if (m_intakeButtonPressed == true) {
-          m_intakeDrive.Set(speeds::intake::intakeForward);
-        } else if (getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == false) {
-          m_intakeDrive.Set(speeds::intake::intakeReverse);
-        } else {
-          m_intakeDrive.Set(0);
-        }
-        if (m_shooterButtonPressed == true ||
-            ((getBallPresent(m_ballPresentIntake) == true && getIsBallTeamColor() == true) &&
-             getBallPresent(m_ballPresentShooter) == false)) {
-          m_beltDrive.Set(speeds::intake::beltForward);
-        } else {
-          m_beltDrive.Set(0);
-        }
-        break;
-      case IntakeState::Outtaking:
+  if (((m_intakeButtonPressed == true || m_shooterButtonPressed == true) && m_outtakeButtonPressed == false)) {
+    m_intakeState = IntakeSubsystem::IntakeState::Intaking;
+  } else if (m_outtakeButtonPressed == true) {
+    m_intakeState = IntakeSubsystem::IntakeState::Outtaking;
+  } else {
+    m_intakeState = IntakeSubsystem::IntakeState::Stop;
+  }
+  switch (m_intakeState) {
+    case IntakeState::Stop:
+      m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
+      m_intakeDrive.Set(0);
+      m_beltDrive.Set(0);
+      break;
+    case IntakeState::Intaking:
+      if (m_intakeButtonPressed == true) {
         m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
+      } else {
+        m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
+      }
+      if (m_intakeButtonPressed == true) {
+        m_intakeDrive.Set(speeds::intake::intakeForward);
+      } else if (getBallPresentIntake() == true && getIsBallTeamColor() == false) {
         m_intakeDrive.Set(speeds::intake::intakeReverse);
-        m_beltDrive.Set(speeds::intake::beltReverse);
-        break;
-    }
+      } else {
+        m_intakeDrive.Set(0);
+      }
+      if (m_shooterButtonPressed == true ||
+          ((getBallPresentIntake() == true && getIsBallTeamColor() == true) && getBallPresentShooter() == false)) {
+        m_beltDrive.Set(speeds::intake::beltForward);
+      } else {
+        m_beltDrive.Set(0);
+      }
+      break;
+    case IntakeState::Outtaking:
+      m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
+      m_intakeDrive.Set(speeds::intake::intakeReverse);
+      m_beltDrive.Set(speeds::intake::beltReverse);
+      break;
   }
 }
 
-bool IntakeSubsystem::getBallPresent(frc::TimeOfFlight& ballPresentSensor) {
-  return false;  //< Replace when sensors are integrated
+bool IntakeSubsystem::getBallPresentIntake() {
+  units::inch_t ballDistanceIntake = units::make_unit<units::millimeter_t>(m_ballPresentIntake.GetRange());
+  return !m_hysteresisIntake(ballDistanceIntake);
+}
+
+bool IntakeSubsystem::getBallPresentShooter() {
+  units::inch_t ballDistanceShooter = units::make_unit<units::millimeter_t>(m_ballPresentShooter.GetRange());
+  return !m_hysteresisShooter(ballDistanceShooter);
 }
 
 bool IntakeSubsystem::getIsBallTeamColor() {
-  return false;  //< Replace when sensors are integrated
+  return true;  //< Replace when sensors are integrated
 }
 
 void IntakeSubsystem::StopIntake() {
