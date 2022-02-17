@@ -13,7 +13,6 @@ var hierarchy =
     [ "argos_lib::Debouncer", "classargos__lib_1_1_debouncer.html", null ],
     [ "argos_lib::DebounceSettings", "structargos__lib_1_1_debounce_settings.html", null ],
     [ "argos_lib::XboxController::DPadButtons", "structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html", null ],
-    [ "motorConfig::intake::elevatorIntakeDrive", "structmotor_config_1_1intake_1_1elevator_intake_drive.html", null ],
     [ "std::false_type", null, [
       [ "argos_lib::cancoder_config::has_direction< T, typename >", "structargos__lib_1_1cancoder__config_1_1has__direction.html", null ],
       [ "argos_lib::cancoder_config::has_initMode< T, typename >", "structargos__lib_1_1cancoder__config_1_1has__init_mode.html", null ],
@@ -81,6 +80,8 @@ var hierarchy =
     [ "argos_lib::InterpolationMap< decltype(controllerMap::hoodSpeed.front().inVal), controllerMap::hoodSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::hookSpeed.front().inVal), controllerMap::hookSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::turretSpeed.front().inVal), controllerMap::turretSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(shooterRange::shooterSpeed.front().inVal), shooterRange::shooterSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "motorConfig::climber::liftLeft", "structmotor_config_1_1climber_1_1lift_left.html", null ],
     [ "motorConfig::climber::liftRight", "structmotor_config_1_1climber_1_1lift_right.html", null ],
     [ "motorConfig::climber::moveHook", "structmotor_config_1_1climber_1_1move_hook.html", null ],

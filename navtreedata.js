@@ -62,9 +62,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_swerve_drive_subsystem.html#a17d48ca26dd0b7ea3e8e18f8560be65a",
-"classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86ae26bb0251a83bfaf870833ca25811eb7",
-"namespacemeasure__up_1_1swerve__offsets.html#adb05b5ca6223acb359e6bc9c25b971e0",
+"class_swerve_drive_subsystem.html#a0e830d13b90bdbd5b25d1bfc9e3aa60d",
+"classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86a6f34c4ab25a9eaae98c6e7fd9ba4049e",
+"namespacemeasure__up_1_1swerve__offsets.html#ab7f31ac9d15a17d67ebcc2e0976aa861",
 "structargos__lib_1_1falcon__config_1_1has__remote_filter0__type.html",
 "structmotor_config_1_1drive_1_1front_right_turn.html#a90b7813e1095f6640d2324e79b33be64"
 ];

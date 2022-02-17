@@ -27,7 +27,6 @@ var namespaceaddress =
     ] ],
     [ "intake", "namespaceaddress_1_1intake.html", [
       [ "beltDrive", "namespaceaddress_1_1intake.html#a37e5b3b6891613c3d9e6e473d3ee8d95", null ],
-      [ "elevatorIntakeDrive", "namespaceaddress_1_1intake.html#a49442bf1c94fc2facf994f5dc7261cf9", null ],
       [ "intakeDrive", "namespaceaddress_1_1intake.html#a09905ba0db96d230f0dee9a8342af050", null ]
     ] ],
     [ "sensors", "namespaceaddress_1_1sensors.html", [

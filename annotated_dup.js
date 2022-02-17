@@ -128,7 +128,6 @@ var annotated_dup =
       ] ],
       [ "intake", "namespacemotor_config_1_1intake.html", [
         [ "beltDrive", "structmotor_config_1_1intake_1_1belt_drive.html", "structmotor_config_1_1intake_1_1belt_drive" ],
-        [ "elevatorIntakeDrive", "structmotor_config_1_1intake_1_1elevator_intake_drive.html", "structmotor_config_1_1intake_1_1elevator_intake_drive" ],
         [ "intakeDrive", "structmotor_config_1_1intake_1_1intake_drive.html", "structmotor_config_1_1intake_1_1intake_drive" ]
       ] ],
       [ "shooter", "namespacemotor_config_1_1shooter.html", [
