@@ -105,11 +105,12 @@ namespace measure_up {
     constexpr auto cameraHeight = 28.5_in;
     constexpr auto upperHubHeight = 104_in;
     constexpr auto cameraMountAngle = 39_deg;
+    /// @todo CHANGEME
+    constexpr units::inch_t toRotationCenter = 0_in;
   }  // namespace camera
 }  // namespace measure_up
 
 namespace camera {
-  /// @todo replace with camera nickname
   const std::string nickname = "photonvision";
   constexpr char defaultPipelineIndex = 0;
 }  // namespace camera

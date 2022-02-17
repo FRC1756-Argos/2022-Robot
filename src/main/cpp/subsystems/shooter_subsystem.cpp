@@ -111,6 +111,7 @@ void ShooterSubsystem::Disable() {
   m_manualOverride = false;
 }
 
+/// @todo change math
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
   return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) *
          std::tan(
@@ -143,6 +144,23 @@ std::optional<photonlib::PhotonTrackedTarget> CameraInterface::GetHighestTarget(
                            });
 }
 
-void CameraInterface::SwapDriverMode(bool mode) {
+/// @todo would we need to use "this->" here to reference the object that called?
+void CameraInterface::SetDriverMode(bool mode) {
   m_camera.SetDriverMode(mode);
+}
+
+units::degree_t ShooterSubsystem::GetTurretTarget(photonlib::PhotonTrackedTarget target) {
+  double targetDistance = GetTargetDistance(units::make_unit<units::degree_t>(target.GetPitch())).to<double>();
+  double x = measure_up::camera::toRotationCenter.to<double>();
+  // calculate d2
+  double d2 = std::sqrt(std::pow(x, 2.0) + std::pow(targetDistance, 2.0));
+
+  /// @todo valid conversion?
+  double currentAngle =
+      m_rotationControl.GetSelectedSensorPosition() * sensor_conversions::shooter::sensorConversionFactor;
+
+  units::degree_t targetAngle = units::make_unit<units::degree_t>(
+      currentAngle + std::acos((std::pow(x, 2.0) + d2 - targetDistance) / 2 * x * d2));
+
+  return targetAngle;
 }
