@@ -22,20 +22,18 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   /**
    * @brief Determines whether ball is present at intake
    *
-   * @param ballPresentSensor - Checks sensors to determine whether ball is present or not
    * @return true - Ball is present at checked sensor
    * @return false - Ball is not present at checked sensor
    */
-  bool getBallPresentIntake(frc::TimeOfFlight& ballPresentSensor);
+  bool getBallPresentIntake();
 
   /**
    * @brief Determines whether ball is present at shooter
    *
-   * @param ballPresentSensor - Checks sensors to determine whether ball is present or not
    * @return true - Ball is present at checked sensor
    * @return false - Ball is not present at checked sensor
    */
-  bool getBallPresentShooter(frc::TimeOfFlight& ballPresentSensor);
+  bool getBallPresentShooter();
 
   /**
    *
