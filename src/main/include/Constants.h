@@ -55,7 +55,6 @@ namespace address {
   }  // namespace shooter
   namespace intake {
     constexpr const char beltDrive = 16;
-    constexpr const char elevatorIntakeDrive = 17;
     constexpr const char intakeDrive = 18;
   }  // namespace intake
   namespace encoders {
@@ -337,13 +336,6 @@ namespace motorConfig {
   namespace intake {
     struct beltDrive {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-    };
-    struct elevatorIntakeDrive {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
