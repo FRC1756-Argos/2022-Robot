@@ -17,6 +17,8 @@ ShooterSubsystem::ShooterSubsystem()
     , m_rotationControl(address::shooter::rotationControl)
     , m_hoodHomed(false)
     , m_manualOverride(false)
+    , m_shooterSpeedMap(shooterRange::shooterSpeed)
+    , m_hoodAngleMap(shooterRange::hoodAngle)
     , m_hoodPIDTuner{"argos/hood",
                      {&m_angleControl},
                      0,
@@ -114,4 +116,9 @@ units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVertical
   return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) *
          std::tan(
              static_cast<units::radian_t>(measure_up::camera::cameraMountAngle + targetVerticalAngle).to<double>());
+}
+
+void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
+  CloseLoopShoot(units::revolutions_per_minute_t{m_shooterSpeedMap.Map(distanceToTarget.to<double>())});
+  HoodSetPosition(units::degree_t{m_hoodAngleMap.Map(distanceToTarget.to<double>())});
 }

@@ -6,6 +6,8 @@
 
 #include <frc2/command/SubsystemBase.h>
 
+#include "Constants.h"
+#include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 #include "units/angular_velocity.h"
@@ -114,7 +116,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    *
    * @param distanceToTarget The distance to the target from the robot
    */
-  void SetShooterDistance(units::inches_t distanceToTarget);
+  void SetShooterDistance(units::inch_t distanceToTarget);
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
@@ -126,6 +128,11 @@ class ShooterSubsystem : public frc2::SubsystemBase {
 
   bool m_hoodHomed;  ///< True when hood has known closed loop position
   bool m_manualOverride;
+
+  argos_lib::InterpolationMap<decltype(shooterRange::shooterSpeed.front().inVal), shooterRange::shooterSpeed.size()>
+      m_shooterSpeedMap;
+  argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size()>
+      m_hoodAngleMap;
 
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
   argos_lib::NTMotorPIDTuner m_shooterPIDTuner;

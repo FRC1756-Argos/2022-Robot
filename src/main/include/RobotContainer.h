@@ -56,9 +56,7 @@ class RobotContainer {
   argos_lib::InterpolationMap<decltype(controllerMap::hoodSpeed.front().inVal), controllerMap::hoodSpeed.size()>
       m_hoodSpeedMap;
 
-  /// @todo Fix me :)
-  //   argos_lib::InterpolationMap < decltype(controllerMap::shooterSpeed.front().inVal)
-  //                                     argos_lib::SwappableControllersSubsystem m_controllers;
+  argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
   IntakeSubsystem m_intake;
   ClimberSubsystem m_climber;
