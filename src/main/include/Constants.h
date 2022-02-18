@@ -106,7 +106,7 @@ namespace measure_up {
     constexpr auto upperHubHeight = 104_in;
     constexpr auto cameraMountAngle = 39_deg;
     /// @todo CHANGEME
-    constexpr units::inch_t toRotationCenter = 0_in;
+    constexpr units::inch_t toRotationCenter = 9_in;
   }  // namespace camera
 }  // namespace measure_up
 

@@ -155,7 +155,7 @@ units::degree_t ShooterSubsystem::GetTurretTarget(photonlib::PhotonTrackedTarget
   // calculate d2
   double d2 = std::sqrt(std::pow(x, 2.0) + std::pow(targetDistance, 2.0));
 
-  /// @todo valid conversion?
+  /// @todo valid conversion? also, will negative values happen/ need to be dealt with?
   double currentAngle =
       m_rotationControl.GetSelectedSensorPosition() * sensor_conversions::shooter::sensorConversionFactor;
 
