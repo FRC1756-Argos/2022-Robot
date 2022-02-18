@@ -35,10 +35,10 @@ var namespaceaddress =
       [ "tofSensorShooter", "namespaceaddress_1_1sensors.html#a8a205ea3477b82d4c9fe8aa7d28b9347", null ]
     ] ],
     [ "shooter", "namespaceaddress_1_1shooter.html", [
-      [ "angleControl", "namespaceaddress_1_1shooter.html#a8ccf49a3a139153b0ca33a501343ddec", null ],
-      [ "rotationControl", "namespaceaddress_1_1shooter.html#a39ec5c668dd89f28290dc5520efea371", null ],
+      [ "hoodMotor", "namespaceaddress_1_1shooter.html#ad897060d01d3e8364201efd2f50a8fb7", null ],
       [ "shooterWheelLeft", "namespaceaddress_1_1shooter.html#a3b796d887b91768a68a3994df6faf72f", null ],
-      [ "shooterWheelRight", "namespaceaddress_1_1shooter.html#a8df1fe036b101508f70754a9960de8d2", null ]
+      [ "shooterWheelRight", "namespaceaddress_1_1shooter.html#a8df1fe036b101508f70754a9960de8d2", null ],
+      [ "turretMotor", "namespaceaddress_1_1shooter.html#afbb3f89dffe4c2c18719af7bbbf3ae90", null ]
     ] ],
     [ "solenoids", "namespaceaddress_1_1solenoids.html", [
       [ "intake", "namespaceaddress_1_1solenoids.html#a8747c76adbdb4ff6e6582a91a3bf1bac", null ]

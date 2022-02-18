@@ -1,6 +1,5 @@
 var hierarchy =
 [
-    [ "motorConfig::shooter::angleControl", "structmotor_config_1_1shooter_1_1angle_control.html", null ],
     [ "motorConfig::drive::backLeftTurn", "structmotor_config_1_1drive_1_1back_left_turn.html", null ],
     [ "motorConfig::drive::backRightTurn", "structmotor_config_1_1drive_1_1back_right_turn.html", null ],
     [ "motorConfig::intake::beltDrive", "structmotor_config_1_1intake_1_1belt_drive.html", null ],
@@ -68,6 +67,7 @@ var hierarchy =
     [ "HomingStorageInterface< T >", "class_homing_storage_interface.html", [
       [ "FSHomingStorage< T >", "class_f_s_homing_storage.html", null ]
     ] ],
+    [ "motorConfig::shooter::hoodMotor", "structmotor_config_1_1shooter_1_1hood_motor.html", null ],
     [ "argos_lib::HysteresisFilter< T >", "classargos__lib_1_1_hysteresis_filter.html", null ],
     [ "argos_lib::HysteresisFilter< units::inch_t >", "classargos__lib_1_1_hysteresis_filter.html", null ],
     [ "motorConfig::intake::intakeDrive", "structmotor_config_1_1intake_1_1intake_drive.html", null ],
@@ -89,7 +89,6 @@ var hierarchy =
     [ "argos_lib::NTMotorPIDTuner", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html", null ],
     [ "argos_lib::NTSubscriber", "classargos__lib_1_1_n_t_subscriber.html", null ],
     [ "RobotContainer", "class_robot_container.html", null ],
-    [ "motorConfig::shooter::rotationControl", "structmotor_config_1_1shooter_1_1rotation_control.html", null ],
     [ "motorConfig::shooter::shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", null ],
     [ "motorConfig::shooter::shooterWheelRight", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html", null ],
     [ "frc2::SubsystemBase", null, [
@@ -154,6 +153,7 @@ var hierarchy =
       [ "argos_lib::talonsrx_config::has_sensorPhase< T, decltype((void) T::sensorPhase, void())>", "structargos__lib_1_1talonsrx__config_1_1has__sensor_phase_3_01_t_00_01decltype_07_07void_08_01_t4c158a1c96fd2bf7c6dfcb735c6e0d25.html", null ],
       [ "argos_lib::talonsrx_config::has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ]
     ] ],
+    [ "motorConfig::shooter::turretMotor", "structmotor_config_1_1shooter_1_1turret_motor.html", null ],
     [ "argos_lib::XboxController::UpdateStatus", "structargos__lib_1_1_xbox_controller_1_1_update_status.html", null ],
     [ "SwerveDriveSubsystem::Velocities", "struct_swerve_drive_subsystem_1_1_velocities.html", null ],
     [ "argos_lib::VibrationStatus", "structargos__lib_1_1_vibration_status.html", null ]

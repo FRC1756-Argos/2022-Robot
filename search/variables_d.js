@@ -9,6 +9,5 @@ var searchData=
   ['reverselimit_5fnormalstate_6',['reverseLimit_normalState',['../structmotor_config_1_1climber_1_1lift_right.html#aecb78c7b712033dabc12384f558eea75',1,'motorConfig::climber::liftRight::reverseLimit_normalState()'],['../structmotor_config_1_1climber_1_1lift_left.html#a724e8d23ba33c8b1bc153418ab5dc269',1,'motorConfig::climber::liftLeft::reverseLimit_normalState()']]],
   ['reverselimit_5fsource_7',['reverseLimit_source',['../structmotor_config_1_1climber_1_1lift_right.html#acf0a28aee8b0ed805dc4ad3b54a1f3c1',1,'motorConfig::climber::liftRight::reverseLimit_source()'],['../structmotor_config_1_1climber_1_1lift_left.html#adc4e58433199aec3debeb525bc8626ae',1,'motorConfig::climber::liftLeft::reverseLimit_source()']]],
   ['right_8',['right',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#ad10d915cd0e43bf94764df20c1909328',1,'argos_lib::XboxController::DPadButtons']]],
-  ['rotationcontrol_9',['rotationControl',['../namespaceaddress_1_1shooter.html#a39ec5c668dd89f28290dc5520efea371',1,'address::shooter']]],
-  ['rotvelocity_10',['rotVelocity',['../struct_swerve_drive_subsystem_1_1_velocities.html#a7609c8530bca30d8522f9d5ca81e4134',1,'SwerveDriveSubsystem::Velocities']]]
+  ['rotvelocity_9',['rotVelocity',['../struct_swerve_drive_subsystem_1_1_velocities.html#a7609c8530bca30d8522f9d5ca81e4134',1,'SwerveDriveSubsystem::Velocities']]]
 ];

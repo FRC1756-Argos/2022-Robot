@@ -131,10 +131,10 @@ var annotated_dup =
         [ "intakeDrive", "structmotor_config_1_1intake_1_1intake_drive.html", "structmotor_config_1_1intake_1_1intake_drive" ]
       ] ],
       [ "shooter", "namespacemotor_config_1_1shooter.html", [
-        [ "angleControl", "structmotor_config_1_1shooter_1_1angle_control.html", "structmotor_config_1_1shooter_1_1angle_control" ],
-        [ "rotationControl", "structmotor_config_1_1shooter_1_1rotation_control.html", "structmotor_config_1_1shooter_1_1rotation_control" ],
+        [ "hoodMotor", "structmotor_config_1_1shooter_1_1hood_motor.html", "structmotor_config_1_1shooter_1_1hood_motor" ],
         [ "shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", "structmotor_config_1_1shooter_1_1shooter_wheel_left" ],
-        [ "shooterWheelRight", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html", "structmotor_config_1_1shooter_1_1shooter_wheel_right" ]
+        [ "shooterWheelRight", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html", "structmotor_config_1_1shooter_1_1shooter_wheel_right" ],
+        [ "turretMotor", "structmotor_config_1_1shooter_1_1turret_motor.html", "structmotor_config_1_1shooter_1_1turret_motor" ]
       ] ]
     ] ],
     [ "CameraInterface", "class_camera_interface.html", "class_camera_interface" ],

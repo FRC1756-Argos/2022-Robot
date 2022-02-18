@@ -14,5 +14,6 @@ var searchData=
   ['tofsensorshooter_11',['tofSensorShooter',['../namespaceaddress_1_1sensors.html#a8a205ea3477b82d4c9fe8aa7d28b9347',1,'address::sensors']]],
   ['tosensorunit_12',['ToSensorUnit',['../namespacesensor__conversions_1_1swerve__drive_1_1turn.html#a4d73a4d9acb90513dead3cda4951426d',1,'sensor_conversions::swerve_drive::turn::ToSensorUnit()'],['../namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31',1,'sensor_conversions::turret::ToSensorUnit()'],['../namespacesensor__conversions_1_1hood.html#a07db1f9b38cd01bb25d5216f4148fd8c',1,'sensor_conversions::hood::ToSensorUnit()'],['../namespacesensor__conversions_1_1shooter.html#a97900f4d65956b5ac97598c92169dc52',1,'sensor_conversions::shooter::ToSensorUnit(const units::revolutions_per_minute_t rpm)']]],
   ['tovelocity_13',['ToVelocity',['../namespacesensor__conversions_1_1shooter.html#a88eee78baebdaeff32473f4e8e9896ba',1,'sensor_conversions::shooter']]],
-  ['turretspeed_14',['turretSpeed',['../namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250',1,'controllerMap']]]
+  ['turretmotor_14',['turretMotor',['../structmotor_config_1_1shooter_1_1turret_motor.html',1,'motorConfig::shooter::turretMotor'],['../namespaceaddress_1_1shooter.html#afbb3f89dffe4c2c18719af7bbbf3ae90',1,'address::shooter::turretMotor()']]],
+  ['turretspeed_15',['turretSpeed',['../namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250',1,'controllerMap']]]
 ];
