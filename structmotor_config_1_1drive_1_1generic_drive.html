@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('structmotor_config_1_1drive_1_1generic
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_constants_8h_source.html">Constants.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="motors_8h_source.html">motors.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -98,12 +98,14 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a6c701d3f8b25d472ed283843a7358799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63e708117f1d4d984dc775cd2c9cc9a7"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1drive_1_1generic_drive.html#a63e708117f1d4d984dc775cd2c9cc9a7">sensorPhase</a> = false</td></tr>
 <tr class="separator:a63e708117f1d4d984dc775cd2c9cc9a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55d9d5abe4f174bf1c1cc318268cd77e"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1drive_1_1generic_drive.html#a55d9d5abe4f174bf1c1cc318268cd77e">neutralDeadband</a> = 0.001</td></tr>
+<tr class="memitem:a55d9d5abe4f174bf1c1cc318268cd77e"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1drive_1_1generic_drive.html#a55d9d5abe4f174bf1c1cc318268cd77e">neutralDeadband</a> = motorConfig::common::neutralDeadband</td></tr>
 <tr class="separator:a55d9d5abe4f174bf1c1cc318268cd77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f68e7f400191935e107625e355deee3"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1drive_1_1generic_drive.html#a8f68e7f400191935e107625e355deee3">neutralMode</a> = ctre::phoenix::motorcontrol::NeutralMode::Brake</td></tr>
 <tr class="separator:a8f68e7f400191935e107625e355deee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24ab363a5cd089b765d363c30b730c35"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1drive_1_1generic_drive.html#a24ab363a5cd089b765d363c30b730c35">voltCompSat</a> = 11.0_V</td></tr>
+<tr class="memitem:a24ab363a5cd089b765d363c30b730c35"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1drive_1_1generic_drive.html#a24ab363a5cd089b765d363c30b730c35">voltCompSat</a> = motorConfig::common::voltCompSat</td></tr>
 <tr class="separator:a24ab363a5cd089b765d363c30b730c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6289e78de32a760c580ee80c42ba9d48"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1drive_1_1generic_drive.html#a6289e78de32a760c580ee80c42ba9d48">statusFrameMotorMode</a> = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320">argos_lib::status_frame_config::MotorPresetMode::BasicFX</a></td></tr>
+<tr class="separator:a6289e78de32a760c580ee80c42ba9d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a6c701d3f8b25d472ed283843a7358799" name="a6c701d3f8b25d472ed283843a7358799"></a>
@@ -138,7 +140,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::drive::genericDrive::neutralDeadband = 0.001</td>
+          <td class="memname">constexpr auto motorConfig::drive::genericDrive::neutralDeadband = motorConfig::common::neutralDeadband</td>
         </tr>
       </table>
   </td>
@@ -194,6 +196,28 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a6289e78de32a760c580ee80c42ba9d48" name="a6289e78de32a760c580ee80c42ba9d48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6289e78de32a760c580ee80c42ba9d48">&#9670;&nbsp;</a></span>statusFrameMotorMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::drive::genericDrive::statusFrameMotorMode = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320">argos_lib::status_frame_config::MotorPresetMode::BasicFX</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a24ab363a5cd089b765d363c30b730c35" name="a24ab363a5cd089b765d363c30b730c35"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a24ab363a5cd089b765d363c30b730c35">&#9670;&nbsp;</a></span>voltCompSat</h2>
 
@@ -204,7 +228,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::drive::genericDrive::voltCompSat = 11.0_V</td>
+          <td class="memname">constexpr auto motorConfig::drive::genericDrive::voltCompSat = motorConfig::common::voltCompSat</td>
         </tr>
       </table>
   </td>
@@ -217,7 +241,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/main/include/<a class="el" href="_constants_8h_source.html">Constants.h</a></li>
+<li>src/main/include/constants/<a class="el" href="motors_8h_source.html">motors.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('structmotor_config_1_1shooter_1_1turre
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_constants_8h_source.html">Constants.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="motors_8h_source.html">motors.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -98,12 +98,14 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:aa29d31670576ccce17219421095f00bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9df26bfad9bd21d0c9ac7ec3b410d43"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1turret_motor.html#ae9df26bfad9bd21d0c9ac7ec3b410d43">sensorPhase</a> = false</td></tr>
 <tr class="separator:ae9df26bfad9bd21d0c9ac7ec3b410d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9d9367750b6a5530cfab272a429f75b"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1turret_motor.html#ab9d9367750b6a5530cfab272a429f75b">neutralDeadband</a> = 0.001</td></tr>
+<tr class="memitem:ab9d9367750b6a5530cfab272a429f75b"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1turret_motor.html#ab9d9367750b6a5530cfab272a429f75b">neutralDeadband</a> = motorConfig::common::neutralDeadband</td></tr>
 <tr class="separator:ab9d9367750b6a5530cfab272a429f75b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31ac4b7e08c358389fd8ff9575a4dd06"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1turret_motor.html#a31ac4b7e08c358389fd8ff9575a4dd06">neutralMode</a> = ctre::phoenix::motorcontrol::NeutralMode::Coast</td></tr>
 <tr class="separator:a31ac4b7e08c358389fd8ff9575a4dd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8904ee2ef655c212ca8d201bad36b9d8"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1turret_motor.html#a8904ee2ef655c212ca8d201bad36b9d8">voltCompSat</a> = 11.0_V</td></tr>
+<tr class="memitem:a8904ee2ef655c212ca8d201bad36b9d8"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1turret_motor.html#a8904ee2ef655c212ca8d201bad36b9d8">voltCompSat</a> = motorConfig::common::voltCompSat</td></tr>
 <tr class="separator:a8904ee2ef655c212ca8d201bad36b9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d46750b35fd7b6c21938567aae0b19"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1turret_motor.html#a51d46750b35fd7b6c21938567aae0b19">statusFrameMotorMode</a> = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a972e73b7a882d0802a4e3a16946a2f94">argos_lib::status_frame_config::MotorPresetMode::Basic</a></td></tr>
+<tr class="separator:a51d46750b35fd7b6c21938567aae0b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="aa29d31670576ccce17219421095f00bb" name="aa29d31670576ccce17219421095f00bb"></a>
@@ -138,7 +140,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::shooter::turretMotor::neutralDeadband = 0.001</td>
+          <td class="memname">constexpr auto motorConfig::shooter::turretMotor::neutralDeadband = motorConfig::common::neutralDeadband</td>
         </tr>
       </table>
   </td>
@@ -194,6 +196,28 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a51d46750b35fd7b6c21938567aae0b19" name="a51d46750b35fd7b6c21938567aae0b19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d46750b35fd7b6c21938567aae0b19">&#9670;&nbsp;</a></span>statusFrameMotorMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::shooter::turretMotor::statusFrameMotorMode = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a972e73b7a882d0802a4e3a16946a2f94">argos_lib::status_frame_config::MotorPresetMode::Basic</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8904ee2ef655c212ca8d201bad36b9d8" name="a8904ee2ef655c212ca8d201bad36b9d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8904ee2ef655c212ca8d201bad36b9d8">&#9670;&nbsp;</a></span>voltCompSat</h2>
 
@@ -204,7 +228,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::shooter::turretMotor::voltCompSat = 11.0_V</td>
+          <td class="memname">constexpr auto motorConfig::shooter::turretMotor::voltCompSat = motorConfig::common::voltCompSat</td>
         </tr>
       </table>
   </td>
@@ -217,7 +241,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/main/include/<a class="el" href="_constants_8h_source.html">Constants.h</a></li>
+<li>src/main/include/constants/<a class="el" href="motors_8h_source.html">motors.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

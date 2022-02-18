@@ -33,7 +33,8 @@ var NAVTREE =
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -62,11 +63,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_swerve_drive_subsystem.html#a0e830d13b90bdbd5b25d1bfc9e3aa60d",
-"classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86a6f34c4ab25a9eaae98c6e7fd9ba4049e",
-"namespacemeasure__up_1_1swerve__offsets.html#ab7f31ac9d15a17d67ebcc2e0976aa861",
-"structargos__lib_1_1falcon__config_1_1has__remote_filter0__type.html",
-"structmotor_config_1_1drive_1_1front_right_turn.html#a90b7813e1095f6640d2324e79b33be64"
+"classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4",
+"control__loops_8h.html#a5c032a4da78c284c39ad6aee9bfb52c6",
+"namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf",
+"structargos__lib_1_1falcon__config_1_1has__nominal_output_forward_3_01_t_00_01decltype_07_07void7113e9ec65b94cdb6e5292363b4ddc27.html",
+"structmotor_config_1_1drive_1_1back_right_turn.html#a230378a9215f2ca6a7f54276759a9230"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('structmotor_config_1_1climber_1_1move_
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_constants_8h_source.html">Constants.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="motors_8h_source.html">motors.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -98,12 +98,14 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:ab95003e96f7276efcf0d5926408f1647"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac040a4c3fff1d6340599c565f8036c78"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1move_hook.html#ac040a4c3fff1d6340599c565f8036c78">sensorPhase</a> = false</td></tr>
 <tr class="separator:ac040a4c3fff1d6340599c565f8036c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5584e023d6f875c4e3c72743b5f3b25"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1move_hook.html#ad5584e023d6f875c4e3c72743b5f3b25">neutralDeadband</a> = 0.001</td></tr>
+<tr class="memitem:ad5584e023d6f875c4e3c72743b5f3b25"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1move_hook.html#ad5584e023d6f875c4e3c72743b5f3b25">neutralDeadband</a> = motorConfig::common::neutralDeadband</td></tr>
 <tr class="separator:ad5584e023d6f875c4e3c72743b5f3b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d21c266c508114543476cc437487a5d"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1move_hook.html#a2d21c266c508114543476cc437487a5d">neutralMode</a> = ctre::phoenix::motorcontrol::NeutralMode::Brake</td></tr>
 <tr class="separator:a2d21c266c508114543476cc437487a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a43b2d2fbbe949d6389caf6e5765200"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1move_hook.html#a5a43b2d2fbbe949d6389caf6e5765200">voltCompSat</a> = 11.0_V</td></tr>
+<tr class="memitem:a5a43b2d2fbbe949d6389caf6e5765200"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1move_hook.html#a5a43b2d2fbbe949d6389caf6e5765200">voltCompSat</a> = motorConfig::common::voltCompSat</td></tr>
 <tr class="separator:a5a43b2d2fbbe949d6389caf6e5765200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a130551522ec1b0266e9e84b4245d28ad"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1move_hook.html#a130551522ec1b0266e9e84b4245d28ad">statusFrameMotorMode</a> = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320">argos_lib::status_frame_config::MotorPresetMode::BasicFX</a></td></tr>
+<tr class="separator:a130551522ec1b0266e9e84b4245d28ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="ab95003e96f7276efcf0d5926408f1647" name="ab95003e96f7276efcf0d5926408f1647"></a>
@@ -138,7 +140,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::climber::moveHook::neutralDeadband = 0.001</td>
+          <td class="memname">constexpr auto motorConfig::climber::moveHook::neutralDeadband = motorConfig::common::neutralDeadband</td>
         </tr>
       </table>
   </td>
@@ -194,6 +196,28 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a130551522ec1b0266e9e84b4245d28ad" name="a130551522ec1b0266e9e84b4245d28ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a130551522ec1b0266e9e84b4245d28ad">&#9670;&nbsp;</a></span>statusFrameMotorMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::climber::moveHook::statusFrameMotorMode = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320">argos_lib::status_frame_config::MotorPresetMode::BasicFX</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5a43b2d2fbbe949d6389caf6e5765200" name="a5a43b2d2fbbe949d6389caf6e5765200"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a43b2d2fbbe949d6389caf6e5765200">&#9670;&nbsp;</a></span>voltCompSat</h2>
 
@@ -204,7 +228,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::climber::moveHook::voltCompSat = 11.0_V</td>
+          <td class="memname">constexpr auto motorConfig::climber::moveHook::voltCompSat = motorConfig::common::voltCompSat</td>
         </tr>
       </table>
   </td>
@@ -217,7 +241,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/main/include/<a class="el" href="_constants_8h_source.html">Constants.h</a></li>
+<li>src/main/include/constants/<a class="el" href="motors_8h_source.html">motors.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

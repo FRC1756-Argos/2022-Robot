@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('structmotor_config_1_1climber_1_1lift_
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_constants_8h_source.html">Constants.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="motors_8h_source.html">motors.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -98,12 +98,14 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a197a11679ed459b07ddff3d18cf664f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a062cbc3d68a7f105d31eefcfe12c5366"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1lift_right.html#a062cbc3d68a7f105d31eefcfe12c5366">sensorPhase</a> = false</td></tr>
 <tr class="separator:a062cbc3d68a7f105d31eefcfe12c5366"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a509ca829746223f38c9c9f92c2dcdcb5"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1lift_right.html#a509ca829746223f38c9c9f92c2dcdcb5">neutralDeadband</a> = 0.001</td></tr>
+<tr class="memitem:a509ca829746223f38c9c9f92c2dcdcb5"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1lift_right.html#a509ca829746223f38c9c9f92c2dcdcb5">neutralDeadband</a> = motorConfig::common::neutralDeadband</td></tr>
 <tr class="separator:a509ca829746223f38c9c9f92c2dcdcb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48ea27b97d1b999e0a67ed7ef783947d"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1lift_right.html#a48ea27b97d1b999e0a67ed7ef783947d">neutralMode</a> = ctre::phoenix::motorcontrol::NeutralMode::Brake</td></tr>
 <tr class="separator:a48ea27b97d1b999e0a67ed7ef783947d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab12e4b137e365c496a3c6d15aa239932"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1lift_right.html#ab12e4b137e365c496a3c6d15aa239932">voltCompSat</a> = 11.0_V</td></tr>
+<tr class="memitem:ab12e4b137e365c496a3c6d15aa239932"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1lift_right.html#ab12e4b137e365c496a3c6d15aa239932">voltCompSat</a> = motorConfig::common::voltCompSat</td></tr>
 <tr class="separator:ab12e4b137e365c496a3c6d15aa239932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f2a613ba73d8912d76aa49dcc4f03d9"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1lift_right.html#a3f2a613ba73d8912d76aa49dcc4f03d9">statusFrameMotorMode</a> = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320">argos_lib::status_frame_config::MotorPresetMode::BasicFX</a></td></tr>
+<tr class="separator:a3f2a613ba73d8912d76aa49dcc4f03d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86d62e254d529aeaebb2ad70463ae647"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1lift_right.html#a86d62e254d529aeaebb2ad70463ae647">forwardLimit_normalState</a> = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed</td></tr>
 <tr class="separator:a86d62e254d529aeaebb2ad70463ae647"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16e02c4bdffdda6a75c315ea7987539e"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1climber_1_1lift_right.html#a16e02c4bdffdda6a75c315ea7987539e">forwardLimit_source</a> = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector</td></tr>
@@ -190,7 +192,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::climber::liftRight::neutralDeadband = 0.001</td>
+          <td class="memname">constexpr auto motorConfig::climber::liftRight::neutralDeadband = motorConfig::common::neutralDeadband</td>
         </tr>
       </table>
   </td>
@@ -290,6 +292,28 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3f2a613ba73d8912d76aa49dcc4f03d9" name="a3f2a613ba73d8912d76aa49dcc4f03d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f2a613ba73d8912d76aa49dcc4f03d9">&#9670;&nbsp;</a></span>statusFrameMotorMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::climber::liftRight::statusFrameMotorMode = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320">argos_lib::status_frame_config::MotorPresetMode::BasicFX</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab12e4b137e365c496a3c6d15aa239932" name="ab12e4b137e365c496a3c6d15aa239932"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab12e4b137e365c496a3c6d15aa239932">&#9670;&nbsp;</a></span>voltCompSat</h2>
 
@@ -300,7 +324,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::climber::liftRight::voltCompSat = 11.0_V</td>
+          <td class="memname">constexpr auto motorConfig::climber::liftRight::voltCompSat = motorConfig::common::voltCompSat</td>
         </tr>
       </table>
   </td>
@@ -313,7 +337,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/main/include/<a class="el" href="_constants_8h_source.html">Constants.h</a></li>
+<li>src/main/include/constants/<a class="el" href="motors_8h_source.html">motors.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -11,5 +11,6 @@ var structmotor_config_1_1shooter_1_1hood_motor =
     [ "pid0_kP", "structmotor_config_1_1shooter_1_1hood_motor.html#a8ebdbb0e79cdd9e7c031b82c152fcd2c", null ],
     [ "pid0_selectedSensor", "structmotor_config_1_1shooter_1_1hood_motor.html#a737665c217f19ce3ad69a4dc22720094", null ],
     [ "sensorPhase", "structmotor_config_1_1shooter_1_1hood_motor.html#a5108339aa5c3aa8fe0ca46eb5640627f", null ],
+    [ "statusFrameMotorMode", "structmotor_config_1_1shooter_1_1hood_motor.html#ab51b4e1d79e0d0ea627e4f5b607c1f15", null ],
     [ "voltCompSat", "structmotor_config_1_1shooter_1_1hood_motor.html#add493e5d488c575b1cedc0c8e005d0f9", null ]
 ];

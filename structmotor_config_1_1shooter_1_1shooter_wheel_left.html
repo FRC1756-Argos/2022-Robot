@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('structmotor_config_1_1shooter_1_1shoot
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_constants_8h_source.html">Constants.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="motors_8h_source.html">motors.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -98,12 +98,14 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a67e6e8d393bd204c83d750544ecea32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a386b422ec0766ee106bbb4d2f21a6704"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1shooter_wheel_left.html#a386b422ec0766ee106bbb4d2f21a6704">sensorPhase</a> = false</td></tr>
 <tr class="separator:a386b422ec0766ee106bbb4d2f21a6704"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a848a55f148e204de788500ebb1de3023"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1shooter_wheel_left.html#a848a55f148e204de788500ebb1de3023">neutralDeadband</a> = 0.001</td></tr>
+<tr class="memitem:a848a55f148e204de788500ebb1de3023"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1shooter_wheel_left.html#a848a55f148e204de788500ebb1de3023">neutralDeadband</a> = motorConfig::common::neutralDeadband</td></tr>
 <tr class="separator:a848a55f148e204de788500ebb1de3023"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8f04c2bb0d6e9d598a8328c966a93e3"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1shooter_wheel_left.html#ae8f04c2bb0d6e9d598a8328c966a93e3">neutralMode</a> = ctre::phoenix::motorcontrol::NeutralMode::Coast</td></tr>
 <tr class="separator:ae8f04c2bb0d6e9d598a8328c966a93e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bcbcee7c86be7b9931147f7c3af8dcf"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1shooter_wheel_left.html#a8bcbcee7c86be7b9931147f7c3af8dcf">voltCompSat</a> = 11.0_V</td></tr>
+<tr class="memitem:a8bcbcee7c86be7b9931147f7c3af8dcf"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1shooter_wheel_left.html#a8bcbcee7c86be7b9931147f7c3af8dcf">voltCompSat</a> = motorConfig::common::voltCompSat</td></tr>
 <tr class="separator:a8bcbcee7c86be7b9931147f7c3af8dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf90a0d25782a3db6ecf814ede6e0bd2"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1shooter_wheel_left.html#adf90a0d25782a3db6ecf814ede6e0bd2">statusFrameMotorMode</a> = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a55c15f15e91a212907cd98d7939a8db6">argos_lib::status_frame_config::MotorPresetMode::LeaderFX</a></td></tr>
+<tr class="separator:adf90a0d25782a3db6ecf814ede6e0bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3bcb2bb4a1012b268acd0cc70e864d3"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1shooter_wheel_left.html#ac3bcb2bb4a1012b268acd0cc70e864d3">pid0_selectedSensor</a> = ctre::phoenix::motorcontrol::FeedbackDevice::IntegratedSensor</td></tr>
 <tr class="separator:ac3bcb2bb4a1012b268acd0cc70e864d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa56f754f2b57a9e35254da148c460a48"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1shooter_1_1shooter_wheel_left.html#aa56f754f2b57a9e35254da148c460a48">pid0_kP</a> = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1shooter.html#ab4a4f0daff0a468ddae8ff9c6913cd31">controlLoop::shooter::shooter::kP</a></td></tr>
@@ -152,7 +154,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::shooter::shooterWheelLeft::neutralDeadband = 0.001</td>
+          <td class="memname">constexpr auto motorConfig::shooter::shooterWheelLeft::neutralDeadband = motorConfig::common::neutralDeadband</td>
         </tr>
       </table>
   </td>
@@ -362,6 +364,28 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="adf90a0d25782a3db6ecf814ede6e0bd2" name="adf90a0d25782a3db6ecf814ede6e0bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf90a0d25782a3db6ecf814ede6e0bd2">&#9670;&nbsp;</a></span>statusFrameMotorMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::shooter::shooterWheelLeft::statusFrameMotorMode = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a55c15f15e91a212907cd98d7939a8db6">argos_lib::status_frame_config::MotorPresetMode::LeaderFX</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8bcbcee7c86be7b9931147f7c3af8dcf" name="a8bcbcee7c86be7b9931147f7c3af8dcf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8bcbcee7c86be7b9931147f7c3af8dcf">&#9670;&nbsp;</a></span>voltCompSat</h2>
 
@@ -372,7 +396,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto motorConfig::shooter::shooterWheelLeft::voltCompSat = 11.0_V</td>
+          <td class="memname">constexpr auto motorConfig::shooter::shooterWheelLeft::voltCompSat = motorConfig::common::voltCompSat</td>
         </tr>
       </table>
   </td>
@@ -385,7 +409,7 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/main/include/<a class="el" href="_constants_8h_source.html">Constants.h</a></li>
+<li>src/main/include/constants/<a class="el" href="motors_8h_source.html">motors.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

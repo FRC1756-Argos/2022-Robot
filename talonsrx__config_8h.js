@@ -26,5 +26,7 @@ var talonsrx__config_8h =
     [ "argos_lib::talonsrx_config::has_sensorPhase< T, decltype((void) T::sensorPhase, void())>", "structargos__lib_1_1talonsrx__config_1_1has__sensor_phase_3_01_t_00_01decltype_07_07void_08_01_t4c158a1c96fd2bf7c6dfcb735c6e0d25.html", null ],
     [ "argos_lib::talonsrx_config::has_voltCompSat< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html", null ],
     [ "argos_lib::talonsrx_config::has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ],
+    [ "argos_lib::talonsrx_config::has_statusFrameMotorMode< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode.html", null ],
+    [ "argos_lib::talonsrx_config::has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07v17e9f7765ec4fa83077c39d6a7c9002a.html", null ],
     [ "TalonSRXConfig", "talonsrx__config_8h.html#a74630ad5eec9e25a58e71810fc317b4d", null ]
 ];

@@ -58,6 +58,8 @@ var annotated_dup =
         [ "has_reverseLimit_source< T, decltype((void) T::reverseLimit_source, void())>", "structargos__lib_1_1falcon__config_1_1has__reverse_limit__source_3_01_t_00_01decltype_07_07void_44a515af1f068a9815bdd41ed603153d.html", null ],
         [ "has_sensorPhase", "structargos__lib_1_1falcon__config_1_1has__sensor_phase.html", null ],
         [ "has_sensorPhase< T, decltype((void) T::sensorPhase, void())>", "structargos__lib_1_1falcon__config_1_1has__sensor_phase_3_01_t_00_01decltype_07_07void_08_01_t_12047e01d755d4a3d7b29862e873d6f84.html", null ],
+        [ "has_statusFrameMotorMode", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode.html", null ],
+        [ "has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07voi2f2717a3e49b6fdffa076fad9d7a7425.html", null ],
         [ "has_supplyCurrentLimit", "structargos__lib_1_1falcon__config_1_1has__supply_current_limit.html", null ],
         [ "has_supplyCurrentLimit< T, decltype((void) T::supplyCurrentLimit, void())>", "structargos__lib_1_1falcon__config_1_1has__supply_current_limit_3_01_t_00_01decltype_07_07void_012cda0473719e58ee24f06eba96a52ba.html", null ],
         [ "has_supplyCurrentThreshold", "structargos__lib_1_1falcon__config_1_1has__supply_current_threshold.html", null ],
@@ -97,6 +99,8 @@ var annotated_dup =
         [ "has_remoteFilter0_type< T, decltype((void) T::remoteFilter0_type, void())>", "structargos__lib_1_1talonsrx__config_1_1has__remote_filter0__type_3_01_t_00_01decltype_07_07void460837f07a001187eab62e537910f372.html", null ],
         [ "has_sensorPhase", "structargos__lib_1_1talonsrx__config_1_1has__sensor_phase.html", null ],
         [ "has_sensorPhase< T, decltype((void) T::sensorPhase, void())>", "structargos__lib_1_1talonsrx__config_1_1has__sensor_phase_3_01_t_00_01decltype_07_07void_08_01_t4c158a1c96fd2bf7c6dfcb735c6e0d25.html", null ],
+        [ "has_statusFrameMotorMode", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode.html", null ],
+        [ "has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07v17e9f7765ec4fa83077c39d6a7c9002a.html", null ],
         [ "has_voltCompSat", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html", null ],
         [ "has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ]
       ] ],

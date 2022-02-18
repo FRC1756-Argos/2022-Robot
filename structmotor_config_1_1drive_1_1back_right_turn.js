@@ -13,5 +13,6 @@ var structmotor_config_1_1drive_1_1back_right_turn =
     [ "remoteFilter0_addr", "structmotor_config_1_1drive_1_1back_right_turn.html#ac6f5107cd686d08ab0a9bd466306e7a7", null ],
     [ "remoteFilter0_type", "structmotor_config_1_1drive_1_1back_right_turn.html#a6486d1d102ac2b0c54151ec08f002132", null ],
     [ "sensorPhase", "structmotor_config_1_1drive_1_1back_right_turn.html#a859607bc932805b027e81819ac0c0c1a", null ],
+    [ "statusFrameMotorMode", "structmotor_config_1_1drive_1_1back_right_turn.html#a003bebbbd920d89e1569f4cdc5a6fcc8", null ],
     [ "voltCompSat", "structmotor_config_1_1drive_1_1back_right_turn.html#aaf9d01183e1ea51687326ab812cc825c", null ]
 ];

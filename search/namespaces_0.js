@@ -12,6 +12,7 @@ var searchData=
   ['sensors_9',['sensors',['../namespaceaddress_1_1sensors.html',1,'address']]],
   ['shooter_10',['shooter',['../namespaceaddress_1_1shooter.html',1,'address']]],
   ['solenoids_11',['solenoids',['../namespaceaddress_1_1solenoids.html',1,'address']]],
-  ['swerve_12',['swerve',['../namespaceargos__lib_1_1swerve.html',1,'argos_lib']]],
-  ['talonsrx_5fconfig_13',['talonsrx_config',['../namespaceargos__lib_1_1talonsrx__config.html',1,'argos_lib']]]
+  ['status_5fframe_5fconfig_12',['status_frame_config',['../namespaceargos__lib_1_1status__frame__config.html',1,'argos_lib']]],
+  ['swerve_13',['swerve',['../namespaceargos__lib_1_1swerve.html',1,'argos_lib']]],
+  ['talonsrx_5fconfig_14',['talonsrx_config',['../namespaceargos__lib_1_1talonsrx__config.html',1,'argos_lib']]]
 ];

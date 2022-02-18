@@ -8,5 +8,6 @@ var structmotor_config_1_1climber_1_1lift_right =
     [ "reverseLimit_normalState", "structmotor_config_1_1climber_1_1lift_right.html#aecb78c7b712033dabc12384f558eea75", null ],
     [ "reverseLimit_source", "structmotor_config_1_1climber_1_1lift_right.html#acf0a28aee8b0ed805dc4ad3b54a1f3c1", null ],
     [ "sensorPhase", "structmotor_config_1_1climber_1_1lift_right.html#a062cbc3d68a7f105d31eefcfe12c5366", null ],
+    [ "statusFrameMotorMode", "structmotor_config_1_1climber_1_1lift_right.html#a3f2a613ba73d8912d76aa49dcc4f03d9", null ],
     [ "voltCompSat", "structmotor_config_1_1climber_1_1lift_right.html#ab12e4b137e365c496a3c6d15aa239932", null ]
 ];

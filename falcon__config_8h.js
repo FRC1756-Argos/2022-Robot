@@ -54,5 +54,7 @@ var falcon__config_8h =
     [ "argos_lib::falcon_config::has_supplyCurrentThresholdTime< T, decltype((void) T::supplyCurrentThresholdTime, void())>", "structargos__lib_1_1falcon__config_1_1has__supply_current_threshold_time_3_01_t_00_01decltype_07dac03662948ed0111c64fc19d499116c.html", null ],
     [ "argos_lib::falcon_config::has_voltCompSat< T, typename >", "structargos__lib_1_1falcon__config_1_1has__volt_comp_sat.html", null ],
     [ "argos_lib::falcon_config::has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1falcon__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_t_ff539066508b6bf78d1739e6e53840e9.html", null ],
+    [ "argos_lib::falcon_config::has_statusFrameMotorMode< T, typename >", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode.html", null ],
+    [ "argos_lib::falcon_config::has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07voi2f2717a3e49b6fdffa076fad9d7a7425.html", null ],
     [ "FalconConfig", "falcon__config_8h.html#ad61653d44b07300a67ca2f3afa116f3e", null ]
 ];

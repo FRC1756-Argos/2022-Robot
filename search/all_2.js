@@ -2,7 +2,7 @@ var searchData=
 [
   ['camera_0',['camera',['../namespacecamera.html',1,'']]],
   ['cameraheight_1',['cameraHeight',['../namespacemeasure__up_1_1camera.html#aa02156baaefca0333ca8e962e9c8f0cc',1,'measure_up::camera']]],
-  ['camerainterface_2',['CameraInterface',['../class_camera_interface.html#a62af2e7390904d839c465d2b07d0fcab',1,'CameraInterface::CameraInterface()'],['../class_camera_interface.html',1,'CameraInterface']]],
+  ['camerainterface_2',['CameraInterface',['../class_camera_interface.html',1,'CameraInterface'],['../class_camera_interface.html#a62af2e7390904d839c465d2b07d0fcab',1,'CameraInterface::CameraInterface()']]],
   ['cameramountangle_3',['cameraMountAngle',['../namespacemeasure__up_1_1camera.html#a609f336767fd0a39791ff0f5b780be23',1,'measure_up::camera']]],
   ['cancoder_5fconfig_2eh_4',['cancoder_config.h',['../cancoder__config_8h.html',1,'']]],
   ['cancoderconfig_5',['CanCoderConfig',['../namespaceargos__lib_1_1cancoder__config.html#a127a5060105e8266790116391eebeb63',1,'argos_lib::cancoder_config']]],
@@ -17,11 +17,12 @@ var searchData=
   ['configurebuttonbindings_14',['ConfigureButtonBindings',['../class_robot_container.html#aa1b33cbe7d850dfd456ad0b352b82ba5',1,'RobotContainer']]],
   ['constants_2eh_15',['Constants.h',['../_constants_8h.html',1,'']]],
   ['constrainangle_16',['ConstrainAngle',['../namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653',1,'argos_lib::swerve::ConstrainAngle(units::degree_t inVal, units::degree_t minVal, units::degree_t maxVal)'],['../namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6',1,'argos_lib::swerve::ConstrainAngle(double inVal, double minVal, double maxVal)']]],
-  ['controllermap_17',['controllerMap',['../namespacecontroller_map.html',1,'']]],
-  ['controlloop_18',['controlLoop',['../namespacecontrol_loop.html',1,'']]],
-  ['count_19',['COUNT',['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca4905ac9d6a22bdfc1ae096094ce6248d',1,'argos_lib::XboxController::COUNT()'],['../classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86a4905ac9d6a22bdfc1ae096094ce6248d',1,'argos_lib::XboxController::COUNT()']]],
-  ['drive_20',['drive',['../namespacecontrol_loop_1_1drive.html',1,'controlLoop']]],
-  ['hood_21',['hood',['../namespacecontrol_loop_1_1shooter_1_1hood.html',1,'controlLoop::shooter']]],
-  ['rotate_22',['rotate',['../namespacecontrol_loop_1_1drive_1_1rotate.html',1,'controlLoop::drive']]],
-  ['shooter_23',['shooter',['../namespacecontrol_loop_1_1shooter.html',1,'controlLoop::shooter'],['../namespacecontrol_loop_1_1shooter_1_1shooter.html',1,'controlLoop::shooter::shooter']]]
+  ['control_5floops_2eh_17',['control_loops.h',['../control__loops_8h.html',1,'']]],
+  ['controllermap_18',['controllerMap',['../namespacecontroller_map.html',1,'']]],
+  ['controlloop_19',['controlLoop',['../namespacecontrol_loop.html',1,'']]],
+  ['count_20',['COUNT',['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca4905ac9d6a22bdfc1ae096094ce6248d',1,'argos_lib::XboxController::COUNT()'],['../classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86a4905ac9d6a22bdfc1ae096094ce6248d',1,'argos_lib::XboxController::COUNT()']]],
+  ['drive_21',['drive',['../namespacecontrol_loop_1_1drive.html',1,'controlLoop']]],
+  ['hood_22',['hood',['../namespacecontrol_loop_1_1shooter_1_1hood.html',1,'controlLoop::shooter']]],
+  ['rotate_23',['rotate',['../namespacecontrol_loop_1_1drive_1_1rotate.html',1,'controlLoop::drive']]],
+  ['shooter_24',['shooter',['../namespacecontrol_loop_1_1shooter.html',1,'controlLoop::shooter'],['../namespacecontrol_loop_1_1shooter_1_1shooter.html',1,'controlLoop::shooter::shooter']]]
 ];

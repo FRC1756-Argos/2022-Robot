@@ -46,6 +46,8 @@ var namespaceargos__lib_1_1falcon__config =
     [ "has_reverseLimit_source< T, decltype((void) T::reverseLimit_source, void())>", "structargos__lib_1_1falcon__config_1_1has__reverse_limit__source_3_01_t_00_01decltype_07_07void_44a515af1f068a9815bdd41ed603153d.html", null ],
     [ "has_sensorPhase", "structargos__lib_1_1falcon__config_1_1has__sensor_phase.html", null ],
     [ "has_sensorPhase< T, decltype((void) T::sensorPhase, void())>", "structargos__lib_1_1falcon__config_1_1has__sensor_phase_3_01_t_00_01decltype_07_07void_08_01_t_12047e01d755d4a3d7b29862e873d6f84.html", null ],
+    [ "has_statusFrameMotorMode", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode.html", null ],
+    [ "has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07voi2f2717a3e49b6fdffa076fad9d7a7425.html", null ],
     [ "has_supplyCurrentLimit", "structargos__lib_1_1falcon__config_1_1has__supply_current_limit.html", null ],
     [ "has_supplyCurrentLimit< T, decltype((void) T::supplyCurrentLimit, void())>", "structargos__lib_1_1falcon__config_1_1has__supply_current_limit_3_01_t_00_01decltype_07_07void_012cda0473719e58ee24f06eba96a52ba.html", null ],
     [ "has_supplyCurrentThreshold", "structargos__lib_1_1falcon__config_1_1has__supply_current_threshold.html", null ],

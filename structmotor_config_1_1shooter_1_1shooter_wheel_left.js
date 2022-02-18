@@ -11,5 +11,6 @@ var structmotor_config_1_1shooter_1_1shooter_wheel_left =
     [ "pid0_kP", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html#aa56f754f2b57a9e35254da148c460a48", null ],
     [ "pid0_selectedSensor", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html#ac3bcb2bb4a1012b268acd0cc70e864d3", null ],
     [ "sensorPhase", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html#a386b422ec0766ee106bbb4d2f21a6704", null ],
+    [ "statusFrameMotorMode", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html#adf90a0d25782a3db6ecf814ede6e0bd2", null ],
     [ "voltCompSat", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html#a8bcbcee7c86be7b9931147f7c3af8dcf", null ]
 ];
