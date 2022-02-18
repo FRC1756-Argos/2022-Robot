@@ -113,9 +113,7 @@ bool ShooterSubsystem::IsManualOverride() {
 
 void ShooterSubsystem::UpdateTurretHome() {
   const auto currentAngle = argos_lib::swerve::ConstrainAngle(
-      sensor_conversions::turret::ToAngle(m_turretMotor.GetSensorCollection().GetPulseWidthPosition()),
-      0_deg,
-      360_deg);
+      sensor_conversions::turret::ToAngle(m_turretMotor.GetSensorCollection().GetPulseWidthPosition()), 0_deg, 360_deg);
   m_turretMotor.SetSelectedSensorPosition(sensor_conversions::turret::ToSensorUnit(measure_up::turret::homeAngle));
   m_turretHomingStorage.Save(currentAngle - measure_up::turret::homeAngle);
   m_turretHomed = true;
@@ -146,15 +144,13 @@ void ShooterSubsystem::TurretSetPosition(units::degree_t angle) {
   if (IsTurretHomed()) {
     m_manualOverride = false;
     m_turretMotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                          sensor_conversions::turret::ToSensorUnit(angle));
+                      sensor_conversions::turret::ToSensorUnit(angle));
   }
 }
 
 void ShooterSubsystem::SetTurretSoftLimits() {
-  m_turretMotor.ConfigForwardSoftLimitThreshold(
-      sensor_conversions::turret::ToSensorUnit(measure_up::turret::maxAngle));
-  m_turretMotor.ConfigReverseSoftLimitThreshold(
-      sensor_conversions::turret::ToSensorUnit(measure_up::turret::minAngle));
+  m_turretMotor.ConfigForwardSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(measure_up::turret::maxAngle));
+  m_turretMotor.ConfigReverseSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(measure_up::turret::minAngle));
   m_turretMotor.ConfigForwardSoftLimitEnable(true);
   m_turretMotor.ConfigReverseSoftLimitEnable(true);
 }
