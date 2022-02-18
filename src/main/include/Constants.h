@@ -61,8 +61,8 @@ namespace address {
   namespace shooter {
     constexpr const char shooterWheelLeft = 12;
     constexpr const char shooterWheelRight = 13;
-    constexpr const char angleControl = 14;
-    constexpr const char rotationControl = 15;
+    constexpr const char hoodMotor = 14;
+    constexpr const char turretMotor = 15;
   }  // namespace shooter
   namespace intake {
     constexpr const char beltDrive = 16;
@@ -326,7 +326,7 @@ namespace motorConfig {
       constexpr static auto voltCompSat = 11.0_V;
     };
 
-    struct angleControl {
+    struct hoodMotor {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
       constexpr static bool sensorPhase = true;
       constexpr static auto neutralDeadband = 0.001;
@@ -341,7 +341,7 @@ namespace motorConfig {
       constexpr static auto pid0_allowableError = controlLoop::shooter::hood::allowableError;
     };
 
-    struct rotationControl {
+    struct turretMotor {
       constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = 0.001;

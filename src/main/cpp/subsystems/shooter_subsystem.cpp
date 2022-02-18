@@ -13,15 +13,15 @@
 ShooterSubsystem::ShooterSubsystem()
     : m_shooterWheelLeft(address::shooter::shooterWheelLeft)
     , m_shooterWheelRight(address::shooter::shooterWheelRight)
-    , m_angleControl(address::shooter::angleControl)
-    , m_rotationControl(address::shooter::rotationControl)
+    , m_hoodMotor(address::shooter::hoodMotor)
+    , m_turretMotor(address::shooter::turretMotor)
     , m_cameraInterface()
     , m_hoodHomed(false)
     , m_manualOverride(false)
     , m_shooterSpeedMap(shooterRange::shooterSpeed)
     , m_hoodAngleMap(shooterRange::hoodAngle)
     , m_hoodPIDTuner{"argos/hood",
-                     {&m_angleControl},
+                     {&m_hoodMotor},
                      0,
                      argos_lib::ClosedLoopSensorConversions{
                          argos_lib::GetSensorConversionFactor(sensor_conversions::hood::ToAngle),
@@ -35,7 +35,7 @@ ShooterSubsystem::ShooterSubsystem()
                             argos_lib::GetSensorConversionFactor(sensor_conversions::shooter::ToVelocity),
                             argos_lib::GetSensorConversionFactor(sensor_conversions::shooter::ToVelocity)}}
     , m_turretPIDTuner{"argos/turret",
-                       {&m_rotationControl},
+                       {&m_turretMotor},
                        0,
                        argos_lib::ClosedLoopSensorConversions{
                            argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle),
@@ -43,10 +43,10 @@ ShooterSubsystem::ShooterSubsystem()
                            argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle)}} {
   argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelLeft>(m_shooterWheelLeft, 50_ms);
   argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelRight>(m_shooterWheelRight, 50_ms);
-  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::angleControl>(m_angleControl, 50_ms);
-  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::rotationControl>(m_rotationControl, 50_ms);
+  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::hoodMotor>(m_hoodMotor, 50_ms);
+  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::turretMotor>(m_turretMotor, 50_ms);
 
-  m_angleControl.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(0_deg));
+  m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(0_deg));
 
   m_shooterWheelRight.Follow(m_shooterWheelLeft);
 }
@@ -76,29 +76,28 @@ void ShooterSubsystem::ManualAim(double turnSpeed, double hoodSpeed) {
 }
 
 void ShooterSubsystem::MoveHood(double hoodSpeed) {
-  m_angleControl.Set(hoodSpeed);
+  m_hoodMotor.Set(hoodSpeed);
 }
 
 void ShooterSubsystem::MoveTurret(double turnSpeed) {
-  m_rotationControl.Set(turnSpeed);
+  m_turretMotor.Set(turnSpeed);
 }
 
 void ShooterSubsystem::HoodSetPosition(units::degree_t angle) {
   if (IsHoodHomed()) {
     m_manualOverride = false;
     angle *= -1;
-    m_angleControl.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                       sensor_conversions::hood::ToSensorUnit(angle));
+    m_hoodMotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position, sensor_conversions::hood::ToSensorUnit(angle));
   }
 }
 
 void ShooterSubsystem::UpdateHoodHome() {
-  m_angleControl.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(measure_up::hood::homeAngle));
+  m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(measure_up::hood::homeAngle));
   m_hoodHomed = true;
 }
 
 bool ShooterSubsystem::IsHoodMoving() {
-  return std::fabs(m_angleControl.GetSelectedSensorVelocity()) > 5.0;
+  return std::fabs(m_hoodMotor.GetSelectedSensorVelocity()) > 5.0;
 }
 
 bool ShooterSubsystem::IsHoodHomed() {

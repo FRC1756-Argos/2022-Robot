@@ -144,8 +144,8 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   // declared private and exposed only through public methods.
   WPI_TalonFX m_shooterWheelLeft;
   WPI_TalonFX m_shooterWheelRight;
-  WPI_TalonSRX m_angleControl;
-  WPI_TalonSRX m_rotationControl;
+  WPI_TalonSRX m_hoodMotor;
+  WPI_TalonSRX m_turretMotor;
 
   CameraInterface m_cameraInterface;
 

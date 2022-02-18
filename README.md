@@ -37,51 +37,51 @@ The first run may take a moment, but subsequent automatic runs are very fast.
 
 You'll now have the linter run before each commit!  For compatibility with Windows, we recommend the pip version of clang-format, but wpi-format will find any installed `clang-format` binary in the system path.
 
-## controls
+## Controls
 
 **Driver:**
 | Button          | Function |
 | --------------- | -------- |
-| Left JS X       | drive |
-| Left JS Y       | drive |
-| Right JS X      | turn |
-| Right JS Y      | unused |
-| DPad Up         | initiates climb|
-| DPad Right      | unused |
-| DPad Down       | redo climb |
-| DPad Left       | retract hook |
+| Left JS X       | Drive |
+| Left JS Y       | Drive |
+| Right JS X      | Turn |
+| Right JS Y      | Unused |
+| DPad Up         | Initiates Climb|
+| DPad Right      | Unused |
+| DPad Down       | Redo Climb |
+| DPad Left       | Retract Hook |
 | A               | Home Swerve (hold with <kbd>B</kbd> and <kbd>X</kbd>) |
 | B               | Home Swerve (hold with <kbd>A</kbd> and <kbd>X</kbd>) |
 | X               | Home Swerve (hold with <kbd>A</kbd> and <kbd>B</kbd>) |
 | Y               | Field Home (hold) |
-| LB              | Field vs. Robot centric drive |
-| RB              | reverse intake |
-| LT              | shooting |
-| RT              | intake |
+| LB              | Field- vs. Robot-Centric Drive |
+| RB              | Reverse Intake |
+| LT              | Shoot |
+| RT              | Intake |
 | Back            | Swap (hold with <kbd>Start</kbd>) |
 | Start           | Swap (hold with <kbd>Back</kbd>) |
 | Left JS Button  | Unused |
 | Right JS Button | Unused |
 
-**operator:**
+**Operator:**
 | Button          | Function |
 | --------------- | -------- |
-| Left JS X       | manual aiming |
-| Left JS Y       | manual hood |
-| Right JS X      | climbing hooks |
-| Right JS Y      | climbing arm |
-| DPad Up         | raises arms |
-| DPad Right      | extend hook |
-| DPad Down       | lowers arms |
-| DPad Left       | retract hook |
+| Left JS X       | Manual Aim |
+| Left JS Y       | Manual Hood |
+| Right JS X      | Climbing Hooks |
+| Right JS Y      | Climbing Arm |
+| DPad Up         | Raise Arm |
+| DPad Right      | Extend Hook |
+| DPad Down       | Lower Arm |
+| DPad Left       | Retract Hook |
 | A               | Unused |
 | B               | Unused |
 | X               | Unused |
-| Y               | raises frame |
-| LB              | unused |
+| Y               | Raise Frame |
+| LB              | Unused |
 | RB              | Unused |
 | LT              | Unused |
-| RT              | vision |
+| RT              | Vision Target |
 | Back            | Swap (hold with <kbd>Start</kbd>) |
 | Start           | Swap (hold with <kbd>Back</kbd>) |
 | Left JS Button  | Unused |
