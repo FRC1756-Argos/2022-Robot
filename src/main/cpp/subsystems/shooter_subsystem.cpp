@@ -144,23 +144,24 @@ std::optional<photonlib::PhotonTrackedTarget> CameraInterface::GetHighestTarget(
                            });
 }
 
-/// @todo would we need to use "this->" here to reference the object that called?
 void CameraInterface::SetDriverMode(bool mode) {
   m_camera.SetDriverMode(mode);
 }
 
 units::degree_t ShooterSubsystem::GetTurretTarget(photonlib::PhotonTrackedTarget target) {
-  double targetDistance = GetTargetDistance(units::make_unit<units::degree_t>(target.GetPitch())).to<double>();
-  double x = measure_up::camera::toRotationCenter.to<double>();
+  units::length::inch_t cameraToTargetDistance =
+      GetTargetDistance(units::make_unit<units::degree_t>(target.GetPitch()));
+  units::length::inch_t cameraTurretOffset = measure_up::camera::toRotationCenter;
   // calculate d2
-  double d2 = std::sqrt(std::pow(x, 2.0) + std::pow(targetDistance, 2.0));
+  double turretToTargetDistance =
+      std::sqrt(std::pow(cameraTurretOffset.to<double>(), 2.0) + std::pow(cameraToTargetDistance.to<double>(), 2.0));
 
-  /// @todo valid conversion? also, will negative values happen/ need to be dealt with?
-  double currentAngle =
-      m_rotationControl.GetSelectedSensorPosition() * sensor_conversions::shooter::sensorConversionFactor;
-
+  units::angle::degree_t currentAngle =
+      sensor_conversions::turret::ToAngle(m_rotationControl.GetSelectedSensorPosition());
   units::degree_t targetAngle = units::make_unit<units::degree_t>(
-      currentAngle + std::acos((std::pow(x, 2.0) + d2 - targetDistance) / 2 * x * d2));
+      currentAngle + std::acos((std::pow(cameraTurretOffset.to<double>(), 2.0) + turretToTargetDistance -
+                                cameraToTargetDistance.to<double>()) /
+                               2 * cameraTurretOffset.to<double>() * turretToTargetDistance));
 
   return targetAngle;
 }
