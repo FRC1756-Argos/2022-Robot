@@ -44,7 +44,6 @@ namespace pneumatics {
 }  // namespace pneumatics
 
 namespace camera {
-  /// @todo replace with camera nickname
   const std::string nickname = "photonvision";
   constexpr char defaultPipelineIndex = 0;
 }  // namespace camera

@@ -167,6 +167,7 @@ void ShooterSubsystem::Disable() {
   m_manualOverride = false;
 }
 
+/// @todo change math
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
   return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) /
          std::tan(
@@ -204,6 +205,23 @@ std::optional<photonlib::PhotonTrackedTarget> CameraInterface::GetHighestTarget(
                            });
 }
 
-void CameraInterface::SwapDriverMode(bool mode) {
+void CameraInterface::SetDriverMode(bool mode) {
   m_camera.SetDriverMode(mode);
+}
+
+units::degree_t ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedTarget target) {
+  units::length::inch_t cameraToTargetDistance =
+      GetTargetDistance(units::make_unit<units::degree_t>(target.GetPitch()));
+  units::length::inch_t cameraTurretOffset = measure_up::camera::toRotationCenter;
+  // calculate d2
+  double turretToTargetDistance =
+      std::sqrt(std::pow(cameraTurretOffset.to<double>(), 2.0) + std::pow(cameraToTargetDistance.to<double>(), 2.0));
+
+  units::angle::degree_t currentAngle = sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition());
+  units::degree_t targetAngle = units::make_unit<units::degree_t>(
+      currentAngle.to<double>() + std::acos((std::pow(cameraTurretOffset.to<double>(), 2.0) + turretToTargetDistance -
+                                             cameraToTargetDistance.to<double>()) /
+                                            2 * cameraTurretOffset.to<double>() * turretToTargetDistance));
+
+  return targetAngle;
 }

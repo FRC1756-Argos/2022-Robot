@@ -32,12 +32,15 @@ class CameraInterface {
    *
    * @param mode True is drive control. False is no drive control
    */
-  void SwapDriverMode(bool mode);
+  void SetDriverMode(bool mode);
 };
 
 class ShooterSubsystem : public frc2::SubsystemBase {
  public:
   ShooterSubsystem();
+
+  /// @todo document function
+  units::degree_t GetTurretTargetAngle(photonlib::PhotonTrackedTarget target);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
