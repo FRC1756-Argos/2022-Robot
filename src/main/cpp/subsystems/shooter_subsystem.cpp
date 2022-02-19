@@ -114,8 +114,11 @@ bool ShooterSubsystem::IsManualOverride() {
 void ShooterSubsystem::UpdateTurretHome() {
   const auto currentAngle = argos_lib::swerve::ConstrainAngle(
       sensor_conversions::turret::ToAngle(m_turretMotor.GetSensorCollection().GetPulseWidthPosition()), 0_deg, 360_deg);
-  m_turretMotor.SetSelectedSensorPosition(sensor_conversions::turret::ToSensorUnit(measure_up::turret::homeAngle));
-  m_turretHomingStorage.Save(currentAngle - measure_up::turret::homeAngle);
+  m_turretMotor.SetSelectedSensorPosition(
+      sensor_conversions::turret::ToSensorUnit(360_deg - measure_up::turret::homeAngle));
+  if (!m_turretHomingStorage.Save(currentAngle - measure_up::turret::homeAngle)) {
+    std::printf("*************Failed to save************\n");
+  }
   m_turretHomed = true;
   SetTurretSoftLimits();
 }
@@ -127,8 +130,8 @@ void ShooterSubsystem::InitializeTurretHome() {
         sensor_conversions::turret::ToAngle(m_turretMotor.GetSensorCollection().GetPulseWidthPosition()),
         0_deg,
         360_deg);
-    m_turretMotor.SetSelectedSensorPosition(
-        sensor_conversions::turret::ToSensorUnit(currentAngle - homePosition.value()));
+    m_turretMotor.SetSelectedSensorPosition(sensor_conversions::turret::ToSensorUnit(
+        360_deg - argos_lib::swerve::ConstrainAngle(currentAngle - homePosition.value(), 0_deg, 360_deg)));
     m_turretHomed = true;
     SetTurretSoftLimits();
   } else {
@@ -166,7 +169,7 @@ void ShooterSubsystem::Disable() {
 
 /// @todo change math
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
-  return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) *
+  return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) /
          std::tan(
              static_cast<units::radian_t>(measure_up::camera::cameraMountAngle + targetVerticalAngle).to<double>());
 }
