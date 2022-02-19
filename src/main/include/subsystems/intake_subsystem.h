@@ -69,6 +69,18 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   void DumpBall();
 
   /**
+   * @brief Shoots ball
+   *
+   */
+  void Shoot();
+
+  /**
+   * @brief Stop shooter
+   *
+   */
+  void StopShoot();
+
+  /**
    * @brief Cycle the elevator to load or dump balls
    *
    * @param direction which direction to run the elevator

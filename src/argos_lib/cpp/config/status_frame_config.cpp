@@ -6,8 +6,8 @@
 
 void argos_lib::status_frame_config::SetMotorStatusFrameRates(
     BaseTalon& motor, argos_lib::status_frame_config::MotorPresetMode motorMode) {
-  uint8_t generalStatusPeriod = 10;         // Status 1
-  uint8_t feedback0Period = 20;             // Status 2
+  uint8_t generalStatusPeriod = 30;         // Status 1
+  uint8_t feedback0Period = 30;             // Status 2
   uint8_t quadraturePeriod = 200;           // Status 3
   uint8_t ainTempVBatPeriod = 200;          // Status 4
   uint8_t miscPeriod = 200;                 // Status 6

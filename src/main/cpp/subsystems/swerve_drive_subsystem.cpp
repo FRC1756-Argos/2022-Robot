@@ -9,6 +9,7 @@
 #include <argos_lib/general/swerve_utils.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <units/angle.h>
+#include <units/angular_velocity.h>
 #include <units/velocity.h>
 
 #include <memory>
@@ -160,19 +161,31 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   // SET MODULES BASED OFF OF CONTROL MODE
   auto moduleStates = GetRawModuleStates(velocities);
 
-  /// @todo switch to argosLib optimize functions in time (create overload for meters per second?)
-  moduleStates.at(0) = moduleStates.at(0).Optimize(
+  /// @todo Convert sensor velocities for optimizer instead of constants
+  moduleStates.at(0) = argos_lib::swerve::Optimize(
       moduleStates.at(0),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_frontLeft.m_turn.GetSelectedSensorPosition()));
-  moduleStates.at(1) = moduleStates.at(1).Optimize(
+      sensor_conversions::swerve_drive::turn::ToAngle(m_frontLeft.m_turn.GetSelectedSensorPosition()),
+      0_rpm,
+      0_fps,
+      12_fps);
+  moduleStates.at(1) = argos_lib::swerve::Optimize(
       moduleStates.at(1),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_frontRight.m_turn.GetSelectedSensorPosition()));
-  moduleStates.at(2) = moduleStates.at(2).Optimize(
+      sensor_conversions::swerve_drive::turn::ToAngle(m_frontRight.m_turn.GetSelectedSensorPosition()),
+      0_rpm,
+      0_fps,
+      12_fps);
+  moduleStates.at(2) = argos_lib::swerve::Optimize(
       moduleStates.at(2),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_backRight.m_turn.GetSelectedSensorPosition()));
-  moduleStates.at(3) = moduleStates.at(3).Optimize(
+      sensor_conversions::swerve_drive::turn::ToAngle(m_backRight.m_turn.GetSelectedSensorPosition()),
+      0_rpm,
+      0_fps,
+      12_fps);
+  moduleStates.at(3) = argos_lib::swerve::Optimize(
       moduleStates.at(3),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_backLeft.m_turn.GetSelectedSensorPosition()));
+      sensor_conversions::swerve_drive::turn::ToAngle(m_backLeft.m_turn.GetSelectedSensorPosition()),
+      0_rpm,
+      0_fps,
+      12_fps);
 
   // Give module state values to motors
 
