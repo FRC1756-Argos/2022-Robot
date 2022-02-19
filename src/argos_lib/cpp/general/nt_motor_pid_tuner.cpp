@@ -2,6 +2,8 @@
 ///            Open Source Software; you can modify and/or share it under the terms of
 ///            the license file in the root directory of this project.
 
+#define protected public
+
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 
 #include <array>
@@ -118,6 +120,8 @@ void NTMotorPIDTuner::UpdateClosedLoopMonitoringThread() {
           errors.push_back(NAN);
         }
         positions.push_back(motor->GetSelectedSensorPosition(m_pidSlot) * m_sensorConversions.position);
+        positions.push_back(motor->GetTalonSRXSensorCollection().GetPulseWidthPosition() *
+                            m_sensorConversions.position);
         velocities.push_back(motor->GetSelectedSensorVelocity(m_pidSlot) * m_sensorConversions.velocity);
         outputs.push_back(motor->GetMotorOutputPercent());
       }

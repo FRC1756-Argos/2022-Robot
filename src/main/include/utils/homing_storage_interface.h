@@ -71,6 +71,8 @@ class FSHomingStorage : public HomingStorageInterface<T> {
       configFile >> homePosition;
       configFile.close();
 
+      std::cout << "############# Loaded value: " << homePosition << '\n';
+
       return units::make_unit<T>(homePosition);
     } catch (...) {
       // Error accessing file
@@ -83,6 +85,8 @@ class FSHomingStorage : public HomingStorageInterface<T> {
   fs::path GetFilePath() {
     static const fs::path homeDir{"/home/lvuser"};
     static const fs::path configFile{homeDir / m_homesPath};
+
+    std::cout << "############# Path: " << configFile << '\n';
 
     // Create empty file if it doesn't exist yet
     if (!fs::exists(configFile)) {
