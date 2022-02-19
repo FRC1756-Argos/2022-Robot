@@ -219,9 +219,9 @@ units::degree_t ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedT
 
   units::angle::degree_t currentAngle = sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition());
   units::degree_t targetAngle = units::make_unit<units::degree_t>(
-      currentAngle + std::acos((std::pow(cameraTurretOffset.to<double>(), 2.0) + turretToTargetDistance -
-                                cameraToTargetDistance.to<double>()) /
-                               2 * cameraTurretOffset.to<double>() * turretToTargetDistance));
+      currentAngle.to<double>() + std::acos((std::pow(cameraTurretOffset.to<double>(), 2.0) + turretToTargetDistance -
+                                             cameraToTargetDistance.to<double>()) /
+                                            2 * cameraTurretOffset.to<double>() * turretToTargetDistance));
 
   return targetAngle;
 }
