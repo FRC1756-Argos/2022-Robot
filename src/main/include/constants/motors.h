@@ -127,8 +127,8 @@ namespace motorConfig {
     };
 
     struct hoodMotor {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = true;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
+      constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
       constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
@@ -169,7 +169,7 @@ namespace motorConfig {
       constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::Basic;
     };
     struct intakeDrive {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
       constexpr static bool sensorPhase = false;
       constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
       constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;

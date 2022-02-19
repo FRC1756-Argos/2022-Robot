@@ -136,6 +136,18 @@ wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
 void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                        const double& sideVelocity,
                                        const double& rotVelocity) {
+  if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
+    m_frontLeft.m_drive.Set(0.0);
+    m_frontLeft.m_turn.Set(0.0);
+    m_frontRight.m_drive.Set(0.0);
+    m_frontRight.m_turn.Set(0.0);
+    m_backRight.m_drive.Set(0.0);
+    m_backRight.m_turn.Set(0.0);
+    m_backLeft.m_drive.Set(0.0);
+    m_backLeft.m_turn.Set(0.0);
+    return;
+  }
+
   SwerveDriveSubsystem::Velocities velocities{fwVelocity, sideVelocity, rotVelocity};
 
   // DEBUG STUFF
