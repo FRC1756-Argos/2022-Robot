@@ -60,6 +60,7 @@ namespace indexes {
 
 namespace paths {
   const std::string swerveHomesPath = "homes/swerveHomes";
+  const std::string turretHomePath = "homes/turretHome";
 }  // namespace paths
 
 namespace networkTables {

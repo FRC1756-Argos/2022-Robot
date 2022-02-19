@@ -25,6 +25,11 @@ namespace measure_up {
   namespace hood {
     constexpr auto homeAngle = 1_deg * -1;
   }  // namespace hood
+  namespace turret {
+    constexpr auto homeAngle = 180_deg;
+    constexpr auto minAngle = 10_deg * -1;
+    constexpr auto maxAngle = 370_deg;
+  }  // namespace turret
   namespace camera {
     constexpr auto cameraHeight = 28.5_in;
     constexpr auto upperHubHeight = 104_in;

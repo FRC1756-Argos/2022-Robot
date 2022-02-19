@@ -32,5 +32,13 @@ namespace controlLoop {
       constexpr double iZone = 200.0;
       constexpr double allowableError = 0.0;
     }  // namespace hood
+    namespace turret {
+      constexpr double kP = 0.0;
+      constexpr double kI = 0.0;
+      constexpr double kD = 0.0;
+      constexpr double kF = 0.0;
+      constexpr double iZone = 200.0;
+      constexpr double allowableError = 0.0;
+    }  // namespace turret
   }    // namespace shooter
 }  // namespace controlLoop

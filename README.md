@@ -74,9 +74,9 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | DPad Right      | Extend Hook |
 | DPad Down       | Lower Arm |
 | DPad Left       | Retract Hook |
-| A               | Unused |
-| B               | Unused |
-| X               | Unused |
+| A               | Home Turret (hold with <kbd>B</kbd> and <kbd>X</kbd>) |
+| B               | Home Turret (hold with <kbd>A</kbd> and <kbd>X</kbd>) |
+| X               | Home Turret (hold with <kbd>A</kbd> and <kbd>B</kbd>) |
 | Y               | Raise Frame |
 | LB              | Unused |
 | RB              | Unused |
