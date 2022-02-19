@@ -93,11 +93,16 @@ var searchData=
   ['m_5fthreadmutex_90',['m_threadMutex',['../classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a46f4eeaa9d7e6cf7139bff552239bb51',1,'argos_lib::NTMotorPIDTuner']]],
   ['m_5fthreadstopcv_91',['m_threadStopCv',['../classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#aad13bf81b68e3bda0daf7f7b134fdb25',1,'argos_lib::NTMotorPIDTuner']]],
   ['m_5fturn_92',['m_turn',['../class_swerve_module.html#aa9d7a385f9a34de72df304a352248c92',1,'SwerveModule']]],
-  ['m_5fturretmotor_93',['m_turretMotor',['../class_shooter_subsystem.html#aea7115a3578a514d19877c79c5268a90',1,'ShooterSubsystem']]],
-  ['m_5fturretpidtuner_94',['m_turretPIDTuner',['../class_shooter_subsystem.html#ad27554d9f1ba1e5b70a360b16433a5d2',1,'ShooterSubsystem']]],
-  ['m_5fturretspeedmap_95',['m_turretSpeedMap',['../class_robot_container.html#af126d7be2e2f9740af3d66c055ad5842',1,'RobotContainer']]],
-  ['m_5fupdatesubscriber_96',['m_updateSubscriber',['../classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a1927a427e82d6f8c4f5c521bb0621c72',1,'argos_lib::NTMotorPIDTuner']]],
-  ['m_5fvibrationmodel_97',['m_vibrationModel',['../classargos__lib_1_1_xbox_controller.html#a3744c0aad2447435645779da4c7469ce',1,'argos_lib::XboxController']]],
-  ['maxangular_98',['maxAngular',['../namespacespeeds_1_1drive.html#aecb75fccf7b0cbb63a8e1cadb6504b93',1,'speeds::drive']]],
-  ['movehook_99',['moveHook',['../namespaceaddress_1_1climber.html#a26c2cdc3fea30c6ee00180a3c4172393',1,'address::climber']]]
+  ['m_5fturrethomed_93',['m_turretHomed',['../class_shooter_subsystem.html#a75f4da6b9d4e5874fa70f6607084187c',1,'ShooterSubsystem']]],
+  ['m_5fturrethomingstorage_94',['m_turretHomingStorage',['../class_shooter_subsystem.html#a5a50798ecf835239bef0b9b5324044d8',1,'ShooterSubsystem']]],
+  ['m_5fturretmotor_95',['m_turretMotor',['../class_shooter_subsystem.html#aea7115a3578a514d19877c79c5268a90',1,'ShooterSubsystem']]],
+  ['m_5fturretpidtuner_96',['m_turretPIDTuner',['../class_shooter_subsystem.html#ad27554d9f1ba1e5b70a360b16433a5d2',1,'ShooterSubsystem']]],
+  ['m_5fturretspeedmap_97',['m_turretSpeedMap',['../class_robot_container.html#af126d7be2e2f9740af3d66c055ad5842',1,'RobotContainer']]],
+  ['m_5fturrettargetposition_98',['m_turretTargetPosition',['../class_robot_container.html#ab86a79530dbf4d64ca521aec010b17d4',1,'RobotContainer']]],
+  ['m_5fupdatesubscriber_99',['m_updateSubscriber',['../classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a1927a427e82d6f8c4f5c521bb0621c72',1,'argos_lib::NTMotorPIDTuner']]],
+  ['m_5fvibrationmodel_100',['m_vibrationModel',['../classargos__lib_1_1_xbox_controller.html#a3744c0aad2447435645779da4c7469ce',1,'argos_lib::XboxController']]],
+  ['maxangle_101',['maxAngle',['../namespacemeasure__up_1_1turret.html#a657d6cfebd013ef5acbaa4f5273024c6',1,'measure_up::turret']]],
+  ['maxangular_102',['maxAngular',['../namespacespeeds_1_1drive.html#aecb75fccf7b0cbb63a8e1cadb6504b93',1,'speeds::drive']]],
+  ['minangle_103',['minAngle',['../namespacemeasure__up_1_1turret.html#ad1eb07c86b30a2bb396ec5ef939b9214',1,'measure_up::turret']]],
+  ['movehook_104',['moveHook',['../namespaceaddress_1_1climber.html#a26c2cdc3fea30c6ee00180a3c4172393',1,'address::climber']]]
 ];

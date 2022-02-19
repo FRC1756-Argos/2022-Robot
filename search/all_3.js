@@ -12,13 +12,14 @@ var searchData=
   ['disable_9',['Disable',['../class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e',1,'ShooterSubsystem']]],
   ['disabledinit_10',['DisabledInit',['../class_robot.html#a810e6143a208a6314491366e3c714357',1,'Robot']]],
   ['disabledperiodic_11',['DisabledPeriodic',['../class_robot.html#a8c7309f5f1cb242ea8c74f1abf03b540',1,'Robot']]],
-  ['down_12',['down',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a43a245198029386d12c9cb8ed29ec218',1,'argos_lib::XboxController::DPadButtons']]],
-  ['dpadbuttons_13',['DPadButtons',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html',1,'argos_lib::XboxController']]],
-  ['drivecontrolmode_14',['DriveControlMode',['../class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512c',1,'SwerveDriveSubsystem']]],
-  ['drivelatspeed_15',['driveLatSpeed',['../namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162',1,'controllerMap']]],
-  ['drivelongspeed_16',['driveLongSpeed',['../namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf',1,'controllerMap']]],
-  ['driver_17',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
-  ['drivercontroller_18',['DriverController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#aab24f6aac86bd7a79f2e6af9de0d35e2',1,'argos_lib::SwappableControllersSubsystem']]],
-  ['driverotspeed_19',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]],
-  ['dumpball_20',['DumpBall',['../class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9',1,'IntakeSubsystem']]]
+  ['disableturretsoftlimits_12',['DisableTurretSoftLimits',['../class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b',1,'ShooterSubsystem']]],
+  ['down_13',['down',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a43a245198029386d12c9cb8ed29ec218',1,'argos_lib::XboxController::DPadButtons']]],
+  ['dpadbuttons_14',['DPadButtons',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html',1,'argos_lib::XboxController']]],
+  ['drivecontrolmode_15',['DriveControlMode',['../class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512c',1,'SwerveDriveSubsystem']]],
+  ['drivelatspeed_16',['driveLatSpeed',['../namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162',1,'controllerMap']]],
+  ['drivelongspeed_17',['driveLongSpeed',['../namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf',1,'controllerMap']]],
+  ['driver_18',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
+  ['drivercontroller_19',['DriverController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#aab24f6aac86bd7a79f2e6af9de0d35e2',1,'argos_lib::SwappableControllersSubsystem']]],
+  ['driverotspeed_20',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]],
+  ['dumpball_21',['DumpBall',['../class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9',1,'IntakeSubsystem']]]
 ];

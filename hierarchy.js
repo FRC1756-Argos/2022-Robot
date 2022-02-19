@@ -69,6 +69,9 @@ var hierarchy =
     [ "HomingStorageInterface< T >", "class_homing_storage_interface.html", [
       [ "FSHomingStorage< T >", "class_f_s_homing_storage.html", null ]
     ] ],
+    [ "HomingStorageInterface< units::degree_t >", "class_homing_storage_interface.html", [
+      [ "FSHomingStorage< units::degree_t >", "class_f_s_homing_storage.html", null ]
+    ] ],
     [ "motorConfig::shooter::hoodMotor", "structmotor_config_1_1shooter_1_1hood_motor.html", null ],
     [ "argos_lib::HysteresisFilter< T >", "classargos__lib_1_1_hysteresis_filter.html", null ],
     [ "argos_lib::HysteresisFilter< units::inch_t >", "classargos__lib_1_1_hysteresis_filter.html", null ],

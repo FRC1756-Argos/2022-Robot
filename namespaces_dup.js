@@ -21,7 +21,8 @@ var namespaces_dup =
     [ "motorConfig", "namespacemotor_config.html", "namespacemotor_config" ],
     [ "networkTables", "namespacenetwork_tables.html", "namespacenetwork_tables" ],
     [ "paths", "namespacepaths.html", [
-      [ "swerveHomesPath", "namespacepaths.html#a409e68dc719283f90e4de04a5499bf18", null ]
+      [ "swerveHomesPath", "namespacepaths.html#a409e68dc719283f90e4de04a5499bf18", null ],
+      [ "turretHomePath", "namespacepaths.html#a9f076c665d70ad771851829b8613cb0d", null ]
     ] ],
     [ "pneumatics", "namespacepneumatics.html", "namespacepneumatics" ],
     [ "sensor_conversions", "namespacesensor__conversions.html", "namespacesensor__conversions" ],

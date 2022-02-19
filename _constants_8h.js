@@ -24,5 +24,6 @@ var _constants_8h =
     [ "maxAngular", "_constants_8h.html#aecb75fccf7b0cbb63a8e1cadb6504b93", null ],
     [ "nickname", "_constants_8h.html#ab04d611dd21cdc40f9ac6a9c816cebed", null ],
     [ "swerveHomesPath", "_constants_8h.html#a409e68dc719283f90e4de04a5499bf18", null ],
-    [ "tableKey", "_constants_8h.html#aa350ed756bc6429793662c7117ad1b7a", null ]
+    [ "tableKey", "_constants_8h.html#aa350ed756bc6429793662c7117ad1b7a", null ],
+    [ "turretHomePath", "_constants_8h.html#a9f076c665d70ad771851829b8613cb0d", null ]
 ];

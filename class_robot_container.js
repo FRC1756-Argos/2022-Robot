@@ -19,5 +19,6 @@ var class_robot_container =
     [ "m_shooter", "class_robot_container.html#adde272abb4f22f78ef7ffe441ff3b925", null ],
     [ "m_shooterTargetVelocity", "class_robot_container.html#a0f8072cd5eb25e81eeddcb979a598b3a", null ],
     [ "m_swerveDrive", "class_robot_container.html#a5ab3558d41d41be5d63c928968d98f5b", null ],
-    [ "m_turretSpeedMap", "class_robot_container.html#af126d7be2e2f9740af3d66c055ad5842", null ]
+    [ "m_turretSpeedMap", "class_robot_container.html#af126d7be2e2f9740af3d66c055ad5842", null ],
+    [ "m_turretTargetPosition", "class_robot_container.html#ab86a79530dbf4d64ca521aec010b17d4", null ]
 ];

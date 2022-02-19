@@ -11,7 +11,10 @@ var measure__up_8h =
     [ "frontRightLOffset", "measure__up_8h.html#af01a799446b54095bdee32a37906994a", null ],
     [ "frontRightWOffset", "measure__up_8h.html#a150522343e9e7af23a9cdc10915fd584", null ],
     [ "homeAngle", "measure__up_8h.html#a042e273914732857ea4a24d0af7e2ec4", null ],
+    [ "homeAngle", "measure__up_8h.html#a85362a9066b4db683599902f64283eac", null ],
     [ "length", "measure__up_8h.html#ae957e01d5b3460e5bce14a80300c2680", null ],
+    [ "maxAngle", "measure__up_8h.html#a657d6cfebd013ef5acbaa4f5273024c6", null ],
+    [ "minAngle", "measure__up_8h.html#ad1eb07c86b30a2bb396ec5ef939b9214", null ],
     [ "upperHubHeight", "measure__up_8h.html#a3c22068b76ca9c720e7c98dd4cd11c3e", null ],
     [ "width", "measure__up_8h.html#aff61d4016fc44a7ba5a70ad24289f702", null ]
 ];

@@ -63,11 +63,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4",
-"control__loops_8h.html#a5c032a4da78c284c39ad6aee9bfb52c6",
-"namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf",
-"structargos__lib_1_1falcon__config_1_1has__nominal_output_forward_3_01_t_00_01decltype_07_07void7113e9ec65b94cdb6e5292363b4ddc27.html",
-"structmotor_config_1_1drive_1_1back_right_turn.html#a230378a9215f2ca6a7f54276759a9230"
+"classargos__lib_1_1_debouncer.html#a58a7ddbe4d21d9bf71d3d0b4fabe58e4",
+"climber__subsystem_8h.html",
+"namespacecontrol_loop_1_1drive_1_1rotate.html#ac09c285b92e27e811bf9b5f39250526f",
+"structargos__lib_1_1cancoder__config_1_1has__mag_offset_3_01_t_00_01decltype_07_07void_08_01_t_1de2a467e5a7d6bbfd81fd01645e37d7d.html",
+"structmotor_config_1_1drive_1_1back_left_turn.html#a43014fa927c2234c70cb258fc209e76b",
+"structmotor_config_1_1shooter_1_1turret_motor.html#ab02b3c7af088ffed2efb91f9331fd312"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

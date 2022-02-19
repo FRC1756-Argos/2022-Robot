@@ -10,5 +10,6 @@ var searchData=
   ['measure_5fup_7',['measure_up',['../namespacemeasure__up.html',1,'']]],
   ['motorconfig_8',['motorConfig',['../namespacemotor_config.html',1,'']]],
   ['shooter_9',['shooter',['../namespacemotor_config_1_1shooter.html',1,'motorConfig']]],
-  ['swerve_5foffsets_10',['swerve_offsets',['../namespacemeasure__up_1_1swerve__offsets.html',1,'measure_up']]]
+  ['swerve_5foffsets_10',['swerve_offsets',['../namespacemeasure__up_1_1swerve__offsets.html',1,'measure_up']]],
+  ['turret_11',['turret',['../namespacemeasure__up_1_1turret.html',1,'measure_up']]]
 ];

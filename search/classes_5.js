@@ -66,7 +66,8 @@ var searchData=
   ['has_5fvoltcompsat_3c_20t_2c_20decltype_28_28void_29_20t_3a_3avoltcompsat_2c_20void_28_29_29_3e_63',['has_voltCompSat&lt; T, decltype((void) T::voltCompSat, void())&gt;',['../structargos__lib_1_1falcon__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_t_ff539066508b6bf78d1739e6e53840e9.html',1,'argos_lib::falcon_config::has_voltCompSat&lt; T, decltype((void) T::voltCompSat, void())&gt;'],['../structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html',1,'argos_lib::talonsrx_config::has_voltCompSat&lt; T, decltype((void) T::voltCompSat, void())&gt;']]],
   ['homehoodcommand_64',['HomeHoodCommand',['../class_home_hood_command.html',1,'']]],
   ['homingstorageinterface_65',['HomingStorageInterface',['../class_homing_storage_interface.html',1,'']]],
-  ['hoodmotor_66',['hoodMotor',['../structmotor_config_1_1shooter_1_1hood_motor.html',1,'motorConfig::shooter']]],
-  ['hysteresisfilter_67',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]],
-  ['hysteresisfilter_3c_20units_3a_3ainch_5ft_20_3e_68',['HysteresisFilter&lt; units::inch_t &gt;',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
+  ['homingstorageinterface_3c_20units_3a_3adegree_5ft_20_3e_66',['HomingStorageInterface&lt; units::degree_t &gt;',['../class_homing_storage_interface.html',1,'']]],
+  ['hoodmotor_67',['hoodMotor',['../structmotor_config_1_1shooter_1_1hood_motor.html',1,'motorConfig::shooter']]],
+  ['hysteresisfilter_68',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]],
+  ['hysteresisfilter_3c_20units_3a_3ainch_5ft_20_3e_69',['HysteresisFilter&lt; units::inch_t &gt;',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
 ];

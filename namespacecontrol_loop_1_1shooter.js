@@ -15,5 +15,13 @@ var namespacecontrol_loop_1_1shooter =
       [ "kF", "namespacecontrol_loop_1_1shooter_1_1shooter.html#a5c032a4da78c284c39ad6aee9bfb52c6", null ],
       [ "kI", "namespacecontrol_loop_1_1shooter_1_1shooter.html#adb5e159eaee0bd3d445ec7701eea8ddf", null ],
       [ "kP", "namespacecontrol_loop_1_1shooter_1_1shooter.html#ab4a4f0daff0a468ddae8ff9c6913cd31", null ]
+    ] ],
+    [ "turret", "namespacecontrol_loop_1_1shooter_1_1turret.html", [
+      [ "allowableError", "namespacecontrol_loop_1_1shooter_1_1turret.html#a8476990bba41087174ad344fab62f9ee", null ],
+      [ "iZone", "namespacecontrol_loop_1_1shooter_1_1turret.html#a0f7d4c560a41cff8685f177abc273d6c", null ],
+      [ "kD", "namespacecontrol_loop_1_1shooter_1_1turret.html#adcb640962eac6424cb42fa2a878ea46c", null ],
+      [ "kF", "namespacecontrol_loop_1_1shooter_1_1turret.html#a6bf6c66195312cb08a64991d83d65053", null ],
+      [ "kI", "namespacecontrol_loop_1_1shooter_1_1turret.html#ad19da1189c3c1f818dea2bd26114ad30", null ],
+      [ "kP", "namespacecontrol_loop_1_1shooter_1_1turret.html#abe47dcbeba497c3885be27e4812c0b57", null ]
     ] ]
 ];

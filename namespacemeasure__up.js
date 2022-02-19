@@ -21,5 +21,10 @@ var namespacemeasure__up =
       [ "frontLeftWOffset", "namespacemeasure__up_1_1swerve__offsets.html#a21b11d140c414510ba0287957eea478a", null ],
       [ "frontRightLOffset", "namespacemeasure__up_1_1swerve__offsets.html#af01a799446b54095bdee32a37906994a", null ],
       [ "frontRightWOffset", "namespacemeasure__up_1_1swerve__offsets.html#a150522343e9e7af23a9cdc10915fd584", null ]
+    ] ],
+    [ "turret", "namespacemeasure__up_1_1turret.html", [
+      [ "homeAngle", "namespacemeasure__up_1_1turret.html#a85362a9066b4db683599902f64283eac", null ],
+      [ "maxAngle", "namespacemeasure__up_1_1turret.html#a657d6cfebd013ef5acbaa4f5273024c6", null ],
+      [ "minAngle", "namespacemeasure__up_1_1turret.html#ad1eb07c86b30a2bb396ec5ef939b9214", null ]
     ] ]
 ];

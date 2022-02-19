@@ -2,7 +2,7 @@ var searchData=
 [
   ['camera_0',['camera',['../namespacecamera.html',1,'']]],
   ['cameraheight_1',['cameraHeight',['../namespacemeasure__up_1_1camera.html#aa02156baaefca0333ca8e962e9c8f0cc',1,'measure_up::camera']]],
-  ['camerainterface_2',['CameraInterface',['../class_camera_interface.html',1,'CameraInterface'],['../class_camera_interface.html#a62af2e7390904d839c465d2b07d0fcab',1,'CameraInterface::CameraInterface()']]],
+  ['camerainterface_2',['CameraInterface',['../class_camera_interface.html#a62af2e7390904d839c465d2b07d0fcab',1,'CameraInterface::CameraInterface()'],['../class_camera_interface.html',1,'CameraInterface']]],
   ['cameramountangle_3',['cameraMountAngle',['../namespacemeasure__up_1_1camera.html#a609f336767fd0a39791ff0f5b780be23',1,'measure_up::camera']]],
   ['cancoder_5fconfig_2eh_4',['cancoder_config.h',['../cancoder__config_8h.html',1,'']]],
   ['cancoderconfig_5',['CanCoderConfig',['../namespaceargos__lib_1_1cancoder__config.html#a127a5060105e8266790116391eebeb63',1,'argos_lib::cancoder_config']]],
@@ -24,5 +24,6 @@ var searchData=
   ['drive_21',['drive',['../namespacecontrol_loop_1_1drive.html',1,'controlLoop']]],
   ['hood_22',['hood',['../namespacecontrol_loop_1_1shooter_1_1hood.html',1,'controlLoop::shooter']]],
   ['rotate_23',['rotate',['../namespacecontrol_loop_1_1drive_1_1rotate.html',1,'controlLoop::drive']]],
-  ['shooter_24',['shooter',['../namespacecontrol_loop_1_1shooter.html',1,'controlLoop::shooter'],['../namespacecontrol_loop_1_1shooter_1_1shooter.html',1,'controlLoop::shooter::shooter']]]
+  ['shooter_24',['shooter',['../namespacecontrol_loop_1_1shooter.html',1,'controlLoop::shooter'],['../namespacecontrol_loop_1_1shooter_1_1shooter.html',1,'controlLoop::shooter::shooter']]],
+  ['turret_25',['turret',['../namespacecontrol_loop_1_1shooter_1_1turret.html',1,'controlLoop::shooter']]]
 ];
