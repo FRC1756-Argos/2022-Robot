@@ -148,7 +148,7 @@ void CameraInterface::SetDriverMode(bool mode) {
   m_camera.SetDriverMode(mode);
 }
 
-units::degree_t ShooterSubsystem::GetTurretTarget(photonlib::PhotonTrackedTarget target) {
+units::degree_t ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedTarget target) {
   units::length::inch_t cameraToTargetDistance =
       GetTargetDistance(units::make_unit<units::degree_t>(target.GetPitch()));
   units::length::inch_t cameraTurretOffset = measure_up::camera::toRotationCenter;

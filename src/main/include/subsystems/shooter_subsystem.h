@@ -37,7 +37,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   ShooterSubsystem();
 
   /// @todo document function
-  units::degree_t GetTurretTarget(photonlib::PhotonTrackedTarget target);
+  units::degree_t GetTurretTargetAngle(photonlib::PhotonTrackedTarget target);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
