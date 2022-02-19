@@ -4,7 +4,10 @@
 
 #pragma once
 
-#include "units/units.h"
+#include <fstream>
+#include <iostream>
+
+#include "units/base.h"
 #include "wpi/fs.h"
 
 /**
@@ -51,7 +54,7 @@ class FSHomingStorage : public HomingStorageInterface<T> {
   bool Save(const T& homePosition) override {
     try {
       std::ofstream configFile(GetFilePath(), std::ios::out);
-      configFile << homePosition.to<double>();
+      configFile << homePosition.template to<double>();
       configFile.close();
       return true;
     } catch (...) {

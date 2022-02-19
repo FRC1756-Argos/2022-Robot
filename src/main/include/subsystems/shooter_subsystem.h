@@ -6,11 +6,14 @@
 
 #include <frc2/command/SubsystemBase.h>
 
+#include "Constants.h"
+#include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 #include "photonlib/PhotonCamera.h"
 #include "units/angular_velocity.h"
 #include "units/length.h"
+#include "utils/homing_storage_interface.h"
 
 class CameraInterface {
  public:
@@ -114,6 +117,40 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   bool IsHoodHomed();
 
   /**
+   * @brief Update turret home position
+   */
+  void UpdateTurretHome();
+
+  /**
+   * @brief Initialize turret position based on saved home
+   */
+  void InitializeTurretHome();
+
+  /**
+   * @brief Detect if turret homing is complete
+   *
+   * @return True if turret is homed
+   */
+  bool IsTurretHomed();
+
+  /**
+   * @brief Closed-loop go to turret position
+   *
+   * @param angle Setpoint where 0 degrees is intake direction and positive is counterclockwise
+   */
+  void TurretSetPosition(units::degree_t angle);
+
+  /**
+   * @brief Sets and enables soft angle limits for turret
+   */
+  void SetTurretSoftLimits();
+
+  /**
+   * @brief Disables soft angle limits for turret
+   */
+  void DisableTurretSoftLimits();
+
+  /**
    * @brief Detect if manual control has been enabled
    *
    * @return True when manual control is active
@@ -133,18 +170,33 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   units::inch_t GetTargetDistance(units::degree_t targetVerticalAngle);
 
+  /**
+   * @brief Setting the shooter speed and hood angle depeneding on how far away the target is
+   *
+   * @param distanceToTarget The distance to the target from the robot
+   */
+  void SetShooterDistance(units::inch_t distanceToTarget);
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   WPI_TalonFX m_shooterWheelLeft;
   WPI_TalonFX m_shooterWheelRight;
-  WPI_TalonSRX m_angleControl;
-  WPI_TalonSRX m_rotationControl;
+  WPI_TalonSRX m_hoodMotor;
+  WPI_TalonSRX m_turretMotor;
 
   CameraInterface m_cameraInterface;
 
-  bool m_hoodHomed;  ///< True when hood has known closed loop position
+  FSHomingStorage<units::degree_t> m_turretHomingStorage;
+
+  bool m_hoodHomed;    ///< True when hood has known closed loop position
+  bool m_turretHomed;  ///< True when turret has known closed loop position
   bool m_manualOverride;
+
+  argos_lib::InterpolationMap<decltype(shooterRange::shooterSpeed.front().inVal), shooterRange::shooterSpeed.size()>
+      m_shooterSpeedMap;
+  argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size()>
+      m_hoodAngleMap;
 
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
   argos_lib::NTMotorPIDTuner m_shooterPIDTuner;

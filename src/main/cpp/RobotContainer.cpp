@@ -9,6 +9,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
+#include <wpi/PortForwarder.h>
 
 #include "argos_lib/commands/swap_controllers_command.h"
 
@@ -29,6 +30,11 @@ RobotContainer::RobotContainer()
     , m_NTMonitor("argos") {
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
+
+  // ALLOW ACCESS TO CAMERA STREAM OVER USB
+  wpi::PortForwarder::GetInstance().Add(5800, "10.17.56.122", 5800);
+  wpi::PortForwarder::GetInstance().Add(1181, "10.17.56.122", 1181);
+  wpi::PortForwarder::GetInstance().Add(1182, "10.17.56.122", 1182);
 
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
@@ -88,6 +94,10 @@ RobotContainer::RobotContainer()
       "manualSetpoints/shooterSpeed",
       [this](double newVal) { m_shooterTargetVelocity = units::make_unit<units::revolutions_per_minute_t>(newVal); },
       m_shooterTargetVelocity.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/turretPosition",
+      [this](double newVal) { m_turretTargetPosition = units::make_unit<units::degree_t>(newVal); },
+      m_turretTargetPosition.to<double>());
 
   ConfigureButtonBindings();
 }
@@ -99,6 +109,10 @@ void RobotContainer::ConfigureButtonBindings() {
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBumperLeft, {50_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kY, {1500_ms, 0_ms});
+
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kX, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kA, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
 
   // TRIGGERS -----------------------------------------------------------------------------------------------
 
@@ -136,6 +150,19 @@ void RobotContainer::ConfigureButtonBindings() {
       },
       {&m_shooter});
   shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
+
+  // Aiming trigger
+  auto aimTrigger = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
+  }});
+  aimTrigger.WhenActive([this]() { m_shooter.TurretSetPosition(m_turretTargetPosition); }, {&m_shooter});
+
+  auto homeTurret = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
+                                                                  argos_lib::XboxController::Button::kA,
+                                                                  argos_lib::XboxController::Button::kB});
+  }});
+  homeTurret.WhenActive([this]() { m_shooter.UpdateTurretHome(); }, {&m_shooter});
 
   // Swap controllers config
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});

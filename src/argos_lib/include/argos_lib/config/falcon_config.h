@@ -11,6 +11,7 @@
 
 #include "compile_time_member_check.h"
 #include "ctre/Phoenix.h"
+#include "status_frame_config.h"
 
 namespace argos_lib {
   namespace falcon_config {
@@ -42,6 +43,7 @@ namespace argos_lib {
     HAS_MEMBER(supplyCurrentThreshold)
     HAS_MEMBER(supplyCurrentThresholdTime)
     HAS_MEMBER(voltCompSat)
+    HAS_MEMBER(statusFrameMotorMode)
 
     /**
      * @brief Configures a CTRE Falcon with only the fields provided.  All other fields
@@ -75,6 +77,7 @@ namespace argos_lib {
      *           - supplyCurrentThreshold
      *           - supplyCurrentThresholdTime
      *           - voltCompSat
+     *           - statusFrameMotorMode
      * @param motorController Falcon object to configure
      * @param configTimeout Time to wait for response from Falcon
      * @return true Configuration succeeded
@@ -221,6 +224,10 @@ namespace argos_lib {
         static_assert(T::neutralDeadband >= 0.001, "Neutral deadband must be greater than 0.001 (0.1%)");
         static_assert(T::neutralDeadband <= 0.25, "Neutral deadband must be less than 0.25 (25%)");
         config.neutralDeadband = T::neutralDeadband;
+      }
+
+      if constexpr (has_statusFrameMotorMode<T>()) {
+        argos_lib::status_frame_config::SetMotorStatusFrameRates(motorController, T::statusFrameMotorMode);
       }
 
       auto retVal = motorController.ConfigAllSettings(config, timeout);

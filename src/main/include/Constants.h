@@ -4,17 +4,25 @@
 
 #pragma once
 
-#include <frc/I2C.h>
-#include <units/angle.h>
 #include <units/length.h>
 #include <units/velocity.h>
 
 #include <string>
 
-#include "argos_lib/general/interpolation.h"
-#include "ctre/Phoenix.h"
+#include "constants/addresses.h"
+#include "constants/control_loops.h"
+#include "constants/interpolation_maps.h"
+#include "constants/measure_up.h"
+#include "constants/motors.h"
 #include "networktables/NetworkTable.h"
 #include "networktables/NetworkTableInstance.h"
+
+namespace threshholds {
+  namespace intake {
+    const auto intakeDeactivate = 4.5_in;
+    const auto intakeActivate = 10_in;
+  }  // namespace intake
+}  // namespace threshholds
 
 namespace speeds {
   namespace intake {
@@ -35,81 +43,6 @@ namespace pneumatics {
   }  // namespace directions
 }  // namespace pneumatics
 
-namespace address {
-  namespace drive {
-    constexpr const char frontLeftDrive = 1;
-    constexpr const char frontLeftTurn = 2;
-    constexpr const char frontRightDrive = 3;
-    constexpr const char frontRightTurn = 4;
-    constexpr const char backRightDrive = 5;
-    constexpr const char backRightTurn = 6;
-    constexpr const char backLeftDrive = 7;
-    constexpr const char backLeftTurn = 8;
-  }  // namespace drive
-  namespace climber {
-    constexpr const char liftLeft = 9;
-    constexpr const char liftRight = 10;
-    constexpr const char moveHook = 11;
-  }  // namespace climber
-  namespace shooter {
-    constexpr const char shooterWheelLeft = 12;
-    constexpr const char shooterWheelRight = 13;
-    constexpr const char angleControl = 14;
-    constexpr const char rotationControl = 15;
-  }  // namespace shooter
-  namespace intake {
-    constexpr const char beltDrive = 16;
-    constexpr const char elevatorIntakeDrive = 17;
-    constexpr const char intakeDrive = 18;
-  }  // namespace intake
-  namespace encoders {
-    constexpr const char frontLeftEncoder = 1;
-    constexpr const char frontRightEncoder = 2;
-    constexpr const char backRightEncoder = 3;
-    constexpr const char backLeftEncoder = 4;
-  }  // namespace encoders
-  namespace controllers {
-    constexpr const char driver = 0;
-    constexpr const char secondary = 1;
-  }  // namespace controllers
-  namespace solenoids {
-    constexpr const char intake = 0;
-  }  // namespace solenoids
-  namespace sensors {
-    constexpr const char tofSensorIntake = 1;
-    constexpr const char tofSensorShooter = 2;
-    constexpr auto colorSensor = frc::I2C::Port::kOnboard;
-  }  // namespace sensors
-
-}  // namespace address
-
-namespace measure_up {
-  namespace chassis {
-    constexpr units::inch_t width{28.0};
-    constexpr units::inch_t length{31.0};
-  }  // namespace chassis
-  namespace swerve_offsets {
-    constexpr auto frontLeftLOffset = 4.0_in;
-    constexpr auto frontLeftWOffset = 4.0_in;
-    constexpr auto frontRightLOffset = 4.0_in;
-    constexpr auto frontRightWOffset = 4.0_in;
-    constexpr auto backRightWOffset = 4.0_in;
-    constexpr auto backRightLOffset = 4.0_in;
-    constexpr auto backLeftWOffset = 4.0_in;
-    constexpr auto backLeftLOffset = 4.0_in;
-  }  // namespace swerve_offsets
-  namespace hood {
-    constexpr auto homeAngle = 1_deg * -1;
-  }  // namespace hood
-  namespace camera {
-    constexpr auto cameraHeight = 28.5_in;
-    constexpr auto upperHubHeight = 104_in;
-    constexpr auto cameraMountAngle = 39_deg;
-    /// @todo CHANGEME
-    constexpr units::inch_t toRotationCenter = 9_in;
-  }  // namespace camera
-}  // namespace measure_up
-
 namespace camera {
   const std::string nickname = "photonvision";
   constexpr char defaultPipelineIndex = 0;
@@ -126,6 +59,7 @@ namespace indexes {
 
 namespace paths {
   const std::string swerveHomesPath = "homes/swerveHomes";
+  const std::string turretHomePath = "homes/turretHome";
 }  // namespace paths
 
 namespace networkTables {
@@ -144,260 +78,3 @@ namespace networkTables {
     }  // namespace keys
   }    // namespace swerveHomes
 }  // namespace networkTables
-namespace shooterRange {
-  using argos_lib::InterpMapPoint;
-  [[maybe_unused]] constexpr std::array shooterSpeed{InterpMapPoint{10, 2300},
-                                                     InterpMapPoint{60, 2600},
-                                                     InterpMapPoint{120, 3000},
-                                                     InterpMapPoint{180, 3000},
-                                                     InterpMapPoint{240, 3500}};
-  [[maybe_unused]] constexpr std::array hoodAngle{InterpMapPoint{10, 10},
-                                                  InterpMapPoint{60, 17},
-                                                  InterpMapPoint{120, 25},
-                                                  InterpMapPoint{180, 30},
-                                                  InterpMapPoint{240, 41}};
-}  // namespace shooterRange
-namespace controllerMap {
-  using argos_lib::InterpMapPoint;
-
-  [[maybe_unused]] constexpr std::array driveLongSpeed{InterpMapPoint{-1.0, -0.6},
-                                                       InterpMapPoint{-0.75, -0.4},
-                                                       InterpMapPoint{-0.15, 0.0},
-                                                       InterpMapPoint{0.15, 0.0},
-                                                       InterpMapPoint{0.75, 0.4},
-                                                       InterpMapPoint{1.0, 0.6}};
-  [[maybe_unused]] constexpr std::array driveLatSpeed{InterpMapPoint{-1.0, -0.6},
-                                                      InterpMapPoint{-0.75, -0.4},
-                                                      InterpMapPoint{-0.15, 0.0},
-                                                      InterpMapPoint{0.15, 0.0},
-                                                      InterpMapPoint{0.75, 0.4},
-                                                      InterpMapPoint{1.0, 0.6}};
-  [[maybe_unused]] constexpr std::array driveRotSpeed{
-      InterpMapPoint{-1.0, -1.0}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 1.0}};
-
-  [[maybe_unused]] constexpr std::array hookSpeed{
-      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.2, 0.0}, InterpMapPoint{0.2, 0.0}, InterpMapPoint{1.0, 0.6}};
-  [[maybe_unused]] constexpr std::array armSpeed{
-      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.2, 0.0}, InterpMapPoint{0.2, 0.0}, InterpMapPoint{1.0, 0.6}};
-
-  [[maybe_unused]] constexpr std::array turretSpeed{
-      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 0.6}};
-  [[maybe_unused]] constexpr std::array hoodSpeed{
-      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 0.6}};
-}  // namespace controllerMap
-
-namespace controlLoop {
-  namespace drive {
-    namespace rotate {
-      constexpr double kP = 1.4;
-      constexpr double kI = 0.0005;
-      constexpr double kD = 0.0;
-      constexpr double kF = 0.0;
-      constexpr double iZone = 500.0;
-      constexpr double allowableError = 0.0;
-    }  // namespace rotate
-  }    // namespace drive
-  namespace shooter {
-    namespace shooter {
-      constexpr double kP = 0.02;
-      constexpr double kI = 0.0;
-      constexpr double kD = 0.0;
-      constexpr double kF = 0.055;
-      constexpr double iZone = 100.0;
-      constexpr double allowableError = 0.0;
-    }  // namespace shooter
-    namespace hood {
-      constexpr double kP = 0.75;
-      constexpr double kI = 0.008;
-      constexpr double kD = 0.0;
-      constexpr double kF = 0.0;
-      constexpr double iZone = 200.0;
-      constexpr double allowableError = 0.0;
-    }  // namespace hood
-  }    // namespace shooter
-}  // namespace controlLoop
-
-namespace motorConfig {
-  namespace drive {
-    struct genericDrive {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-    };
-    struct frontLeftTurn {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto remoteFilter0_addr = address::encoders::frontLeftEncoder;
-      constexpr static auto remoteFilter0_type =
-          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
-      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
-      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
-      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
-      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
-      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
-      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
-      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
-    };
-    struct frontRightTurn {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto remoteFilter0_addr = address::encoders::frontRightEncoder;
-      constexpr static auto remoteFilter0_type =
-          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
-      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
-      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
-      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
-      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
-      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
-      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
-      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
-    };
-    struct backRightTurn {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto remoteFilter0_addr = address::encoders::backRightEncoder;
-      constexpr static auto remoteFilter0_type =
-          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
-      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
-      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
-      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
-      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
-      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
-      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
-      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
-    };
-    struct backLeftTurn {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto remoteFilter0_addr = address::encoders::backLeftEncoder;
-      constexpr static auto remoteFilter0_type =
-          ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
-      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
-      constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
-      constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
-      constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
-      constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
-      constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
-      constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
-    };
-
-  }  // namespace drive
-
-  namespace shooter {
-    struct shooterWheelLeft {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
-      constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::IntegratedSensor;
-      constexpr static auto pid0_kP = controlLoop::shooter::shooter::kP;
-      constexpr static auto pid0_kI = controlLoop::shooter::shooter::kI;
-      constexpr static auto pid0_kD = controlLoop::shooter::shooter::kD;
-      constexpr static auto pid0_kF = controlLoop::shooter::shooter::kF;
-      constexpr static auto pid0_iZone = controlLoop::shooter::shooter::iZone;
-      constexpr static auto pid0_allowableError = controlLoop::shooter::shooter::allowableError;
-    };
-
-    struct shooterWheelRight {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
-      constexpr static auto voltCompSat = 11.0_V;
-    };
-
-    struct angleControl {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = true;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
-      constexpr static auto pid0_kP = controlLoop::shooter::hood::kP;
-      constexpr static auto pid0_kI = controlLoop::shooter::hood::kI;
-      constexpr static auto pid0_kD = controlLoop::shooter::hood::kD;
-      constexpr static auto pid0_kF = controlLoop::shooter::hood::kF;
-      constexpr static auto pid0_iZone = controlLoop::shooter::hood::iZone;
-      constexpr static auto pid0_allowableError = controlLoop::shooter::hood::allowableError;
-    };
-
-    struct rotationControl {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
-      constexpr static auto voltCompSat = 11.0_V;
-    };
-  }  // namespace shooter
-
-  namespace intake {
-    struct beltDrive {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-    };
-    struct elevatorIntakeDrive {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-    };
-    struct intakeDrive {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-    };
-
-  }  // namespace intake
-  namespace climber {
-    struct liftRight {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
-      constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
-      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
-      constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
-    };
-    struct liftLeft {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-      constexpr static auto forwardLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
-      constexpr static auto forwardLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
-      constexpr static auto reverseLimit_normalState = ctre::phoenix::motorcontrol::LimitSwitchNormal_NormallyClosed;
-      constexpr static auto reverseLimit_source = ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector;
-    };
-    struct moveHook {
-      constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
-      constexpr static bool sensorPhase = false;
-      constexpr static auto neutralDeadband = 0.001;
-      constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
-      constexpr static auto voltCompSat = 11.0_V;
-    };
-  }  // namespace climber
-}  // namespace motorConfig

@@ -9,6 +9,7 @@
 
 #include "compile_time_member_check.h"
 #include "ctre/Phoenix.h"
+#include "status_frame_config.h"
 
 namespace argos_lib {
   namespace talonsrx_config {
@@ -26,6 +27,7 @@ namespace argos_lib {
     HAS_MEMBER(remoteFilter0_type)
     HAS_MEMBER(sensorPhase)
     HAS_MEMBER(voltCompSat)
+    HAS_MEMBER(statusFrameMotorMode)
 
     /**
      * @brief Configures a CTRE TalonSRX with only the fields provided.  All other fields
@@ -45,6 +47,7 @@ namespace argos_lib {
      *           - remoteFilter0_type
      *           - sensorPhase
      *           - voltCompSat
+     *           - statusFrameMotorMode
      * @param motorController TalonSRX object to configure
      * @param configTimeout Time to wait for response from TalonSRX
      * @return true Configuration succeeded
@@ -99,6 +102,10 @@ namespace argos_lib {
       }
       if constexpr (has_pid0_allowableError<T>{}) {
         config.slot0.allowableClosedloopError = T::pid0_allowableError;
+      }
+
+      if constexpr (has_statusFrameMotorMode<T>()) {
+        argos_lib::status_frame_config::SetMotorStatusFrameRates(motorController, T::statusFrameMotorMode);
       }
 
       return 0 != motorController.ConfigAllSettings(config, timeout);
