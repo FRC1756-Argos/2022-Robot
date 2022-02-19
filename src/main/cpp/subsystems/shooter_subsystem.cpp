@@ -113,7 +113,7 @@ void ShooterSubsystem::Disable() {
 }
 
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
-  return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) *
+  return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) /
          std::tan(
              static_cast<units::radian_t>(measure_up::camera::cameraMountAngle + targetVerticalAngle).to<double>());
 }
