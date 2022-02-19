@@ -53,10 +53,20 @@ class FSHomingStorage : public HomingStorageInterface<T> {
 
   bool Save(const T& homePosition) override {
     try {
+      bool success = true;
       std::ofstream configFile(GetFilePath(), std::ios::out);
-      configFile << homePosition.template to<double>();
+      if (configFile.good()) {
+        configFile << homePosition.template to<double>();
+        if (!configFile.good()) {
+          std::cout << "[ERROR] Could not write to config file\n";
+          success = false;
+        }
+      } else {
+        std::cout << "[ERROR] Could not open config file\n";
+        success = false;
+      }
       configFile.close();
-      return true;
+      return success;
     } catch (...) {
       // Error accessing file
       std::cout << "[ERROR] Could not write to config file\n";
@@ -66,14 +76,22 @@ class FSHomingStorage : public HomingStorageInterface<T> {
 
   std::optional<T> Load() override {
     try {
+      bool success = true;
       std::ifstream configFile(GetFilePath(), std::ios::in);
       double homePosition;
       configFile >> homePosition;
+
+      if (!configFile.good()) {
+        std::cout << "[ERROR] Could not read from config file\n";
+        success = false;
+      }
+
       configFile.close();
-
-      std::cout << "############# Loaded value: " << homePosition << '\n';
-
-      return units::make_unit<T>(homePosition);
+      if (success) {
+        return units::make_unit<T>(homePosition);
+      } else {
+        return std::nullopt;
+      }
     } catch (...) {
       // Error accessing file
       std::cout << "[ERROR] Could not read from config file\n";
