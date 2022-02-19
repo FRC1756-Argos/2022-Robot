@@ -16,6 +16,10 @@ class IntakeSubsystem : public frc2::SubsystemBase {
  public:
   IntakeSubsystem();
 
+  units::degree_t hueModulus(units::degree_t dividend, units::degree_t divisor);
+
+  units::degree_t hueAngleDifference(units::degree_t referenceAngle, units::degree_t targetAngle);
+
   enum class IntakeState { Stop, Intaking, Outtaking };
 
   enum class BallColor { red, blue, other };
@@ -30,7 +34,24 @@ class IntakeSubsystem : public frc2::SubsystemBase {
 
   /**
    *
-   * @todo need to make function not placeholder
+   * @brief Determines whether ball is red
+   *
+   * @return true - Ball is red
+   * @return false - Ball is not red
+   */
+  bool getIsBallRed();
+
+  /**
+   *
+   * @brief Determines whether ball is red
+   *
+   * @return true - Ball is red
+   * @return false - Ball is not red
+   */
+  bool getIsBallBlue();
+
+  /**
+   *
    * @brief Determines whether ball is team color
    *
    * @return true - Ball is team color
@@ -92,4 +113,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   bool m_intakeButtonPressed;
   bool m_outtakeButtonPressed;
   bool m_shooterButtonPressed;
+
+  // DEBUGGING
+  int m_increment = 0;
 };
