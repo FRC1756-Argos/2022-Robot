@@ -7,6 +7,7 @@
 #include <frc2/command/SubsystemBase.h>
 
 #include "Constants.h"
+#include "argos_lib/config/robot_instance.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
@@ -37,7 +38,7 @@ class CameraInterface {
 
 class ShooterSubsystem : public frc2::SubsystemBase {
  public:
-  ShooterSubsystem();
+  explicit ShooterSubsystem(const argos_lib::RobotInstance instance);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.

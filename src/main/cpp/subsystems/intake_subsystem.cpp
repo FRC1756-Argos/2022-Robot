@@ -7,7 +7,7 @@
 #include "Constants.h"
 #include "argos_lib/config/talonsrx_config.h"
 
-IntakeSubsystem::IntakeSubsystem()
+IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
     : m_beltDrive(address::intake::beltDrive)
     , m_intakeDrive(address::intake::intakeDrive)
     , m_intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake)
@@ -17,8 +17,12 @@ IntakeSubsystem::IntakeSubsystem()
     , m_hysteresisIntake(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
     , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate) {
   // MOTOR CONFIGURATION
-  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::beltDrive>(m_beltDrive, 50_ms);
-  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::intake::intakeDrive>(m_intakeDrive, 50_ms);
+  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::comp_bot::intake::beltDrive,
+                                             motorConfig::practice_bot::intake::beltDrive>(
+      m_beltDrive, 50_ms, instance);
+  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::comp_bot::intake::intakeDrive,
+                                             motorConfig::practice_bot::intake::intakeDrive>(
+      m_intakeDrive, 50_ms, instance);
 }
 
 // This method will be called once per scheduler run

@@ -19,7 +19,8 @@
 
 using namespace argos_lib::swerve;
 
-SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable)
+SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable,
+                                           const argos_lib::RobotInstance instance)
     : m_frontLeft(address::drive::frontLeftDrive, address::drive::frontLeftTurn, address::encoders::frontLeftEncoder)
     , m_frontRight(
           address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
@@ -31,24 +32,48 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 
   // TURN MOTORS CONFIG
   std::printf("Configure turn\n");
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::frontLeftTurn>(m_frontLeft.m_turn, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::frontRightTurn>(m_frontRight.m_turn, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::backRightTurn>(m_backRight.m_turn, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_turn, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::frontLeftTurn,
+                                         motorConfig::practice_bot::drive::frontLeftTurn>(
+      m_frontLeft.m_turn, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::frontRightTurn,
+                                         motorConfig::practice_bot::drive::frontRightTurn>(
+      m_frontRight.m_turn, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::backRightTurn,
+                                         motorConfig::practice_bot::drive::backRightTurn>(
+      m_backRight.m_turn, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::backLeftTurn,
+                                         motorConfig::practice_bot::drive::backLeftTurn>(
+      m_backLeft.m_turn, 100_ms, instance);
 
   // DRIVE MOTOR CONFIGS
   std::printf("Configure drive\n");
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_frontLeft.m_drive, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_frontRight.m_drive, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_backLeft.m_drive, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_backRight.m_drive, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::genericDrive,
+                                         motorConfig::practice_bot::drive::genericDrive>(
+      m_frontLeft.m_drive, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::genericDrive,
+                                         motorConfig::practice_bot::drive::genericDrive>(
+      m_frontRight.m_drive, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::genericDrive,
+                                         motorConfig::practice_bot::drive::genericDrive>(
+      m_backLeft.m_drive, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::genericDrive,
+                                         motorConfig::practice_bot::drive::genericDrive>(
+      m_backRight.m_drive, 100_ms, instance);
 
   // CAN ENCODER CONFIG
   std::printf("Configure encoders\n");
-  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::frontLeftTurn>(m_frontLeft.m_encoder, 100_ms);
-  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::frontRightTurn>(m_frontRight.m_encoder, 100_ms);
-  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backRightTurn>(m_backRight.m_encoder, 100_ms);
-  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_encoder, 100_ms);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::comp_bot::drive::frontLeftTurn,
+                                             motorConfig::practice_bot::drive::frontLeftTurn>(
+      m_frontLeft.m_encoder, 100_ms, instance);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::comp_bot::drive::frontRightTurn,
+                                             motorConfig::practice_bot::drive::frontRightTurn>(
+      m_frontRight.m_encoder, 100_ms, instance);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::comp_bot::drive::backRightTurn,
+                                             motorConfig::practice_bot::drive::backRightTurn>(
+      m_backRight.m_encoder, 100_ms, instance);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::comp_bot::drive::backLeftTurn,
+                                             motorConfig::practice_bot::drive::backLeftTurn>(
+      m_backLeft.m_encoder, 100_ms, instance);
 
   // TRANSLATION2D OBJECTS DESCRIBING LOCATION OF SWERVE MODULES
   // Forward is positive X, left is positive Y
