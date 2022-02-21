@@ -8,6 +8,8 @@
 #include "argos_lib/config/status_frame_config.h"
 #include "control_loops.h"
 #include "ctre/Phoenix.h"
+#include "units/current.h"
+#include "units/time.h"
 #include "units/voltage.h"
 
 namespace motorConfig {
@@ -140,6 +142,9 @@ namespace motorConfig {
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
         constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::Basic;
+        constexpr static auto peakCurrentLimit = 30_A;
+        constexpr static auto peakCurrentDuration = 1_s;
+        constexpr static auto continuousCurrentLimit = 20_A;
         constexpr static auto pid0_selectedSensor =
             ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
         constexpr static auto pid0_kP = controlLoop::shooter::hood::kP;
@@ -157,6 +162,9 @@ namespace motorConfig {
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
         constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::Basic;
+        constexpr static auto peakCurrentLimit = 30_A;
+        constexpr static auto peakCurrentDuration = 1_s;
+        constexpr static auto continuousCurrentLimit = 20_A;
         constexpr static auto pid0_selectedSensor =
             ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
         constexpr static auto pid0_kP = controlLoop::shooter::turret::kP;
@@ -176,6 +184,9 @@ namespace motorConfig {
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
         constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::Basic;
+        constexpr static auto peakCurrentLimit = 30_A;
+        constexpr static auto peakCurrentDuration = 1_s;
+        constexpr static auto continuousCurrentLimit = 20_A;
       };
       struct intakeDrive {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
@@ -184,6 +195,9 @@ namespace motorConfig {
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
         constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::Basic;
+        constexpr static auto peakCurrentLimit = 30_A;
+        constexpr static auto peakCurrentDuration = 1_s;
+        constexpr static auto continuousCurrentLimit = 20_A;
       };
 
     }  // namespace intake
@@ -245,6 +259,9 @@ namespace motorConfig {
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
         constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::Basic;
+        constexpr static auto peakCurrentLimit = 30_A;
+        constexpr static auto peakCurrentDuration = 1_s;
+        constexpr static auto continuousCurrentLimit = 20_A;
         constexpr static auto pid0_selectedSensor =
             ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
         constexpr static auto pid0_kP = controlLoop::shooter::hood::kP;
@@ -266,6 +283,9 @@ namespace motorConfig {
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
         constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::Basic;
+        constexpr static auto peakCurrentLimit = 30_A;
+        constexpr static auto peakCurrentDuration = 1_s;
+        constexpr static auto continuousCurrentLimit = 20_A;
       };
     }  // namespace intake
     namespace climber {

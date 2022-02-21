@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <units/current.h>
 #include <units/time.h>
 #include <units/voltage.h>
 
@@ -29,6 +30,9 @@ namespace argos_lib {
     HAS_MEMBER(sensorPhase)
     HAS_MEMBER(voltCompSat)
     HAS_MEMBER(statusFrameMotorMode)
+    HAS_MEMBER(peakCurrentLimit)
+    HAS_MEMBER(peakCurrentDuration)
+    HAS_MEMBER(continuousCurrentLimit)
 
     /**
      * @brief Configures a CTRE TalonSRX with only the fields provided.  All other fields
@@ -49,6 +53,9 @@ namespace argos_lib {
      *           - sensorPhase
      *           - voltCompSat
      *           - statusFrameMotorMode
+     *           - peakCurrentLimit
+     *           - peakCurrentDuration
+     *           - continuousCurrentLimit
      * @param motorController TalonSRX object to configure
      * @param configTimeout Time to wait for response from TalonSRX
      * @return true Configuration succeeded
@@ -103,6 +110,21 @@ namespace argos_lib {
       }
       if constexpr (has_pid0_allowableError<T>{}) {
         config.slot0.allowableClosedloopError = T::pid0_allowableError;
+      }
+      if constexpr (has_peakCurrentLimit<T>()) {
+        constexpr units::ampere_t currentLimit = T::peakCurrentLimit;
+        static_assert(currentLimit.to<double>() > 0, "Current limit must be positive");
+        config.peakCurrentLimit = std::round(currentLimit.to<double>());
+      }
+      if constexpr (has_peakCurrentDuration<T>()) {
+        constexpr units::millisecond_t currentDuration = T::peakCurrentDuration;
+        static_assert(currentDuration.to<double>() > 0, "Current duration must be positive");
+        config.peakCurrentDuration = std::round(currentDuration.to<double>());
+      }
+      if constexpr (has_continuousCurrentLimit<T>()) {
+        constexpr units::ampere_t currentLimit = T::continuousCurrentLimit;
+        static_assert(currentLimit.to<double>() > 0, "Current limit must be positive");
+        config.continuousCurrentLimit = std::round(currentLimit.to<double>());
       }
 
       if constexpr (has_statusFrameMotorMode<T>()) {
