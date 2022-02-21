@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "Constants.h"
+#include "argos_lib/config/robot_instance.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
@@ -55,6 +56,8 @@ class RobotContainer {
       m_turretSpeedMap;
   argos_lib::InterpolationMap<decltype(controllerMap::hoodSpeed.front().inVal), controllerMap::hoodSpeed.size()>
       m_hoodSpeedMap;
+
+  const argos_lib::RobotInstance m_instance;
 
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;

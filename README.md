@@ -4,6 +4,10 @@
 
 Robot code for 2022 FRC Season
 
+## Commissioning A Robot
+
+When commissioning a new robot, you should set the instance type to either "Competition" or "Practice" by creating a text file readable by `lvuser` on the RoboRIO at path `/home/lvuser/robotInstance`.  The content of this file should be just the text `Competition` or `Practice` with no whitespace preceding.  If no valid instance is found at runtime, competition instance will be used and an error will be generated.
+
 ## Project Setup
 
 ### Pre-Commit

@@ -9,13 +9,14 @@
 #include <TMD37003.h>
 #include <TimeOfFlight.h>
 
+#include "argos_lib/config/robot_instance.h"
 #include "argos_lib/general/hysteresis_filter.h"
 #include "ctre/Phoenix.h"
 #include "frc/Solenoid.h"
 
 class IntakeSubsystem : public frc2::SubsystemBase {
  public:
-  IntakeSubsystem();
+  explicit IntakeSubsystem(const argos_lib::RobotInstance instance);
 
   enum class IntakeState { Stop, Intaking, Outtaking };
 
@@ -67,6 +68,18 @@ class IntakeSubsystem : public frc2::SubsystemBase {
    *
    */
   void DumpBall();
+
+  /**
+   * @brief Shoots ball
+   *
+   */
+  void Shoot();
+
+  /**
+   * @brief Stop shooter
+   *
+   */
+  void StopShoot();
 
   /**
    * @brief Cycle the elevator to load or dump balls

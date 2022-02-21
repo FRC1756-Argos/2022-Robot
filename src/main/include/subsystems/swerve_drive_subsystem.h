@@ -12,6 +12,7 @@
 
 #include <memory>
 
+#include "argos_lib/config/robot_instance.h"
 #include "ctre/Phoenix.h"
 #include "utils/file_system_homing_storage.h"
 #include "utils/network_tables_wrapper.h"
@@ -44,7 +45,8 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
 
   DriveControlMode m_controlMode;
 
-  explicit SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable);
+  explicit SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable,
+                                const argos_lib::RobotInstance instance);
   /**
    * @brief Main drive function for the robot
    *

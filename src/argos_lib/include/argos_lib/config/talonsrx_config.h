@@ -7,6 +7,7 @@
 #include <units/time.h>
 #include <units/voltage.h>
 
+#include "argos_lib/config/robot_instance.h"
 #include "compile_time_member_check.h"
 #include "ctre/Phoenix.h"
 #include "status_frame_config.h"
@@ -109,6 +110,32 @@ namespace argos_lib {
       }
 
       return 0 != motorController.ConfigAllSettings(config, timeout);
+    }
+
+    /**
+     * @brief Configures a CTRE TalonSRX with configuration values according to specified robot instance.
+     *
+     * @tparam CompetitionConfig Configurations to use in competition robot instance
+     * @tparam PracticeConfig Configurations to use in practice robot instance
+     * @param motorController TalonSRX object to configure
+     * @param configTimeout Time to wait for response from TalonSRX
+     * @param instance Robot instance to use
+     * @return true Configuration succeeded
+     * @return false Configuration failed
+     */
+    template <typename CompetitionConfig, typename PracticeConfig>
+    bool TalonSRXConfig(WPI_TalonSRX& motorController,
+                        units::millisecond_t configTimeout,
+                        argos_lib::RobotInstance instance) {
+      switch (instance) {
+        case argos_lib::RobotInstance::Competition:
+          return TalonSRXConfig<CompetitionConfig>(motorController, configTimeout);
+          break;
+        case argos_lib::RobotInstance::Practice:
+          return TalonSRXConfig<PracticeConfig>(motorController, configTimeout);
+          break;
+      }
+      return false;
     }
 
   }  // namespace talonsrx_config

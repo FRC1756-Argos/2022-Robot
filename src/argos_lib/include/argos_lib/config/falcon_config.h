@@ -9,6 +9,7 @@
 
 #include <iostream>
 
+#include "argos_lib/config/robot_instance.h"
 #include "compile_time_member_check.h"
 #include "ctre/Phoenix.h"
 #include "status_frame_config.h"
@@ -236,6 +237,32 @@ namespace argos_lib {
       }
 
       return 0 != retVal;
+    }
+
+    /**
+     * @brief Configures a CTRE Falcon with configuration values according to specified robot instance.
+     *
+     * @tparam CompetitionConfig Configurations to use in competition robot instance
+     * @tparam PracticeConfig Configurations to use in practice robot instance
+     * @param motorController Falcon object to configure
+     * @param configTimeout Time to wait for response from Falcon
+     * @param instance Robot instance to use
+     * @return true Configuration succeeded
+     * @return false Configuration failed
+     */
+    template <typename CompetitionConfig, typename PracticeConfig>
+    bool FalconConfig(WPI_TalonFX& motorController,
+                      units::millisecond_t configTimeout,
+                      argos_lib::RobotInstance instance) {
+      switch (instance) {
+        case argos_lib::RobotInstance::Competition:
+          return FalconConfig<CompetitionConfig>(motorController, configTimeout);
+          break;
+        case argos_lib::RobotInstance::Practice:
+          return FalconConfig<PracticeConfig>(motorController, configTimeout);
+          break;
+      }
+      return false;
     }
 
   }  // namespace falcon_config
