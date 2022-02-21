@@ -1,6 +1,6 @@
 var class_shooter_subsystem =
 [
-    [ "ShooterSubsystem", "class_shooter_subsystem.html#a06b6b7bd9ec8caebd7202fcce1507496", null ],
+    [ "ShooterSubsystem", "class_shooter_subsystem.html#a27e20185066dced17ea2521972794efb", null ],
     [ "AutoAim", "class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3", null ],
     [ "CloseLoopShoot", "class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1", null ],
     [ "Disable", "class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e", null ],

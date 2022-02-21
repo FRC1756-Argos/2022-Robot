@@ -56,5 +56,6 @@ var namespaceargos__lib_1_1falcon__config =
     [ "has_supplyCurrentThresholdTime< T, decltype((void) T::supplyCurrentThresholdTime, void())>", "structargos__lib_1_1falcon__config_1_1has__supply_current_threshold_time_3_01_t_00_01decltype_07dac03662948ed0111c64fc19d499116c.html", null ],
     [ "has_voltCompSat", "structargos__lib_1_1falcon__config_1_1has__volt_comp_sat.html", null ],
     [ "has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1falcon__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_t_ff539066508b6bf78d1739e6e53840e9.html", null ],
-    [ "FalconConfig", "namespaceargos__lib_1_1falcon__config.html#ad61653d44b07300a67ca2f3afa116f3e", null ]
+    [ "FalconConfig", "namespaceargos__lib_1_1falcon__config.html#ad61653d44b07300a67ca2f3afa116f3e", null ],
+    [ "FalconConfig", "namespaceargos__lib_1_1falcon__config.html#aa4173ae88db5e214c1deadbab92476ee", null ]
 ];

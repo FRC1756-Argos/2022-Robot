@@ -118,27 +118,37 @@ var annotated_dup =
       [ "XboxController", "classargos__lib_1_1_xbox_controller.html", "classargos__lib_1_1_xbox_controller" ]
     ] ],
     [ "motorConfig", "namespacemotor_config.html", [
-      [ "climber", "namespacemotor_config_1_1climber.html", [
-        [ "liftLeft", "structmotor_config_1_1climber_1_1lift_left.html", "structmotor_config_1_1climber_1_1lift_left" ],
-        [ "liftRight", "structmotor_config_1_1climber_1_1lift_right.html", "structmotor_config_1_1climber_1_1lift_right" ],
-        [ "moveHook", "structmotor_config_1_1climber_1_1move_hook.html", "structmotor_config_1_1climber_1_1move_hook" ]
+      [ "comp_bot", "namespacemotor_config_1_1comp__bot.html", [
+        [ "climber", "namespacemotor_config_1_1comp__bot_1_1climber.html", [
+          [ "liftLeft", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_left" ],
+          [ "liftRight", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_right.html", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_right" ],
+          [ "moveHook", "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html", "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook" ]
+        ] ],
+        [ "drive", "namespacemotor_config_1_1comp__bot_1_1drive.html", [
+          [ "backLeftTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_left_turn.html", "structmotor_config_1_1comp__bot_1_1drive_1_1back_left_turn" ],
+          [ "backRightTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html", "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn" ],
+          [ "frontLeftTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html", "structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn" ],
+          [ "frontRightTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn" ],
+          [ "genericDrive", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive" ]
+        ] ],
+        [ "intake", "namespacemotor_config_1_1comp__bot_1_1intake.html", [
+          [ "beltDrive", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive" ],
+          [ "intakeDrive", "structmotor_config_1_1comp__bot_1_1intake_1_1intake_drive.html", "structmotor_config_1_1comp__bot_1_1intake_1_1intake_drive" ]
+        ] ],
+        [ "shooter", "namespacemotor_config_1_1comp__bot_1_1shooter.html", [
+          [ "hoodMotor", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor" ],
+          [ "shooterWheelLeft", "structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_left.html", "structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_left" ],
+          [ "shooterWheelRight", "structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_right.html", "structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_right" ],
+          [ "turretMotor", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor" ]
+        ] ]
       ] ],
-      [ "drive", "namespacemotor_config_1_1drive.html", [
-        [ "backLeftTurn", "structmotor_config_1_1drive_1_1back_left_turn.html", "structmotor_config_1_1drive_1_1back_left_turn" ],
-        [ "backRightTurn", "structmotor_config_1_1drive_1_1back_right_turn.html", "structmotor_config_1_1drive_1_1back_right_turn" ],
-        [ "frontLeftTurn", "structmotor_config_1_1drive_1_1front_left_turn.html", "structmotor_config_1_1drive_1_1front_left_turn" ],
-        [ "frontRightTurn", "structmotor_config_1_1drive_1_1front_right_turn.html", "structmotor_config_1_1drive_1_1front_right_turn" ],
-        [ "genericDrive", "structmotor_config_1_1drive_1_1generic_drive.html", "structmotor_config_1_1drive_1_1generic_drive" ]
-      ] ],
-      [ "intake", "namespacemotor_config_1_1intake.html", [
-        [ "beltDrive", "structmotor_config_1_1intake_1_1belt_drive.html", "structmotor_config_1_1intake_1_1belt_drive" ],
-        [ "intakeDrive", "structmotor_config_1_1intake_1_1intake_drive.html", "structmotor_config_1_1intake_1_1intake_drive" ]
-      ] ],
-      [ "shooter", "namespacemotor_config_1_1shooter.html", [
-        [ "hoodMotor", "structmotor_config_1_1shooter_1_1hood_motor.html", "structmotor_config_1_1shooter_1_1hood_motor" ],
-        [ "shooterWheelLeft", "structmotor_config_1_1shooter_1_1shooter_wheel_left.html", "structmotor_config_1_1shooter_1_1shooter_wheel_left" ],
-        [ "shooterWheelRight", "structmotor_config_1_1shooter_1_1shooter_wheel_right.html", "structmotor_config_1_1shooter_1_1shooter_wheel_right" ],
-        [ "turretMotor", "structmotor_config_1_1shooter_1_1turret_motor.html", "structmotor_config_1_1shooter_1_1turret_motor" ]
+      [ "practice_bot", "namespacemotor_config_1_1practice__bot.html", [
+        [ "intake", "namespacemotor_config_1_1practice__bot_1_1intake.html", [
+          [ "intakeDrive", "structmotor_config_1_1practice__bot_1_1intake_1_1intake_drive.html", "structmotor_config_1_1practice__bot_1_1intake_1_1intake_drive" ]
+        ] ],
+        [ "shooter", "namespacemotor_config_1_1practice__bot_1_1shooter.html", [
+          [ "hoodMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html", "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor" ]
+        ] ]
       ] ]
     ] ],
     [ "CameraInterface", "class_camera_interface.html", "class_camera_interface" ],

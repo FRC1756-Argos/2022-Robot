@@ -155,10 +155,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a74630ad5eec9e25a58e71810fc317b4d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1talonsrx__config.html#a74630ad5eec9e25a58e71810fc317b4d">TalonSRXConfig</a> (WPI_TalonSRX &amp;motorController, units::millisecond_t configTimeout)</td></tr>
 <tr class="memdesc:a74630ad5eec9e25a58e71810fc317b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures a CTRE TalonSRX with only the fields provided. All other fields are given the factory default values.  <a href="namespaceargos__lib_1_1talonsrx__config.html#a74630ad5eec9e25a58e71810fc317b4d">More...</a><br /></td></tr>
 <tr class="separator:a74630ad5eec9e25a58e71810fc317b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998aa6c443ce3cd76042c08e49620ff5"><td class="memTemplParams" colspan="2">template&lt;typename CompetitionConfig , typename PracticeConfig &gt; </td></tr>
+<tr class="memitem:a998aa6c443ce3cd76042c08e49620ff5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1talonsrx__config.html#a998aa6c443ce3cd76042c08e49620ff5">TalonSRXConfig</a> (WPI_TalonSRX &amp;motorController, units::millisecond_t configTimeout, <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance)</td></tr>
+<tr class="memdesc:a998aa6c443ce3cd76042c08e49620ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures a CTRE TalonSRX with configuration values according to specified robot instance.  <a href="namespaceargos__lib_1_1talonsrx__config.html#a998aa6c443ce3cd76042c08e49620ff5">More...</a><br /></td></tr>
+<tr class="separator:a998aa6c443ce3cd76042c08e49620ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a74630ad5eec9e25a58e71810fc317b4d" name="a74630ad5eec9e25a58e71810fc317b4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74630ad5eec9e25a58e71810fc317b4d">&#9670;&nbsp;</a></span>TalonSRXConfig()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a74630ad5eec9e25a58e71810fc317b4d">&#9670;&nbsp;</a></span>TalonSRXConfig() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,6 +216,62 @@ template&lt;typename T &gt; </div>
   <table class="params">
     <tr><td class="paramname">motorController</td><td>TalonSRX object to configure </td></tr>
     <tr><td class="paramname">configTimeout</td><td>Time to wait for response from TalonSRX </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true Configuration succeeded </dd>
+<dd>
+false Configuration failed </dd></dl>
+
+</div>
+</div>
+<a id="a998aa6c443ce3cd76042c08e49620ff5" name="a998aa6c443ce3cd76042c08e49620ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a998aa6c443ce3cd76042c08e49620ff5">&#9670;&nbsp;</a></span>TalonSRXConfig() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CompetitionConfig , typename PracticeConfig &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool argos_lib::talonsrx_config::TalonSRXConfig </td>
+          <td>(</td>
+          <td class="paramtype">WPI_TalonSRX &amp;&#160;</td>
+          <td class="paramname"><em>motorController</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">units::millisecond_t&#160;</td>
+          <td class="paramname"><em>configTimeout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a>&#160;</td>
+          <td class="paramname"><em>instance</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configures a CTRE TalonSRX with configuration values according to specified robot instance. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CompetitionConfig</td><td>Configurations to use in competition robot instance </td></tr>
+    <tr><td class="paramname">PracticeConfig</td><td>Configurations to use in practice robot instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motorController</td><td>TalonSRX object to configure </td></tr>
+    <tr><td class="paramname">configTimeout</td><td>Time to wait for response from TalonSRX </td></tr>
+    <tr><td class="paramname">instance</td><td><a class="el" href="class_robot.html">Robot</a> instance to use </td></tr>
   </table>
   </dd>
 </dl>

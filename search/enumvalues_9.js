@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stop_0',['Stop',['../class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7a11a755d598c0c417f9a36758c3da7481',1,'IntakeSubsystem']]]
+  ['robotcentriccontrol_0',['robotCentricControl',['../class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512ca0166150dc58e9466fe319fbfe750fd15',1,'SwerveDriveSubsystem']]]
 ];

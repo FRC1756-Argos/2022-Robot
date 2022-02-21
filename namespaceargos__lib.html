@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('namespaceargos__lib.html',''); initRes
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">argos_lib Namespace Reference</div></div>
 </div><!--header-->
@@ -144,8 +145,19 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ae908a90a520f4c3aa7ed84f62295418c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">VibrationModel</a> = std::function&lt; <a class="el" href="structargos__lib_1_1_vibration_status.html">VibrationStatus</a>()&gt;</td></tr>
 <tr class="separator:ae908a90a520f4c3aa7ed84f62295418c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a4231c977f4047dcc9edf48b1bd43f51c"><td class="memItemLeft" align="right" valign="top">enum struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">RobotInstance</a> { <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca1bdedea8c6cb664d4dc2f80c4286dd2c">Competition</a>
+, <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca8c004d7e3b8a5a850ab2459c3afc2f57">Practice</a>
+ }</td></tr>
+<tr class="memdesc:a4231c977f4047dcc9edf48b1bd43f51c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Differentiates between practice robot and competition robot.  <a href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">More...</a><br /></td></tr>
+<tr class="separator:a4231c977f4047dcc9edf48b1bd43f51c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a811945cb3eb97c182b7ca11fd143405a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">RobotInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#a811945cb3eb97c182b7ca11fd143405a">GetRobotInstance</a> ()</td></tr>
+<tr class="memdesc:a811945cb3eb97c182b7ca11fd143405a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect robot instance.  <a href="namespaceargos__lib.html#a811945cb3eb97c182b7ca11fd143405a">More...</a><br /></td></tr>
+<tr class="separator:a811945cb3eb97c182b7ca11fd143405a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bdc8d0bc40d923285b6350108692133"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">VibrationModel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#a9bdc8d0bc40d923285b6350108692133">VibrationOff</a> ()</td></tr>
 <tr class="memdesc:a9bdc8d0bc40d923285b6350108692133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn off vibration.  <a href="namespaceargos__lib.html#a9bdc8d0bc40d923285b6350108692133">More...</a><br /></td></tr>
 <tr class="separator:a9bdc8d0bc40d923285b6350108692133"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -195,7 +207,59 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a4231c977f4047dcc9edf48b1bd43f51c" name="a4231c977f4047dcc9edf48b1bd43f51c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4231c977f4047dcc9edf48b1bd43f51c">&#9670;&nbsp;</a></span>RobotInstance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum struct <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Differentiates between practice robot and competition robot. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4231c977f4047dcc9edf48b1bd43f51ca1bdedea8c6cb664d4dc2f80c4286dd2c" name="a4231c977f4047dcc9edf48b1bd43f51ca1bdedea8c6cb664d4dc2f80c4286dd2c"></a>Competition&#160;</td><td class="fielddoc"><p >Competition robot. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4231c977f4047dcc9edf48b1bd43f51ca8c004d7e3b8a5a850ab2459c3afc2f57" name="a4231c977f4047dcc9edf48b1bd43f51ca8c004d7e3b8a5a850ab2459c3afc2f57"></a>Practice&#160;</td><td class="fielddoc"><p >Practice robot. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a811945cb3eb97c182b7ca11fd143405a" name="a811945cb3eb97c182b7ca11fd143405a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a811945cb3eb97c182b7ca11fd143405a">&#9670;&nbsp;</a></span>GetRobotInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> argos_lib::GetRobotInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detect robot instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>RobotInstance</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
+
+</div>
+</div>
 <a id="af83601904c4c880bf312db76eb3dbed2" name="af83601904c4c880bf312db76eb3dbed2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af83601904c4c880bf312db76eb3dbed2">&#9670;&nbsp;</a></span>GetSensorConversionFactor()</h2>
 

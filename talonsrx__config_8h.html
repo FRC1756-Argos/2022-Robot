@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('talonsrx__config_8h.html',''); initRes
 <div class="contents">
 <div class="textblock"><code>#include &lt;units/time.h&gt;</code><br />
 <code>#include &lt;units/voltage.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="robot__instance_8h_source.html">argos_lib/config/robot_instance.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="compile__time__member__check_8h_source.html">compile_time_member_check.h</a>&quot;</code><br />
 <code>#include &quot;ctre/Phoenix.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="status__frame__config_8h_source.html">status_frame_config.h</a>&quot;</code><br />
@@ -170,6 +171,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a74630ad5eec9e25a58e71810fc317b4d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1talonsrx__config.html#a74630ad5eec9e25a58e71810fc317b4d">argos_lib::talonsrx_config::TalonSRXConfig</a> (WPI_TalonSRX &amp;motorController, units::millisecond_t configTimeout)</td></tr>
 <tr class="memdesc:a74630ad5eec9e25a58e71810fc317b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures a CTRE TalonSRX with only the fields provided. All other fields are given the factory default values.  <a href="namespaceargos__lib_1_1talonsrx__config.html#a74630ad5eec9e25a58e71810fc317b4d">More...</a><br /></td></tr>
 <tr class="separator:a74630ad5eec9e25a58e71810fc317b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998aa6c443ce3cd76042c08e49620ff5"><td class="memTemplParams" colspan="2">template&lt;typename CompetitionConfig , typename PracticeConfig &gt; </td></tr>
+<tr class="memitem:a998aa6c443ce3cd76042c08e49620ff5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1talonsrx__config.html#a998aa6c443ce3cd76042c08e49620ff5">argos_lib::talonsrx_config::TalonSRXConfig</a> (WPI_TalonSRX &amp;motorController, units::millisecond_t configTimeout, <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance)</td></tr>
+<tr class="memdesc:a998aa6c443ce3cd76042c08e49620ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures a CTRE TalonSRX with configuration values according to specified robot instance.  <a href="namespaceargos__lib_1_1talonsrx__config.html#a998aa6c443ce3cd76042c08e49620ff5">More...</a><br /></td></tr>
+<tr class="separator:a998aa6c443ce3cd76042c08e49620ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

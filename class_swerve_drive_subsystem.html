@@ -119,8 +119,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6d578b7549e45263994a638479fcb07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ad6d578b7549e45263994a638479fcb07">SwerveDriveSubsystem</a> (std::shared_ptr&lt; <a class="el" href="class_network_tables_wrapper.html">NetworkTablesWrapper</a> &gt; networkTable)</td></tr>
-<tr class="separator:ad6d578b7549e45263994a638479fcb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2093667e7073a107d596b4b4a2f573d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a2093667e7073a107d596b4b4a2f573d3">SwerveDriveSubsystem</a> (std::shared_ptr&lt; <a class="el" href="class_network_tables_wrapper.html">NetworkTablesWrapper</a> &gt; networkTable, const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance)</td></tr>
+<tr class="separator:a2093667e7073a107d596b4b4a2f573d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e93abce8d02b2acd1f3b020ad919e57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a1e93abce8d02b2acd1f3b020ad919e57">SwerveDrive</a> (const double &amp;fwVelocity, const double &amp;sideVelocity, const double &amp;rotVelocity)</td></tr>
 <tr class="memdesc:a1e93abce8d02b2acd1f3b020ad919e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main drive function for the robot.  <a href="class_swerve_drive_subsystem.html#a1e93abce8d02b2acd1f3b020ad919e57">More...</a><br /></td></tr>
 <tr class="separator:a1e93abce8d02b2acd1f3b020ad919e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -208,8 +208,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad6d578b7549e45263994a638479fcb07" name="ad6d578b7549e45263994a638479fcb07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6d578b7549e45263994a638479fcb07">&#9670;&nbsp;</a></span>SwerveDriveSubsystem()</h2>
+<a id="a2093667e7073a107d596b4b4a2f573d3" name="a2093667e7073a107d596b4b4a2f573d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2093667e7073a107d596b4b4a2f573d3">&#9670;&nbsp;</a></span>SwerveDriveSubsystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,8 +221,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">SwerveDriveSubsystem::SwerveDriveSubsystem </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_network_tables_wrapper.html">NetworkTablesWrapper</a> &gt;&#160;</td>
-          <td class="paramname"><em>networkTable</em></td><td>)</td>
+          <td class="paramname"><em>networkTable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a>&#160;</td>
+          <td class="paramname"><em>instance</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -546,7 +556,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>switch to argosLib optimize functions in time (create overload for meters per second?) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Convert sensor velocities for optimizer instead of constants </dd></dl>
 
 </div>
 </div>

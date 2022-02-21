@@ -5,7 +5,7 @@ var class_intake_subsystem =
       [ "Intaking", "class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7a50ab33317386710725c02921307f769e", null ],
       [ "Outtaking", "class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7a41d4c71faaf9ec2d1d9883df8540e77c", null ]
     ] ],
-    [ "IntakeSubsystem", "class_intake_subsystem.html#a2990eeb8455a557ec9a757072e93f1b9", null ],
+    [ "IntakeSubsystem", "class_intake_subsystem.html#a73cfb9b735bde4d8e48fb03c361988ea", null ],
     [ "DumpBall", "class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9", null ],
     [ "ElevatorCycle", "class_intake_subsystem.html#a4c82c6b334407b2d13bd29b78ee5b62e", null ],
     [ "getBallPresentIntake", "class_intake_subsystem.html#a161e42195b5339736dedbca4a6a62cf7", null ],
@@ -13,7 +13,9 @@ var class_intake_subsystem =
     [ "getIsBallTeamColor", "class_intake_subsystem.html#adce433404ce688264082d01aa2b60980", null ],
     [ "Intake", "class_intake_subsystem.html#a9b1cffda4410f7bfaff4d8ab4e8fe89a", null ],
     [ "Periodic", "class_intake_subsystem.html#ad2ccc2c89807a28001aa2c8d3bdc9bed", null ],
+    [ "Shoot", "class_intake_subsystem.html#afbe996c1e7c8ebb04df1bc437cbd8ce9", null ],
     [ "StopIntake", "class_intake_subsystem.html#ad65167420b56ea554183d6e6fd81e95e", null ],
+    [ "StopShoot", "class_intake_subsystem.html#af5abc0a3db0b4bbc030d401f0302bd8d", null ],
     [ "m_ballColor", "class_intake_subsystem.html#ab7735ed9a8c4a30123bcd5ab9e776453", null ],
     [ "m_ballPresentIntake", "class_intake_subsystem.html#aeddac30d1e8ac8fa744e66dc9f03e0c7", null ],
     [ "m_ballPresentShooter", "class_intake_subsystem.html#a6fd58051a0f0f78b3becabfeaf515b13", null ],

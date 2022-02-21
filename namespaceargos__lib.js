@@ -32,6 +32,11 @@ var namespaceargos__lib =
     [ "VibrationStatus", "structargos__lib_1_1_vibration_status.html", "structargos__lib_1_1_vibration_status" ],
     [ "XboxController", "classargos__lib_1_1_xbox_controller.html", "classargos__lib_1_1_xbox_controller" ],
     [ "VibrationModel", "namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c", null ],
+    [ "RobotInstance", "namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c", [
+      [ "Competition", "namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca1bdedea8c6cb664d4dc2f80c4286dd2c", null ],
+      [ "Practice", "namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca8c004d7e3b8a5a850ab2459c3afc2f57", null ]
+    ] ],
+    [ "GetRobotInstance", "namespaceargos__lib.html#a811945cb3eb97c182b7ca11fd143405a", null ],
     [ "GetSensorConversionFactor", "namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2", null ],
     [ "operator<", "namespaceargos__lib.html#a8ed2d3f18efcdd9aa1e5b19535e380aa", null ],
     [ "operator<", "namespaceargos__lib.html#a6ce4f96310a8fed0c43bba8c5cdb31f1", null ],

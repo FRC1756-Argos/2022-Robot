@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('falcon__config_8h.html',''); initResiz
 <div class="textblock"><code>#include &lt;units/current.h&gt;</code><br />
 <code>#include &lt;units/time.h&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;<a class="el" href="robot__instance_8h_source.html">argos_lib/config/robot_instance.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="compile__time__member__check_8h_source.html">compile_time_member_check.h</a>&quot;</code><br />
 <code>#include &quot;ctre/Phoenix.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="status__frame__config_8h_source.html">status_frame_config.h</a>&quot;</code><br />
@@ -227,6 +228,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ad61653d44b07300a67ca2f3afa116f3e"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1falcon__config.html#ad61653d44b07300a67ca2f3afa116f3e">argos_lib::falcon_config::FalconConfig</a> (TalonFX &amp;motorController, units::millisecond_t configTimeout)</td></tr>
 <tr class="memdesc:ad61653d44b07300a67ca2f3afa116f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures a CTRE Falcon with only the fields provided. All other fields are given the factory default values.  <a href="namespaceargos__lib_1_1falcon__config.html#ad61653d44b07300a67ca2f3afa116f3e">More...</a><br /></td></tr>
 <tr class="separator:ad61653d44b07300a67ca2f3afa116f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4173ae88db5e214c1deadbab92476ee"><td class="memTemplParams" colspan="2">template&lt;typename CompetitionConfig , typename PracticeConfig &gt; </td></tr>
+<tr class="memitem:aa4173ae88db5e214c1deadbab92476ee"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1falcon__config.html#aa4173ae88db5e214c1deadbab92476ee">argos_lib::falcon_config::FalconConfig</a> (WPI_TalonFX &amp;motorController, units::millisecond_t configTimeout, <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance)</td></tr>
+<tr class="memdesc:aa4173ae88db5e214c1deadbab92476ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures a CTRE Falcon with configuration values according to specified robot instance.  <a href="namespaceargos__lib_1_1falcon__config.html#aa4173ae88db5e214c1deadbab92476ee">More...</a><br /></td></tr>
+<tr class="separator:aa4173ae88db5e214c1deadbab92476ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

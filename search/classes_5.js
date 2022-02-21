@@ -67,7 +67,7 @@ var searchData=
   ['homehoodcommand_64',['HomeHoodCommand',['../class_home_hood_command.html',1,'']]],
   ['homingstorageinterface_65',['HomingStorageInterface',['../class_homing_storage_interface.html',1,'']]],
   ['homingstorageinterface_3c_20units_3a_3adegree_5ft_20_3e_66',['HomingStorageInterface&lt; units::degree_t &gt;',['../class_homing_storage_interface.html',1,'']]],
-  ['hoodmotor_67',['hoodMotor',['../structmotor_config_1_1shooter_1_1hood_motor.html',1,'motorConfig::shooter']]],
+  ['hoodmotor_67',['hoodMotor',['../structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::comp_bot::shooter::hoodMotor'],['../structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::practice_bot::shooter::hoodMotor']]],
   ['hysteresisfilter_68',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]],
   ['hysteresisfilter_3c_20units_3a_3ainch_5ft_20_3e_69',['HysteresisFilter&lt; units::inch_t &gt;',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
 ];

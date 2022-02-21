@@ -110,8 +110,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2990eeb8455a557ec9a757072e93f1b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a2990eeb8455a557ec9a757072e93f1b9">IntakeSubsystem</a> ()</td></tr>
-<tr class="separator:a2990eeb8455a557ec9a757072e93f1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73cfb9b735bde4d8e48fb03c361988ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a73cfb9b735bde4d8e48fb03c361988ea">IntakeSubsystem</a> (const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance)</td></tr>
+<tr class="separator:a73cfb9b735bde4d8e48fb03c361988ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a161e42195b5339736dedbca4a6a62cf7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a161e42195b5339736dedbca4a6a62cf7">getBallPresentIntake</a> ()</td></tr>
 <tr class="memdesc:a161e42195b5339736dedbca4a6a62cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether ball is present at intake.  <a href="class_intake_subsystem.html#a161e42195b5339736dedbca4a6a62cf7">More...</a><br /></td></tr>
 <tr class="separator:a161e42195b5339736dedbca4a6a62cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,6 +132,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6cc7f02d931d549824c96b35cadb37f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9">DumpBall</a> ()</td></tr>
 <tr class="memdesc:a6cc7f02d931d549824c96b35cadb37f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the intake to dump balls.  <a href="class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9">More...</a><br /></td></tr>
 <tr class="separator:a6cc7f02d931d549824c96b35cadb37f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe996c1e7c8ebb04df1bc437cbd8ce9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#afbe996c1e7c8ebb04df1bc437cbd8ce9">Shoot</a> ()</td></tr>
+<tr class="memdesc:afbe996c1e7c8ebb04df1bc437cbd8ce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shoots ball.  <a href="class_intake_subsystem.html#afbe996c1e7c8ebb04df1bc437cbd8ce9">More...</a><br /></td></tr>
+<tr class="separator:afbe996c1e7c8ebb04df1bc437cbd8ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5abc0a3db0b4bbc030d401f0302bd8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#af5abc0a3db0b4bbc030d401f0302bd8d">StopShoot</a> ()</td></tr>
+<tr class="memdesc:af5abc0a3db0b4bbc030d401f0302bd8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop shooter.  <a href="class_intake_subsystem.html#af5abc0a3db0b4bbc030d401f0302bd8d">More...</a><br /></td></tr>
+<tr class="separator:af5abc0a3db0b4bbc030d401f0302bd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c82c6b334407b2d13bd29b78ee5b62e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a4c82c6b334407b2d13bd29b78ee5b62e">ElevatorCycle</a> (bool direction, bool cycleLength)</td></tr>
 <tr class="memdesc:a4c82c6b334407b2d13bd29b78ee5b62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cycle the elevator to load or dump balls.  <a href="class_intake_subsystem.html#a4c82c6b334407b2d13bd29b78ee5b62e">More...</a><br /></td></tr>
 <tr class="separator:a4c82c6b334407b2d13bd29b78ee5b62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,19 +204,28 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2990eeb8455a557ec9a757072e93f1b9" name="a2990eeb8455a557ec9a757072e93f1b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2990eeb8455a557ec9a757072e93f1b9">&#9670;&nbsp;</a></span>IntakeSubsystem()</h2>
+<a id="a73cfb9b735bde4d8e48fb03c361988ea" name="a73cfb9b735bde4d8e48fb03c361988ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73cfb9b735bde4d8e48fb03c361988ea">&#9670;&nbsp;</a></span>IntakeSubsystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">IntakeSubsystem::IntakeSubsystem </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a>&#160;</td>
+          <td class="paramname"><em>instance</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
 
@@ -386,6 +401,25 @@ false - Ball is not team color </dd></dl>
 
 </div>
 </div>
+<a id="afbe996c1e7c8ebb04df1bc437cbd8ce9" name="afbe996c1e7c8ebb04df1bc437cbd8ce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe996c1e7c8ebb04df1bc437cbd8ce9">&#9670;&nbsp;</a></span>Shoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntakeSubsystem::Shoot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shoots ball. </p>
+
+</div>
+</div>
 <a id="ad65167420b56ea554183d6e6fd81e95e" name="ad65167420b56ea554183d6e6fd81e95e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad65167420b56ea554183d6e6fd81e95e">&#9670;&nbsp;</a></span>StopIntake()</h2>
 
@@ -402,6 +436,25 @@ false - Ball is not team color </dd></dl>
 </div><div class="memdoc">
 
 <p>Retracts intake. Does not run rollers. </p>
+
+</div>
+</div>
+<a id="af5abc0a3db0b4bbc030d401f0302bd8d" name="af5abc0a3db0b4bbc030d401f0302bd8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5abc0a3db0b4bbc030d401f0302bd8d">&#9670;&nbsp;</a></span>StopShoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntakeSubsystem::StopShoot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stop shooter. </p>
 
 </div>
 </div>

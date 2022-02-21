@@ -13,6 +13,7 @@ var class_robot_container =
     [ "m_hoodSpeedMap", "class_robot_container.html#a1b6b20300d96ead5ac31340755fa78e5", null ],
     [ "m_hoodTargetPosition", "class_robot_container.html#adb8f702b4b868e7a3e6f894c46e9fe79", null ],
     [ "m_hookSpeedMap", "class_robot_container.html#a71ffe266d0767ce2c4246260dcc397f8", null ],
+    [ "m_instance", "class_robot_container.html#afd2859ab3437ff8d2dd70229095f1ff1", null ],
     [ "m_intake", "class_robot_container.html#ac524c1d088a263a7e25bb54ba7b8dbc5", null ],
     [ "m_NTMonitor", "class_robot_container.html#a00647f527c4b05f66579e22fd5b69241", null ],
     [ "m_pNetworkTable", "class_robot_container.html#a43a550b672298335ae731ad63e20a201", null ],
