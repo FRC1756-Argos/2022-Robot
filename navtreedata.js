@@ -67,8 +67,8 @@ var NAVTREEINDEX =
 "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a04d2e12d61fecb0bfab6d9456b9d5101",
 "namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a55c15f15e91a212907cd98d7939a8db6",
 "structargos__lib_1_1_interp_map_point.html",
-"structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#acb808c5c6b95681271d626186f58ac84",
-"structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_left.html#a2e9316288ca99cf7ea846729beca2b37"
+"structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#a3a61ba314fb4af8dad7bf4eefa9d1bd6",
+"structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a6cfd0519fc4c4775713fee3793cc4cd2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

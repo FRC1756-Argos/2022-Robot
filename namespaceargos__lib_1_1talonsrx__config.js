@@ -1,9 +1,15 @@
 var namespaceargos__lib_1_1talonsrx__config =
 [
+    [ "has_continuousCurrentLimit", "structargos__lib_1_1talonsrx__config_1_1has__continuous_current_limit.html", null ],
+    [ "has_continuousCurrentLimit< T, decltype((void) T::continuousCurrentLimit, void())>", "structargos__lib_1_1talonsrx__config_1_1has__continuous_current_limit_3_01_t_00_01decltype_07_07e9620060a5cb4766114183f43e7a3c15.html", null ],
     [ "has_inverted", "structargos__lib_1_1talonsrx__config_1_1has__inverted.html", null ],
     [ "has_inverted< T, decltype((void) T::inverted, void())>", "structargos__lib_1_1talonsrx__config_1_1has__inverted_3_01_t_00_01decltype_07_07void_08_01_t_1_1inverted_00_01void_07_08_08_4.html", null ],
     [ "has_neutralMode", "structargos__lib_1_1talonsrx__config_1_1has__neutral_mode.html", null ],
     [ "has_neutralMode< T, decltype((void) T::neutralMode, void())>", "structargos__lib_1_1talonsrx__config_1_1has__neutral_mode_3_01_t_00_01decltype_07_07void_08_01_t835aaf6e014b6e63da745c895a8c0b11.html", null ],
+    [ "has_peakCurrentDuration", "structargos__lib_1_1talonsrx__config_1_1has__peak_current_duration.html", null ],
+    [ "has_peakCurrentDuration< T, decltype((void) T::peakCurrentDuration, void())>", "structargos__lib_1_1talonsrx__config_1_1has__peak_current_duration_3_01_t_00_01decltype_07_07voi2457400402699398aaa153781132c408.html", null ],
+    [ "has_peakCurrentLimit", "structargos__lib_1_1talonsrx__config_1_1has__peak_current_limit.html", null ],
+    [ "has_peakCurrentLimit< T, decltype((void) T::peakCurrentLimit, void())>", "structargos__lib_1_1talonsrx__config_1_1has__peak_current_limit_3_01_t_00_01decltype_07_07void_0db8907e3ba67f8de3b90a48d5759ccf8.html", null ],
     [ "has_pid0_allowableError", "structargos__lib_1_1talonsrx__config_1_1has__pid0__allowable_error.html", null ],
     [ "has_pid0_allowableError< T, decltype((void) T::pid0_allowableError, void())>", "structargos__lib_1_1talonsrx__config_1_1has__pid0__allowable_error_3_01_t_00_01decltype_07_07voi5493ef1e2db98309090f19c7439edbd9.html", null ],
     [ "has_pid0_iZone", "structargos__lib_1_1talonsrx__config_1_1has__pid0__i_zone.html", null ],

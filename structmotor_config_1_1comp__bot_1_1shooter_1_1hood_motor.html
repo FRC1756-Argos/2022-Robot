@@ -106,6 +106,12 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:ac59a503137df3dfe233f4ee15f62e114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cfd0519fc4c4775713fee3793cc4cd2"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a6cfd0519fc4c4775713fee3793cc4cd2">statusFrameMotorMode</a> = <a class="el" href="namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a972e73b7a882d0802a4e3a16946a2f94">argos_lib::status_frame_config::MotorPresetMode::Basic</a></td></tr>
 <tr class="separator:a6cfd0519fc4c4775713fee3793cc4cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80929c513f7e8941e0864c09347da272"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a80929c513f7e8941e0864c09347da272">peakCurrentLimit</a> = 30_A</td></tr>
+<tr class="separator:a80929c513f7e8941e0864c09347da272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c93ae5e85b3382c8ff3237881454a71"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a6c93ae5e85b3382c8ff3237881454a71">peakCurrentDuration</a> = 1_s</td></tr>
+<tr class="separator:a6c93ae5e85b3382c8ff3237881454a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a991b89858020ecb31fef459ec9750370"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a991b89858020ecb31fef459ec9750370">continuousCurrentLimit</a> = 20_A</td></tr>
+<tr class="separator:a991b89858020ecb31fef459ec9750370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fdbf46f6572c78494798e9f512a4f8f"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a6fdbf46f6572c78494798e9f512a4f8f">pid0_selectedSensor</a></td></tr>
 <tr class="separator:a6fdbf46f6572c78494798e9f512a4f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af85d54e87bd9efcd4d8ae627f46966dd"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#af85d54e87bd9efcd4d8ae627f46966dd">pid0_kP</a> = <a class="el" href="namespacecontrol_loop_1_1shooter_1_1hood.html#aa90663d1beabba5969ae560e971adb8d">controlLoop::shooter::hood::kP</a></td></tr>
@@ -122,6 +128,28 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a47b3273da8191668bd6fae72c60d20e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a991b89858020ecb31fef459ec9750370" name="a991b89858020ecb31fef459ec9750370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a991b89858020ecb31fef459ec9750370">&#9670;&nbsp;</a></span>continuousCurrentLimit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::comp_bot::shooter::hoodMotor::continuousCurrentLimit = 20_A</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a922947672eb858e8b01d5be6554b578d" name="a922947672eb858e8b01d5be6554b578d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a922947672eb858e8b01d5be6554b578d">&#9670;&nbsp;</a></span>inverted</h2>
 
@@ -177,6 +205,50 @@ Static Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">constexpr auto motorConfig::comp_bot::shooter::hoodMotor::neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c93ae5e85b3382c8ff3237881454a71" name="a6c93ae5e85b3382c8ff3237881454a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c93ae5e85b3382c8ff3237881454a71">&#9670;&nbsp;</a></span>peakCurrentDuration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::comp_bot::shooter::hoodMotor::peakCurrentDuration = 1_s</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a80929c513f7e8941e0864c09347da272" name="a80929c513f7e8941e0864c09347da272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80929c513f7e8941e0864c09347da272">&#9670;&nbsp;</a></span>peakCurrentLimit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto motorConfig::comp_bot::shooter::hoodMotor::peakCurrentLimit = 30_A</td>
         </tr>
       </table>
   </td>

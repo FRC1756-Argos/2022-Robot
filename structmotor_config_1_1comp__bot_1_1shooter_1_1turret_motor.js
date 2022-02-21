@@ -1,8 +1,11 @@
 var structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor =
 [
+    [ "continuousCurrentLimit", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a018a29af4c452bc294e9a0554c08862c", null ],
     [ "inverted", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a39df7aee64123fd4aaface775faa7f8b", null ],
     [ "neutralDeadband", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a60cebac9c892c84f05aaed3c8f370555", null ],
     [ "neutralMode", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a2d2c03e017b6fd473f63a9d707294bd4", null ],
+    [ "peakCurrentDuration", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#ab30f5aa9645107b14b0f7ecdd78d56f8", null ],
+    [ "peakCurrentLimit", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#aa4238473b1f44b82277a9f953539b7eb", null ],
     [ "pid0_allowableError", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a3e91f1f2dff7d6527e1815c3307b94ac", null ],
     [ "pid0_iZone", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#ae84fc416e36b2dbd17c58779f1034b28", null ],
     [ "pid0_kD", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#ab3f882266ec15f48616610bb20576b86", null ],

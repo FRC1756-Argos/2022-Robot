@@ -1,8 +1,11 @@
 var structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor =
 [
+    [ "continuousCurrentLimit", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a991b89858020ecb31fef459ec9750370", null ],
     [ "inverted", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a922947672eb858e8b01d5be6554b578d", null ],
     [ "neutralDeadband", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a00261adcba1838531f2df88ed72a7a1d", null ],
     [ "neutralMode", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a91847f934c9bfce6014c1d6063efc177", null ],
+    [ "peakCurrentDuration", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a6c93ae5e85b3382c8ff3237881454a71", null ],
+    [ "peakCurrentLimit", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a80929c513f7e8941e0864c09347da272", null ],
     [ "pid0_allowableError", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a47b3273da8191668bd6fae72c60d20e2", null ],
     [ "pid0_iZone", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a0faa5dd352fd2383c275cb5272da6d29", null ],
     [ "pid0_kD", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#add43ab838ed348fb814ffed45c766b57", null ],

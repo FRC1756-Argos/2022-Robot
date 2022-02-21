@@ -28,6 +28,12 @@ var talonsrx__config_8h =
     [ "argos_lib::talonsrx_config::has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ],
     [ "argos_lib::talonsrx_config::has_statusFrameMotorMode< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode.html", null ],
     [ "argos_lib::talonsrx_config::has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07v17e9f7765ec4fa83077c39d6a7c9002a.html", null ],
+    [ "argos_lib::talonsrx_config::has_peakCurrentLimit< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__peak_current_limit.html", null ],
+    [ "argos_lib::talonsrx_config::has_peakCurrentLimit< T, decltype((void) T::peakCurrentLimit, void())>", "structargos__lib_1_1talonsrx__config_1_1has__peak_current_limit_3_01_t_00_01decltype_07_07void_0db8907e3ba67f8de3b90a48d5759ccf8.html", null ],
+    [ "argos_lib::talonsrx_config::has_peakCurrentDuration< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__peak_current_duration.html", null ],
+    [ "argos_lib::talonsrx_config::has_peakCurrentDuration< T, decltype((void) T::peakCurrentDuration, void())>", "structargos__lib_1_1talonsrx__config_1_1has__peak_current_duration_3_01_t_00_01decltype_07_07voi2457400402699398aaa153781132c408.html", null ],
+    [ "argos_lib::talonsrx_config::has_continuousCurrentLimit< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__continuous_current_limit.html", null ],
+    [ "argos_lib::talonsrx_config::has_continuousCurrentLimit< T, decltype((void) T::continuousCurrentLimit, void())>", "structargos__lib_1_1talonsrx__config_1_1has__continuous_current_limit_3_01_t_00_01decltype_07_07e9620060a5cb4766114183f43e7a3c15.html", null ],
     [ "TalonSRXConfig", "talonsrx__config_8h.html#a74630ad5eec9e25a58e71810fc317b4d", null ],
     [ "TalonSRXConfig", "talonsrx__config_8h.html#a998aa6c443ce3cd76042c08e49620ff5", null ]
 ];
