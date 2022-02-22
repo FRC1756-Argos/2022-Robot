@@ -155,7 +155,7 @@ void ShooterSubsystem::TurretSetPosition(units::degree_t angle) {
   if (IsTurretHomed()) {
     m_manualOverride = false;
     m_turretMotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                      sensor_conversions::turret::ToSensorUnit(360_deg-angle));
+                      sensor_conversions::turret::ToSensorUnit(360_deg - angle));
   }
 }
 

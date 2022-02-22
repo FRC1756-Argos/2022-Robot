@@ -130,10 +130,10 @@ namespace argos_lib {
         config.continuousCurrentLimit = std::round(currentLimit.to<double>());
       }
       if constexpr (has_peakOutputForward<T>()) {
-        config.peakOutputForward=T::peakOutputForward;
+        config.peakOutputForward = T::peakOutputForward;
       }
       if constexpr (has_peakOutputReverse<T>()) {
-        config.peakOutputReverse=T::peakOutputReverse;
+        config.peakOutputReverse = T::peakOutputReverse;
       }
 
       if constexpr (has_statusFrameMotorMode<T>()) {
