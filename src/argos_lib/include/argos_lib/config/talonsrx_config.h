@@ -33,7 +33,8 @@ namespace argos_lib {
     HAS_MEMBER(peakCurrentLimit)
     HAS_MEMBER(peakCurrentDuration)
     HAS_MEMBER(continuousCurrentLimit)
-
+    HAS_MEMBER(peakOutputForward)
+    HAS_MEMBER(peakOutputReverse)
     /**
      * @brief Configures a CTRE TalonSRX with only the fields provided.  All other fields
      *        are given the factory default values.
@@ -56,6 +57,8 @@ namespace argos_lib {
      *           - peakCurrentLimit
      *           - peakCurrentDuration
      *           - continuousCurrentLimit
+     *           - peakOutputForward
+     *           - peakOutputReverse
      * @param motorController TalonSRX object to configure
      * @param configTimeout Time to wait for response from TalonSRX
      * @return true Configuration succeeded
@@ -125,6 +128,12 @@ namespace argos_lib {
         constexpr units::ampere_t currentLimit = T::continuousCurrentLimit;
         static_assert(currentLimit.to<double>() > 0, "Current limit must be positive");
         config.continuousCurrentLimit = std::round(currentLimit.to<double>());
+      }
+      if constexpr (has_peakOutputForward<T>()) {
+        config.peakOutputForward = T::peakOutputForward;
+      }
+      if constexpr (has_peakOutputReverse<T>()) {
+        config.peakOutputReverse = T::peakOutputReverse;
       }
 
       if constexpr (has_statusFrameMotorMode<T>()) {

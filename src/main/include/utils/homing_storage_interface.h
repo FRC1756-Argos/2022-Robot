@@ -81,11 +81,6 @@ class FSHomingStorage : public HomingStorageInterface<T> {
       double homePosition;
       configFile >> homePosition;
 
-      if (!configFile.good()) {
-        std::cout << "[ERROR] Could not read from config file\n";
-        success = false;
-      }
-
       configFile.close();
       if (success) {
         return units::make_unit<T>(homePosition);
