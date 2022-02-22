@@ -139,7 +139,7 @@ void ShooterSubsystem::InitializeTurretHome() {
         0_deg,
         360_deg);
     m_turretMotor.SetSelectedSensorPosition(sensor_conversions::turret::ToSensorUnit(
-        360_deg - argos_lib::swerve::ConstrainAngle(currentAngle - homePosition.value(), 0_deg, 360_deg)));
+        argos_lib::swerve::ConstrainAngle(currentAngle - homePosition.value(), 0_deg, 360_deg)));
     m_turretHomed = true;
     SetTurretSoftLimits();
   } else {
@@ -155,7 +155,7 @@ void ShooterSubsystem::TurretSetPosition(units::degree_t angle) {
   if (IsTurretHomed()) {
     m_manualOverride = false;
     m_turretMotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                      sensor_conversions::turret::ToSensorUnit(angle));
+                      sensor_conversions::turret::ToSensorUnit(360_deg-angle));
   }
 }
 

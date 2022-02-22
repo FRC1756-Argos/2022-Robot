@@ -161,6 +161,7 @@ void RobotContainer::ConfigureButtonBindings() {
     return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
   }});
   // aimTrigger.WhenActive([this]() { m_shooter.TurretSetPosition(m_turretTargetPosition); }, {&m_shooter});
+  // aimTrigger.WhenInactive([this]() { m_shooter.MoveTurret(0); }, {&m_shooter});
 
   auto homeTurret = (frc2::Trigger{[this]() {
     return m_controllers.OperatorController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
