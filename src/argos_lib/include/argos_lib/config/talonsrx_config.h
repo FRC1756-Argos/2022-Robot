@@ -4,9 +4,11 @@
 
 #pragma once
 
+#include <units/current.h>
 #include <units/time.h>
 #include <units/voltage.h>
 
+#include "argos_lib/config/robot_instance.h"
 #include "compile_time_member_check.h"
 #include "ctre/Phoenix.h"
 #include "status_frame_config.h"
@@ -28,7 +30,11 @@ namespace argos_lib {
     HAS_MEMBER(sensorPhase)
     HAS_MEMBER(voltCompSat)
     HAS_MEMBER(statusFrameMotorMode)
-
+    HAS_MEMBER(peakCurrentLimit)
+    HAS_MEMBER(peakCurrentDuration)
+    HAS_MEMBER(continuousCurrentLimit)
+    HAS_MEMBER(peakOutputForward)
+    HAS_MEMBER(peakOutputReverse)
     /**
      * @brief Configures a CTRE TalonSRX with only the fields provided.  All other fields
      *        are given the factory default values.
@@ -48,6 +54,11 @@ namespace argos_lib {
      *           - sensorPhase
      *           - voltCompSat
      *           - statusFrameMotorMode
+     *           - peakCurrentLimit
+     *           - peakCurrentDuration
+     *           - continuousCurrentLimit
+     *           - peakOutputForward
+     *           - peakOutputReverse
      * @param motorController TalonSRX object to configure
      * @param configTimeout Time to wait for response from TalonSRX
      * @return true Configuration succeeded
@@ -103,12 +114,59 @@ namespace argos_lib {
       if constexpr (has_pid0_allowableError<T>{}) {
         config.slot0.allowableClosedloopError = T::pid0_allowableError;
       }
+      if constexpr (has_peakCurrentLimit<T>()) {
+        constexpr units::ampere_t currentLimit = T::peakCurrentLimit;
+        static_assert(currentLimit.to<double>() > 0, "Current limit must be positive");
+        config.peakCurrentLimit = std::round(currentLimit.to<double>());
+      }
+      if constexpr (has_peakCurrentDuration<T>()) {
+        constexpr units::millisecond_t currentDuration = T::peakCurrentDuration;
+        static_assert(currentDuration.to<double>() > 0, "Current duration must be positive");
+        config.peakCurrentDuration = std::round(currentDuration.to<double>());
+      }
+      if constexpr (has_continuousCurrentLimit<T>()) {
+        constexpr units::ampere_t currentLimit = T::continuousCurrentLimit;
+        static_assert(currentLimit.to<double>() > 0, "Current limit must be positive");
+        config.continuousCurrentLimit = std::round(currentLimit.to<double>());
+      }
+      if constexpr (has_peakOutputForward<T>()) {
+        config.peakOutputForward = T::peakOutputForward;
+      }
+      if constexpr (has_peakOutputReverse<T>()) {
+        config.peakOutputReverse = T::peakOutputReverse;
+      }
 
       if constexpr (has_statusFrameMotorMode<T>()) {
         argos_lib::status_frame_config::SetMotorStatusFrameRates(motorController, T::statusFrameMotorMode);
       }
 
       return 0 != motorController.ConfigAllSettings(config, timeout);
+    }
+
+    /**
+     * @brief Configures a CTRE TalonSRX with configuration values according to specified robot instance.
+     *
+     * @tparam CompetitionConfig Configurations to use in competition robot instance
+     * @tparam PracticeConfig Configurations to use in practice robot instance
+     * @param motorController TalonSRX object to configure
+     * @param configTimeout Time to wait for response from TalonSRX
+     * @param instance Robot instance to use
+     * @return true Configuration succeeded
+     * @return false Configuration failed
+     */
+    template <typename CompetitionConfig, typename PracticeConfig>
+    bool TalonSRXConfig(WPI_TalonSRX& motorController,
+                        units::millisecond_t configTimeout,
+                        argos_lib::RobotInstance instance) {
+      switch (instance) {
+        case argos_lib::RobotInstance::Competition:
+          return TalonSRXConfig<CompetitionConfig>(motorController, configTimeout);
+          break;
+        case argos_lib::RobotInstance::Practice:
+          return TalonSRXConfig<PracticeConfig>(motorController, configTimeout);
+          break;
+      }
+      return false;
     }
 
   }  // namespace talonsrx_config

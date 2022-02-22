@@ -12,7 +12,7 @@
 #include "units/length.h"
 #include "utils/sensor_conversions.h"
 
-ShooterSubsystem::ShooterSubsystem()
+ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance)
     : m_shooterWheelLeft(address::shooter::shooterWheelLeft)
     , m_shooterWheelRight(address::shooter::shooterWheelRight)
     , m_hoodMotor(address::shooter::hoodMotor)
@@ -45,10 +45,18 @@ ShooterSubsystem::ShooterSubsystem()
                            argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle),
                            1.0,
                            argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle)}} {
-  argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelLeft>(m_shooterWheelLeft, 50_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::shooter::shooterWheelRight>(m_shooterWheelRight, 50_ms);
-  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::hoodMotor>(m_hoodMotor, 50_ms);
-  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::shooter::turretMotor>(m_turretMotor, 50_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::shooter::shooterWheelLeft,
+                                         motorConfig::practice_bot::shooter::shooterWheelLeft>(
+      m_shooterWheelLeft, 50_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::shooter::shooterWheelRight,
+                                         motorConfig::practice_bot::shooter::shooterWheelRight>(
+      m_shooterWheelRight, 50_ms, instance);
+  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::comp_bot::shooter::hoodMotor,
+                                             motorConfig::practice_bot::shooter::hoodMotor>(
+      m_hoodMotor, 50_ms, instance);
+  argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::comp_bot::shooter::turretMotor,
+                                             motorConfig::practice_bot::shooter::turretMotor>(
+      m_turretMotor, 50_ms, instance);
 
   InitializeTurretHome();
 
@@ -148,7 +156,7 @@ void ShooterSubsystem::InitializeTurretHome() {
         0_deg,
         360_deg);
     m_turretMotor.SetSelectedSensorPosition(sensor_conversions::turret::ToSensorUnit(
-        360_deg - argos_lib::swerve::ConstrainAngle(currentAngle - homePosition.value(), 0_deg, 360_deg)));
+        argos_lib::swerve::ConstrainAngle(currentAngle - homePosition.value(), 0_deg, 360_deg)));
     m_turretHomed = true;
     SetTurretSoftLimits();
   } else {
@@ -164,7 +172,7 @@ void ShooterSubsystem::TurretSetPosition(units::degree_t angle) {
   if (IsTurretHomed()) {
     m_manualOverride = false;
     m_turretMotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                      sensor_conversions::turret::ToSensorUnit(angle));
+                      sensor_conversions::turret::ToSensorUnit(360_deg - angle));
   }
 }
 
