@@ -34,6 +34,10 @@ var talonsrx__config_8h =
     [ "argos_lib::talonsrx_config::has_peakCurrentDuration< T, decltype((void) T::peakCurrentDuration, void())>", "structargos__lib_1_1talonsrx__config_1_1has__peak_current_duration_3_01_t_00_01decltype_07_07voi2457400402699398aaa153781132c408.html", null ],
     [ "argos_lib::talonsrx_config::has_continuousCurrentLimit< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__continuous_current_limit.html", null ],
     [ "argos_lib::talonsrx_config::has_continuousCurrentLimit< T, decltype((void) T::continuousCurrentLimit, void())>", "structargos__lib_1_1talonsrx__config_1_1has__continuous_current_limit_3_01_t_00_01decltype_07_07e9620060a5cb4766114183f43e7a3c15.html", null ],
+    [ "argos_lib::talonsrx_config::has_peakOutputForward< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__peak_output_forward.html", null ],
+    [ "argos_lib::talonsrx_config::has_peakOutputForward< T, decltype((void) T::peakOutputForward, void())>", "structargos__lib_1_1talonsrx__config_1_1has__peak_output_forward_3_01_t_00_01decltype_07_07void_ce1393e4ba3aff645158e2468cf2e124.html", null ],
+    [ "argos_lib::talonsrx_config::has_peakOutputReverse< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__peak_output_reverse.html", null ],
+    [ "argos_lib::talonsrx_config::has_peakOutputReverse< T, decltype((void) T::peakOutputReverse, void())>", "structargos__lib_1_1talonsrx__config_1_1has__peak_output_reverse_3_01_t_00_01decltype_07_07void_073517f0314ac977e5b02011a3d9b917.html", null ],
     [ "TalonSRXConfig", "talonsrx__config_8h.html#a74630ad5eec9e25a58e71810fc317b4d", null ],
     [ "TalonSRXConfig", "talonsrx__config_8h.html#a998aa6c443ce3cd76042c08e49620ff5", null ]
 ];

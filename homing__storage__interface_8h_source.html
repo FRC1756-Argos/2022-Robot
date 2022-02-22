@@ -139,48 +139,43 @@ $(document).ready(function(){initNavTree('homing__storage__interface_8h_source.h
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      <span class="keywordtype">double</span> homePosition;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      configFile &gt;&gt; homePosition;</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      <span class="keywordflow">if</span> (!configFile.good()) {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;[ERROR] Could not read from config file\n&quot;</span>;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        success = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      configFile.close();</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      <span class="keywordflow">if</span> (success) {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">return</span> units::make_unit&lt;T&gt;(homePosition);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">return</span> std::nullopt;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      }</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    } <span class="keywordflow">catch</span> (...) {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      <span class="comment">// Error accessing file</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;[ERROR] Could not read from config file\n&quot;</span>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      <span class="keywordflow">return</span> std::nullopt;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      configFile.close();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="keywordflow">if</span> (success) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> units::make_unit&lt;T&gt;(homePosition);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    } <span class="keywordflow">catch</span> (...) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      <span class="comment">// Error accessing file</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;[ERROR] Could not read from config file\n&quot;</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_f_s_homing_storage.html#a87d092cc0d89e7090e8f6bd3e99e8026">   98</a></span>  fs::path <a class="code hl_function" href="class_f_s_homing_storage.html#a87d092cc0d89e7090e8f6bd3e99e8026">GetFilePath</a>() {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">static</span> <span class="keyword">const</span> fs::path homeDir{<span class="stringliteral">&quot;/home/lvuser&quot;</span>};</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">static</span> <span class="keyword">const</span> fs::path configFile{homeDir / <a class="code hl_variable" href="class_f_s_homing_storage.html#ac17571d58b9fb2d036fde40e0a427c88">m_homesPath</a>};</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="class_f_s_homing_storage.html#a87d092cc0d89e7090e8f6bd3e99e8026">  103</a></span>  fs::path <a class="code hl_function" href="class_f_s_homing_storage.html#a87d092cc0d89e7090e8f6bd3e99e8026">GetFilePath</a>() {</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">static</span> <span class="keyword">const</span> fs::path homeDir{<span class="stringliteral">&quot;/home/lvuser&quot;</span>};</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">static</span> <span class="keyword">const</span> fs::path configFile{homeDir / <a class="code hl_variable" href="class_f_s_homing_storage.html#ac17571d58b9fb2d036fde40e0a427c88">m_homesPath</a>};</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;############# Path: &quot;</span> &lt;&lt; configFile &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// Create empty file if it doesn&#39;t exist yet</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">if</span> (!fs::exists(configFile)) {</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>      fs::create_directories(configFile.parent_path());</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      std::ofstream newFile(configFile);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>      newFile.close();</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">return</span> configFile;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  }</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="class_f_s_homing_storage.html#ac17571d58b9fb2d036fde40e0a427c88">  119</a></span>  <span class="keyword">const</span> fs::path <a class="code hl_variable" href="class_f_s_homing_storage.html#ac17571d58b9fb2d036fde40e0a427c88">m_homesPath</a>;</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>};</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;############# Path: &quot;</span> &lt;&lt; configFile &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// Create empty file if it doesn&#39;t exist yet</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordflow">if</span> (!fs::exists(configFile)) {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      fs::create_directories(configFile.parent_path());</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      std::ofstream newFile(configFile);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>      newFile.close();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> configFile;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="class_f_s_homing_storage.html#ac17571d58b9fb2d036fde40e0a427c88">  114</a></span>  <span class="keyword">const</span> fs::path <a class="code hl_variable" href="class_f_s_homing_storage.html#ac17571d58b9fb2d036fde40e0a427c88">m_homesPath</a>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
 <div class="ttc" id="aclass_f_s_homing_storage_html"><div class="ttname"><a href="class_f_s_homing_storage.html">FSHomingStorage</a></div><div class="ttdoc">Saves and loads home positions from filesystem.</div><div class="ttdef"><b>Definition:</b> homing_storage_interface.h:45</div></div>
 <div class="ttc" id="aclass_f_s_homing_storage_html_a3afc0f832cd586775418302cf64814ce"><div class="ttname"><a href="class_f_s_homing_storage.html#a3afc0f832cd586775418302cf64814ce">FSHomingStorage::Load</a></div><div class="ttdeci">std::optional&lt; T &gt; Load() override</div><div class="ttdoc">Load home position from persistent storage.</div><div class="ttdef"><b>Definition:</b> homing_storage_interface.h:77</div></div>
 <div class="ttc" id="aclass_f_s_homing_storage_html_a415054112c78d48a1eb48ee2124acacf"><div class="ttname"><a href="class_f_s_homing_storage.html#a415054112c78d48a1eb48ee2124acacf">FSHomingStorage::Save</a></div><div class="ttdeci">bool Save(const T &amp;homePosition) override</div><div class="ttdoc">Save home position to persistent storage.</div><div class="ttdef"><b>Definition:</b> homing_storage_interface.h:54</div></div>
-<div class="ttc" id="aclass_f_s_homing_storage_html_a87d092cc0d89e7090e8f6bd3e99e8026"><div class="ttname"><a href="class_f_s_homing_storage.html#a87d092cc0d89e7090e8f6bd3e99e8026">FSHomingStorage::GetFilePath</a></div><div class="ttdeci">fs::path GetFilePath()</div><div class="ttdef"><b>Definition:</b> homing_storage_interface.h:103</div></div>
-<div class="ttc" id="aclass_f_s_homing_storage_html_ac17571d58b9fb2d036fde40e0a427c88"><div class="ttname"><a href="class_f_s_homing_storage.html#ac17571d58b9fb2d036fde40e0a427c88">FSHomingStorage::m_homesPath</a></div><div class="ttdeci">const fs::path m_homesPath</div><div class="ttdef"><b>Definition:</b> homing_storage_interface.h:119</div></div>
+<div class="ttc" id="aclass_f_s_homing_storage_html_a87d092cc0d89e7090e8f6bd3e99e8026"><div class="ttname"><a href="class_f_s_homing_storage.html#a87d092cc0d89e7090e8f6bd3e99e8026">FSHomingStorage::GetFilePath</a></div><div class="ttdeci">fs::path GetFilePath()</div><div class="ttdef"><b>Definition:</b> homing_storage_interface.h:98</div></div>
+<div class="ttc" id="aclass_f_s_homing_storage_html_ac17571d58b9fb2d036fde40e0a427c88"><div class="ttname"><a href="class_f_s_homing_storage.html#ac17571d58b9fb2d036fde40e0a427c88">FSHomingStorage::m_homesPath</a></div><div class="ttdeci">const fs::path m_homesPath</div><div class="ttdef"><b>Definition:</b> homing_storage_interface.h:114</div></div>
 <div class="ttc" id="aclass_f_s_homing_storage_html_ac814c56681025dd5df8d37e59c2558a7"><div class="ttname"><a href="class_f_s_homing_storage.html#ac814c56681025dd5df8d37e59c2558a7">FSHomingStorage::FSHomingStorage</a></div><div class="ttdeci">FSHomingStorage(const fs::path &amp;homeFilePath)</div><div class="ttdoc">Construct a new FSHomingStorage object.</div><div class="ttdef"><b>Definition:</b> homing_storage_interface.h:52</div></div>
 <div class="ttc" id="aclass_homing_storage_interface_html"><div class="ttname"><a href="class_homing_storage_interface.html">HomingStorageInterface</a></div><div class="ttdoc">Interface capable of saving and loading home positions from persistent storage.</div><div class="ttdef"><b>Definition:</b> homing_storage_interface.h:19</div></div>
 <div class="ttc" id="aclass_homing_storage_interface_html_a8fb496847d01b5778d184e26568134f2"><div class="ttname"><a href="class_homing_storage_interface.html#a8fb496847d01b5778d184e26568134f2">HomingStorageInterface::Load</a></div><div class="ttdeci">virtual std::optional&lt; T &gt; Load()=0</div><div class="ttdoc">Load home position from persistent storage.</div></div>
