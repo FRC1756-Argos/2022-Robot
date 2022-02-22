@@ -68,6 +68,7 @@ void ShooterSubsystem::Periodic() {}
 
 void ShooterSubsystem::AutoAim() {
   // Get target angle & assign to turret
+  m_cameraInterface.SetDriverMode(false);
   std::optional<photonlib::PhotonTrackedTarget> hightestTarget = m_cameraInterface.GetHighestTarget();
   frc::SmartDashboard::PutBoolean("Target Exists?", (hightestTarget != std::nullopt));
   if (!hightestTarget) {
@@ -205,7 +206,7 @@ void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
 }
 
 // CAMERA INTERFACE -----------------------------------------------------------------------------
-CameraInterface::CameraInterface() : m_camera{camera::nickname} {
+CameraInterface::CameraInterface() : m_camera{"10.17.56.122"} {
   // SETS DEFAULT PIPELINE
   m_camera.SetPipelineIndex(camera::defaultPipelineIndex);
 }

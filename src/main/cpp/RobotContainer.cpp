@@ -161,6 +161,7 @@ void RobotContainer::ConfigureButtonBindings() {
     return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
   }});
   aimTrigger.WhileActiveContinous([this]() { m_shooter.AutoAim(); }, {&m_shooter});
+  aimTrigger.WhenInactive([this]() { m_shooter.Disable(); }, {&m_shooter});
 
   auto homeTurret = (frc2::Trigger{[this]() {
     return m_controllers.OperatorController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
@@ -201,14 +202,14 @@ void RobotContainer::ConfigureButtonBindings() {
   nottake.WhenActive([this]() { m_intake.StopIntake(); }, {&m_intake});
 
   // SHOOTER TRIGGER ACTIVATION
-  aimTrigger.WhenActive(
-      [this]() {
-        m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-        m_shooter.HoodSetPosition(m_hoodTargetPosition);
-      },
-      {&m_shooter});
+  // aimTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
   shooter.WhenActive([this]() { m_intake.Shoot(); }, {&m_intake});
-  aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
+  // aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {&m_intake});
 
   // SWAP CONTROLLERS TRIGGER ACTIVATION
