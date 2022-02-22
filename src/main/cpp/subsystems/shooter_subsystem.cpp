@@ -8,6 +8,7 @@
 #include "argos_lib/config/falcon_config.h"
 #include "argos_lib/config/talonsrx_config.h"
 #include "argos_lib/general/swerve_utils.h"
+#include "frc/smartdashboard/SmartDashboard.h"
 #include "units/length.h"
 #include "utils/sensor_conversions.h"
 
@@ -57,7 +58,23 @@ ShooterSubsystem::ShooterSubsystem()
 // This method will be called once per scheduler run
 void ShooterSubsystem::Periodic() {}
 
-void ShooterSubsystem::AutoAim() {}
+void ShooterSubsystem::AutoAim() {
+  // Get target angle & assign to turret
+  std::optional<photonlib::PhotonTrackedTarget> hightestTarget = m_cameraInterface.GetHighestTarget();
+  frc::SmartDashboard::PutBoolean("Target Exists?", (hightestTarget != std::nullopt));
+  if (!hightestTarget) {
+    return;
+  }
+  units::angle::degree_t targetAngle = GetTurretTargetAngle(hightestTarget.value());
+  frc::SmartDashboard::PutNumber("Target turret angle", targetAngle.to<double>());
+  TurretSetPosition(targetAngle);
+
+  // Get target distance & assign to hood & shooter
+  units::length::inch_t distanceToTarget =
+      GetTargetDistance(units::make_unit<units::angle::degree_t>(hightestTarget->GetPitch()));
+  frc::SmartDashboard::PutNumber("Target distance", distanceToTarget.to<double>());
+  SetShooterDistance(distanceToTarget);
+}
 
 void ShooterSubsystem::Shoot(double ballfiringspeed) {
   m_shooterWheelLeft.Set(ballfiringspeed);
