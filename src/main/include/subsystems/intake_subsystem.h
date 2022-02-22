@@ -43,10 +43,10 @@ class IntakeSubsystem : public frc2::SubsystemBase {
 
   /**
    *
-   * @brief Determines whether ball is red
+   * @brief Determines whether ball is blue
    *
-   * @return true - Ball is red
-   * @return false - Ball is not red
+   * @return true - Ball is blue
+   * @return false - Ball is not blue
    */
   bool getIsBallBlue();
 

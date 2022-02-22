@@ -21,10 +21,10 @@ namespace threshholds {
     const auto hueTargetRed = 358_deg;
     const auto hueBlueThresh = 20_deg;
     const auto hueTargetBlue = 206_deg;
-    const auto satTargetRed = 0.3;
-    const auto satTargetBlue = 0.45;
+    const auto satTargetRed = 0.36;
+    const auto satTargetBlue = 0.37;
     const auto satThreshRed = 0.02;
-    const auto satThreshBlue = 0.03;
+    const auto satThreshBlue = 0.05;
     //    const auto redChannelTarget = 0.1;
     //    const auto blueChannelTarget = 0.21;
     //    const auto redChannelThresh = 0.02;

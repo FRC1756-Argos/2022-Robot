@@ -22,6 +22,18 @@ IntakeSubsystem::IntakeSubsystem()
 
 // This method will be called once per scheduler run
 void IntakeSubsystem::Periodic() {
+  /*
+  frc::SmartDashboard::PutNumber("Hue", m_ballColor.GetHue());
+  frc::SmartDashboard::PutNumber("Saturation", m_ballColor.GetSaturation());
+  if(getIsBallRed() == true){
+    std::printf("Ball is red. \n");
+  } else if(getIsBallBlue() == true){
+    std::printf("Ball is blue. \n");
+  } else {
+    std::printf("Ball is not red or blue. \n");
+  }
+  return;
+  */
   /// @todo Enable this again once we have sensors
   ///       Otherwise this conflicts with current manual control
   if (((m_intakeButtonPressed == true || m_shooterButtonPressed == true) && m_outtakeButtonPressed == false)) {
@@ -83,6 +95,18 @@ bool IntakeSubsystem::getIsBallRed() {
        threshholds::colorsensor::hueRedThresh.to<double>()) &&
       (std::abs(threshholds::colorsensor::satTargetRed - ballSaturation) <= threshholds::colorsensor::satThreshRed)
       // && (std::abs(threshholds::colorsensor::redChannelTarget - ballRed) <= threshholds::colorsensor::redChannelThresh)
+  );
+}
+
+bool IntakeSubsystem::getIsBallBlue() {
+  units::angle::degree_t ballHue = units::make_unit<units::degree_t>(m_ballColor.GetHue());
+  double ballSaturation = m_ballColor.GetSaturation();
+  // double ballBlue = m_ballColor.GetBlue();
+  return (
+      (std::abs(hueAngleDifference(threshholds::colorsensor::hueTargetBlue, ballHue).to<double>()) <=
+       threshholds::colorsensor::hueBlueThresh.to<double>()) &&
+      (std::abs(threshholds::colorsensor::satTargetBlue - ballSaturation) <= threshholds::colorsensor::satThreshBlue)
+      // && (std::abs(threshold::colorsensor::redChannelTarget - ballBlue) <= threshholds::colorsensor::blueChannelThresh)
   );
 }
 
