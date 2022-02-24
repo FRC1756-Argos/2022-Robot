@@ -206,7 +206,7 @@ void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
 }
 
 // CAMERA INTERFACE -----------------------------------------------------------------------------
-CameraInterface::CameraInterface() : m_camera{"10.17.56.122"} {
+CameraInterface::CameraInterface() : m_camera{camera::nickname} {
   // SETS DEFAULT PIPELINE
   m_camera.SetPipelineIndex(camera::defaultPipelineIndex);
 }
