@@ -273,12 +273,31 @@ namespace motorConfig {
         constexpr static auto pid0_iZone = controlLoop::shooter::hood::iZone;
         constexpr static auto pid0_allowableError = controlLoop::shooter::hood::allowableError;
       };
-      using turretMotor = motorConfig::comp_bot::shooter::turretMotor;
+      struct turretMotor {
+        constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+        constexpr static bool sensorPhase = true;
+        constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
+        constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
+        constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
+        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::Basic;
+        constexpr static auto peakCurrentLimit = 30_A;
+        constexpr static auto peakCurrentDuration = 1_s;
+        constexpr static auto continuousCurrentLimit = 20_A;
+        constexpr static auto peakOutputForward = 0.7;
+        constexpr static auto peakOutputReverse = -0.7;
+        constexpr static auto pid0_selectedSensor =
+            ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
+        constexpr static auto pid0_kP = controlLoop::shooter::turret::kP;
+        constexpr static auto pid0_kI = controlLoop::shooter::turret::kI;
+        constexpr static auto pid0_kD = controlLoop::shooter::turret::kD;
+        constexpr static auto pid0_kF = controlLoop::shooter::turret::kF;
+        constexpr static auto pid0_iZone = controlLoop::shooter::turret::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::shooter::turret::allowableError;
+      };
     }  // namespace shooter
 
     namespace intake {
-      using beltDrive = motorConfig::comp_bot::intake::beltDrive;
-      struct intakeDrive {
+      struct beltDrive {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
         constexpr static bool sensorPhase = false;
         constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
@@ -289,6 +308,7 @@ namespace motorConfig {
         constexpr static auto peakCurrentDuration = 1_s;
         constexpr static auto continuousCurrentLimit = 20_A;
       };
+      using intakeDrive = motorConfig::comp_bot::intake::intakeDrive;
     }  // namespace intake
     namespace climber {
       using liftRight = motorConfig::comp_bot::climber::liftRight;
