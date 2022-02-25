@@ -93,7 +93,7 @@ RobotContainer::RobotContainer()
 
   // Homing commands
   (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
-  // (robotEnableTrigger && !climberArmHomingCompleteTrigger).WhenActive(m_homeClimberArmCommand); // Disabled because arms crash into rear swerve motors
+  (robotEnableTrigger && !climberArmHomingCompleteTrigger).WhenActive(m_homeClimberArmCommand);
   (robotEnableTrigger && !climberHookHomingCompleteTrigger).WhenActive(m_homeClimberHookCommand);
 
   // Notify subsystems of disable

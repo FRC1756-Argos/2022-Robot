@@ -37,9 +37,9 @@ namespace measure_up {
     constexpr auto toRotationCenter = 9_in;
   }  // namespace camera
   namespace climber_arm {
-    constexpr auto homeExtension = 0_in;  ///< @todo Set home extension for climber arms
-  }                                       // namespace climber_arm
+    constexpr auto homeExtension = 21.5_in;  ///< Length between mount points
+  }                                          // namespace climber_arm
   namespace climber_hook {
-    constexpr auto homeExtension = 0_in;  ///< @todo Set home extension for climber hooks
-  }                                       // namespace climber_hook
+    constexpr auto homeExtension = 37.25_in;  ///< Length from arm pivot to inner part of hook that holds rung
+  }                                           // namespace climber_hook
 }  // namespace measure_up
