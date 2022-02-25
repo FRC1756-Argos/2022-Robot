@@ -9,7 +9,7 @@ var searchData=
   ['debouncerelease_6',['debounceRelease',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac501c6389960221bfa08cf7615155eb3',1,'argos_lib::XboxController::UpdateStatus']]],
   ['debouncesettings_7',['DebounceSettings',['../structargos__lib_1_1_debounce_settings.html',1,'argos_lib']]],
   ['defaultpipelineindex_8',['defaultPipelineIndex',['../namespacecamera.html#ad60c6fc699e57e3a6e08bfeb2d95c403',1,'camera']]],
-  ['disable_9',['Disable',['../class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e',1,'ShooterSubsystem']]],
+  ['disable_9',['Disable',['../class_climber_subsystem.html#ace65f6734f00ea77d23b93d661b375c2',1,'ClimberSubsystem::Disable()'],['../class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e',1,'ShooterSubsystem::Disable()']]],
   ['disabledinit_10',['DisabledInit',['../class_robot.html#a810e6143a208a6314491366e3c714357',1,'Robot']]],
   ['disabledperiodic_11',['DisabledPeriodic',['../class_robot.html#a8c7309f5f1cb242ea8c74f1abf03b540',1,'Robot']]],
   ['disableturretsoftlimits_12',['DisableTurretSoftLimits',['../class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b',1,'ShooterSubsystem']]],
@@ -21,5 +21,6 @@ var searchData=
   ['driver_18',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
   ['drivercontroller_19',['DriverController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#aab24f6aac86bd7a79f2e6af9de0d35e2',1,'argos_lib::SwappableControllersSubsystem']]],
   ['driverotspeed_20',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]],
-  ['dumpball_21',['DumpBall',['../class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9',1,'IntakeSubsystem']]]
+  ['drivesprocketteethperrevolution_21',['driveSprocketTeethPerRevolution',['../namespacesensor__conversions_1_1climb__hooks.html#a1eee946bb21b42bfdae9c04e084a33da',1,'sensor_conversions::climb_hooks']]],
+  ['dumpball_22',['DumpBall',['../class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9',1,'IntakeSubsystem']]]
 ];

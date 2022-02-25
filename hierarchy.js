@@ -7,6 +7,8 @@ var hierarchy =
     [ "CameraInterface", "class_camera_interface.html", null ],
     [ "argos_lib::ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", null ],
     [ "frc2::CommandHelper", null, [
+      [ "HomeClimberArmCommand", "class_home_climber_arm_command.html", null ],
+      [ "HomeClimberHookCommand", "class_home_climber_hook_command.html", null ],
       [ "HomeHoodCommand", "class_home_hood_command.html", null ],
       [ "argos_lib::SwapControllersCommand", "classargos__lib_1_1_swap_controllers_command.html", null ]
     ] ],

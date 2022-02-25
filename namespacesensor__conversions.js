@@ -1,5 +1,22 @@
 var namespacesensor__conversions =
 [
+    [ "climb_arms", "namespacesensor__conversions_1_1climb__arms.html", [
+      [ "ToExtension", "namespacesensor__conversions_1_1climb__arms.html#a0e5a596b90bab9c29d2066991e66c859", null ],
+      [ "ToSensorUnit", "namespacesensor__conversions_1_1climb__arms.html#acd8fb1fcb4eb0387ed3c37839513221f", null ],
+      [ "extensionMillimetersPerRevolution", "namespacesensor__conversions_1_1climb__arms.html#a4522291ba4fcd2591dc96b233f96eaef", null ],
+      [ "fudgeFactor", "namespacesensor__conversions_1_1climb__arms.html#a1cb67fd829259c079378ea326e6f45f0", null ],
+      [ "gearboxReduction", "namespacesensor__conversions_1_1climb__arms.html#af22d4eb14799484696e0f9da8039d7bb", null ],
+      [ "sensorToMotorRev", "namespacesensor__conversions_1_1climb__arms.html#a346f85819130b4b00ed9dd69009aecd1", null ]
+    ] ],
+    [ "climb_hooks", "namespacesensor__conversions_1_1climb__hooks.html", [
+      [ "ToExtension", "namespacesensor__conversions_1_1climb__hooks.html#ad8e0fa14c8d21a31537fbdedffa181af", null ],
+      [ "ToSensorUnit", "namespacesensor__conversions_1_1climb__hooks.html#a42683b855e93b97fcd8e02ea8ef03cf9", null ],
+      [ "driveSprocketTeethPerRevolution", "namespacesensor__conversions_1_1climb__hooks.html#a1eee946bb21b42bfdae9c04e084a33da", null ],
+      [ "extensionInchesPerDriveSprocketTooth", "namespacesensor__conversions_1_1climb__hooks.html#abb5e81026ade54f9101fe970f3a8ad08", null ],
+      [ "fudgeFactor", "namespacesensor__conversions_1_1climb__hooks.html#a1827c5505cea37146c6c5bd7a82344c0", null ],
+      [ "gearboxReduction", "namespacesensor__conversions_1_1climb__hooks.html#a2735c94dc35b612beb748bc359fd7b0b", null ],
+      [ "sensorToMotorRev", "namespacesensor__conversions_1_1climb__hooks.html#acf3f3463fa0b891443f9461d9f26cc34", null ]
+    ] ],
     [ "hood", "namespacesensor__conversions_1_1hood.html", [
       [ "ToAngle", "namespacesensor__conversions_1_1hood.html#ac502050673c24e8e8bb8d40512fe6364", null ],
       [ "ToSensorUnit", "namespacesensor__conversions_1_1hood.html#a07db1f9b38cd01bb25d5216f4148fd8c", null ],

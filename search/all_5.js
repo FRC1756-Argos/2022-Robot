@@ -31,5 +31,6 @@ var searchData=
   ['frontrightwoffset_28',['frontRightWOffset',['../namespacemeasure__up_1_1swerve__offsets.html#a150522343e9e7af23a9cdc10915fd584',1,'measure_up::swerve_offsets']]],
   ['fshomingstorage_29',['FSHomingStorage',['../class_f_s_homing_storage.html#ac814c56681025dd5df8d37e59c2558a7',1,'FSHomingStorage::FSHomingStorage()'],['../class_f_s_homing_storage.html',1,'FSHomingStorage&lt; T &gt;']]],
   ['fshomingstorage_3c_20units_3a_3adegree_5ft_20_3e_30',['FSHomingStorage&lt; units::degree_t &gt;',['../class_f_s_homing_storage.html',1,'']]],
-  ['fwvelocity_31',['fwVelocity',['../struct_swerve_drive_subsystem_1_1_velocities.html#ad917d51ac19a2d103b21620c98a5ffa7',1,'SwerveDriveSubsystem::Velocities']]]
+  ['fudgefactor_31',['fudgeFactor',['../namespacesensor__conversions_1_1climb__arms.html#a1cb67fd829259c079378ea326e6f45f0',1,'sensor_conversions::climb_arms::fudgeFactor()'],['../namespacesensor__conversions_1_1climb__hooks.html#a1827c5505cea37146c6c5bd7a82344c0',1,'sensor_conversions::climb_hooks::fudgeFactor()']]],
+  ['fwvelocity_32',['fwVelocity',['../struct_swerve_drive_subsystem_1_1_velocities.html#ad917d51ac19a2d103b21620c98a5ffa7',1,'SwerveDriveSubsystem::Velocities']]]
 ];

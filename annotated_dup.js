@@ -166,6 +166,8 @@ var annotated_dup =
     [ "ClimberSubsystem", "class_climber_subsystem.html", "class_climber_subsystem" ],
     [ "FileSystemHomingStorage", "class_file_system_homing_storage.html", "class_file_system_homing_storage" ],
     [ "FSHomingStorage", "class_f_s_homing_storage.html", "class_f_s_homing_storage" ],
+    [ "HomeClimberArmCommand", "class_home_climber_arm_command.html", "class_home_climber_arm_command" ],
+    [ "HomeClimberHookCommand", "class_home_climber_hook_command.html", "class_home_climber_hook_command" ],
     [ "HomeHoodCommand", "class_home_hood_command.html", "class_home_hood_command" ],
     [ "HomingStorageInterface", "class_homing_storage_interface.html", "class_homing_storage_interface" ],
     [ "IntakeSubsystem", "class_intake_subsystem.html", "class_intake_subsystem" ],

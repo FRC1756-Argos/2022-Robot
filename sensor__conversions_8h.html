@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('sensor__conversions_8h.html',''); init
 <div class="contents">
 <div class="textblock"><code>#include &quot;units/angle.h&quot;</code><br />
 <code>#include &quot;units/angular_velocity.h&quot;</code><br />
+<code>#include &quot;units/length.h&quot;</code><br />
 </div>
 <p><a href="sensor__conversions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -108,6 +109,10 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacesensor__conversions_1_1hood"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1hood.html">sensor_conversions::hood</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacesensor__conversions_1_1shooter"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1shooter.html">sensor_conversions::shooter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacesensor__conversions_1_1climb__arms"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__arms.html">sensor_conversions::climb_arms</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacesensor__conversions_1_1climb__hooks"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html">sensor_conversions::climb_hooks</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -128,6 +133,14 @@ Functions</h2></td></tr>
 <tr class="separator:a97900f4d65956b5ac97598c92169dc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88eee78baebdaeff32473f4e8e9896ba"><td class="memItemLeft" align="right" valign="top">constexpr units::revolutions_per_minute_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1shooter.html#a88eee78baebdaeff32473f4e8e9896ba">sensor_conversions::shooter::ToVelocity</a> (const double sensorunit)</td></tr>
 <tr class="separator:a88eee78baebdaeff32473f4e8e9896ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e5a596b90bab9c29d2066991e66c859"><td class="memItemLeft" align="right" valign="top">constexpr units::inch_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__arms.html#a0e5a596b90bab9c29d2066991e66c859">sensor_conversions::climb_arms::ToExtension</a> (const double sensorUnit)</td></tr>
+<tr class="separator:a0e5a596b90bab9c29d2066991e66c859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd8fb1fcb4eb0387ed3c37839513221f"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__arms.html#acd8fb1fcb4eb0387ed3c37839513221f">sensor_conversions::climb_arms::ToSensorUnit</a> (const units::millimeter_t extension)</td></tr>
+<tr class="separator:acd8fb1fcb4eb0387ed3c37839513221f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8e0fa14c8d21a31537fbdedffa181af"><td class="memItemLeft" align="right" valign="top">constexpr units::inch_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#ad8e0fa14c8d21a31537fbdedffa181af">sensor_conversions::climb_hooks::ToExtension</a> (const double sensorUnit)</td></tr>
+<tr class="separator:ad8e0fa14c8d21a31537fbdedffa181af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42683b855e93b97fcd8e02ea8ef03cf9"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#a42683b855e93b97fcd8e02ea8ef03cf9">sensor_conversions::climb_hooks::ToSensorUnit</a> (const units::inch_t extension)</td></tr>
+<tr class="separator:a42683b855e93b97fcd8e02ea8ef03cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -152,6 +165,24 @@ Variables</h2></td></tr>
 <tr class="memitem:ae516cf9d400944ff0b2e7e634cd7b218"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1shooter.html#ae516cf9d400944ff0b2e7e634cd7b218">sensor_conversions::shooter::sensorConversionFactor</a></td></tr>
 <tr class="memdesc:ae516cf9d400944ff0b2e7e634cd7b218"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiply to convert shooter velocity to revolutions per minute  <a href="namespacesensor__conversions_1_1shooter.html#ae516cf9d400944ff0b2e7e634cd7b218">More...</a><br /></td></tr>
 <tr class="separator:ae516cf9d400944ff0b2e7e634cd7b218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a346f85819130b4b00ed9dd69009aecd1"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__arms.html#a346f85819130b4b00ed9dd69009aecd1">sensor_conversions::climb_arms::sensorToMotorRev</a> = 1.0 / 2048</td></tr>
+<tr class="separator:a346f85819130b4b00ed9dd69009aecd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af22d4eb14799484696e0f9da8039d7bb"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__arms.html#af22d4eb14799484696e0f9da8039d7bb">sensor_conversions::climb_arms::gearboxReduction</a> = 10.0 / 30</td></tr>
+<tr class="separator:af22d4eb14799484696e0f9da8039d7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4522291ba4fcd2591dc96b233f96eaef"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__arms.html#a4522291ba4fcd2591dc96b233f96eaef">sensor_conversions::climb_arms::extensionMillimetersPerRevolution</a> = 4.0</td></tr>
+<tr class="separator:a4522291ba4fcd2591dc96b233f96eaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cb67fd829259c079378ea326e6f45f0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__arms.html#a1cb67fd829259c079378ea326e6f45f0">sensor_conversions::climb_arms::fudgeFactor</a> = 1.1444</td></tr>
+<tr class="separator:a1cb67fd829259c079378ea326e6f45f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf3f3463fa0b891443f9461d9f26cc34"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#acf3f3463fa0b891443f9461d9f26cc34">sensor_conversions::climb_hooks::sensorToMotorRev</a> = 1.0 / 2048</td></tr>
+<tr class="separator:acf3f3463fa0b891443f9461d9f26cc34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2735c94dc35b612beb748bc359fd7b0b"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#a2735c94dc35b612beb748bc359fd7b0b">sensor_conversions::climb_hooks::gearboxReduction</a> = 1.0 / 8</td></tr>
+<tr class="separator:a2735c94dc35b612beb748bc359fd7b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eee946bb21b42bfdae9c04e084a33da"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#a1eee946bb21b42bfdae9c04e084a33da">sensor_conversions::climb_hooks::driveSprocketTeethPerRevolution</a> = 18.0</td></tr>
+<tr class="separator:a1eee946bb21b42bfdae9c04e084a33da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb5e81026ade54f9101fe970f3a8ad08"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#abb5e81026ade54f9101fe970f3a8ad08">sensor_conversions::climb_hooks::extensionInchesPerDriveSprocketTooth</a> = 0.25 / 1</td></tr>
+<tr class="separator:abb5e81026ade54f9101fe970f3a8ad08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1827c5505cea37146c6c5bd7a82344c0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#a1827c5505cea37146c6c5bd7a82344c0">sensor_conversions::climb_hooks::fudgeFactor</a> = 0.8354</td></tr>
+<tr class="separator:a1827c5505cea37146c6c5bd7a82344c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

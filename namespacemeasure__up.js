@@ -10,6 +10,12 @@ var namespacemeasure__up =
       [ "length", "namespacemeasure__up_1_1chassis.html#ae957e01d5b3460e5bce14a80300c2680", null ],
       [ "width", "namespacemeasure__up_1_1chassis.html#aff61d4016fc44a7ba5a70ad24289f702", null ]
     ] ],
+    [ "climber_arm", "namespacemeasure__up_1_1climber__arm.html", [
+      [ "homeExtension", "namespacemeasure__up_1_1climber__arm.html#a24f3e1f5ae850265147bce0fd08c24d9", null ]
+    ] ],
+    [ "climber_hook", "namespacemeasure__up_1_1climber__hook.html", [
+      [ "homeExtension", "namespacemeasure__up_1_1climber__hook.html#af555af33e5a26190d8916a9aff9705f7", null ]
+    ] ],
     [ "hood", "namespacemeasure__up_1_1hood.html", [
       [ "homeAngle", "namespacemeasure__up_1_1hood.html#a042e273914732857ea4a24d0af7e2ec4", null ]
     ] ],

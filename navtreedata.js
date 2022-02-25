@@ -63,12 +63,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_swerve_module.html",
-"classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html",
-"namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a5158a250e30f1fb4415d86ded2c8e0c5",
-"structargos__lib_1_1_interp_map_point.html",
-"structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07v17e9f7765ec4fa83077c39d6a7c9002a.html",
-"structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a0faa5dd352fd2383c275cb5272da6d29"
+"class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b",
+"classargos__lib_1_1_xbox_controller.html#afbef95cfa675c9d7f4fac9b1fd1af79f",
+"namespaceaddress_1_1encoders.html#a03266ba3f13ff6f4dcec6b6bb1fe60a7",
+"nt__subscriber_8h.html",
+"structargos__lib_1_1swerve_1_1_swerve_module_positions.html#a4712a8b0b6eabababbf106a80cd579cc",
+"structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a67312590ec3e40db9df9d0ddec9c89c9",
+"structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a31b3fc14c1fc7b5356eba421007dc5d2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

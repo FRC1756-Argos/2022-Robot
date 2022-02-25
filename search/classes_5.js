@@ -70,10 +70,12 @@ var searchData=
   ['has_5fsupplycurrentthresholdtime_3c_20t_2c_20decltype_28_28void_29_20t_3a_3asupplycurrentthresholdtime_2c_20void_28_29_29_3e_67',['has_supplyCurrentThresholdTime&lt; T, decltype((void) T::supplyCurrentThresholdTime, void())&gt;',['../structargos__lib_1_1falcon__config_1_1has__supply_current_threshold_time_3_01_t_00_01decltype_07dac03662948ed0111c64fc19d499116c.html',1,'argos_lib::falcon_config']]],
   ['has_5fvoltcompsat_68',['has_voltCompSat',['../structargos__lib_1_1falcon__config_1_1has__volt_comp_sat.html',1,'argos_lib::falcon_config::has_voltCompSat&lt; T, typename &gt;'],['../structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html',1,'argos_lib::talonsrx_config::has_voltCompSat&lt; T, typename &gt;']]],
   ['has_5fvoltcompsat_3c_20t_2c_20decltype_28_28void_29_20t_3a_3avoltcompsat_2c_20void_28_29_29_3e_69',['has_voltCompSat&lt; T, decltype((void) T::voltCompSat, void())&gt;',['../structargos__lib_1_1falcon__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_t_ff539066508b6bf78d1739e6e53840e9.html',1,'argos_lib::falcon_config::has_voltCompSat&lt; T, decltype((void) T::voltCompSat, void())&gt;'],['../structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html',1,'argos_lib::talonsrx_config::has_voltCompSat&lt; T, decltype((void) T::voltCompSat, void())&gt;']]],
-  ['homehoodcommand_70',['HomeHoodCommand',['../class_home_hood_command.html',1,'']]],
-  ['homingstorageinterface_71',['HomingStorageInterface',['../class_homing_storage_interface.html',1,'']]],
-  ['homingstorageinterface_3c_20units_3a_3adegree_5ft_20_3e_72',['HomingStorageInterface&lt; units::degree_t &gt;',['../class_homing_storage_interface.html',1,'']]],
-  ['hoodmotor_73',['hoodMotor',['../structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::comp_bot::shooter::hoodMotor'],['../structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::practice_bot::shooter::hoodMotor']]],
-  ['hysteresisfilter_74',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]],
-  ['hysteresisfilter_3c_20units_3a_3ainch_5ft_20_3e_75',['HysteresisFilter&lt; units::inch_t &gt;',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
+  ['homeclimberarmcommand_70',['HomeClimberArmCommand',['../class_home_climber_arm_command.html',1,'']]],
+  ['homeclimberhookcommand_71',['HomeClimberHookCommand',['../class_home_climber_hook_command.html',1,'']]],
+  ['homehoodcommand_72',['HomeHoodCommand',['../class_home_hood_command.html',1,'']]],
+  ['homingstorageinterface_73',['HomingStorageInterface',['../class_homing_storage_interface.html',1,'']]],
+  ['homingstorageinterface_3c_20units_3a_3adegree_5ft_20_3e_74',['HomingStorageInterface&lt; units::degree_t &gt;',['../class_homing_storage_interface.html',1,'']]],
+  ['hoodmotor_75',['hoodMotor',['../structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::comp_bot::shooter::hoodMotor'],['../structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::practice_bot::shooter::hoodMotor']]],
+  ['hysteresisfilter_76',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]],
+  ['hysteresisfilter_3c_20units_3a_3ainch_5ft_20_3e_77',['HysteresisFilter&lt; units::inch_t &gt;',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
 ];
