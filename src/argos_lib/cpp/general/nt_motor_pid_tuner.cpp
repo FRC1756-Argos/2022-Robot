@@ -113,6 +113,9 @@ void NTMotorPIDTuner::UpdateClosedLoopMonitoringThread() {
             controlMode == ctre::phoenix::motorcontrol::ControlMode::Velocity) {
           setpoints.push_back(motor->GetClosedLoopTarget(m_pidSlot) * m_sensorConversions.setpoint);
           errors.push_back(motor->GetClosedLoopError(m_pidSlot) * m_sensorConversions.setpoint);
+        } else {
+          setpoints.push_back(NAN);
+          errors.push_back(NAN);
         }
         positions.push_back(motor->GetSelectedSensorPosition(m_pidSlot) * m_sensorConversions.position);
         velocities.push_back(motor->GetSelectedSensorVelocity(m_pidSlot) * m_sensorConversions.velocity);

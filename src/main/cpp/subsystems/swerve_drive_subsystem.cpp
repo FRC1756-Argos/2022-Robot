@@ -9,6 +9,7 @@
 #include <argos_lib/general/swerve_utils.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <units/angle.h>
+#include <units/angular_velocity.h>
 #include <units/velocity.h>
 
 #include <memory>
@@ -18,7 +19,8 @@
 
 using namespace argos_lib::swerve;
 
-SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable)
+SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable,
+                                           const argos_lib::RobotInstance instance)
     : m_frontLeft(address::drive::frontLeftDrive, address::drive::frontLeftTurn, address::encoders::frontLeftEncoder)
     , m_frontRight(
           address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
@@ -30,24 +32,48 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 
   // TURN MOTORS CONFIG
   std::printf("Configure turn\n");
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::frontLeftTurn>(m_frontLeft.m_turn, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::frontRightTurn>(m_frontRight.m_turn, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::backRightTurn>(m_backRight.m_turn, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_turn, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::frontLeftTurn,
+                                         motorConfig::practice_bot::drive::frontLeftTurn>(
+      m_frontLeft.m_turn, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::frontRightTurn,
+                                         motorConfig::practice_bot::drive::frontRightTurn>(
+      m_frontRight.m_turn, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::backRightTurn,
+                                         motorConfig::practice_bot::drive::backRightTurn>(
+      m_backRight.m_turn, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::backLeftTurn,
+                                         motorConfig::practice_bot::drive::backLeftTurn>(
+      m_backLeft.m_turn, 100_ms, instance);
 
   // DRIVE MOTOR CONFIGS
   std::printf("Configure drive\n");
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_frontLeft.m_drive, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_frontRight.m_drive, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_backLeft.m_drive, 100_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::drive::genericDrive>(m_backRight.m_drive, 100_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::genericDrive,
+                                         motorConfig::practice_bot::drive::genericDrive>(
+      m_frontLeft.m_drive, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::genericDrive,
+                                         motorConfig::practice_bot::drive::genericDrive>(
+      m_frontRight.m_drive, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::genericDrive,
+                                         motorConfig::practice_bot::drive::genericDrive>(
+      m_backLeft.m_drive, 100_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::genericDrive,
+                                         motorConfig::practice_bot::drive::genericDrive>(
+      m_backRight.m_drive, 100_ms, instance);
 
   // CAN ENCODER CONFIG
   std::printf("Configure encoders\n");
-  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::frontLeftTurn>(m_frontLeft.m_encoder, 100_ms);
-  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::frontRightTurn>(m_frontRight.m_encoder, 100_ms);
-  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backRightTurn>(m_backRight.m_encoder, 100_ms);
-  argos_lib::cancoder_config::CanCoderConfig<motorConfig::drive::backLeftTurn>(m_backLeft.m_encoder, 100_ms);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::comp_bot::drive::frontLeftTurn,
+                                             motorConfig::practice_bot::drive::frontLeftTurn>(
+      m_frontLeft.m_encoder, 100_ms, instance);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::comp_bot::drive::frontRightTurn,
+                                             motorConfig::practice_bot::drive::frontRightTurn>(
+      m_frontRight.m_encoder, 100_ms, instance);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::comp_bot::drive::backRightTurn,
+                                             motorConfig::practice_bot::drive::backRightTurn>(
+      m_backRight.m_encoder, 100_ms, instance);
+  argos_lib::cancoder_config::CanCoderConfig<motorConfig::comp_bot::drive::backLeftTurn,
+                                             motorConfig::practice_bot::drive::backLeftTurn>(
+      m_backLeft.m_encoder, 100_ms, instance);
 
   // TRANSLATION2D OBJECTS DESCRIBING LOCATION OF SWERVE MODULES
   // Forward is positive X, left is positive Y
@@ -66,6 +92,9 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 
   );
 
+  /// @todo DEFAULT TO ROBOT CENTRIC FOR NOW (change later)
+  m_controlMode = SwerveDriveSubsystem::DriveControlMode::fieldCentricControl;
+
   m_pSwerveDriveKinematics = std::make_unique<frc::SwerveDriveKinematics<4>>(
       frontLeftCenterOffset, frontRightCenterOffset, backRightCenterOffset, backLeftCenterOffset);
 
@@ -77,20 +106,10 @@ void SwerveDriveSubsystem::Periodic() {}
 
 // SWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 
-void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
-                                       const double& sideVelocity,
-                                       const double& rotVelocity) {
-  frc::ChassisSpeeds speeds{units::make_unit<units::velocity::meters_per_second_t>(fwVelocity),
-                            units::make_unit<units::velocity::meters_per_second_t>(sideVelocity),
-                            units::make_unit<units::angular_velocity::radians_per_second_t>(rotVelocity)};
-
-  // DEBUG STUFF
-  frc::SmartDashboard::PutNumber("(DRIVETRAIN) fwVelocity", fwVelocity);
-  frc::SmartDashboard::PutNumber("(DRIVETRAIN) sideVelocity", sideVelocity);
-  frc::SmartDashboard::PutNumber("(DRIVETRAIN) rotVelocity", rotVelocity);
-
+wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
+    SwerveDriveSubsystem::Velocities velocities) {
   // IF SPEEDS ZERO, SET MOTORS TO ZERO AND RETURN
-  if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
+  if (velocities.fwVelocity == 0 && velocities.sideVelocity == 0 && velocities.rotVelocity == 0) {
     m_frontLeft.m_drive.Set(0);
     m_frontLeft.m_turn.Set(0);
 
@@ -102,24 +121,96 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
     m_backLeft.m_drive.Set(0);
     m_backLeft.m_turn.Set(0);
+    /// @todo fix later
+    frc::ChassisSpeeds emptySpeeds{units::make_unit<units::velocity::meters_per_second_t>(0),
+                                   units::make_unit<units::velocity::meters_per_second_t>(0),
+                                   units::make_unit<units::angular_velocity::radians_per_second_t>(0)};
+
+    return m_pSwerveDriveKinematics->ToSwerveModuleStates(emptySpeeds);
+  }
+
+  switch (m_controlMode) {
+    case (DriveControlMode::
+              fieldCentricControl): {  // Construct speeds with field-relative speeds and current IMU Z angle.
+      frc::ChassisSpeeds fieldCentricSpeeds = frc::ChassisSpeeds::FromFieldRelativeSpeeds(
+          units::make_unit<units::meters_per_second_t>(velocities.fwVelocity),
+          units::make_unit<units::meters_per_second_t>(velocities.sideVelocity),
+          units::make_unit<units::angular_velocity::radians_per_second_t>(velocities.rotVelocity),
+          frc::Rotation2d(-1 * m_imu.GetGyroAngleZ()));
+
+      // Return the speeds to consumer
+      return m_pSwerveDriveKinematics->ToSwerveModuleStates(fieldCentricSpeeds);
+    }
+
+    case (DriveControlMode::robotCentricControl): {
+      // Construct speeds just the same as in the current main drive function
+      frc::ChassisSpeeds robotCentricSpeeds{
+          units::make_unit<units::velocity::meters_per_second_t>(velocities.fwVelocity),
+          units::make_unit<units::velocity::meters_per_second_t>(velocities.sideVelocity),
+          units::make_unit<units::angular_velocity::radians_per_second_t>(velocities.rotVelocity)};
+
+      return m_pSwerveDriveKinematics->ToSwerveModuleStates(robotCentricSpeeds);
+    }
+  }
+  frc::ChassisSpeeds emptySpeeds{units::make_unit<units::velocity::meters_per_second_t>(0),
+                                 units::make_unit<units::velocity::meters_per_second_t>(0),
+                                 units::make_unit<units::angular_velocity::radians_per_second_t>(0)};
+
+  return m_pSwerveDriveKinematics->ToSwerveModuleStates(emptySpeeds);
+}
+
+void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
+                                       const double& sideVelocity,
+                                       const double& rotVelocity) {
+  if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
+    m_frontLeft.m_drive.Set(0.0);
+    m_frontLeft.m_turn.Set(0.0);
+    m_frontRight.m_drive.Set(0.0);
+    m_frontRight.m_turn.Set(0.0);
+    m_backRight.m_drive.Set(0.0);
+    m_backRight.m_turn.Set(0.0);
+    m_backLeft.m_drive.Set(0.0);
+    m_backLeft.m_turn.Set(0.0);
     return;
   }
 
-  auto moduleStates = m_pSwerveDriveKinematics->ToSwerveModuleStates(speeds);
+  SwerveDriveSubsystem::Velocities velocities{fwVelocity, sideVelocity, rotVelocity};
 
-  /// @todo switch to argosLib optimize functions in time (create overload for meters per second?)
-  moduleStates.at(0) = moduleStates.at(0).Optimize(
+  // DEBUG STUFF
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) fwVelocity", fwVelocity);
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) sideVelocity", sideVelocity);
+  frc::SmartDashboard::PutNumber("(DRIVETRAIN) rotVelocity", rotVelocity);
+  frc::SmartDashboard::PutNumber("CONTROL MODE", m_controlMode);
+  frc::SmartDashboard::PutNumber("IMU ANGLE", m_imu.GetAngle().to<double>());
+
+  // SET MODULES BASED OFF OF CONTROL MODE
+  auto moduleStates = GetRawModuleStates(velocities);
+
+  /// @todo Convert sensor velocities for optimizer instead of constants
+  moduleStates.at(0) = argos_lib::swerve::Optimize(
       moduleStates.at(0),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_frontLeft.m_turn.GetSelectedSensorPosition()));
-  moduleStates.at(1) = moduleStates.at(1).Optimize(
+      sensor_conversions::swerve_drive::turn::ToAngle(m_frontLeft.m_turn.GetSelectedSensorPosition()),
+      0_rpm,
+      0_fps,
+      12_fps);
+  moduleStates.at(1) = argos_lib::swerve::Optimize(
       moduleStates.at(1),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_frontRight.m_turn.GetSelectedSensorPosition()));
-  moduleStates.at(2) = moduleStates.at(2).Optimize(
+      sensor_conversions::swerve_drive::turn::ToAngle(m_frontRight.m_turn.GetSelectedSensorPosition()),
+      0_rpm,
+      0_fps,
+      12_fps);
+  moduleStates.at(2) = argos_lib::swerve::Optimize(
       moduleStates.at(2),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_backRight.m_turn.GetSelectedSensorPosition()));
-  moduleStates.at(3) = moduleStates.at(3).Optimize(
+      sensor_conversions::swerve_drive::turn::ToAngle(m_backRight.m_turn.GetSelectedSensorPosition()),
+      0_rpm,
+      0_fps,
+      12_fps);
+  moduleStates.at(3) = argos_lib::swerve::Optimize(
       moduleStates.at(3),
-      sensor_conversions::swerve_drive::turn::ToAngle(m_backLeft.m_turn.GetSelectedSensorPosition()));
+      sensor_conversions::swerve_drive::turn::ToAngle(m_backLeft.m_turn.GetSelectedSensorPosition()),
+      0_rpm,
+      0_fps,
+      12_fps);
 
   // Give module state values to motors
 
@@ -180,11 +271,29 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   HomeToFS(angle);
 
+  // RE-ZERO THE IMU
+  m_imu.Reset();
+
   // SetPosition expects a value in degrees
   m_frontLeft.m_encoder.SetPosition(angle.to<double>(), 50);
   m_frontRight.m_encoder.SetPosition(angle.to<double>(), 50);
   m_backRight.m_encoder.SetPosition(angle.to<double>(), 50);
   m_backLeft.m_encoder.SetPosition(angle.to<double>(), 50);
+}
+
+void SwerveDriveSubsystem::FiledHome() {
+  m_imu.Reset();
+}
+
+void SwerveDriveSubsystem::SwapControlMode() {
+  switch (m_controlMode) {
+    case (SwerveDriveSubsystem::DriveControlMode::robotCentricControl):
+      m_controlMode = SwerveDriveSubsystem::DriveControlMode::fieldCentricControl;
+      break;
+    case (SwerveDriveSubsystem::DriveControlMode::fieldCentricControl):
+      m_controlMode = SwerveDriveSubsystem::DriveControlMode::robotCentricControl;
+      break;
+  }
 }
 
 void SwerveDriveSubsystem::InitializeMotors() {
@@ -236,7 +345,7 @@ void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables() {
       m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::blHome);
 
   if (!frontLeft_saved || !frontRight_saved || !backRight_saved || !backLeft_saved) {
-    // PREVENT MOTION HERE OF MOTOR
+    // @todo PREVENT MOTION HERE OF MOTOR
     /// @todo IF NO HOMES LISTED, SET A FLAG SO WE CAN'T DRIVE
     return;
   }

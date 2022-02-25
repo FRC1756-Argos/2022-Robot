@@ -6,13 +6,14 @@
 
 #include <frc2/command/SubsystemBase.h>
 
+#include "argos_lib/config/robot_instance.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 #include "units/length.h"
 
 class ClimberSubsystem : public frc2::SubsystemBase {
  public:
-  ClimberSubsystem();
+  explicit ClimberSubsystem(const argos_lib::RobotInstance instance);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.

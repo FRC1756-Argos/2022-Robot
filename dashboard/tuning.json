@@ -41,7 +41,7 @@
               "Visible data/argos/hood/status/positions[0]": true
             }
           },
-          "6,3": {
+          "3,2": {
             "size": [
               2,
               1
@@ -52,7 +52,7 @@
               "_title": "argos/hood/tunes/IZone"
             }
           },
-          "4,2": {
+          "1,0": {
             "size": [
               2,
               1
@@ -63,7 +63,7 @@
               "_title": "argos/hood/tunes/kP"
             }
           },
-          "4,3": {
+          "1,1": {
             "size": [
               2,
               1
@@ -74,7 +74,7 @@
               "_title": "argos/hood/tunes/kI"
             }
           },
-          "4,4": {
+          "1,2": {
             "size": [
               2,
               1
@@ -85,7 +85,7 @@
               "_title": "argos/hood/tunes/kD"
             }
           },
-          "4,5": {
+          "1,3": {
             "size": [
               2,
               1
@@ -96,7 +96,7 @@
               "_title": "argos/hood/tunes/kF"
             }
           },
-          "4,6": {
+          "1,4": {
             "size": [
               2,
               1
@@ -151,7 +151,7 @@
               "Visible data/argos/shooter/status/velocities[0]": true
             }
           },
-          "6,3": {
+          "3,2": {
             "size": [
               2,
               1
@@ -162,7 +162,7 @@
               "_title": "argos/shooter/tunes/IZone"
             }
           },
-          "4,2": {
+          "1,0": {
             "size": [
               2,
               1
@@ -173,7 +173,7 @@
               "_title": "argos/shooter/tunes/kP"
             }
           },
-          "4,3": {
+          "1,1": {
             "size": [
               2,
               1
@@ -184,7 +184,7 @@
               "_title": "argos/shooter/tunes/kI"
             }
           },
-          "4,4": {
+          "1,2": {
             "size": [
               2,
               1
@@ -195,7 +195,7 @@
               "_title": "argos/shooter/tunes/kD"
             }
           },
-          "4,5": {
+          "1,3": {
             "size": [
               2,
               1
@@ -206,7 +206,7 @@
               "_title": "argos/shooter/tunes/kF"
             }
           },
-          "4,6": {
+          "1,4": {
             "size": [
               2,
               1
@@ -261,7 +261,7 @@
               "Visible data/argos/turret/status/positions[0]": true
             }
           },
-          "6,3": {
+          "3,2": {
             "size": [
               2,
               1
@@ -272,7 +272,7 @@
               "_title": "argos/turret/tunes/IZone"
             }
           },
-          "4,2": {
+          "1,0": {
             "size": [
               2,
               1
@@ -283,7 +283,7 @@
               "_title": "argos/turret/tunes/kP"
             }
           },
-          "4,3": {
+          "1,1": {
             "size": [
               2,
               1
@@ -294,7 +294,7 @@
               "_title": "argos/turret/tunes/kI"
             }
           },
-          "4,4": {
+          "1,2": {
             "size": [
               2,
               1
@@ -305,7 +305,7 @@
               "_title": "argos/turret/tunes/kD"
             }
           },
-          "4,5": {
+          "1,3": {
             "size": [
               2,
               1
@@ -316,7 +316,7 @@
               "_title": "argos/turret/tunes/kF"
             }
           },
-          "4,6": {
+          "1,4": {
             "size": [
               2,
               1
@@ -552,9 +552,9 @@
     }
   ],
   "windowGeometry": {
-    "x": -7.199999809265137,
-    "y": -7.199999809265137,
-    "width": 1819.199951171875,
-    "height": 1177.5999755859375
+    "x": -8.0,
+    "y": -8.0,
+    "width": 1936.0,
+    "height": 1056.0
   }
 }

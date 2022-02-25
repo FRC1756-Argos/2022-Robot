@@ -8,7 +8,7 @@
 #include "argos_lib/config/falcon_config.h"
 #include "utils/sensor_conversions.h"
 
-ClimberSubsystem::ClimberSubsystem()
+ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
     : m_motorLiftRight(address::climber::liftRight)
     , m_motorLiftLeft(address::climber::liftLeft)
     , m_motorMoveHook(address::climber::moveHook)
@@ -29,9 +29,15 @@ ClimberSubsystem::ClimberSubsystem()
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension),
                          1.0,
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension)}} {
-  argos_lib::falcon_config::FalconConfig<motorConfig::climber::liftRight>(m_motorLiftRight, 50_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::climber::liftLeft>(m_motorLiftLeft, 50_ms);
-  argos_lib::falcon_config::FalconConfig<motorConfig::climber::moveHook>(m_motorMoveHook, 50_ms);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::climber::liftRight,
+                                         motorConfig::practice_bot::climber::liftRight>(
+      m_motorLiftRight, 50_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::climber::liftLeft,
+                                         motorConfig::practice_bot::climber::liftLeft>(
+      m_motorLiftLeft, 50_ms, instance);
+  argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::climber::moveHook,
+                                         motorConfig::practice_bot::climber::moveHook>(
+      m_motorMoveHook, 50_ms, instance);
 }
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic() {}

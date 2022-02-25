@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "Constants.h"
+#include "argos_lib/config/robot_instance.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
@@ -58,6 +59,8 @@ class RobotContainer {
   argos_lib::InterpolationMap<decltype(controllerMap::hoodSpeed.front().inVal), controllerMap::hoodSpeed.size()>
       m_hoodSpeedMap;
 
+  const argos_lib::RobotInstance m_instance;
+
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
   IntakeSubsystem m_intake;
@@ -68,13 +71,12 @@ class RobotContainer {
   HomeClimberArmCommand m_homeClimberArmCommand;
   HomeClimberHookCommand m_homeClimberHookCommand;
 
-  frc::Compressor m_compressor;
-
   // Tuning stuff
   units::degree_t m_hoodTargetPosition;
   units::revolutions_per_minute_t m_shooterTargetVelocity;
   units::inch_t m_climberArmTargetExtension;
   units::inch_t m_climberHookTargetExtension;
+  units::degree_t m_turretTargetPosition;
   argos_lib::NTSubscriber m_NTMonitor;
 
   void ConfigureButtonBindings();

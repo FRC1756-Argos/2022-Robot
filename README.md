@@ -4,6 +4,10 @@
 
 Robot code for 2022 FRC Season
 
+## Commissioning A Robot
+
+When commissioning a new robot, you should set the instance type to either "Competition" or "Practice" by creating a text file readable by `lvuser` on the RoboRIO at path `/home/lvuser/robotInstance`.  The content of this file should be just the text `Competition` or `Practice` with no whitespace preceding.  If no valid instance is found at runtime, competition instance will be used and an error will be generated.
+
 ## Project Setup
 
 ### Pre-Commit
@@ -37,51 +41,51 @@ The first run may take a moment, but subsequent automatic runs are very fast.
 
 You'll now have the linter run before each commit!  For compatibility with Windows, we recommend the pip version of clang-format, but wpi-format will find any installed `clang-format` binary in the system path.
 
-## controls
+## Controls
 
 **Driver:**
 | Button          | Function |
 | --------------- | -------- |
-| Left JS X       | drive |
-| Left JS Y       | drive |
-| Right JS X      | turn |
-| Right JS Y      | unused |
-| DPad Up         | initiates climb|
-| DPad Right      | unused |
-| DPad Down       | redo climb |
-| DPad Left       | retract hook |
+| Left JS X       | Drive |
+| Left JS Y       | Drive |
+| Right JS X      | Turn |
+| Right JS Y      | Unused |
+| DPad Up         | Initiates Climb|
+| DPad Right      | Unused |
+| DPad Down       | Redo Climb |
+| DPad Left       | Retract Hook |
 | A               | Home Swerve (hold with <kbd>B</kbd> and <kbd>X</kbd>) |
 | B               | Home Swerve (hold with <kbd>A</kbd> and <kbd>X</kbd>) |
 | X               | Home Swerve (hold with <kbd>A</kbd> and <kbd>B</kbd>) |
-| Y               | Unused |
-| LB              | Unused |
-| RB              | reverse intake |
-| LT              | shooting |
-| RT              | intake |
+| Y               | Field Home (hold) |
+| LB              | Field- vs. Robot-Centric Drive |
+| RB              | Reverse Intake |
+| LT              | Shoot |
+| RT              | Intake |
 | Back            | Swap (hold with <kbd>Start</kbd>) |
 | Start           | Swap (hold with <kbd>Back</kbd>) |
 | Left JS Button  | Unused |
 | Right JS Button | Unused |
 
-**operator:**
+**Operator:**
 | Button          | Function |
 | --------------- | -------- |
-| Left JS X       | manual aiming |
-| Left JS Y       | manual hood |
-| Right JS X      | climbing hooks |
-| Right JS Y      | climbing arm |
-| DPad Up         | raises arms |
-| DPad Right      | extend hook |
-| DPad Down       | lowers arms |
-| DPad Left       | retract hook |
-| A               | Unused |
-| B               | Unused |
-| X               | Unused |
-| Y               | raises frame |
-| LB              | unused |
+| Left JS X       | Manual Aim |
+| Left JS Y       | Manual Hood |
+| Right JS X      | Climbing Hooks |
+| Right JS Y      | Climbing Arm |
+| DPad Up         | Raise Arm |
+| DPad Right      | Extend Hook |
+| DPad Down       | Lower Arm |
+| DPad Left       | Retract Hook |
+| A               | Home Turret (hold with <kbd>B</kbd> and <kbd>X</kbd>) |
+| B               | Home Turret (hold with <kbd>A</kbd> and <kbd>X</kbd>) |
+| X               | Home Turret (hold with <kbd>A</kbd> and <kbd>B</kbd>) |
+| Y               | Raise Frame |
+| LB              | Unused |
 | RB              | Unused |
 | LT              | Unused |
-| RT              | vision |
+| RT              | Vision Target |
 | Back            | Swap (hold with <kbd>Start</kbd>) |
 | Start           | Swap (hold with <kbd>Back</kbd>) |
 | Left JS Button  | Unused |

@@ -9,8 +9,10 @@
 
 #include <iostream>
 
+#include "argos_lib/config/robot_instance.h"
 #include "compile_time_member_check.h"
 #include "ctre/Phoenix.h"
+#include "status_frame_config.h"
 
 namespace argos_lib {
   namespace falcon_config {
@@ -42,6 +44,7 @@ namespace argos_lib {
     HAS_MEMBER(supplyCurrentThreshold)
     HAS_MEMBER(supplyCurrentThresholdTime)
     HAS_MEMBER(voltCompSat)
+    HAS_MEMBER(statusFrameMotorMode)
 
     /**
      * @brief Configures a CTRE Falcon with only the fields provided.  All other fields
@@ -75,6 +78,7 @@ namespace argos_lib {
      *           - supplyCurrentThreshold
      *           - supplyCurrentThresholdTime
      *           - voltCompSat
+     *           - statusFrameMotorMode
      * @param motorController Falcon object to configure
      * @param configTimeout Time to wait for response from Falcon
      * @return true Configuration succeeded
@@ -223,12 +227,42 @@ namespace argos_lib {
         config.neutralDeadband = T::neutralDeadband;
       }
 
+      if constexpr (has_statusFrameMotorMode<T>()) {
+        argos_lib::status_frame_config::SetMotorStatusFrameRates(motorController, T::statusFrameMotorMode);
+      }
+
       auto retVal = motorController.ConfigAllSettings(config, timeout);
       if (0 != retVal) {
         std::cout << "Error code (" << motorController.GetDeviceID() << "): " << retVal << '\n';
       }
 
       return 0 != retVal;
+    }
+
+    /**
+     * @brief Configures a CTRE Falcon with configuration values according to specified robot instance.
+     *
+     * @tparam CompetitionConfig Configurations to use in competition robot instance
+     * @tparam PracticeConfig Configurations to use in practice robot instance
+     * @param motorController Falcon object to configure
+     * @param configTimeout Time to wait for response from Falcon
+     * @param instance Robot instance to use
+     * @return true Configuration succeeded
+     * @return false Configuration failed
+     */
+    template <typename CompetitionConfig, typename PracticeConfig>
+    bool FalconConfig(WPI_TalonFX& motorController,
+                      units::millisecond_t configTimeout,
+                      argos_lib::RobotInstance instance) {
+      switch (instance) {
+        case argos_lib::RobotInstance::Competition:
+          return FalconConfig<CompetitionConfig>(motorController, configTimeout);
+          break;
+        case argos_lib::RobotInstance::Practice:
+          return FalconConfig<PracticeConfig>(motorController, configTimeout);
+          break;
+      }
+      return false;
     }
 
   }  // namespace falcon_config
