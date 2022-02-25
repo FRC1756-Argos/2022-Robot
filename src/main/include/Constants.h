@@ -19,16 +19,16 @@
 
 namespace threshholds {
   namespace intake {
-    const auto intakeDeactivate = 4.5_in;
-    const auto intakeActivate = 10_in;
+    const auto intakeDeactivate = 8_in;
+    const auto intakeActivate = 8_in;
   }  // namespace intake
 }  // namespace threshholds
 
 namespace speeds {
   namespace intake {
-    constexpr double beltForward = -1;
-    constexpr double beltReverse = 0.8;
-    constexpr double intakeForward = 0.6;
+    constexpr double beltForward = 0.7;
+    constexpr double beltReverse = -0.8;
+    constexpr double intakeForward = 0.5;
     constexpr double intakeReverse = -1;
   }  // namespace intake
   namespace drive {

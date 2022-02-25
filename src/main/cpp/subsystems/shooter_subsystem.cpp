@@ -4,6 +4,8 @@
 
 #include "subsystems/shooter_subsystem.h"
 
+#include <frc/smartdashboard/SmartDashboard.h>
+
 #include "Constants.h"
 #include "argos_lib/config/falcon_config.h"
 #include "argos_lib/config/talonsrx_config.h"
@@ -44,7 +46,8 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance)
                        argos_lib::ClosedLoopSensorConversions{
                            argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle),
                            1.0,
-                           argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle)}} {
+                           argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle)}}
+    , m_instance(instance) {
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::shooter::shooterWheelLeft,
                                          motorConfig::practice_bot::shooter::shooterWheelLeft>(
       m_shooterWheelLeft, 50_ms, instance);
@@ -64,7 +67,16 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance)
 }
 
 // This method will be called once per scheduler run
-void ShooterSubsystem::Periodic() {}
+void ShooterSubsystem::Periodic() {
+  frc::SmartDashboard::PutNumber(
+      "(Turret) absAngle",
+      sensor_conversions::turret::ToAngle(m_turretMotor.GetSensorCollection().GetPulseWidthPosition()).to<double>());
+  frc::SmartDashboard::PutNumber(
+      "(Turret) relAngle", sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition()).to<double>());
+  const auto turretNormalizedPosition = TurretGetPosition();
+  frc::SmartDashboard::PutNumber("(Turret) normalizedAngle",
+                                 turretNormalizedPosition ? turretNormalizedPosition.value().to<double>() : NAN);
+}
 
 void ShooterSubsystem::AutoAim() {
   // Get target angle & assign to turret
@@ -99,7 +111,8 @@ void ShooterSubsystem::ManualAim(double turnSpeed, double hoodSpeed) {
     m_manualOverride = true;
   }
   if (m_manualOverride) {
-    MoveTurret(turnSpeed);
+    // Turret is backward on practice bot, but this is simpler than changing homing logic
+    MoveTurret(m_instance == argos_lib::RobotInstance::Practice ? -turnSpeed : turnSpeed);
     MoveHood(hoodSpeed);
   }
 }
@@ -173,13 +186,35 @@ void ShooterSubsystem::TurretSetPosition(units::degree_t angle) {
   if (IsTurretHomed()) {
     m_manualOverride = false;
     m_turretMotor.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                      sensor_conversions::turret::ToSensorUnit(360_deg - angle));
+                      sensor_conversions::turret::ToSensorUnit(
+                          m_instance == argos_lib::RobotInstance::Competition ? 360_deg - angle : angle));
   }
 }
 
+std::optional<units::degree_t> ShooterSubsystem::TurretGetPosition() {
+  if (IsTurretHomed()) {
+    units::degree_t rawAngle = sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition());
+    // Competition robot has inverted sensor positions :(
+    switch (m_instance) {
+      case argos_lib::RobotInstance::Competition:
+        return 360_deg - rawAngle;
+      case argos_lib::RobotInstance::Practice:
+        return rawAngle;
+    }
+  }
+  return std::nullopt;
+}
+
 void ShooterSubsystem::SetTurretSoftLimits() {
-  m_turretMotor.ConfigForwardSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(measure_up::turret::maxAngle));
-  m_turretMotor.ConfigReverseSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(measure_up::turret::minAngle));
+  units::degree_t minAngle = m_instance == argos_lib::RobotInstance::Competition ?
+                                 360_deg - measure_up::turret::maxAngle :
+                                 measure_up::turret::minAngle;
+  units::degree_t maxAngle = m_instance == argos_lib::RobotInstance::Competition ?
+                                 360_deg - measure_up::turret::minAngle :
+                                 measure_up::turret::maxAngle;
+
+  m_turretMotor.ConfigForwardSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(maxAngle));
+  m_turretMotor.ConfigReverseSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(minAngle));
   m_turretMotor.ConfigForwardSoftLimitEnable(true);
   m_turretMotor.ConfigReverseSoftLimitEnable(true);
 }
@@ -193,7 +228,6 @@ void ShooterSubsystem::Disable() {
   m_manualOverride = false;
 }
 
-/// @todo change math
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
   return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) /
          std::tan(
@@ -235,7 +269,7 @@ void CameraInterface::SetDriverMode(bool mode) {
   m_camera.SetDriverMode(mode);
 }
 
-units::degree_t ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedTarget target) {
+std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedTarget target) {
   units::length::inch_t cameraToTargetDistance =
       GetTargetDistance(units::make_unit<units::degree_t>(target.GetPitch()));
   units::length::inch_t cameraTurretOffset = measure_up::camera::toRotationCenter;
@@ -243,11 +277,13 @@ units::degree_t ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedT
   double turretToTargetDistance =
       std::sqrt(std::pow(cameraTurretOffset.to<double>(), 2.0) + std::pow(cameraToTargetDistance.to<double>(), 2.0));
 
-  units::angle::degree_t currentAngle = sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition());
-  units::degree_t targetAngle = units::make_unit<units::degree_t>(
-      currentAngle.to<double>() + std::acos((std::pow(cameraTurretOffset.to<double>(), 2.0) + turretToTargetDistance -
-                                             cameraToTargetDistance.to<double>()) /
-                                            2 * cameraTurretOffset.to<double>() * turretToTargetDistance));
-
-  return targetAngle;
+  auto currentAngle = TurretGetPosition();
+  if (currentAngle) {
+    units::degree_t targetAngle = units::make_unit<units::degree_t>(
+        currentAngle.value().to<double>() + std::acos((std::pow(cameraTurretOffset.to<double>(), 2.0) +
+                                                       turretToTargetDistance - cameraToTargetDistance.to<double>()) /
+                                                      2 * cameraTurretOffset.to<double>() * turretToTargetDistance));
+    return targetAngle;
+  }
+  return std::nullopt;
 }
