@@ -180,7 +180,7 @@ namespace motorConfig {
 
     namespace intake {
       struct beltDrive {
-        constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
+        constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
         constexpr static bool sensorPhase = false;
         constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
@@ -275,7 +275,7 @@ namespace motorConfig {
       };
       struct turretMotor {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
-        constexpr static bool sensorPhase = true;
+        constexpr static bool sensorPhase = false;
         constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
@@ -298,7 +298,7 @@ namespace motorConfig {
 
     namespace intake {
       struct beltDrive {
-        constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
+        constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
         constexpr static bool sensorPhase = false;
         constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Coast;

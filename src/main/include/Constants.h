@@ -26,8 +26,8 @@ namespace threshholds {
 
 namespace speeds {
   namespace intake {
-    constexpr double beltForward = -0.7;
-    constexpr double beltReverse = 0.8;
+    constexpr double beltForward = 0.7;
+    constexpr double beltReverse = -0.8;
     constexpr double intakeForward = 0.5;
     constexpr double intakeReverse = -1;
   }  // namespace intake

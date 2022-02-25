@@ -41,7 +41,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   explicit ShooterSubsystem(const argos_lib::RobotInstance instance);
 
   /// @todo document function
-  units::degree_t GetTurretTargetAngle(photonlib::PhotonTrackedTarget target);
+  std::optional<units::degree_t> GetTurretTargetAngle(photonlib::PhotonTrackedTarget target);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -142,6 +142,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   void TurretSetPosition(units::degree_t angle);
 
   /**
+   * @brief Get current angle of turret with 0 degrees at intake side and positive counterclockwise
+   *
+   * @return Angle of turret if homed, std::nullopt otherwise
+   */
+  std::optional<units::degree_t> TurretGetPosition();
+
+  /**
    * @brief Sets and enables soft angle limits for turret
    */
   void SetTurretSoftLimits();
@@ -202,4 +209,6 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
   argos_lib::NTMotorPIDTuner m_shooterPIDTuner;
   argos_lib::NTMotorPIDTuner m_turretPIDTuner;
+
+  argos_lib::RobotInstance m_instance;
 };
