@@ -55,7 +55,7 @@ void IntakeSubsystem::Periodic() {
       } else {
         m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
       }
-      if (m_intakeButtonPressed == true) {
+      if (m_intakeButtonPressed == true && !getBallPresentIntake()) {
         m_intakeDrive.Set(speeds::intake::intakeForward);
       } else if (getBallPresentIntake() == true && getIsBallTeamColor() == false) {
         m_intakeDrive.Set(speeds::intake::intakeReverse);
