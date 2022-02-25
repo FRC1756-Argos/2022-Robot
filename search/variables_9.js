@@ -51,7 +51,7 @@ var searchData=
   ['m_5fhysteresisintake_48',['m_hysteresisIntake',['../class_intake_subsystem.html#a5485814d18e72c925bb7a0a156dd3189',1,'IntakeSubsystem']]],
   ['m_5fhysteresisshooter_49',['m_hysteresisShooter',['../class_intake_subsystem.html#a4a85c77f69a2e922197a50c5b3cadcee',1,'IntakeSubsystem']]],
   ['m_5fimu_50',['m_imu',['../class_swerve_drive_subsystem.html#a94814ca86481c09185e6c308ec008892',1,'SwerveDriveSubsystem']]],
-  ['m_5finstance_51',['m_instance',['../class_robot_container.html#afd2859ab3437ff8d2dd70229095f1ff1',1,'RobotContainer']]],
+  ['m_5finstance_51',['m_instance',['../class_robot_container.html#afd2859ab3437ff8d2dd70229095f1ff1',1,'RobotContainer::m_instance()'],['../class_shooter_subsystem.html#aefe186ca6547811ce0a1a0df5205e50f',1,'ShooterSubsystem::m_instance()']]],
   ['m_5fintake_52',['m_intake',['../class_robot_container.html#ac524c1d088a263a7e25bb54ba7b8dbc5',1,'RobotContainer']]],
   ['m_5fintakebuttonpressed_53',['m_intakeButtonPressed',['../class_intake_subsystem.html#a1ea4b501abc4614782316564df00ad6a',1,'IntakeSubsystem']]],
   ['m_5fintakedeploy_54',['m_intakeDeploy',['../class_intake_subsystem.html#aee66e46400271a45b259fe94ca1f7f9d',1,'IntakeSubsystem']]],

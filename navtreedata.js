@@ -63,9 +63,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_swerve_module.html#a76388e8e69c98459a839f7c986417cc7",
-"classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a04d2e12d61fecb0bfab6d9456b9d5101",
-"namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a55c15f15e91a212907cd98d7939a8db6",
+"class_swerve_module.html",
+"classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html",
+"namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a5158a250e30f1fb4415d86ded2c8e0c5",
 "structargos__lib_1_1_interp_map_point.html",
 "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07v17e9f7765ec4fa83077c39d6a7c9002a.html",
 "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a0faa5dd352fd2383c275cb5272da6d29"

@@ -103,8 +103,8 @@ Inheritance diagram for ShooterSubsystem:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a27e20185066dced17ea2521972794efb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a27e20185066dced17ea2521972794efb">ShooterSubsystem</a> (const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance)</td></tr>
 <tr class="separator:a27e20185066dced17ea2521972794efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73167893a9f2650f657707115bf44526"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a73167893a9f2650f657707115bf44526">GetTurretTargetAngle</a> (photonlib::PhotonTrackedTarget target)</td></tr>
-<tr class="separator:a73167893a9f2650f657707115bf44526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab24936b80d42c44b7caf74ce69097d9b"><td class="memItemLeft" align="right" valign="top">std::optional&lt; units::degree_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ab24936b80d42c44b7caf74ce69097d9b">GetTurretTargetAngle</a> (photonlib::PhotonTrackedTarget target)</td></tr>
+<tr class="separator:ab24936b80d42c44b7caf74ce69097d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8d2e05a252f65c20c489049ae18efd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ad8d2e05a252f65c20c489049ae18efd5">Periodic</a> () override</td></tr>
 <tr class="separator:ad8d2e05a252f65c20c489049ae18efd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8453d10a1009bdc01d19a50631baedf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3">AutoAim</a> ()</td></tr>
@@ -149,6 +149,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ee059505949e3b0c56f7a66781674ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a6ee059505949e3b0c56f7a66781674ed">TurretSetPosition</a> (units::degree_t angle)</td></tr>
 <tr class="memdesc:a6ee059505949e3b0c56f7a66781674ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closed-loop go to turret position.  <a href="class_shooter_subsystem.html#a6ee059505949e3b0c56f7a66781674ed">More...</a><br /></td></tr>
 <tr class="separator:a6ee059505949e3b0c56f7a66781674ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3205119be9d8a95bb28e76134824269c"><td class="memItemLeft" align="right" valign="top">std::optional&lt; units::degree_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a3205119be9d8a95bb28e76134824269c">TurretGetPosition</a> ()</td></tr>
+<tr class="memdesc:a3205119be9d8a95bb28e76134824269c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current angle of turret with 0 degrees at intake side and positive counterclockwise.  <a href="class_shooter_subsystem.html#a3205119be9d8a95bb28e76134824269c">More...</a><br /></td></tr>
+<tr class="separator:a3205119be9d8a95bb28e76134824269c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4227968828b96c7701f88453cda6cb62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a4227968828b96c7701f88453cda6cb62">SetTurretSoftLimits</a> ()</td></tr>
 <tr class="memdesc:a4227968828b96c7701f88453cda6cb62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets and enables soft angle limits for turret.  <a href="class_shooter_subsystem.html#a4227968828b96c7701f88453cda6cb62">More...</a><br /></td></tr>
 <tr class="separator:a4227968828b96c7701f88453cda6cb62"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,6 +203,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac50ce8c7cecef48d016c873d7af5347e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad27554d9f1ba1e5b70a360b16433a5d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ad27554d9f1ba1e5b70a360b16433a5d2">m_turretPIDTuner</a></td></tr>
 <tr class="separator:ad27554d9f1ba1e5b70a360b16433a5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefe186ca6547811ce0a1a0df5205e50f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#aefe186ca6547811ce0a1a0df5205e50f">m_instance</a></td></tr>
+<tr class="separator:aefe186ca6547811ce0a1a0df5205e50f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a27e20185066dced17ea2521972794efb" name="a27e20185066dced17ea2521972794efb"></a>
@@ -336,19 +341,18 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Gives the distance in inches of the target to camera</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>change math </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Gives the distance in inches of the target to camera </dd></dl>
 
 </div>
 </div>
-<a id="a73167893a9f2650f657707115bf44526" name="a73167893a9f2650f657707115bf44526"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73167893a9f2650f657707115bf44526">&#9670;&nbsp;</a></span>GetTurretTargetAngle()</h2>
+<a id="ab24936b80d42c44b7caf74ce69097d9b" name="ab24936b80d42c44b7caf74ce69097d9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab24936b80d42c44b7caf74ce69097d9b">&#9670;&nbsp;</a></span>GetTurretTargetAngle()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">units::degree_t ShooterSubsystem::GetTurretTargetAngle </td>
+          <td class="memname">std::optional&lt; units::degree_t &gt; ShooterSubsystem::GetTurretTargetAngle </td>
           <td>(</td>
           <td class="paramtype">photonlib::PhotonTrackedTarget&#160;</td>
           <td class="paramname"><em>target</em></td><td>)</td>
@@ -356,7 +360,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>document function </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>document function </dd></dl>
 
 </div>
 </div>
@@ -671,6 +675,26 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3205119be9d8a95bb28e76134824269c" name="a3205119be9d8a95bb28e76134824269c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3205119be9d8a95bb28e76134824269c">&#9670;&nbsp;</a></span>TurretGetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; units::degree_t &gt; ShooterSubsystem::TurretGetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get current angle of turret with 0 degrees at intake side and positive counterclockwise. </p>
+<dl class="section return"><dt>Returns</dt><dd>Angle of turret if homed, std::nullopt otherwise </dd></dl>
+
+</div>
+</div>
 <a id="a6ee059505949e3b0c56f7a66781674ed" name="a6ee059505949e3b0c56f7a66781674ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ee059505949e3b0c56f7a66781674ed">&#9670;&nbsp;</a></span>TurretSetPosition()</h2>
 
@@ -837,6 +861,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a> ShooterSubsystem::m_hoodPIDTuner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefe186ca6547811ce0a1a0df5205e50f" name="aefe186ca6547811ce0a1a0df5205e50f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe186ca6547811ce0a1a0df5205e50f">&#9670;&nbsp;</a></span>m_instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> ShooterSubsystem::m_instance</td>
         </tr>
       </table>
   </td>

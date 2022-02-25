@@ -154,10 +154,11 @@ var annotated_dup =
       ] ],
       [ "practice_bot", "namespacemotor_config_1_1practice__bot.html", [
         [ "intake", "namespacemotor_config_1_1practice__bot_1_1intake.html", [
-          [ "intakeDrive", "structmotor_config_1_1practice__bot_1_1intake_1_1intake_drive.html", "structmotor_config_1_1practice__bot_1_1intake_1_1intake_drive" ]
+          [ "beltDrive", "structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html", "structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive" ]
         ] ],
         [ "shooter", "namespacemotor_config_1_1practice__bot_1_1shooter.html", [
-          [ "hoodMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html", "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor" ]
+          [ "hoodMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html", "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor" ],
+          [ "turretMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html", "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor" ]
         ] ]
       ] ]
     ] ],

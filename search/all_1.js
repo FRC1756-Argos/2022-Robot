@@ -14,7 +14,7 @@ var searchData=
   ['backrightwoffset_11',['backRightWOffset',['../namespacemeasure__up_1_1swerve__offsets.html#a4a79bffd93818af42fe1894b26de550b',1,'measure_up::swerve_offsets']]],
   ['basic_12',['Basic',['../namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a972e73b7a882d0802a4e3a16946a2f94',1,'argos_lib::status_frame_config']]],
   ['basicfx_13',['BasicFX',['../namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320',1,'argos_lib::status_frame_config']]],
-  ['beltdrive_14',['beltDrive',['../namespacemotor_config_1_1practice__bot_1_1intake.html#adefeba6fb3b865a3559212366b24825a',1,'motorConfig::practice_bot::intake::beltDrive()'],['../namespaceaddress_1_1intake.html#a37e5b3b6891613c3d9e6e473d3ee8d95',1,'address::intake::beltDrive()'],['../structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html',1,'motorConfig::comp_bot::intake::beltDrive']]],
+  ['beltdrive_14',['beltDrive',['../namespaceaddress_1_1intake.html#a37e5b3b6891613c3d9e6e473d3ee8d95',1,'address::intake::beltDrive()'],['../structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html',1,'motorConfig::comp_bot::intake::beltDrive'],['../structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html',1,'motorConfig::practice_bot::intake::beltDrive']]],
   ['beltforward_15',['beltForward',['../namespacespeeds_1_1intake.html#ab46ee716e992f3e0b2b267886d9fb4f5',1,'speeds::intake']]],
   ['beltreverse_16',['beltReverse',['../namespacespeeds_1_1intake.html#afcbd92b7804dc8565fbd200d347ed857',1,'speeds::intake']]],
   ['blhome_17',['blHome',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a14c22b907cf617733054eb5637a4e85c',1,'networkTables::swerveHomes::keys']]],

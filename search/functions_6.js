@@ -19,7 +19,7 @@ var searchData=
   ['getsensorconversionfactor_16',['GetSensorConversionFactor',['../namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2',1,'argos_lib']]],
   ['gettargetdistance_17',['GetTargetDistance',['../class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7',1,'ShooterSubsystem']]],
   ['gettriggeraxis_18',['GetTriggerAxis',['../classargos__lib_1_1_xbox_controller.html#adfd321a87d96b003748b642fdf711601',1,'argos_lib::XboxController']]],
-  ['getturrettargetangle_19',['GetTurretTargetAngle',['../class_shooter_subsystem.html#a73167893a9f2650f657707115bf44526',1,'ShooterSubsystem']]],
+  ['getturrettargetangle_19',['GetTurretTargetAngle',['../class_shooter_subsystem.html#ab24936b80d42c44b7caf74ce69097d9b',1,'ShooterSubsystem']]],
   ['getx_20',['GetX',['../classargos__lib_1_1_xbox_controller.html#af845a5fb5316e2f8d9c68e8cb60966ff',1,'argos_lib::XboxController']]],
   ['gety_21',['GetY',['../classargos__lib_1_1_xbox_controller.html#aa8e565e9547cea97e7bdd92143b7b8fa',1,'argos_lib::XboxController']]]
 ];

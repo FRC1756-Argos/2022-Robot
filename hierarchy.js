@@ -3,6 +3,7 @@ var hierarchy =
     [ "motorConfig::comp_bot::drive::backLeftTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_left_turn.html", null ],
     [ "motorConfig::comp_bot::drive::backRightTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html", null ],
     [ "motorConfig::comp_bot::intake::beltDrive", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html", null ],
+    [ "motorConfig::practice_bot::intake::beltDrive", "structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html", null ],
     [ "CameraInterface", "class_camera_interface.html", null ],
     [ "argos_lib::ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", null ],
     [ "frc2::CommandHelper", null, [
@@ -82,7 +83,6 @@ var hierarchy =
     [ "argos_lib::HysteresisFilter< T >", "classargos__lib_1_1_hysteresis_filter.html", null ],
     [ "argos_lib::HysteresisFilter< units::inch_t >", "classargos__lib_1_1_hysteresis_filter.html", null ],
     [ "motorConfig::comp_bot::intake::intakeDrive", "structmotor_config_1_1comp__bot_1_1intake_1_1intake_drive.html", null ],
-    [ "motorConfig::practice_bot::intake::intakeDrive", "structmotor_config_1_1practice__bot_1_1intake_1_1intake_drive.html", null ],
     [ "argos_lib::InterpMapPoint< T >", "structargos__lib_1_1_interp_map_point.html", null ],
     [ "argos_lib::InterpolationMap< T, size >", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::armSpeed.front().inVal), controllerMap::armSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
@@ -173,6 +173,7 @@ var hierarchy =
       [ "argos_lib::talonsrx_config::has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ]
     ] ],
     [ "motorConfig::comp_bot::shooter::turretMotor", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html", null ],
+    [ "motorConfig::practice_bot::shooter::turretMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html", null ],
     [ "argos_lib::XboxController::UpdateStatus", "structargos__lib_1_1_xbox_controller_1_1_update_status.html", null ],
     [ "SwerveDriveSubsystem::Velocities", "struct_swerve_drive_subsystem_1_1_velocities.html", null ],
     [ "argos_lib::VibrationStatus", "structargos__lib_1_1_vibration_status.html", null ]
