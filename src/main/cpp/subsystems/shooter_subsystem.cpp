@@ -64,6 +64,8 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance)
   InitializeTurretHome();
 
   m_shooterWheelRight.Follow(m_shooterWheelLeft);
+
+  m_cameraInterface.SetDriverMode(true);
 }
 
 // This method will be called once per scheduler run
@@ -86,9 +88,11 @@ void ShooterSubsystem::AutoAim() {
   if (!hightestTarget) {
     return;
   }
-  units::angle::degree_t targetAngle = GetTurretTargetAngle(hightestTarget.value());
-  frc::SmartDashboard::PutNumber("Target turret angle", targetAngle.to<double>());
-  TurretSetPosition(targetAngle);
+  auto targetAngle = GetTurretTargetAngle(hightestTarget.value());
+  if (targetAngle) {
+    frc::SmartDashboard::PutNumber("Target turret angle", targetAngle.value().to<double>());
+    TurretSetPosition(targetAngle.value());
+  }
 
   // Get target distance & assign to hood & shooter
   units::length::inch_t distanceToTarget =
@@ -226,6 +230,7 @@ void ShooterSubsystem::DisableTurretSoftLimits() {
 
 void ShooterSubsystem::Disable() {
   m_manualOverride = false;
+  m_cameraInterface.SetDriverMode(true);
 }
 
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
@@ -240,7 +245,7 @@ void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
 }
 
 // CAMERA INTERFACE -----------------------------------------------------------------------------
-CameraInterface::CameraInterface() : m_camera{"10.17.56.122"} {
+CameraInterface::CameraInterface() : m_camera{camera::nickname} {
   // SETS DEFAULT PIPELINE
   m_camera.SetPipelineIndex(camera::defaultPipelineIndex);
 }
