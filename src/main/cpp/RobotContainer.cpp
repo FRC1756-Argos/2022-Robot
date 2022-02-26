@@ -26,11 +26,12 @@ RobotContainer::RobotContainer()
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable, m_instance)
     , m_intake(m_instance)
-    , m_climber(m_instance)
+    , m_pClimber(m_instance == argos_lib::RobotInstance::Competition ? std::make_unique<ClimberSubsystem>(m_instance) :
+                                                                       nullptr)
     , m_shooter(m_instance)
     , m_homeHoodCommand(&m_shooter)
-    , m_homeClimberArmCommand(&m_climber)
-    , m_homeClimberHookCommand(&m_climber)
+    , m_homeClimberArmCommand(m_pClimber.get())
+    , m_homeClimberHookCommand(m_pClimber.get())
     , m_hoodTargetPosition(30_deg)
     , m_shooterTargetVelocity(3000_rpm)
     , m_climberArmTargetExtension(2_in)
@@ -74,22 +75,26 @@ RobotContainer::RobotContainer()
       },
       {&m_shooter}));
 
-  m_climber.SetDefaultCommand(frc2::RunCommand(
-      [this] {
-        m_climber.ManualControl(m_hookSpeedMap(m_controllers.OperatorController().GetX(
-                                    argos_lib::XboxController::JoystickHand::kRightHand)),
-                                m_armSpeedMap(-m_controllers.OperatorController().GetY(
-                                    argos_lib::XboxController::JoystickHand::kRightHand)));
-      },
-      {&m_climber}));
+  if (m_pClimber) {
+    m_pClimber->SetDefaultCommand(frc2::RunCommand(
+        [this] {
+          m_pClimber->ManualControl(m_hookSpeedMap(m_controllers.OperatorController().GetX(
+                                        argos_lib::XboxController::JoystickHand::kRightHand)),
+                                    m_armSpeedMap(-m_controllers.OperatorController().GetY(
+                                        argos_lib::XboxController::JoystickHand::kRightHand)));
+        },
+        {m_pClimber.get()}));
+  }
 
   // Robot state triggers
   auto robotEnableTrigger = (frc2::Trigger{[this]() { return frc::DriverStation::IsEnabled(); }});
 
   // Homing triggers
   auto hoodHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_shooter.IsHoodHomed(); }});
-  auto climberHookHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_climber.IsHookHomed(); }});
-  auto climberArmHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_climber.IsArmHomed(); }});
+  auto climberHookHomingCompleteTrigger =
+      (frc2::Trigger{[this]() { return m_pClimber ? m_pClimber->IsHookHomed() : false; }});
+  auto climberArmHomingCompleteTrigger =
+      (frc2::Trigger{[this]() { return m_pClimber ? m_pClimber->IsArmHomed() : false; }});
 
   // Homing commands
   (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
@@ -100,9 +105,11 @@ RobotContainer::RobotContainer()
   robotEnableTrigger.WhenInactive(
       [this]() {
         m_shooter.Disable();
-        m_climber.Disable();
+        if (m_pClimber) {
+          m_pClimber->Disable();
+        }
       },
-      {&m_shooter, &m_climber});
+      {&m_shooter, m_pClimber.get()});
 
   m_NTMonitor.AddMonitor(
       "manualSetpoints/hoodAngle",

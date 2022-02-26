@@ -64,7 +64,7 @@ class RobotContainer {
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
   IntakeSubsystem m_intake;
-  ClimberSubsystem m_climber;
+  std::unique_ptr<ClimberSubsystem> m_pClimber;
   ShooterSubsystem m_shooter;
 
   HomeHoodCommand m_homeHoodCommand;
