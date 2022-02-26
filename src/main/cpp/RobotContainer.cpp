@@ -153,9 +153,9 @@ void RobotContainer::ConfigureButtonBindings() {
 
   // DRIVE TRIGGERS
   auto homeDrive = (frc2::Trigger{[this]() {
-    return m_controllers.DriverController().GetDebouncedButton({argos_lib::XboxController::Button::kLeft,
-                                                                argos_lib::XboxController::Button::kDown,
-                                                                argos_lib::XboxController::Button::kRight});
+    return m_controllers.DriverController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
+                                                                argos_lib::XboxController::Button::kA,
+                                                                argos_lib::XboxController::Button::kB});
   }});
 
   auto controlMode = (frc2::Trigger{[this]() {

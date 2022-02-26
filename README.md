@@ -74,14 +74,14 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | Left JS Y       | Manual Hood |
 | Right JS X      | Climbing Hooks |
 | Right JS Y      | Climbing Arm |
-| A               | Lower Arm |
-| B               | Extend Hook |
-| X               | Retract Hook |
+| A               | Home Turret (hold with <kbd>X</kbd> and <kbd>B</kbd>) + Lower Arm |
+| B               | Home Turret (hold with <kbd>X</kbd> and <kbd>A</kbd>) + Extend Hook |
+| X               | Home Turret (hold with <kbd>A</kbd> and <kbd>B</kbd>) + Retract Hook |
 | Y               | Raise Arm |
 | DPad Up         | Front Close Up Shot |
-| DPad Right      | Home Turret (hold with <kbd>DPadDown</kbd> and <kbd>DPadLeft</kbd>) + Right Close Up Shot |
-| DPad Down       | Home Turret (hold with <kbd>DPadRight</kbd> and <kbd>DPadLeft</kbd>) + Back Close Up Shot |
-| DPad Left       | Home Turret (hold with <kbd>DPadDown</kbd> and <kbd>DPadRight</kbd>) + Left Close Up Shot |
+| DPad Right      | Right Close Up Shot |
+| DPad Down       | Back Close Up Shot |
+| DPad Left       | Left Close Up Shot |
 | LB              | Unused |
 | RB              | Unused |
 | LT              | Unused |
