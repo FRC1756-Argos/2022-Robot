@@ -158,9 +158,9 @@ void RobotContainer::ConfigureButtonBindings() {
                                                                 argos_lib::XboxController::Button::kB});
   }});
 
-  auto controlMode = (frc2::Trigger{[this]() {
-    return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperLeft);
-  }});
+  // auto controlMode = (frc2::Trigger{[this]() {
+  //   return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperLeft);
+  // }});
 
   auto fieldHome = (frc2::Trigger{
       [this]() { return m_controllers.DriverController().GetDebouncedButton(argos_lib::XboxController::Button::kY); }});
@@ -213,7 +213,7 @@ void RobotContainer::ConfigureButtonBindings() {
   // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
 
   // DRIVE TRIGGER ACTIVATION
-  controlMode.WhenActive([this]() { m_swerveDrive.SwapControlMode(); }, {&m_swerveDrive});
+  // controlMode.WhenActive([this]() { m_swerveDrive.SwapControlMode(); }, {&m_swerveDrive});
 
   fieldHome.WhenActive([this]() { m_swerveDrive.FiledHome(); }, {&m_swerveDrive});
 
