@@ -214,8 +214,6 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size()>
       m_hoodAngleMap;
 
-  FixedPosState m_fixedPosState;
-
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
   argos_lib::NTMotorPIDTuner m_shooterPIDTuner;
   argos_lib::NTMotorPIDTuner m_turretPIDTuner;

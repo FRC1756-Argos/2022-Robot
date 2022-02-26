@@ -109,8 +109,8 @@ void ShooterSubsystem::AutoAim() {
   frc::SmartDashboard::PutNumber("Target distance", distanceToTarget.to<double>());
 }
 
-void ShooterSubsystem::fixedShooterPosition(FixedPosState) {
-  switch (m_fixedPosState) {
+void ShooterSubsystem::fixedShooterPosition(FixedPosState fixedPosState) {
+  switch (fixedPosState) {
     case FixedPosState::Front:
       TurretSetPosition(measure_up::closepositions::fixedFrontPos);
       SetShooterDistance(measure_up::closepositions::fixedLongDist);
