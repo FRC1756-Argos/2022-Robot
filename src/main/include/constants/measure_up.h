@@ -36,4 +36,12 @@ namespace measure_up {
     constexpr auto cameraMountAngle = 39_deg;
     constexpr auto toRotationCenter = 9_in;
   }  // namespace camera
+  namespace closepositions {
+    constexpr auto fixedLongDist = 21.5_in;   //< Front and back distance from shooter to frame perimeter
+    constexpr auto fixedShortDist = 18.5_in;  //< Left and right distance from shooter to frame perimeter
+    constexpr auto fixedFrontPos = 360_deg;
+    constexpr auto fixedLeftPos = 90_deg;
+    constexpr auto fixedBackPos = 180_deg;
+    constexpr auto fixedRightPos = 270_deg;
+  }  // namespace closepositions
 }  // namespace measure_up

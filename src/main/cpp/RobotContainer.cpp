@@ -156,6 +156,16 @@ void RobotContainer::ConfigureButtonBindings() {
   //     {&m_shooter});
   // shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
 
+  // Fixed Shooting Position Trigger
+  auto fixedFrontTrigger = (frc2::Trigger{
+      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kY}); }});
+  auto fixedLeftTrigger = (frc2::Trigger{
+      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kX}); }});
+  auto fixedRightTrigger = (frc2::Trigger{
+      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kB}); }});
+  auto fixedBackTrigger = (frc2::Trigger{
+      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kA}); }});
+
   // Aiming trigger
   auto aimTrigger = (frc2::Trigger{[this]() {
     return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
@@ -211,6 +221,16 @@ void RobotContainer::ConfigureButtonBindings() {
   shooter.WhenActive([this]() { m_intake.Shoot(); }, {&m_intake});
   aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {&m_intake});
+
+  // SHOOTER FIXED POS TRIGGER ACTIVATION
+  fixedFrontTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },
+                               {&m_shooter});
+  fixedLeftTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Left); },
+                              {&m_shooter});
+  fixedRightTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Right); },
+                               {&m_shooter});
+  fixedBackTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Back); },
+                              {&m_shooter});
 
   // SWAP CONTROLLERS TRIGGER ACTIVATION
   (driverTriggerSwapCombo || operatorTriggerSwapCombo)
