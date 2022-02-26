@@ -40,6 +40,8 @@ class ShooterSubsystem : public frc2::SubsystemBase {
  public:
   explicit ShooterSubsystem(const argos_lib::RobotInstance instance);
 
+  enum class FixedPosState { Front, Left, Right, Back };
+
   /// @todo document function
   std::optional<units::degree_t> GetTurretTargetAngle(photonlib::PhotonTrackedTarget target);
 
@@ -185,6 +187,12 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void SetShooterDistance(units::inch_t distanceToTarget);
 
+  /**
+   * @brief Handles fixed close shot shooting positions around hub
+   *
+   */
+  void fixedShooterPosition(FixedPosState);
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
@@ -205,6 +213,8 @@ class ShooterSubsystem : public frc2::SubsystemBase {
       m_shooterSpeedMap;
   argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size()>
       m_hoodAngleMap;
+
+  FixedPosState m_fixedPosState;
 
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
   argos_lib::NTMotorPIDTuner m_shooterPIDTuner;

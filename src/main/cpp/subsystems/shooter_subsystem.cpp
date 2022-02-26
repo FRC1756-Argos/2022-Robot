@@ -108,6 +108,28 @@ void ShooterSubsystem::AutoAim() {
 
   frc::SmartDashboard::PutNumber("Target distance", distanceToTarget.to<double>());
 }
+void ShooterSubsystem::fixedShooterPosition(FixedPosState) {
+  switch (m_fixedPosState) {
+    case FixedPosState::Front:
+      TurretSetPosition(measure_up::closepositions::fixedFrontPos);
+      SetShooterDistance(measure_up::closepositions::fixedLongDist);
+      break;
+    case FixedPosState::Left:
+      TurretSetPosition(measure_up::closepositions::fixedLeftPos);
+      SetShooterDistance(measure_up::closepositions::fixedShortDist);
+      break;
+    case FixedPosState::Right:
+      TurretSetPosition(measure_up::closepositions::fixedRightPos);
+      SetShooterDistance(measure_up::closepositions::fixedShortDist);
+      break;
+    case FixedPosState::Back:
+      TurretSetPosition(measure_up::closepositions::fixedBackPos);
+      SetShooterDistance(measure_up::closepositions::fixedLongDist);
+      break;
+  }
+}
+
+void ShooterSubsystem::AutoAim() {}
 
 void ShooterSubsystem::Shoot(double ballfiringspeed) {
   m_shooterWheelLeft.Set(ballfiringspeed);
