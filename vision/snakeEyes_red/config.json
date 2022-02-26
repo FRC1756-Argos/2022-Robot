@@ -1,8 +1,8 @@
 {
   "baseName" : "mmal service 16.1",
   "uniqueName" : "mmal_service_16.1",
-  "nickname" : "mmal_service_16.1",
-  "FOV" : 70.0,
+  "nickname" : "photonvision",
+  "FOV" : 95.0,
   "path" : "/dev/video0",
   "cameraType" : "ZeroCopyPicam",
   "currentPipelineIndex" : -1,

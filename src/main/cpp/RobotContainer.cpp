@@ -158,9 +158,9 @@ void RobotContainer::ConfigureButtonBindings() {
                                                                 argos_lib::XboxController::Button::kB});
   }});
 
-  auto controlMode = (frc2::Trigger{[this]() {
-    return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperLeft);
-  }});
+  // auto controlMode = (frc2::Trigger{[this]() {
+  //   return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kBumperLeft);
+  // }});
 
   auto fieldHome = (frc2::Trigger{
       [this]() { return m_controllers.DriverController().GetDebouncedButton(argos_lib::XboxController::Button::kY); }});
@@ -195,8 +195,8 @@ void RobotContainer::ConfigureButtonBindings() {
   auto aimTrigger = (frc2::Trigger{[this]() {
     return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
   }});
-  // aimTrigger.WhenActive([this]() { m_shooter.TurretSetPosition(m_turretTargetPosition); }, {&m_shooter});
-  // aimTrigger.WhenInactive([this]() { m_shooter.MoveTurret(0); }, {&m_shooter});
+  aimTrigger.WhileActiveContinous([this]() { m_shooter.AutoAim(); }, {&m_shooter});
+  aimTrigger.WhenInactive([this]() { m_shooter.Disable(); }, {&m_shooter});
 
   auto homeTurret = (frc2::Trigger{[this]() {
     return m_controllers.OperatorController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
@@ -226,7 +226,7 @@ void RobotContainer::ConfigureButtonBindings() {
   // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
 
   // DRIVE TRIGGER ACTIVATION
-  controlMode.WhenActive([this]() { m_swerveDrive.SwapControlMode(); }, {&m_swerveDrive});
+  // controlMode.WhenActive([this]() { m_swerveDrive.SwapControlMode(); }, {&m_swerveDrive});
 
   fieldHome.WhenActive([this]() { m_swerveDrive.FiledHome(); }, {&m_swerveDrive});
 
@@ -237,14 +237,14 @@ void RobotContainer::ConfigureButtonBindings() {
   nottake.WhenActive([this]() { m_intake.StopIntake(); }, {&m_intake});
 
   // SHOOTER TRIGGER ACTIVATION
-  aimTrigger.WhenActive(
-      [this]() {
-        m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-        m_shooter.HoodSetPosition(m_hoodTargetPosition);
-      },
-      {&m_shooter});
+  // aimTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
   shooter.WhenActive([this]() { m_intake.Shoot(); }, {&m_intake});
-  aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
+  // aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {&m_intake});
 
   // SHOOTER FIXED POS TRIGGER ACTIVATION
