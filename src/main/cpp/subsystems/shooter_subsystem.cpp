@@ -283,20 +283,16 @@ void CameraInterface::SetDriverMode(bool mode) {
 }
 
 std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedTarget target) {
-  if (target.GetYaw() == 0) {
-    return std::nullopt;
-  }
-
   units::length::inch_t cameraToTargetDistance =
       GetTargetDistance(units::make_unit<units::length::inch_t>(target.GetPitch()));
 
-  double alpha = 180 - std::abs(target.GetYaw());
+  units::degree_t alpha{180 - std::abs(target.GetYaw())};
 
-  units::length::inch_t turretToTargetDistance =
-      units::make_unit<units::length::inch_t>(std::sqrt(std::pow(cameraToTargetDistance.to<double>(), 2.0) + 81 -
-                                                        18 * cameraToTargetDistance.to<double>() * std::cos(alpha)));
+  units::length::inch_t turretToTargetDistance = units::make_unit<units::length::inch_t>(
+      std::sqrt(std::pow(cameraToTargetDistance.to<double>(), 2.0) + 81 -
+                18 * cameraToTargetDistance.to<double>() * std::cos(units::radian_t{alpha}.to<double>())));
 
-  units::angle::degree_t offset = units::make_unit<units::angle::degree_t>(
+  units::angle::degree_t offset = units::make_unit<units::angle::radian_t>(
       std::acos(std::pow(cameraToTargetDistance.to<double>(), 2) /
                 (81 + std::pow(turretToTargetDistance.to<double>(), 2) - 18 * turretToTargetDistance.to<double>())));
 
@@ -307,7 +303,7 @@ std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(photonlib:
     return std::nullopt;
   }
 
-  if (target.GetYaw() > 0) {
+  if (target.GetYaw() >= 0) {
     targetAngle = currentTurretAngle.value() - offset;
   } else {
     targetAngle = currentTurretAngle.value() + offset;

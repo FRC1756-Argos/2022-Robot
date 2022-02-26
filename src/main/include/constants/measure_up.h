@@ -33,7 +33,7 @@ namespace measure_up {
   namespace camera {
     constexpr auto cameraHeight = 28.5_in;
     constexpr auto upperHubHeight = 104_in;
-    constexpr auto cameraMountAngle = 39_deg;
+    constexpr auto cameraMountAngle = 27_deg;
     constexpr auto toRotationCenter = 9_in;
   }  // namespace camera
   namespace climber_arm {
