@@ -5,40 +5,40 @@
   "inputImageRotationMode" : "DEG_0",
   "pipelineNickname" : "redTest",
   "cameraExposure" : 0.0,
-  "cameraBrightness" : 40,
-  "cameraGain" : 10,
+  "cameraBrightness" : 36,
+  "cameraGain" : 50,
   "cameraVideoModeIndex" : 1,
   "streamingFrameDivisor" : "HALF",
   "ledMode" : true,
-  "inputShouldShow" : true,
+  "inputShouldShow" : false,
   "outputShouldShow" : true,
   "hsvHue" : {
-    "first" : 10,
-    "second" : 40
+    "first" : 142,
+    "second" : 180
   },
   "hsvSaturation" : {
-    "first" : 150,
+    "first" : 81,
     "second" : 255
   },
   "hsvValue" : {
-    "first" : 60,
-    "second" : 255
+    "first" : 106,
+    "second" : 249
   },
   "outputShouldDraw" : true,
   "outputShowMultipleTargets" : true,
   "contourArea" : {
-    "first" : 0.0,
-    "second" : 3.0
+    "first" : 0.1,
+    "second" : 1.3
   },
   "contourRatio" : {
     "first" : 1.0,
     "second" : 5.0
   },
   "contourFullness" : {
-    "first" : 40.0,
-    "second" : 90.0
+    "first" : 55.0,
+    "second" : 100.0
   },
-  "contourSpecklePercentage" : 5,
+  "contourSpecklePercentage" : 9,
   "contourSortMode" : "Rightmost",
   "contourTargetOffsetPointEdge" : "Center",
   "contourTargetOrientation" : "Landscape",

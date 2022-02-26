@@ -27,8 +27,8 @@ namespace measure_up {
   }  // namespace hood
   namespace turret {
     constexpr auto homeAngle = 180_deg;
-    constexpr auto minAngle = 10_deg * -1;
-    constexpr auto maxAngle = 370_deg;
+    constexpr auto minAngle = 45_deg;
+    constexpr auto maxAngle = 360_deg;
   }  // namespace turret
   namespace camera {
     constexpr auto cameraHeight = 28.5_in;
@@ -36,4 +36,10 @@ namespace measure_up {
     constexpr auto cameraMountAngle = 39_deg;
     constexpr auto toRotationCenter = 9_in;
   }  // namespace camera
+  namespace climber_arm {
+    constexpr auto homeExtension = 21.5_in;  ///< Length between mount points
+  }                                          // namespace climber_arm
+  namespace climber_hook {
+    constexpr auto homeExtension = 37.25_in;  ///< Length from arm pivot to inner part of hook that holds rung
+  }                                           // namespace climber_hook
 }  // namespace measure_up
