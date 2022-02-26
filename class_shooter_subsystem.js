@@ -1,10 +1,17 @@
 var class_shooter_subsystem =
 [
+    [ "FixedPosState", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7d", [
+      [ "Front", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde", null ],
+      [ "Left", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da945d5e233cf7d6240f6b783b36a374ff", null ],
+      [ "Right", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c", null ],
+      [ "Back", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da0557fa923dcee4d0f86b1409f5c2167f", null ]
+    ] ],
     [ "ShooterSubsystem", "class_shooter_subsystem.html#a27e20185066dced17ea2521972794efb", null ],
     [ "AutoAim", "class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3", null ],
     [ "CloseLoopShoot", "class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1", null ],
     [ "Disable", "class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e", null ],
     [ "DisableTurretSoftLimits", "class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b", null ],
+    [ "fixedShooterPosition", "class_shooter_subsystem.html#a87a24492cb89443fb7f062c64ee76144", null ],
     [ "GetTargetDistance", "class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7", null ],
     [ "GetTurretTargetAngle", "class_shooter_subsystem.html#ab24936b80d42c44b7caf74ce69097d9b", null ],
     [ "HoodSetPosition", "class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3", null ],
@@ -25,6 +32,7 @@ var class_shooter_subsystem =
     [ "UpdateHoodHome", "class_shooter_subsystem.html#a3043778fea359e6ba8fdcec1c78dc745", null ],
     [ "UpdateTurretHome", "class_shooter_subsystem.html#a2075ab3f379a9d8ef3e017df1e82f6ea", null ],
     [ "m_cameraInterface", "class_shooter_subsystem.html#a4c621fd66825ba5408e65f4bd3f06939", null ],
+    [ "m_fixedPosState", "class_shooter_subsystem.html#a40c9c44c107c6a84da98f95af342404e", null ],
     [ "m_hoodAngleMap", "class_shooter_subsystem.html#a55368e694c4fa246a97a82be68179ec7", null ],
     [ "m_hoodHomed", "class_shooter_subsystem.html#ad90bf281ed60ec82338ca05b2fe84d14", null ],
     [ "m_hoodMotor", "class_shooter_subsystem.html#afbec09471a2be874b8280345f67a36a7", null ],

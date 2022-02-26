@@ -16,6 +16,14 @@ var namespacemeasure__up =
     [ "climber_hook", "namespacemeasure__up_1_1climber__hook.html", [
       [ "homeExtension", "namespacemeasure__up_1_1climber__hook.html#af555af33e5a26190d8916a9aff9705f7", null ]
     ] ],
+    [ "closepositions", "namespacemeasure__up_1_1closepositions.html", [
+      [ "fixedBackPos", "namespacemeasure__up_1_1closepositions.html#ab2957c9b97aec3856a00f69098f03cbe", null ],
+      [ "fixedFrontPos", "namespacemeasure__up_1_1closepositions.html#aacae0434bea34b49a86002da25462b4a", null ],
+      [ "fixedLeftPos", "namespacemeasure__up_1_1closepositions.html#afdd93ae4cf454ad509e60fdbdd19e109", null ],
+      [ "fixedLongDist", "namespacemeasure__up_1_1closepositions.html#a9265d7b49e402909f4847faf97878f83", null ],
+      [ "fixedRightPos", "namespacemeasure__up_1_1closepositions.html#a953ee5d7526b22110a94a9de573a4a3f", null ],
+      [ "fixedShortDist", "namespacemeasure__up_1_1closepositions.html#ab4c05f6f4d53b49456f9bded18378660", null ]
+    ] ],
     [ "hood", "namespacemeasure__up_1_1hood.html", [
       [ "homeAngle", "namespacemeasure__up_1_1hood.html#a042e273914732857ea4a24d0af7e2ec4", null ]
     ] ],
