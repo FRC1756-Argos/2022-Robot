@@ -28,7 +28,7 @@ class LimelightTarget {
   bool m_hasTargets;
 
  public:
-  LimelightTarget();
+  LimelightTarget() = default;
 
   struct tValues {
     units::degree_t pitch;
@@ -39,7 +39,7 @@ class LimelightTarget {
   tValues GetTarget();
 
   /// @todo ADD DOCUMENTATION
-  bool hasTarget();
+  bool HasTarget();
 };
 class CameraInterface {
  public:

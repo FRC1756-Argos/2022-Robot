@@ -85,11 +85,11 @@ void ShooterSubsystem::AutoAim() {
 
   // Get target angle & assign to turret
   m_cameraInterface.SetDriverMode(false);
-  if (!m_cameraInterface.m_target.hasTarget()) {
+  if (!m_cameraInterface.m_target.HasTarget()) {
     return;
   }
 
-  frc::SmartDashboard::PutBoolean("(Auto-Aim) Is Highest Target Present?", m_cameraInterface.m_target.hasTarget());
+  frc::SmartDashboard::PutBoolean("(Auto-Aim) Is Highest Target Present?", m_cameraInterface.m_target.HasTarget());
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target Pitch", targetValues.pitch.to<double>());
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target Yaw", targetValues.yaw.to<double>());
 
@@ -313,13 +313,12 @@ void CameraInterface::SetDriverMode(bool mode) {
 
   bool requestedPipeline;
 
-  (mode) ? requestedPipeline = camera::driverPipeline : requestedPipeline = camera::targetingPipeline;
+  requestedPipeline = mode ? camera::driverPipeline : camera::targetingPipeline;
 
   table->PutNumber("pipeline", requestedPipeline);
 }
 
 // LIMELIGHT TARGET MEMBER FUNCTIONS ===============================================================
-LimelightTarget::LimelightTarget() {}
 
 LimelightTarget::tValues LimelightTarget::GetTarget() {
   std::shared_ptr<nt::NetworkTable> table = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
@@ -332,6 +331,6 @@ LimelightTarget::tValues LimelightTarget::GetTarget() {
   return targetValues;
 }
 
-bool LimelightTarget::hasTarget() {
+bool LimelightTarget::HasTarget() {
   return m_hasTargets;
 }
