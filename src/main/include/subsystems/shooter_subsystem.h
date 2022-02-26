@@ -11,22 +11,48 @@
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
+#include "networktables/NetworkTable.h"
+#include "networktables/NetworkTableEntry.h"
+#include "networktables/NetworkTableInstance.h"
+#include "networktables/NetworkTableValue.h"
 #include "photonlib/PhotonCamera.h"
 #include "units/angular_velocity.h"
 #include "units/length.h"
 #include "utils/homing_storage_interface.h"
 
+class LimelightTarget {
+ private:
+  units::degree_t m_pitch;
+  units::degree_t m_yaw;
+  int m_area;
+  bool m_hasTargets;
+
+ public:
+  LimelightTarget();
+
+  struct tValues {
+    units::degree_t pitch;
+    units::degree_t yaw;
+  };
+
+  /// @todo ADD DOCUMENTATION
+  tValues GetTarget();
+
+  /// @todo ADD DOCUMENTATION
+  bool hasTarget();
+};
 class CameraInterface {
  public:
   CameraInterface();
-  photonlib::PhotonCamera m_camera;
+
+  LimelightTarget m_target;
 
   /**
    * @brief Get the highest target the camera can see CAN RETURN NONE
    *
    * @return std::optional<photonlib::PhotonTrackedTarget>
    */
-  std::optional<photonlib::PhotonTrackedTarget> GetHighestTarget();
+  std::optional<LimelightTarget> GetHighestTarget();
 
   /**
    * @brief Turns the camera's driver mode on and off
@@ -43,7 +69,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   enum class FixedPosState { Front, Left, Right, Back };
 
   /// @todo document function
-  std::optional<units::degree_t> GetTurretTargetAngle(photonlib::PhotonTrackedTarget target);
+  std::optional<units::degree_t> GetTurretTargetAngle(LimelightTarget::tValues target);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.

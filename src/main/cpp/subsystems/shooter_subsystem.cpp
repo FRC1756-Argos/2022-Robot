@@ -81,32 +81,32 @@ void ShooterSubsystem::Periodic() {
 }
 
 void ShooterSubsystem::AutoAim() {
+  LimelightTarget::tValues targetValues = m_cameraInterface.m_target.GetTarget();
+
   // Get target angle & assign to turret
   m_cameraInterface.SetDriverMode(false);
-  std::optional<photonlib::PhotonTrackedTarget> hightestTarget = m_cameraInterface.GetHighestTarget();
-  if (!hightestTarget) {
+  if (!m_cameraInterface.m_target.hasTarget()) {
     return;
   }
 
-  frc::SmartDashboard::PutBoolean("Is Highest Target Present?", hightestTarget.has_value());
-  frc::SmartDashboard::PutNumber("Target Pitch", hightestTarget.value().GetPitch());
-  frc::SmartDashboard::PutNumber("Target Yaw", hightestTarget.value().GetYaw());
+  frc::SmartDashboard::PutBoolean("(Auto-Aim) Is Highest Target Present?", m_cameraInterface.m_target.hasTarget());
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Target Pitch", targetValues.pitch.to<double>());
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Target Yaw", targetValues.yaw.to<double>());
 
-  auto targetAngle = GetTurretTargetAngle(hightestTarget.value());
+  std::optional<units::degree_t> targetAngle = GetTurretTargetAngle(targetValues);
   if (targetAngle) {
     TurretSetPosition(targetAngle.value());
   }
 
-  frc::SmartDashboard::PutNumber("Turret target angle", targetAngle.value().to<double>());
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Turret target angle", targetAngle.value().to<double>());
   frc::SmartDashboard::PutNumber(
       "(Turret) relAngle", sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition()).to<double>());
 
   // Get target distance & assign to hood & shooter
-  units::length::inch_t distanceToTarget =
-      GetTargetDistance(units::make_unit<units::angle::degree_t>(hightestTarget->GetPitch()));
+  units::length::inch_t distanceToTarget = GetTargetDistance(targetValues.pitch);
   SetShooterDistance(distanceToTarget);
 
-  frc::SmartDashboard::PutNumber("Target distance", distanceToTarget.to<double>());
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance", distanceToTarget.to<double>());
 }
 
 void ShooterSubsystem::fixedShooterPosition(FixedPosState fixedPosState) {
@@ -273,49 +273,16 @@ void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
   HoodSetPosition(units::degree_t{m_hoodAngleMap.Map(distanceToTarget.to<double>())});
 }
 
-// CAMERA INTERFACE -----------------------------------------------------------------------------
-CameraInterface::CameraInterface() : m_camera{camera::nickname} {
-  // SETS DEFAULT PIPELINE
-  m_camera.SetPipelineIndex(camera::defaultPipelineIndex);
-}
+std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(LimelightTarget::tValues target) {
+  units::length::inch_t cameraToTargetDistance = GetTargetDistance(target.pitch);
 
-std::optional<photonlib::PhotonTrackedTarget> CameraInterface::GetHighestTarget() {
-  // GET THE MOST RECENT RESULT
-  photonlib::PhotonPipelineResult latestResult = m_camera.GetLatestResult();
-
-  // CHECK IF NO TARGETS
-  if (!latestResult.HasTargets()) {
-    return std::nullopt;
-  }
-
-  // GET TARGETS FROM RESULT
-  const wpi::span<const photonlib::PhotonTrackedTarget> targets = latestResult.GetTargets();
-
-  // FIND HIGHEST TARGET
-  return *std::max_element(targets.begin(),
-                           targets.end(),
-                           [](const photonlib::PhotonTrackedTarget& lhs, const photonlib::PhotonTrackedTarget& rhs) {
-                             return lhs.GetPitch() < rhs.GetPitch();
-                           });
-}
-
-void CameraInterface::SetDriverMode(bool mode) {
-  m_camera.SetDriverMode(mode);
-}
-
-std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedTarget target) {
-  units::length::inch_t cameraToTargetDistance =
-      GetTargetDistance(units::make_unit<units::angle::degree_t>(target.GetPitch()));
-
-  units::degree_t alpha{180 - std::abs(target.GetYaw())};
+  units::degree_t alpha{180 - std::abs(target.yaw.to<double>())};
 
   units::length::inch_t turretToTargetDistance = units::make_unit<units::length::inch_t>(
       std::sqrt(std::pow(cameraToTargetDistance.to<double>(), 2.0) +
                 std::pow(measure_up::camera::toRotationCenter.to<double>(), 2.0) -
                 2 * measure_up::camera::toRotationCenter.to<double>() * cameraToTargetDistance.to<double>() *
                     std::cos(units::radian_t{alpha}.to<double>())));
-
-  units::angle::degree_t targetAngle;
 
   std::optional<units::angle::degree_t> currentTurretAngle = TurretGetPosition();
 
@@ -327,11 +294,44 @@ std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(photonlib:
     return std::nullopt;
   }
 
-  if (target.GetYaw() >= 0) {
+  units::angle::degree_t targetAngle;
+
+  if (target.yaw.to<double>() >= 0) {
     targetAngle = currentTurretAngle.value() - offset;
   } else {
     targetAngle = currentTurretAngle.value() + offset;
   }
 
   return targetAngle;
+}
+
+// CAMERA INTERFACE -----------------------------------------------------------------------------
+CameraInterface::CameraInterface() {}
+
+void CameraInterface::SetDriverMode(bool mode) {
+  std::shared_ptr<nt::NetworkTable> table = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
+
+  bool requestedPipeline;
+
+  (mode) ? requestedPipeline = camera::driverPipeline : requestedPipeline = camera::targetingPipeline;
+
+  table->PutNumber("pipeline", requestedPipeline);
+}
+
+// LIMELIGHT TARGET MEMBER FUNCTIONS ===============================================================
+LimelightTarget::LimelightTarget() {}
+
+LimelightTarget::tValues LimelightTarget::GetTarget() {
+  std::shared_ptr<nt::NetworkTable> table = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
+
+  m_yaw = units::make_unit<units::degree_t>(table->GetNumber("tx", 0.0));
+  m_pitch = units::make_unit<units::degree_t>(table->GetNumber("ty", 0.0));
+  m_hasTargets = (table->GetNumber("tv", 0) == 1);
+
+  tValues targetValues{m_pitch, m_yaw};
+  return targetValues;
+}
+
+bool LimelightTarget::hasTarget() {
+  return m_hasTargets;
 }
