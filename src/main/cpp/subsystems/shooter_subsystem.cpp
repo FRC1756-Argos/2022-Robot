@@ -310,8 +310,10 @@ std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(photonlib:
   units::degree_t alpha{180 - std::abs(target.GetYaw())};
 
   units::length::inch_t turretToTargetDistance = units::make_unit<units::length::inch_t>(
-      std::sqrt(std::pow(cameraToTargetDistance.to<double>(), 2.0) + 81 -
-                18 * cameraToTargetDistance.to<double>() * std::cos(units::radian_t{alpha}.to<double>())));
+      std::sqrt(std::pow(cameraToTargetDistance.to<double>(), 2.0) +
+                std::pow(measure_up::camera::toRotationCenter.to<double>(), 2.0) -
+                2 * measure_up::camera::toRotationCenter.to<double>() * cameraToTargetDistance.to<double>() *
+                    std::cos(units::radian_t{alpha}.to<double>())));
 
   units::angle::degree_t targetAngle;
 
