@@ -42,6 +42,7 @@ RobotContainer::RobotContainer()
 
   // ALLOW ACCESS TO CAMERA STREAM OVER USB
   wpi::PortForwarder::GetInstance().Add(5800, "10.17.56.122", 5800);
+  wpi::PortForwarder::GetInstance().Add(5800, "10.17.56.122", 5801);
   wpi::PortForwarder::GetInstance().Add(1181, "10.17.56.122", 1181);
   wpi::PortForwarder::GetInstance().Add(1182, "10.17.56.122", 1182);
 
