@@ -108,6 +108,7 @@ void ShooterSubsystem::AutoAim() {
 
   frc::SmartDashboard::PutNumber("Target distance", distanceToTarget.to<double>());
 }
+
 void ShooterSubsystem::fixedShooterPosition(FixedPosState) {
   switch (m_fixedPosState) {
     case FixedPosState::Front:
@@ -128,8 +129,6 @@ void ShooterSubsystem::fixedShooterPosition(FixedPosState) {
       break;
   }
 }
-
-void ShooterSubsystem::AutoAim() {}
 
 void ShooterSubsystem::Shoot(double ballfiringspeed) {
   m_shooterWheelLeft.Set(ballfiringspeed);
