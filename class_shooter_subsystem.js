@@ -32,7 +32,6 @@ var class_shooter_subsystem =
     [ "UpdateHoodHome", "class_shooter_subsystem.html#a3043778fea359e6ba8fdcec1c78dc745", null ],
     [ "UpdateTurretHome", "class_shooter_subsystem.html#a2075ab3f379a9d8ef3e017df1e82f6ea", null ],
     [ "m_cameraInterface", "class_shooter_subsystem.html#a4c621fd66825ba5408e65f4bd3f06939", null ],
-    [ "m_fixedPosState", "class_shooter_subsystem.html#a40c9c44c107c6a84da98f95af342404e", null ],
     [ "m_hoodAngleMap", "class_shooter_subsystem.html#a55368e694c4fa246a97a82be68179ec7", null ],
     [ "m_hoodHomed", "class_shooter_subsystem.html#ad90bf281ed60ec82338ca05b2fe84d14", null ],
     [ "m_hoodMotor", "class_shooter_subsystem.html#afbec09471a2be874b8280345f67a36a7", null ],

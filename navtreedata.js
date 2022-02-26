@@ -63,10 +63,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde",
-"classargos__lib_1_1_xbox_controller.html#adfd321a87d96b003748b642fdf711601",
-"namespaceaddress_1_1controllers.html",
-"namespacespeeds_1_1intake.html",
+"class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c",
+"classargos__lib_1_1_xbox_controller.html#ae7bc91621898e77ae7118a2e12cfb8bd",
+"namespaceaddress_1_1controllers.html#a0488a7ab97c7d7d3edc83663cb5615bf",
+"namespacespeeds_1_1intake.html#a013668ebd822e7534817c655606cfee8",
 "structargos__lib_1_1falcon__config_1_1has__supply_current_limit.html",
 "structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html#ac644d436aea79c2115add0fc6098a39b",
 "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html#ad3b379b1b0eedb6549045650281472d0"
