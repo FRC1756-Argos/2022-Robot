@@ -44,8 +44,8 @@ namespace pneumatics {
 }  // namespace pneumatics
 
 namespace camera {
-  const std::string nickname = "photonvision";
-  constexpr char defaultPipelineIndex = 0;
+  constexpr char targetingPipeline = 0;
+  constexpr char driverPipeline = 1;
 }  // namespace camera
 
 namespace indexes {
