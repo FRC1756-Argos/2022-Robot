@@ -132,8 +132,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a5ab3558d41d41be5d63c928968d98f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac524c1d088a263a7e25bb54ba7b8dbc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intake_subsystem.html">IntakeSubsystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#ac524c1d088a263a7e25bb54ba7b8dbc5">m_intake</a></td></tr>
 <tr class="separator:ac524c1d088a263a7e25bb54ba7b8dbc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0f011e79ccf272951087071f81cf2a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_climber_subsystem.html">ClimberSubsystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#ad0f011e79ccf272951087071f81cf2a0">m_climber</a></td></tr>
-<tr class="separator:ad0f011e79ccf272951087071f81cf2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a465137d285117594b3b07aa8f1350c1a"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_climber_subsystem.html">ClimberSubsystem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#a465137d285117594b3b07aa8f1350c1a">m_pClimber</a></td></tr>
+<tr class="separator:a465137d285117594b3b07aa8f1350c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adde272abb4f22f78ef7ffe441ff3b925"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shooter_subsystem.html">ShooterSubsystem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#adde272abb4f22f78ef7ffe441ff3b925">m_shooter</a></td></tr>
 <tr class="separator:adde272abb4f22f78ef7ffe441ff3b925"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a323bc2d53ee51aea06d26058af57ac0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_home_hood_command.html">HomeHoodCommand</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_robot_container.html#a323bc2d53ee51aea06d26058af57ac0c">m_homeHoodCommand</a></td></tr>
@@ -232,28 +232,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt;decltype(controllerMap::armSpeed.front().inVal), controllerMap::armSpeed.size()&gt; RobotContainer::m_armSpeedMap</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad0f011e79ccf272951087071f81cf2a0" name="ad0f011e79ccf272951087071f81cf2a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0f011e79ccf272951087071f81cf2a0">&#9670;&nbsp;</a></span>m_climber</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_climber_subsystem.html">ClimberSubsystem</a> RobotContainer::m_climber</td>
         </tr>
       </table>
   </td>
@@ -584,6 +562,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html">argos_lib::NTSubscriber</a> RobotContainer::m_NTMonitor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a465137d285117594b3b07aa8f1350c1a" name="a465137d285117594b3b07aa8f1350c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a465137d285117594b3b07aa8f1350c1a">&#9670;&nbsp;</a></span>m_pClimber</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_climber_subsystem.html">ClimberSubsystem</a>&gt; RobotContainer::m_pClimber</td>
         </tr>
       </table>
   </td>
