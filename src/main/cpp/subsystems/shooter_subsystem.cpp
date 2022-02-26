@@ -77,8 +77,8 @@ void ShooterSubsystem::Periodic() {
                                  turretNormalizedPosition ? turretNormalizedPosition.value().to<double>() : NAN);
 }
 
-void ShooterSubsystem::fixedShooterPosition(FixedPosState) {
-  switch (m_fixedPosState) {
+void ShooterSubsystem::fixedShooterPosition(FixedPosState fixedPosState) {
+  switch (fixedPosState) {
     case FixedPosState::Front:
       TurretSetPosition(measure_up::closepositions::fixedFrontPos);
       SetShooterDistance(measure_up::closepositions::fixedLongDist);
