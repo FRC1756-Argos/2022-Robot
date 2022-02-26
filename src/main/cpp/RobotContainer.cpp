@@ -29,8 +29,12 @@ RobotContainer::RobotContainer()
     , m_climber(m_instance)
     , m_shooter(m_instance)
     , m_homeHoodCommand(&m_shooter)
+    , m_homeClimberArmCommand(&m_climber)
+    , m_homeClimberHookCommand(&m_climber)
     , m_hoodTargetPosition(30_deg)
     , m_shooterTargetVelocity(3000_rpm)
+    , m_climberArmTargetExtension(2_in)
+    , m_climberHookTargetExtension(20_in)
     , m_NTMonitor("argos") {
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
@@ -84,11 +88,21 @@ RobotContainer::RobotContainer()
 
   // Homing triggers
   auto hoodHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_shooter.IsHoodHomed(); }});
+  auto climberHookHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_climber.IsHookHomed(); }});
+  auto climberArmHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_climber.IsArmHomed(); }});
 
   // Homing commands
   (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
+  (robotEnableTrigger && !climberArmHomingCompleteTrigger).WhenActive(m_homeClimberArmCommand);
+  (robotEnableTrigger && !climberHookHomingCompleteTrigger).WhenActive(m_homeClimberHookCommand);
+
   // Notify subsystems of disable
-  robotEnableTrigger.WhenInactive([this]() { m_shooter.Disable(); }, {&m_shooter});
+  robotEnableTrigger.WhenInactive(
+      [this]() {
+        m_shooter.Disable();
+        m_climber.Disable();
+      },
+      {&m_shooter, &m_climber});
 
   m_NTMonitor.AddMonitor(
       "manualSetpoints/hoodAngle",
@@ -98,6 +112,14 @@ RobotContainer::RobotContainer()
       "manualSetpoints/shooterSpeed",
       [this](double newVal) { m_shooterTargetVelocity = units::make_unit<units::revolutions_per_minute_t>(newVal); },
       m_shooterTargetVelocity.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/armPosition",
+      [this](double newVal) { m_climberArmTargetExtension = units::make_unit<units::inch_t>(newVal); },
+      m_climberArmTargetExtension.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/hookPosition",
+      [this](double newVal) { m_climberHookTargetExtension = units::make_unit<units::inch_t>(newVal); },
+      m_climberHookTargetExtension.to<double>());
   m_NTMonitor.AddMonitor(
       "manualSetpoints/turretPosition",
       [this](double newVal) { m_turretTargetPosition = units::make_unit<units::degree_t>(newVal); },
@@ -156,6 +178,19 @@ void RobotContainer::ConfigureButtonBindings() {
   //     {&m_shooter});
   // shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
 
+  // Fixed Shooting Position Trigger
+  auto fixedFrontTrigger = (frc2::Trigger{
+      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kUp}); }});
+  auto fixedLeftTrigger = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kLeft});
+  }});
+  auto fixedRightTrigger = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kRight});
+  }});
+  auto fixedBackTrigger = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kDown});
+  }});
+
   // Aiming trigger
   auto aimTrigger = (frc2::Trigger{[this]() {
     return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
@@ -211,6 +246,16 @@ void RobotContainer::ConfigureButtonBindings() {
   shooter.WhenActive([this]() { m_intake.Shoot(); }, {&m_intake});
   // aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
   shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {&m_intake});
+
+  // SHOOTER FIXED POS TRIGGER ACTIVATION
+  fixedFrontTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },
+                               {&m_shooter});
+  fixedLeftTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Left); },
+                              {&m_shooter});
+  fixedRightTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Right); },
+                               {&m_shooter});
+  fixedBackTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Back); },
+                              {&m_shooter});
 
   // SWAP CONTROLLERS TRIGGER ACTIVATION
   (driverTriggerSwapCombo || operatorTriggerSwapCombo)

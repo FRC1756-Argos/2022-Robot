@@ -40,8 +40,10 @@ class ShooterSubsystem : public frc2::SubsystemBase {
  public:
   explicit ShooterSubsystem(const argos_lib::RobotInstance instance);
 
+  enum class FixedPosState { Front, Left, Right, Back };
+
   /// @todo document function
-  units::degree_t GetTurretTargetAngle(photonlib::PhotonTrackedTarget target);
+  std::optional<units::degree_t> GetTurretTargetAngle(photonlib::PhotonTrackedTarget target);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -142,6 +144,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   void TurretSetPosition(units::degree_t angle);
 
   /**
+   * @brief Get current angle of turret with 0 degrees at intake side and positive counterclockwise
+   *
+   * @return Angle of turret if homed, std::nullopt otherwise
+   */
+  std::optional<units::degree_t> TurretGetPosition();
+
+  /**
    * @brief Sets and enables soft angle limits for turret
    */
   void SetTurretSoftLimits();
@@ -178,6 +187,12 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void SetShooterDistance(units::inch_t distanceToTarget);
 
+  /**
+   * @brief Handles fixed close shot shooting positions around hub
+   *
+   */
+  void fixedShooterPosition(FixedPosState);
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
@@ -199,7 +214,11 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size()>
       m_hoodAngleMap;
 
+  FixedPosState m_fixedPosState;
+
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
   argos_lib::NTMotorPIDTuner m_shooterPIDTuner;
   argos_lib::NTMotorPIDTuner m_turretPIDTuner;
+
+  argos_lib::RobotInstance m_instance;
 };

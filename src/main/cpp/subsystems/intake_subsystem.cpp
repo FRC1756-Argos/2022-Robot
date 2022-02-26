@@ -4,6 +4,8 @@
 
 #include "subsystems/intake_subsystem.h"
 
+#include <frc/smartdashboard/SmartDashboard.h>
+
 #include "Constants.h"
 #include "argos_lib/config/talonsrx_config.h"
 
@@ -29,6 +31,11 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
 void IntakeSubsystem::Periodic() {
   /// @todo Enable this again once we have sensors
   ///       Otherwise this conflicts with current manual control
+  frc::SmartDashboard::PutNumber("ToF Distance Intake",
+                                 units::inch_t(units::millimeter_t(m_ballPresentIntake.GetRange())).to<double>());
+  frc::SmartDashboard::PutNumber("ToF Distance Shooter",
+                                 units::inch_t(units::millimeter_t(m_ballPresentShooter.GetRange())).to<double>());
+
   if (((m_intakeButtonPressed == true || m_shooterButtonPressed == true) && m_outtakeButtonPressed == false)) {
     m_intakeState = IntakeSubsystem::IntakeState::Intaking;
   } else if (m_outtakeButtonPressed == true) {
@@ -48,7 +55,7 @@ void IntakeSubsystem::Periodic() {
       } else {
         m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
       }
-      if (m_intakeButtonPressed == true) {
+      if (m_intakeButtonPressed == true && !getBallPresentIntake()) {
         m_intakeDrive.Set(speeds::intake::intakeForward);
       } else if (getBallPresentIntake() == true && getIsBallTeamColor() == false) {
         m_intakeDrive.Set(speeds::intake::intakeReverse);

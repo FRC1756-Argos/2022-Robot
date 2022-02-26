@@ -14,6 +14,8 @@
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "commands/home_climber_arm_command.h"
+#include "commands/home_climber_hook_command.h"
 #include "commands/home_hood_command.h"
 #include "subsystems/climber_subsystem.h"
 #include "subsystems/intake_subsystem.h"
@@ -66,10 +68,14 @@ class RobotContainer {
   ShooterSubsystem m_shooter;
 
   HomeHoodCommand m_homeHoodCommand;
+  HomeClimberArmCommand m_homeClimberArmCommand;
+  HomeClimberHookCommand m_homeClimberHookCommand;
 
   // Tuning stuff
   units::degree_t m_hoodTargetPosition;
   units::revolutions_per_minute_t m_shooterTargetVelocity;
+  units::inch_t m_climberArmTargetExtension;
+  units::inch_t m_climberHookTargetExtension;
   units::degree_t m_turretTargetPosition;
   argos_lib::NTSubscriber m_NTMonitor;
 

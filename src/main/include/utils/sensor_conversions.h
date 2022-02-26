@@ -5,6 +5,7 @@
 #pragma once
 #include "units/angle.h"
 #include "units/angular_velocity.h"
+#include "units/length.h"
 
 namespace sensor_conversions {
   namespace swerve_drive {
@@ -57,4 +58,34 @@ namespace sensor_conversions {
       return units::make_unit<units::revolutions_per_minute_t>(sensorunit * sensorConversionFactor);
     }
   }  // namespace shooter
+  namespace climb_arms {
+    constexpr double sensorToMotorRev = 1.0 / 2048;
+    constexpr double gearboxReduction = 10.0 / 30;
+    constexpr double extensionMillimetersPerRevolution = 4.0;
+    constexpr double fudgeFactor = 1.1444;  ///< @todo Why are we off by this amount?
+    constexpr units::inch_t ToExtension(const double sensorUnit) {
+      return units::make_unit<units::millimeter_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
+                                                   extensionMillimetersPerRevolution * fudgeFactor);
+    }
+    constexpr double ToSensorUnit(const units::millimeter_t extension) {
+      return extension.to<double>() / fudgeFactor / extensionMillimetersPerRevolution / gearboxReduction /
+             sensorToMotorRev;
+    }
+  }  // namespace climb_arms
+  namespace climb_hooks {
+    constexpr double sensorToMotorRev = 1.0 / 2048;
+    constexpr double gearboxReduction = 1.0 / 8;
+    constexpr double driveSprocketTeethPerRevolution = 18.0;
+    constexpr double extensionInchesPerDriveSprocketTooth = 0.25 / 1;
+    constexpr double fudgeFactor = 0.8354;  ///< @todo Why are we off by this amount?
+    constexpr units::inch_t ToExtension(const double sensorUnit) {
+      return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
+                                             driveSprocketTeethPerRevolution * extensionInchesPerDriveSprocketTooth *
+                                             fudgeFactor);
+    }
+    constexpr double ToSensorUnit(const units::inch_t extension) {
+      return extension.to<double>() / fudgeFactor / extensionInchesPerDriveSprocketTooth /
+             driveSprocketTeethPerRevolution / gearboxReduction / sensorToMotorRev;
+    }
+  }  // namespace climb_hooks
 }  // namespace sensor_conversions
