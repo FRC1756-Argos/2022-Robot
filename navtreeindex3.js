@@ -1,5 +1,15 @@
 var NAVTREEINDEX3 =
 {
+"motors_8h.html#aa29d14b03a08dac60e6fc6ad79f222f8":[4,0,0,1,1,1,4,24],
+"motors_8h.html#aa33e185552a1d40c4d359e65034fbdfc":[4,0,0,1,1,1,4,27],
+"motors_8h.html#af9f456739476c2f74ee223d3bb69d1e0":[4,0,0,1,1,1,4,22],
+"motors_8h_source.html":[4,0,0,1,1,1,4],
+"namespaceaddress.html":[2,0,0],
+"namespaceaddress_1_1climber.html":[2,0,0,0],
+"namespaceaddress_1_1climber.html#a26c2cdc3fea30c6ee00180a3c4172393":[2,0,0,0,2],
+"namespaceaddress_1_1climber.html#a3c990371737e89302d30125fdd56c1ce":[2,0,0,0,1],
+"namespaceaddress_1_1climber.html#ad534766a7739ddd29c2cc1ac19949103":[2,0,0,0,0],
+"namespaceaddress_1_1controllers.html":[2,0,0,1],
 "namespaceaddress_1_1controllers.html#a0488a7ab97c7d7d3edc83663cb5615bf":[2,0,0,1,1],
 "namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea":[2,0,0,1,0],
 "namespaceaddress_1_1drive.html":[2,0,0,2],
@@ -75,8 +85,8 @@ var NAVTREEINDEX3 =
 "namespaceargos__lib_1_1talonsrx__config.html#a74630ad5eec9e25a58e71810fc317b4d":[2,0,1,4,38],
 "namespaceargos__lib_1_1talonsrx__config.html#a998aa6c443ce3cd76042c08e49620ff5":[2,0,1,4,39],
 "namespacecamera.html":[2,0,2],
-"namespacecamera.html#ab04d611dd21cdc40f9ac6a9c816cebed":[2,0,2,1],
-"namespacecamera.html#ad60c6fc699e57e3a6e08bfeb2d95c403":[2,0,2,0],
+"namespacecamera.html#a3d35a57dd902ef20a7bb2726882b35c9":[2,0,2,0],
+"namespacecamera.html#ae6a5e15cb8b9f0c15a7b783d0fb6d67b":[2,0,2,1],
 "namespacecontrol_loop.html":[2,0,4],
 "namespacecontrol_loop_1_1drive.html":[2,0,4,0],
 "namespacecontrol_loop_1_1drive_1_1rotate.html":[2,0,4,0,0],
@@ -239,15 +249,5 @@ var NAVTREEINDEX3 =
 "namespacesensor__conversions_1_1swerve__drive_1_1turn.html#a4d73a4d9acb90513dead3cda4951426d":[2,0,11,4,0,1],
 "namespacesensor__conversions_1_1swerve__drive_1_1turn.html#aa61a71f1880ed76dfff77fec078d945b":[2,0,11,4,0,2],
 "namespacesensor__conversions_1_1swerve__drive_1_1turn.html#aaf39f7ec9d8a81711d00b2580878a4f6":[2,0,11,4,0,0],
-"namespacesensor__conversions_1_1turret.html":[2,0,11,5],
-"namespacesensor__conversions_1_1turret.html#a0bdc1122e95ea889aef812fde15e1e65":[2,0,11,5,0],
-"namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31":[2,0,11,5,1],
-"namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6":[2,0,11,5,2],
-"namespaceshooter_range.html":[2,0,12],
-"namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426":[2,0,12,1],
-"namespaceshooter_range.html#acc94363d15c3cecc0952d70074def851":[2,0,12,0],
-"namespacespeeds.html":[2,0,13],
-"namespacespeeds_1_1drive.html":[2,0,13,0],
-"namespacespeeds_1_1drive.html#aecb75fccf7b0cbb63a8e1cadb6504b93":[2,0,13,0,0],
-"namespacespeeds_1_1intake.html":[2,0,13,1]
+"namespacesensor__conversions_1_1turret.html":[2,0,11,5]
 };

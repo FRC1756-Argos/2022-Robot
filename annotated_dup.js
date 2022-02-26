@@ -171,6 +171,7 @@ var annotated_dup =
     [ "HomeHoodCommand", "class_home_hood_command.html", "class_home_hood_command" ],
     [ "HomingStorageInterface", "class_homing_storage_interface.html", "class_homing_storage_interface" ],
     [ "IntakeSubsystem", "class_intake_subsystem.html", "class_intake_subsystem" ],
+    [ "LimelightTarget", "class_limelight_target.html", "class_limelight_target" ],
     [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", "class_network_tables_wrapper" ],
     [ "Robot", "class_robot.html", "class_robot" ],
     [ "RobotContainer", "class_robot_container.html", "class_robot_container" ],

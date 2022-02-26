@@ -8,7 +8,7 @@ var searchData=
   ['getdebouncedbuttonreleased_5',['GetDebouncedButtonReleased',['../classargos__lib_1_1_xbox_controller.html#a158a69ce5cc44c84e98bfd5f1bae3218',1,'argos_lib::XboxController::GetDebouncedButtonReleased(Button buttonIdx)'],['../classargos__lib_1_1_xbox_controller.html#a1c64358a248407711266d54c1a656e6a',1,'argos_lib::XboxController::GetDebouncedButtonReleased(std::initializer_list&lt; Button &gt; buttonCombo)']]],
   ['getentrydegrees_6',['GetEntryDegrees',['../class_network_tables_wrapper.html#acec32613af01b41c0ac2fe1ddf80b45f',1,'NetworkTablesWrapper']]],
   ['getfilepath_7',['GetFilePath',['../class_file_system_homing_storage.html#a719fc1a4228d955902a4b5cc65668bc2',1,'FileSystemHomingStorage::GetFilePath()'],['../class_f_s_homing_storage.html#a87d092cc0d89e7090e8f6bd3e99e8026',1,'FSHomingStorage::GetFilePath()']]],
-  ['gethighesttarget_8',['GetHighestTarget',['../class_camera_interface.html#afb028397ff94a97b63854852f0e83cba',1,'CameraInterface']]],
+  ['gethighesttarget_8',['GetHighestTarget',['../class_camera_interface.html#acbbf1024b4dd016563bcaedd6a4dc8fc',1,'CameraInterface']]],
   ['getisballteamcolor_9',['getIsBallTeamColor',['../class_intake_subsystem.html#adce433404ce688264082d01aa2b60980',1,'IntakeSubsystem']]],
   ['getpovbuttons_10',['GetPOVButtons',['../classargos__lib_1_1_xbox_controller.html#ad81f3f85b46a5d104f8fed6d276a7d4a',1,'argos_lib::XboxController']]],
   ['getrawbutton_11',['GetRawButton',['../classargos__lib_1_1_xbox_controller.html#adccdc70b774b397aa5628b9d6352f590',1,'argos_lib::XboxController::GetRawButton(Button buttonIdx)'],['../classargos__lib_1_1_xbox_controller.html#a0988d259725b786df13cf0855a046009',1,'argos_lib::XboxController::GetRawButton(std::initializer_list&lt; Button &gt; buttonCombo)']]],
@@ -17,9 +17,10 @@ var searchData=
   ['getrawmodulestates_14',['GetRawModuleStates',['../class_swerve_drive_subsystem.html#a6ec0aa2955d381e3eb585bc210da5d39',1,'SwerveDriveSubsystem']]],
   ['getrobotinstance_15',['GetRobotInstance',['../namespaceargos__lib.html#a811945cb3eb97c182b7ca11fd143405a',1,'argos_lib']]],
   ['getsensorconversionfactor_16',['GetSensorConversionFactor',['../namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2',1,'argos_lib']]],
-  ['gettargetdistance_17',['GetTargetDistance',['../class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7',1,'ShooterSubsystem']]],
-  ['gettriggeraxis_18',['GetTriggerAxis',['../classargos__lib_1_1_xbox_controller.html#adfd321a87d96b003748b642fdf711601',1,'argos_lib::XboxController']]],
-  ['getturrettargetangle_19',['GetTurretTargetAngle',['../class_shooter_subsystem.html#ab24936b80d42c44b7caf74ce69097d9b',1,'ShooterSubsystem']]],
-  ['getx_20',['GetX',['../classargos__lib_1_1_xbox_controller.html#af845a5fb5316e2f8d9c68e8cb60966ff',1,'argos_lib::XboxController']]],
-  ['gety_21',['GetY',['../classargos__lib_1_1_xbox_controller.html#aa8e565e9547cea97e7bdd92143b7b8fa',1,'argos_lib::XboxController']]]
+  ['gettarget_17',['GetTarget',['../class_limelight_target.html#af81a3a5613f4f34d83bf49fa35ef3075',1,'LimelightTarget']]],
+  ['gettargetdistance_18',['GetTargetDistance',['../class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7',1,'ShooterSubsystem']]],
+  ['gettriggeraxis_19',['GetTriggerAxis',['../classargos__lib_1_1_xbox_controller.html#adfd321a87d96b003748b642fdf711601',1,'argos_lib::XboxController']]],
+  ['getturrettargetangle_20',['GetTurretTargetAngle',['../class_shooter_subsystem.html#a53b9a2b56bb0e5943785fbbddbbecccd',1,'ShooterSubsystem']]],
+  ['getx_21',['GetX',['../classargos__lib_1_1_xbox_controller.html#af845a5fb5316e2f8d9c68e8cb60966ff',1,'argos_lib::XboxController']]],
+  ['gety_22',['GetY',['../classargos__lib_1_1_xbox_controller.html#aa8e565e9547cea97e7bdd92143b7b8fa',1,'argos_lib::XboxController']]]
 ];

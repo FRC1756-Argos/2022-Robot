@@ -97,21 +97,19 @@ $(document).ready(function(){initNavTree('class_camera_interface.html',''); init
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a62af2e7390904d839c465d2b07d0fcab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#a62af2e7390904d839c465d2b07d0fcab">CameraInterface</a> ()</td></tr>
 <tr class="separator:a62af2e7390904d839c465d2b07d0fcab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb028397ff94a97b63854852f0e83cba"><td class="memItemLeft" align="right" valign="top">std::optional&lt; photonlib::PhotonTrackedTarget &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#afb028397ff94a97b63854852f0e83cba">GetHighestTarget</a> ()</td></tr>
-<tr class="memdesc:afb028397ff94a97b63854852f0e83cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the highest target the camera can see CAN RETURN NONE.  <a href="class_camera_interface.html#afb028397ff94a97b63854852f0e83cba">More...</a><br /></td></tr>
-<tr class="separator:afb028397ff94a97b63854852f0e83cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbbf1024b4dd016563bcaedd6a4dc8fc"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="class_limelight_target.html">LimelightTarget</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#acbbf1024b4dd016563bcaedd6a4dc8fc">GetHighestTarget</a> ()</td></tr>
+<tr class="memdesc:acbbf1024b4dd016563bcaedd6a4dc8fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the highest target the camera can see CAN RETURN NONE.  <a href="class_camera_interface.html#acbbf1024b4dd016563bcaedd6a4dc8fc">More...</a><br /></td></tr>
+<tr class="separator:acbbf1024b4dd016563bcaedd6a4dc8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14f51bf0c59a8c8cacb30dfbe413a446"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#a14f51bf0c59a8c8cacb30dfbe413a446">SetDriverMode</a> (bool mode)</td></tr>
 <tr class="memdesc:a14f51bf0c59a8c8cacb30dfbe413a446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the camera's driver mode on and off.  <a href="class_camera_interface.html#a14f51bf0c59a8c8cacb30dfbe413a446">More...</a><br /></td></tr>
 <tr class="separator:a14f51bf0c59a8c8cacb30dfbe413a446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a8a4cb6f68fe5fbf4a0cfade15e47fc30"><td class="memItemLeft" align="right" valign="top">photonlib::PhotonCamera&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#a8a4cb6f68fe5fbf4a0cfade15e47fc30">m_camera</a></td></tr>
-<tr class="separator:a8a4cb6f68fe5fbf4a0cfade15e47fc30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad67f913d4ef87cacc9120c28c44c0f6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_limelight_target.html">LimelightTarget</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#ad67f913d4ef87cacc9120c28c44c0f6e">m_target</a></td></tr>
+<tr class="separator:ad67f913d4ef87cacc9120c28c44c0f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a62af2e7390904d839c465d2b07d0fcab" name="a62af2e7390904d839c465d2b07d0fcab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62af2e7390904d839c465d2b07d0fcab">&#9670;&nbsp;</a></span>CameraInterface()</h2>
 
@@ -130,14 +128,14 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="afb028397ff94a97b63854852f0e83cba" name="afb028397ff94a97b63854852f0e83cba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb028397ff94a97b63854852f0e83cba">&#9670;&nbsp;</a></span>GetHighestTarget()</h2>
+<a id="acbbf1024b4dd016563bcaedd6a4dc8fc" name="acbbf1024b4dd016563bcaedd6a4dc8fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbbf1024b4dd016563bcaedd6a4dc8fc">&#9670;&nbsp;</a></span>GetHighestTarget()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; photonlib::PhotonTrackedTarget &gt; CameraInterface::GetHighestTarget </td>
+          <td class="memname">std::optional&lt; <a class="el" href="class_limelight_target.html">LimelightTarget</a> &gt; CameraInterface::GetHighestTarget </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -177,14 +175,14 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8a4cb6f68fe5fbf4a0cfade15e47fc30" name="a8a4cb6f68fe5fbf4a0cfade15e47fc30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a4cb6f68fe5fbf4a0cfade15e47fc30">&#9670;&nbsp;</a></span>m_camera</h2>
+<a id="ad67f913d4ef87cacc9120c28c44c0f6e" name="ad67f913d4ef87cacc9120c28c44c0f6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad67f913d4ef87cacc9120c28c44c0f6e">&#9670;&nbsp;</a></span>m_target</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">photonlib::PhotonCamera CameraInterface::m_camera</td>
+          <td class="memname"><a class="el" href="class_limelight_target.html">LimelightTarget</a> CameraInterface::m_target</td>
         </tr>
       </table>
 </div><div class="memdoc">

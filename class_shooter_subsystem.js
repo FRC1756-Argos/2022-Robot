@@ -13,7 +13,7 @@ var class_shooter_subsystem =
     [ "DisableTurretSoftLimits", "class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b", null ],
     [ "fixedShooterPosition", "class_shooter_subsystem.html#a87a24492cb89443fb7f062c64ee76144", null ],
     [ "GetTargetDistance", "class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7", null ],
-    [ "GetTurretTargetAngle", "class_shooter_subsystem.html#ab24936b80d42c44b7caf74ce69097d9b", null ],
+    [ "GetTurretTargetAngle", "class_shooter_subsystem.html#a53b9a2b56bb0e5943785fbbddbbecccd", null ],
     [ "HoodSetPosition", "class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3", null ],
     [ "InitializeTurretHome", "class_shooter_subsystem.html#ae0bdc196ad93958858dfcc8d14be3491", null ],
     [ "IsHoodHomed", "class_shooter_subsystem.html#a3d716745d88799fa1561553d94778015", null ],

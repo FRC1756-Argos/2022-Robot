@@ -98,6 +98,7 @@ var hierarchy =
     [ "argos_lib::InterpolationMap< decltype(shooterRange::shooterSpeed.front().inVal), shooterRange::shooterSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "motorConfig::comp_bot::climber::liftLeft", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html", null ],
     [ "motorConfig::comp_bot::climber::liftRight", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_right.html", null ],
+    [ "LimelightTarget", "class_limelight_target.html", null ],
     [ "motorConfig::comp_bot::climber::moveHook", "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html", null ],
     [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", null ],
     [ "argos_lib::NTMotorPIDTuner", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html", null ],
@@ -176,6 +177,7 @@ var hierarchy =
     ] ],
     [ "motorConfig::comp_bot::shooter::turretMotor", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html", null ],
     [ "motorConfig::practice_bot::shooter::turretMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html", null ],
+    [ "LimelightTarget::tValues", "struct_limelight_target_1_1t_values.html", null ],
     [ "argos_lib::XboxController::UpdateStatus", "structargos__lib_1_1_xbox_controller_1_1_update_status.html", null ],
     [ "SwerveDriveSubsystem::Velocities", "struct_swerve_drive_subsystem_1_1_velocities.html", null ],
     [ "argos_lib::VibrationStatus", "structargos__lib_1_1_vibration_status.html", null ]

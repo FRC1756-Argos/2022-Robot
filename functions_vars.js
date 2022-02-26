@@ -13,5 +13,6 @@ var functions_vars =
     [ "r", "functions_vars_r.html", null ],
     [ "s", "functions_vars_s.html", null ],
     [ "u", "functions_vars_u.html", null ],
-    [ "v", "functions_vars_v.html", null ]
+    [ "v", "functions_vars_v.html", null ],
+    [ "y", "functions_vars_y.html", null ]
 ];

@@ -7,6 +7,8 @@ var dir_5b31952f813df36dabbaa31d5b8f92e5 =
       [ "IntakeSubsystem", "class_intake_subsystem.html", "class_intake_subsystem" ]
     ] ],
     [ "shooter_subsystem.h", "shooter__subsystem_8h.html", [
+      [ "LimelightTarget", "class_limelight_target.html", "class_limelight_target" ],
+      [ "LimelightTarget::tValues", "struct_limelight_target_1_1t_values.html", "struct_limelight_target_1_1t_values" ],
       [ "CameraInterface", "class_camera_interface.html", "class_camera_interface" ],
       [ "ShooterSubsystem", "class_shooter_subsystem.html", "class_shooter_subsystem" ]
     ] ],

@@ -3,8 +3,8 @@ var namespaces_dup =
     [ "address", "namespaceaddress.html", "namespaceaddress" ],
     [ "argos_lib", "namespaceargos__lib.html", "namespaceargos__lib" ],
     [ "camera", "namespacecamera.html", [
-      [ "defaultPipelineIndex", "namespacecamera.html#ad60c6fc699e57e3a6e08bfeb2d95c403", null ],
-      [ "nickname", "namespacecamera.html#ab04d611dd21cdc40f9ac6a9c816cebed", null ]
+      [ "driverPipeline", "namespacecamera.html#a3d35a57dd902ef20a7bb2726882b35c9", null ],
+      [ "targetingPipeline", "namespacecamera.html#ae6a5e15cb8b9f0c15a7b783d0fb6d67b", null ]
     ] ],
     [ "controllerMap", "namespacecontroller_map.html", [
       [ "armSpeed", "namespacecontroller_map.html#a380aa1e65ee269eb4a4b8a701befcedc", null ],
