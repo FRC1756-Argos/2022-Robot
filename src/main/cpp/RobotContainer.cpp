@@ -136,9 +136,9 @@ void RobotContainer::ConfigureButtonBindings() {
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBumperLeft, {50_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kY, {1500_ms, 0_ms});
 
-  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kX, {1500_ms, 0_ms});
-  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kA, {1500_ms, 0_ms});
-  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kLeft, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kDown, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kRight, {1500_ms, 0_ms});
 
   // TRIGGERS -----------------------------------------------------------------------------------------------
 
@@ -153,9 +153,9 @@ void RobotContainer::ConfigureButtonBindings() {
 
   // DRIVE TRIGGERS
   auto homeDrive = (frc2::Trigger{[this]() {
-    return m_controllers.DriverController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
-                                                                argos_lib::XboxController::Button::kA,
-                                                                argos_lib::XboxController::Button::kB});
+    return m_controllers.DriverController().GetDebouncedButton({argos_lib::XboxController::Button::kLeft,
+                                                                argos_lib::XboxController::Button::kDown,
+                                                                argos_lib::XboxController::Button::kRight});
   }});
 
   auto controlMode = (frc2::Trigger{[this]() {
@@ -180,13 +180,16 @@ void RobotContainer::ConfigureButtonBindings() {
 
   // Fixed Shooting Position Trigger
   auto fixedFrontTrigger = (frc2::Trigger{
-      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kY}); }});
-  auto fixedLeftTrigger = (frc2::Trigger{
-      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kX}); }});
-  auto fixedRightTrigger = (frc2::Trigger{
-      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kB}); }});
-  auto fixedBackTrigger = (frc2::Trigger{
-      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kA}); }});
+      [this]() { return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kUp}); }});
+  auto fixedLeftTrigger = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kLeft});
+  }});
+  auto fixedRightTrigger = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kRight});
+  }});
+  auto fixedBackTrigger = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton({argos_lib::XboxController::Button::kDown});
+  }});
 
   // Aiming trigger
   auto aimTrigger = (frc2::Trigger{[this]() {
