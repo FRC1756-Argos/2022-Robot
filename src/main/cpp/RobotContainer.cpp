@@ -136,9 +136,9 @@ void RobotContainer::ConfigureButtonBindings() {
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBumperLeft, {50_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kY, {1500_ms, 0_ms});
 
-  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kLeft, {1500_ms, 0_ms});
-  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kDown, {1500_ms, 0_ms});
-  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kRight, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kX, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kA, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
 
   // TRIGGERS -----------------------------------------------------------------------------------------------
 
