@@ -311,9 +311,7 @@ CameraInterface::CameraInterface() {}
 void CameraInterface::SetDriverMode(bool mode) {
   std::shared_ptr<nt::NetworkTable> table = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
 
-  bool requestedPipeline;
-
-  requestedPipeline = mode ? camera::driverPipeline : camera::targetingPipeline;
+  int requestedPipeline = mode ? camera::driverPipeline : camera::targetingPipeline;
 
   table->PutNumber("pipeline", requestedPipeline);
 }
