@@ -84,21 +84,29 @@ void ShooterSubsystem::AutoAim() {
   // Get target angle & assign to turret
   m_cameraInterface.SetDriverMode(false);
   std::optional<photonlib::PhotonTrackedTarget> hightestTarget = m_cameraInterface.GetHighestTarget();
-  frc::SmartDashboard::PutBoolean("Target Exists?", (hightestTarget != std::nullopt));
   if (!hightestTarget) {
     return;
   }
+
+  frc::SmartDashboard::PutBoolean("Is Highest Target Present?", hightestTarget.has_value());
+  frc::SmartDashboard::PutNumber("Target Pitch", hightestTarget.value().GetPitch());
+  frc::SmartDashboard::PutNumber("Target Yaw", hightestTarget.value().GetYaw());
+
   auto targetAngle = GetTurretTargetAngle(hightestTarget.value());
   if (targetAngle) {
-    frc::SmartDashboard::PutNumber("Target turret angle", targetAngle.value().to<double>());
     TurretSetPosition(targetAngle.value());
   }
+
+  frc::SmartDashboard::PutNumber("Turret target angle", targetAngle.value().to<double>());
+  frc::SmartDashboard::PutNumber(
+      "(Turret) relAngle", sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition()).to<double>());
 
   // Get target distance & assign to hood & shooter
   units::length::inch_t distanceToTarget =
       GetTargetDistance(units::make_unit<units::angle::degree_t>(hightestTarget->GetPitch()));
-  frc::SmartDashboard::PutNumber("Target distance", distanceToTarget.to<double>());
   SetShooterDistance(distanceToTarget);
+
+  frc::SmartDashboard::PutNumber("Target distance", distanceToTarget.to<double>());
 }
 
 void ShooterSubsystem::Shoot(double ballfiringspeed) {
@@ -275,20 +283,35 @@ void CameraInterface::SetDriverMode(bool mode) {
 }
 
 std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedTarget target) {
-  units::length::inch_t cameraToTargetDistance =
-      GetTargetDistance(units::make_unit<units::degree_t>(target.GetPitch()));
-  units::length::inch_t cameraTurretOffset = measure_up::camera::toRotationCenter;
-  // calculate d2
-  double turretToTargetDistance =
-      std::sqrt(std::pow(cameraTurretOffset.to<double>(), 2.0) + std::pow(cameraToTargetDistance.to<double>(), 2.0));
-
-  auto currentAngle = TurretGetPosition();
-  if (currentAngle) {
-    units::degree_t targetAngle = units::make_unit<units::degree_t>(
-        currentAngle.value().to<double>() + std::acos((std::pow(cameraTurretOffset.to<double>(), 2.0) +
-                                                       turretToTargetDistance - cameraToTargetDistance.to<double>()) /
-                                                      2 * cameraTurretOffset.to<double>() * turretToTargetDistance));
-    return targetAngle;
+  if (target.GetYaw() == 0) {
+    return std::nullopt;
   }
-  return std::nullopt;
+
+  units::length::inch_t cameraToTargetDistance =
+      GetTargetDistance(units::make_unit<units::length::inch_t>(target.GetPitch()));
+
+  double alpha = 180 - std::abs(target.GetYaw());
+
+  units::length::inch_t turretToTargetDistance =
+      units::make_unit<units::length::inch_t>(std::sqrt(std::pow(cameraToTargetDistance.to<double>(), 2.0) + 81 -
+                                                        18 * cameraToTargetDistance.to<double>() * std::cos(alpha)));
+
+  units::angle::degree_t offset = units::make_unit<units::angle::degree_t>(
+      std::acos(std::pow(cameraToTargetDistance.to<double>(), 2) /
+                (81 + std::pow(turretToTargetDistance.to<double>(), 2) - 18 * turretToTargetDistance.to<double>())));
+
+  units::angle::degree_t targetAngle;
+
+  std::optional<units::angle::degree_t> currentTurretAngle = TurretGetPosition();
+  if (!currentTurretAngle) {
+    return std::nullopt;
+  }
+
+  if (target.GetYaw() > 0) {
+    targetAngle = currentTurretAngle.value() - offset;
+  } else {
+    targetAngle = currentTurretAngle.value() + offset;
+  }
+
+  return targetAngle;
 }
