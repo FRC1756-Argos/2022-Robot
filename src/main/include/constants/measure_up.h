@@ -42,4 +42,12 @@ namespace measure_up {
   namespace climber_hook {
     constexpr auto homeExtension = 37.25_in;  ///< Length from arm pivot to inner part of hook that holds rung
   }                                           // namespace climber_hook
+  namespace closepositions {
+    constexpr auto fixedLongDist = 21.5_in;   //< Front and back distance from shooter to frame perimeter
+    constexpr auto fixedShortDist = 18.5_in;  //< Left and right distance from shooter to frame perimeter
+    constexpr auto fixedFrontPos = 360_deg;
+    constexpr auto fixedLeftPos = 90_deg;
+    constexpr auto fixedBackPos = 180_deg;
+    constexpr auto fixedRightPos = 270_deg;
+  }  // namespace closepositions
 }  // namespace measure_up
