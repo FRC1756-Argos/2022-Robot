@@ -285,15 +285,8 @@ void SwerveDriveSubsystem::FiledHome() {
   m_imu.Reset();
 }
 
-void SwerveDriveSubsystem::SwapControlMode() {
-  switch (m_controlMode) {
-    case (SwerveDriveSubsystem::DriveControlMode::robotCentricControl):
-      m_controlMode = SwerveDriveSubsystem::DriveControlMode::fieldCentricControl;
-      break;
-    case (SwerveDriveSubsystem::DriveControlMode::fieldCentricControl):
-      m_controlMode = SwerveDriveSubsystem::DriveControlMode::robotCentricControl;
-      break;
-  }
+void SwerveDriveSubsystem::SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode) {
+  m_controlMode = controlMode;
 }
 
 void SwerveDriveSubsystem::InitializeMotors() {

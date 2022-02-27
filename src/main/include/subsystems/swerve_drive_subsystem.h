@@ -70,7 +70,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    */
   void FiledHome();
 
-  void SwapControlMode();
+  void SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode);
 
   /**
    * @brief Initialize motors from persistent storage
