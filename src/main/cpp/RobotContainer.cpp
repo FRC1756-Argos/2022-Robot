@@ -102,16 +102,6 @@ RobotContainer::RobotContainer()
   (robotEnableTrigger && !climberArmHomingCompleteTrigger).WhenActive(m_homeClimberArmCommand);
   (robotEnableTrigger && !climberHookHomingCompleteTrigger).WhenActive(m_homeClimberHookCommand);
 
-  // Notify subsystems of disable
-  robotEnableTrigger.WhenInactive(
-      [this]() {
-        m_shooter.Disable();
-        if (m_pClimber) {
-          m_pClimber->Disable();
-        }
-      },
-      {&m_shooter, m_pClimber.get()});
-
   m_NTMonitor.AddMonitor(
       "manualSetpoints/hoodAngle",
       [this](double newVal) { m_hoodTargetPosition = units::make_unit<units::degree_t>(newVal); },
@@ -282,4 +272,11 @@ void RobotContainer::ConfigureButtonBindings() {
 frc2::Command* RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous
   return nullptr;
+}
+
+void RobotContainer::Disable() {
+  m_shooter.Disable();
+  if (m_pClimber) {
+    m_pClimber->Disable();
+  }
 }

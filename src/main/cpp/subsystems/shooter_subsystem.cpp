@@ -260,6 +260,9 @@ void ShooterSubsystem::DisableTurretSoftLimits() {
 void ShooterSubsystem::Disable() {
   m_manualOverride = false;
   m_cameraInterface.SetDriverMode(true);
+  m_shooterWheelLeft.Set(0);
+  m_hoodMotor.Set(0);
+  m_turretMotor.Set(0);
 }
 
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {

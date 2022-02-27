@@ -36,6 +36,11 @@ class RobotContainer {
 
   frc2::Command* GetAutonomousCommand();
 
+  /**
+   * @brief Called once when robot is disabled
+   */
+  void Disable();
+
  private:
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;
 
