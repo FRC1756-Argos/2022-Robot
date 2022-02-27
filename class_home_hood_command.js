@@ -6,5 +6,6 @@ var class_home_hood_command =
     [ "Initialize", "class_home_hood_command.html#a61fde7d6dd49f2b6e9004c81db7fb0fd", null ],
     [ "IsFinished", "class_home_hood_command.html#a671333553770d93f1fd20beb42626e9c", null ],
     [ "m_hoodMovingDebounce", "class_home_hood_command.html#a275bde7dcba6339be2c64de4584bef8f", null ],
-    [ "m_pShooter", "class_home_hood_command.html#a76902bb4dfc2325223849601e9121e08", null ]
+    [ "m_pShooter", "class_home_hood_command.html#a76902bb4dfc2325223849601e9121e08", null ],
+    [ "m_startTime", "class_home_hood_command.html#a5ef3dda360777445fe7c9fddac8a53e4", null ]
 ];

@@ -1,5 +1,9 @@
 var NAVTREEINDEX3 =
 {
+"motors_8h.html#a6ddee846f1689715bb15e7f4d693ae1f":[4,0,0,1,1,1,4,21],
+"motors_8h.html#a8b2c8a03441ada032635893c8047a699":[4,0,0,1,1,1,4,19],
+"motors_8h.html#a8b4265b1cf0b6691ae138e5ea737ebbc":[4,0,0,1,1,1,4,20],
+"motors_8h.html#a8c69729f74795dba178d51f1cd6bdebf":[4,0,0,1,1,1,4,26],
 "motors_8h.html#aa29d14b03a08dac60e6fc6ad79f222f8":[4,0,0,1,1,1,4,24],
 "motors_8h.html#aa33e185552a1d40c4d359e65034fbdfc":[4,0,0,1,1,1,4,27],
 "motors_8h.html#af9f456739476c2f74ee223d3bb69d1e0":[4,0,0,1,1,1,4,22],
@@ -245,9 +249,5 @@ var NAVTREEINDEX3 =
 "namespacesensor__conversions_1_1shooter.html#a97900f4d65956b5ac97598c92169dc52":[2,0,11,3,0],
 "namespacesensor__conversions_1_1shooter.html#ae516cf9d400944ff0b2e7e634cd7b218":[2,0,11,3,2],
 "namespacesensor__conversions_1_1swerve__drive.html":[2,0,11,4],
-"namespacesensor__conversions_1_1swerve__drive_1_1turn.html":[2,0,11,4,0],
-"namespacesensor__conversions_1_1swerve__drive_1_1turn.html#a4d73a4d9acb90513dead3cda4951426d":[2,0,11,4,0,1],
-"namespacesensor__conversions_1_1swerve__drive_1_1turn.html#aa61a71f1880ed76dfff77fec078d945b":[2,0,11,4,0,2],
-"namespacesensor__conversions_1_1swerve__drive_1_1turn.html#aaf39f7ec9d8a81711d00b2580878a4f6":[2,0,11,4,0,0],
-"namespacesensor__conversions_1_1turret.html":[2,0,11,5]
+"namespacesensor__conversions_1_1swerve__drive_1_1turn.html":[2,0,11,4,0]
 };

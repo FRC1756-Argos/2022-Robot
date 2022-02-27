@@ -8,7 +8,7 @@ var searchData=
   ['debouncer_2eh_5',['debouncer.h',['../debouncer_8h.html',1,'']]],
   ['debouncerelease_6',['debounceRelease',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac501c6389960221bfa08cf7615155eb3',1,'argos_lib::XboxController::UpdateStatus']]],
   ['debouncesettings_7',['DebounceSettings',['../structargos__lib_1_1_debounce_settings.html',1,'argos_lib']]],
-  ['disable_8',['Disable',['../class_climber_subsystem.html#ace65f6734f00ea77d23b93d661b375c2',1,'ClimberSubsystem::Disable()'],['../class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e',1,'ShooterSubsystem::Disable()']]],
+  ['disable_8',['Disable',['../class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e',1,'ShooterSubsystem::Disable()'],['../class_climber_subsystem.html#ace65f6734f00ea77d23b93d661b375c2',1,'ClimberSubsystem::Disable()'],['../class_robot_container.html#a4f0a00e79a6b43c1eea301782d785b7f',1,'RobotContainer::Disable()']]],
   ['disabledinit_9',['DisabledInit',['../class_robot.html#a810e6143a208a6314491366e3c714357',1,'Robot']]],
   ['disabledperiodic_10',['DisabledPeriodic',['../class_robot.html#a8c7309f5f1cb242ea8c74f1abf03b540',1,'Robot']]],
   ['disableturretsoftlimits_11',['DisableTurretSoftLimits',['../class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b',1,'ShooterSubsystem']]],

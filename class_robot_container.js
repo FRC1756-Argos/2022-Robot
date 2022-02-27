@@ -2,6 +2,7 @@ var class_robot_container =
 [
     [ "RobotContainer", "class_robot_container.html#ac508e6c51edfa97eb18e3412fe83ad8f", null ],
     [ "ConfigureButtonBindings", "class_robot_container.html#aa1b33cbe7d850dfd456ad0b352b82ba5", null ],
+    [ "Disable", "class_robot_container.html#a4f0a00e79a6b43c1eea301782d785b7f", null ],
     [ "GetAutonomousCommand", "class_robot_container.html#a4ac35c4eade0422c19b5d1e037cc7647", null ],
     [ "m_armSpeedMap", "class_robot_container.html#acbd5436f2dcbfa05e5d7b07c04c10453", null ],
     [ "m_climberArmTargetExtension", "class_robot_container.html#a2dbc324d2a7df7a4b90f2ed26f7eed56", null ],

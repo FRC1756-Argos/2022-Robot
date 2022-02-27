@@ -6,5 +6,6 @@ var class_home_climber_arm_command =
     [ "Initialize", "class_home_climber_arm_command.html#a920ba0cd20392f2d5c6b184317de0ee0", null ],
     [ "IsFinished", "class_home_climber_arm_command.html#a589b5461d29be61533ef2f60fe5a132f", null ],
     [ "m_armMovingDebounce", "class_home_climber_arm_command.html#a7bc579a159b3388597896702bae11687", null ],
-    [ "m_pClimberSubsystem", "class_home_climber_arm_command.html#a529d625d5da7cd1117ff62dc55f67902", null ]
+    [ "m_pClimberSubsystem", "class_home_climber_arm_command.html#a529d625d5da7cd1117ff62dc55f67902", null ],
+    [ "m_startTime", "class_home_climber_arm_command.html#a343e815b6f52a69302b8b786d0f8cdab", null ]
 ];
