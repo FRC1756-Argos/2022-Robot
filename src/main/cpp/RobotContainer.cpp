@@ -234,7 +234,7 @@ void RobotContainer::ConfigureButtonBindings() {
   // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
 
   // DRIVE TRIGGER ACTIVATION
-  controlMode.WhileActiveContinous(
+  controlMode.WhenActive(
       [this]() { m_swerveDrive.SetControlMode(SwerveDriveSubsystem::DriveControlMode::robotCentricControl); },
       {&m_swerveDrive});
   controlMode.WhenInactive(

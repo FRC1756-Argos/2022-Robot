@@ -58,7 +58,7 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | B               | Home Swerve (hold with <kbd>A</kbd> and <kbd>X</kbd>) |
 | X               | Home Swerve (hold with <kbd>A</kbd> and <kbd>B</kbd>) |
 | Y               | Field Home (hold) |
-| LB              | Hold For Robot Centric |s
+| LB              | Hold For Robot Centric |
 | RB              | Reverse Intake |
 | LT              | Shoot |
 | RT              | Intake |
