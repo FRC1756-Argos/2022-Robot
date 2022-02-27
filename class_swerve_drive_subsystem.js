@@ -15,7 +15,7 @@ var class_swerve_drive_subsystem =
     [ "InitializeMotorsFromFS", "class_swerve_drive_subsystem.html#a4a6d907f1012c9494cef0fa2ed912be1", null ],
     [ "InitializeMotorsFromNetworkTables", "class_swerve_drive_subsystem.html#a3d36605e92966df8a891d5be634969ac", null ],
     [ "Periodic", "class_swerve_drive_subsystem.html#ac11787e2a63cf67785aee01665d040ba", null ],
-    [ "SwapControlMode", "class_swerve_drive_subsystem.html#a31a9fda9188489ce611fbd2ff01b73b4", null ],
+    [ "SetControlMode", "class_swerve_drive_subsystem.html#a6d4cda6ee182e7411d064e127f71dcb0", null ],
     [ "SwerveDrive", "class_swerve_drive_subsystem.html#a1e93abce8d02b2acd1f3b020ad919e57", null ],
     [ "m_backLeft", "class_swerve_drive_subsystem.html#a5b74616606cb8b4fdfb5c8e699e2e5fb", null ],
     [ "m_backRight", "class_swerve_drive_subsystem.html#a120f86cc2b1cfe872573ed823d6e2e43", null ],
