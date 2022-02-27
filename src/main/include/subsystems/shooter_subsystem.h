@@ -235,9 +235,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   bool m_turretHomed;  ///< True when turret has known closed loop position
   bool m_manualOverride;
 
-  argos_lib::InterpolationMap<decltype(shooterRange::shooterSpeed.front().inVal), shooterRange::shooterSpeed.size()>
+  argos_lib::InterpolationMap<decltype(shooterRange::shooterSpeed.front().inVal),
+                              shooterRange::shooterSpeed.size(),
+                              decltype(shooterRange::shooterSpeed.front().outVal)>
       m_shooterSpeedMap;
-  argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size()>
+  argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal),
+                              shooterRange::hoodAngle.size(),
+                              decltype(shooterRange::hoodAngle.front().outVal)>
       m_hoodAngleMap;
 
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;

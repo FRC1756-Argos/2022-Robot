@@ -269,8 +269,8 @@ units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVertical
 }
 
 void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
-  CloseLoopShoot(units::revolutions_per_minute_t{m_shooterSpeedMap.Map(distanceToTarget.to<double>())});
-  HoodSetPosition(units::degree_t{m_hoodAngleMap.Map(distanceToTarget.to<double>())});
+  CloseLoopShoot(units::revolutions_per_minute_t{m_shooterSpeedMap.Map(distanceToTarget)});
+  HoodSetPosition(units::degree_t{m_hoodAngleMap.Map(distanceToTarget)});
 }
 
 std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(LimelightTarget::tValues target) {

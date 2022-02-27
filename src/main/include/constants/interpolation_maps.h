@@ -4,22 +4,26 @@
 
 #pragma once
 
+#include <units/angle.h>
+#include <units/angular_velocity.h>
+#include <units/length.h>
+
 #include <array>
 
 #include "argos_lib/general/interpolation.h"
 
 namespace shooterRange {
   using argos_lib::InterpMapPoint;
-  [[maybe_unused]] constexpr std::array shooterSpeed{InterpMapPoint{10.0, 2300.0},
-                                                     InterpMapPoint{60.0, 2600.0},
-                                                     InterpMapPoint{120.0, 3000.0},
-                                                     InterpMapPoint{180.0, 3000.0},
-                                                     InterpMapPoint{240.0, 3500.0}};
-  [[maybe_unused]] constexpr std::array hoodAngle{InterpMapPoint{10.0, 10.0},
-                                                  InterpMapPoint{60.0, 17.0},
-                                                  InterpMapPoint{120.0, 25.0},
-                                                  InterpMapPoint{180.0, 30.0},
-                                                  InterpMapPoint{240.0, 41.0}};
+  [[maybe_unused]] constexpr std::array shooterSpeed{InterpMapPoint{10.0_in, 2300.0_rpm},
+                                                     InterpMapPoint{60.0_in, 2600.0_rpm},
+                                                     InterpMapPoint{120.0_in, 3000.0_rpm},
+                                                     InterpMapPoint{180.0_in, 3000.0_rpm},
+                                                     InterpMapPoint{240.0_in, 3500.0_rpm}};
+  [[maybe_unused]] constexpr std::array hoodAngle{InterpMapPoint{10.0_in, 10.0_deg},
+                                                  InterpMapPoint{60.0_in, 17.0_deg},
+                                                  InterpMapPoint{120.0_in, 25.0_deg},
+                                                  InterpMapPoint{180.0_in, 30.0_deg},
+                                                  InterpMapPoint{240.0_in, 41.0_deg}};
 }  // namespace shooterRange
 namespace controllerMap {
   using argos_lib::InterpMapPoint;
