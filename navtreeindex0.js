@@ -232,7 +232,6 @@ var NAVTREEINDEX0 =
 "class_robot_container.html#afd2859ab3437ff8d2dd70229095f1ff1":[3,0,14,16],
 "class_shooter_subsystem.html":[3,0,15],
 "class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3":[3,0,15,9],
-"class_shooter_subsystem.html#a12e77995a08524d4067f198a7b6c0fff":[3,0,15,34],
 "class_shooter_subsystem.html#a2075ab3f379a9d8ef3e017df1e82f6ea":[3,0,15,25],
 "class_shooter_subsystem.html#a27e20185066dced17ea2521972794efb":[3,0,15,1],
 "class_shooter_subsystem.html#a2db46e10af9c9b611e5a2a5c7c02a8ef":[3,0,15,30],
@@ -246,8 +245,9 @@ var NAVTREEINDEX0 =
 "class_shooter_subsystem.html#a4bd27817cdd9939288c41f0c93c16fd4":[3,0,15,16],
 "class_shooter_subsystem.html#a4c621fd66825ba5408e65f4bd3f06939":[3,0,15,26],
 "class_shooter_subsystem.html#a53b9a2b56bb0e5943785fbbddbbecccd":[3,0,15,8],
-"class_shooter_subsystem.html#a55368e694c4fa246a97a82be68179ec7":[3,0,15,27],
 "class_shooter_subsystem.html#a5a50798ecf835239bef0b9b5324044d8":[3,0,15,38],
 "class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e":[3,0,15,4],
-"class_shooter_subsystem.html#a6ee059505949e3b0c56f7a66781674ed":[3,0,15,23]
+"class_shooter_subsystem.html#a681fa3fe0e8aa3dc4a0d0fc4e61087f6":[3,0,15,27],
+"class_shooter_subsystem.html#a6ee059505949e3b0c56f7a66781674ed":[3,0,15,23],
+"class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7":[3,0,15,7]
 };

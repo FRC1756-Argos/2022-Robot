@@ -63,7 +63,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7",
+"class_shooter_subsystem.html#a75f4da6b9d4e5874fa70f6607084187c",
 "classargos__lib_1_1_xbox_controller.html#ad6df9e70767f0cad19362f66eca504f4",
 "motors_8h.html#aa29d14b03a08dac60e6fc6ad79f222f8",
 "namespacesensor__conversions_1_1turret.html#a0bdc1122e95ea889aef812fde15e1e65",

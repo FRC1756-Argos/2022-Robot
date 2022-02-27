@@ -179,12 +179,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a489dff46429e8ae8064c6b37a744e2f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">VibrationModel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#a489dff46429e8ae8064c6b37a744e2f5">VibrationAlternateWave</a> (units::millisecond_t pulsePeriod, double intensityOn, double intensityOff=0.0)</td></tr>
 <tr class="memdesc:a489dff46429e8ae8064c6b37a744e2f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Smoothly transition vibration between intensityOn and intensityOff levels. Left output is in intensityOn phase while right output is in intensityOff phase and vice-versa.  <a href="namespaceargos__lib.html#a489dff46429e8ae8064c6b37a744e2f5">More...</a><br /></td></tr>
 <tr class="separator:a489dff46429e8ae8064c6b37a744e2f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ed2d3f18efcdd9aa1e5b19535e380aa"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a8ed2d3f18efcdd9aa1e5b19535e380aa"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#a8ed2d3f18efcdd9aa1e5b19535e380aa">operator&lt;</a> (const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T &gt; &amp;a, const T &amp;b)</td></tr>
-<tr class="separator:a8ed2d3f18efcdd9aa1e5b19535e380aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ce4f96310a8fed0c43bba8c5cdb31f1"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a6ce4f96310a8fed0c43bba8c5cdb31f1"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#a6ce4f96310a8fed0c43bba8c5cdb31f1">operator&lt;</a> (const T &amp;a, const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T &gt; &amp;b)</td></tr>
-<tr class="separator:a6ce4f96310a8fed0c43bba8c5cdb31f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad64b1c60180c848877a6b120baf052e7"><td class="memTemplParams" colspan="2">template&lt;class T , class V &gt; </td></tr>
+<tr class="memitem:ad64b1c60180c848877a6b120baf052e7"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#ad64b1c60180c848877a6b120baf052e7">operator&lt;</a> (const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T, V &gt; &amp;a, const T &amp;b)</td></tr>
+<tr class="separator:ad64b1c60180c848877a6b120baf052e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2503d5262181b3a6ba47396af30ab300"><td class="memTemplParams" colspan="2">template&lt;class T , class V &gt; </td></tr>
+<tr class="memitem:a2503d5262181b3a6ba47396af30ab300"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#a2503d5262181b3a6ba47396af30ab300">operator&lt;</a> (const T &amp;a, const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T, V &gt; &amp;b)</td></tr>
+<tr class="separator:a2503d5262181b3a6ba47396af30ab300"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af83601904c4c880bf312db76eb3dbed2"><td class="memTemplParams" colspan="2">template&lt;class Callable &gt; </td></tr>
 <tr class="memitem:af83601904c4c880bf312db76eb3dbed2"><td class="memTemplItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2">GetSensorConversionFactor</a> (Callable toPhysicalUnitsFunction)</td></tr>
 <tr class="memdesc:af83601904c4c880bf312db76eb3dbed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a double value to convert raw sensor values to physical units represented as a double.  <a href="namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2">More...</a><br /></td></tr>
@@ -303,13 +303,13 @@ template&lt;class Callable &gt; </div>
 
 </div>
 </div>
-<a id="a8ed2d3f18efcdd9aa1e5b19535e380aa" name="a8ed2d3f18efcdd9aa1e5b19535e380aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ed2d3f18efcdd9aa1e5b19535e380aa">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
+<a id="ad64b1c60180c848877a6b120baf052e7" name="ad64b1c60180c848877a6b120baf052e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad64b1c60180c848877a6b120baf052e7">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T , class V &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -317,7 +317,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">constexpr bool argos_lib::operator&lt; </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T, V &gt; &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
@@ -341,13 +341,13 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a6ce4f96310a8fed0c43bba8c5cdb31f1" name="a6ce4f96310a8fed0c43bba8c5cdb31f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ce4f96310a8fed0c43bba8c5cdb31f1">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+<a id="a2503d5262181b3a6ba47396af30ab300" name="a2503d5262181b3a6ba47396af30ab300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2503d5262181b3a6ba47396af30ab300">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T , class V &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -361,7 +361,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T, V &gt; &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
