@@ -6,7 +6,7 @@ var class_swerve_drive_subsystem =
       [ "robotCentricControl", "class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512ca0166150dc58e9466fe319fbfe750fd15", null ]
     ] ],
     [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html#a2093667e7073a107d596b4b4a2f573d3", null ],
-    [ "FiledHome", "class_swerve_drive_subsystem.html#aae692e1c34fea1fe76b0b7462378be1a", null ],
+    [ "FieldHome", "class_swerve_drive_subsystem.html#a1d40f99a32b6295392cb34878cb991fd", null ],
     [ "GetRawModuleStates", "class_swerve_drive_subsystem.html#a6ec0aa2955d381e3eb585bc210da5d39", null ],
     [ "Home", "class_swerve_drive_subsystem.html#a002a0509339ff38f00fd6ca2e74a85f0", null ],
     [ "HomeToFS", "class_swerve_drive_subsystem.html#a0e830d13b90bdbd5b25d1bfc9e3aa60d", null ],

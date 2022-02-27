@@ -16,6 +16,7 @@ var class_climber_subsystem =
     [ "IsManualOverride", "class_climber_subsystem.html#a495959f479122250f61b86bff4bd3eec", null ],
     [ "LowerBody", "class_climber_subsystem.html#a6283ac4279b75b4659c79f148388c206", null ],
     [ "ManualControl", "class_climber_subsystem.html#aa8efe695021d0254012879d3cb3a8992", null ],
+    [ "ManualOverride", "class_climber_subsystem.html#a4347a54aa1cc796e1b7033e9435e97c6", null ],
     [ "MoveArm", "class_climber_subsystem.html#a0a0c728ec10e0f4d5c11e1b021ac673f", null ],
     [ "MoveHook", "class_climber_subsystem.html#a8e58c664ee70d27c6d0e2abc6b759911", null ],
     [ "Periodic", "class_climber_subsystem.html#a9293e2dc5ce4d9c056370803c3e490a4", null ],

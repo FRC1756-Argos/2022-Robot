@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"motors_8h.html#a3b37e049ab2db3a8869ed05083c88b0e":[4,0,0,1,1,1,4,18],
+"motors_8h.html#a6b4020be8fd110333417c29c17ba9017":[4,0,0,1,1,1,4,25],
 "motors_8h.html#a6ddee846f1689715bb15e7f4d693ae1f":[4,0,0,1,1,1,4,21],
 "motors_8h.html#a8b2c8a03441ada032635893c8047a699":[4,0,0,1,1,1,4,19],
 "motors_8h.html#a8b4265b1cf0b6691ae138e5ea737ebbc":[4,0,0,1,1,1,4,20],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "namespacesensor__conversions_1_1shooter.html":[2,0,11,3],
 "namespacesensor__conversions_1_1shooter.html#a88eee78baebdaeff32473f4e8e9896ba":[2,0,11,3,1],
 "namespacesensor__conversions_1_1shooter.html#a97900f4d65956b5ac97598c92169dc52":[2,0,11,3,0],
-"namespacesensor__conversions_1_1shooter.html#ae516cf9d400944ff0b2e7e634cd7b218":[2,0,11,3,2],
-"namespacesensor__conversions_1_1swerve__drive.html":[2,0,11,4],
-"namespacesensor__conversions_1_1swerve__drive_1_1turn.html":[2,0,11,4,0]
+"namespacesensor__conversions_1_1shooter.html#ae516cf9d400944ff0b2e7e634cd7b218":[2,0,11,3,2]
 };
