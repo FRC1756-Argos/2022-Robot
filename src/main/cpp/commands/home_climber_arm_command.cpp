@@ -4,8 +4,12 @@
 
 #include "commands/home_climber_arm_command.h"
 
+using namespace std::chrono_literals;
+
 HomeClimberArmCommand::HomeClimberArmCommand(ClimberSubsystem* subsystem)
-    : m_pClimberSubsystem(subsystem), m_armMovingDebounce({0_ms, 500_ms}, true) {
+    : m_pClimberSubsystem(subsystem)
+    , m_armMovingDebounce({0_ms, 500_ms}, true)
+    , m_startTime(std::chrono::steady_clock::now()) {
   if (subsystem != nullptr) {
     AddRequirements(subsystem);
   }
@@ -26,7 +30,7 @@ void HomeClimberArmCommand::Execute() {
     Cancel();
     return;
   }
-  if (m_pClimberSubsystem->IsManualOverride()) {
+  if (m_pClimberSubsystem->IsManualOverride() || std::chrono::steady_clock::now() - m_startTime > 2.0s) {
     Cancel();
   } else {
     m_pClimberSubsystem->MoveArm(-0.1);
