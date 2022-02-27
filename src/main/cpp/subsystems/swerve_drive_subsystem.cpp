@@ -282,7 +282,7 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   m_backLeft.m_encoder.SetPosition(angle.to<double>(), 50);
 }
 
-void SwerveDriveSubsystem::FiledHome() {
+void SwerveDriveSubsystem::FieldHome() {
   m_imu.Reset();
 }
 

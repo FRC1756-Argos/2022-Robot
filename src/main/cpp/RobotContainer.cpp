@@ -90,6 +90,21 @@ RobotContainer::RobotContainer()
   // Robot state triggers
   auto robotEnableTrigger = (frc2::Trigger{[this]() { return frc::DriverStation::IsEnabled(); }});
 
+  // Override triggers
+  auto shooterOverrideTrigger = (frc2::Trigger{[this]() {
+    return std::abs(m_turretSpeedMap(
+               m_controllers.OperatorController().GetX(argos_lib::XboxController::JoystickHand::kLeftHand))) > 0 ||
+           std::abs(m_hoodSpeedMap(
+               m_controllers.OperatorController().GetY(argos_lib::XboxController::JoystickHand::kLeftHand))) > 0;
+  }});
+
+  auto climberOverrideTrigger = (frc2::Trigger{[this]() {
+    return std::abs(m_hookSpeedMap(
+               m_controllers.OperatorController().GetX(argos_lib::XboxController::JoystickHand::kRightHand))) > 0 ||
+           std::abs(m_armSpeedMap(
+               m_controllers.OperatorController().GetY(argos_lib::XboxController::JoystickHand::kRightHand))) > 0;
+  }});
+
   // Homing triggers
   auto hoodHomingCompleteTrigger = (frc2::Trigger{[this]() { return m_shooter.IsHoodHomed(); }});
   auto climberHookHomingCompleteTrigger =
@@ -101,6 +116,11 @@ RobotContainer::RobotContainer()
   (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
   (robotEnableTrigger && !climberArmHomingCompleteTrigger).WhenActive(m_homeClimberArmCommand);
   (robotEnableTrigger && !climberHookHomingCompleteTrigger).WhenActive(m_homeClimberHookCommand);
+
+  shooterOverrideTrigger.WhenActive([this]() { m_shooter.ManualOverride(); }, {&m_shooter});
+  if (m_pClimber) {
+    climberOverrideTrigger.WhenActive([this]() { m_pClimber->ManualOverride(); }, {m_pClimber.get()});
+  }
 
   m_NTMonitor.AddMonitor(
       "manualSetpoints/hoodAngle",
@@ -231,7 +251,7 @@ void RobotContainer::ConfigureButtonBindings() {
       [this]() { m_swerveDrive.SetControlMode(SwerveDriveSubsystem::DriveControlMode::fieldCentricControl); },
       {&m_swerveDrive});
 
-  fieldHome.WhenActive([this]() { m_swerveDrive.FiledHome(); }, {&m_swerveDrive});
+  fieldHome.WhenActive([this]() { m_swerveDrive.FieldHome(); }, {&m_swerveDrive});
 
   // INTAKE TRIGGER ACTIVATION
   auto nottake = !intake && !outtake;
@@ -251,13 +271,13 @@ void RobotContainer::ConfigureButtonBindings() {
   shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {&m_intake});
 
   // SHOOTER FIXED POS TRIGGER ACTIVATION
-  fixedFrontTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },
+  fixedFrontTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },
                                {&m_shooter});
-  fixedLeftTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Left); },
+  fixedLeftTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Left); },
                               {&m_shooter});
-  fixedRightTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Right); },
+  fixedRightTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Right); },
                                {&m_shooter});
-  fixedBackTrigger.WhenActive([this]() { m_shooter.fixedShooterPosition(ShooterSubsystem::FixedPosState::Back); },
+  fixedBackTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Back); },
                               {&m_shooter});
 
   // SWAP CONTROLLERS TRIGGER ACTIVATION

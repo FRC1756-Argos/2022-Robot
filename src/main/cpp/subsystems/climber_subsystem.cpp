@@ -132,3 +132,7 @@ void ClimberSubsystem::Disable() {
   m_motorLiftLeft.Set(0);
   m_motorMoveHook.Set(0);
 }
+
+void ClimberSubsystem::ManualOverride() {
+  m_manualOverride = true;
+}

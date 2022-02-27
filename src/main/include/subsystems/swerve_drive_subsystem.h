@@ -68,7 +68,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    * @brief Tell the robot it's in it's correct field-oriented "Front"
    *
    */
-  void FiledHome();
+  void FieldHome();
 
   void SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode);
 

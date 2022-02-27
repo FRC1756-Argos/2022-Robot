@@ -217,7 +217,12 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @brief Handles fixed close shot shooting positions around hub
    *
    */
-  void fixedShooterPosition(FixedPosState);
+  void FixedShooterPosition(FixedPosState);
+
+  /**
+   * @brief Override automatic control
+   */
+  void ManualOverride();
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be

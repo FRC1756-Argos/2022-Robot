@@ -109,7 +109,7 @@ void ShooterSubsystem::AutoAim() {
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance", distanceToTarget.to<double>());
 }
 
-void ShooterSubsystem::fixedShooterPosition(FixedPosState fixedPosState) {
+void ShooterSubsystem::FixedShooterPosition(FixedPosState fixedPosState) {
   switch (fixedPosState) {
     case FixedPosState::Front:
       TurretSetPosition(measure_up::closepositions::fixedFrontPos);
@@ -128,6 +128,10 @@ void ShooterSubsystem::fixedShooterPosition(FixedPosState fixedPosState) {
       SetShooterDistance(measure_up::closepositions::fixedLongDist);
       break;
   }
+}
+
+void ShooterSubsystem::ManualOverride() {
+  m_manualOverride = true;
 }
 
 void ShooterSubsystem::Shoot(double ballfiringspeed) {
