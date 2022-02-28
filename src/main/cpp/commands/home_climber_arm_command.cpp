@@ -7,9 +7,7 @@
 using namespace std::chrono_literals;
 
 HomeClimberArmCommand::HomeClimberArmCommand(ClimberSubsystem* subsystem)
-    : m_pClimberSubsystem(subsystem)
-    , m_armMovingDebounce({0_ms, 500_ms}, true)
-    , m_startTime(std::chrono::steady_clock::now()) {
+    : m_pClimberSubsystem(subsystem), m_armMovingDebounce({0_ms, 500_ms}, true) {
   if (subsystem != nullptr) {
     AddRequirements(subsystem);
   }
@@ -22,6 +20,7 @@ void HomeClimberArmCommand::Initialize() {
     return;
   }
   m_pClimberSubsystem->MoveArm(-0.1);
+  m_startTime = std::chrono::steady_clock::now();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -30,7 +29,7 @@ void HomeClimberArmCommand::Execute() {
     Cancel();
     return;
   }
-  if (m_pClimberSubsystem->IsManualOverride() || std::chrono::steady_clock::now() - m_startTime > 2.0s) {
+  if (m_pClimberSubsystem->IsManualOverride() || (std::chrono::steady_clock::now() - m_startTime) > 2.0s) {
     Cancel();
   } else {
     m_pClimberSubsystem->MoveArm(-0.1);

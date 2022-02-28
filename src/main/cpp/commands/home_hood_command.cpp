@@ -9,18 +9,19 @@
 using namespace std::chrono_literals;
 
 HomeHoodCommand::HomeHoodCommand(ShooterSubsystem* shooter)
-    : m_pShooter(shooter), m_hoodMovingDebounce{{0_ms, 500_ms}, true}, m_startTime{std::chrono::steady_clock::now()} {
+    : m_pShooter(shooter), m_hoodMovingDebounce{{0_ms, 500_ms}, true} {
   AddRequirements(shooter);
 }
 
 // Called when the command is initially scheduled.
 void HomeHoodCommand::Initialize() {
+  m_startTime = std::chrono::steady_clock::now();
   m_pShooter->MoveHood(0.2);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void HomeHoodCommand::Execute() {
-  if (m_pShooter->IsManualOverride() || std::chrono::steady_clock::now() - m_startTime > 2.0s) {
+  if (m_pShooter->IsManualOverride() || (std::chrono::steady_clock::now() - m_startTime) > 2.0s) {
     Cancel();
   } else {
     m_pShooter->MoveHood(0.2);
