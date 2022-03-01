@@ -7,6 +7,8 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
+#include <chrono>
+
 #include "argos_lib/general/debouncer.h"
 #include "subsystems/shooter_subsystem.h"
 
@@ -25,4 +27,5 @@ class HomeHoodCommand : public frc2::CommandHelper<frc2::CommandBase, HomeHoodCo
  private:
   ShooterSubsystem* m_pShooter;
   argos_lib::Debouncer m_hoodMovingDebounce;
+  std::chrono::time_point<std::chrono::steady_clock> m_startTime;
 };

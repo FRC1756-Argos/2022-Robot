@@ -7,6 +7,8 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
+#include <chrono>
+
 #include "argos_lib/general/debouncer.h"
 #include "subsystems/climber_subsystem.h"
 
@@ -25,4 +27,5 @@ class HomeClimberArmCommand : public frc2::CommandHelper<frc2::CommandBase, Home
  private:
   ClimberSubsystem* m_pClimberSubsystem;
   argos_lib::Debouncer m_armMovingDebounce;
+  std::chrono::time_point<std::chrono::steady_clock> m_startTime;
 };

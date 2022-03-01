@@ -158,6 +158,11 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    */
   void Disable();
 
+  /**
+   * @brief Override automatic control
+   */
+  void ManualOverride();
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.

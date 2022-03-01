@@ -11,22 +11,48 @@
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
+#include "networktables/NetworkTable.h"
+#include "networktables/NetworkTableEntry.h"
+#include "networktables/NetworkTableInstance.h"
+#include "networktables/NetworkTableValue.h"
 #include "photonlib/PhotonCamera.h"
 #include "units/angular_velocity.h"
 #include "units/length.h"
 #include "utils/homing_storage_interface.h"
 
+class LimelightTarget {
+ private:
+  units::degree_t m_pitch;
+  units::degree_t m_yaw;
+  int m_area;
+  bool m_hasTargets;
+
+ public:
+  LimelightTarget() = default;
+
+  struct tValues {
+    units::degree_t pitch;
+    units::degree_t yaw;
+  };
+
+  /// @todo ADD DOCUMENTATION
+  tValues GetTarget();
+
+  /// @todo ADD DOCUMENTATION
+  bool HasTarget();
+};
 class CameraInterface {
  public:
   CameraInterface();
-  photonlib::PhotonCamera m_camera;
+
+  LimelightTarget m_target;
 
   /**
    * @brief Get the highest target the camera can see CAN RETURN NONE
    *
    * @return std::optional<photonlib::PhotonTrackedTarget>
    */
-  std::optional<photonlib::PhotonTrackedTarget> GetHighestTarget();
+  std::optional<LimelightTarget> GetHighestTarget();
 
   /**
    * @brief Turns the camera's driver mode on and off
@@ -43,7 +69,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   enum class FixedPosState { Front, Left, Right, Back };
 
   /// @todo document function
-  std::optional<units::degree_t> GetTurretTargetAngle(photonlib::PhotonTrackedTarget target);
+  std::optional<units::degree_t> GetTurretTargetAngle(LimelightTarget::tValues target);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -191,7 +217,12 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @brief Handles fixed close shot shooting positions around hub
    *
    */
-  void fixedShooterPosition(FixedPosState);
+  void FixedShooterPosition(FixedPosState);
+
+  /**
+   * @brief Override automatic control
+   */
+  void ManualOverride();
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
@@ -209,12 +240,14 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   bool m_turretHomed;  ///< True when turret has known closed loop position
   bool m_manualOverride;
 
-  argos_lib::InterpolationMap<decltype(shooterRange::shooterSpeed.front().inVal), shooterRange::shooterSpeed.size()>
+  argos_lib::InterpolationMap<decltype(shooterRange::shooterSpeed.front().inVal),
+                              shooterRange::shooterSpeed.size(),
+                              decltype(shooterRange::shooterSpeed.front().outVal)>
       m_shooterSpeedMap;
-  argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size()>
+  argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal),
+                              shooterRange::hoodAngle.size(),
+                              decltype(shooterRange::hoodAngle.front().outVal)>
       m_hoodAngleMap;
-
-  FixedPosState m_fixedPosState;
 
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
   argos_lib::NTMotorPIDTuner m_shooterPIDTuner;

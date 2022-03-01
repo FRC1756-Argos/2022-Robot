@@ -64,6 +64,8 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance)
   InitializeTurretHome();
 
   m_shooterWheelRight.Follow(m_shooterWheelLeft);
+
+  m_cameraInterface.SetDriverMode(true);
 }
 
 // This method will be called once per scheduler run
@@ -78,8 +80,37 @@ void ShooterSubsystem::Periodic() {
                                  turretNormalizedPosition ? turretNormalizedPosition.value().to<double>() : NAN);
 }
 
-void ShooterSubsystem::fixedShooterPosition(FixedPosState) {
-  switch (m_fixedPosState) {
+void ShooterSubsystem::AutoAim() {
+  LimelightTarget::tValues targetValues = m_cameraInterface.m_target.GetTarget();
+
+  // Get target angle & assign to turret
+  m_cameraInterface.SetDriverMode(false);
+  if (!m_cameraInterface.m_target.HasTarget()) {
+    return;
+  }
+
+  frc::SmartDashboard::PutBoolean("(Auto-Aim) Is Highest Target Present?", m_cameraInterface.m_target.HasTarget());
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Target Pitch", targetValues.pitch.to<double>());
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Target Yaw", targetValues.yaw.to<double>());
+
+  std::optional<units::degree_t> targetAngle = GetTurretTargetAngle(targetValues);
+  if (targetAngle) {
+    TurretSetPosition(targetAngle.value());
+  }
+
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Turret target angle", targetAngle.value().to<double>());
+  frc::SmartDashboard::PutNumber(
+      "(Turret) relAngle", sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition()).to<double>());
+
+  // Get target distance & assign to hood & shooter
+  units::length::inch_t distanceToTarget = GetTargetDistance(targetValues.pitch);
+  SetShooterDistance(distanceToTarget);
+
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance", distanceToTarget.to<double>());
+}
+
+void ShooterSubsystem::FixedShooterPosition(FixedPosState fixedPosState) {
+  switch (fixedPosState) {
     case FixedPosState::Front:
       TurretSetPosition(measure_up::closepositions::fixedFrontPos);
       SetShooterDistance(measure_up::closepositions::fixedLongDist);
@@ -99,23 +130,8 @@ void ShooterSubsystem::fixedShooterPosition(FixedPosState) {
   }
 }
 
-void ShooterSubsystem::AutoAim() {
-  // Get target angle & assign to turret
-  m_cameraInterface.SetDriverMode(false);
-  std::optional<photonlib::PhotonTrackedTarget> hightestTarget = m_cameraInterface.GetHighestTarget();
-  frc::SmartDashboard::PutBoolean("Target Exists?", (hightestTarget != std::nullopt));
-  if (!hightestTarget) {
-    return;
-  }
-  units::angle::degree_t targetAngle = GetTurretTargetAngle(hightestTarget.value());
-  frc::SmartDashboard::PutNumber("Target turret angle", targetAngle.to<double>());
-  TurretSetPosition(targetAngle);
-
-  // Get target distance & assign to hood & shooter
-  units::length::inch_t distanceToTarget =
-      GetTargetDistance(units::make_unit<units::angle::degree_t>(hightestTarget->GetPitch()));
-  frc::SmartDashboard::PutNumber("Target distance", distanceToTarget.to<double>());
-  SetShooterDistance(distanceToTarget);
+void ShooterSubsystem::ManualOverride() {
+  m_manualOverride = true;
 }
 
 void ShooterSubsystem::Shoot(double ballfiringspeed) {
@@ -247,6 +263,10 @@ void ShooterSubsystem::DisableTurretSoftLimits() {
 
 void ShooterSubsystem::Disable() {
   m_manualOverride = false;
+  m_cameraInterface.SetDriverMode(true);
+  m_shooterWheelLeft.Set(0);
+  m_hoodMotor.Set(0);
+  m_turretMotor.Set(0);
 }
 
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
@@ -256,55 +276,66 @@ units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVertical
 }
 
 void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
-  CloseLoopShoot(units::revolutions_per_minute_t{m_shooterSpeedMap.Map(distanceToTarget.to<double>())});
-  HoodSetPosition(units::degree_t{m_hoodAngleMap.Map(distanceToTarget.to<double>())});
+  CloseLoopShoot(units::revolutions_per_minute_t{m_shooterSpeedMap.Map(distanceToTarget)});
+  HoodSetPosition(units::degree_t{m_hoodAngleMap.Map(distanceToTarget)});
 }
 
-// CAMERA INTERFACE -----------------------------------------------------------------------------
-CameraInterface::CameraInterface() : m_camera{camera::nickname} {
-  // SETS DEFAULT PIPELINE
-  m_camera.SetPipelineIndex(camera::defaultPipelineIndex);
-}
+std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(LimelightTarget::tValues target) {
+  units::length::inch_t cameraToTargetDistance = GetTargetDistance(target.pitch);
 
-std::optional<photonlib::PhotonTrackedTarget> CameraInterface::GetHighestTarget() {
-  // GET THE MOST RECENT RESULT
-  photonlib::PhotonPipelineResult latestResult = m_camera.GetLatestResult();
+  units::degree_t alpha{180 - std::abs(target.yaw.to<double>())};
 
-  // CHECK IF NO TARGETS
-  if (!latestResult.HasTargets()) {
+  units::length::inch_t turretToTargetDistance = units::make_unit<units::length::inch_t>(
+      std::sqrt(std::pow(cameraToTargetDistance.to<double>(), 2.0) +
+                std::pow(measure_up::camera::toRotationCenter.to<double>(), 2.0) -
+                2 * measure_up::camera::toRotationCenter.to<double>() * cameraToTargetDistance.to<double>() *
+                    std::cos(units::radian_t{alpha}.to<double>())));
+
+  std::optional<units::angle::degree_t> currentTurretAngle = TurretGetPosition();
+
+  units::radian_t offset{
+      std::asin((cameraToTargetDistance.to<double>() * std::sin(units::radian_t{alpha}.to<double>())) /
+                turretToTargetDistance.to<double>())};
+
+  if (!currentTurretAngle) {
     return std::nullopt;
   }
 
-  // GET TARGETS FROM RESULT
-  const wpi::span<const photonlib::PhotonTrackedTarget> targets = latestResult.GetTargets();
+  units::angle::degree_t targetAngle;
 
-  // FIND HIGHEST TARGET
-  return *std::max_element(targets.begin(),
-                           targets.end(),
-                           [](const photonlib::PhotonTrackedTarget& lhs, const photonlib::PhotonTrackedTarget& rhs) {
-                             return lhs.GetPitch() < rhs.GetPitch();
-                           });
+  if (target.yaw.to<double>() >= 0) {
+    targetAngle = currentTurretAngle.value() - offset;
+  } else {
+    targetAngle = currentTurretAngle.value() + offset;
+  }
+
+  return targetAngle;
 }
+
+// CAMERA INTERFACE -----------------------------------------------------------------------------
+CameraInterface::CameraInterface() {}
 
 void CameraInterface::SetDriverMode(bool mode) {
-  m_camera.SetDriverMode(mode);
+  std::shared_ptr<nt::NetworkTable> table = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
+
+  int requestedPipeline = mode ? camera::driverPipeline : camera::targetingPipeline;
+
+  table->PutNumber("pipeline", requestedPipeline);
 }
 
-std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(photonlib::PhotonTrackedTarget target) {
-  units::length::inch_t cameraToTargetDistance =
-      GetTargetDistance(units::make_unit<units::degree_t>(target.GetPitch()));
-  units::length::inch_t cameraTurretOffset = measure_up::camera::toRotationCenter;
-  // calculate d2
-  double turretToTargetDistance =
-      std::sqrt(std::pow(cameraTurretOffset.to<double>(), 2.0) + std::pow(cameraToTargetDistance.to<double>(), 2.0));
+// LIMELIGHT TARGET MEMBER FUNCTIONS ===============================================================
 
-  auto currentAngle = TurretGetPosition();
-  if (currentAngle) {
-    units::degree_t targetAngle = units::make_unit<units::degree_t>(
-        currentAngle.value().to<double>() + std::acos((std::pow(cameraTurretOffset.to<double>(), 2.0) +
-                                                       turretToTargetDistance - cameraToTargetDistance.to<double>()) /
-                                                      2 * cameraTurretOffset.to<double>() * turretToTargetDistance));
-    return targetAngle;
-  }
-  return std::nullopt;
+LimelightTarget::tValues LimelightTarget::GetTarget() {
+  std::shared_ptr<nt::NetworkTable> table = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
+
+  m_yaw = units::make_unit<units::degree_t>(table->GetNumber("tx", 0.0));
+  m_pitch = units::make_unit<units::degree_t>(table->GetNumber("ty", 0.0));
+  m_hasTargets = (table->GetNumber("tv", 0) == 1);
+
+  tValues targetValues{m_pitch, m_yaw};
+  return targetValues;
+}
+
+bool LimelightTarget::HasTarget() {
+  return m_hasTargets;
 }

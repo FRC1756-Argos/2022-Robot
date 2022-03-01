@@ -26,6 +26,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
           address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
     , m_backRight(address::drive::backRightDrive, address::drive::backRightTurn, address::encoders::backRightEncoder)
     , m_backLeft(address::drive::backLeftDrive, address::drive::backLeftTurn, address::encoders::backLeftEncoder)
+    , m_imu(frc::ADIS16448_IMU::kZ, frc::SPI::Port::kMXP, frc::ADIS16448_IMU::CalibrationTime::_4s)
     , m_pNetworkTable(networkTable)
     , m_fsStorage(paths::swerveHomesPath) {
   // create our translation objects
@@ -281,19 +282,12 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   m_backLeft.m_encoder.SetPosition(angle.to<double>(), 50);
 }
 
-void SwerveDriveSubsystem::FiledHome() {
+void SwerveDriveSubsystem::FieldHome() {
   m_imu.Reset();
 }
 
-void SwerveDriveSubsystem::SwapControlMode() {
-  switch (m_controlMode) {
-    case (SwerveDriveSubsystem::DriveControlMode::robotCentricControl):
-      m_controlMode = SwerveDriveSubsystem::DriveControlMode::fieldCentricControl;
-      break;
-    case (SwerveDriveSubsystem::DriveControlMode::fieldCentricControl):
-      m_controlMode = SwerveDriveSubsystem::DriveControlMode::robotCentricControl;
-      break;
-  }
+void SwerveDriveSubsystem::SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode) {
+  m_controlMode = controlMode;
 }
 
 void SwerveDriveSubsystem::InitializeMotors() {

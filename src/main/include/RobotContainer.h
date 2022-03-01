@@ -36,6 +36,11 @@ class RobotContainer {
 
   frc2::Command* GetAutonomousCommand();
 
+  /**
+   * @brief Called once when robot is disabled
+   */
+  void Disable();
+
  private:
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;
 
@@ -64,7 +69,7 @@ class RobotContainer {
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
   IntakeSubsystem m_intake;
-  ClimberSubsystem m_climber;
+  std::unique_ptr<ClimberSubsystem> m_pClimber;
   ShooterSubsystem m_shooter;
 
   HomeHoodCommand m_homeHoodCommand;
