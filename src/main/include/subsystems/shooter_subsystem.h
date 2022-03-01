@@ -72,6 +72,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   std::optional<units::degree_t> GetTurretTargetAngle(LimelightTarget::tValues target);
 
   /**
+   * @brief Get the pitch and yaw of target
+   *
+   * @return LimelightTarget::tValues
+   */
+  LimelightTarget::tValues GetCameraTargetValues();
+
+  /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
   void Periodic() override;
@@ -105,6 +112,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   void CloseLoopShoot(units::revolutions_per_minute_t ShooterWheelSpeed);
 
   /**
+   * @brief Get the speed of the shooter wheel in RPM
+   *
+   * @return units::revolutions_per_minute_t
+   */
+  units::revolutions_per_minute_t GetShooterWheelSpeed();
+
+  /**
    * @brief Move hood at specified percent speed
    *
    * @param hoodSpeed move the hood up or down full retract movement is 1.0 full extend movemnt is -1.0
@@ -124,6 +138,8 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @param angle with 0 being parallel to ground, positive is raise hood
    */
   void HoodSetPosition(units::degree_t angle);
+
+  units::degree_t GetHoodPosition();
 
   /**
    * @brief Update hood home position

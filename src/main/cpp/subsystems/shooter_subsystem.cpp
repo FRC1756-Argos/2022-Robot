@@ -170,6 +170,10 @@ void ShooterSubsystem::HoodSetPosition(units::degree_t angle) {
   }
 }
 
+units::degree_t ShooterSubsystem::GetHoodPosition() {
+  return sensor_conversions::hood::ToAngle(m_hoodMotor.GetSelectedSensorPosition());
+}
+
 void ShooterSubsystem::UpdateHoodHome() {
   m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(measure_up::hood::homeAngle));
   m_hoodHomed = true;
@@ -310,6 +314,10 @@ std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(LimelightT
   }
 
   return targetAngle;
+}
+
+LimelightTarget::tValues ShooterSubsystem::GetCameraTargetValues() {
+  return m_cameraInterface.m_target.GetTarget();
 }
 
 // CAMERA INTERFACE -----------------------------------------------------------------------------
