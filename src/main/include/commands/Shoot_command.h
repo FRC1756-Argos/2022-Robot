@@ -1,11 +1,12 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
+/// \copyright Copyright (c) Argos FRC Team 1756.
+///            Open Source Software; you can modify and/or share it under the terms of
+///            the license file in the root directory of this project.
 
 #pragma once
 
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
+
 #include "subsystems/intake_subsystem.h"
 
 /**
@@ -15,10 +16,9 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class Shoot_command
-    : public frc2::CommandHelper<frc2::CommandBase, Shoot_command> {
+class ShootCommand : public frc2::CommandHelper<frc2::CommandBase, ShootCommand> {
  public:
-  Shoot_command(IntakeSubsystem* subsytem);
+  explicit ShootCommand(IntakeSubsystem* subsytem);
 
   void Initialize() override;
 
@@ -28,6 +28,5 @@ class Shoot_command
 
   bool IsFinished() override;
 
-  IntakeSubsystem* m_shooter;
-
+  IntakeSubsystem* m_pIntake;
 };
