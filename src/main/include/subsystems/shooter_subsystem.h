@@ -152,6 +152,11 @@ class ShooterSubsystem : public frc2::SubsystemBase {
 
   /**
    * @brief Initialize turret position based on saved home
+   *
+   * @note Turret can break itself if it moves above about 370 degrees or below about 10 degrees,
+   *       but if turret starts near the 0/360 degree point, the homing position is ambiguous.
+   *       To account for this, interpret position as greater than 360 if angle is in the 0-10/360-370
+   *       degree region
    */
   void InitializeTurretHome();
 
