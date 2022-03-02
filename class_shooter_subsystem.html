@@ -471,6 +471,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize turret position based on saved home. </p>
+<dl class="section note"><dt>Note</dt><dd>Turret can break itself if it moves above about 370 degrees or below about 10 degrees, but if turret starts near the 0/360 degree point, the homing position is ambiguous. To account for this, interpret position as greater than 360 if angle is in the 0-10/360-370 degree region </dd></dl>
 
 </div>
 </div>
