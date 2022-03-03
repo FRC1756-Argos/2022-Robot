@@ -210,8 +210,10 @@ void ShooterSubsystem::InitializeTurretHome() {
         sensor_conversions::turret::ToAngle(m_turretMotor.GetSensorCollection().GetPulseWidthPosition()),
         0_deg,
         360_deg);
-    m_turretMotor.SetSelectedSensorPosition(sensor_conversions::turret::ToSensorUnit(
-        argos_lib::swerve::ConstrainAngle(currentAngle - homePosition.value(), 0_deg, 360_deg)));
+    // See note in header about angle wrap around
+    const auto wrapAroundProtectedAngle = currentAngle < 10_deg ? currentAngle + 360_deg : currentAngle;
+    m_turretMotor.SetSelectedSensorPosition(
+        sensor_conversions::turret::ToSensorUnit(wrapAroundProtectedAngle - homePosition.value()));
     m_turretHomed = true;
     SetTurretSoftLimits();
   } else {

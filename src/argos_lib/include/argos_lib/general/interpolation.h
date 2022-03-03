@@ -76,9 +76,9 @@ namespace argos_lib {
     }
 
     /**
-     * @brief Shorthand for InterpolationMap::Map()
+     * @copydoc argos_lib::InterpolationMap::Map()
      *
-     * @copy_doc argos_lib::InterpolationMap::Map()
+     * @brief Shorthand for InterpolationMap::Map()
      */
     constexpr V operator()(const T inVal) { return Map(inVal); }
 
