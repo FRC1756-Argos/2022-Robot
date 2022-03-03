@@ -53,7 +53,7 @@ RobotContainer::RobotContainer()
                 argos_lib::XboxController::JoystickHand::kLeftHand)),  // Y axis is negative forward
             m_driveLatSpeedMap(-m_controllers.DriverController().GetX(
                 argos_lib::XboxController::JoystickHand::
-                    kLeftHand)),  // X axis is positive right, but swerve coordiates are positive left
+                    kLeftHand)),  // X axis is positive right, but swerve coordinates are positive left
             m_driveRotSpeed(-m_controllers.DriverController().GetX(
                 argos_lib::XboxController::JoystickHand::
                     kRightHand)));  // X axis is positive right (CW), but swerve coordinates are positive left (CCW)

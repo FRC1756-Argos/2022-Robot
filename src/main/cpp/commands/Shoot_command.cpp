@@ -5,6 +5,7 @@
 #include "commands/shoot_command.h"
 
 ShootCommand::ShootCommand(IntakeSubsystem* subsystem) : m_pIntake(subsystem) {
+  AddRequirements(m_pIntake);
   // Use addRequirements() here to declare subsystem dependencies.
 }
 
