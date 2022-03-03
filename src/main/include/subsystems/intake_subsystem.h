@@ -10,6 +10,7 @@
 #include <TimeOfFlight.h>
 
 #include "argos_lib/config/robot_instance.h"
+#include "argos_lib/general/debouncer.h"
 #include "argos_lib/general/hysteresis_filter.h"
 #include "ctre/Phoenix.h"
 #include "frc/Solenoid.h"
@@ -115,4 +116,6 @@ class IntakeSubsystem : public frc2::SubsystemBase {
 
   argos_lib::HysteresisFilter<units::inch_t> m_hysteresisIntake;
   argos_lib::HysteresisFilter<units::inch_t> m_hysteresisShooter;
+
+  argos_lib::Debouncer m_shooterTimeDebouncer;
 };

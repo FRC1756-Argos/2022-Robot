@@ -17,7 +17,8 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
     , m_ballPresentShooter(address::sensors::tofSensorShooter)
     , m_ballColor(address::sensors::colorSensor)
     , m_hysteresisIntake(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
-    , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate) {
+    , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
+    , m_shooterTimeDebouncer({0_ms, 1000_ms}, false) {
   // MOTOR CONFIGURATION
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::comp_bot::intake::beltDrive,
                                              motorConfig::practice_bot::intake::beltDrive>(
@@ -62,8 +63,9 @@ void IntakeSubsystem::Periodic() {
       } else {
         m_intakeDrive.Set(0);
       }
-      if (m_shooterButtonPressed == true ||
-          ((getBallPresentIntake() == true && getIsBallTeamColor() == true) && getBallPresentShooter() == false)) {
+      if ((m_shooterButtonPressed == true ||
+           ((getBallPresentIntake() == true && getIsBallTeamColor() == true) && getBallPresentShooter() == false)) &&
+          !m_shooterTimeDebouncer(getBallPresentShooter())) {
         m_beltDrive.Set(speeds::intake::beltForward);
       } else {
         m_beltDrive.Set(0);
