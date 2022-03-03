@@ -240,6 +240,8 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void FixedShooterPosition(FixedPosState);
 
+  units::angular_velocity::revolutions_per_minute_t GetShooterSpeed();
+
   /**
    * @brief Override automatic control
    */

@@ -7,6 +7,7 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
+#include "argos_lib/general/debouncer.h"
 #include "subsystems/shooter_subsystem.h"
 
 /**
@@ -18,8 +19,11 @@
  */
 class AutoAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoAimCommand> {
  public:
-  AutoAimCommand(ShooterSubsystem* subsystem,
-                 argos_lib::InterpolationMap<units::length::inch_t, 6, units::angle::degree_t>* hoodMap);
+  AutoAimCommand(
+      ShooterSubsystem* subsystem,
+      argos_lib::InterpolationMap<units::length::inch_t, 6, units::angle::degree_t>* hoodMap,
+      argos_lib::InterpolationMap<units::length::inch_t, 6, units::angular_velocity::revolutions_per_minute_t>*
+          wheelMap);
 
   void Initialize() override;
 
@@ -30,9 +34,19 @@ class AutoAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoAimComm
   bool IsFinished() override;
 
  private:
+  struct aimValues {
+    units::degree_t turretTarget;
+    units::degree_t hoodTarget;
+    units::angular_velocity::revolutions_per_minute_t shooterTarget;
+  };
+
   ShooterSubsystem* m_shooter;
   argos_lib::InterpolationMap<units::length::inch_t, 6, units::angle::degree_t>* m_hoodMap;
+  argos_lib::InterpolationMap<units::length::inch_t, 6, units::angular_velocity::revolutions_per_minute_t>* m_wheelMap;
+  argos_lib::Debouncer m_threshDebounce;
 
   template <typename T>
   bool InThreshold(T value, T threshold);
+
+  bool InAcceptableRanges(AutoAimCommand::aimValues targets, AutoAimCommand::aimValues real);
 };

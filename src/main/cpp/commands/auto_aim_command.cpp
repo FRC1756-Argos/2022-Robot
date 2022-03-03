@@ -4,17 +4,26 @@
 
 #include "commands/auto_aim_command.h"
 
-AutoAimCommand::AutoAimCommand(ShooterSubsystem* subsystem,
-                               argos_lib::InterpolationMap<units::length::inch_t, 6, units::angle::degree_t>* hoodMap)
-    : m_shooter(subsystem), m_hoodMap(hoodMap) {
-  if (subsystem != nullptr || m_hoodMap != nullptr) {
+#include "argos_lib/general/debounce_settings.h"
+#include "argos_lib/general/debouncer.h"
+#include "frc/smartdashboard/SmartDashboard.h"
+
+AutoAimCommand::AutoAimCommand(
+    ShooterSubsystem* subsystem,
+    argos_lib::InterpolationMap<units::length::inch_t, 6, units::angle::degree_t>* hoodMap,
+    argos_lib::InterpolationMap<units::length::inch_t, 6, units::angular_velocity::revolutions_per_minute_t>* wheelMap)
+    : m_shooter(subsystem)
+    , m_hoodMap(hoodMap)
+    , m_wheelMap(wheelMap)
+    , m_threshDebounce({threshholds::shooter::acceptableRangeTime, 0_ms}) {
+  if (subsystem != nullptr || m_hoodMap != nullptr || m_wheelMap != nullptr) {
     AddRequirements(subsystem);
   }
 }
 
 // Called when the command is initially scheduled.
 void AutoAimCommand::Initialize() {
-  if (m_shooter == nullptr || m_hoodMap == nullptr) {
+  if (m_shooter == nullptr || m_hoodMap == nullptr || m_wheelMap == nullptr) {
     Cancel();
     return;
   }
@@ -22,7 +31,7 @@ void AutoAimCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoAimCommand::Execute() {
-  if (m_shooter == nullptr || m_hoodMap == nullptr) {
+  if (m_shooter == nullptr || m_hoodMap == nullptr || m_wheelMap == nullptr) {
     Cancel();
     return;
   }
@@ -32,14 +41,14 @@ void AutoAimCommand::Execute() {
 
 // Called once the command ends or is interrupted.
 void AutoAimCommand::End(bool interrupted) {
-  if (m_shooter == nullptr || m_hoodMap == nullptr) {
+  if (m_shooter == nullptr || m_hoodMap == nullptr || m_wheelMap == nullptr) {
     return;
   }
 }
 
 // Returns true when the command should end.
 bool AutoAimCommand::IsFinished() {
-  if (m_shooter == nullptr || m_hoodMap == nullptr) {
+  if (m_shooter == nullptr || m_hoodMap == nullptr || m_wheelMap == nullptr) {
     return true;
   }
 
@@ -50,15 +59,22 @@ bool AutoAimCommand::IsFinished() {
   std::optional<units::degree_t> turretTarget = m_shooter->GetTurretTargetAngle(cameraTarget);
   std::optional<units::degree_t> turretReal = m_shooter->TurretGetPosition();
 
+  if (!turretReal || !turretTarget) {
+    return false;
+  }
+
   // Get hood target & real
   units::inch_t distanceToTarget = m_shooter->GetTargetDistance(cameraTarget.pitch);
-  units::degree_t hoodReal = m_shooter->GetHoodPosition();
-  units::degree_t hoodTarget = m_hoodMap->Map(distanceToTarget);
 
-  // Get shooter speed target & real
+  // Get all targets:
+  AutoAimCommand::aimValues targets{
+      turretTarget.value(), m_hoodMap->Map(distanceToTarget), m_wheelMap->Map(distanceToTarget)};
 
-  if (!turretReal) {
-    return false;
+  AutoAimCommand::aimValues real{turretReal.value(), m_shooter->GetHoodPosition(), m_shooter->GetShooterSpeed()};
+
+  // DEBOUNCE
+  if (m_threshDebounce(InAcceptableRanges(targets, real))) {
+    return true;
   }
 
   return false;
@@ -70,5 +86,28 @@ bool AutoAimCommand::InThreshold(T value, T threshold) {
     return false;
   } else {
     return true;
+  }
+}
+
+bool AutoAimCommand::InAcceptableRanges(AutoAimCommand::aimValues targets, AutoAimCommand::aimValues real) {
+  if (InThreshold<units::degree_t>(targets.turretTarget, threshholds::shooter::acceptableTurretError)) {
+    frc::SmartDashboard::PutBoolean("Acceptable Error) Turret", true);
+    if (InThreshold<units::degree_t>(targets.hoodTarget, threshholds::shooter::acceptableHoodError)) {
+      frc::SmartDashboard::PutBoolean("(Acceptable Error) Hood", true);
+      if (InThreshold<units::angular_velocity::revolutions_per_minute_t>(targets.shooterTarget,
+                                                                         threshholds::shooter::acceptableWheelError)) {
+        frc::SmartDashboard::PutBoolean("(Acceptable Error) Wheel Speed", true);
+        return true;
+      } else {
+        frc::SmartDashboard::PutBoolean("(Acceptable Error) Wheel Speed", false);
+        return false;
+      }
+    } else {
+      frc::SmartDashboard::PutBoolean("(Acceptable Error) Hood", false);
+      return false;
+    }
+  } else {
+    frc::SmartDashboard::PutBoolean("Acceptable Error) Turret", false);
+    return false;
   }
 }

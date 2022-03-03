@@ -130,6 +130,11 @@ void ShooterSubsystem::FixedShooterPosition(FixedPosState fixedPosState) {
   }
 }
 
+units::angular_velocity::revolutions_per_minute_t ShooterSubsystem::GetShooterSpeed() {
+  return units::angular_velocity::revolutions_per_minute_t{m_shooterWheelLeft.GetSelectedSensorVelocity() *
+                                                           sensor_conversions::shooter::sensorConversionFactor};
+}
+
 void ShooterSubsystem::ManualOverride() {
   m_manualOverride = true;
 }
