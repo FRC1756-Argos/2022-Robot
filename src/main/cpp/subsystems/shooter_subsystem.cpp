@@ -180,7 +180,9 @@ units::degree_t ShooterSubsystem::GetHoodPosition() {
 }
 
 void ShooterSubsystem::UpdateHoodHome() {
-  m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(measure_up::hood::homeAngle));
+  m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(
+      m_instance == argos_lib::RobotInstance::Competition ? measure_up::hood::comp_bot::homeAngle :
+                                                            measure_up::hood::practice_bot::homeAngle));
   m_hoodHomed = true;
 }
 

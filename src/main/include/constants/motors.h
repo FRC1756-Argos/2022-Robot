@@ -45,12 +45,12 @@ namespace motorConfig {
         constexpr static auto remoteFilter0_type =
             ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
         constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
-        constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
-        constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
-        constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
-        constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
-        constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
-        constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+        constexpr static auto pid0_kP = controlLoop::comp_bot::drive::rotate::kP;
+        constexpr static auto pid0_kI = controlLoop::comp_bot::drive::rotate::kI;
+        constexpr static auto pid0_kD = controlLoop::comp_bot::drive::rotate::kD;
+        constexpr static auto pid0_kF = controlLoop::comp_bot::drive::rotate::kF;
+        constexpr static auto pid0_iZone = controlLoop::comp_bot::drive::rotate::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::comp_bot::drive::rotate::allowableError;
       };
       struct frontRightTurn {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
@@ -63,12 +63,12 @@ namespace motorConfig {
         constexpr static auto remoteFilter0_type =
             ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
         constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
-        constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
-        constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
-        constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
-        constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
-        constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
-        constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+        constexpr static auto pid0_kP = controlLoop::comp_bot::drive::rotate::kP;
+        constexpr static auto pid0_kI = controlLoop::comp_bot::drive::rotate::kI;
+        constexpr static auto pid0_kD = controlLoop::comp_bot::drive::rotate::kD;
+        constexpr static auto pid0_kF = controlLoop::comp_bot::drive::rotate::kF;
+        constexpr static auto pid0_iZone = controlLoop::comp_bot::drive::rotate::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::comp_bot::drive::rotate::allowableError;
       };
       struct backRightTurn {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
@@ -81,12 +81,12 @@ namespace motorConfig {
         constexpr static auto remoteFilter0_type =
             ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
         constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
-        constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
-        constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
-        constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
-        constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
-        constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
-        constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+        constexpr static auto pid0_kP = controlLoop::comp_bot::drive::rotate::kP;
+        constexpr static auto pid0_kI = controlLoop::comp_bot::drive::rotate::kI;
+        constexpr static auto pid0_kD = controlLoop::comp_bot::drive::rotate::kD;
+        constexpr static auto pid0_kF = controlLoop::comp_bot::drive::rotate::kF;
+        constexpr static auto pid0_iZone = controlLoop::comp_bot::drive::rotate::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::comp_bot::drive::rotate::allowableError;
       };
       struct backLeftTurn {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
@@ -99,12 +99,12 @@ namespace motorConfig {
         constexpr static auto remoteFilter0_type =
             ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
         constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
-        constexpr static auto pid0_kP = controlLoop::drive::rotate::kP;
-        constexpr static auto pid0_kI = controlLoop::drive::rotate::kI;
-        constexpr static auto pid0_kD = controlLoop::drive::rotate::kD;
-        constexpr static auto pid0_kF = controlLoop::drive::rotate::kF;
-        constexpr static auto pid0_iZone = controlLoop::drive::rotate::iZone;
-        constexpr static auto pid0_allowableError = controlLoop::drive::rotate::allowableError;
+        constexpr static auto pid0_kP = controlLoop::comp_bot::drive::rotate::kP;
+        constexpr static auto pid0_kI = controlLoop::comp_bot::drive::rotate::kI;
+        constexpr static auto pid0_kD = controlLoop::comp_bot::drive::rotate::kD;
+        constexpr static auto pid0_kF = controlLoop::comp_bot::drive::rotate::kF;
+        constexpr static auto pid0_iZone = controlLoop::comp_bot::drive::rotate::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::comp_bot::drive::rotate::allowableError;
       };
 
     }  // namespace drive
@@ -118,12 +118,12 @@ namespace motorConfig {
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
         constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::LeaderFX;
         constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::IntegratedSensor;
-        constexpr static auto pid0_kP = controlLoop::shooter::shooter::kP;
-        constexpr static auto pid0_kI = controlLoop::shooter::shooter::kI;
-        constexpr static auto pid0_kD = controlLoop::shooter::shooter::kD;
-        constexpr static auto pid0_kF = controlLoop::shooter::shooter::kF;
-        constexpr static auto pid0_iZone = controlLoop::shooter::shooter::iZone;
-        constexpr static auto pid0_allowableError = controlLoop::shooter::shooter::allowableError;
+        constexpr static auto pid0_kP = controlLoop::comp_bot::shooter::shooter::kP;
+        constexpr static auto pid0_kI = controlLoop::comp_bot::shooter::shooter::kI;
+        constexpr static auto pid0_kD = controlLoop::comp_bot::shooter::shooter::kD;
+        constexpr static auto pid0_kF = controlLoop::comp_bot::shooter::shooter::kF;
+        constexpr static auto pid0_iZone = controlLoop::comp_bot::shooter::shooter::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::comp_bot::shooter::shooter::allowableError;
       };
 
       struct shooterWheelRight {
@@ -147,12 +147,12 @@ namespace motorConfig {
         constexpr static auto continuousCurrentLimit = 20_A;
         constexpr static auto pid0_selectedSensor =
             ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
-        constexpr static auto pid0_kP = controlLoop::shooter::hood::kP;
-        constexpr static auto pid0_kI = controlLoop::shooter::hood::kI;
-        constexpr static auto pid0_kD = controlLoop::shooter::hood::kD;
-        constexpr static auto pid0_kF = controlLoop::shooter::hood::kF;
-        constexpr static auto pid0_iZone = controlLoop::shooter::hood::iZone;
-        constexpr static auto pid0_allowableError = controlLoop::shooter::hood::allowableError;
+        constexpr static auto pid0_kP = controlLoop::comp_bot::shooter::hood::kP;
+        constexpr static auto pid0_kI = controlLoop::comp_bot::shooter::hood::kI;
+        constexpr static auto pid0_kD = controlLoop::comp_bot::shooter::hood::kD;
+        constexpr static auto pid0_kF = controlLoop::comp_bot::shooter::hood::kF;
+        constexpr static auto pid0_iZone = controlLoop::comp_bot::shooter::hood::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::comp_bot::shooter::hood::allowableError;
       };
 
       struct turretMotor {
@@ -169,12 +169,12 @@ namespace motorConfig {
         constexpr static auto peakOutputReverse = -0.7;
         constexpr static auto pid0_selectedSensor =
             ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
-        constexpr static auto pid0_kP = controlLoop::shooter::turret::kP;
-        constexpr static auto pid0_kI = controlLoop::shooter::turret::kI;
-        constexpr static auto pid0_kD = controlLoop::shooter::turret::kD;
-        constexpr static auto pid0_kF = controlLoop::shooter::turret::kF;
-        constexpr static auto pid0_iZone = controlLoop::shooter::turret::iZone;
-        constexpr static auto pid0_allowableError = controlLoop::shooter::turret::allowableError;
+        constexpr static auto pid0_kP = controlLoop::comp_bot::shooter::turret::kP;
+        constexpr static auto pid0_kI = controlLoop::comp_bot::shooter::turret::kI;
+        constexpr static auto pid0_kD = controlLoop::comp_bot::shooter::turret::kD;
+        constexpr static auto pid0_kF = controlLoop::comp_bot::shooter::turret::kF;
+        constexpr static auto pid0_iZone = controlLoop::comp_bot::shooter::turret::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::comp_bot::shooter::turret::allowableError;
       };
     }  // namespace shooter
 
@@ -266,12 +266,12 @@ namespace motorConfig {
         constexpr static auto continuousCurrentLimit = 20_A;
         constexpr static auto pid0_selectedSensor =
             ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
-        constexpr static auto pid0_kP = controlLoop::shooter::hood::kP;
-        constexpr static auto pid0_kI = controlLoop::shooter::hood::kI;
-        constexpr static auto pid0_kD = controlLoop::shooter::hood::kD;
-        constexpr static auto pid0_kF = controlLoop::shooter::hood::kF;
-        constexpr static auto pid0_iZone = controlLoop::shooter::hood::iZone;
-        constexpr static auto pid0_allowableError = controlLoop::shooter::hood::allowableError;
+        constexpr static auto pid0_kP = controlLoop::practice_bot::shooter::hood::kP;
+        constexpr static auto pid0_kI = controlLoop::practice_bot::shooter::hood::kI;
+        constexpr static auto pid0_kD = controlLoop::practice_bot::shooter::hood::kD;
+        constexpr static auto pid0_kF = controlLoop::practice_bot::shooter::hood::kF;
+        constexpr static auto pid0_iZone = controlLoop::practice_bot::shooter::hood::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::practice_bot::shooter::hood::allowableError;
       };
       struct turretMotor {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
@@ -287,12 +287,12 @@ namespace motorConfig {
         constexpr static auto peakOutputReverse = -0.7;
         constexpr static auto pid0_selectedSensor =
             ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
-        constexpr static auto pid0_kP = controlLoop::shooter::turret::kP;
-        constexpr static auto pid0_kI = controlLoop::shooter::turret::kI;
-        constexpr static auto pid0_kD = controlLoop::shooter::turret::kD;
-        constexpr static auto pid0_kF = controlLoop::shooter::turret::kF;
-        constexpr static auto pid0_iZone = controlLoop::shooter::turret::iZone;
-        constexpr static auto pid0_allowableError = controlLoop::shooter::turret::allowableError;
+        constexpr static auto pid0_kP = controlLoop::practice_bot::shooter::turret::kP;
+        constexpr static auto pid0_kI = controlLoop::practice_bot::shooter::turret::kI;
+        constexpr static auto pid0_kD = controlLoop::practice_bot::shooter::turret::kD;
+        constexpr static auto pid0_kF = controlLoop::practice_bot::shooter::turret::kF;
+        constexpr static auto pid0_iZone = controlLoop::practice_bot::shooter::turret::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::practice_bot::shooter::turret::allowableError;
       };
     }  // namespace shooter
 
