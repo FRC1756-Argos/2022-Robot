@@ -22,6 +22,12 @@ namespace threshholds {
     const auto intakeDeactivate = 8_in;
     const auto intakeActivate = 8_in;
   }  // namespace intake
+  namespace shooter {
+    constexpr auto acceptableTurretError = 0.5_deg;
+    constexpr auto acceptableHoodError = 0.5_deg;
+    constexpr auto acceptableWheelError = 100_rpm;
+    constexpr auto acceptableRangeTime = 250_ms;
+  }  // namespace shooter
 }  // namespace threshholds
 
 namespace speeds {
