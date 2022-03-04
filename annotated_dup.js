@@ -127,6 +127,18 @@ var annotated_dup =
       [ "VibrationStatus", "structargos__lib_1_1_vibration_status.html", "structargos__lib_1_1_vibration_status" ],
       [ "XboxController", "classargos__lib_1_1_xbox_controller.html", "classargos__lib_1_1_xbox_controller" ]
     ] ],
+    [ "controlLoop", "namespacecontrol_loop.html", [
+      [ "comp_bot", "namespacecontrol_loop_1_1comp__bot.html", [
+        [ "drive", "namespacecontrol_loop_1_1comp__bot_1_1drive.html", [
+          [ "rotate", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate" ]
+        ] ],
+        [ "shooter", "namespacecontrol_loop_1_1comp__bot_1_1shooter.html", [
+          [ "hood", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood" ],
+          [ "shooter", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1shooter.html", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1shooter" ],
+          [ "turret", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1turret.html", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1turret" ]
+        ] ]
+      ] ]
+    ] ],
     [ "motorConfig", "namespacemotor_config.html", [
       [ "comp_bot", "namespacemotor_config_1_1comp__bot.html", [
         [ "climber", "namespacemotor_config_1_1comp__bot_1_1climber.html", [

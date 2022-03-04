@@ -24,9 +24,7 @@ var namespacemeasure__up =
       [ "fixedRightPos", "namespacemeasure__up_1_1closepositions.html#a953ee5d7526b22110a94a9de573a4a3f", null ],
       [ "fixedShortDist", "namespacemeasure__up_1_1closepositions.html#ab4c05f6f4d53b49456f9bded18378660", null ]
     ] ],
-    [ "hood", "namespacemeasure__up_1_1hood.html", [
-      [ "homeAngle", "namespacemeasure__up_1_1hood.html#a042e273914732857ea4a24d0af7e2ec4", null ]
-    ] ],
+    [ "hood", "namespacemeasure__up_1_1hood.html", "namespacemeasure__up_1_1hood" ],
     [ "swerve_offsets", "namespacemeasure__up_1_1swerve__offsets.html", [
       [ "backLeftLOffset", "namespacemeasure__up_1_1swerve__offsets.html#a14928f156e9603af6c6ecb0833ce4168", null ],
       [ "backLeftWOffset", "namespacemeasure__up_1_1swerve__offsets.html#af2179c18778f9f25d833c806053f3190", null ],

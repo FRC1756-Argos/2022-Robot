@@ -82,6 +82,7 @@ var hierarchy =
     [ "HomingStorageInterface< units::degree_t >", "class_homing_storage_interface.html", [
       [ "FSHomingStorage< units::degree_t >", "class_f_s_homing_storage.html", null ]
     ] ],
+    [ "controlLoop::comp_bot::shooter::hood", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html", null ],
     [ "motorConfig::comp_bot::shooter::hoodMotor", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html", null ],
     [ "motorConfig::practice_bot::shooter::hoodMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html", null ],
     [ "argos_lib::HysteresisFilter< T >", "classargos__lib_1_1_hysteresis_filter.html", null ],
@@ -106,6 +107,8 @@ var hierarchy =
     [ "argos_lib::NTMotorPIDTuner", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html", null ],
     [ "argos_lib::NTSubscriber", "classargos__lib_1_1_n_t_subscriber.html", null ],
     [ "RobotContainer", "class_robot_container.html", null ],
+    [ "controlLoop::comp_bot::drive::rotate", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate.html", null ],
+    [ "controlLoop::comp_bot::shooter::shooter", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1shooter.html", null ],
     [ "ShooterSubsystem::ShooterDistanceSetpoints", "struct_shooter_subsystem_1_1_shooter_distance_setpoints.html", null ],
     [ "motorConfig::comp_bot::shooter::shooterWheelLeft", "structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_left.html", null ],
     [ "motorConfig::comp_bot::shooter::shooterWheelRight", "structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_right.html", null ],
@@ -178,6 +181,7 @@ var hierarchy =
       [ "argos_lib::talonsrx_config::has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07v17e9f7765ec4fa83077c39d6a7c9002a.html", null ],
       [ "argos_lib::talonsrx_config::has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ]
     ] ],
+    [ "controlLoop::comp_bot::shooter::turret", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1turret.html", null ],
     [ "motorConfig::comp_bot::shooter::turretMotor", "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html", null ],
     [ "motorConfig::practice_bot::shooter::turretMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html", null ],
     [ "LimelightTarget::tValues", "struct_limelight_target_1_1t_values.html", null ],

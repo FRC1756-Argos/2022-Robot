@@ -65,11 +65,11 @@ var NAVTREEINDEX =
 "_constants_8h.html",
 "class_robot_container.html#af126d7be2e2f9740af3d66c055ad5842",
 "classargos__lib_1_1_xbox_controller.html#a6ee7c6aca1c6b19dcdded53a3ed510dd",
-"measure__up_8h.html#a609f336767fd0a39791ff0f5b780be23",
-"namespacesensor__conversions_1_1climb__arms.html#a1cb67fd829259c079378ea326e6f45f0",
-"structargos__lib_1_1falcon__config_1_1has__pid0__allowable_error_3_01_t_00_01decltype_07_07void_f1a06ce2195be4e376ab9ddd520a0879.html",
-"structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#a1b5439ddf4008ecef185182f6ebd54f8",
-"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#aab42a7b116effdb1c0d35556ad1a98f8"
+"measure__up_8h.html#aff61d4016fc44a7ba5a70ad24289f702",
+"namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426",
+"structargos__lib_1_1falcon__config_1_1has__reverse_limit__device_i_d.html",
+"structmotor_config_1_1comp__bot_1_1drive_1_1back_left_turn.html#a5c2e80be288389066b34629d101c96a1",
+"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a39df7aee64123fd4aaface775faa7f8b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
