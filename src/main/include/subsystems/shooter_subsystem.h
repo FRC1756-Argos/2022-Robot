@@ -64,6 +64,14 @@ class CameraInterface {
 
 class ShooterSubsystem : public frc2::SubsystemBase {
  public:
+  /**
+   * @brief Hood and shooter setpoints for shooting at a known distance
+   */
+  struct ShooterDistanceSetpoints {
+    units::revolutions_per_minute_t shooterSpeed;
+    units::degree_t hoodAngle;
+  };
+
   explicit ShooterSubsystem(const argos_lib::RobotInstance instance);
 
   enum class FixedPosState { Front, Left, Right, Back };
@@ -139,6 +147,11 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void HoodSetPosition(units::degree_t angle);
 
+  /**
+   * @brief Get the hood position in physical units
+   *
+   * @return hood position
+   */
   units::degree_t GetHoodPosition();
 
   /**
@@ -228,6 +241,14 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   units::inch_t GetTargetDistance(units::degree_t targetVerticalAngle);
 
   /**
+   * @brief Get the shooter setpoints for a target distance
+   *
+   * @param distanceToTarget Distance from shooter to hub edge
+   * @return Hood and shooter setpoints
+   */
+  ShooterDistanceSetpoints GetShooterDistanceSetpoints(units::inch_t distanceToTarget) const;
+
+  /**
    * @brief Setting the shooter speed and hood angle depeneding on how far away the target is
    *
    * @param distanceToTarget The distance to the target from the robot
@@ -240,6 +261,11 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void FixedShooterPosition(FixedPosState);
 
+  /**
+   * @brief Get the shooter speed in physical units
+   *
+   * @return Current shooter speed
+   */
   units::angular_velocity::revolutions_per_minute_t GetShooterSpeed();
 
   /**

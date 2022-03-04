@@ -286,9 +286,16 @@ units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVertical
              static_cast<units::radian_t>(measure_up::camera::cameraMountAngle + targetVerticalAngle).to<double>());
 }
 
+ShooterSubsystem::ShooterDistanceSetpoints ShooterSubsystem::GetShooterDistanceSetpoints(
+    units::inch_t distanceToTarget) const {
+  return ShooterSubsystem::ShooterDistanceSetpoints{m_shooterSpeedMap.Map(distanceToTarget),
+                                                    m_hoodAngleMap.Map(distanceToTarget)};
+}
+
 void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
-  CloseLoopShoot(units::revolutions_per_minute_t{m_shooterSpeedMap.Map(distanceToTarget)});
-  HoodSetPosition(units::degree_t{m_hoodAngleMap.Map(distanceToTarget)});
+  auto setpoints = GetShooterDistanceSetpoints(distanceToTarget);
+  CloseLoopShoot(setpoints.shooterSpeed);
+  HoodSetPosition(setpoints.hoodAngle);
 }
 
 std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(LimelightTarget::tValues target) {

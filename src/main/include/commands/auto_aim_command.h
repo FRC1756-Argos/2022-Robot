@@ -19,11 +19,7 @@
  */
 class AutoAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoAimCommand> {
  public:
-  AutoAimCommand(
-      ShooterSubsystem* subsystem,
-      argos_lib::InterpolationMap<units::length::inch_t, 6, units::angle::degree_t>* hoodMap,
-      argos_lib::InterpolationMap<units::length::inch_t, 6, units::angular_velocity::revolutions_per_minute_t>*
-          wheelMap);
+  explicit AutoAimCommand(ShooterSubsystem* subsystem);
 
   void Initialize() override;
 
@@ -41,8 +37,6 @@ class AutoAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoAimComm
   };
 
   ShooterSubsystem* m_shooter;
-  argos_lib::InterpolationMap<units::length::inch_t, 6, units::angle::degree_t>* m_hoodMap;
-  argos_lib::InterpolationMap<units::length::inch_t, 6, units::angular_velocity::revolutions_per_minute_t>* m_wheelMap;
   argos_lib::Debouncer m_threshDebounce;
 
   template <typename T>
