@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_shooter_subsystem.html',''); ini
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
@@ -100,6 +101,12 @@ Inheritance diagram for ShooterSubsystem:</div>
   <img src="class_shooter_subsystem.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_shooter_subsystem_1_1_shooter_distance_setpoints.html">ShooterDistanceSetpoints</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hood and shooter setpoints for shooting at a known distance.  <a href="struct_shooter_subsystem_1_1_shooter_distance_setpoints.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a97743880d5d6f161c3d110c5d61e6a7d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7d">FixedPosState</a> { <a class="el" href="class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde">Front</a>
@@ -115,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a27e20185066dced17ea2521972794efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53b9a2b56bb0e5943785fbbddbbecccd"><td class="memItemLeft" align="right" valign="top">std::optional&lt; units::degree_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a53b9a2b56bb0e5943785fbbddbbecccd">GetTurretTargetAngle</a> (<a class="el" href="struct_limelight_target_1_1t_values.html">LimelightTarget::tValues</a> target)</td></tr>
 <tr class="separator:a53b9a2b56bb0e5943785fbbddbbecccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2466fbf822ddd62852b9bbd5e401f120"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_limelight_target_1_1t_values.html">LimelightTarget::tValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a2466fbf822ddd62852b9bbd5e401f120">GetCameraTargetValues</a> ()</td></tr>
+<tr class="memdesc:a2466fbf822ddd62852b9bbd5e401f120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pitch and yaw of target.  <a href="class_shooter_subsystem.html#a2466fbf822ddd62852b9bbd5e401f120">More...</a><br /></td></tr>
+<tr class="separator:a2466fbf822ddd62852b9bbd5e401f120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8d2e05a252f65c20c489049ae18efd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ad8d2e05a252f65c20c489049ae18efd5">Periodic</a> () override</td></tr>
 <tr class="separator:ad8d2e05a252f65c20c489049ae18efd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8453d10a1009bdc01d19a50631baedf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3">AutoAim</a> ()</td></tr>
@@ -129,6 +139,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9e9dd762bb5d2db14c1ad03c21ad1cc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1">CloseLoopShoot</a> (units::revolutions_per_minute_t ShooterWheelSpeed)</td></tr>
 <tr class="memdesc:a9e9dd762bb5d2db14c1ad03c21ad1cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run shooter at desired speed.  <a href="class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1">More...</a><br /></td></tr>
 <tr class="separator:a9e9dd762bb5d2db14c1ad03c21ad1cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae05b4f740a0960e89da8606377a58bc0"><td class="memItemLeft" align="right" valign="top">units::revolutions_per_minute_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ae05b4f740a0960e89da8606377a58bc0">GetShooterWheelSpeed</a> ()</td></tr>
+<tr class="memdesc:ae05b4f740a0960e89da8606377a58bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the speed of the shooter wheel in RPM.  <a href="class_shooter_subsystem.html#ae05b4f740a0960e89da8606377a58bc0">More...</a><br /></td></tr>
+<tr class="separator:ae05b4f740a0960e89da8606377a58bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bd27817cdd9939288c41f0c93c16fd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a4bd27817cdd9939288c41f0c93c16fd4">MoveHood</a> (double hoodSpeed)</td></tr>
 <tr class="memdesc:a4bd27817cdd9939288c41f0c93c16fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move hood at specified percent speed.  <a href="class_shooter_subsystem.html#a4bd27817cdd9939288c41f0c93c16fd4">More...</a><br /></td></tr>
 <tr class="separator:a4bd27817cdd9939288c41f0c93c16fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,6 +151,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a059d48f9f9c5e421be265307b3363ca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3">HoodSetPosition</a> (units::degree_t angle)</td></tr>
 <tr class="memdesc:a059d48f9f9c5e421be265307b3363ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closed loop go to position.  <a href="class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3">More...</a><br /></td></tr>
 <tr class="separator:a059d48f9f9c5e421be265307b3363ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b6e5229183b7173a3c2750b7fd5c22f"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a0b6e5229183b7173a3c2750b7fd5c22f">GetHoodPosition</a> ()</td></tr>
+<tr class="memdesc:a0b6e5229183b7173a3c2750b7fd5c22f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the hood position in physical units.  <a href="class_shooter_subsystem.html#a0b6e5229183b7173a3c2750b7fd5c22f">More...</a><br /></td></tr>
+<tr class="separator:a0b6e5229183b7173a3c2750b7fd5c22f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3043778fea359e6ba8fdcec1c78dc745"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a3043778fea359e6ba8fdcec1c78dc745">UpdateHoodHome</a> ()</td></tr>
 <tr class="memdesc:a3043778fea359e6ba8fdcec1c78dc745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update hood home position.  <a href="class_shooter_subsystem.html#a3043778fea359e6ba8fdcec1c78dc745">More...</a><br /></td></tr>
 <tr class="separator:a3043778fea359e6ba8fdcec1c78dc745"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,12 +193,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a70f43558e4284c3951413c855697f8a7"><td class="memItemLeft" align="right" valign="top">units::inch_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7">GetTargetDistance</a> (units::degree_t targetVerticalAngle)</td></tr>
 <tr class="memdesc:a70f43558e4284c3951413c855697f8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets from the target to the camera.  <a href="class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7">More...</a><br /></td></tr>
 <tr class="separator:a70f43558e4284c3951413c855697f8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1187283527b60a2f2285ced2304c9b1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_shooter_subsystem_1_1_shooter_distance_setpoints.html">ShooterDistanceSetpoints</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a1187283527b60a2f2285ced2304c9b1f">GetShooterDistanceSetpoints</a> (units::inch_t distanceToTarget) const</td></tr>
+<tr class="memdesc:a1187283527b60a2f2285ced2304c9b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the shooter setpoints for a target distance.  <a href="class_shooter_subsystem.html#a1187283527b60a2f2285ced2304c9b1f">More...</a><br /></td></tr>
+<tr class="separator:a1187283527b60a2f2285ced2304c9b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0107f01956386fbcf758e0be58a92b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ae0107f01956386fbcf758e0be58a92b5">SetShooterDistance</a> (units::inch_t distanceToTarget)</td></tr>
 <tr class="memdesc:ae0107f01956386fbcf758e0be58a92b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setting the shooter speed and hood angle depeneding on how far away the target is.  <a href="class_shooter_subsystem.html#ae0107f01956386fbcf758e0be58a92b5">More...</a><br /></td></tr>
 <tr class="separator:ae0107f01956386fbcf758e0be58a92b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb9f4f1c883a840751a6520853c4d6ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#afb9f4f1c883a840751a6520853c4d6ca">FixedShooterPosition</a> (<a class="el" href="class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7d">FixedPosState</a>)</td></tr>
 <tr class="memdesc:afb9f4f1c883a840751a6520853c4d6ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles fixed close shot shooting positions around hub.  <a href="class_shooter_subsystem.html#afb9f4f1c883a840751a6520853c4d6ca">More...</a><br /></td></tr>
 <tr class="separator:afb9f4f1c883a840751a6520853c4d6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b962ecdee773e1cc83c4ddfbb52b0cb"><td class="memItemLeft" align="right" valign="top">units::angular_velocity::revolutions_per_minute_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a2b962ecdee773e1cc83c4ddfbb52b0cb">GetShooterSpeed</a> ()</td></tr>
+<tr class="memdesc:a2b962ecdee773e1cc83c4ddfbb52b0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the shooter speed in physical units.  <a href="class_shooter_subsystem.html#a2b962ecdee773e1cc83c4ddfbb52b0cb">More...</a><br /></td></tr>
+<tr class="separator:a2b962ecdee773e1cc83c4ddfbb52b0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f35dcd3ae62814b8136fb9c4ef2be5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a8f35dcd3ae62814b8136fb9c4ef2be5d">ManualOverride</a> ()</td></tr>
 <tr class="memdesc:a8f35dcd3ae62814b8136fb9c4ef2be5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override automatic control.  <a href="class_shooter_subsystem.html#a8f35dcd3ae62814b8136fb9c4ef2be5d">More...</a><br /></td></tr>
 <tr class="separator:a8f35dcd3ae62814b8136fb9c4ef2be5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -380,6 +402,113 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Handles fixed close shot shooting positions around hub. </p>
+
+</div>
+</div>
+<a id="a2466fbf822ddd62852b9bbd5e401f120" name="a2466fbf822ddd62852b9bbd5e401f120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2466fbf822ddd62852b9bbd5e401f120">&#9670;&nbsp;</a></span>GetCameraTargetValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_limelight_target_1_1t_values.html">LimelightTarget::tValues</a> ShooterSubsystem::GetCameraTargetValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the pitch and yaw of target. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_limelight_target_1_1t_values.html">LimelightTarget::tValues</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0b6e5229183b7173a3c2750b7fd5c22f" name="a0b6e5229183b7173a3c2750b7fd5c22f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b6e5229183b7173a3c2750b7fd5c22f">&#9670;&nbsp;</a></span>GetHoodPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::degree_t ShooterSubsystem::GetHoodPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the hood position in physical units. </p>
+<dl class="section return"><dt>Returns</dt><dd>hood position </dd></dl>
+
+</div>
+</div>
+<a id="a1187283527b60a2f2285ced2304c9b1f" name="a1187283527b60a2f2285ced2304c9b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1187283527b60a2f2285ced2304c9b1f">&#9670;&nbsp;</a></span>GetShooterDistanceSetpoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_shooter_subsystem_1_1_shooter_distance_setpoints.html">ShooterSubsystem::ShooterDistanceSetpoints</a> ShooterSubsystem::GetShooterDistanceSetpoints </td>
+          <td>(</td>
+          <td class="paramtype">units::inch_t&#160;</td>
+          <td class="paramname"><em>distanceToTarget</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the shooter setpoints for a target distance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distanceToTarget</td><td>Distance from shooter to hub edge </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Hood and shooter setpoints </dd></dl>
+
+</div>
+</div>
+<a id="a2b962ecdee773e1cc83c4ddfbb52b0cb" name="a2b962ecdee773e1cc83c4ddfbb52b0cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b962ecdee773e1cc83c4ddfbb52b0cb">&#9670;&nbsp;</a></span>GetShooterSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::angular_velocity::revolutions_per_minute_t ShooterSubsystem::GetShooterSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the shooter speed in physical units. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current shooter speed </dd></dl>
+
+</div>
+</div>
+<a id="ae05b4f740a0960e89da8606377a58bc0" name="ae05b4f740a0960e89da8606377a58bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae05b4f740a0960e89da8606377a58bc0">&#9670;&nbsp;</a></span>GetShooterWheelSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::revolutions_per_minute_t ShooterSubsystem::GetShooterWheelSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the speed of the shooter wheel in RPM. </p>
+<dl class="section return"><dt>Returns</dt><dd>units::revolutions_per_minute_t </dd></dl>
 
 </div>
 </div>

@@ -1,5 +1,6 @@
 var class_shooter_subsystem =
 [
+    [ "ShooterDistanceSetpoints", "struct_shooter_subsystem_1_1_shooter_distance_setpoints.html", "struct_shooter_subsystem_1_1_shooter_distance_setpoints" ],
     [ "FixedPosState", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7d", [
       [ "Front", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde", null ],
       [ "Left", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da945d5e233cf7d6240f6b783b36a374ff", null ],
@@ -12,6 +13,11 @@ var class_shooter_subsystem =
     [ "Disable", "class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e", null ],
     [ "DisableTurretSoftLimits", "class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b", null ],
     [ "FixedShooterPosition", "class_shooter_subsystem.html#afb9f4f1c883a840751a6520853c4d6ca", null ],
+    [ "GetCameraTargetValues", "class_shooter_subsystem.html#a2466fbf822ddd62852b9bbd5e401f120", null ],
+    [ "GetHoodPosition", "class_shooter_subsystem.html#a0b6e5229183b7173a3c2750b7fd5c22f", null ],
+    [ "GetShooterDistanceSetpoints", "class_shooter_subsystem.html#a1187283527b60a2f2285ced2304c9b1f", null ],
+    [ "GetShooterSpeed", "class_shooter_subsystem.html#a2b962ecdee773e1cc83c4ddfbb52b0cb", null ],
+    [ "GetShooterWheelSpeed", "class_shooter_subsystem.html#ae05b4f740a0960e89da8606377a58bc0", null ],
     [ "GetTargetDistance", "class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7", null ],
     [ "GetTurretTargetAngle", "class_shooter_subsystem.html#a53b9a2b56bb0e5943785fbbddbbecccd", null ],
     [ "HoodSetPosition", "class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3", null ],

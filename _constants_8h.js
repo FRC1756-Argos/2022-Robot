@@ -1,5 +1,9 @@
 var _constants_8h =
 [
+    [ "acceptableHoodError", "_constants_8h.html#a2a499877068b0211f1462294694234f0", null ],
+    [ "acceptableRangeTime", "_constants_8h.html#af170afefc6a9708495c29db5abf84123", null ],
+    [ "acceptableTurretError", "_constants_8h.html#a9156bb3a3290876ac665920e0671f4b7", null ],
+    [ "acceptableWheelError", "_constants_8h.html#a79bc934424775135588c4d2be6261348", null ],
     [ "backLeftIndex", "_constants_8h.html#afda1c6bed84d2c9a557ad2a37d86545c", null ],
     [ "backRightIndex", "_constants_8h.html#a3bbc6a04c968b7b8cdb3733eb01f07ed", null ],
     [ "beltForward", "_constants_8h.html#ab46ee716e992f3e0b2b267886d9fb4f5", null ],

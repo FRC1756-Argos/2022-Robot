@@ -162,6 +162,7 @@ var annotated_dup =
         ] ]
       ] ]
     ] ],
+    [ "AutoAimCommand", "class_auto_aim_command.html", "class_auto_aim_command" ],
     [ "CameraInterface", "class_camera_interface.html", "class_camera_interface" ],
     [ "ClimberSubsystem", "class_climber_subsystem.html", "class_climber_subsystem" ],
     [ "FileSystemHomingStorage", "class_file_system_homing_storage.html", "class_file_system_homing_storage" ],

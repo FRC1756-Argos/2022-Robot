@@ -7,5 +7,6 @@ var searchData=
   ['torotationcenter_4',['toRotationCenter',['../namespacemeasure__up_1_1camera.html#a56a78f7e1115dee7de3d58028f4b6c7e',1,'measure_up::camera']]],
   ['turrethomepath_5',['turretHomePath',['../namespacepaths.html#a9f076c665d70ad771851829b8613cb0d',1,'paths']]],
   ['turretmotor_6',['turretMotor',['../namespaceaddress_1_1shooter.html#afbb3f89dffe4c2c18719af7bbbf3ae90',1,'address::shooter']]],
-  ['turretspeed_7',['turretSpeed',['../namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250',1,'controllerMap']]]
+  ['turretspeed_7',['turretSpeed',['../namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250',1,'controllerMap']]],
+  ['turrettarget_8',['turretTarget',['../struct_auto_aim_command_1_1aim_values.html#ae0d5a3514e21aa772550f64932ba2a1c',1,'AutoAimCommand::aimValues']]]
 ];

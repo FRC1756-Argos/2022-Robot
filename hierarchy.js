@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "AutoAimCommand::aimValues", "struct_auto_aim_command_1_1aim_values.html", null ],
     [ "motorConfig::comp_bot::drive::backLeftTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_left_turn.html", null ],
     [ "motorConfig::comp_bot::drive::backRightTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html", null ],
     [ "motorConfig::comp_bot::intake::beltDrive", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html", null ],
@@ -7,6 +8,7 @@ var hierarchy =
     [ "CameraInterface", "class_camera_interface.html", null ],
     [ "argos_lib::ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", null ],
     [ "frc2::CommandHelper", null, [
+      [ "AutoAimCommand", "class_auto_aim_command.html", null ],
       [ "HomeClimberArmCommand", "class_home_climber_arm_command.html", null ],
       [ "HomeClimberHookCommand", "class_home_climber_hook_command.html", null ],
       [ "HomeHoodCommand", "class_home_hood_command.html", null ],
@@ -104,6 +106,7 @@ var hierarchy =
     [ "argos_lib::NTMotorPIDTuner", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html", null ],
     [ "argos_lib::NTSubscriber", "classargos__lib_1_1_n_t_subscriber.html", null ],
     [ "RobotContainer", "class_robot_container.html", null ],
+    [ "ShooterSubsystem::ShooterDistanceSetpoints", "struct_shooter_subsystem_1_1_shooter_distance_setpoints.html", null ],
     [ "motorConfig::comp_bot::shooter::shooterWheelLeft", "structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_left.html", null ],
     [ "motorConfig::comp_bot::shooter::shooterWheelRight", "structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_right.html", null ],
     [ "frc2::SubsystemBase", null, [
