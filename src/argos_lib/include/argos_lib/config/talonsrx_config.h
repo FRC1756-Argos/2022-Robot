@@ -69,8 +69,6 @@ namespace argos_lib {
       TalonSRXConfiguration config;
       auto timeout = configTimeout.to<int>();
 
-      motorController.ConfigFactoryDefault(timeout);
-
       if constexpr (has_inverted<T>{}) {
         motorController.SetInverted(T::inverted);
       }
