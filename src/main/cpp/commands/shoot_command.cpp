@@ -24,13 +24,11 @@ void ShootCommand::End(bool interrupted) {
 
 // Returns true when the command should end.
 bool ShootCommand::IsFinished() {
-  return false;
-  bool ballPresent = m_pIntake->getBallPresentShooter();
-  static bool previousBallPresent = ballPresent;
-  if (previousBallPresent && !ballPresent) {
-    previousBallPresent = ballPresent;
+  bool ballPresent=m_pIntake->getBallPresentShooter ();
+  if(m_previousBallPresent&&!ballPresent){
+    m_previousBallPresent=ballPresent;
     return true;
   }
-  previousBallPresent = ballPresent;
+  m_previousBallPresent=ballPresent;
   return false;
 }
