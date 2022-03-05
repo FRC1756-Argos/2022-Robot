@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"measure__up_8h.html#af555af33e5a26190d8916a9aff9705f7":[4,0,0,1,1,1,3,20],
+"measure__up_8h.html#afdd93ae4cf454ad509e60fdbdd19e109":[4,0,0,1,1,1,3,8],
 "measure__up_8h.html#aff61d4016fc44a7ba5a70ad24289f702":[4,0,0,1,1,1,3,26],
 "measure__up_8h_source.html":[4,0,0,1,1,1,3],
 "motors_8h.html":[4,0,0,1,1,1,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "namespacesensor__conversions_1_1swerve__drive_1_1turn.html#aaf39f7ec9d8a81711d00b2580878a4f6":[2,0,11,4,0,0],
 "namespacesensor__conversions_1_1turret.html":[2,0,11,5],
 "namespacesensor__conversions_1_1turret.html#a0bdc1122e95ea889aef812fde15e1e65":[2,0,11,5,0],
-"namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31":[2,0,11,5,1],
-"namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6":[2,0,11,5,2],
-"namespaceshooter_range.html":[2,0,12]
+"namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31":[2,0,11,5,1]
 };

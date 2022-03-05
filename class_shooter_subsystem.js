@@ -31,6 +31,7 @@ var class_shooter_subsystem =
     [ "MoveHood", "class_shooter_subsystem.html#a4bd27817cdd9939288c41f0c93c16fd4", null ],
     [ "MoveTurret", "class_shooter_subsystem.html#abcb5881c3a5210dbed3a6f5048b7599c", null ],
     [ "Periodic", "class_shooter_subsystem.html#ad8d2e05a252f65c20c489049ae18efd5", null ],
+    [ "SetCameraDriverMode", "class_shooter_subsystem.html#af7a169dbea158372268ed2cccd7e3b5a", null ],
     [ "SetShooterDistance", "class_shooter_subsystem.html#ae0107f01956386fbcf758e0be58a92b5", null ],
     [ "SetTurretSoftLimits", "class_shooter_subsystem.html#a4227968828b96c7701f88453cda6cb62", null ],
     [ "Shoot", "class_shooter_subsystem.html#add97f4ce7b4a5a152eaec050920012e1", null ],

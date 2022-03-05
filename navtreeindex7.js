@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a018a29af4c452bc294e9a0554c08862c":[3,0,2,0,3,3,0],
+"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a2d2c03e017b6fd473f63a9d707294bd4":[3,0,2,0,3,3,3],
+"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a2d2c03e017b6fd473f63a9d707294bd4":[2,0,7,1,3,3,3],
 "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a39df7aee64123fd4aaface775faa7f8b":[2,0,7,1,3,3,1],
 "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a39df7aee64123fd4aaface775faa7f8b":[3,0,2,0,3,3,1],
 "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#a3e91f1f2dff7d6527e1815c3307b94ac":[3,0,2,0,3,3,8],
@@ -112,8 +115,8 @@ var NAVTREEINDEX7 =
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a6bcea7d0690f27cbf43f32cc0b7cb641":[2,0,7,2,3,1,1],
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a81b7802e2173608a02a6e3ede4ccc51a":[3,0,2,1,1,1,10],
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a81b7802e2173608a02a6e3ede4ccc51a":[2,0,7,2,3,1,10],
-"structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a84b3ee2f72aaad65fcd0cb782c392e3a":[2,0,7,2,3,1,11],
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a84b3ee2f72aaad65fcd0cb782c392e3a":[3,0,2,1,1,1,11],
+"structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a84b3ee2f72aaad65fcd0cb782c392e3a":[2,0,7,2,3,1,11],
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a941a208e7955b669faf990affe16d4d1":[3,0,2,1,1,1,7],
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a941a208e7955b669faf990affe16d4d1":[2,0,7,2,3,1,7],
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#aa0a17efd0b38038f16ff71a5ffac166a":[2,0,7,2,3,1,9],
