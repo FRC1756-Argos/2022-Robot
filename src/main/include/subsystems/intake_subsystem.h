@@ -14,6 +14,7 @@
 #include "argos_lib/general/hysteresis_filter.h"
 #include "ctre/Phoenix.h"
 #include "frc/Solenoid.h"
+#include "utils/edge_detector.h"
 
 class IntakeSubsystem : public frc2::SubsystemBase {
  public:
@@ -113,6 +114,8 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   bool m_intakeButtonPressed;
   bool m_outtakeButtonPressed;
   bool m_shooterButtonPressed;
+
+  EdgeDetector m_edgeDetector;
 
   argos_lib::HysteresisFilter<units::inch_t> m_hysteresisIntake;
   argos_lib::HysteresisFilter<units::inch_t> m_hysteresisShooter;

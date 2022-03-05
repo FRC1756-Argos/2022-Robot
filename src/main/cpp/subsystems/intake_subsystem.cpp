@@ -16,6 +16,7 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
     , m_ballPresentIntake(address::sensors::tofSensorIntake)
     , m_ballPresentShooter(address::sensors::tofSensorShooter)
     , m_ballColor(address::sensors::colorSensor)
+    , m_edgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_FALLING, false)
     , m_hysteresisIntake(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
     , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
     , m_shooterTimeDebouncer({0_ms, 1000_ms}, false) {
@@ -63,9 +64,9 @@ void IntakeSubsystem::Periodic() {
       } else {
         m_intakeDrive.Set(0);
       }
-      if ((m_shooterButtonPressed == true ||
-           ((getBallPresentIntake() == true && getIsBallTeamColor() == true) && getBallPresentShooter() == false)) &&
-          !m_shooterTimeDebouncer(getBallPresentShooter())) {
+      if ((m_shooterButtonPressed == true &&
+           !m_shooterTimeDebouncer(EdgeDetector::edgeStatus::FALLING == m_edgeDetector(!getBallPresentShooter()))) ||
+          ((getBallPresentIntake() == true && getIsBallTeamColor() == true) && getBallPresentShooter() == false)) {
         m_beltDrive.Set(speeds::intake::beltForward);
       } else {
         m_beltDrive.Set(0);
