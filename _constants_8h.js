@@ -27,6 +27,7 @@ var _constants_8h =
     [ "intakeRetract", "_constants_8h.html#a39b4820304f320d7e16a166e323929c7", null ],
     [ "intakeReverse", "_constants_8h.html#aabb9a073e37743e986be8378d90fea41", null ],
     [ "maxAngular", "_constants_8h.html#aecb75fccf7b0cbb63a8e1cadb6504b93", null ],
+    [ "shooterTimer", "_constants_8h.html#a9eca5ec9a153c01a28da7e6488dd9aa9", null ],
     [ "swerveHomesPath", "_constants_8h.html#a409e68dc719283f90e4de04a5499bf18", null ],
     [ "tableKey", "_constants_8h.html#aa350ed756bc6429793662c7117ad1b7a", null ],
     [ "targetingPipeline", "_constants_8h.html#ae6a5e15cb8b9f0c15a7b783d0fb6d67b", null ],

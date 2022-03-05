@@ -1,5 +1,8 @@
 var dir_bd65bb97b62f4ac97bd77359c176efa8 =
 [
+    [ "edge_detector.h", "edge__detector_8h.html", [
+      [ "EdgeDetector", "class_edge_detector.html", "class_edge_detector" ]
+    ] ],
     [ "file_system_homing_storage.h", "file__system__homing__storage_8h.html", [
       [ "FileSystemHomingStorage", "class_file_system_homing_storage.html", "class_file_system_homing_storage" ]
     ] ],

@@ -177,6 +177,7 @@ var annotated_dup =
     [ "AutoAimCommand", "class_auto_aim_command.html", "class_auto_aim_command" ],
     [ "CameraInterface", "class_camera_interface.html", "class_camera_interface" ],
     [ "ClimberSubsystem", "class_climber_subsystem.html", "class_climber_subsystem" ],
+    [ "EdgeDetector", "class_edge_detector.html", "class_edge_detector" ],
     [ "FileSystemHomingStorage", "class_file_system_homing_storage.html", "class_file_system_homing_storage" ],
     [ "FSHomingStorage", "class_f_s_homing_storage.html", "class_f_s_homing_storage" ],
     [ "HomeClimberArmCommand", "class_home_climber_arm_command.html", "class_home_climber_arm_command" ],

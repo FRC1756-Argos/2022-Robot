@@ -120,6 +120,7 @@ $(document).ready(function(){initNavTree('functions_vars_m.html',''); initResiza
 <li>m_driveLonSpeedMap&#160;:&#160;<a class="el" href="class_robot_container.html#ae784d802621537d8aea50fd7ce9bf7d7">RobotContainer</a></li>
 <li>m_driverController&#160;:&#160;<a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html#a6a6a51e0c28a82a64463ef31b2759219">argos_lib::SwappableControllersSubsystem</a></li>
 <li>m_driveRotSpeed&#160;:&#160;<a class="el" href="class_robot_container.html#a8ae8be08073f8706872ffc7e7ac873af">RobotContainer</a></li>
+<li>m_edgeDetector&#160;:&#160;<a class="el" href="class_intake_subsystem.html#a67a7f218c886abc11017f4ca5fd2f0e4">IntakeSubsystem</a></li>
 <li>m_encoder&#160;:&#160;<a class="el" href="class_swerve_module.html#a9828cabb87a685644ebecac981d64c4b">SwerveModule</a></li>
 <li>m_flHome&#160;:&#160;<a class="el" href="class_network_tables_wrapper.html#a37794a716be2482c6b485c568f5ee7d9">NetworkTablesWrapper</a></li>
 <li>m_frHome&#160;:&#160;<a class="el" href="class_network_tables_wrapper.html#a7e1630a3b9faaedc5849150415fa4b9e">NetworkTablesWrapper</a></li>
@@ -171,6 +172,7 @@ $(document).ready(function(){initNavTree('functions_vars_m.html',''); initResiza
 <li>m_pMotors&#160;:&#160;<a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a21fd8b8643c409260cd562e0d29a9bcf">argos_lib::NTMotorPIDTuner</a></li>
 <li>m_pNetworkTable&#160;:&#160;<a class="el" href="class_robot_container.html#a43a550b672298335ae731ad63e20a201">RobotContainer</a>, <a class="el" href="class_swerve_drive_subsystem.html#aaffa9a15da4f163ea55345c90050fd1b">SwerveDriveSubsystem</a></li>
 <li>m_pntTable&#160;:&#160;<a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a91c33a2aef6c5a80564d4df2c7b1e0bf">argos_lib::NTMotorPIDTuner</a>, <a class="el" href="classargos__lib_1_1_n_t_subscriber.html#a09a3a36555c86b0b8a6859fc39116c4c">argos_lib::NTSubscriber</a></li>
+<li>m_previousValue&#160;:&#160;<a class="el" href="class_edge_detector.html#a451e74ee946db5a09694fd6e8237c0d1">EdgeDetector</a></li>
 <li>m_pShooter&#160;:&#160;<a class="el" href="class_home_hood_command.html#a76902bb4dfc2325223849601e9121e08">HomeHoodCommand</a></li>
 <li>m_pSwerveDriveKinematics&#160;:&#160;<a class="el" href="class_swerve_drive_subsystem.html#a0dbe305c5f1c8682596e8121f97d5a9e">SwerveDriveSubsystem</a></li>
 <li>m_rawButtonStatus&#160;:&#160;<a class="el" href="classargos__lib_1_1_xbox_controller.html#a7f3f1cf3830e35dc7326dd877c76cbb1">argos_lib::XboxController</a></li>
@@ -178,11 +180,13 @@ $(document).ready(function(){initNavTree('functions_vars_m.html',''); initResiza
 <li>m_rearLeftPath&#160;:&#160;<a class="el" href="classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a4d49f9d2e35c5ab0a98bf99761c319c2">argos_lib::swerve::NetworkTablesHomingStorage</a></li>
 <li>m_rearRightPath&#160;:&#160;<a class="el" href="classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#af48dedd70bb82c9c495e220415efd48e">argos_lib::swerve::NetworkTablesHomingStorage</a></li>
 <li>m_sensorConversions&#160;:&#160;<a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a0e1d0cb486d6e6039b206b398065bb14">argos_lib::NTMotorPIDTuner</a></li>
+<li>m_settings&#160;:&#160;<a class="el" href="class_edge_detector.html#a262685ec3599e151f57fa91841550340">EdgeDetector</a></li>
 <li>m_shooter&#160;:&#160;<a class="el" href="class_auto_aim_command.html#acc50d848d6fe5c175431f38bfb4b89ae">AutoAimCommand</a>, <a class="el" href="class_robot_container.html#adde272abb4f22f78ef7ffe441ff3b925">RobotContainer</a></li>
 <li>m_shooterButtonPressed&#160;:&#160;<a class="el" href="class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097">IntakeSubsystem</a></li>
 <li>m_shooterPIDTuner&#160;:&#160;<a class="el" href="class_shooter_subsystem.html#ac50ce8c7cecef48d016c873d7af5347e">ShooterSubsystem</a></li>
 <li>m_shooterSpeedMap&#160;:&#160;<a class="el" href="class_shooter_subsystem.html#ad04d8882bf020c2f52bc0c3112786edf">ShooterSubsystem</a></li>
 <li>m_shooterTargetVelocity&#160;:&#160;<a class="el" href="class_robot_container.html#a0f8072cd5eb25e81eeddcb979a598b3a">RobotContainer</a></li>
+<li>m_shooterTimeDebouncer&#160;:&#160;<a class="el" href="class_intake_subsystem.html#a83bf3505a5a2559d2ab029bdc48b6f74">IntakeSubsystem</a></li>
 <li>m_shooterWheelLeft&#160;:&#160;<a class="el" href="class_shooter_subsystem.html#ab026571200330d9eeebf10140c44be56">ShooterSubsystem</a></li>
 <li>m_shooterWheelRight&#160;:&#160;<a class="el" href="class_shooter_subsystem.html#a485e72749ee5d5294167d2fe66140af6">ShooterSubsystem</a></li>
 <li>m_startTime&#160;:&#160;<a class="el" href="class_home_climber_arm_command.html#a343e815b6f52a69302b8b786d0f8cdab">HomeClimberArmCommand</a>, <a class="el" href="class_home_climber_hook_command.html#a2fa4ad671551dc72d0b42645bf0bf146">HomeClimberHookCommand</a>, <a class="el" href="class_home_hood_command.html#a5ef3dda360777445fe7c9fddac8a53e4">HomeHoodCommand</a></li>

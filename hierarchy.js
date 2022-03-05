@@ -18,6 +18,7 @@ var hierarchy =
     [ "argos_lib::Debouncer", "classargos__lib_1_1_debouncer.html", null ],
     [ "argos_lib::DebounceSettings", "structargos__lib_1_1_debounce_settings.html", null ],
     [ "argos_lib::XboxController::DPadButtons", "structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html", null ],
+    [ "EdgeDetector", "class_edge_detector.html", null ],
     [ "std::false_type", null, [
       [ "argos_lib::cancoder_config::has_direction< T, typename >", "structargos__lib_1_1cancoder__config_1_1has__direction.html", null ],
       [ "argos_lib::cancoder_config::has_initMode< T, typename >", "structargos__lib_1_1cancoder__config_1_1has__init_mode.html", null ],

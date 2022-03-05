@@ -2,8 +2,8 @@ var searchData=
 [
   ['leader_0',['Leader',['../namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a5158a250e30f1fb4415d86ded2c8e0c5',1,'argos_lib::status_frame_config']]],
   ['leaderfx_1',['LeaderFX',['../namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a55c15f15e91a212907cd98d7939a8db6',1,'argos_lib::status_frame_config']]],
-  ['left_2',['left',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a3a7369d663e373845fcd218fd3e6e086',1,'argos_lib::XboxController::DPadButtons']]],
-  ['left_3',['Left',['../class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da945d5e233cf7d6240f6b783b36a374ff',1,'ShooterSubsystem']]],
+  ['left_2',['Left',['../class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da945d5e233cf7d6240f6b783b36a374ff',1,'ShooterSubsystem']]],
+  ['left_3',['left',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a3a7369d663e373845fcd218fd3e6e086',1,'argos_lib::XboxController::DPadButtons']]],
   ['length_4',['length',['../namespacemeasure__up_1_1chassis.html#ae957e01d5b3460e5bce14a80300c2680',1,'measure_up::chassis']]],
   ['liftleft_5',['liftLeft',['../namespaceaddress_1_1climber.html#ad534766a7739ddd29c2cc1ac19949103',1,'address::climber::liftLeft()'],['../namespacemotor_config_1_1practice__bot_1_1climber.html#a291dd7c0ae5ee8d5db4fe3ddcdf4c069',1,'motorConfig::practice_bot::climber::liftLeft()'],['../structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html',1,'motorConfig::comp_bot::climber::liftLeft']]],
   ['liftright_6',['liftRight',['../namespaceaddress_1_1climber.html#a3c990371737e89302d30125fdd56c1ce',1,'address::climber::liftRight()'],['../namespacemotor_config_1_1practice__bot_1_1climber.html#aa29d14b03a08dac60e6fc6ad79f222f8',1,'motorConfig::practice_bot::climber::liftRight()'],['../structmotor_config_1_1comp__bot_1_1climber_1_1lift_right.html',1,'motorConfig::comp_bot::climber::liftRight']]],

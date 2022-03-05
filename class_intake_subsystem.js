@@ -20,6 +20,7 @@ var class_intake_subsystem =
     [ "m_ballPresentIntake", "class_intake_subsystem.html#aeddac30d1e8ac8fa744e66dc9f03e0c7", null ],
     [ "m_ballPresentShooter", "class_intake_subsystem.html#a6fd58051a0f0f78b3becabfeaf515b13", null ],
     [ "m_beltDrive", "class_intake_subsystem.html#af3679393abbf4d5ad009cb85c4a8ea46", null ],
+    [ "m_edgeDetector", "class_intake_subsystem.html#a67a7f218c886abc11017f4ca5fd2f0e4", null ],
     [ "m_hysteresisIntake", "class_intake_subsystem.html#a5485814d18e72c925bb7a0a156dd3189", null ],
     [ "m_hysteresisShooter", "class_intake_subsystem.html#a4a85c77f69a2e922197a50c5b3cadcee", null ],
     [ "m_intakeButtonPressed", "class_intake_subsystem.html#a1ea4b501abc4614782316564df00ad6a", null ],
@@ -27,5 +28,6 @@ var class_intake_subsystem =
     [ "m_intakeDrive", "class_intake_subsystem.html#a1d466b7211176f3fd7332bfbcdb026eb", null ],
     [ "m_intakeState", "class_intake_subsystem.html#abc12b8e52981822a02b359c91f17375c", null ],
     [ "m_outtakeButtonPressed", "class_intake_subsystem.html#a591701b5ff203ee9c4b6e718ca48bf63", null ],
-    [ "m_shooterButtonPressed", "class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097", null ]
+    [ "m_shooterButtonPressed", "class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097", null ],
+    [ "m_shooterTimeDebouncer", "class_intake_subsystem.html#a83bf3505a5a2559d2ab029bdc48b6f74", null ]
 ];

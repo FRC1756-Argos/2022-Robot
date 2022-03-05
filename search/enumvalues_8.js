@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['practice_0',['Practice',['../namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca8c004d7e3b8a5a850ab2459c3afc2f57',1,'argos_lib']]]
+  ['motionprofiling_0',['MotionProfiling',['../namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a2f9bb69e217fb3b5ea492856f562c7b5',1,'argos_lib::status_frame_config']]],
+  ['motionprofilingfx_1',['MotionProfilingFX',['../namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a0a71c04f9a1c237dc894e38cf7850d84',1,'argos_lib::status_frame_config']]]
 ];

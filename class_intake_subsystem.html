@@ -168,10 +168,14 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a591701b5ff203ee9c4b6e718ca48bf63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56edb3f3ff3a830b7e42ed1806f0e097"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097">m_shooterButtonPressed</a></td></tr>
 <tr class="separator:a56edb3f3ff3a830b7e42ed1806f0e097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67a7f218c886abc11017f4ca5fd2f0e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge_detector.html">EdgeDetector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a67a7f218c886abc11017f4ca5fd2f0e4">m_edgeDetector</a></td></tr>
+<tr class="separator:a67a7f218c886abc11017f4ca5fd2f0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5485814d18e72c925bb7a0a156dd3189"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_hysteresis_filter.html">argos_lib::HysteresisFilter</a>&lt; units::inch_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a5485814d18e72c925bb7a0a156dd3189">m_hysteresisIntake</a></td></tr>
 <tr class="separator:a5485814d18e72c925bb7a0a156dd3189"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a85c77f69a2e922197a50c5b3cadcee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_hysteresis_filter.html">argos_lib::HysteresisFilter</a>&lt; units::inch_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a4a85c77f69a2e922197a50c5b3cadcee">m_hysteresisShooter</a></td></tr>
 <tr class="separator:a4a85c77f69a2e922197a50c5b3cadcee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83bf3505a5a2559d2ab029bdc48b6f74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_debouncer.html">argos_lib::Debouncer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a83bf3505a5a2559d2ab029bdc48b6f74">m_shooterTimeDebouncer</a></td></tr>
+<tr class="separator:a83bf3505a5a2559d2ab029bdc48b6f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
@@ -551,6 +555,28 @@ false - Ball is not team color </dd></dl>
 
 </div>
 </div>
+<a id="a67a7f218c886abc11017f4ca5fd2f0e4" name="a67a7f218c886abc11017f4ca5fd2f0e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67a7f218c886abc11017f4ca5fd2f0e4">&#9670;&nbsp;</a></span>m_edgeDetector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge_detector.html">EdgeDetector</a> IntakeSubsystem::m_edgeDetector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5485814d18e72c925bb7a0a156dd3189" name="a5485814d18e72c925bb7a0a156dd3189"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5485814d18e72c925bb7a0a156dd3189">&#9670;&nbsp;</a></span>m_hysteresisIntake</h2>
 
@@ -720,6 +746,28 @@ false - Ball is not team color </dd></dl>
       <table class="memname">
         <tr>
           <td class="memname">bool IntakeSubsystem::m_shooterButtonPressed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83bf3505a5a2559d2ab029bdc48b6f74" name="a83bf3505a5a2559d2ab029bdc48b6f74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83bf3505a5a2559d2ab029bdc48b6f74">&#9670;&nbsp;</a></span>m_shooterTimeDebouncer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_debouncer.html">argos_lib::Debouncer</a> IntakeSubsystem::m_shooterTimeDebouncer</td>
         </tr>
       </table>
   </td>
