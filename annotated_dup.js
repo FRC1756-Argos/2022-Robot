@@ -184,6 +184,7 @@ var annotated_dup =
     [ "HomeClimberHookCommand", "class_home_climber_hook_command.html", "class_home_climber_hook_command" ],
     [ "HomeHoodCommand", "class_home_hood_command.html", "class_home_hood_command" ],
     [ "HomingStorageInterface", "class_homing_storage_interface.html", "class_homing_storage_interface" ],
+    [ "IntakeCommand", "class_intake_command.html", "class_intake_command" ],
     [ "IntakeSubsystem", "class_intake_subsystem.html", "class_intake_subsystem" ],
     [ "LimelightTarget", "class_limelight_target.html", "class_limelight_target" ],
     [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", "class_network_tables_wrapper" ],
