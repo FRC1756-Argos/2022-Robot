@@ -24,10 +24,10 @@ namespace measure_up {
   }  // namespace swerve_offsets
   namespace hood {
     namespace comp_bot {
-      constexpr auto homeAngle = 1_deg * -1;
+      constexpr auto homeAngle = 0.6_deg * -1;
     }  // namespace comp_bot
     namespace practice_bot {
-      constexpr auto homeAngle = measure_up::hood::comp_bot::homeAngle;
+      constexpr auto homeAngle = 1.2_deg * -1;
     }  // namespace practice_bot
   }    // namespace hood
   namespace turret {

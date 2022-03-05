@@ -53,7 +53,7 @@ RobotContainer::RobotContainer()
                 argos_lib::XboxController::JoystickHand::kLeftHand)),  // Y axis is negative forward
             m_driveLatSpeedMap(-m_controllers.DriverController().GetX(
                 argos_lib::XboxController::JoystickHand::
-                    kLeftHand)),  // X axis is positive right, but swerve coordiates are positive left
+                    kLeftHand)),  // X axis is positive right, but swerve coordinates are positive left
             m_driveRotSpeed(-m_controllers.DriverController().GetX(
                 argos_lib::XboxController::JoystickHand::
                     kRightHand)));  // X axis is positive right (CW), but swerve coordinates are positive left (CCW)
@@ -214,7 +214,7 @@ void RobotContainer::ConfigureButtonBindings() {
     return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kRightTrigger);
   }});
   aimTrigger.WhileActiveContinous([this]() { m_shooter.AutoAim(); }, {&m_shooter});
-  aimTrigger.WhenInactive([this]() { m_shooter.Disable(); }, {&m_shooter});
+  aimTrigger.WhenInactive([this]() { m_shooter.SetCameraDriverMode(true); }, {&m_shooter});
 
   auto homeTurret = (frc2::Trigger{[this]() {
     return m_controllers.OperatorController().GetDebouncedButton({argos_lib::XboxController::Button::kX,
@@ -279,6 +279,34 @@ void RobotContainer::ConfigureButtonBindings() {
                                {&m_shooter});
   fixedBackTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Back); },
                               {&m_shooter});
+  // fixedFrontTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.TurretSetPosition(360_deg);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
+  // fixedLeftTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.TurretSetPosition(90_deg);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
+  // fixedRightTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.TurretSetPosition(270_deg);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
+  // fixedBackTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.TurretSetPosition(180_deg);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
 
   // SWAP CONTROLLERS TRIGGER ACTIVATION
   (driverTriggerSwapCombo || operatorTriggerSwapCombo)

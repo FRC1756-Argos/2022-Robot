@@ -336,6 +336,9 @@ LimelightTarget::tValues ShooterSubsystem::GetCameraTargetValues() {
   return m_cameraInterface.m_target.GetTarget();
 }
 
+void ShooterSubsystem::SetCameraDriverMode(bool driverMode) {
+  m_cameraInterface.SetDriverMode(driverMode);
+}
 // CAMERA INTERFACE -----------------------------------------------------------------------------
 CameraInterface::CameraInterface() {}
 

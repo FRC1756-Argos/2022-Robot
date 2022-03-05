@@ -273,6 +273,13 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void ManualOverride();
 
+  /**
+   * @brief Set camera mode to driver mode without LEDs or targetting mode with LEDs
+   *
+   * @param driverMode True changes to driver mode, false changes to operator mode
+   */
+  void SetCameraDriverMode(bool driverMode);
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.

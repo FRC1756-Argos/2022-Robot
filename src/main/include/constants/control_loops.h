@@ -31,7 +31,7 @@ namespace controlLoop {
         constexpr static double kD = 0.0;
         constexpr static double kF = 0.0;
         constexpr static double iZone = 200.0;
-        constexpr static double allowableError = 0.0;
+        constexpr static double allowableError = 4;
       };  // namespace hood
       struct turret {
         constexpr static double kP = 4.25;
@@ -39,7 +39,7 @@ namespace controlLoop {
         constexpr static double kD = 0.0;
         constexpr static double kF = 0.0;
         constexpr static double iZone = 10.0;
-        constexpr static double allowableError = 0.0;
+        constexpr static double allowableError = 2;
       };  // namespace turret
     }     // namespace shooter
   }       // namespace comp_bot
