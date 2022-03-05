@@ -12,7 +12,7 @@ class EdgeDetector {
 
   enum class edgeStatus { FALLING, RISING, ERROR, NONE };
 
-  EdgeDetector(EdgeDetector::EdgeDetectSettings _settings, bool initialValue);
+  explicit EdgeDetector(EdgeDetector::EdgeDetectSettings _settings, bool initialValue = false);
 
   bool operator()(bool curVal);
 

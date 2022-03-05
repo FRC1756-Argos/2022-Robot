@@ -4,46 +4,48 @@
 
 #include "utils/edge_detector.h"
 
+#include "frc/smartdashboard/SmartDashboard.h"
+
 EdgeDetector::EdgeDetector(EdgeDetector::EdgeDetectSettings _settings, bool initialValue) {
   m_settings = _settings;
   m_previousValue = initialValue;
 }
 
 bool EdgeDetector::operator()(bool curVal) {
+  edgeStatus stat = Calculate(curVal);
   switch (m_settings) {
     case EdgeDetectSettings::DETECT_BOTH:
-      return (Calculate(curVal) == edgeStatus::RISING || Calculate(curVal) == edgeStatus::FALLING) ? true : false;
+      return (stat == edgeStatus::RISING || stat == edgeStatus::FALLING);
       break;
     case EdgeDetectSettings::DETECT_RISING:
-      return (Calculate(curVal) == edgeStatus::RISING) ? true : false;
+      return (stat == edgeStatus::RISING);
       break;
     case EdgeDetectSettings::DETECT_FALLING:
-      return (Calculate(curVal) == edgeStatus::FALLING) ? true : false;
+      return (stat == edgeStatus::FALLING);
       break;
   }
   return false;
 }
 
 EdgeDetector::edgeStatus EdgeDetector::Calculate(bool curVal) {
+  edgeStatus statusReturn = edgeStatus::NONE;
   switch (m_settings) {
     case EdgeDetectSettings::DETECT_BOTH:
       if (DetectFalling(curVal) == edgeStatus::FALLING) {
-        return edgeStatus::FALLING;
+        statusReturn = edgeStatus::FALLING;
       } else if (DetectRising(curVal) == edgeStatus::RISING) {
-        return edgeStatus::RISING;
-      } else {
-        return edgeStatus::NONE;
+        statusReturn = edgeStatus::RISING;
       }
       break;
     case EdgeDetectSettings::DETECT_FALLING:
-      return DetectFalling(curVal);
+      statusReturn = DetectFalling(curVal);
       break;
     case EdgeDetectSettings::DETECT_RISING:
-      return DetectRising(curVal);
+      statusReturn = DetectRising(curVal);
       break;
   }
   m_previousValue = curVal;
-  return edgeStatus::NONE;
+  return statusReturn;
 }
 
 std::string EdgeDetector::ToString(edgeStatus status) {
