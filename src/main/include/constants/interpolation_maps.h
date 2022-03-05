@@ -14,20 +14,18 @@
 
 namespace shooterRange {
   using argos_lib::InterpMapPoint;
-  [[maybe_unused]] constexpr std::array shooterSpeed{
-      InterpMapPoint{10.0_in, 2300.0_rpm},
-      InterpMapPoint{21.5_in, 2550.0_rpm},  // Tested 2022-02-27 reverse short shot
-      InterpMapPoint{60.0_in, 2600.0_rpm},
-      InterpMapPoint{120.0_in, 3000.0_rpm},  // Tested 2022-02-27, 50% accuracy
-      InterpMapPoint{180.0_in, 3000.0_rpm},
-      InterpMapPoint{240.0_in, 3500.0_rpm}};
-  [[maybe_unused]] constexpr std::array hoodAngle{
-      InterpMapPoint{10.0_in, 10.0_deg},
-      InterpMapPoint{21.5_in, 13.5_deg},  // Tested 2022-02-27 reverse short shot
-      InterpMapPoint{60.0_in, 17.0_deg},
-      InterpMapPoint{120.0_in, 28.0_deg},  // Tested 2022-02.27, 50% accuracy
-      InterpMapPoint{180.0_in, 30.0_deg},
-      InterpMapPoint{240.0_in, 41.0_deg}};
+  [[maybe_unused]] constexpr std::array shooterSpeed{InterpMapPoint{10.0_in, 2300.0_rpm},
+                                                     InterpMapPoint{21.5_in, 2350.0_rpm},
+                                                     InterpMapPoint{60.0_in, 2650.0_rpm},
+                                                     InterpMapPoint{120.0_in, 2975.0_rpm},
+                                                     InterpMapPoint{180.0_in, 3200.0_rpm},
+                                                     InterpMapPoint{240.0_in, 3425.0_rpm}};
+  [[maybe_unused]] constexpr std::array hoodAngle{InterpMapPoint{10.0_in, 10.0_deg},
+                                                  InterpMapPoint{21.5_in, 15.0_deg},
+                                                  InterpMapPoint{60.0_in, 25.0_deg},
+                                                  InterpMapPoint{120.0_in, 30.0_deg},
+                                                  InterpMapPoint{180.0_in, 37.0_deg},
+                                                  InterpMapPoint{240.0_in, 42.0_deg}};
 }  // namespace shooterRange
 namespace controllerMap {
   using argos_lib::InterpMapPoint;
@@ -55,5 +53,5 @@ namespace controllerMap {
   [[maybe_unused]] constexpr std::array turretSpeed{
       InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 0.6}};
   [[maybe_unused]] constexpr std::array hoodSpeed{
-      InterpMapPoint{-1.0, -0.6}, InterpMapPoint{-0.15, 0.0}, InterpMapPoint{0.15, 0.0}, InterpMapPoint{1.0, 0.6}};
+      InterpMapPoint{-1.0, -0.4}, InterpMapPoint{-0.25, 0.0}, InterpMapPoint{0.25, 0.0}, InterpMapPoint{1.0, 0.4}};
 }  // namespace controllerMap
