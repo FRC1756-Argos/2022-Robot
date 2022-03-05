@@ -64,9 +64,9 @@ var NAVTREEINDEX =
 [
 "_constants_8h.html",
 "class_robot_container.html#a1b6b20300d96ead5ac31340755fa78e5",
-"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca3e56c011b37f0bc78fb9eb175c1181c6",
-"home__hood__command_8h_source.html",
-"namespacenetwork_tables_1_1swerve_homes_1_1keys.html",
+"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca3c77ef6a8e347f61ef35bd485f14878a",
+"home__hood__command_8h.html",
+"namespacenetwork_tables_1_1swerve_homes.html#aa350ed756bc6429793662c7117ad1b7a",
 "structargos__lib_1_1falcon__config_1_1has__neutral_deadband.html",
 "structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#aae60812f5e44522255ca04822e93e2d7",
 "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a922947672eb858e8b01d5be6554b578d"

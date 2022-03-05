@@ -6,7 +6,7 @@ var class_swerve_drive_subsystem =
       [ "robotCentricControl", "class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512ca0166150dc58e9466fe319fbfe750fd15", null ]
     ] ],
     [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html#a2093667e7073a107d596b4b4a2f573d3", null ],
-    [ "FieldHome", "class_swerve_drive_subsystem.html#a1d40f99a32b6295392cb34878cb991fd", null ],
+    [ "FieldHome", "class_swerve_drive_subsystem.html#aaa783e841c6b4228638ef873ada402dc", null ],
     [ "GetRawModuleStates", "class_swerve_drive_subsystem.html#a6ec0aa2955d381e3eb585bc210da5d39", null ],
     [ "Home", "class_swerve_drive_subsystem.html#a002a0509339ff38f00fd6ca2e74a85f0", null ],
     [ "HomeToFS", "class_swerve_drive_subsystem.html#a0e830d13b90bdbd5b25d1bfc9e3aa60d", null ],
@@ -20,6 +20,7 @@ var class_swerve_drive_subsystem =
     [ "m_backLeft", "class_swerve_drive_subsystem.html#a5b74616606cb8b4fdfb5c8e699e2e5fb", null ],
     [ "m_backRight", "class_swerve_drive_subsystem.html#a120f86cc2b1cfe872573ed823d6e2e43", null ],
     [ "m_controlMode", "class_swerve_drive_subsystem.html#a5f7a1b2acb107dd18f2cf9f03ccb396d", null ],
+    [ "m_fieldHomeOffset", "class_swerve_drive_subsystem.html#a37214334cb707509a1191baeda8d452e", null ],
     [ "m_frontLeft", "class_swerve_drive_subsystem.html#a17d48ca26dd0b7ea3e8e18f8560be65a", null ],
     [ "m_frontRight", "class_swerve_drive_subsystem.html#abb0be7d1e13ba0aeb38652f6131945c2", null ],
     [ "m_fsStorage", "class_swerve_drive_subsystem.html#a36e0566eb3586b8a1bdbd8241d50054c", null ],
