@@ -5,40 +5,52 @@
 #pragma once
 
 namespace controlLoop {
-  namespace drive {
-    namespace rotate {
-      constexpr double kP = 1.4;
-      constexpr double kI = 0.0005;
-      constexpr double kD = 0.0;
-      constexpr double kF = 0.0;
-      constexpr double iZone = 500.0;
-      constexpr double allowableError = 0.0;
-    }  // namespace rotate
-  }    // namespace drive
-  namespace shooter {
+  namespace comp_bot {
+    namespace drive {
+      struct rotate {
+        constexpr static double kP = 1.4;
+        constexpr static double kI = 0.0005;
+        constexpr static double kD = 0.0;
+        constexpr static double kF = 0.0;
+        constexpr static double iZone = 500.0;
+        constexpr static double allowableError = 0.0;
+      };  // namespace rotate
+    }     // namespace drive
     namespace shooter {
-      constexpr double kP = 0.02;
-      constexpr double kI = 0.0;
-      constexpr double kD = 0.0;
-      constexpr double kF = 0.055;
-      constexpr double iZone = 100.0;
-      constexpr double allowableError = 0.0;
+      struct shooter {
+        constexpr static double kP = 0.02;
+        constexpr static double kI = 0.0;
+        constexpr static double kD = 0.0;
+        constexpr static double kF = 0.055;
+        constexpr static double iZone = 100.0;
+        constexpr static double allowableError = 0.0;
+      };  // namespace shooter
+      struct hood {
+        constexpr static double kP = 0.75;
+        constexpr static double kI = 0.008;
+        constexpr static double kD = 0.0;
+        constexpr static double kF = 0.0;
+        constexpr static double iZone = 200.0;
+        constexpr static double allowableError = 4;
+      };  // namespace hood
+      struct turret {
+        constexpr static double kP = 4.25;
+        constexpr static double kI = 0.05;
+        constexpr static double kD = 0.0;
+        constexpr static double kF = 0.0;
+        constexpr static double iZone = 10.0;
+        constexpr static double allowableError = 2;
+      };  // namespace turret
+    }     // namespace shooter
+  }       // namespace comp_bot
+  namespace practice_bot {
+    namespace drive {
+      using rotate = controlLoop::comp_bot::drive::rotate;
+    }  // namespace drive
+    namespace shooter {
+      using shooter = controlLoop::comp_bot::shooter::shooter;
+      using hood = controlLoop::comp_bot::shooter::hood;
+      using turret = controlLoop::comp_bot::shooter::turret;
     }  // namespace shooter
-    namespace hood {
-      constexpr double kP = 0.75;
-      constexpr double kI = 0.008;
-      constexpr double kD = 0.0;
-      constexpr double kF = 0.0;
-      constexpr double iZone = 200.0;
-      constexpr double allowableError = 0.0;
-    }  // namespace hood
-    namespace turret {
-      constexpr double kP = 4.25;
-      constexpr double kI = 0.05;
-      constexpr double kD = 0.0;
-      constexpr double kF = 0.0;
-      constexpr double iZone = 10.0;
-      constexpr double allowableError = 0.0;
-    }  // namespace turret
-  }    // namespace shooter
+  }    // namespace practice_bot
 }  // namespace controlLoop

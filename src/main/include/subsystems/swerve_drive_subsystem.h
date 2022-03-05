@@ -116,10 +116,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   /**
  * @brief Get the Raw Module States object and switch between robot-centric and field-centric
  *
- * @param currentDriveMode The current drive mode see DriveControlMode enum
- * @param fwVelocity Positive value results in forward movement
- * @param sideVelocity Positive value results in left movement
- * @param rotVelocity Positive value results in counter-clockwise movement
+ * @param velocities Desired velocity
  * @return wpi::array<frc::SwerveModuleState, 4>
  */
   wpi::array<frc::SwerveModuleState, 4> GetRawModuleStates(SwerveDriveSubsystem::Velocities velocities);

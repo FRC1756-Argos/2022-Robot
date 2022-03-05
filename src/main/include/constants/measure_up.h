@@ -23,8 +23,13 @@ namespace measure_up {
     constexpr auto backLeftLOffset = 4.0_in;
   }  // namespace swerve_offsets
   namespace hood {
-    constexpr auto homeAngle = 1_deg * -1;
-  }  // namespace hood
+    namespace comp_bot {
+      constexpr auto homeAngle = 0.6_deg * -1;
+    }  // namespace comp_bot
+    namespace practice_bot {
+      constexpr auto homeAngle = 1.2_deg * -1;
+    }  // namespace practice_bot
+  }    // namespace hood
   namespace turret {
     constexpr auto homeAngle = 180_deg;
     constexpr auto minAngle = 45_deg;

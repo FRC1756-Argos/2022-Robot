@@ -22,11 +22,18 @@ namespace threshholds {
     const auto intakeDeactivate = 8_in;
     const auto intakeActivate = 8_in;
   }  // namespace intake
+  namespace shooter {
+    constexpr auto acceptableTurretError = 0.5_deg;
+    constexpr auto acceptableHoodError = 0.5_deg;
+    constexpr auto acceptableWheelError = 100_rpm;
+    constexpr auto acceptableRangeTime = 250_ms;
+  }  // namespace shooter
 }  // namespace threshholds
 
 namespace speeds {
   namespace intake {
-    constexpr double beltForward = 0.7;
+    constexpr double beltForwardIntake = 0.4;
+    constexpr double beltForwardShoot = 0.65;
     constexpr double beltReverse = -0.8;
     constexpr double intakeForward = 0.5;
     constexpr double intakeReverse = -1;

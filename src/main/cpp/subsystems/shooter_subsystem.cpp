@@ -130,6 +130,11 @@ void ShooterSubsystem::FixedShooterPosition(FixedPosState fixedPosState) {
   }
 }
 
+units::angular_velocity::revolutions_per_minute_t ShooterSubsystem::GetShooterSpeed() {
+  return units::angular_velocity::revolutions_per_minute_t{m_shooterWheelLeft.GetSelectedSensorVelocity() *
+                                                           sensor_conversions::shooter::sensorConversionFactor};
+}
+
 void ShooterSubsystem::ManualOverride() {
   m_manualOverride = true;
 }
@@ -170,8 +175,14 @@ void ShooterSubsystem::HoodSetPosition(units::degree_t angle) {
   }
 }
 
+units::degree_t ShooterSubsystem::GetHoodPosition() {
+  return sensor_conversions::hood::ToAngle(m_hoodMotor.GetSelectedSensorPosition());
+}
+
 void ShooterSubsystem::UpdateHoodHome() {
-  m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(measure_up::hood::homeAngle));
+  m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(
+      m_instance == argos_lib::RobotInstance::Competition ? measure_up::hood::comp_bot::homeAngle :
+                                                            measure_up::hood::practice_bot::homeAngle));
   m_hoodHomed = true;
 }
 
@@ -206,8 +217,10 @@ void ShooterSubsystem::InitializeTurretHome() {
         sensor_conversions::turret::ToAngle(m_turretMotor.GetSensorCollection().GetPulseWidthPosition()),
         0_deg,
         360_deg);
-    m_turretMotor.SetSelectedSensorPosition(sensor_conversions::turret::ToSensorUnit(
-        argos_lib::swerve::ConstrainAngle(currentAngle - homePosition.value(), 0_deg, 360_deg)));
+    // See note in header about angle wrap around
+    const auto wrapAroundProtectedAngle = currentAngle < 10_deg ? currentAngle + 360_deg : currentAngle;
+    m_turretMotor.SetSelectedSensorPosition(
+        sensor_conversions::turret::ToSensorUnit(wrapAroundProtectedAngle - homePosition.value()));
     m_turretHomed = true;
     SetTurretSoftLimits();
   } else {
@@ -275,9 +288,16 @@ units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVertical
              static_cast<units::radian_t>(measure_up::camera::cameraMountAngle + targetVerticalAngle).to<double>());
 }
 
+ShooterSubsystem::ShooterDistanceSetpoints ShooterSubsystem::GetShooterDistanceSetpoints(
+    units::inch_t distanceToTarget) const {
+  return ShooterSubsystem::ShooterDistanceSetpoints{m_shooterSpeedMap.Map(distanceToTarget),
+                                                    m_hoodAngleMap.Map(distanceToTarget)};
+}
+
 void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
-  CloseLoopShoot(units::revolutions_per_minute_t{m_shooterSpeedMap.Map(distanceToTarget)});
-  HoodSetPosition(units::degree_t{m_hoodAngleMap.Map(distanceToTarget)});
+  auto setpoints = GetShooterDistanceSetpoints(distanceToTarget);
+  CloseLoopShoot(setpoints.shooterSpeed);
+  HoodSetPosition(setpoints.hoodAngle);
 }
 
 std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(LimelightTarget::tValues target) {
@@ -312,6 +332,13 @@ std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(LimelightT
   return targetAngle;
 }
 
+LimelightTarget::tValues ShooterSubsystem::GetCameraTargetValues() {
+  return m_cameraInterface.m_target.GetTarget();
+}
+
+void ShooterSubsystem::SetCameraDriverMode(bool driverMode) {
+  m_cameraInterface.SetDriverMode(driverMode);
+}
 // CAMERA INTERFACE -----------------------------------------------------------------------------
 CameraInterface::CameraInterface() {}
 

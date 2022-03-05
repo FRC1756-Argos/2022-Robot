@@ -24,7 +24,7 @@ class NetworkTablesWrapper {
   /**
    * @brief Set the Entry Degrees object with an angle
    *
-   * @param entryKey The key value for the NetworkTableEntry
+   * @param key The key value for the NetworkTableEntry
    * @param degrees The angle value in degrees to write to the NetworkTableEntry
    */
   void SetEntryDegrees(const std::string& key, const units::degree_t degrees);
@@ -32,7 +32,7 @@ class NetworkTablesWrapper {
   /**
    * @brief Get the entry's angle value
    *
-   * @param entry Reference to the network table entry
+   * @param key Key name to retrieve
    * @return std::optional<units::degree_t> Standard library optional value
    */
   std::optional<units::degree_t> GetEntryDegrees(const std::string& key);
