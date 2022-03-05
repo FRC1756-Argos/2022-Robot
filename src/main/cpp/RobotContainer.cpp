@@ -271,42 +271,42 @@ void RobotContainer::ConfigureButtonBindings() {
   shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {&m_intake});
 
   // SHOOTER FIXED POS TRIGGER ACTIVATION
-  // fixedFrontTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },
-  //                              {&m_shooter});
-  // fixedLeftTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Left); },
-  //                             {&m_shooter});
-  // fixedRightTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Right); },
-  //                              {&m_shooter});
-  // fixedBackTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Back); },
-  //                             {&m_shooter});
-  fixedFrontTrigger.WhenActive(
-      [this]() {
-        m_shooter.TurretSetPosition(360_deg);
-        m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-        m_shooter.HoodSetPosition(m_hoodTargetPosition);
-      },
-      {&m_shooter});
-  fixedLeftTrigger.WhenActive(
-      [this]() {
-        m_shooter.TurretSetPosition(90_deg);
-        m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-        m_shooter.HoodSetPosition(m_hoodTargetPosition);
-      },
-      {&m_shooter});
-  fixedRightTrigger.WhenActive(
-      [this]() {
-        m_shooter.TurretSetPosition(270_deg);
-        m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-        m_shooter.HoodSetPosition(m_hoodTargetPosition);
-      },
-      {&m_shooter});
-  fixedBackTrigger.WhenActive(
-      [this]() {
-        m_shooter.TurretSetPosition(180_deg);
-        m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-        m_shooter.HoodSetPosition(m_hoodTargetPosition);
-      },
-      {&m_shooter});
+  fixedFrontTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },
+                               {&m_shooter});
+  fixedLeftTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Left); },
+                              {&m_shooter});
+  fixedRightTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Right); },
+                               {&m_shooter});
+  fixedBackTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Back); },
+                              {&m_shooter});
+  // fixedFrontTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.TurretSetPosition(360_deg);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
+  // fixedLeftTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.TurretSetPosition(90_deg);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
+  // fixedRightTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.TurretSetPosition(270_deg);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
+  // fixedBackTrigger.WhenActive(
+  //     [this]() {
+  //       m_shooter.TurretSetPosition(180_deg);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //     },
+  //     {&m_shooter});
 
   // SWAP CONTROLLERS TRIGGER ACTIVATION
   (driverTriggerSwapCombo || operatorTriggerSwapCombo)
