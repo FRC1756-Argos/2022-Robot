@@ -188,6 +188,7 @@ var annotated_dup =
     [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", "class_network_tables_wrapper" ],
     [ "Robot", "class_robot.html", "class_robot" ],
     [ "RobotContainer", "class_robot_container.html", "class_robot_container" ],
+    [ "ShootCommand", "class_shoot_command.html", "class_shoot_command" ],
     [ "ShooterSubsystem", "class_shooter_subsystem.html", "class_shooter_subsystem" ],
     [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html", "class_swerve_drive_subsystem" ],
     [ "SwerveModule", "class_swerve_module.html", "class_swerve_module" ]

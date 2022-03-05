@@ -12,6 +12,7 @@ var hierarchy =
       [ "HomeClimberArmCommand", "class_home_climber_arm_command.html", null ],
       [ "HomeClimberHookCommand", "class_home_climber_hook_command.html", null ],
       [ "HomeHoodCommand", "class_home_hood_command.html", null ],
+      [ "ShootCommand", "class_shoot_command.html", null ],
       [ "argos_lib::SwapControllersCommand", "classargos__lib_1_1_swap_controllers_command.html", null ]
     ] ],
     [ "argos_lib::Debouncer", "classargos__lib_1_1_debouncer.html", null ],
