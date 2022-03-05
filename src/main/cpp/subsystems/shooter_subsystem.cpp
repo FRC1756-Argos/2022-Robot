@@ -103,7 +103,8 @@ void ShooterSubsystem::AutoAim() {
       "(Turret) relAngle", sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition()).to<double>());
 
   // Get target distance & assign to hood & shooter
-  units::length::inch_t distanceToTarget = GetTargetDistance(targetValues.pitch);
+  units::length::inch_t distanceToTarget = GetTargetDistance(m_cameraInterface.GetNewPitch(
+      targetValues.yaw, targetValues.pitch, targetValues.bboxHor, targetValues.bboxVer, targetValues.skew));
   SetShooterDistance(distanceToTarget);
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance", distanceToTarget.to<double>());
@@ -350,6 +351,44 @@ void CameraInterface::SetDriverMode(bool mode) {
   table->PutNumber("pipeline", requestedPipeline);
 }
 
+units::angle::degrees_t CameraInterface::HorizontalPixelToAngle(int pixels) {
+  return (Constants::Camera::HorizontalAngleResolution * pixels) / Constants::Camera::HorizontalPixelResolution;
+}
+
+units::angle::degrees_t CameraInterface::VerticalPixelToAngle(int pixels) {
+  return (Constants::Camera::VerticalAngleResolution * pixels) / Constants::Camera::VerticalPixelResolution;
+}
+
+units::angle::degrees_t CameraInterfact::GetNewPitch(units::angle::degrees_t cx,
+                                                     units::angle::degrees_t cy,
+                                                     int bboxHorizontalPixels,
+                                                     int bboxVerticalPixels,
+                                                     units::angle::degrees skew) {
+  double topLeftCornerX = cx - (HorizontalPixelToAngle(bboxHorizontalPixels) * 0.5);
+  double topLeftCornerY = cy + (VerticalPixelToAngle(bboxVerticalPixels) * 0.5);
+  double topRightCornerX = cx + (HorizontalPixelToAngle(bboxHorizontalPixels) * 0.5);
+  double topRightCornerY = cy + (VerticallPixelToAngle(bboxVerticalPixels) * 0.5);
+
+  // translate
+  topLeftCornerX -= cx;
+  topLeftCornerY -= cy;
+  topRightCornerX -= cx;
+  topRightCornerY -= cy;
+
+  // rotate
+  frc::Vector2d topLeftCorner(topLeftCornerX, topLeftCornerY);
+  frc::Vector2d topRightCorner(topRightCornerX, topRightCornerY);
+  topLeftCorner.Rotate(skew);
+  topRightCorner.Rotate(skew);
+
+  // retranslate
+  topLeftCorner.x += cx;
+  topLeftCorner.y += cy;
+  topRightCorner.x += cx;
+  topRightCorner.y += cy;
+
+  return (topLeftCorner.y + topRightCorner.y) * 0.5;
+}
 // LIMELIGHT TARGET MEMBER FUNCTIONS ===============================================================
 
 LimelightTarget::tValues LimelightTarget::GetTarget() {
@@ -357,9 +396,12 @@ LimelightTarget::tValues LimelightTarget::GetTarget() {
 
   m_yaw = units::make_unit<units::degree_t>(table->GetNumber("tx", 0.0));
   m_pitch = units::make_unit<units::degree_t>(table->GetNumber("ty", 0.0));
+  m_bboxHor = (table->GetNumber("tlong", 0.0));
+  m_bboxVer = (table->GetNumber("tshort", 0.0));
+  m_skew = (table->GetNumber("ts", 0.0));
   m_hasTargets = (table->GetNumber("tv", 0) == 1);
 
-  tValues targetValues{m_pitch, m_yaw};
+  tValues targetValues{m_pitch, m_yaw, m_bboxHor, m_bboxVer, m_skew};
   return targetValues;
 }
 

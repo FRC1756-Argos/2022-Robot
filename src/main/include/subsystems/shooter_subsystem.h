@@ -24,6 +24,9 @@ class LimelightTarget {
  private:
   units::degree_t m_pitch;
   units::degree_t m_yaw;
+  double m_bboxHor;
+  double m_bboxVer;
+  units::degree_t m_skew;
   int m_area;
   bool m_hasTargets;
 
@@ -33,6 +36,9 @@ class LimelightTarget {
   struct tValues {
     units::degree_t pitch;
     units::degree_t yaw;
+    double bboxHor;
+    double bboxVer;
+    units::degree_t skew;
   };
 
   /// @todo ADD DOCUMENTATION
@@ -53,6 +59,31 @@ class CameraInterface {
    * @return std::optional<photonlib::PhotonTrackedTarget>
    */
   std::optional<LimelightTarget> GetHighestTarget();
+
+  /**
+   * @brief Converts vertical pixels to degrees
+   *
+   * @return Degrees
+   */
+  units::angle::degrees_t VerticalPixelToAngle(int pixels);
+
+  /**
+   * @brief Converts horizontal pixels to degrees
+   *
+   * @return Degrees
+   */
+  units::angle::degrees_t HorizontalPixelToAngle(int pixels);
+
+  /**
+   * @brief Gets the new pitch for the top of the target
+   *
+   * @return Pitch degrees of the top of the target
+   */
+  units::angles::degrees_t GetNewPitch(units::angle::degrees_t cx,
+                                       units::angle::degrees_t cy,
+                                       int bboxHorizontalPixels,
+                                       int bboxVerticalPixels,
+                                       units::angle::degrees_t skew);
 
   /**
    * @brief Turns the camera's driver mode on and off

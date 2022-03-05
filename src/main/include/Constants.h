@@ -53,6 +53,10 @@ namespace pneumatics {
 namespace camera {
   constexpr char targetingPipeline = 0;
   constexpr char driverPipeline = 1;
+  constexpr int horizontalPixelResolution = 320;
+  constexpr int verticalPixelResolution = 240;
+  constexpr int horizontalAngleResolution = 54;
+  constexpr int verticalAngleResolution = 41;
 }  // namespace camera
 
 namespace indexes {
