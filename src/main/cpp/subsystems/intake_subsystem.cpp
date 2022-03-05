@@ -6,6 +6,8 @@
 
 #include <frc/smartdashboard/SmartDashboard.h>
 
+#include <chrono>
+
 #include "Constants.h"
 #include "argos_lib/config/talonsrx_config.h"
 
@@ -33,6 +35,10 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
 void IntakeSubsystem::Periodic() {
   /// @todo Enable this again once we have sensors
   ///       Otherwise this conflicts with current manual control
+  auto lastCalled = std::chrono::steady_clock::now();
+  std::chrono::duration<double, std::milli> lastCalledDuration = std::chrono::steady_clock::now() - lastCalled;
+  double periodicCallSpeed = 1000 / lastCalledDuration.count();
+  frc::SmartDashboard::PutNumber("Periodic Speed", periodicCallSpeed);
   frc::SmartDashboard::PutNumber("ToF Distance Intake",
                                  units::inch_t(units::millimeter_t(m_ballPresentIntake.GetRange())).to<double>());
   frc::SmartDashboard::PutNumber("ToF Distance Shooter",
