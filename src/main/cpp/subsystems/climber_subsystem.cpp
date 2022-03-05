@@ -42,17 +42,25 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic() {}
 
-void ClimberSubsystem::ArmReady() {}
+void ClimberSubsystem::ArmReady() {
+  // Raise arm, listen for confirm or cancel
+}
 
 void ClimberSubsystem::HookExtend() {}
 
-void ClimberSubsystem::LowerBody() {}
+void ClimberSubsystem::LowerBody() {
+  // Lower body to position for transfer/hang
+}
 
 void ClimberSubsystem::ArmToBar() {}
 
-void ClimberSubsystem::BodyUp() {}
+void ClimberSubsystem::BodyUp() {
+  // Opposite of lower body
+}
 
-void ClimberSubsystem::StartingPosition() {}
+void ClimberSubsystem::StartingPosition() {
+  // Similar to arm ready?
+}
 
 void ClimberSubsystem::ManualControl(double hookSpeed, double armSpeed) {
   if (hookSpeed != 0 || armSpeed != 0) {
