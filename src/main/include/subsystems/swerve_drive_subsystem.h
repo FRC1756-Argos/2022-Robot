@@ -68,7 +68,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    * @brief Tell the robot it's in it's correct field-oriented "Front"
    *
    */
-  void FieldHome();
+  void FieldHome(units::degree_t homeAngle = 0_deg);
 
   void SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode);
 
@@ -93,6 +93,8 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
 
   // GYROSCOPIC SENSORS
   frc::ADIS16448_IMU m_imu;
+
+  units::degree_t m_fieldHomeOffset;
 
   /**
  * @brief A struct for holding the 3 different input velocities, for organization

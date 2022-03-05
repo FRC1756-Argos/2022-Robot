@@ -27,11 +27,11 @@ Debouncer::Debouncer(const units::millisecond_t symmetricDebounceTime)
     const auto timeSinceTransition = units::millisecond_t{static_cast<double>(
         std::chrono::duration_cast<std::chrono::milliseconds>(curTime - m_debounceTransitionTime).count())};
     if (newVal) {
-      if (timeSinceTransition > m_debounceSettings.activateTime) {
+      if (timeSinceTransition >= m_debounceSettings.activateTime) {
         m_debouncedStatus = newVal;
       }
     } else {
-      if (timeSinceTransition > m_debounceSettings.clearTime) {
+      if (timeSinceTransition >= m_debounceSettings.clearTime) {
         m_debouncedStatus = newVal;
       }
     }

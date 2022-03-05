@@ -10,9 +10,11 @@
 #include <TimeOfFlight.h>
 
 #include "argos_lib/config/robot_instance.h"
+#include "argos_lib/general/debouncer.h"
 #include "argos_lib/general/hysteresis_filter.h"
 #include "ctre/Phoenix.h"
 #include "frc/Solenoid.h"
+#include "utils/edge_detector.h"
 
 class IntakeSubsystem : public frc2::SubsystemBase {
  public:
@@ -113,6 +115,10 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   bool m_outtakeButtonPressed;
   bool m_shooterButtonPressed;
 
+  EdgeDetector m_edgeDetector;
+
   argos_lib::HysteresisFilter<units::inch_t> m_hysteresisIntake;
   argos_lib::HysteresisFilter<units::inch_t> m_hysteresisShooter;
+
+  argos_lib::Debouncer m_shooterTimeDebouncer;
 };
