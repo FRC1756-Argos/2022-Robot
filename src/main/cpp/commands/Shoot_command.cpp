@@ -10,24 +10,27 @@ ShootCommand::ShootCommand(IntakeSubsystem* subsystem) : m_pIntake(subsystem) {
 }
 
 // Called when the command is initially scheduled.
-void ShootCommand::Initialize() {m_pIntake->Shoot();}
+void ShootCommand::Initialize() {
+  m_pIntake->Shoot();
+}
 
 // Called repeatedly when this Command is scheduled to run
 void ShootCommand::Execute() {}
 
 // Called once the command ends or is interrupted.
-void ShootCommand::End(bool interrupted) {m_pIntake->StopShoot();}
+void ShootCommand::End(bool interrupted) {
+  m_pIntake->StopShoot();
+}
 
 // Returns true when the command should end.
 bool ShootCommand::IsFinished() {
   return false;
-  bool ballPresent=m_pIntake->getBallPresentShooter ();
-  static bool previousBallPresent=ballPresent;
-  if(previousBallPresent&&!ballPresent){
-    previousBallPresent=ballPresent;
+  bool ballPresent = m_pIntake->getBallPresentShooter();
+  static bool previousBallPresent = ballPresent;
+  if (previousBallPresent && !ballPresent) {
+    previousBallPresent = ballPresent;
     return true;
   }
-  previousBallPresent=ballPresent;
+  previousBallPresent = ballPresent;
   return false;
-
 }

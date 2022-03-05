@@ -9,7 +9,6 @@
 
 #include "subsystems/intake_subsystem.h"
 
-
 /**
  * An example command.
  *
@@ -30,5 +29,4 @@ class ShootCommand : public frc2::CommandHelper<frc2::CommandBase, ShootCommand>
   bool IsFinished() override;
 
   IntakeSubsystem* m_pIntake;
-
 };
