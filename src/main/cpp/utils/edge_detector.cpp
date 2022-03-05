@@ -9,8 +9,19 @@ EdgeDetector::EdgeDetector(EdgeDetector::EdgeDetectSettings _settings, bool init
   m_previousValue = initialValue;
 }
 
-EdgeDetector::edgeStatus EdgeDetector::operator()(bool curVal) {
-  return Calculate(curVal);
+bool EdgeDetector::operator()(bool curVal) {
+  switch (m_settings) {
+    case EdgeDetectSettings::DETECT_BOTH:
+      return (Calculate(curVal) == edgeStatus::RISING || Calculate(curVal) == edgeStatus::FALLING) ? true : false;
+      break;
+    case EdgeDetectSettings::DETECT_RISING:
+      return (Calculate(curVal) == edgeStatus::RISING) ? true : false;
+      break;
+    case EdgeDetectSettings::DETECT_FALLING:
+      return (Calculate(curVal) == edgeStatus::FALLING) ? true : false;
+      break;
+  }
+  return false;
 }
 
 EdgeDetector::edgeStatus EdgeDetector::Calculate(bool curVal) {

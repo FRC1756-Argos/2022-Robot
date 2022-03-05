@@ -64,8 +64,7 @@ void IntakeSubsystem::Periodic() {
       } else {
         m_intakeDrive.Set(0);
       }
-      if ((m_shooterButtonPressed == true &&
-           !m_shooterTimeDebouncer(EdgeDetector::edgeStatus::FALLING == m_edgeDetector(!getBallPresentShooter()))) ||
+      if ((m_shooterButtonPressed == true && !m_shooterTimeDebouncer(m_edgeDetector(getBallPresentShooter()))) ||
           ((getBallPresentIntake() == true && getIsBallTeamColor() == true) && getBallPresentShooter() == false)) {
         m_beltDrive.Set(speeds::intake::beltForward);
       } else {

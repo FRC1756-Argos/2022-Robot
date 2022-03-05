@@ -14,7 +14,7 @@ class EdgeDetector {
 
   EdgeDetector(EdgeDetector::EdgeDetectSettings _settings, bool initialValue);
 
-  edgeStatus operator()(bool curVal);
+  bool operator()(bool curVal);
 
   edgeStatus Calculate(bool curVal);
 
