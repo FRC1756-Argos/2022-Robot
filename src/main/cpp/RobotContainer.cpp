@@ -242,7 +242,23 @@ void RobotContainer::ConfigureButtonBindings() {
         {argos_lib::XboxController::Button::kBack, argos_lib::XboxController::Button::kStart});
   }};
 
-  // --------------------------------------------------------------------------------------------------------
+  // frc2::Trigger climbSetPoints{[this]() {
+  //   return m_controllers.OperatorController().GetDebouncedButton(
+  //       {argos_lib::XboxController::Button::kBack, argos_lib::XboxController::Button::kStart});
+  // }};
+
+  // CLIMBER TRIGGERS
+  frc2::Trigger climbSetPoints{(frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
+  }})};
+
+  climbSetPoints.WhenActive(
+      [this]() {
+        m_pClimber->HooksSetPosition(units::make_unit<units::inch_t>(nt::NetworkTableInstance::GetDefault()
+                                                                         .GetTable("argos/argos/manualSetpoints")
+                                                                         ->GetNumber("hookPosition", 0)));
+      },
+      {m_pClimber.get()});
 
   // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
 
