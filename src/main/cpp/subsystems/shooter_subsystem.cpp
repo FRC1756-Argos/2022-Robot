@@ -78,6 +78,13 @@ void ShooterSubsystem::Periodic() {
   const auto turretNormalizedPosition = TurretGetPosition();
   frc::SmartDashboard::PutNumber("(Turret) normalizedAngle",
                                  turretNormalizedPosition ? turretNormalizedPosition.value().to<double>() : NAN);
+
+  if (m_turretMotor.HasResetOccurred()) {
+    m_turretMotor.Set(0);
+    std::printf("***Turret reset!  Re-initializing home***\n");
+    m_turretHomed = false;
+    InitializeTurretHome();
+  }
 }
 
 void ShooterSubsystem::AutoAim() {
