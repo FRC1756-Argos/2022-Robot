@@ -4,6 +4,7 @@
 
 #include "RobotContainer.h"
 
+#include <cameraserver/CameraServer.h>
 #include <frc/DriverStation.h>
 #include <frc/livewindow/LiveWindow.h>
 #include <frc/smartdashboard/SmartDashboard.h>
@@ -39,6 +40,8 @@ RobotContainer::RobotContainer()
     , m_NTMonitor("argos") {
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
+
+  frc::CameraServer::StartAutomaticCapture();
 
   // ALLOW ACCESS TO CAMERA STREAM OVER USB
   wpi::PortForwarder::GetInstance().Add(5800, "10.17.56.122", 5800);
