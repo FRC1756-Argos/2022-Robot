@@ -94,7 +94,7 @@ var searchData=
   ['hoodmotor_91',['hoodMotor',['../namespaceaddress_1_1shooter.html#ad897060d01d3e8364201efd2f50a8fb7',1,'address::shooter::hoodMotor()'],['../structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::comp_bot::shooter::hoodMotor'],['../structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::practice_bot::shooter::hoodMotor']]],
   ['hoodsetposition_92',['HoodSetPosition',['../class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3',1,'ShooterSubsystem']]],
   ['hoodspeed_93',['hoodSpeed',['../namespacecontroller_map.html#a1dacaddb9145013bc537ff3ddf742751',1,'controllerMap']]],
-  ['hoodtarget_94',['hoodTarget',['../struct_auto_aim_command_1_1aim_values.html#a118bcf7a4b1a8952fec2642bad3d75db',1,'AutoAimCommand::aimValues']]],
+  ['hoodtarget_94',['hoodTarget',['../struct_aim_values.html#a24f90587101f3635b4ed19b010bc08d3',1,'AimValues']]],
   ['hookextend_95',['HookExtend',['../class_climber_subsystem.html#a9fb5a5d1016e46c89947b106a8667baa',1,'ClimberSubsystem']]],
   ['hookretract_96',['hookRetract',['../class_climber_subsystem.html#a568d7191aa8f78d3634f66536b1c569d',1,'ClimberSubsystem']]],
   ['hookspeed_97',['hookSpeed',['../namespacecontroller_map.html#a32c5da49786d39390beceeea3a735887',1,'controllerMap']]],

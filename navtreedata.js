@@ -64,12 +64,12 @@ var NAVTREEINDEX =
 [
 "_constants_8h.html",
 "class_robot.html#aa3e246794bfbbb4406fc87f351762038",
-"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca2dd2b017192f8a09367d48c7648213c9",
-"globals_func.html",
-"namespacemotor_config_1_1practice__bot_1_1drive.html#a262b9ee2577c82cc075c73826bea23d3",
-"structargos__lib_1_1falcon__config_1_1has__forward_limit__normal_state.html",
-"structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html",
-"structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a6c93ae5e85b3382c8ff3237881454a71"
+"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca1dc1fc92125ac8ace7255f69415d9845",
+"functions_x.html",
+"namespacemotor_config_1_1practice__bot_1_1climber.html",
+"structargos__lib_1_1cancoder__config_1_1has__range_3_01_t_00_01decltype_07_07void_08_01_t_1_1range_00_01void_07_08_08_4.html",
+"structcontrol_loop_1_1comp__bot_1_1shooter_1_1turret.html#a78639be3a968187261e6b97219b43787",
+"structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#a0faa5dd352fd2383c275cb5272da6d29"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

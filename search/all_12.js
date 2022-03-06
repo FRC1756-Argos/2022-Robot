@@ -27,6 +27,6 @@ var searchData=
   ['turretmotor_24',['turretMotor',['../structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html',1,'motorConfig::comp_bot::shooter::turretMotor'],['../structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html',1,'motorConfig::practice_bot::shooter::turretMotor'],['../namespaceaddress_1_1shooter.html#afbb3f89dffe4c2c18719af7bbbf3ae90',1,'address::shooter::turretMotor()']]],
   ['turretsetposition_25',['TurretSetPosition',['../class_shooter_subsystem.html#a6ee059505949e3b0c56f7a66781674ed',1,'ShooterSubsystem']]],
   ['turretspeed_26',['turretSpeed',['../namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250',1,'controllerMap']]],
-  ['turrettarget_27',['turretTarget',['../struct_auto_aim_command_1_1aim_values.html#ae0d5a3514e21aa772550f64932ba2a1c',1,'AutoAimCommand::aimValues']]],
+  ['turrettarget_27',['turretTarget',['../struct_aim_values.html#adc727078129e601206b924478707ceb6',1,'AimValues']]],
   ['tvalues_28',['tValues',['../struct_limelight_target_1_1t_values.html',1,'LimelightTarget']]]
 ];

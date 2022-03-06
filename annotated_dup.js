@@ -174,6 +174,7 @@ var annotated_dup =
         ] ]
       ] ]
     ] ],
+    [ "AimValues", "struct_aim_values.html", "struct_aim_values" ],
     [ "AutoAimCommand", "class_auto_aim_command.html", "class_auto_aim_command" ],
     [ "CameraInterface", "class_camera_interface.html", "class_camera_interface" ],
     [ "ClimberSubsystem", "class_climber_subsystem.html", "class_climber_subsystem" ],

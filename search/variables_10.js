@@ -9,7 +9,7 @@ var searchData=
   ['sensortomotorrev_6',['sensorToMotorRev',['../namespacesensor__conversions_1_1climb__hooks.html#acf3f3463fa0b891443f9461d9f26cc34',1,'sensor_conversions::climb_hooks::sensorToMotorRev()'],['../namespacesensor__conversions_1_1climb__arms.html#a346f85819130b4b00ed9dd69009aecd1',1,'sensor_conversions::climb_arms::sensorToMotorRev()']]],
   ['setpoint_7',['setpoint',['../structargos__lib_1_1_closed_loop_sensor_conversions.html#aaf9be32ee19cb40f0fdcf67b5efaa419',1,'argos_lib::ClosedLoopSensorConversions']]],
   ['shooterspeed_8',['shooterSpeed',['../struct_shooter_subsystem_1_1_shooter_distance_setpoints.html#a67c7d385c1f83bada25223ebc09159b8',1,'ShooterSubsystem::ShooterDistanceSetpoints::shooterSpeed()'],['../namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426',1,'shooterRange::shooterSpeed()']]],
-  ['shootertarget_9',['shooterTarget',['../struct_auto_aim_command_1_1aim_values.html#aec79ecf7b345edb4656ba4cd61643d5e',1,'AutoAimCommand::aimValues']]],
+  ['shootertarget_9',['shooterTarget',['../struct_aim_values.html#aaa0467d6fee4fa22d1c9aa453bf907ff',1,'AimValues']]],
   ['shootertimer_10',['shooterTimer',['../namespacethreshholds_1_1shooter.html#a9eca5ec9a153c01a28da7e6488dd9aa9',1,'threshholds::shooter']]],
   ['shooterwheelleft_11',['shooterWheelLeft',['../namespaceaddress_1_1shooter.html#a3b796d887b91768a68a3994df6faf72f',1,'address::shooter']]],
   ['shooterwheelright_12',['shooterWheelRight',['../namespaceaddress_1_1shooter.html#a8df1fe036b101508f70754a9960de8d2',1,'address::shooter']]],

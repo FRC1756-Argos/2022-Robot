@@ -1,5 +1,10 @@
 var NAVTREEINDEX3 =
 {
+"functions_x.html":[3,3,0,21],
+"functions_y.html":[3,3,0,22],
+"functions_~.html":[3,3,0,23],
+"globals.html":[4,1,0],
+"globals_defs.html":[4,1,2],
 "globals_func.html":[4,1,1],
 "hierarchy.html":[3,2],
 "home__climber__arm__command_8cpp.html":[4,0,0,1,0,0,1],
@@ -244,10 +249,5 @@ var NAVTREEINDEX3 =
 "namespacemotor_config_1_1comp__bot_1_1drive.html":[2,0,7,1,1],
 "namespacemotor_config_1_1comp__bot_1_1intake.html":[2,0,7,1,2],
 "namespacemotor_config_1_1comp__bot_1_1shooter.html":[2,0,7,1,3],
-"namespacemotor_config_1_1practice__bot.html":[2,0,7,2],
-"namespacemotor_config_1_1practice__bot_1_1climber.html":[2,0,7,2,0],
-"namespacemotor_config_1_1practice__bot_1_1climber.html#a291dd7c0ae5ee8d5db4fe3ddcdf4c069":[2,0,7,2,0,0],
-"namespacemotor_config_1_1practice__bot_1_1climber.html#a6b4020be8fd110333417c29c17ba9017":[2,0,7,2,0,2],
-"namespacemotor_config_1_1practice__bot_1_1climber.html#aa29d14b03a08dac60e6fc6ad79f222f8":[2,0,7,2,0,1],
-"namespacemotor_config_1_1practice__bot_1_1drive.html":[2,0,7,2,1]
+"namespacemotor_config_1_1practice__bot.html":[2,0,7,2]
 };

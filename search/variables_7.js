@@ -5,6 +5,6 @@ var searchData=
   ['hoodangle_2',['hoodAngle',['../struct_shooter_subsystem_1_1_shooter_distance_setpoints.html#a2c523a0699ef3bffd5c7581ff844bb70',1,'ShooterSubsystem::ShooterDistanceSetpoints::hoodAngle()'],['../namespaceshooter_range.html#acc94363d15c3cecc0952d70074def851',1,'shooterRange::hoodAngle()']]],
   ['hoodmotor_3',['hoodMotor',['../namespaceaddress_1_1shooter.html#ad897060d01d3e8364201efd2f50a8fb7',1,'address::shooter']]],
   ['hoodspeed_4',['hoodSpeed',['../namespacecontroller_map.html#a1dacaddb9145013bc537ff3ddf742751',1,'controllerMap']]],
-  ['hoodtarget_5',['hoodTarget',['../struct_auto_aim_command_1_1aim_values.html#a118bcf7a4b1a8952fec2642bad3d75db',1,'AutoAimCommand::aimValues']]],
+  ['hoodtarget_5',['hoodTarget',['../struct_aim_values.html#a24f90587101f3635b4ed19b010bc08d3',1,'AimValues']]],
   ['hookspeed_6',['hookSpeed',['../namespacecontroller_map.html#a32c5da49786d39390beceeea3a735887',1,'controllerMap']]]
 ];

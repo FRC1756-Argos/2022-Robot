@@ -1,6 +1,6 @@
 var hierarchy =
 [
-    [ "AutoAimCommand::aimValues", "struct_auto_aim_command_1_1aim_values.html", null ],
+    [ "AimValues", "struct_aim_values.html", null ],
     [ "motorConfig::comp_bot::drive::backLeftTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_left_turn.html", null ],
     [ "motorConfig::comp_bot::drive::backRightTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html", null ],
     [ "motorConfig::comp_bot::intake::beltDrive", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html", null ],
