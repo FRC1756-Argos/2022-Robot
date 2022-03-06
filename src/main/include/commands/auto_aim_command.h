@@ -30,17 +30,11 @@ class AutoAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoAimComm
   bool IsFinished() override;
 
  private:
-  struct aimValues {
-    units::degree_t turretTarget;
-    units::degree_t hoodTarget;
-    units::angular_velocity::revolutions_per_minute_t shooterTarget;
-  };
-
   ShooterSubsystem* m_shooter;
   argos_lib::Debouncer m_threshDebounce;
 
   template <typename T>
   bool InThreshold(T value, T threshold);
 
-  bool InAcceptableRanges(AutoAimCommand::aimValues targets, AutoAimCommand::aimValues real);
+  bool InAcceptableRanges(AimValues targets, AimValues real);
 };

@@ -62,38 +62,14 @@ bool AutoAimCommand::IsFinished() {
 
   // Get all targets:
   const auto shooterSetpoints = m_shooter->GetShooterDistanceSetpoints(distanceToTarget);
-  AutoAimCommand::aimValues targets{turretTarget.value(), shooterSetpoints.hoodAngle, shooterSetpoints.shooterSpeed};
+  AimValues targets{turretTarget.value(), shooterSetpoints.hoodAngle, shooterSetpoints.shooterSpeed};
 
-  AutoAimCommand::aimValues real{turretReal.value(), m_shooter->GetHoodPosition(), m_shooter->GetShooterSpeed()};
+  AimValues real{turretReal.value(), m_shooter->GetHoodPosition(), m_shooter->GetShooterSpeed()};
 
   // DEBOUNCE
-  if (m_threshDebounce(InAcceptableRanges(targets, real))) {
+  if (m_threshDebounce(m_shooter->InAcceptableRanges(targets, real))) {
     return true;
   }
 
   return false;
-}
-
-template <typename T>
-bool AutoAimCommand::InThreshold(T value, T threshold) {
-  if (value < value - threshold || value > value + threshold) {
-    return false;
-  } else {
-    return true;
-  }
-}
-
-bool AutoAimCommand::InAcceptableRanges(AutoAimCommand::aimValues targets, AutoAimCommand::aimValues real) {
-  const bool turretAcceptableRange =
-      InThreshold<units::degree_t>(targets.turretTarget, threshholds::shooter::acceptableTurretError);
-  const bool hoodAcceptableRange =
-      InThreshold<units::degree_t>(targets.hoodTarget, threshholds::shooter::acceptableHoodError);
-  const bool shooterAcceptableRange = InThreshold<units::angular_velocity::revolutions_per_minute_t>(
-      targets.shooterTarget, threshholds::shooter::acceptableWheelError);
-
-  frc::SmartDashboard::PutBoolean("Acceptable Error) Turret", turretAcceptableRange);
-  frc::SmartDashboard::PutBoolean("(Acceptable Error) Hood", hoodAcceptableRange);
-  frc::SmartDashboard::PutBoolean("(Acceptable Error) Wheel Speed", shooterAcceptableRange);
-
-  return turretAcceptableRange && hoodAcceptableRange && shooterAcceptableRange;
 }

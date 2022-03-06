@@ -10,6 +10,7 @@
 #include "argos_lib/config/robot_instance.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
+#include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "ctre/Phoenix.h"
 #include "networktables/NetworkTable.h"
 #include "networktables/NetworkTableEntry.h"
@@ -41,6 +42,16 @@ class LimelightTarget {
   /// @todo ADD DOCUMENTATION
   bool HasTarget();
 };
+
+/**
+ * @brief Shooter aiming parameters
+ */
+struct AimValues {
+  units::degree_t turretTarget;
+  units::degree_t hoodTarget;
+  units::angular_velocity::revolutions_per_minute_t shooterTarget;
+};
+
 class CameraInterface {
  public:
   CameraInterface();
@@ -72,7 +83,8 @@ class ShooterSubsystem : public frc2::SubsystemBase {
     units::degree_t hoodAngle;
   };
 
-  explicit ShooterSubsystem(const argos_lib::RobotInstance instance);
+  ShooterSubsystem(const argos_lib::RobotInstance instance,
+                   argos_lib::SwappableControllersSubsystem* controllers = nullptr);
 
   enum class FixedPosState { Front, Left, Right, Back };
 
@@ -252,8 +264,9 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @brief Setting the shooter speed and hood angle depeneding on how far away the target is
    *
    * @param distanceToTarget The distance to the target from the robot
+   * @return Hood and shooter setpoints
    */
-  void SetShooterDistance(units::inch_t distanceToTarget);
+  ShooterDistanceSetpoints SetShooterDistance(units::inch_t distanceToTarget);
 
   /**
    * @brief Handles fixed close shot shooting positions around hub
@@ -280,7 +293,40 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void SetCameraDriverMode(bool driverMode);
 
+  /**
+   * @brief Detect if a value is within a threshold of a target value
+   *
+   * @tparam T Type that implements operator+(), operator-(), operator<=() and operator>=()
+   * @param value Value to check
+   * @param target Center of range
+   * @param threshold Allowable error from target
+   * @return true when value is within threshold of target, false otherwise
+   */
+  template <typename T>
+  constexpr static bool InThreshold(const T value, const T target, const T threshold) {
+    return value >= target - threshold && value <= target + threshold;
+  }
+
+  /**
+   * @brief Checks if all shooter values are close enough to target values
+   *
+   * @param targets Desired values
+   * @param real Current actual values
+   * @return true if all real values close enough to targets, false otherwise
+   */
+  static bool InAcceptableRanges(const AimValues targets, const AimValues real);
+
  private:
+  /**
+   * @brief Stop vibration feedback
+   */
+  void StopFeedback() const;
+
+  /**
+   * @brief Activate vibration feedback to indicate aimed
+   */
+  void AimedFeedback() const;
+
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   WPI_TalonFX m_shooterWheelLeft;
@@ -310,4 +356,5 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   argos_lib::NTMotorPIDTuner m_turretPIDTuner;
 
   argos_lib::RobotInstance m_instance;
+  argos_lib::SwappableControllersSubsystem* m_pControllers;
 };
