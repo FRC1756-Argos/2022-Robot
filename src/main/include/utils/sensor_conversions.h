@@ -3,9 +3,26 @@
 ///            the license file in the root directory of this project.
 
 #pragma once
+#include "units/acceleration.h"
 #include "units/angle.h"
 #include "units/angular_velocity.h"
+#include "units/base.h"
 #include "units/length.h"
+#include "units/time.h"
+#include "units/velocity.h"
+
+namespace units {
+  UNIT_ADD(velocity,
+           inches_per_second,
+           inches_per_second,
+           ips,
+           units::compound_unit<units::length::inches, units::inverse<units::time::second>>)
+  UNIT_ADD(acceleration,
+           inches_per_second_squared,
+           inches_per_second_squared,
+           ips2,
+           units::compound_unit<units::length::inches, units::inverse<units::squared<units::time::second>>>)
+}  // namespace units
 
 namespace sensor_conversions {
   namespace swerve_drive {
@@ -62,7 +79,7 @@ namespace sensor_conversions {
     constexpr double sensorToMotorRev = 1.0 / 2048;
     constexpr double gearboxReduction = 10.0 / 30;
     constexpr double extensionMillimetersPerRevolution = 4.0;
-    constexpr double fudgeFactor = 1.1444;  ///< @todo Why are we off by this amount?
+    constexpr double fudgeFactor = 1.1;  ///< @todo Why are we off by this amount?
     constexpr units::inch_t ToExtension(const double sensorUnit) {
       return units::make_unit<units::millimeter_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
                                                    extensionMillimetersPerRevolution * fudgeFactor);
@@ -71,13 +88,28 @@ namespace sensor_conversions {
       return extension.to<double>() / fudgeFactor / extensionMillimetersPerRevolution / gearboxReduction /
              sensorToMotorRev;
     }
+
+    constexpr double ToSensorVelocity(const units::meters_per_second_t velocity) {
+      return ToSensorUnit(velocity * units::decisecond_t{1});
+    }
+
+    constexpr units::meters_per_second_t ToVelocity(double sensorVelocity) {
+      return units::meters_per_second_t{ToExtension(sensorVelocity) / units::decisecond_t{1}};
+    }
+
+    constexpr double ToSensorAccel(const units::meters_per_second_squared_t accel) {
+      return ToSensorVelocity(accel * 1_s);
+    }
+
+    constexpr units::meters_per_second_squared_t ToAccel(double sensorAccel) { return ToVelocity(sensorAccel) / 1_s; }
+
   }  // namespace climb_arms
   namespace climb_hooks {
     constexpr double sensorToMotorRev = 1.0 / 2048;
     constexpr double gearboxReduction = 1.0 / 8;
     constexpr double driveSprocketTeethPerRevolution = 18.0;
     constexpr double extensionInchesPerDriveSprocketTooth = 0.25 / 1;
-    constexpr double fudgeFactor = 0.8354;  ///< @todo Why are we off by this amount?
+    constexpr double fudgeFactor = 0.88;  ///< @todo Why are we off by this amount?
     constexpr units::inch_t ToExtension(const double sensorUnit) {
       return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
                                              driveSprocketTeethPerRevolution * extensionInchesPerDriveSprocketTooth *
@@ -87,5 +119,19 @@ namespace sensor_conversions {
       return extension.to<double>() / fudgeFactor / extensionInchesPerDriveSprocketTooth /
              driveSprocketTeethPerRevolution / gearboxReduction / sensorToMotorRev;
     }
+
+    constexpr double ToSensorVelocity(const units::meters_per_second_t velocity) {
+      return ToSensorUnit(velocity * units::decisecond_t{1});
+    }
+
+    constexpr units::meters_per_second_t ToVelocity(double sensorVelocity) {
+      return units::meters_per_second_t{ToExtension(sensorVelocity) / units::decisecond_t{1}};
+    }
+
+    constexpr double ToSensorAccel(const units::meters_per_second_squared_t accel) {
+      return ToSensorVelocity(accel * 1_s);
+    }
+
+    constexpr units::meters_per_second_squared_t ToAccel(double sensorAccel) { return ToVelocity(sensorAccel) / 1_s; }
   }  // namespace climb_hooks
 }  // namespace sensor_conversions
