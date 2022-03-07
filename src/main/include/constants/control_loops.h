@@ -42,7 +42,25 @@ namespace controlLoop {
         constexpr static double allowableError = 2;
       };  // namespace turret
     }     // namespace shooter
-  }       // namespace comp_bot
+    namespace climber {
+      namespace hook {
+        constexpr static double kP = 0.2;
+        constexpr static double kI = 0.0;
+        constexpr static double kD = 0.0;
+        constexpr static double kF = 0.05;
+        constexpr static double iZone = 200.0;
+        constexpr static double allowableError = 0;
+      }  // namespace hook
+      namespace arm {
+        constexpr static double kP = 0.03;
+        constexpr static double kI = 0.01;
+        constexpr static double kD = 0.0;
+        constexpr static double kF = 0.05;
+        constexpr static double iZone = 200.0;
+        constexpr static double allowableError = 0;
+      }  // namespace arm
+    }    // namespace climber
+  }      // namespace comp_bot
   namespace practice_bot {
     namespace drive {
       using rotate = controlLoop::comp_bot::drive::rotate;

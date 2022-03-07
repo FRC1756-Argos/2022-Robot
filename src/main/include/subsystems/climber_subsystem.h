@@ -10,6 +10,7 @@
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 #include "units/length.h"
+#include "utils/sensor_conversions.h"
 
 class ClimberSubsystem : public frc2::SubsystemBase {
  public:
@@ -112,11 +113,33 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   void ArmSetPosition(units::inch_t extension);
 
   /**
+   * @brief Sets arm linear actuator positions under closed loop control using motion magic
+   *
+   * @param extension Arm position where positive is upward
+   * @param cruiseVelocity Max movement velocity
+   * @param acceleration Max movement acceleration
+   */
+  void ArmSetPosition(units::inch_t extension,
+                      units::inches_per_second_t cruiseVelocity,
+                      units::inches_per_second_squared_t acceleration);
+
+  /**
    * @brief Set hooks to a given position under closed-loop control
    *
    * @param extension Hook position where 0 is at the shoulder and positive is outward
    */
   void HooksSetPosition(units::inch_t extension);
+
+  /**
+   * @brief Set hooks to a given position under closed-loop control using motion magic
+   *
+   * @param extension Hook position where 0 is at the shoulder and positive is outward
+   * @param cruiseVelocity Max movement velocity
+   * @param acceleration Max movement acceleration
+   */
+  void HooksSetPosition(units::inch_t extension,
+                        units::inches_per_second_t cruiseVelocity,
+                        units::inches_per_second_squared_t acceleration);
 
   /**
    * @brief Detect if hook homing is complete
@@ -163,6 +186,10 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    */
   void ManualOverride();
 
+  void SetHookSoftLimits();
+
+  void DisableHookSoftLimits();
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
@@ -177,4 +204,13 @@ class ClimberSubsystem : public frc2::SubsystemBase {
 
   argos_lib::NTMotorPIDTuner m_armPIDTuner;
   argos_lib::NTMotorPIDTuner m_hookPIDTuner;
+
+  void ClimberPositionSetup();
+  void ClimberPositionLatchL2();
+  void ClimberPositionPrepareL2();
+  void ClimberPositionSecureL2();
+  void ClimberPositionPassL3();
+  void ClimberPositionLatchL3();
+  void ClimberPositionPrepareTransferL3();
+  void ClimberPositionTransferL3();
 };
