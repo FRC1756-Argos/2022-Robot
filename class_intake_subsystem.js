@@ -16,7 +16,6 @@ var class_intake_subsystem =
     [ "Shoot", "class_intake_subsystem.html#afbe996c1e7c8ebb04df1bc437cbd8ce9", null ],
     [ "StopIntake", "class_intake_subsystem.html#ad65167420b56ea554183d6e6fd81e95e", null ],
     [ "StopShoot", "class_intake_subsystem.html#af5abc0a3db0b4bbc030d401f0302bd8d", null ],
-    [ "m_ballColor", "class_intake_subsystem.html#ab7735ed9a8c4a30123bcd5ab9e776453", null ],
     [ "m_ballPresentIntake", "class_intake_subsystem.html#aeddac30d1e8ac8fa744e66dc9f03e0c7", null ],
     [ "m_ballPresentShooter", "class_intake_subsystem.html#a6fd58051a0f0f78b3becabfeaf515b13", null ],
     [ "m_beltDrive", "class_intake_subsystem.html#af3679393abbf4d5ad009cb85c4a8ea46", null ],

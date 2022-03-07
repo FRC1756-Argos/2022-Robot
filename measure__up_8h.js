@@ -23,7 +23,9 @@ var measure__up_8h =
     [ "homeExtension", "measure__up_8h.html#af555af33e5a26190d8916a9aff9705f7", null ],
     [ "length", "measure__up_8h.html#ae957e01d5b3460e5bce14a80300c2680", null ],
     [ "maxAngle", "measure__up_8h.html#a657d6cfebd013ef5acbaa4f5273024c6", null ],
+    [ "maxExtension", "measure__up_8h.html#a20fabbe2106e8f60baa1369cffccd932", null ],
     [ "minAngle", "measure__up_8h.html#ad1eb07c86b30a2bb396ec5ef939b9214", null ],
+    [ "minExtension", "measure__up_8h.html#a8357917999abc7abec635791e569a701", null ],
     [ "toRotationCenter", "measure__up_8h.html#a56a78f7e1115dee7de3d58028f4b6c7e", null ],
     [ "upperHubHeight", "measure__up_8h.html#a3c22068b76ca9c720e7c98dd4cd11c3e", null ],
     [ "width", "measure__up_8h.html#aff61d4016fc44a7ba5a70ad24289f702", null ]

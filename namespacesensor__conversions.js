@@ -1,16 +1,24 @@
 var namespacesensor__conversions =
 [
     [ "climb_arms", "namespacesensor__conversions_1_1climb__arms.html", [
+      [ "ToAccel", "namespacesensor__conversions_1_1climb__arms.html#aa233dae05e8205e815ef393dcd748af6", null ],
       [ "ToExtension", "namespacesensor__conversions_1_1climb__arms.html#a0e5a596b90bab9c29d2066991e66c859", null ],
+      [ "ToSensorAccel", "namespacesensor__conversions_1_1climb__arms.html#a6b6826431f80f848097b46f6e5ef4691", null ],
       [ "ToSensorUnit", "namespacesensor__conversions_1_1climb__arms.html#acd8fb1fcb4eb0387ed3c37839513221f", null ],
+      [ "ToSensorVelocity", "namespacesensor__conversions_1_1climb__arms.html#acbf1d545721822178a0003492d768ffc", null ],
+      [ "ToVelocity", "namespacesensor__conversions_1_1climb__arms.html#a364f12bfb05ced603e792bd6620e9080", null ],
       [ "extensionMillimetersPerRevolution", "namespacesensor__conversions_1_1climb__arms.html#a4522291ba4fcd2591dc96b233f96eaef", null ],
       [ "fudgeFactor", "namespacesensor__conversions_1_1climb__arms.html#a1cb67fd829259c079378ea326e6f45f0", null ],
       [ "gearboxReduction", "namespacesensor__conversions_1_1climb__arms.html#af22d4eb14799484696e0f9da8039d7bb", null ],
       [ "sensorToMotorRev", "namespacesensor__conversions_1_1climb__arms.html#a346f85819130b4b00ed9dd69009aecd1", null ]
     ] ],
     [ "climb_hooks", "namespacesensor__conversions_1_1climb__hooks.html", [
+      [ "ToAccel", "namespacesensor__conversions_1_1climb__hooks.html#a7aa31d96178a32c4b38b52683514f763", null ],
       [ "ToExtension", "namespacesensor__conversions_1_1climb__hooks.html#ad8e0fa14c8d21a31537fbdedffa181af", null ],
+      [ "ToSensorAccel", "namespacesensor__conversions_1_1climb__hooks.html#aaaa3a084ed25aaf0467cfa99efe8a5ee", null ],
       [ "ToSensorUnit", "namespacesensor__conversions_1_1climb__hooks.html#a42683b855e93b97fcd8e02ea8ef03cf9", null ],
+      [ "ToSensorVelocity", "namespacesensor__conversions_1_1climb__hooks.html#ad253386999e080d59cb5712fb125d252", null ],
+      [ "ToVelocity", "namespacesensor__conversions_1_1climb__hooks.html#a785ff40a9711b037c2114372f2bf8f69", null ],
       [ "driveSprocketTeethPerRevolution", "namespacesensor__conversions_1_1climb__hooks.html#a1eee946bb21b42bfdae9c04e084a33da", null ],
       [ "extensionInchesPerDriveSprocketTooth", "namespacesensor__conversions_1_1climb__hooks.html#abb5e81026ade54f9101fe970f3a8ad08", null ],
       [ "fudgeFactor", "namespacesensor__conversions_1_1climb__hooks.html#a1827c5505cea37146c6c5bd7a82344c0", null ],

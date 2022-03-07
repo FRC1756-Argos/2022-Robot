@@ -31,5 +31,10 @@ var namespaces_dup =
       [ "shooterSpeed", "namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426", null ]
     ] ],
     [ "speeds", "namespacespeeds.html", "namespacespeeds" ],
-    [ "threshholds", "namespacethreshholds.html", "namespacethreshholds" ]
+    [ "threshholds", "namespacethreshholds.html", "namespacethreshholds" ],
+    [ "units", "namespaceunits.html", [
+      [ "UNIT_ADD", "namespaceunits.html#a6e423a2262132d26e8ff94ee0a5602a3", null ],
+      [ "inches_per_second_squared", "namespaceunits.html#a52a6dd54166d620dcf209941ef4a0a3b", null ],
+      [ "ips2", "namespaceunits.html#a4cf07b5a413a59d8dabf8d98992eb77b", null ]
+    ] ]
 ];

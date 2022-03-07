@@ -96,6 +96,14 @@ Functions</h2></td></tr>
 <tr class="separator:ad8e0fa14c8d21a31537fbdedffa181af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42683b855e93b97fcd8e02ea8ef03cf9"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#a42683b855e93b97fcd8e02ea8ef03cf9">ToSensorUnit</a> (const units::inch_t extension)</td></tr>
 <tr class="separator:a42683b855e93b97fcd8e02ea8ef03cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad253386999e080d59cb5712fb125d252"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#ad253386999e080d59cb5712fb125d252">ToSensorVelocity</a> (const units::meters_per_second_t velocity)</td></tr>
+<tr class="separator:ad253386999e080d59cb5712fb125d252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a785ff40a9711b037c2114372f2bf8f69"><td class="memItemLeft" align="right" valign="top">constexpr units::meters_per_second_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#a785ff40a9711b037c2114372f2bf8f69">ToVelocity</a> (double sensorVelocity)</td></tr>
+<tr class="separator:a785ff40a9711b037c2114372f2bf8f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaa3a084ed25aaf0467cfa99efe8a5ee"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#aaaa3a084ed25aaf0467cfa99efe8a5ee">ToSensorAccel</a> (const units::meters_per_second_squared_t accel)</td></tr>
+<tr class="separator:aaaa3a084ed25aaf0467cfa99efe8a5ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aa31d96178a32c4b38b52683514f763"><td class="memItemLeft" align="right" valign="top">constexpr units::meters_per_second_squared_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#a7aa31d96178a32c4b38b52683514f763">ToAccel</a> (double sensorAccel)</td></tr>
+<tr class="separator:a7aa31d96178a32c4b38b52683514f763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -107,10 +115,36 @@ Variables</h2></td></tr>
 <tr class="separator:a1eee946bb21b42bfdae9c04e084a33da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb5e81026ade54f9101fe970f3a8ad08"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#abb5e81026ade54f9101fe970f3a8ad08">extensionInchesPerDriveSprocketTooth</a> = 0.25 / 1</td></tr>
 <tr class="separator:abb5e81026ade54f9101fe970f3a8ad08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1827c5505cea37146c6c5bd7a82344c0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#a1827c5505cea37146c6c5bd7a82344c0">fudgeFactor</a> = 0.8354</td></tr>
+<tr class="memitem:a1827c5505cea37146c6c5bd7a82344c0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesensor__conversions_1_1climb__hooks.html#a1827c5505cea37146c6c5bd7a82344c0">fudgeFactor</a> = 0.88</td></tr>
 <tr class="separator:a1827c5505cea37146c6c5bd7a82344c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a7aa31d96178a32c4b38b52683514f763" name="a7aa31d96178a32c4b38b52683514f763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aa31d96178a32c4b38b52683514f763">&#9670;&nbsp;</a></span>ToAccel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr units::meters_per_second_squared_t sensor_conversions::climb_hooks::ToAccel </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>sensorAccel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad8e0fa14c8d21a31537fbdedffa181af" name="ad8e0fa14c8d21a31537fbdedffa181af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad8e0fa14c8d21a31537fbdedffa181af">&#9670;&nbsp;</a></span>ToExtension()</h2>
 
@@ -137,6 +171,32 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aaaa3a084ed25aaf0467cfa99efe8a5ee" name="aaaa3a084ed25aaf0467cfa99efe8a5ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaa3a084ed25aaf0467cfa99efe8a5ee">&#9670;&nbsp;</a></span>ToSensorAccel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double sensor_conversions::climb_hooks::ToSensorAccel </td>
+          <td>(</td>
+          <td class="paramtype">const units::meters_per_second_squared_t&#160;</td>
+          <td class="paramname"><em>accel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a42683b855e93b97fcd8e02ea8ef03cf9" name="a42683b855e93b97fcd8e02ea8ef03cf9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a42683b855e93b97fcd8e02ea8ef03cf9">&#9670;&nbsp;</a></span>ToSensorUnit()</h2>
 
@@ -151,6 +211,58 @@ Variables</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const units::inch_t&#160;</td>
           <td class="paramname"><em>extension</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad253386999e080d59cb5712fb125d252" name="ad253386999e080d59cb5712fb125d252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad253386999e080d59cb5712fb125d252">&#9670;&nbsp;</a></span>ToSensorVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double sensor_conversions::climb_hooks::ToSensorVelocity </td>
+          <td>(</td>
+          <td class="paramtype">const units::meters_per_second_t&#160;</td>
+          <td class="paramname"><em>velocity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a785ff40a9711b037c2114372f2bf8f69" name="a785ff40a9711b037c2114372f2bf8f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a785ff40a9711b037c2114372f2bf8f69">&#9670;&nbsp;</a></span>ToVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr units::meters_per_second_t sensor_conversions::climb_hooks::ToVelocity </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>sensorVelocity</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -218,7 +330,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double sensor_conversions::climb_hooks::fudgeFactor = 0.8354</td>
+          <td class="memname">constexpr double sensor_conversions::climb_hooks::fudgeFactor = 0.88</td>
         </tr>
       </table>
   </td>

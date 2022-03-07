@@ -14,7 +14,9 @@ var namespacemeasure__up =
       [ "homeExtension", "namespacemeasure__up_1_1climber__arm.html#a24f3e1f5ae850265147bce0fd08c24d9", null ]
     ] ],
     [ "climber_hook", "namespacemeasure__up_1_1climber__hook.html", [
-      [ "homeExtension", "namespacemeasure__up_1_1climber__hook.html#af555af33e5a26190d8916a9aff9705f7", null ]
+      [ "homeExtension", "namespacemeasure__up_1_1climber__hook.html#af555af33e5a26190d8916a9aff9705f7", null ],
+      [ "maxExtension", "namespacemeasure__up_1_1climber__hook.html#a20fabbe2106e8f60baa1369cffccd932", null ],
+      [ "minExtension", "namespacemeasure__up_1_1climber__hook.html#a8357917999abc7abec635791e569a701", null ]
     ] ],
     [ "closepositions", "namespacemeasure__up_1_1closepositions.html", [
       [ "fixedBackPos", "namespacemeasure__up_1_1closepositions.html#ab2957c9b97aec3856a00f69098f03cbe", null ],
