@@ -4,6 +4,7 @@
 
 #include "subsystems/shooter_subsystem.h"
 
+#include <frc/drive/Vector2d.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
 #include "Constants.h"
@@ -406,23 +407,20 @@ void CameraInterface::SetDriverMode(bool mode) {
   table->PutNumber("pipeline", requestedPipeline);
 }
 
-units::angle::degrees_t CameraInterface::HorizontalPixelToAngle(int pixels) {
-  return (Constants::Camera::HorizontalAngleResolution * pixels) / Constants::Camera::HorizontalPixelResolution;
+units::angle::degree_t CameraInterface::HorizontalPixelToAngle(int pixels) {
+  return (camera::horizontalAngleResolution * pixels) / camera::horizontalPixelResolution;
 }
 
-units::angle::degrees_t CameraInterface::VerticalPixelToAngle(int pixels) {
-  return (Constants::Camera::VerticalAngleResolution * pixels) / Constants::Camera::VerticalPixelResolution;
+units::angle::degree_t CameraInterface::VerticalPixelToAngle(int pixels) {
+  return (camera::verticalAngleResolution * pixels) / camera::verticalPixelResolution;
 }
 
-units::angle::degrees_t CameraInterfact::GetNewPitch(units::angle::degrees_t cx,
-                                                     units::angle::degrees_t cy,
-                                                     int bboxHorizontalPixels,
-                                                     int bboxVerticalPixels,
-                                                     units::angle::degrees skew) {
-  double topLeftCornerX = cx - (HorizontalPixelToAngle(bboxHorizontalPixels) * 0.5);
-  double topLeftCornerY = cy + (VerticalPixelToAngle(bboxVerticalPixels) * 0.5);
-  double topRightCornerX = cx + (HorizontalPixelToAngle(bboxHorizontalPixels) * 0.5);
-  double topRightCornerY = cy + (VerticallPixelToAngle(bboxVerticalPixels) * 0.5);
+units::angle::degree_t CameraInterface::GetNewPitch(
+    units::degree_t cx, units::degree_t cy, int bboxHorizontalPixels, int bboxVerticalPixels, units::degree_t skew) {
+  units::degree_t topLeftCornerX = cx - (HorizontalPixelToAngle(bboxHorizontalPixels) * 0.5);
+  units::degree_t topLeftCornerY = cy + (VerticalPixelToAngle(bboxVerticalPixels) * 0.5);
+  units::degree_t topRightCornerX = cx + (HorizontalPixelToAngle(bboxHorizontalPixels) * 0.5);
+  units::degree_t topRightCornerY = cy + (VerticalPixelToAngle(bboxVerticalPixels) * 0.5);
 
   // translate
   topLeftCornerX -= cx;
@@ -431,18 +429,18 @@ units::angle::degrees_t CameraInterfact::GetNewPitch(units::angle::degrees_t cx,
   topRightCornerY -= cy;
 
   // rotate
-  frc::Vector2d topLeftCorner(topLeftCornerX, topLeftCornerY);
-  frc::Vector2d topRightCorner(topRightCornerX, topRightCornerY);
-  topLeftCorner.Rotate(skew);
-  topRightCorner.Rotate(skew);
+  frc::Vector2d topLeftCorner(topLeftCornerX.to<double>(), topLeftCornerY.to<double>());
+  frc::Vector2d topRightCorner(topRightCornerX.to<double>(), topRightCornerY.to<double>());
+  topLeftCorner.Rotate(skew.to<double>());
+  topRightCorner.Rotate(skew.to<double>());
 
   // retranslate
-  topLeftCorner.x += cx;
-  topLeftCorner.y += cy;
-  topRightCorner.x += cx;
-  topRightCorner.y += cy;
+  topLeftCorner.x += cx.to<double>();
+  topLeftCorner.y += cy.to<double>();
+  topRightCorner.x += cx.to<double>();
+  topRightCorner.y += cy.to<double>();
 
-  return (topLeftCorner.y + topRightCorner.y) * 0.5;
+  return units::degree_t{(topLeftCorner.y + topRightCorner.y) * 0.5};
 }
 // LIMELIGHT TARGET MEMBER FUNCTIONS ===============================================================
 
@@ -453,7 +451,7 @@ LimelightTarget::tValues LimelightTarget::GetTarget() {
   m_pitch = units::make_unit<units::degree_t>(table->GetNumber("ty", 0.0));
   m_bboxHor = (table->GetNumber("tlong", 0.0));
   m_bboxVer = (table->GetNumber("tshort", 0.0));
-  m_skew = (table->GetNumber("ts", 0.0));
+  m_skew = units::degree_t{(table->GetNumber("ts", 0.0))};
   m_hasTargets = (table->GetNumber("tv", 0) == 1);
 
   tValues targetValues{m_pitch, m_yaw, m_bboxHor, m_bboxVer, m_skew};

@@ -56,8 +56,8 @@ namespace camera {
   constexpr char driverPipeline = 1;
   constexpr int horizontalPixelResolution = 320;
   constexpr int verticalPixelResolution = 240;
-  constexpr int horizontalAngleResolution = 54;
-  constexpr int verticalAngleResolution = 41;
+  constexpr auto horizontalAngleResolution = 54_deg;
+  constexpr auto verticalAngleResolution = 41_deg;
 }  // namespace camera
 
 namespace indexes {

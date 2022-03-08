@@ -17,6 +17,7 @@
 #include "networktables/NetworkTableInstance.h"
 #include "networktables/NetworkTableValue.h"
 #include "photonlib/PhotonCamera.h"
+#include "units/angle.h"
 #include "units/angular_velocity.h"
 #include "units/length.h"
 #include "utils/homing_storage_interface.h"
@@ -76,25 +77,22 @@ class CameraInterface {
    *
    * @return Degrees
    */
-  units::angle::degrees_t VerticalPixelToAngle(int pixels);
+  units::angle::degree_t VerticalPixelToAngle(int pixels);
 
   /**
    * @brief Converts horizontal pixels to degrees
    *
    * @return Degrees
    */
-  units::angle::degrees_t HorizontalPixelToAngle(int pixels);
+  units::angle::degree_t HorizontalPixelToAngle(int pixels);
 
   /**
    * @brief Gets the new pitch for the top of the target
    *
    * @return Pitch degrees of the top of the target
    */
-  units::angles::degrees_t GetNewPitch(units::angle::degrees_t cx,
-                                       units::angle::degrees_t cy,
-                                       int bboxHorizontalPixels,
-                                       int bboxVerticalPixels,
-                                       units::angle::degrees_t skew);
+  units::angle::degree_t GetNewPitch(
+      units::degree_t cx, units::degree_t cy, int bboxHorizontalPixels, int bboxVerticalPixels, units::degree_t skew);
 
   /**
    * @brief Turns the camera's driver mode on and off
