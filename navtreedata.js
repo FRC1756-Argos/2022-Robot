@@ -64,13 +64,13 @@ var NAVTREEINDEX =
 [
 "_constants_8h.html",
 "class_limelight_target.html#af1d321584e6d4869108f160f2bc8f0e7",
-"classargos__lib_1_1_swappable_controllers_subsystem.html#a6a6a51e0c28a82a64463ef31b2759219",
-"functions_func_v.html",
-"namespaceindexes.html",
-"struct_aim_values.html#a24f90587101f3635b4ed19b010bc08d3",
-"structargos__lib_1_1talonsrx__config_1_1has__pid0__k_f.html",
-"structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#ad6d3e3dc54afe393bcc70d44986455ff",
-"structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html#a7bb895e7bd51c0ad3bf6c07ff4960bdf"
+"classargos__lib_1_1_swappable_controllers_subsystem.html#a6a137c6ef1768f6f621799055c66582b",
+"functions_func_u.html",
+"namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250",
+"struct_aim_values.html",
+"structargos__lib_1_1talonsrx__config_1_1has__pid0__k_d_3_01_t_00_01decltype_07_07void_08_01_t_1_1pid0__k_d_00_01void_07_08_08_4.html",
+"structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#abc313644650af1c8b9358f6e11954879",
+"structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html#a66d43650550244e1f06115a4a559a7db"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

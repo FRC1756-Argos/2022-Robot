@@ -58,5 +58,6 @@ var class_shooter_subsystem =
     [ "m_turretHomed", "class_shooter_subsystem.html#a75f4da6b9d4e5874fa70f6607084187c", null ],
     [ "m_turretHomingStorage", "class_shooter_subsystem.html#a5a50798ecf835239bef0b9b5324044d8", null ],
     [ "m_turretMotor", "class_shooter_subsystem.html#aea7115a3578a514d19877c79c5268a90", null ],
-    [ "m_turretPIDTuner", "class_shooter_subsystem.html#ad27554d9f1ba1e5b70a360b16433a5d2", null ]
+    [ "m_turretPIDTuner", "class_shooter_subsystem.html#ad27554d9f1ba1e5b70a360b16433a5d2", null ],
+    [ "m_useCalculatedPitch", "class_shooter_subsystem.html#a293c1b85a541732d6cc6033461ad534f", null ]
 ];

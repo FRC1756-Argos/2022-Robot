@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"classargos__lib_1_1_swappable_controllers_subsystem.html#a6a137c6ef1768f6f621799055c66582b":[3,0,0,13,3],
 "classargos__lib_1_1_swappable_controllers_subsystem.html#a6a6a51e0c28a82a64463ef31b2759219":[2,0,1,14,8],
 "classargos__lib_1_1_swappable_controllers_subsystem.html#a6a6a51e0c28a82a64463ef31b2759219":[3,0,0,13,8],
 "classargos__lib_1_1_swappable_controllers_subsystem.html#a838b20adf26856f0c543172253084e4f":[2,0,1,14,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "functions_func_p.html":[3,3,1,13],
 "functions_func_r.html":[3,3,1,14],
 "functions_func_s.html":[3,3,1,15],
-"functions_func_t.html":[3,3,1,16],
-"functions_func_u.html":[3,3,1,17]
+"functions_func_t.html":[3,3,1,16]
 };

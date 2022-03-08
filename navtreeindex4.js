@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250":[2,0,3,6],
 "namespaceindexes.html":[2,0,5],
 "namespaceindexes_1_1swerve_modules.html":[2,0,5,0],
 "namespaceindexes_1_1swerve_modules.html#a3bbc6a04c968b7b8cdb3733eb01f07ed":[2,0,5,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320":[4,0,0,0,1,0,1,4,0,1],
 "status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6ad46a3c5678779cf05cd17ebc830b976d":[4,0,0,0,1,0,1,4,0,9],
 "status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6af276da87ddfccdb55db7bde49c938904":[4,0,0,0,1,0,1,4,0,5],
-"status__frame__config_8h_source.html":[4,0,0,0,1,0,1,4],
-"struct_aim_values.html":[3,0,3]
+"status__frame__config_8h_source.html":[4,0,0,0,1,0,1,4]
 };

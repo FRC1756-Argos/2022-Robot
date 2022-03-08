@@ -73,6 +73,7 @@ var NAVTREEINDEX1 =
 "class_shooter_subsystem.html#a1bc0469fe560eb8e037df015ed23ef45":[3,0,21,19],
 "class_shooter_subsystem.html#a2075ab3f379a9d8ef3e017df1e82f6ea":[3,0,21,37],
 "class_shooter_subsystem.html#a2466fbf822ddd62852b9bbd5e401f120":[3,0,21,9],
+"class_shooter_subsystem.html#a293c1b85a541732d6cc6033461ad534f":[3,0,21,54],
 "class_shooter_subsystem.html#a2b962ecdee773e1cc83c4ddfbb52b0cb":[3,0,21,12],
 "class_shooter_subsystem.html#a2db46e10af9c9b611e5a2a5c7c02a8ef":[3,0,21,42],
 "class_shooter_subsystem.html#a2e99c78a1d1c2277febd511018d8f2b3":[3,0,21,24],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classargos__lib_1_1_swappable_controllers_subsystem.html#a4d46001829c2f8ac85c526933bf95ff3":[3,0,0,13,0],
 "classargos__lib_1_1_swappable_controllers_subsystem.html#a612a6d561346edd3da41f3f3af6cf5ff":[3,0,0,13,1],
 "classargos__lib_1_1_swappable_controllers_subsystem.html#a612a6d561346edd3da41f3f3af6cf5ff":[2,0,1,14,1],
-"classargos__lib_1_1_swappable_controllers_subsystem.html#a6a137c6ef1768f6f621799055c66582b":[2,0,1,14,3],
-"classargos__lib_1_1_swappable_controllers_subsystem.html#a6a137c6ef1768f6f621799055c66582b":[3,0,0,13,3]
+"classargos__lib_1_1_swappable_controllers_subsystem.html#a6a137c6ef1768f6f621799055c66582b":[2,0,1,14,3]
 };
