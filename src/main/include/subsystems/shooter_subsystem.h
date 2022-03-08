@@ -370,6 +370,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   bool m_hoodHomed;    ///< True when hood has known closed loop position
   bool m_turretHomed;  ///< True when turret has known closed loop position
   bool m_manualOverride;
+  bool m_useCalculatedPitch;  ///< True if we want to use the calculated pitch to the top of the hood
 
   argos_lib::InterpolationMap<decltype(shooterRange::shooterSpeed.front().inVal),
                               shooterRange::shooterSpeed.size(),
