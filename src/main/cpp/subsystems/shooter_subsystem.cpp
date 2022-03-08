@@ -26,6 +26,7 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
     , m_hoodHomed(false)
     , m_turretHomed(false)
     , m_manualOverride(false)
+    , m_useCalculatedPitch(false)
     , m_shooterSpeedMap(shooterRange::shooterSpeed)
     , m_hoodAngleMap(shooterRange::hoodAngle)
     , m_hoodPIDTuner{"argos/hood",
@@ -114,8 +115,16 @@ void ShooterSubsystem::AutoAim() {
   frc::SmartDashboard::PutNumber("(Turret) relAngle", currentTurretAngle.to<double>());
 
   // Get target distance & assign to hood & shooter
-  units::length::inch_t distanceToTarget = GetTargetDistance(m_cameraInterface.GetNewPitch(
-      targetValues.yaw, targetValues.pitch, targetValues.bboxHor, targetValues.bboxVer, targetValues.skew));
+  units::length::inch_t distanceToTarget;
+
+  if(m_useCalculatedPitch) {
+    units::degree_t newPitch = m_cameraInterface.GetNewPitch(
+      targetValues.yaw, targetValues.pitch, targetValues.bboxHor, targetValues.bboxVer, targetValues.skew);
+    distanceToTarget = GetTargetDistance(newPitch);
+    frc::SmartDashboard::PutNumber("(Auto-Aim) Calculated Pitch", newPitch.to<double>());
+  } else {
+    distanceToTarget = GetTargetDistance(targetValues.pitch);
+  }
   const auto shooterSetpoints = SetShooterDistance(distanceToTarget);
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance", distanceToTarget.to<double>());
