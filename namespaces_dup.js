@@ -4,7 +4,11 @@ var namespaces_dup =
     [ "argos_lib", "namespaceargos__lib.html", "namespaceargos__lib" ],
     [ "camera", "namespacecamera.html", [
       [ "driverPipeline", "namespacecamera.html#a3d35a57dd902ef20a7bb2726882b35c9", null ],
-      [ "targetingPipeline", "namespacecamera.html#ae6a5e15cb8b9f0c15a7b783d0fb6d67b", null ]
+      [ "horizontalAngleResolution", "namespacecamera.html#a8dfca834192be2214c62ba7dac08bca6", null ],
+      [ "horizontalPixelResolution", "namespacecamera.html#a03415aaaebc486386de1820a14cc05a0", null ],
+      [ "targetingPipeline", "namespacecamera.html#ae6a5e15cb8b9f0c15a7b783d0fb6d67b", null ],
+      [ "verticalAngleResolution", "namespacecamera.html#ad94933e1dd640a0c1cd401cbce236541", null ],
+      [ "verticalPixelResolution", "namespacecamera.html#a0335d77652a08a0006964684ce57537e", null ]
     ] ],
     [ "controllerMap", "namespacecontroller_map.html", [
       [ "armSpeed", "namespacecontroller_map.html#a380aa1e65ee269eb4a4b8a701befcedc", null ],

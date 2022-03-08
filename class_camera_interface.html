@@ -100,6 +100,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acbbf1024b4dd016563bcaedd6a4dc8fc"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="class_limelight_target.html">LimelightTarget</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#acbbf1024b4dd016563bcaedd6a4dc8fc">GetHighestTarget</a> ()</td></tr>
 <tr class="memdesc:acbbf1024b4dd016563bcaedd6a4dc8fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the highest target the camera can see CAN RETURN NONE.  <a href="class_camera_interface.html#acbbf1024b4dd016563bcaedd6a4dc8fc">More...</a><br /></td></tr>
 <tr class="separator:acbbf1024b4dd016563bcaedd6a4dc8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca7f8b0a9a6f0356145d836d8228e00a"><td class="memItemLeft" align="right" valign="top">units::angle::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#aca7f8b0a9a6f0356145d836d8228e00a">VerticalPixelToAngle</a> (int pixels)</td></tr>
+<tr class="memdesc:aca7f8b0a9a6f0356145d836d8228e00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts vertical pixels to degrees.  <a href="class_camera_interface.html#aca7f8b0a9a6f0356145d836d8228e00a">More...</a><br /></td></tr>
+<tr class="separator:aca7f8b0a9a6f0356145d836d8228e00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab937d7be9da32dc393a16cec6b9d9a1f"><td class="memItemLeft" align="right" valign="top">units::angle::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#ab937d7be9da32dc393a16cec6b9d9a1f">HorizontalPixelToAngle</a> (int pixels)</td></tr>
+<tr class="memdesc:ab937d7be9da32dc393a16cec6b9d9a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts horizontal pixels to degrees.  <a href="class_camera_interface.html#ab937d7be9da32dc393a16cec6b9d9a1f">More...</a><br /></td></tr>
+<tr class="separator:ab937d7be9da32dc393a16cec6b9d9a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27486eb9a7ecb3bfaeb0c6fd569e0042"><td class="memItemLeft" align="right" valign="top">units::angle::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#a27486eb9a7ecb3bfaeb0c6fd569e0042">GetNewPitch</a> (units::degree_t cx, units::degree_t cy, int bboxHorizontalPixels, int bboxVerticalPixels, units::degree_t skew)</td></tr>
+<tr class="memdesc:a27486eb9a7ecb3bfaeb0c6fd569e0042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the new pitch for the top of the target.  <a href="class_camera_interface.html#a27486eb9a7ecb3bfaeb0c6fd569e0042">More...</a><br /></td></tr>
+<tr class="separator:a27486eb9a7ecb3bfaeb0c6fd569e0042"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14f51bf0c59a8c8cacb30dfbe413a446"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_interface.html#a14f51bf0c59a8c8cacb30dfbe413a446">SetDriverMode</a> (bool mode)</td></tr>
 <tr class="memdesc:a14f51bf0c59a8c8cacb30dfbe413a446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the camera's driver mode on and off.  <a href="class_camera_interface.html#a14f51bf0c59a8c8cacb30dfbe413a446">More...</a><br /></td></tr>
 <tr class="separator:a14f51bf0c59a8c8cacb30dfbe413a446"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,6 +157,76 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a27486eb9a7ecb3bfaeb0c6fd569e0042" name="a27486eb9a7ecb3bfaeb0c6fd569e0042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27486eb9a7ecb3bfaeb0c6fd569e0042">&#9670;&nbsp;</a></span>GetNewPitch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::angle::degree_t CameraInterface::GetNewPitch </td>
+          <td>(</td>
+          <td class="paramtype">units::degree_t&#160;</td>
+          <td class="paramname"><em>cx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">units::degree_t&#160;</td>
+          <td class="paramname"><em>cy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bboxHorizontalPixels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bboxVerticalPixels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">units::degree_t&#160;</td>
+          <td class="paramname"><em>skew</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the new pitch for the top of the target. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pitch degrees of the top of the target </dd></dl>
+
+</div>
+</div>
+<a id="ab937d7be9da32dc393a16cec6b9d9a1f" name="ab937d7be9da32dc393a16cec6b9d9a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab937d7be9da32dc393a16cec6b9d9a1f">&#9670;&nbsp;</a></span>HorizontalPixelToAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::angle::degree_t CameraInterface::HorizontalPixelToAngle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pixels</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts horizontal pixels to degrees. </p>
+<dl class="section return"><dt>Returns</dt><dd>Degrees </dd></dl>
+
+</div>
+</div>
 <a id="a14f51bf0c59a8c8cacb30dfbe413a446" name="a14f51bf0c59a8c8cacb30dfbe413a446"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14f51bf0c59a8c8cacb30dfbe413a446">&#9670;&nbsp;</a></span>SetDriverMode()</h2>
 
@@ -171,6 +250,27 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aca7f8b0a9a6f0356145d836d8228e00a" name="aca7f8b0a9a6f0356145d836d8228e00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca7f8b0a9a6f0356145d836d8228e00a">&#9670;&nbsp;</a></span>VerticalPixelToAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::angle::degree_t CameraInterface::VerticalPixelToAngle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pixels</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts vertical pixels to degrees. </p>
+<dl class="section return"><dt>Returns</dt><dd>Degrees </dd></dl>
 
 </div>
 </div>

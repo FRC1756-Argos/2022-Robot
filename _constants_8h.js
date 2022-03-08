@@ -20,6 +20,8 @@ var _constants_8h =
     [ "frHomeFullPath", "_constants_8h.html#ad0f540d08ab07e4110b98771f6ba7788", null ],
     [ "frontLeftIndex", "_constants_8h.html#ad435bc6b1af006c01210ac292e6498bf", null ],
     [ "frontRightIndex", "_constants_8h.html#af97938e5981a9b1072a5f23108ded996", null ],
+    [ "horizontalAngleResolution", "_constants_8h.html#a8dfca834192be2214c62ba7dac08bca6", null ],
+    [ "horizontalPixelResolution", "_constants_8h.html#a03415aaaebc486386de1820a14cc05a0", null ],
     [ "intakeActivate", "_constants_8h.html#ab051a61981bb1ce2fbfaa24c059e14a4", null ],
     [ "intakeDeactivate", "_constants_8h.html#a288db7faf4a58c20ed9878cb471a65d8", null ],
     [ "intakeExtend", "_constants_8h.html#a6e607a8f12b192fae355e3bace62c7d0", null ],
@@ -31,5 +33,7 @@ var _constants_8h =
     [ "swerveHomesPath", "_constants_8h.html#a409e68dc719283f90e4de04a5499bf18", null ],
     [ "tableKey", "_constants_8h.html#aa350ed756bc6429793662c7117ad1b7a", null ],
     [ "targetingPipeline", "_constants_8h.html#ae6a5e15cb8b9f0c15a7b783d0fb6d67b", null ],
-    [ "turretHomePath", "_constants_8h.html#a9f076c665d70ad771851829b8613cb0d", null ]
+    [ "turretHomePath", "_constants_8h.html#a9f076c665d70ad771851829b8613cb0d", null ],
+    [ "verticalAngleResolution", "_constants_8h.html#ad94933e1dd640a0c1cd401cbce236541", null ],
+    [ "verticalPixelResolution", "_constants_8h.html#a0335d77652a08a0006964684ce57537e", null ]
 ];
