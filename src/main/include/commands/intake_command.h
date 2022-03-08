@@ -16,9 +16,9 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class ShootCommand : public frc2::CommandHelper<frc2::CommandBase, ShootCommand> {
+class IntakeCommand : public frc2::CommandHelper<frc2::CommandBase, IntakeCommand> {
  public:
-  explicit ShootCommand(IntakeSubsystem* subsystem);
+  explicit IntakeCommand(IntakeSubsystem* subsytem);
 
   void Initialize() override;
 

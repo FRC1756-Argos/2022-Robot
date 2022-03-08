@@ -27,6 +27,7 @@ namespace threshholds {
     constexpr auto acceptableHoodError = 0.5_deg;
     constexpr auto acceptableWheelError = 100_rpm;
     constexpr auto acceptableRangeTime = 250_ms;
+    constexpr auto shooterTimer = 350_ms;
   }  // namespace shooter
 }  // namespace threshholds
 

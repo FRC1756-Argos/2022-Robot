@@ -22,6 +22,7 @@
 #include "subsystems/shooter_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
 #include "utils/network_tables_wrapper.h"
+#include "utils/sensor_conversions.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -80,7 +81,11 @@ class RobotContainer {
   units::degree_t m_hoodTargetPosition;
   units::revolutions_per_minute_t m_shooterTargetVelocity;
   units::inch_t m_climberArmTargetExtension;
+  units::inches_per_second_t m_climberArmCruiseVelocity;
+  units::inches_per_second_squared_t m_climberArmAccel;
   units::inch_t m_climberHookTargetExtension;
+  units::inches_per_second_t m_climberHookCruiseVelocity;
+  units::inches_per_second_squared_t m_climberHookAccel;
   units::degree_t m_turretTargetPosition;
   argos_lib::NTSubscriber m_NTMonitor;
 

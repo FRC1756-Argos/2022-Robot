@@ -6,7 +6,6 @@
 
 #include "Constants.h"
 #include "argos_lib/config/falcon_config.h"
-#include "utils/sensor_conversions.h"
 
 ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
     : m_motorLiftRight(address::climber::liftRight)
@@ -20,14 +19,14 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
                     0,
                     argos_lib::ClosedLoopSensorConversions{
                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_arms::ToExtension),
-                        1.0,
+                        argos_lib::GetSensorConversionFactor(sensor_conversions::climb_arms::ToVelocity),
                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_arms::ToExtension)}}
     , m_hookPIDTuner{"argos/hook",
                      {&m_motorMoveHook},
                      0,
                      argos_lib::ClosedLoopSensorConversions{
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension),
-                         1.0,
+                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToVelocity),
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension)}} {
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::climber::liftRight,
                                          motorConfig::practice_bot::climber::liftRight>(
@@ -42,17 +41,25 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic() {}
 
-void ClimberSubsystem::ArmReady() {}
+void ClimberSubsystem::ArmReady() {
+  // Raise arm, listen for confirm or cancel
+}
 
 void ClimberSubsystem::HookExtend() {}
 
-void ClimberSubsystem::LowerBody() {}
+void ClimberSubsystem::LowerBody() {
+  // Lower body to position for transfer/hang
+}
 
 void ClimberSubsystem::ArmToBar() {}
 
-void ClimberSubsystem::BodyUp() {}
+void ClimberSubsystem::BodyUp() {
+  // Opposite of lower body
+}
 
-void ClimberSubsystem::StartingPosition() {}
+void ClimberSubsystem::StartingPosition() {
+  // Similar to arm ready?
+}
 
 void ClimberSubsystem::ManualControl(double hookSpeed, double armSpeed) {
   if (hookSpeed != 0 || armSpeed != 0) {
@@ -77,6 +84,7 @@ void ClimberSubsystem::UpdateHookHome() {
   m_motorMoveHook.SetSelectedSensorPosition(
       sensor_conversions::climb_hooks::ToSensorUnit(measure_up::climber_hook::homeExtension));
   m_hookHomed = true;
+  SetHookSoftLimits();
 }
 
 void ClimberSubsystem::UpdateArmHome() {
@@ -97,11 +105,36 @@ void ClimberSubsystem::ArmSetPosition(units::inch_t extension) {
   }
 }
 
-void ClimberSubsystem::HooksSetPosition(units::inch_t extension) {
+void ClimberSubsystem::ArmSetPosition(units::inch_t extension,
+                                      units::inches_per_second_t cruiseVelocity,
+                                      units::inches_per_second_squared_t acceleration) {
   if (m_armHomed) {
     m_manualOverride = false;
+    m_motorLiftLeft.ConfigMotionCruiseVelocity(sensor_conversions::climb_arms::ToSensorVelocity(cruiseVelocity));
+    m_motorLiftRight.ConfigMotionCruiseVelocity(sensor_conversions::climb_arms::ToSensorVelocity(cruiseVelocity));
+    m_motorLiftLeft.ConfigMotionAcceleration(sensor_conversions::climb_arms::ToSensorAccel(acceleration));
+    m_motorLiftRight.ConfigMotionAcceleration(sensor_conversions::climb_arms::ToSensorAccel(acceleration));
+    m_motorLiftLeft.Set(ControlMode::MotionMagic, sensor_conversions::climb_arms::ToSensorUnit(extension));
+    m_motorLiftRight.Set(ControlMode::MotionMagic, sensor_conversions::climb_arms::ToSensorUnit(extension));
+  }
+}
+
+void ClimberSubsystem::HooksSetPosition(units::inch_t extension) {
+  if (m_hookHomed) {
+    m_manualOverride = false;
     m_motorMoveHook.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                        sensor_conversions::climb_arms::ToSensorUnit(extension));
+                        sensor_conversions::climb_hooks::ToSensorUnit(extension));
+  }
+}
+
+void ClimberSubsystem::HooksSetPosition(units::inch_t extension,
+                                        units::inches_per_second_t cruiseVelocity,
+                                        units::inches_per_second_squared_t acceleration) {
+  if (m_hookHomed) {
+    m_manualOverride = false;
+    m_motorMoveHook.ConfigMotionCruiseVelocity(sensor_conversions::climb_hooks::ToSensorVelocity(cruiseVelocity));
+    m_motorMoveHook.ConfigMotionAcceleration(sensor_conversions::climb_hooks::ToSensorAccel(acceleration));
+    m_motorMoveHook.Set(ControlMode::MotionMagic, sensor_conversions::climb_hooks::ToSensorUnit(extension));
   }
 }
 
@@ -136,3 +169,61 @@ void ClimberSubsystem::Disable() {
 void ClimberSubsystem::ManualOverride() {
   m_manualOverride = true;
 }
+
+void ClimberSubsystem::SetHookSoftLimits() {
+  if (m_hookHomed) {
+    m_motorMoveHook.ConfigForwardSoftLimitThreshold(
+        sensor_conversions::climb_hooks::ToSensorUnit(measure_up::climber_hook::maxExtension));
+    m_motorMoveHook.ConfigReverseSoftLimitThreshold(
+        sensor_conversions::climb_hooks::ToSensorUnit(measure_up::climber_hook::minExtension));
+    m_motorMoveHook.ConfigForwardSoftLimitEnable(true);
+    m_motorMoveHook.ConfigReverseSoftLimitEnable(true);
+  }
+}
+
+void ClimberSubsystem::DisableHookSoftLimits() {
+  m_motorMoveHook.ConfigForwardSoftLimitEnable(false);
+  m_motorMoveHook.ConfigReverseSoftLimitEnable(false);
+}
+
+void ClimberSubsystem::ClimberPositionSetup() {
+  ArmSetPosition(37_in, 10_ips, 10_ips2);
+  HooksSetPosition(34_in, 10_ips, 10_ips2);
+}
+
+void ClimberSubsystem::ClimberPositionLatchL2() {
+  ArmSetPosition(37_in, 10_ips, 10_ips2);
+  HooksSetPosition(28.7_in, 10_ips, 10_ips2);
+}
+
+void ClimberSubsystem::ClimberPositionPrepareL2() {
+  ArmSetPosition(35.8_in, 10_ips, 10_ips2);
+  HooksSetPosition(28.7_in, 10_ips, 10_ips2);
+}
+
+void ClimberSubsystem::ClimberPositionSecureL2() {
+  ArmSetPosition(35.8_in, 10_ips, 10_ips2);
+  HooksSetPosition(1_in, 10_ips, 10_ips2);
+}
+void ClimberSubsystem::ClimberPositionPassL3() {
+  ArmSetPosition(37.1_in, 10_ips, 10_ips2);
+  HooksSetPosition(34_in, 10_ips, 10_ips2);
+}
+void ClimberSubsystem::ClimberPositionLatchL3() {
+  ArmSetPosition(37.1_in, 10_ips, 10_ips2);
+  HooksSetPosition(31.5_in, 10_ips, 10_ips2);
+}
+void ClimberSubsystem::ClimberPositionPrepareTransferL3() {
+  ArmSetPosition(29.0_in, 10_ips, 10_ips2);
+  HooksSetPosition(31.5_in, 10_ips, 10_ips2);
+}
+void ClimberSubsystem::ClimberPositionTransferL3() {
+  ArmSetPosition(29.0_in, 10_ips, 10_ips2);
+  HooksSetPosition(26.0_in, 10_ips, 10_ips2);
+}
+
+// SecureL2
+// PassL3
+// Latch L3
+// PrepareTransferL3
+// PositionTransferL3

@@ -14,7 +14,8 @@
 #include "units/length.h"
 #include "utils/sensor_conversions.h"
 
-ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance)
+ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
+                                   argos_lib::SwappableControllersSubsystem* controllers)
     : m_shooterWheelLeft(address::shooter::shooterWheelLeft)
     , m_shooterWheelRight(address::shooter::shooterWheelRight)
     , m_hoodMotor(address::shooter::hoodMotor)
@@ -47,7 +48,8 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance)
                            argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle),
                            1.0,
                            argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle)}}
-    , m_instance(instance) {
+    , m_instance(instance)
+    , m_pControllers(controllers) {
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::shooter::shooterWheelLeft,
                                          motorConfig::practice_bot::shooter::shooterWheelLeft>(
       m_shooterWheelLeft, 50_ms, instance);
@@ -78,6 +80,13 @@ void ShooterSubsystem::Periodic() {
   const auto turretNormalizedPosition = TurretGetPosition();
   frc::SmartDashboard::PutNumber("(Turret) normalizedAngle",
                                  turretNormalizedPosition ? turretNormalizedPosition.value().to<double>() : NAN);
+
+  if (m_turretMotor.HasResetOccurred()) {
+    m_turretMotor.Set(0);
+    std::printf("***Turret reset!  Re-initializing home***\n");
+    m_turretHomed = false;
+    InitializeTurretHome();
+  }
 }
 
 void ShooterSubsystem::AutoAim() {
@@ -86,6 +95,7 @@ void ShooterSubsystem::AutoAim() {
   // Get target angle & assign to turret
   m_cameraInterface.SetDriverMode(false);
   if (!m_cameraInterface.m_target.HasTarget()) {
+    StopFeedback();
     return;
   }
 
@@ -99,15 +109,25 @@ void ShooterSubsystem::AutoAim() {
   }
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Turret target angle", targetAngle.value().to<double>());
-  frc::SmartDashboard::PutNumber(
-      "(Turret) relAngle", sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition()).to<double>());
+  const auto currentTurretAngle = sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition());
+  frc::SmartDashboard::PutNumber("(Turret) relAngle", currentTurretAngle.to<double>());
 
   // Get target distance & assign to hood & shooter
   units::length::inch_t distanceToTarget = GetTargetDistance(m_cameraInterface.GetNewPitch(
       targetValues.yaw, targetValues.pitch, targetValues.bboxHor, targetValues.bboxVer, targetValues.skew));
-  SetShooterDistance(distanceToTarget);
+  const auto shooterSetpoints = SetShooterDistance(distanceToTarget);
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance", distanceToTarget.to<double>());
+
+  const AimValues targets{
+      targetAngle ? targetAngle.value() : 0_deg, shooterSetpoints.hoodAngle, shooterSetpoints.shooterSpeed};
+  const AimValues currentValues{currentTurretAngle, GetHoodPosition(), GetShooterSpeed()};
+
+  if (InAcceptableRanges(targets, currentValues)) {
+    AimedFeedback();
+  } else {
+    StopFeedback();
+  }
 }
 
 void ShooterSubsystem::FixedShooterPosition(FixedPosState fixedPosState) {
@@ -281,6 +301,7 @@ void ShooterSubsystem::Disable() {
   m_shooterWheelLeft.Set(0);
   m_hoodMotor.Set(0);
   m_turretMotor.Set(0);
+  StopFeedback();
 }
 
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
@@ -295,10 +316,11 @@ ShooterSubsystem::ShooterDistanceSetpoints ShooterSubsystem::GetShooterDistanceS
                                                     m_hoodAngleMap.Map(distanceToTarget)};
 }
 
-void ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
+ShooterSubsystem::ShooterDistanceSetpoints ShooterSubsystem::SetShooterDistance(units::inch_t distanceToTarget) {
   auto setpoints = GetShooterDistanceSetpoints(distanceToTarget);
   CloseLoopShoot(setpoints.shooterSpeed);
   HoodSetPosition(setpoints.hoodAngle);
+  return setpoints;
 }
 
 std::optional<units::degree_t> ShooterSubsystem::GetTurretTargetAngle(LimelightTarget::tValues target) {
@@ -339,7 +361,40 @@ LimelightTarget::tValues ShooterSubsystem::GetCameraTargetValues() {
 
 void ShooterSubsystem::SetCameraDriverMode(bool driverMode) {
   m_cameraInterface.SetDriverMode(driverMode);
+  if (driverMode) {
+    StopFeedback();
+  }
 }
+
+bool ShooterSubsystem::InAcceptableRanges(const AimValues targets, const AimValues real) {
+  const bool turretAcceptableRange =
+      InThreshold(real.turretTarget, targets.turretTarget, threshholds::shooter::acceptableTurretError);
+  const bool hoodAcceptableRange =
+      InThreshold(real.hoodTarget, targets.hoodTarget, threshholds::shooter::acceptableHoodError);
+  const bool shooterAcceptableRange =
+      InThreshold(real.shooterTarget, targets.shooterTarget, threshholds::shooter::acceptableWheelError);
+
+  frc::SmartDashboard::PutBoolean("(Acceptable Error) Turret", turretAcceptableRange);
+  frc::SmartDashboard::PutBoolean("(Acceptable Error) Hood", hoodAcceptableRange);
+  frc::SmartDashboard::PutBoolean("(Acceptable Error) Wheel Speed", shooterAcceptableRange);
+
+  return turretAcceptableRange && hoodAcceptableRange && shooterAcceptableRange;
+}
+
+void ShooterSubsystem::StopFeedback() const {
+  if (m_pControllers) {
+    m_pControllers->DriverController().SetVibration(argos_lib::VibrationOff());
+    m_pControllers->OperatorController().SetVibration(argos_lib::VibrationOff());
+  }
+}
+
+void ShooterSubsystem::AimedFeedback() const {
+  if (m_pControllers) {
+    m_pControllers->DriverController().SetVibration(argos_lib::VibrationAlternatePulse(500_ms, 1.0));
+    m_pControllers->OperatorController().SetVibration(argos_lib::VibrationAlternatePulse(500_ms, 1.0));
+  }
+}
+
 // CAMERA INTERFACE -----------------------------------------------------------------------------
 CameraInterface::CameraInterface() {}
 

@@ -6,6 +6,8 @@
 
 #include <frc/smartdashboard/SmartDashboard.h>
 
+#include <chrono>
+
 #include "Constants.h"
 #include "argos_lib/config/talonsrx_config.h"
 
@@ -15,9 +17,11 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
     , m_intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake)
     , m_ballPresentIntake(address::sensors::tofSensorIntake)
     , m_ballPresentShooter(address::sensors::tofSensorShooter)
-    , m_ballColor(address::sensors::colorSensor)
+    // , m_ballColor(address::sensors::colorSensor)
+    , m_edgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_FALLING)
     , m_hysteresisIntake(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
-    , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate) {
+    , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
+    , m_shooterTimeDebouncer({0_ms, 250_ms}, false) {
   // MOTOR CONFIGURATION
   argos_lib::talonsrx_config::TalonSRXConfig<motorConfig::comp_bot::intake::beltDrive,
                                              motorConfig::practice_bot::intake::beltDrive>(
@@ -31,6 +35,15 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
 void IntakeSubsystem::Periodic() {
   /// @todo Enable this again once we have sensors
   ///       Otherwise this conflicts with current manual control
+  auto currentTime = std::chrono::steady_clock::now();
+  static auto lastCalled = currentTime;
+  std::chrono::duration<double, std::milli> lastCalledDuration = currentTime - lastCalled;
+  double periodicCallSpeed = 1000 / lastCalledDuration.count();
+  lastCalled = currentTime;
+
+  bool debouncerStatus = m_shooterTimeDebouncer(m_edgeDetector(getBallPresentShooter()));
+
+  frc::SmartDashboard::PutNumber("Periodic Speed", periodicCallSpeed);
   frc::SmartDashboard::PutNumber("ToF Distance Intake",
                                  units::inch_t(units::millimeter_t(m_ballPresentIntake.GetRange())).to<double>());
   frc::SmartDashboard::PutNumber("ToF Distance Shooter",
@@ -62,7 +75,7 @@ void IntakeSubsystem::Periodic() {
       } else {
         m_intakeDrive.Set(0);
       }
-      if (m_shooterButtonPressed == true ||
+      if ((m_shooterButtonPressed == true && !debouncerStatus) ||
           ((getBallPresentIntake() == true && getIsBallTeamColor() == true) && getBallPresentShooter() == false)) {
         m_beltDrive.Set(m_shooterButtonPressed ? speeds::intake::beltForwardShoot : speeds::intake::beltForwardIntake);
       } else {
@@ -75,6 +88,8 @@ void IntakeSubsystem::Periodic() {
       m_beltDrive.Set(speeds::intake::beltReverse);
       break;
   }
+
+  frc::SmartDashboard::PutBoolean("(Ball-Delay) Debouncer Status", debouncerStatus);
 }
 
 bool IntakeSubsystem::getBallPresentIntake() {

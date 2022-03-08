@@ -4,6 +4,7 @@
 
 #include "RobotContainer.h"
 
+#include <cameraserver/CameraServer.h>
 #include <frc/DriverStation.h>
 #include <frc/livewindow/LiveWindow.h>
 #include <frc/smartdashboard/SmartDashboard.h>
@@ -28,17 +29,23 @@ RobotContainer::RobotContainer()
     , m_intake(m_instance)
     , m_pClimber(m_instance == argos_lib::RobotInstance::Competition ? std::make_unique<ClimberSubsystem>(m_instance) :
                                                                        nullptr)
-    , m_shooter(m_instance)
+    , m_shooter(m_instance, &m_controllers)
     , m_homeHoodCommand(&m_shooter)
     , m_homeClimberArmCommand(m_pClimber.get())
     , m_homeClimberHookCommand(m_pClimber.get())
     , m_hoodTargetPosition(30_deg)
     , m_shooterTargetVelocity(3000_rpm)
-    , m_climberArmTargetExtension(2_in)
+    , m_climberArmTargetExtension(25_in)
+    , m_climberArmCruiseVelocity{10_ips}
+    , m_climberArmAccel{10_ips2}
     , m_climberHookTargetExtension(20_in)
+    , m_climberHookCruiseVelocity{10_ips}
+    , m_climberHookAccel{10_ips2}
     , m_NTMonitor("argos") {
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
+
+  frc::CameraServer::StartAutomaticCapture();
 
   // ALLOW ACCESS TO CAMERA STREAM OVER USB
   wpi::PortForwarder::GetInstance().Add(5800, "10.17.56.122", 5800);
@@ -135,9 +142,25 @@ RobotContainer::RobotContainer()
       [this](double newVal) { m_climberArmTargetExtension = units::make_unit<units::inch_t>(newVal); },
       m_climberArmTargetExtension.to<double>());
   m_NTMonitor.AddMonitor(
+      "manualSetpoints/armVelocity",
+      [this](double newVal) { m_climberArmCruiseVelocity = units::make_unit<units::inches_per_second_t>(newVal); },
+      m_climberArmCruiseVelocity.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/armAccel",
+      [this](double newVal) { m_climberArmAccel = units::make_unit<units::inches_per_second_squared_t>(newVal); },
+      m_climberArmAccel.to<double>());
+  m_NTMonitor.AddMonitor(
       "manualSetpoints/hookPosition",
       [this](double newVal) { m_climberHookTargetExtension = units::make_unit<units::inch_t>(newVal); },
       m_climberHookTargetExtension.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/hookVelocity",
+      [this](double newVal) { m_climberHookCruiseVelocity = units::make_unit<units::inches_per_second_t>(newVal); },
+      m_climberHookCruiseVelocity.to<double>());
+  m_NTMonitor.AddMonitor(
+      "manualSetpoints/hookAccel",
+      [this](double newVal) { m_climberHookAccel = units::make_unit<units::inches_per_second_squared_t>(newVal); },
+      m_climberHookAccel.to<double>());
   m_NTMonitor.AddMonitor(
       "manualSetpoints/turretPosition",
       [this](double newVal) { m_turretTargetPosition = units::make_unit<units::degree_t>(newVal); },
@@ -239,7 +262,24 @@ void RobotContainer::ConfigureButtonBindings() {
         {argos_lib::XboxController::Button::kBack, argos_lib::XboxController::Button::kStart});
   }};
 
-  // --------------------------------------------------------------------------------------------------------
+  // CLIMBER TRIGGERS
+  // frc2::Trigger climbSetPoints{(frc2::Trigger{[this]() {
+  //   return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
+  // }})};
+
+  // climbSetPoints.WhenActive(
+  //     [this]() {
+  //       m_pClimber->HooksSetPosition(m_climberHookTargetExtension, m_climberHookCruiseVelocity, m_climberHookAccel);
+  //       m_pClimber->ArmSetPosition(m_climberArmTargetExtension, m_climberArmCruiseVelocity, m_climberArmAccel);
+  //     },
+  //     {m_pClimber.get()});
+
+  // climbSetPoints.WhenInactive(
+  //     [this]() {
+  //       m_pClimber->MoveHook(0);
+  //       m_pClimber->MoveArm(0);
+  //     },
+  //     {m_pClimber.get()});
 
   // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
 
