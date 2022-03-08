@@ -117,9 +117,9 @@ void ShooterSubsystem::AutoAim() {
   // Get target distance & assign to hood & shooter
   units::length::inch_t distanceToTarget;
 
-  if(m_useCalculatedPitch) {
+  if (m_useCalculatedPitch) {
     units::degree_t newPitch = m_cameraInterface.GetNewPitch(
-      targetValues.yaw, targetValues.pitch, targetValues.bboxHor, targetValues.bboxVer, targetValues.skew);
+        targetValues.yaw, targetValues.pitch, targetValues.bboxHor, targetValues.bboxVer, targetValues.skew);
     distanceToTarget = GetTargetDistance(newPitch);
     frc::SmartDashboard::PutNumber("(Auto-Aim) Calculated Pitch", newPitch.to<double>());
   } else {
