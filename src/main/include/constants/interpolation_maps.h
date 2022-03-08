@@ -16,16 +16,20 @@ namespace shooterRange {
   using argos_lib::InterpMapPoint;
   [[maybe_unused]] constexpr std::array shooterSpeed{InterpMapPoint{10.0_in, 2300.0_rpm},
                                                      InterpMapPoint{21.5_in, 2350.0_rpm},
-                                                     InterpMapPoint{60.0_in, 2650.0_rpm},
-                                                     InterpMapPoint{120.0_in, 2975.0_rpm},
-                                                     InterpMapPoint{180.0_in, 3200.0_rpm},
-                                                     InterpMapPoint{240.0_in, 3425.0_rpm}};
-  [[maybe_unused]] constexpr std::array hoodAngle{InterpMapPoint{10.0_in, 10.0_deg},
-                                                  InterpMapPoint{21.5_in, 15.0_deg},
-                                                  InterpMapPoint{60.0_in, 25.0_deg},
-                                                  InterpMapPoint{120.0_in, 30.0_deg},
-                                                  InterpMapPoint{180.0_in, 37.0_deg},
-                                                  InterpMapPoint{240.0_in, 42.0_deg}};
+                                                     InterpMapPoint{60.0_in, 2500.0_rpm},
+                                                     InterpMapPoint{120.0_in, 2750.0_rpm},
+                                                     InterpMapPoint{180.0_in, 3150.0_rpm},
+                                                     InterpMapPoint{240.0_in, 3425.0_rpm},
+                                                     InterpMapPoint{300.0_in, 3825.0_rpm},
+                                                     InterpMapPoint{360.0_in, 4175.0_rpm}};
+  [[maybe_unused]] constexpr std::array hoodAngle{InterpMapPoint{10.0_in, 5.0_deg},
+                                                  InterpMapPoint{21.5_in, 7.0_deg},
+                                                  InterpMapPoint{60.0_in, 13.0_deg},
+                                                  InterpMapPoint{120.0_in, 20.0_deg},
+                                                  InterpMapPoint{180.0_in, 29.0_deg},
+                                                  InterpMapPoint{240.0_in, 38.0_deg},
+                                                  InterpMapPoint{300.0_in, 41.0_deg},
+                                                  InterpMapPoint{360.0_in, 42.0_deg}};
 }  // namespace shooterRange
 namespace controllerMap {
   using argos_lib::InterpMapPoint;
