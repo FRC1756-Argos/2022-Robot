@@ -9,6 +9,7 @@ var hierarchy =
     [ "argos_lib::ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", null ],
     [ "frc2::CommandHelper", null, [
       [ "AutoAimCommand", "class_auto_aim_command.html", null ],
+      [ "AutonomousNothing", "class_autonomous_nothing.html", null ],
       [ "HomeClimberArmCommand", "class_home_climber_arm_command.html", null ],
       [ "HomeClimberHookCommand", "class_home_climber_hook_command.html", null ],
       [ "HomeHoodCommand", "class_home_hood_command.html", null ],

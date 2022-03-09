@@ -8,5 +8,6 @@ var searchData=
   ['autoaim_5',['AutoAim',['../class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3',1,'ShooterSubsystem']]],
   ['autoaimcommand_6',['AutoAimCommand',['../class_auto_aim_command.html#a7c071d961d1013e45eb2df94da1e96c9',1,'AutoAimCommand']]],
   ['autonomousinit_7',['AutonomousInit',['../class_robot.html#a2136cfc015936285218c8a8db984d6bc',1,'Robot']]],
-  ['autonomousperiodic_8',['AutonomousPeriodic',['../class_robot.html#ac11143dd674e0e02fef5329e2df24830',1,'Robot']]]
+  ['autonomousnothing_8',['AutonomousNothing',['../class_autonomous_nothing.html#a7f3c3e774f4252d3c480fd9b258eadbd',1,'AutonomousNothing']]],
+  ['autonomousperiodic_9',['AutonomousPeriodic',['../class_robot.html#ac11143dd674e0e02fef5329e2df24830',1,'Robot']]]
 ];
