@@ -14,9 +14,9 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class autonomous_nothing : public frc2::CommandHelper<frc2::CommandBase, autonomous_nothing> {
+class AutonomousNothing : public frc2::CommandHelper<frc2::CommandBase, AutonomousNothing> {
  public:
-  autonomous_nothing();
+  AutonomousNothing();
 
   void Initialize() override;
 

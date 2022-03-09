@@ -4,20 +4,20 @@
 
 #include "commands/autonomous_nothing.h"
 
-autonomous_nothing::autonomous_nothing() {
+AutonomousNothing::AutonomousNothing() {
   // Use addRequirements() here to declare subsystem dependencies.
 }
 
 // Called when the command is initially scheduled.
-void autonomous_nothing::Initialize() {}
+void AutonomousNothing::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void autonomous_nothing::Execute() {}
+void AutonomousNothing::Execute() {}
 
 // Called once the command ends or is interrupted.
-void autonomous_nothing::End(bool interrupted) {}
+void AutonomousNothing::End(bool interrupted) {}
 
 // Returns true when the command should end.
-bool autonomous_nothing::IsFinished() {
+bool AutonomousNothing::IsFinished() {
   return true;
 }
