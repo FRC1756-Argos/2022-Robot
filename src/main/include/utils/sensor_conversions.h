@@ -36,6 +36,26 @@ namespace sensor_conversions {
         return units::make_unit<units::degree_t>(sensorunit * sensorConversionFactor);
       }
     }  // namespace turn
+    namespace drive {
+      constexpr auto wheelDiameter = 4_in;
+      constexpr auto wheelCircumference = wheelDiameter * M_PI;
+      constexpr double sensorUnitsPerMotorRevolution = 4096;
+      constexpr double driveGearRatio = 8.16;
+
+      constexpr units::inch_t ToDistance(const double sensorunit) {
+        return wheelCircumference * (sensorunit / sensorUnitsPerMotorRevolution / driveGearRatio);
+      }
+      constexpr double ToSensorPosition(const units::inch_t distance) {
+        return (distance / wheelCircumference) * driveGearRatio * sensorUnitsPerMotorRevolution;
+      }
+
+      constexpr units::inches_per_second_t ToVelocity(const double sensorVelocity) {
+        return ToDistance(sensorVelocity) / units::decisecond_t{1};
+      }
+      constexpr double ToSensorVelocity(const units::inches_per_second_t velocity) {
+        return ToSensorPosition(velocity * units::decisecond_t{1});
+      }
+    }  // namespace drive
   }    // namespace swerve_drive
   namespace turret {
     constexpr double sensorConversionFactor =

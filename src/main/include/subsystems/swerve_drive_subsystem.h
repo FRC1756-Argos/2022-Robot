@@ -7,12 +7,14 @@
 #include <frc/ADIS16448_IMU.h>
 #include <frc/kinematics/ChassisSpeeds.h>
 #include <frc/kinematics/SwerveDriveKinematics.h>
+#include <frc/kinematics/SwerveDriveOdometry.h>
 #include <frc/kinematics/SwerveModuleState.h>
 #include <frc2/command/SubsystemBase.h>
 
 #include <memory>
 
 #include "argos_lib/config/robot_instance.h"
+#include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 #include "utils/file_system_homing_storage.h"
 #include "utils/network_tables_wrapper.h"
@@ -33,6 +35,8 @@ class SwerveModule {
    * @param encoderAddr address of the encoder on this module
    */
   SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr);
+
+  frc::SwerveModuleState GetState();
 };
 
 class SwerveDriveSubsystem : public frc2::SubsystemBase {
@@ -67,8 +71,32 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   /**
    * @brief Tell the robot it's in it's correct field-oriented "Front"
    *
+   * @param homeAngle Current orientation of the robot
+   * @param updateOdometry Also update odometry field-centric angle
    */
-  void FieldHome(units::degree_t homeAngle = 0_deg);
+  void FieldHome(units::degree_t homeAngle = 0_deg, bool updateOdometry = true);
+
+  /**
+   * @brief Set current robot position.  Useful for initializing initial position before autonomous
+   *
+   * @param currentPose Field-centric pose of the robot
+   */
+  void InitializeOdometry(const frc::Pose2d& currentPose);
+
+  /**
+   * @brief Reads module states & gyro, updates odometry, and returns latest pose estimate
+   *
+   * @return Estimate of robot pose
+   */
+  frc::Pose2d UpdateOdometry();
+
+  /**
+   * @brief Get the field-centric angle of the robot based on gyro and saved reference orientation
+   *
+   * @return Field-centric angle of the robot where 0 degrees is intake oriented toward
+   *         opposing alliance operator station positive CCW.
+   */
+  units::degree_t GetFieldCentricAngle() const;
 
   void SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode);
 
@@ -77,11 +105,6 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    *
    */
   void InitializeMotors();
-
-  /**
-   * Will be called periodically whenever the CommandScheduler runs.
-   */
-  void Periodic() override;
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
@@ -106,14 +129,17 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
     const double rotVelocity;
   };
 
-  std::unique_ptr<frc::SwerveDriveKinematics<4>>
-      m_pSwerveDriveKinematics;  ///< Kinematics model for swerve drive system
+  frc::SwerveDriveKinematics<4> m_swerveDriveKinematics;  ///< Kinematics model for swerve drive system
+
+  frc::SwerveDriveOdometry<4> m_odometry;  ///< Odometry to track robot
 
   // POINTER TO NETWORK TABLE CLASS OBJECT
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;  ///< Instance of network table class
 
   // std::FILE SYSTEM HOMING STORAGE
   FileSystemHomingStorage m_fsStorage;
+
+  argos_lib::NTMotorPIDTuner m_driveMotorPIDTuner;
 
   /**
  * @brief Get the Raw Module States object and switch between robot-centric and field-centric

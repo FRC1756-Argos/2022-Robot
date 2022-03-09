@@ -21,18 +21,39 @@ using namespace argos_lib::swerve;
 
 SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable,
                                            const argos_lib::RobotInstance instance)
-    : m_frontLeft(address::drive::frontLeftDrive, address::drive::frontLeftTurn, address::encoders::frontLeftEncoder)
+    : m_controlMode(SwerveDriveSubsystem::DriveControlMode::fieldCentricControl)
+    , m_frontLeft(address::drive::frontLeftDrive, address::drive::frontLeftTurn, address::encoders::frontLeftEncoder)
     , m_frontRight(
           address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
     , m_backRight(address::drive::backRightDrive, address::drive::backRightTurn, address::encoders::backRightEncoder)
     , m_backLeft(address::drive::backLeftDrive, address::drive::backLeftTurn, address::encoders::backLeftEncoder)
     , m_imu(frc::ADIS16448_IMU::kZ, frc::SPI::Port::kMXP, frc::ADIS16448_IMU::CalibrationTime::_4s)
+    , m_swerveDriveKinematics(
+          // Forward is positive X, left is positive Y
+          // Front Left
+          frc::Translation2d(measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontLeftLOffset,
+                             measure_up::chassis::width / 2 - measure_up::swerve_offsets::frontLeftWOffset),
+          // Front Right
+          frc::Translation2d(measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontRightLOffset,
+                             -measure_up::chassis::width / 2 + measure_up::swerve_offsets::frontRightWOffset),
+          // Back Right
+          frc::Translation2d(-measure_up::chassis::length / 2 + measure_up::swerve_offsets::backRightLOffset,
+                             -measure_up::chassis::width / 2 + measure_up::swerve_offsets::backRightWOffset),
+          // Back Left
+          frc::Translation2d(-measure_up::chassis::length / 2 + measure_up::swerve_offsets::backLeftLOffset,
+                             measure_up::chassis::width / 2 - measure_up::swerve_offsets::backLeftWOffset))
+    , m_odometry(m_swerveDriveKinematics, frc::Rotation2d(m_imu.GetAngle()))
     , m_pNetworkTable(networkTable)
-    , m_fsStorage(paths::swerveHomesPath) {
-  // create our translation objects
-
+    , m_fsStorage(paths::swerveHomesPath)
+    , m_driveMotorPIDTuner(
+          "argos/drive/motors",
+          {&m_frontLeft.m_drive, &m_frontRight.m_drive, &m_backRight.m_drive, &m_backLeft.m_drive},
+          0,
+          argos_lib::ClosedLoopSensorConversions{
+              argos_lib::GetSensorConversionFactor(sensor_conversions::swerve_drive::drive::ToDistance),
+              argos_lib::GetSensorConversionFactor(sensor_conversions::swerve_drive::drive::ToVelocity),
+              argos_lib::GetSensorConversionFactor(sensor_conversions::swerve_drive::drive::ToVelocity)}) {
   // TURN MOTORS CONFIG
-  std::printf("Configure turn\n");
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::frontLeftTurn,
                                          motorConfig::practice_bot::drive::frontLeftTurn>(
       m_frontLeft.m_turn, 100_ms, instance);
@@ -47,7 +68,6 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
       m_backLeft.m_turn, 100_ms, instance);
 
   // DRIVE MOTOR CONFIGS
-  std::printf("Configure drive\n");
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::drive::genericDrive,
                                          motorConfig::practice_bot::drive::genericDrive>(
       m_frontLeft.m_drive, 100_ms, instance);
@@ -62,7 +82,6 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
       m_backRight.m_drive, 100_ms, instance);
 
   // CAN ENCODER CONFIG
-  std::printf("Configure encoders\n");
   argos_lib::cancoder_config::CanCoderConfig<motorConfig::comp_bot::drive::frontLeftTurn,
                                              motorConfig::practice_bot::drive::frontLeftTurn>(
       m_frontLeft.m_encoder, 100_ms, instance);
@@ -76,34 +95,8 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
                                              motorConfig::practice_bot::drive::backLeftTurn>(
       m_backLeft.m_encoder, 100_ms, instance);
 
-  // TRANSLATION2D OBJECTS DESCRIBING LOCATION OF SWERVE MODULES
-  // Forward is positive X, left is positive Y
-  frc::Translation2d frontLeftCenterOffset(
-      measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontLeftLOffset,
-      measure_up::chassis::width / 2 - measure_up::swerve_offsets::frontLeftWOffset);
-  frc::Translation2d frontRightCenterOffset(
-      measure_up::chassis::length / 2 - measure_up::swerve_offsets::frontRightLOffset,
-      -measure_up::chassis::width / 2 + measure_up::swerve_offsets::frontRightWOffset);
-  frc::Translation2d backRightCenterOffset(
-      -measure_up::chassis::length / 2 + measure_up::swerve_offsets::backRightLOffset,
-      -measure_up::chassis::width / 2 + measure_up::swerve_offsets::backRightWOffset);
-  frc::Translation2d backLeftCenterOffset(
-      -measure_up::chassis::length / 2 + measure_up::swerve_offsets::backLeftLOffset,
-      measure_up::chassis::width / 2 - measure_up::swerve_offsets::backLeftWOffset
-
-  );
-
-  /// @todo DEFAULT TO ROBOT CENTRIC FOR NOW (change later)
-  m_controlMode = SwerveDriveSubsystem::DriveControlMode::fieldCentricControl;
-
-  m_pSwerveDriveKinematics = std::make_unique<frc::SwerveDriveKinematics<4>>(
-      frontLeftCenterOffset, frontRightCenterOffset, backRightCenterOffset, backLeftCenterOffset);
-
   InitializeMotors();
 }
-
-// This method will be called once per scheduler run
-void SwerveDriveSubsystem::Periodic() {}
 
 // SWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 
@@ -127,7 +120,7 @@ wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
                                    units::make_unit<units::velocity::meters_per_second_t>(0),
                                    units::make_unit<units::angular_velocity::radians_per_second_t>(0)};
 
-    return m_pSwerveDriveKinematics->ToSwerveModuleStates(emptySpeeds);
+    return m_swerveDriveKinematics.ToSwerveModuleStates(emptySpeeds);
   }
 
   switch (m_controlMode) {
@@ -137,10 +130,10 @@ wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
           units::make_unit<units::meters_per_second_t>(velocities.fwVelocity),
           units::make_unit<units::meters_per_second_t>(velocities.sideVelocity),
           units::make_unit<units::angular_velocity::radians_per_second_t>(velocities.rotVelocity),
-          frc::Rotation2d(m_imu.GetAngle() - m_fieldHomeOffset));
+          frc::Rotation2d(GetFieldCentricAngle()));
 
       // Return the speeds to consumer
-      return m_pSwerveDriveKinematics->ToSwerveModuleStates(fieldCentricSpeeds);
+      return m_swerveDriveKinematics.ToSwerveModuleStates(fieldCentricSpeeds);
     }
 
     case (DriveControlMode::robotCentricControl): {
@@ -150,14 +143,14 @@ wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
           units::make_unit<units::velocity::meters_per_second_t>(velocities.sideVelocity),
           units::make_unit<units::angular_velocity::radians_per_second_t>(velocities.rotVelocity)};
 
-      return m_pSwerveDriveKinematics->ToSwerveModuleStates(robotCentricSpeeds);
+      return m_swerveDriveKinematics.ToSwerveModuleStates(robotCentricSpeeds);
     }
   }
   frc::ChassisSpeeds emptySpeeds{units::make_unit<units::velocity::meters_per_second_t>(0),
                                  units::make_unit<units::velocity::meters_per_second_t>(0),
                                  units::make_unit<units::angular_velocity::radians_per_second_t>(0)};
 
-  return m_pSwerveDriveKinematics->ToSwerveModuleStates(emptySpeeds);
+  return m_swerveDriveKinematics.ToSwerveModuleStates(emptySpeeds);
 }
 
 void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
@@ -282,8 +275,31 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   m_backLeft.m_encoder.SetPosition(angle.to<double>(), 50);
 }
 
-void SwerveDriveSubsystem::FieldHome(units::degree_t homeAngle) {
+void SwerveDriveSubsystem::FieldHome(units::degree_t homeAngle, bool updateOdometry) {
   m_fieldHomeOffset = m_imu.GetAngle() - homeAngle;
+  if (updateOdometry) {
+    // Update odometry as well
+    const auto currentPose = m_odometry.GetPose();
+    m_odometry.ResetPosition(frc::Pose2d{currentPose.Translation(), frc::Rotation2d(homeAngle)}, m_imu.GetAngle());
+  }
+}
+
+void SwerveDriveSubsystem::InitializeOdometry(const frc::Pose2d& currentPose) {
+  m_odometry.ResetPosition(currentPose, m_imu.GetAngle());
+  // Since we know the position, might as well update the driving orientation as well
+  FieldHome(currentPose.Rotation().Degrees(), false);
+}
+
+frc::Pose2d SwerveDriveSubsystem::UpdateOdometry() {
+  return m_odometry.Update(frc::Rotation2d{m_imu.GetAngle()},
+                           m_frontLeft.GetState(),
+                           m_frontRight.GetState(),
+                           m_backRight.GetState(),
+                           m_backLeft.GetState());
+}
+
+units::degree_t SwerveDriveSubsystem::GetFieldCentricAngle() const {
+  return m_imu.GetAngle() - m_fieldHomeOffset;
 }
 
 void SwerveDriveSubsystem::SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode) {
@@ -393,5 +409,10 @@ void SwerveDriveSubsystem::InitializeMotorsFromFS() {
 
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
 SwerveModule::SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr)
-
     : m_drive(driveAddr), m_turn(turnAddr), m_encoder(encoderAddr) {}
+
+frc::SwerveModuleState SwerveModule::GetState() {
+  return frc::SwerveModuleState{
+      sensor_conversions::swerve_drive::drive::ToVelocity(m_drive.GetSelectedSensorVelocity()),
+      frc::Rotation2d{sensor_conversions::swerve_drive::turn::ToAngle(m_turn.GetSelectedSensorPosition())}};
+}
