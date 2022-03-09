@@ -45,6 +45,32 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
     , m_odometry(m_swerveDriveKinematics, frc::Rotation2d(m_imu.GetAngle()))
     , m_pNetworkTable(networkTable)
     , m_fsStorage(paths::swerveHomesPath)
+    , m_followingProfile(false)
+    , m_activeSwerveProfile()
+    , m_swerveProfileStartTime()
+    , m_linearPID(instance == argos_lib::RobotInstance::Competition ?
+                      frc2::PIDController{controlLoop::comp_bot::drive::linear_follower::kP,
+                                          controlLoop::comp_bot::drive::linear_follower::kI,
+                                          controlLoop::comp_bot::drive::linear_follower::kD} :
+                      frc2::PIDController{controlLoop::practice_bot::drive::linear_follower::kP,
+                                          controlLoop::practice_bot::drive::linear_follower::kI,
+                                          controlLoop::practice_bot::drive::linear_follower::kD})
+    , m_rotationalPID(instance == argos_lib::RobotInstance::Competition ?
+                          frc::ProfiledPIDController<units::radians>{
+                              controlLoop::comp_bot::drive::rotational_follower::kP,
+                              controlLoop::comp_bot::drive::rotational_follower::kI,
+                              controlLoop::comp_bot::drive::rotational_follower::kD,
+                              frc::TrapezoidProfile<units::radians>::Constraints(
+                                  controlLoop::comp_bot::drive::rotational_follower::angularVelocity,
+                                  controlLoop::comp_bot::drive::rotational_follower::angularAcceleration)} :
+                          frc::ProfiledPIDController<units::radians>{
+                              controlLoop::practice_bot::drive::rotational_follower::kP,
+                              controlLoop::practice_bot::drive::rotational_follower::kI,
+                              controlLoop::practice_bot::drive::rotational_follower::kD,
+                              frc::TrapezoidProfile<units::radians>::Constraints(
+                                  controlLoop::practice_bot::drive::rotational_follower::angularVelocity,
+                                  controlLoop::practice_bot::drive::rotational_follower::angularAcceleration)})
+    , m_followerController{m_linearPID, m_linearPID, m_rotationalPID}
     , m_driveMotorPIDTuner(
           "argos/drive/motors",
           {&m_frontLeft.m_drive, &m_frontRight.m_drive, &m_backRight.m_drive, &m_backLeft.m_drive},
@@ -157,15 +183,22 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                        const double& sideVelocity,
                                        const double& rotVelocity) {
   if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
-    m_frontLeft.m_drive.Set(0.0);
-    m_frontLeft.m_turn.Set(0.0);
-    m_frontRight.m_drive.Set(0.0);
-    m_frontRight.m_turn.Set(0.0);
-    m_backRight.m_drive.Set(0.0);
-    m_backRight.m_turn.Set(0.0);
-    m_backLeft.m_drive.Set(0.0);
-    m_backLeft.m_turn.Set(0.0);
-    return;
+    if (m_followingProfile) {
+      // following profile
+    } else {
+      m_frontLeft.m_drive.Set(0.0);
+      m_frontLeft.m_turn.Set(0.0);
+      m_frontRight.m_drive.Set(0.0);
+      m_frontRight.m_turn.Set(0.0);
+      m_backRight.m_drive.Set(0.0);
+      m_backRight.m_turn.Set(0.0);
+      m_backLeft.m_drive.Set(0.0);
+      m_backLeft.m_turn.Set(0.0);
+      return;
+    }
+  } else {
+    // Manual override
+    m_followingProfile = false;
   }
 
   SwerveDriveSubsystem::Velocities velocities{fwVelocity, sideVelocity, rotVelocity};

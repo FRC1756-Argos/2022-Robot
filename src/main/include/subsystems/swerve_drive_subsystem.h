@@ -5,6 +5,7 @@
 #pragma once
 
 #include <frc/ADIS16448_IMU.h>
+#include <frc/controller/HolonomicDriveController.h>
 #include <frc/kinematics/ChassisSpeeds.h>
 #include <frc/kinematics/SwerveDriveKinematics.h>
 #include <frc/kinematics/SwerveDriveOdometry.h>
@@ -18,6 +19,7 @@
 #include "ctre/Phoenix.h"
 #include "utils/file_system_homing_storage.h"
 #include "utils/network_tables_wrapper.h"
+#include "utils/swerve_trapezoidal_profile.h"
 
 class SwerveModule {
  public:
@@ -106,6 +108,15 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    */
   void InitializeMotors();
 
+  /// @todo implement these
+  void UpdateFollowerLinearPIDParams(double kP, double kI, double kD);
+  void UpdateFollowerRotationalPIDParams(double kP, double kI, double kD);
+  void UpdateFollowerRotationalPIDConstraints(frc::TrapezoidProfile<units::degrees>::Constraints constraints);
+
+  void StartDrivingProfile(SwerveTrapezoidalProfile newProfile);
+
+  void CancelDrivingProfile();
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
@@ -138,6 +149,13 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
 
   // std::FILE SYSTEM HOMING STORAGE
   FileSystemHomingStorage m_fsStorage;
+
+  bool m_followingProfile;
+  SwerveTrapezoidalProfileSegment m_activeSwerveProfile;
+  std::chrono::time_point<std::chrono::steady_clock> m_swerveProfileStartTime;
+  frc2::PIDController m_linearPID;
+  frc::ProfiledPIDController<units::radians> m_rotationalPID;
+  frc::HolonomicDriveController m_followerController;
 
   argos_lib::NTMotorPIDTuner m_driveMotorPIDTuner;
 
