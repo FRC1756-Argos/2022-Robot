@@ -2,7 +2,7 @@
 ///            Open Source Software; you can modify and/or share it under the terms of
 ///            the license file in the root directory of this project.
 
-#include "commands/autonomous_nothing.h"
+#include "commands/autonomous/autonomous_nothing.h"
 
 AutonomousNothing::AutonomousNothing() {
   // Use addRequirements() here to declare subsystem dependencies.
