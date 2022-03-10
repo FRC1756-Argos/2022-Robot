@@ -1,5 +1,8 @@
 var NAVTREEINDEX3 =
 {
+"functions_func_f.html":[3,3,1,5],
+"functions_func_g.html":[3,3,1,6],
+"functions_func_h.html":[3,3,1,7],
 "functions_func_i.html":[3,3,1,8],
 "functions_func_l.html":[3,3,1,9],
 "functions_func_m.html":[3,3,1,10],
@@ -246,8 +249,5 @@ var NAVTREEINDEX3 =
 "namespacecontrol_loop_1_1comp__bot_1_1drive.html":[2,0,4,0,1],
 "namespacecontrol_loop_1_1comp__bot_1_1shooter.html":[2,0,4,0,2],
 "namespacecontrol_loop_1_1practice__bot.html":[2,0,4,1],
-"namespacecontrol_loop_1_1practice__bot_1_1drive.html":[2,0,4,1,0],
-"namespacecontrol_loop_1_1practice__bot_1_1drive.html#af10ae67d344c94789140ddbc5757fd4a":[2,0,4,1,0,0],
-"namespacecontrol_loop_1_1practice__bot_1_1shooter.html":[2,0,4,1,1],
-"namespacecontrol_loop_1_1practice__bot_1_1shooter.html#a3ec13d4156f53e10fd00b0cc6cda6aa5":[2,0,4,1,1,1]
+"namespacecontrol_loop_1_1practice__bot_1_1drive.html":[2,0,4,1,0]
 };

@@ -1,10 +1,8 @@
 var dir_8351edd85a1483fb2b79b8acebf64e28 =
 [
+    [ "autonomous", "dir_d3ad45f14218b77b35d5697ff54f49d8.html", "dir_d3ad45f14218b77b35d5697ff54f49d8" ],
     [ "auto_aim_command.h", "auto__aim__command_8h.html", [
       [ "AutoAimCommand", "class_auto_aim_command.html", "class_auto_aim_command" ]
-    ] ],
-    [ "autonomous_nothing.h", "autonomous__nothing_8h.html", [
-      [ "AutonomousNothing", "class_autonomous_nothing.html", "class_autonomous_nothing" ]
     ] ],
     [ "home_climber_arm_command.h", "home__climber__arm__command_8h.html", [
       [ "HomeClimberArmCommand", "class_home_climber_arm_command.html", "class_home_climber_arm_command" ]

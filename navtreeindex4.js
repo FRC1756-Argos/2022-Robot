@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"namespacecontrol_loop_1_1practice__bot_1_1drive.html#af10ae67d344c94789140ddbc5757fd4a":[2,0,4,1,0,0],
+"namespacecontrol_loop_1_1practice__bot_1_1shooter.html":[2,0,4,1,1],
+"namespacecontrol_loop_1_1practice__bot_1_1shooter.html#a3ec13d4156f53e10fd00b0cc6cda6aa5":[2,0,4,1,1,1],
 "namespacecontrol_loop_1_1practice__bot_1_1shooter.html#a6255b1de5ae55e2b3403cc5e2a57ac33":[2,0,4,1,1,0],
 "namespacecontrol_loop_1_1practice__bot_1_1shooter.html#aef20c8aa2ee9c4a1bca7798585c72739":[2,0,4,1,1,2],
 "namespacecontroller_map.html":[2,0,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "shooter__subsystem_8h_source.html":[4,0,0,1,1,2,2],
 "status__frame__config_8cpp.html":[4,0,0,0,0,1,1],
 "status__frame__config_8h.html":[4,0,0,0,1,0,1,4],
-"status__frame__config_8h.html#a9dd16ea44dbeab8949b98bbe24467391":[4,0,0,0,1,0,1,4,1],
-"status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6":[4,0,0,0,1,0,1,4,0],
-"status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6a0a71c04f9a1c237dc894e38cf7850d84":[4,0,0,0,1,0,1,4,0,7],
-"status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6a2f9bb69e217fb3b5ea492856f562c7b5":[4,0,0,0,1,0,1,4,0,6]
+"status__frame__config_8h.html#a9dd16ea44dbeab8949b98bbe24467391":[4,0,0,0,1,0,1,4,1]
 };

@@ -16,6 +16,7 @@ var class_shooter_subsystem =
     [ "FixedShooterPosition", "class_shooter_subsystem.html#afb9f4f1c883a840751a6520853c4d6ca", null ],
     [ "GetCameraTargetValues", "class_shooter_subsystem.html#a2466fbf822ddd62852b9bbd5e401f120", null ],
     [ "GetHoodPosition", "class_shooter_subsystem.html#a0b6e5229183b7173a3c2750b7fd5c22f", null ],
+    [ "GetPolynomialOffset", "class_shooter_subsystem.html#a6debc7b3b296ecd0d0015152f2291072", null ],
     [ "GetShooterDistanceSetpoints", "class_shooter_subsystem.html#a1187283527b60a2f2285ced2304c9b1f", null ],
     [ "GetShooterSpeed", "class_shooter_subsystem.html#a2b962ecdee773e1cc83c4ddfbb52b0cb", null ],
     [ "GetShooterWheelSpeed", "class_shooter_subsystem.html#ae05b4f740a0960e89da8606377a58bc0", null ],

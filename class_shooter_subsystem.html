@@ -195,6 +195,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a70f43558e4284c3951413c855697f8a7"><td class="memItemLeft" align="right" valign="top">units::inch_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7">GetTargetDistance</a> (units::degree_t targetVerticalAngle)</td></tr>
 <tr class="memdesc:a70f43558e4284c3951413c855697f8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets from the target to the camera.  <a href="class_shooter_subsystem.html#a70f43558e4284c3951413c855697f8a7">More...</a><br /></td></tr>
 <tr class="separator:a70f43558e4284c3951413c855697f8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6debc7b3b296ecd0d0015152f2291072"><td class="memItemLeft" align="right" valign="top">units::inch_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a6debc7b3b296ecd0d0015152f2291072">GetPolynomialOffset</a> (units::inch_t actualDistance)</td></tr>
+<tr class="memdesc:a6debc7b3b296ecd0d0015152f2291072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the offset for the distance of targets 10 ft or more.  <a href="class_shooter_subsystem.html#a6debc7b3b296ecd0d0015152f2291072">More...</a><br /></td></tr>
+<tr class="separator:a6debc7b3b296ecd0d0015152f2291072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1187283527b60a2f2285ced2304c9b1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_shooter_subsystem_1_1_shooter_distance_setpoints.html">ShooterDistanceSetpoints</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a1187283527b60a2f2285ced2304c9b1f">GetShooterDistanceSetpoints</a> (units::inch_t distanceToTarget) const</td></tr>
 <tr class="memdesc:a1187283527b60a2f2285ced2304c9b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the shooter setpoints for a target distance.  <a href="class_shooter_subsystem.html#a1187283527b60a2f2285ced2304c9b1f">More...</a><br /></td></tr>
 <tr class="separator:a1187283527b60a2f2285ced2304c9b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -500,6 +503,33 @@ Private Attributes</h2></td></tr>
 
 <p>Get the hood position in physical units. </p>
 <dl class="section return"><dt>Returns</dt><dd>hood position </dd></dl>
+
+</div>
+</div>
+<a id="a6debc7b3b296ecd0d0015152f2291072" name="a6debc7b3b296ecd0d0015152f2291072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6debc7b3b296ecd0d0015152f2291072">&#9670;&nbsp;</a></span>GetPolynomialOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::inch_t ShooterSubsystem::GetPolynomialOffset </td>
+          <td>(</td>
+          <td class="paramtype">units::inch_t&#160;</td>
+          <td class="paramname"><em>actualDistance</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the offset for the distance of targets 10 ft or more. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actualDistance</td><td>The actual distance of how far the camera is to the target </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Gives the offset of the distance to subtract </dd></dl>
 
 </div>
 </div>
