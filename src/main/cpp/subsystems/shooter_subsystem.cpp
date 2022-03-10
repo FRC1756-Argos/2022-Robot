@@ -125,6 +125,12 @@ void ShooterSubsystem::AutoAim() {
   } else {
     distanceToTarget = GetTargetDistance(targetValues.pitch);
   }
+
+  if (distanceToTarget > (units::inch_t)120) {
+    // fitting 2nd degree polynomial
+    distanceToTarget -= GetPolynomialOffset(distanceToTarget);
+  }
+
   const auto shooterSetpoints = SetShooterDistance(distanceToTarget);
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance", distanceToTarget.to<double>());
@@ -138,6 +144,14 @@ void ShooterSubsystem::AutoAim() {
   } else {
     StopFeedback();
   }
+}
+
+units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
+  units::inch_t offset;
+  double y = (55 - (0.4166667 * actualDistance.to<double>()) +
+              (0.001388889 * (actualDistance.to<double>() * actualDistance.to<double>())));
+  offset = (units::inch_t)y;
+  return offset;
 }
 
 void ShooterSubsystem::FixedShooterPosition(FixedPosState fixedPosState) {
