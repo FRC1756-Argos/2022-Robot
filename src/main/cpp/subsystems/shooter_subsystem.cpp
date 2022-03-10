@@ -126,8 +126,8 @@ void ShooterSubsystem::AutoAim() {
     distanceToTarget = GetTargetDistance(targetValues.pitch);
   }
 
-  if (distanceToTarget > (units::inch_t)120) {
-    // fitting 2nd degree polynomial
+  if (distanceToTarget > (units::inch_t)140) {
+    // fitting 2nd degree polynomial to get the offset
     distanceToTarget -= GetPolynomialOffset(distanceToTarget);
   }
 
@@ -148,7 +148,7 @@ void ShooterSubsystem::AutoAim() {
 
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
   units::inch_t offset;
-  double y = (55 - (0.4166667 * actualDistance.to<double>()) +
+  double y = (45 - (0.4166667 * actualDistance.to<double>()) +
               (0.001388889 * (actualDistance.to<double>() * actualDistance.to<double>())));
   offset = (units::inch_t)y;
   return offset;

@@ -137,7 +137,7 @@ wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
           units::make_unit<units::meters_per_second_t>(velocities.fwVelocity),
           units::make_unit<units::meters_per_second_t>(velocities.sideVelocity),
           units::make_unit<units::angular_velocity::radians_per_second_t>(velocities.rotVelocity),
-          frc::Rotation2d(m_imu.GetAngle() - m_fieldHomeOffset));
+          frc::Rotation2d(-m_imu.GetAngle() - m_fieldHomeOffset));
 
       // Return the speeds to consumer
       return m_pSwerveDriveKinematics->ToSwerveModuleStates(fieldCentricSpeeds);
@@ -283,7 +283,7 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
 }
 
 void SwerveDriveSubsystem::FieldHome(units::degree_t homeAngle) {
-  m_fieldHomeOffset = m_imu.GetAngle() - homeAngle;
+  m_fieldHomeOffset = -m_imu.GetAngle() - homeAngle;
 }
 
 void SwerveDriveSubsystem::SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode) {
