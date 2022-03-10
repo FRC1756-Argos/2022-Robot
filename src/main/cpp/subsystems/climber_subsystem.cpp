@@ -186,6 +186,17 @@ void ClimberSubsystem::DisableHookSoftLimits() {
   m_motorMoveHook.ConfigReverseSoftLimitEnable(false);
 }
 
+void ClimberSubsystem::ClimberPositionStorage() {
+  ArmSetPosition(21.5_in, 10_ips, 10_ips2);
+  // take six inches in order to keep inside frame perimeter
+  HooksSetPosition(measure_up::climber_hook::maxExtension - 6_in, 10_ips, 10_ips2);
+}
+
+void ClimberSubsystem::ClimberToSetpoint(ClimberPoint setPoint) {
+  ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 10_ips2);
+  HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 10_ips2);
+}
+
 void ClimberSubsystem::ClimberPositionSetup() {
   ArmSetPosition(37_in, 10_ips, 10_ips2);
   HooksSetPosition(34_in, 10_ips, 10_ips2);
@@ -220,6 +231,45 @@ void ClimberSubsystem::ClimberPositionPrepareTransferL3() {
 void ClimberSubsystem::ClimberPositionTransferL3() {
   ArmSetPosition(29.0_in, 10_ips, 10_ips2);
   HooksSetPosition(26.0_in, 10_ips, 10_ips2);
+}
+
+bool ClimberSubsystem::HooksAtPosition(units::inch_t target) {
+  units::inch_t curPosition = sensor_conversions::climb_hooks::ToExtension(m_motorMoveHook.GetSelectedSensorPosition());
+  return InThreshold<units::inch_t>(curPosition, target, 0.2_in);
+}
+
+bool ClimberSubsystem::ArmsAtPosition(units::inch_t target) {
+  units::inch_t curPosition = sensor_conversions::climb_arms::ToExtension(m_motorLiftRight.GetSelectedSensorPosition());
+  return InThreshold<units::inch_t>(curPosition, target, 0.2_in);
+}
+
+bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {
+  return (ArmsAtPosition(target.armExtension) && HooksAtPosition(target.hookExtension)) ? true : false;
+}
+
+// DESIGN IN COMMAND SO IT CAN BE INTERUPTED
+void ClimberSubsystem::ClimbSequenceReady(bool ready) {
+  if (ready) {
+    m_climberStatus = ClimberStatus::CLIMBER_READY;
+    ClimberPositionSetup();
+  } else {
+    m_climberStatus = ClimberStatus::CLIMBER_STORAGE;
+    ClimberPositionStorage();
+  }
+  ready ? ClimberPositionSetup() : ClimberPositionStorage();
+}
+
+void ClimberSubsystem::ClimbSequence() {
+  if (GetClimberStatus() != ClimberStatus::CLIMBER_READY) {
+    return;
+  }
+  if (!ClimberAtPoint(ClimberSetpoints::setup)) {
+    ClimberToSetpoint(ClimberSetpoints::setup);
+  }
+}
+
+ClimberSubsystem::ClimberStatus ClimberSubsystem::GetClimberStatus() {
+  return m_climberStatus;
 }
 
 // SecureL2

@@ -10,6 +10,7 @@
 #include <string>
 
 #include "constants/addresses.h"
+#include "constants/climber_setpoints.h"
 #include "constants/control_loops.h"
 #include "constants/interpolation_maps.h"
 #include "constants/measure_up.h"
