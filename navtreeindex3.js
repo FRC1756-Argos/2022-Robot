@@ -1,5 +1,8 @@
 var NAVTREEINDEX3 =
 {
+"functions_func_c.html":[3,3,1,2],
+"functions_func_d.html":[3,3,1,3],
+"functions_func_e.html":[3,3,1,4],
 "functions_func_f.html":[3,3,1,5],
 "functions_func_g.html":[3,3,1,6],
 "functions_func_h.html":[3,3,1,7],
@@ -31,8 +34,8 @@ var NAVTREEINDEX3 =
 "functions_t.html":[3,3,0,18],
 "functions_u.html":[3,3,0,19],
 "functions_v.html":[3,3,0,20],
-"functions_vars.html":[3,3,2,0],
 "functions_vars.html":[3,3,2],
+"functions_vars.html":[3,3,2,0],
 "functions_vars_b.html":[3,3,2,1],
 "functions_vars_c.html":[3,3,2,2],
 "functions_vars_d.html":[3,3,2,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX3 =
 "namespacecontrol_loop_1_1comp__bot_1_1climber_1_1hook.html#aa2652e8a9cb25df0d78137564a2cc9a8":[2,0,4,0,0,1,0],
 "namespacecontrol_loop_1_1comp__bot_1_1climber_1_1hook.html#aced28747dadc74e939210b806a285560":[2,0,4,0,0,1,4],
 "namespacecontrol_loop_1_1comp__bot_1_1climber_1_1hook.html#ae0e5c00b26a3ea41b39396b03fb63a30":[2,0,4,0,0,1,1],
-"namespacecontrol_loop_1_1comp__bot_1_1drive.html":[2,0,4,0,1],
-"namespacecontrol_loop_1_1comp__bot_1_1shooter.html":[2,0,4,0,2],
-"namespacecontrol_loop_1_1practice__bot.html":[2,0,4,1],
-"namespacecontrol_loop_1_1practice__bot_1_1drive.html":[2,0,4,1,0]
+"namespacecontrol_loop_1_1comp__bot_1_1drive.html":[2,0,4,0,1]
 };

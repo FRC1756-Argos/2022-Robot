@@ -6,6 +6,7 @@ var class_intake_subsystem =
       [ "Outtaking", "class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7a41d4c71faaf9ec2d1d9883df8540e77c", null ]
     ] ],
     [ "IntakeSubsystem", "class_intake_subsystem.html#a73cfb9b735bde4d8e48fb03c361988ea", null ],
+    [ "Disable", "class_intake_subsystem.html#a1a88f5365448817ffeff0bcf1d315327", null ],
     [ "DumpBall", "class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9", null ],
     [ "ElevatorCycle", "class_intake_subsystem.html#a4c82c6b334407b2d13bd29b78ee5b62e", null ],
     [ "getBallPresentIntake", "class_intake_subsystem.html#a161e42195b5339736dedbca4a6a62cf7", null ],

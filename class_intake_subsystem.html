@@ -112,6 +112,9 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a73cfb9b735bde4d8e48fb03c361988ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a73cfb9b735bde4d8e48fb03c361988ea">IntakeSubsystem</a> (const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance)</td></tr>
 <tr class="separator:a73cfb9b735bde4d8e48fb03c361988ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a88f5365448817ffeff0bcf1d315327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a1a88f5365448817ffeff0bcf1d315327">Disable</a> ()</td></tr>
+<tr class="memdesc:a1a88f5365448817ffeff0bcf1d315327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle robot disabling.  <a href="class_intake_subsystem.html#a1a88f5365448817ffeff0bcf1d315327">More...</a><br /></td></tr>
+<tr class="separator:a1a88f5365448817ffeff0bcf1d315327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a161e42195b5339736dedbca4a6a62cf7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a161e42195b5339736dedbca4a6a62cf7">getBallPresentIntake</a> ()</td></tr>
 <tr class="memdesc:a161e42195b5339736dedbca4a6a62cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether ball is present at intake.  <a href="class_intake_subsystem.html#a161e42195b5339736dedbca4a6a62cf7">More...</a><br /></td></tr>
 <tr class="separator:a161e42195b5339736dedbca4a6a62cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -233,6 +236,25 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1a88f5365448817ffeff0bcf1d315327" name="a1a88f5365448817ffeff0bcf1d315327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a88f5365448817ffeff0bcf1d315327">&#9670;&nbsp;</a></span>Disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntakeSubsystem::Disable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handle robot disabling. </p>
+
+</div>
+</div>
 <a id="a6cc7f02d931d549824c96b35cadb37f9" name="a6cc7f02d931d549824c96b35cadb37f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6cc7f02d931d549824c96b35cadb37f9">&#9670;&nbsp;</a></span>DumpBall()</h2>
 
@@ -349,7 +371,7 @@ false - Ball is not present at checked sensor </dd></dl>
 </div><div class="memdoc">
 
 <p>Determines whether ball is team color. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>need to make function not placeholder </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>need to make function not placeholder </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>true - Ball is team color </dd>
 <dd>
 false - Ball is not team color </dd></dl>
@@ -398,7 +420,6 @@ false - Ball is not team color </dd></dl>
 </table>
 </div><div class="memdoc">
 <p >Will be called periodically whenever the CommandScheduler runs. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Enable this again once we have sensors Otherwise this conflicts with current manual control </dd></dl>
 
 </div>
 </div>

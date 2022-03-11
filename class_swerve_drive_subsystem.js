@@ -6,6 +6,7 @@ var class_swerve_drive_subsystem =
       [ "robotCentricControl", "class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512ca0166150dc58e9466fe319fbfe750fd15", null ]
     ] ],
     [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html#a2093667e7073a107d596b4b4a2f573d3", null ],
+    [ "Disable", "class_swerve_drive_subsystem.html#a0799d7ebc2d49f21f26cb9297accb091", null ],
     [ "FieldHome", "class_swerve_drive_subsystem.html#aaa783e841c6b4228638ef873ada402dc", null ],
     [ "GetRawModuleStates", "class_swerve_drive_subsystem.html#a6ec0aa2955d381e3eb585bc210da5d39", null ],
     [ "Home", "class_swerve_drive_subsystem.html#a002a0509339ff38f00fd6ca2e74a85f0", null ],
@@ -16,6 +17,7 @@ var class_swerve_drive_subsystem =
     [ "InitializeMotorsFromNetworkTables", "class_swerve_drive_subsystem.html#a3d36605e92966df8a891d5be634969ac", null ],
     [ "Periodic", "class_swerve_drive_subsystem.html#ac11787e2a63cf67785aee01665d040ba", null ],
     [ "SetControlMode", "class_swerve_drive_subsystem.html#a6d4cda6ee182e7411d064e127f71dcb0", null ],
+    [ "StopDrive", "class_swerve_drive_subsystem.html#ab9a66efccdf321cadada7a3477af5050", null ],
     [ "SwerveDrive", "class_swerve_drive_subsystem.html#a1e93abce8d02b2acd1f3b020ad919e57", null ],
     [ "m_backLeft", "class_swerve_drive_subsystem.html#a5b74616606cb8b4fdfb5c8e699e2e5fb", null ],
     [ "m_backRight", "class_swerve_drive_subsystem.html#a120f86cc2b1cfe872573ed823d6e2e43", null ],
