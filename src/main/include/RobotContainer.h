@@ -89,5 +89,23 @@ class RobotContainer {
   units::degree_t m_turretTargetPosition;
   argos_lib::NTSubscriber m_NTMonitor;
 
+  // Drive profile tuning
+  double m_driveFollowerLinearkP;
+  double m_driveFollowerLinearkI;
+  double m_driveFollowerLinearkD;
+  double m_driveFollowerRotationalkP;
+  double m_driveFollowerRotationalkI;
+  double m_driveFollowerRotationalkD;
+  units::degrees_per_second_t m_driveFollowerRotationalVelocity;
+  units::degrees_per_second_squared_t m_driveFollowerRotationalAcceleration;
+
+  units::inch_t m_driveProfileDistX;
+  units::inch_t m_driveProfileDistY;
+  units::degree_t m_driveProfileRot;
+  units::feet_per_second_t m_driveProfileMaxLinearVel;
+  units::feet_per_second_squared_t m_driveProfileMaxLinearAccel;
+  units::degrees_per_second_t m_driveProfileMaxRotationalVel;
+  units::degrees_per_second_squared_t m_driveProfileMaxRotationalAccel;
+
   void ConfigureButtonBindings();
 };

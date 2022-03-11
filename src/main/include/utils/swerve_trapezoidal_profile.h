@@ -5,6 +5,7 @@
 #pragma once
 
 #include <frc/geometry/Pose2d.h>
+#include <frc/trajectory/Trajectory.h>
 #include <frc/trajectory/TrapezoidProfile.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
@@ -22,8 +23,18 @@ class SwerveTrapezoidalProfileSegment {
                                   const frc::Rotation2d relativeRotation,
                                   const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints,
                                   const frc::TrapezoidProfile<units::degrees>::Constraints rotationalConstraints);
-  frc::Pose2d Calculate(units::second_t time) const;
+  SwerveTrapezoidalProfileSegment(const SwerveTrapezoidalProfileSegment& other) = default;
+  SwerveTrapezoidalProfileSegment(SwerveTrapezoidalProfileSegment&& other) = default;
+
+  SwerveTrapezoidalProfileSegment& operator=(const SwerveTrapezoidalProfileSegment&) = delete;
+  SwerveTrapezoidalProfileSegment& operator=(SwerveTrapezoidalProfileSegment&&) = delete;
+
+  frc::Trajectory::State Calculate(units::second_t time) const;
   bool IsFinished(units::second_t time) const;
+  frc::Rotation2d GetEndAngle() const;
+
+  units::feet_per_second_t GetXVelocity(const frc::Trajectory::State& state) const;
+  units::feet_per_second_t GetYVelocity(const frc::Trajectory::State& state) const;
 
  private:
   const frc::Pose2d m_initialPosition;
@@ -31,6 +42,7 @@ class SwerveTrapezoidalProfileSegment {
   const frc::Rotation2d m_relativeRotation;
   const frc::TrapezoidProfile<units::inches> m_linearProfile;
   const frc::TrapezoidProfile<units::degrees> m_rotationalProfile;
+  const units::degree_t m_motionAngle;
 };
 
 class SwerveTrapezoidalProfile {

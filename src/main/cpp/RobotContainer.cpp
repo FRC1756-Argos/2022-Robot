@@ -41,7 +41,39 @@ RobotContainer::RobotContainer()
     , m_climberHookTargetExtension(20_in)
     , m_climberHookCruiseVelocity{10_ips}
     , m_climberHookAccel{10_ips2}
-    , m_NTMonitor("argos") {
+    , m_NTMonitor("argos")
+    , m_driveFollowerLinearkP(m_instance == argos_lib::RobotInstance::Competition ?
+                                  controlLoop::comp_bot::drive::linear_follower::kP :
+                                  controlLoop::practice_bot::drive::linear_follower::kP)
+    , m_driveFollowerLinearkI(m_instance == argos_lib::RobotInstance::Competition ?
+                                  controlLoop::comp_bot::drive::linear_follower::kI :
+                                  controlLoop::practice_bot::drive::linear_follower::kI)
+    , m_driveFollowerLinearkD(m_instance == argos_lib::RobotInstance::Competition ?
+                                  controlLoop::comp_bot::drive::linear_follower::kD :
+                                  controlLoop::practice_bot::drive::linear_follower::kD)
+    , m_driveFollowerRotationalkP(m_instance == argos_lib::RobotInstance::Competition ?
+                                      controlLoop::comp_bot::drive::rotational_follower::kP :
+                                      controlLoop::practice_bot::drive::rotational_follower::kP)
+    , m_driveFollowerRotationalkI(m_instance == argos_lib::RobotInstance::Competition ?
+                                      controlLoop::comp_bot::drive::rotational_follower::kI :
+                                      controlLoop::practice_bot::drive::rotational_follower::kI)
+    , m_driveFollowerRotationalkD(m_instance == argos_lib::RobotInstance::Competition ?
+                                      controlLoop::comp_bot::drive::rotational_follower::kD :
+                                      controlLoop::practice_bot::drive::rotational_follower::kD)
+    , m_driveFollowerRotationalVelocity(m_instance == argos_lib::RobotInstance::Competition ?
+                                            controlLoop::comp_bot::drive::rotational_follower::angularVelocity :
+                                            controlLoop::practice_bot::drive::rotational_follower::angularVelocity)
+    , m_driveFollowerRotationalAcceleration(
+          m_instance == argos_lib::RobotInstance::Competition ?
+              controlLoop::comp_bot::drive::rotational_follower::angularAcceleration :
+              controlLoop::practice_bot::drive::rotational_follower::angularAcceleration)
+    , m_driveProfileDistX(0_in)
+    , m_driveProfileDistY(120_in)
+    , m_driveProfileRot(0_deg)
+    , m_driveProfileMaxLinearVel(12_fps)
+    , m_driveProfileMaxLinearAccel(units::feet_per_second_squared_t{10})
+    , m_driveProfileMaxRotationalVel(60_rpm)
+    , m_driveProfileMaxRotationalAccel(units::degrees_per_second_squared_t{360}) {
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
 
@@ -165,6 +197,76 @@ RobotContainer::RobotContainer()
       "manualSetpoints/turretPosition",
       [this](double newVal) { m_turretTargetPosition = units::make_unit<units::degree_t>(newVal); },
       m_turretTargetPosition.to<double>());
+
+  // Drive profiling testing
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/FollowerLinear/kP",
+      [this](double newVal) { m_driveFollowerLinearkP = (newVal); },
+      m_driveFollowerLinearkP);
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/FollowerLinear/kI",
+      [this](double newVal) { m_driveFollowerLinearkI = (newVal); },
+      m_driveFollowerLinearkI);
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/FollowerLinear/kD",
+      [this](double newVal) { m_driveFollowerLinearkD = (newVal); },
+      m_driveFollowerLinearkD);
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/FollowerRotational/kP",
+      [this](double newVal) { m_driveFollowerRotationalkP = (newVal); },
+      m_driveFollowerRotationalkP);
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/FollowerRotational/kI",
+      [this](double newVal) { m_driveFollowerRotationalkI = (newVal); },
+      m_driveFollowerRotationalkI);
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/FollowerRotational/kD",
+      [this](double newVal) { m_driveFollowerRotationalkD = (newVal); },
+      m_driveFollowerRotationalkD);
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/FollowerRotational/Velocity",
+      [this](double newVal) {
+        m_driveFollowerRotationalVelocity = units::make_unit<units::degrees_per_second_t>(newVal);
+      },
+      m_driveFollowerRotationalVelocity.to<double>());
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/FollowerRotational/Acceleration",
+      [this](double newVal) {
+        m_driveFollowerRotationalAcceleration = units::make_unit<units::degrees_per_second_squared_t>(newVal);
+      },
+      m_driveFollowerRotationalAcceleration.to<double>());
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/Profile/DistX",
+      [this](double newVal) { m_driveProfileDistX = units::make_unit<units::inch_t>(newVal); },
+      m_driveProfileDistX.to<double>());
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/Profile/DistY",
+      [this](double newVal) { m_driveProfileDistY = units::make_unit<units::inch_t>(newVal); },
+      m_driveProfileDistY.to<double>());
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/Profile/Rot",
+      [this](double newVal) { m_driveProfileRot = units::make_unit<units::degree_t>(newVal); },
+      m_driveProfileRot.to<double>());
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/Profile/MaxLinearVel",
+      [this](double newVal) { m_driveProfileMaxLinearVel = units::make_unit<units::feet_per_second_t>(newVal); },
+      m_driveProfileMaxLinearVel.to<double>());
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/Profile/MaxLinearAccel",
+      [this](double newVal) {
+        m_driveProfileMaxLinearAccel = units::make_unit<units::feet_per_second_squared_t>(newVal);
+      },
+      m_driveProfileMaxLinearAccel.to<double>());
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/Profile/MaxRotationalVel",
+      [this](double newVal) { m_driveProfileMaxRotationalVel = units::make_unit<units::degrees_per_second_t>(newVal); },
+      m_driveProfileMaxRotationalVel.to<double>());
+  m_NTMonitor.AddMonitor(
+      "driveProfiling/Profile/MaxRotationalAccel",
+      [this](double newVal) {
+        m_driveProfileMaxRotationalAccel = units::make_unit<units::degrees_per_second_squared_t>(newVal);
+      },
+      m_driveProfileMaxRotationalAccel.to<double>());
 
   ConfigureButtonBindings();
 }
@@ -353,6 +455,29 @@ void RobotContainer::ConfigureButtonBindings() {
       .WhileActiveOnce(argos_lib::SwapControllersCommand(&m_controllers));
 
   homeDrive.WhenActive([this]() { m_swerveDrive.Home(0_deg); }, {&m_swerveDrive});
+
+  // Drive profile tuning
+  auto driveProfileTrigger = (frc2::Trigger{
+      [this]() { return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kDown); }});
+
+  driveProfileTrigger.WhenActive(
+      [this]() {
+        m_swerveDrive.UpdateFollowerLinearPIDParams(
+            m_driveFollowerLinearkP, m_driveFollowerLinearkI, m_driveFollowerLinearkD);
+        m_swerveDrive.UpdateFollowerRotationalPIDParams(
+            m_driveFollowerRotationalkP, m_driveFollowerRotationalkI, m_driveFollowerRotationalkD);
+        m_swerveDrive.UpdateFollowerRotationalPIDConstraints(frc::TrapezoidProfile<units::degrees>::Constraints{
+            m_driveFollowerRotationalVelocity, m_driveFollowerRotationalAcceleration});
+        m_swerveDrive.StartDrivingProfile(SwerveTrapezoidalProfileSegment(
+            m_swerveDrive.GetPoseEstimate(),
+            frc::Translation2d{m_driveProfileDistX, m_driveProfileDistY},
+            frc::Rotation2d{m_driveProfileRot},
+            frc::TrapezoidProfile<units::inches>::Constraints{m_driveProfileMaxLinearVel, m_driveProfileMaxLinearAccel},
+            frc::TrapezoidProfile<units::degrees>::Constraints{m_driveProfileMaxRotationalVel,
+                                                               m_driveProfileMaxRotationalAccel}));
+      },
+      {&m_swerveDrive});
+  driveProfileTrigger.WhenInactive([this]() { m_swerveDrive.CancelDrivingProfile(); }, {&m_swerveDrive});
 }
 
 // ----------------------------------------------------------------------------------------------------------

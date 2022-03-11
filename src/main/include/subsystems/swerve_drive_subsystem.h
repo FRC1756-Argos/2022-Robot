@@ -109,6 +109,13 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    */
   units::degree_t GetFieldCentricAngle() const;
 
+  /**
+   * @brief Get the latest pose estimate
+   *
+   * @return Latest pose
+   */
+  frc::Pose2d GetPoseEstimate() const;
+
   void SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode);
 
   /**
@@ -122,7 +129,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   void UpdateFollowerRotationalPIDParams(double kP, double kI, double kD);
   void UpdateFollowerRotationalPIDConstraints(frc::TrapezoidProfile<units::degrees>::Constraints constraints);
 
-  void StartDrivingProfile(SwerveTrapezoidalProfile newProfile);
+  void StartDrivingProfile(SwerveTrapezoidalProfileSegment newProfile);
 
   void CancelDrivingProfile();
 
@@ -160,7 +167,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   FileSystemHomingStorage m_fsStorage;
 
   bool m_followingProfile;
-  SwerveTrapezoidalProfileSegment m_activeSwerveProfile;
+  std::unique_ptr<SwerveTrapezoidalProfileSegment> m_pActiveSwerveProfile;
   std::chrono::time_point<std::chrono::steady_clock> m_swerveProfileStartTime;
   frc2::PIDController m_linearPID;
   frc::ProfiledPIDController<units::radians> m_rotationalPID;
@@ -175,6 +182,13 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
  * @return wpi::array<frc::SwerveModuleState, 4>
  */
   wpi::array<frc::SwerveModuleState, 4> GetRawModuleStates(SwerveDriveSubsystem::Velocities velocities);
+
+  /**
+   * @brief Get the active states of all swerve modules
+   *
+   * @return Active module states
+   */
+  wpi::array<frc::SwerveModuleState, 4> GetCurrentModuleStates();
 
   /**
    * @brief HomeToNetworkTables all of the modules back to zero

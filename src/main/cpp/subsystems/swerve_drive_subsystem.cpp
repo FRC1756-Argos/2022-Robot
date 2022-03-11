@@ -46,7 +46,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
     , m_pNetworkTable(networkTable)
     , m_fsStorage(paths::swerveHomesPath)
     , m_followingProfile(false)
-    , m_activeSwerveProfile()
+    , m_pActiveSwerveProfile(nullptr)
     , m_swerveProfileStartTime()
     , m_linearPID(instance == argos_lib::RobotInstance::Competition ?
                       frc2::PIDController{controlLoop::comp_bot::drive::linear_follower::kP,
@@ -126,6 +126,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 
 void SwerveDriveSubsystem::Disable() {
   m_controlMode = DriveControlMode::fieldCentricControl;
+  m_followingProfile = false;
   StopDrive();
 }
 
@@ -174,9 +175,14 @@ wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
   return m_swerveDriveKinematics.ToSwerveModuleStates(emptySpeeds);
 }
 
+wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetCurrentModuleStates() {
+  return {m_frontLeft.GetState(), m_frontRight.GetState(), m_backRight.GetState(), m_backLeft.GetState()};
+}
+
 void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                        const double& sideVelocity,
                                        const double& rotVelocity) {
+  UpdateOdometry();
   if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
     if (m_followingProfile) {
       // following profile
@@ -199,7 +205,17 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   frc::SmartDashboard::PutNumber("IMU ANGLE", m_imu.GetAngle().to<double>());
 
   // SET MODULES BASED OFF OF CONTROL MODE
-  auto moduleStates = GetRawModuleStates(velocities);
+  auto moduleStates = GetCurrentModuleStates();
+  frc::Trajectory::State desiredProfileState;
+  if (m_followingProfile && m_pActiveSwerveProfile) {
+    const auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() -
+                                                                                   m_swerveProfileStartTime);
+    desiredProfileState = m_pActiveSwerveProfile->Calculate(elapsedTime);
+    moduleStates = m_swerveDriveKinematics.ToSwerveModuleStates(m_followerController.Calculate(
+        m_odometry.GetPose(), desiredProfileState, m_pActiveSwerveProfile->GetEndAngle()));
+  } else {
+    moduleStates = GetRawModuleStates(velocities);
+  }
 
   /// @todo Convert sensor velocities for optimizer instead of constants
   moduleStates.at(0) = argos_lib::swerve::Optimize(
@@ -229,37 +245,76 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
 
   // Give module state values to motors
 
-  // FRONT LEFT
-  m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
-                          moduleStates.at(indexes::swerveModules::frontLeftIndex).speed.to<double>());
+  if (m_followingProfile) {
+    // When following profile, use closed-loop velocity
+    // FRONT LEFT
+    m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+                            sensor_conversions::swerve_drive::drive::ToSensorVelocity(
+                                moduleStates.at(indexes::swerveModules::frontLeftIndex).speed));
 
-  m_frontLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-                         sensor_conversions::swerve_drive::turn::ToSensorUnit(
-                             moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees()));
+    m_frontLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                           sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                               moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees()));
 
-  // FRONT RIGHT
-  m_frontRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
-                           moduleStates.at(indexes::swerveModules::frontRightIndex).speed.to<double>());
+    // FRONT RIGHT
+    m_frontRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+                             sensor_conversions::swerve_drive::drive::ToSensorVelocity(
+                                 moduleStates.at(indexes::swerveModules::frontRightIndex).speed));
 
-  m_frontRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+    m_frontRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                            sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                                moduleStates.at(indexes::swerveModules::frontRightIndex).angle.Degrees()));
+
+    // BACK RIGHT
+    m_backRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+                            sensor_conversions::swerve_drive::drive::ToSensorVelocity(
+                                moduleStates.at(indexes::swerveModules::backRightIndex).speed));
+
+    m_backRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                           sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                               moduleStates.at(indexes::swerveModules::backRightIndex).angle.Degrees()));
+
+    // BACK LEFT
+    m_backLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Velocity,
+                           sensor_conversions::swerve_drive::drive::ToSensorVelocity(
+                               moduleStates.at(indexes::swerveModules::backLeftIndex).speed));
+
+    m_backLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
                           sensor_conversions::swerve_drive::turn::ToSensorUnit(
-                              moduleStates.at(indexes::swerveModules::frontRightIndex).angle.Degrees()));
+                              moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees()));
+  } else {
+    // FRONT LEFT
+    m_frontLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
+                            moduleStates.at(indexes::swerveModules::frontLeftIndex).speed.to<double>());
 
-  // BACK RIGHT
-  m_backRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
-                          moduleStates.at(indexes::swerveModules::backRightIndex).speed.to<double>());
+    m_frontLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                           sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                               moduleStates.at(indexes::swerveModules::frontLeftIndex).angle.Degrees()));
 
-  m_backRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-                         sensor_conversions::swerve_drive::turn::ToSensorUnit(
-                             moduleStates.at(indexes::swerveModules::backRightIndex).angle.Degrees()));
+    // FRONT RIGHT
+    m_frontRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
+                             moduleStates.at(indexes::swerveModules::frontRightIndex).speed.to<double>());
 
-  // BACK LEFT
-  m_backLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
-                         moduleStates.at(indexes::swerveModules::backLeftIndex).speed.to<double>());
+    m_frontRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                            sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                                moduleStates.at(indexes::swerveModules::frontRightIndex).angle.Degrees()));
 
-  m_backLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
-                        sensor_conversions::swerve_drive::turn::ToSensorUnit(
-                            moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees()));
+    // BACK RIGHT
+    m_backRight.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
+                            moduleStates.at(indexes::swerveModules::backRightIndex).speed.to<double>());
+
+    m_backRight.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                           sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                               moduleStates.at(indexes::swerveModules::backRightIndex).angle.Degrees()));
+
+    // BACK LEFT
+    m_backLeft.m_drive.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::PercentOutput,
+                           moduleStates.at(indexes::swerveModules::backLeftIndex).speed.to<double>());
+
+    m_backLeft.m_turn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position,
+                          sensor_conversions::swerve_drive::turn::ToSensorUnit(
+                              moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees()));
+  }
 
   // DEBUG STUFF
   frc::SmartDashboard::PutNumber("(DRIVETRAIN) FL speed",
@@ -312,18 +367,18 @@ void SwerveDriveSubsystem::FieldHome(units::degree_t homeAngle, bool updateOdome
   if (updateOdometry) {
     // Update odometry as well
     const auto currentPose = m_odometry.GetPose();
-    m_odometry.ResetPosition(frc::Pose2d{currentPose.Translation(), frc::Rotation2d(homeAngle)}, m_imu.GetAngle());
+    m_odometry.ResetPosition(frc::Pose2d{currentPose.Translation(), frc::Rotation2d(homeAngle)}, -m_imu.GetAngle());
   }
 }
 
 void SwerveDriveSubsystem::InitializeOdometry(const frc::Pose2d& currentPose) {
-  m_odometry.ResetPosition(currentPose, m_imu.GetAngle());
+  m_odometry.ResetPosition(currentPose, -m_imu.GetAngle());
   // Since we know the position, might as well update the driving orientation as well
   FieldHome(currentPose.Rotation().Degrees(), false);
 }
 
 frc::Pose2d SwerveDriveSubsystem::UpdateOdometry() {
-  return m_odometry.Update(frc::Rotation2d{m_imu.GetAngle()},
+  return m_odometry.Update(frc::Rotation2d{-m_imu.GetAngle()},
                            m_frontLeft.GetState(),
                            m_frontRight.GetState(),
                            m_backRight.GetState(),
@@ -332,6 +387,10 @@ frc::Pose2d SwerveDriveSubsystem::UpdateOdometry() {
 
 units::degree_t SwerveDriveSubsystem::GetFieldCentricAngle() const {
   return -m_imu.GetAngle() - m_fieldHomeOffset;
+}
+
+frc::Pose2d SwerveDriveSubsystem::GetPoseEstimate() const {
+  return m_odometry.GetPose();
 }
 
 void SwerveDriveSubsystem::SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode) {
@@ -447,4 +506,31 @@ frc::SwerveModuleState SwerveModule::GetState() {
   return frc::SwerveModuleState{
       sensor_conversions::swerve_drive::drive::ToVelocity(m_drive.GetSelectedSensorVelocity()),
       frc::Rotation2d{sensor_conversions::swerve_drive::turn::ToAngle(m_turn.GetSelectedSensorPosition())}};
+}
+
+void SwerveDriveSubsystem::UpdateFollowerLinearPIDParams(double kP, double kI, double kD) {
+  m_linearPID.SetPID(kP, kI, kD);
+  m_linearPID.Reset();
+}
+
+void SwerveDriveSubsystem::UpdateFollowerRotationalPIDParams(double kP, double kI, double kD) {
+  m_rotationalPID.SetPID(kP, kI, kD);
+  m_rotationalPID.Reset(m_rotationalPID.GetGoal());
+}
+
+void SwerveDriveSubsystem::UpdateFollowerRotationalPIDConstraints(
+    frc::TrapezoidProfile<units::degrees>::Constraints constraints) {
+  m_rotationalPID.SetConstraints(
+      frc::TrapezoidProfile<units::radians>::Constraints{constraints.maxVelocity, constraints.maxAcceleration});
+  m_rotationalPID.Reset(m_rotationalPID.GetGoal());
+}
+
+void SwerveDriveSubsystem::StartDrivingProfile(SwerveTrapezoidalProfileSegment newProfile) {
+  m_pActiveSwerveProfile = std::make_unique<SwerveTrapezoidalProfileSegment>(newProfile);
+  m_swerveProfileStartTime = std::chrono::steady_clock::now();
+  m_followingProfile = true;
+}
+
+void SwerveDriveSubsystem::CancelDrivingProfile() {
+  m_followingProfile = false;
 }

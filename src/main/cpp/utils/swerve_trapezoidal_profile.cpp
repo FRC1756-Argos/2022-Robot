@@ -11,7 +11,8 @@ SwerveTrapezoidalProfileSegment::SwerveTrapezoidalProfileSegment()
     , m_linearProfile{frc::TrapezoidProfile<units::inches>::Constraints(),
                       frc::TrapezoidProfile<units::inches>::State{}}
     , m_rotationalProfile{frc::TrapezoidProfile<units::degrees>::Constraints(),
-                          frc::TrapezoidProfile<units::degrees>::State{}} {}
+                          frc::TrapezoidProfile<units::degrees>::State{}}
+    , m_motionAngle{units::math::atan2(m_relativeTranslation.X(), m_relativeTranslation.Y())} {}
 
 SwerveTrapezoidalProfileSegment::SwerveTrapezoidalProfileSegment(
     const frc::Pose2d initialPosition,
@@ -24,18 +25,38 @@ SwerveTrapezoidalProfileSegment::SwerveTrapezoidalProfileSegment(
     , m_relativeRotation{relativeRotation}
     , m_linearProfile{linearConstraints, frc::TrapezoidProfile<units::inches>::State{relativeTranslation.Norm(), 0_mps}}
     , m_rotationalProfile{rotationalConstraints,
-                          frc::TrapezoidProfile<units::degrees>::State{relativeRotation.Degrees(), 0_rpm}} {}
+                          frc::TrapezoidProfile<units::degrees>::State{relativeRotation.Degrees(), 0_rpm}}
+    , m_motionAngle{0_deg} {}
 
-frc::Pose2d SwerveTrapezoidalProfileSegment::Calculate(units::second_t time) const {
+frc::Trajectory::State SwerveTrapezoidalProfileSegment::Calculate(units::second_t time) const {
+  const auto linearState = m_linearProfile.Calculate(time);
+  const auto rotationalState = m_rotationalProfile.Calculate(time);
   const auto newTranslation =
-      m_relativeTranslation * (m_linearProfile.Calculate(time).position() / m_relativeTranslation.Norm()).to<double>();
+      m_relativeTranslation * (linearState.position() / m_relativeTranslation.Norm()).to<double>();
   const auto newRotation =
-      m_relativeRotation * (m_rotationalProfile.Calculate(time).position() / m_relativeRotation.Degrees()).to<double>();
-  return frc::Pose2d(m_initialPosition.Translation() + newTranslation, m_initialPosition.Rotation() + newRotation);
+      m_relativeRotation * (rotationalState.position() / m_relativeRotation.Degrees()).to<double>();
+  return frc::Trajectory::State{
+      time,
+      linearState.velocity,
+      0_mps_sq,
+      frc::Pose2d{m_initialPosition.Translation() + newTranslation, m_initialPosition.Rotation() + newRotation},
+      units::curvature_t{0}};
 }
 
 bool SwerveTrapezoidalProfileSegment::IsFinished(units::second_t time) const {
   return m_linearProfile.IsFinished(time) && m_rotationalProfile.IsFinished(time);
+}
+
+frc::Rotation2d SwerveTrapezoidalProfileSegment::GetEndAngle() const {
+  return m_initialPosition.Rotation() + m_relativeRotation;
+}
+
+units::feet_per_second_t SwerveTrapezoidalProfileSegment::GetXVelocity(const frc::Trajectory::State& state) const {
+  return state.velocity * units::math::sin(m_motionAngle);
+}
+
+units::feet_per_second_t SwerveTrapezoidalProfileSegment::GetYVelocity(const frc::Trajectory::State& state) const {
+  return state.velocity * units::math::cos(m_motionAngle);
 }
 
 SwerveTrapezoidalProfile::SwerveTrapezoidalProfile() = default;
