@@ -31,10 +31,13 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
       m_intakeDrive, 50_ms, instance);
 }
 
+void IntakeSubsystem::Disable() {
+  StopShoot();
+  StopIntake();
+}
+
 // This method will be called once per scheduler run
 void IntakeSubsystem::Periodic() {
-  /// @todo Enable this again once we have sensors
-  ///       Otherwise this conflicts with current manual control
   auto currentTime = std::chrono::steady_clock::now();
   static auto lastCalled = currentTime;
   std::chrono::duration<double, std::milli> lastCalledDuration = currentTime - lastCalled;
