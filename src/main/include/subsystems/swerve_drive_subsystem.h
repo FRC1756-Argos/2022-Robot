@@ -94,6 +94,10 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    */
   void InitializeOdometry(const frc::Pose2d& currentPose);
 
+  frc::Rotation2d GetContinuousOdometryAngle();
+
+  frc::Pose2d GetContinuousOdometry();
+
   /**
    * @brief Reads module states & gyro, updates odometry, and returns latest pose estimate
    *
@@ -114,7 +118,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    *
    * @return Latest pose
    */
-  frc::Pose2d GetPoseEstimate() const;
+  frc::Pose2d GetPoseEstimate();
 
   void SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode);
 
@@ -158,7 +162,9 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
 
   frc::SwerveDriveKinematics<4> m_swerveDriveKinematics;  ///< Kinematics model for swerve drive system
 
-  frc::SwerveDriveOdometry<4> m_odometry;  ///< Odometry to track robot
+  frc::SwerveDriveOdometry<4> m_odometry;      ///< Odometry to track robot
+  units::degree_t m_prevOdometryAngle;         ///< Last odometry angle used for continuous calculations
+  units::degree_t m_continuousOdometryOffset;  ///< Offset to convert [-180,180] odometry angle to continuous angle
 
   // POINTER TO NETWORK TABLE CLASS OBJECT
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;  ///< Instance of network table class

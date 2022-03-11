@@ -39,7 +39,7 @@ namespace sensor_conversions {
     namespace drive {
       constexpr auto wheelDiameter = 4_in;
       constexpr auto wheelCircumference = wheelDiameter * M_PI;
-      constexpr double sensorUnitsPerMotorRevolution = 4096;
+      constexpr double sensorUnitsPerMotorRevolution = 2048;
       constexpr double driveGearRatio = 8.16;
 
       constexpr units::inch_t ToDistance(const double sensorunit) {

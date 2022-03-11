@@ -33,6 +33,13 @@ namespace motorConfig {
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
         constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::BasicFX;
+        constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::IntegratedSensor;
+        constexpr static auto pid0_kP = controlLoop::comp_bot::drive::drive::kP;
+        constexpr static auto pid0_kI = controlLoop::comp_bot::drive::drive::kI;
+        constexpr static auto pid0_kD = controlLoop::comp_bot::drive::drive::kD;
+        constexpr static auto pid0_kF = controlLoop::comp_bot::drive::drive::kF;
+        constexpr static auto pid0_iZone = controlLoop::comp_bot::drive::drive::iZone;
+        constexpr static auto pid0_allowableError = controlLoop::comp_bot::drive::drive::allowableError;
       };
       struct frontLeftTurn {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;

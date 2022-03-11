@@ -67,9 +67,9 @@ RobotContainer::RobotContainer()
           m_instance == argos_lib::RobotInstance::Competition ?
               controlLoop::comp_bot::drive::rotational_follower::angularAcceleration :
               controlLoop::practice_bot::drive::rotational_follower::angularAcceleration)
-    , m_driveProfileDistX(0_in)
-    , m_driveProfileDistY(120_in)
-    , m_driveProfileRot(0_deg)
+    , m_driveProfileDistX(120_in)
+    , m_driveProfileDistY(0_in)
+    , m_driveProfileRot(180_deg)
     , m_driveProfileMaxLinearVel(12_fps)
     , m_driveProfileMaxLinearAccel(units::feet_per_second_squared_t{10})
     , m_driveProfileMaxRotationalVel(60_rpm)

@@ -37,7 +37,9 @@
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "ul"
+              "Y-axis/Unit": "ul",
+              "Visible data/argos/hood/status/positions[0]": true,
+              "Visible data/argos/hood/status/setpoints[0]": true
             }
           },
           "3,2": {
@@ -146,7 +148,9 @@
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "ul"
+              "Y-axis/Unit": "ul",
+              "Visible data/argos/shooter/status/setpoints[0]": true,
+              "Visible data/argos/shooter/status/velocities[0]": true
             }
           },
           "3,2": {
@@ -255,7 +259,9 @@
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "ul"
+              "Y-axis/Unit": "ul",
+              "Visible data/argos/turret/status/positions[0]": true,
+              "Visible data/argos/turret/status/setpoints[0]": true
             }
           },
           "3,2": {
@@ -364,7 +370,11 @@
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "in"
+              "Y-axis/Unit": "in",
+              "Visible data/argos/arm/status/positions[0]": true,
+              "Visible data/argos/arm/status/positions[1]": true,
+              "Visible data/argos/arm/status/setpoints[0]": true,
+              "Visible data/argos/arm/status/setpoints[1]": true
             }
           },
           "2,2": {
@@ -569,7 +579,9 @@
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "in"
+              "Y-axis/Unit": "in",
+              "Visible data/argos/hook/status/positions[0]": true,
+              "Visible data/argos/hook/status/setpoints[0]": true
             }
           }
         }
@@ -597,22 +609,30 @@
               "_title": "argos/drive/motors/status"
             }
           },
-          "6,0": {
+          "7,0": {
             "size": [
               3,
-              3
+              5
             ],
             "content": {
               "_type": "Graph",
               "_source0": "network_table:///argos/drive/motors/status/setpoints",
-              "_source1": "network_table:///argos/drive/motors/status/positions",
+              "_source1": "network_table:///argos/drive/motors/status/velocities",
               "_title": "Drive Motors",
               "Graph/Visible time": 30.0,
               "Graph/X-axis auto scrolling": true,
               "Y-axis/Automatic bounds": true,
               "Y-axis/Upper bound": 1.0,
               "Y-axis/Lower bound": -1.0,
-              "Y-axis/Unit": "fps"
+              "Y-axis/Unit": "fps",
+              "Visible data/argos/drive/motors/status/setpoints[0]": true,
+              "Visible data/argos/drive/motors/status/setpoints[1]": true,
+              "Visible data/argos/drive/motors/status/setpoints[2]": true,
+              "Visible data/argos/drive/motors/status/setpoints[3]": true,
+              "Visible data/argos/drive/motors/status/velocities[0]": true,
+              "Visible data/argos/drive/motors/status/velocities[1]": true,
+              "Visible data/argos/drive/motors/status/velocities[2]": true,
+              "Visible data/argos/drive/motors/status/velocities[3]": true
             }
           },
           "2,2": {
@@ -791,7 +811,7 @@
               "_title": "argos/driveProfiling/Profile/Rot"
             }
           },
-          "6,3": {
+          "5,0": {
             "size": [
               1,
               1
@@ -802,7 +822,7 @@
               "_title": "argos/driveProfiling/Profile/MaxLinearVel"
             }
           },
-          "6,4": {
+          "5,1": {
             "size": [
               1,
               1
@@ -813,7 +833,7 @@
               "_title": "argos/driveProfiling/Profile/MaxLinearAccel"
             }
           },
-          "7,3": {
+          "6,0": {
             "size": [
               1,
               1
@@ -824,7 +844,7 @@
               "_title": "argos/driveProfiling/Profile/MaxRotationalVel"
             }
           },
-          "7,4": {
+          "6,1": {
             "size": [
               1,
               1
@@ -833,6 +853,17 @@
               "_type": "Text View",
               "_source0": "network_table:///argos/driveProfiling/Profile/MaxRotationalAccel",
               "_title": "argos/driveProfiling/Profile/MaxRotationalAccel"
+            }
+          },
+          "3,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///argos/driveProfiling/FollowerLinear/kP",
+              "_title": "argos/driveProfiling/FollowerLinear/kP"
             }
           }
         }

@@ -4,6 +4,8 @@
 
 #include "utils/swerve_trapezoidal_profile.h"
 
+#include <frc/smartdashboard/SmartDashboard.h>
+
 SwerveTrapezoidalProfileSegment::SwerveTrapezoidalProfileSegment()
     : m_initialPosition{}
     , m_relativeTranslation{}
@@ -12,7 +14,7 @@ SwerveTrapezoidalProfileSegment::SwerveTrapezoidalProfileSegment()
                       frc::TrapezoidProfile<units::inches>::State{}}
     , m_rotationalProfile{frc::TrapezoidProfile<units::degrees>::Constraints(),
                           frc::TrapezoidProfile<units::degrees>::State{}}
-    , m_motionAngle{units::math::atan2(m_relativeTranslation.X(), m_relativeTranslation.Y())} {}
+    , m_motionAngle{units::math::atan2(m_relativeTranslation.Y(), m_relativeTranslation.X())} {}
 
 SwerveTrapezoidalProfileSegment::SwerveTrapezoidalProfileSegment(
     const frc::Pose2d initialPosition,
@@ -26,21 +28,28 @@ SwerveTrapezoidalProfileSegment::SwerveTrapezoidalProfileSegment(
     , m_linearProfile{linearConstraints, frc::TrapezoidProfile<units::inches>::State{relativeTranslation.Norm(), 0_mps}}
     , m_rotationalProfile{rotationalConstraints,
                           frc::TrapezoidProfile<units::degrees>::State{relativeRotation.Degrees(), 0_rpm}}
-    , m_motionAngle{0_deg} {}
+    , m_motionAngle{units::math::atan2(m_relativeTranslation.Y(), m_relativeTranslation.X())} {
+  frc::SmartDashboard::PutNumber("(SwerveFollower) Relative X", units::inch_t{m_relativeTranslation.X()}.to<double>());
+  frc::SmartDashboard::PutNumber("(SwerveFollower) Relative Y", units::inch_t{m_relativeTranslation.Y()}.to<double>());
+  frc::SmartDashboard::PutNumber("(SwerveFollower) Relative Angle", m_relativeRotation.Degrees().to<double>());
+}
 
 frc::Trajectory::State SwerveTrapezoidalProfileSegment::Calculate(units::second_t time) const {
   const auto linearState = m_linearProfile.Calculate(time);
   const auto rotationalState = m_rotationalProfile.Calculate(time);
   const auto newTranslation =
-      m_relativeTranslation * (linearState.position() / m_relativeTranslation.Norm()).to<double>();
-  const auto newRotation =
-      m_relativeRotation * (rotationalState.position() / m_relativeRotation.Degrees()).to<double>();
-  return frc::Trajectory::State{
-      time,
-      linearState.velocity,
-      0_mps_sq,
-      frc::Pose2d{m_initialPosition.Translation() + newTranslation, m_initialPosition.Rotation() + newRotation},
-      units::curvature_t{0}};
+      m_relativeTranslation * (linearState.position / m_relativeTranslation.Norm()).to<double>();
+  frc::SmartDashboard::PutNumber("(SwerveFollower) Linear Position", linearState.position.to<double>());
+  frc::SmartDashboard::PutNumber("(SwerveFollower) Linear Length",
+                                 units::inch_t{m_relativeTranslation.Norm()}.to<double>());
+  frc::SmartDashboard::PutNumber("(SwerveFollower) Completion %",
+                                 (linearState.position / m_relativeTranslation.Norm()).to<double>());
+  const auto newRotation = m_relativeRotation * (rotationalState.position / m_relativeRotation.Degrees()).to<double>();
+  return frc::Trajectory::State{time,
+                                linearState.velocity,
+                                0_mps_sq,
+                                frc::Pose2d{m_initialPosition.Translation() + newTranslation, m_motionAngle},
+                                units::curvature_t{rotationalState.velocity / linearState.velocity}};
 }
 
 bool SwerveTrapezoidalProfileSegment::IsFinished(units::second_t time) const {
@@ -52,11 +61,11 @@ frc::Rotation2d SwerveTrapezoidalProfileSegment::GetEndAngle() const {
 }
 
 units::feet_per_second_t SwerveTrapezoidalProfileSegment::GetXVelocity(const frc::Trajectory::State& state) const {
-  return state.velocity * units::math::sin(m_motionAngle);
+  return state.velocity * units::math::cos(m_motionAngle);
 }
 
 units::feet_per_second_t SwerveTrapezoidalProfileSegment::GetYVelocity(const frc::Trajectory::State& state) const {
-  return state.velocity * units::math::cos(m_motionAngle);
+  return state.velocity * units::math::sin(m_motionAngle);
 }
 
 SwerveTrapezoidalProfile::SwerveTrapezoidalProfile() = default;

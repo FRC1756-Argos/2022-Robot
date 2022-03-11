@@ -19,24 +19,24 @@ namespace controlLoop {
         constexpr static double allowableError = 0.0;
       };  // namespace rotate
       struct drive {
-        constexpr static double kP = 0.0;
+        constexpr static double kP = 0.11;
         constexpr static double kI = 0.0;
         constexpr static double kD = 0.0;
-        constexpr static double kF = 0.0;
+        constexpr static double kF = 0.05;
         constexpr static double iZone = 500.0;
         constexpr static double allowableError = 0.0;
       };  // namespace drive
       struct linear_follower {
-        constexpr static double kP = 0.0;
+        constexpr static double kP = 8.0;
         constexpr static double kI = 0.0;
         constexpr static double kD = 0.0;
       };  // namespace linear_follower
       struct rotational_follower {
-        constexpr static double kP = 0.0;
+        constexpr static double kP = 8.0;
         constexpr static double kI = 0.0;
         constexpr static double kD = 0.0;
-        constexpr static auto angularVelocity = units::degrees_per_second_t{0.0};
-        constexpr static auto angularAcceleration = units::degrees_per_second_squared_t{0.0};
+        constexpr static auto angularVelocity = units::degrees_per_second_t{360};
+        constexpr static auto angularAcceleration = units::degrees_per_second_squared_t{360};
       };  // namespace rotational_follower
     }     // namespace drive
     namespace shooter {

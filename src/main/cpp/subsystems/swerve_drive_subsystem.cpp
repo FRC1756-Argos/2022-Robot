@@ -43,6 +43,8 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
           frc::Translation2d(-measure_up::chassis::length / 2 + measure_up::swerve_offsets::backLeftLOffset,
                              measure_up::chassis::width / 2 - measure_up::swerve_offsets::backLeftWOffset))
     , m_odometry(m_swerveDriveKinematics, frc::Rotation2d(m_imu.GetAngle()))
+    , m_prevOdometryAngle{0_deg}
+    , m_continuousOdometryOffset{0_deg}
     , m_pNetworkTable(networkTable)
     , m_fsStorage(paths::swerveHomesPath)
     , m_followingProfile(false)
@@ -184,9 +186,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                        const double& rotVelocity) {
   UpdateOdometry();
   if (fwVelocity == 0 && sideVelocity == 0 && rotVelocity == 0) {
-    if (m_followingProfile) {
-      // following profile
-    } else {
+    if (!m_followingProfile) {
       StopDrive();
       return;
     }
@@ -210,9 +210,46 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   if (m_followingProfile && m_pActiveSwerveProfile) {
     const auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() -
                                                                                    m_swerveProfileStartTime);
-    desiredProfileState = m_pActiveSwerveProfile->Calculate(elapsedTime);
-    moduleStates = m_swerveDriveKinematics.ToSwerveModuleStates(m_followerController.Calculate(
-        m_odometry.GetPose(), desiredProfileState, m_pActiveSwerveProfile->GetEndAngle()));
+    if (!m_pActiveSwerveProfile->IsFinished(elapsedTime)) {
+      desiredProfileState = m_pActiveSwerveProfile->Calculate(elapsedTime);
+      const auto controllerChassisSpeeds = m_followerController.Calculate(
+          GetContinuousOdometry(), desiredProfileState, m_pActiveSwerveProfile->GetEndAngle());
+      // const auto controllerChassisSpeeds =  m_followerController.Calculate(GetContinuousOdometry(), desiredProfileState.pose, desiredProfileState.velocity, m_pActiveSwerveProfile->GetEndAngle());
+      // const auto swappedChassisSpeeds = frc::ChassisSpeeds{controllerChassisSpeeds.vy, controllerChassisSpeeds.vx, controllerChassisSpeeds.omega};
+      moduleStates = m_swerveDriveKinematics.ToSwerveModuleStates(controllerChassisSpeeds);
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Desired X",
+                                     units::inch_t{desiredProfileState.pose.X()}.to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Desired Y",
+                                     units::inch_t{desiredProfileState.pose.Y()}.to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Desired Angle",
+                                     desiredProfileState.pose.Rotation().Degrees().to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Desired Curvature",
+                                     units::unit_t<units::compound_unit<units::degrees, units::inverse<units::feet>>>{
+                                         desiredProfileState.curvature}
+                                         .to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) End Angle",
+                                     m_pActiveSwerveProfile->GetEndAngle().Degrees().to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Desired Vel",
+                                     units::feet_per_second_t{desiredProfileState.velocity}.to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Current X",
+                                     units::inch_t{GetContinuousOdometry().X()}.to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Current Y",
+                                     units::inch_t{GetContinuousOdometry().Y()}.to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Current Angle",
+                                     GetContinuousOdometry().Rotation().Degrees().to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Controller Vx",
+                                     units::feet_per_second_t{controllerChassisSpeeds.vx}.to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Controller Vy",
+                                     units::feet_per_second_t{controllerChassisSpeeds.vy}.to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) Controller Omega",
+                                     units::degrees_per_second_t{controllerChassisSpeeds.omega}.to<double>());
+      // frc::SmartDashboard::PutNumber("(SwerveFollower) Current Vel", units::feet_per_second_t{desiredProfileState.velocity}.to<double>());
+    } else {
+      m_followingProfile = false;
+    }
+  } else if (m_followingProfile) {
+    // Bad profile
+    m_followingProfile = false;
   } else {
     moduleStates = GetRawModuleStates(velocities);
   }
@@ -368,29 +405,57 @@ void SwerveDriveSubsystem::FieldHome(units::degree_t homeAngle, bool updateOdome
     // Update odometry as well
     const auto currentPose = m_odometry.GetPose();
     m_odometry.ResetPosition(frc::Pose2d{currentPose.Translation(), frc::Rotation2d(homeAngle)}, -m_imu.GetAngle());
+    m_prevOdometryAngle = m_odometry.GetPose().Rotation().Degrees();
+    m_continuousOdometryOffset = 0_deg;
   }
 }
 
 void SwerveDriveSubsystem::InitializeOdometry(const frc::Pose2d& currentPose) {
   m_odometry.ResetPosition(currentPose, -m_imu.GetAngle());
+  m_prevOdometryAngle = m_odometry.GetPose().Rotation().Degrees();
+  m_continuousOdometryOffset = 0_deg;
   // Since we know the position, might as well update the driving orientation as well
   FieldHome(currentPose.Rotation().Degrees(), false);
 }
 
+frc::Rotation2d SwerveDriveSubsystem::GetContinuousOdometryAngle() {
+  const auto latestOdometry = m_odometry.GetPose();
+
+  if (m_prevOdometryAngle > 90_deg && latestOdometry.Rotation().Degrees() < -(90_deg)) {
+    m_continuousOdometryOffset += 360_deg;
+  } else if (m_prevOdometryAngle < -(90_deg) && latestOdometry.Rotation().Degrees() > 90_deg) {
+    m_continuousOdometryOffset -= 360_deg;
+  }
+  m_prevOdometryAngle = latestOdometry.Rotation().Degrees();
+
+  return frc::Rotation2d{latestOdometry.Rotation().Degrees() + m_continuousOdometryOffset};
+}
+
+frc::Pose2d SwerveDriveSubsystem::GetContinuousOdometry() {
+  const auto discontinuousOdometry = m_odometry.GetPose();
+  return frc::Pose2d{discontinuousOdometry.Translation(), GetContinuousOdometryAngle()};
+}
+
 frc::Pose2d SwerveDriveSubsystem::UpdateOdometry() {
-  return m_odometry.Update(frc::Rotation2d{-m_imu.GetAngle()},
-                           m_frontLeft.GetState(),
-                           m_frontRight.GetState(),
-                           m_backRight.GetState(),
-                           m_backLeft.GetState());
+  const auto newPose = m_odometry.Update(frc::Rotation2d{-m_imu.GetAngle()},
+                                         m_frontLeft.GetState(),
+                                         m_frontRight.GetState(),
+                                         m_backRight.GetState(),
+                                         m_backLeft.GetState());
+  const auto continuousOdometryAngle = GetContinuousOdometryAngle();
+  frc::SmartDashboard::PutNumber("(Odometry) X", units::inch_t{newPose.X()}.to<double>());
+  frc::SmartDashboard::PutNumber("(Odometry) Y", units::inch_t{newPose.Y()}.to<double>());
+  frc::SmartDashboard::PutNumber("(Odometry) Angle", newPose.Rotation().Degrees().to<double>());
+  frc::SmartDashboard::PutNumber("(Odometry) Continuous Angle", continuousOdometryAngle.Degrees().to<double>());
+  return frc::Pose2d{newPose.Translation(), continuousOdometryAngle};
 }
 
 units::degree_t SwerveDriveSubsystem::GetFieldCentricAngle() const {
   return -m_imu.GetAngle() - m_fieldHomeOffset;
 }
 
-frc::Pose2d SwerveDriveSubsystem::GetPoseEstimate() const {
-  return m_odometry.GetPose();
+frc::Pose2d SwerveDriveSubsystem::GetPoseEstimate() {
+  return GetContinuousOdometry();
 }
 
 void SwerveDriveSubsystem::SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode) {
@@ -527,6 +592,7 @@ void SwerveDriveSubsystem::UpdateFollowerRotationalPIDConstraints(
 
 void SwerveDriveSubsystem::StartDrivingProfile(SwerveTrapezoidalProfileSegment newProfile) {
   m_pActiveSwerveProfile = std::make_unique<SwerveTrapezoidalProfileSegment>(newProfile);
+  m_followerController = frc::HolonomicDriveController(m_linearPID, m_linearPID, m_rotationalPID);
   m_swerveProfileStartTime = std::chrono::steady_clock::now();
   m_followingProfile = true;
 }
