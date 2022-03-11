@@ -282,6 +282,14 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   units::inch_t GetTargetDistance(units::degree_t targetVerticalAngle);
 
   /**
+   * @brief Gets the offset for the distance of targets 10 ft or more
+   *
+   * @param actualDistance The actual distance of how far the camera is to the target
+   * @return Gives the offset of the distance to subtract
+   */
+  units::inch_t GetPolynomialOffset(units::inch_t actualDistance);
+
+  /**
    * @brief Get the shooter setpoints for a target distance
    *
    * @param distanceToTarget Distance from shooter to hub edge

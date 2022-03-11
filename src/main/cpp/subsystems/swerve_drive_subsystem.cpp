@@ -124,23 +124,18 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
   InitializeMotors();
 }
 
+void SwerveDriveSubsystem::Disable() {
+  m_controlMode = DriveControlMode::fieldCentricControl;
+  StopDrive();
+}
+
 // SWERVE DRIVE SUBSYSTEM MEMBER FUNCTIONS
 
 wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
     SwerveDriveSubsystem::Velocities velocities) {
   // IF SPEEDS ZERO, SET MOTORS TO ZERO AND RETURN
   if (velocities.fwVelocity == 0 && velocities.sideVelocity == 0 && velocities.rotVelocity == 0) {
-    m_frontLeft.m_drive.Set(0);
-    m_frontLeft.m_turn.Set(0);
-
-    m_frontRight.m_drive.Set(0);
-    m_frontRight.m_turn.Set(0);
-
-    m_backRight.m_drive.Set(0);
-    m_backRight.m_turn.Set(0);
-
-    m_backLeft.m_drive.Set(0);
-    m_backLeft.m_turn.Set(0);
+    StopDrive();
     /// @todo fix later
     frc::ChassisSpeeds emptySpeeds{units::make_unit<units::velocity::meters_per_second_t>(0),
                                    units::make_unit<units::velocity::meters_per_second_t>(0),
@@ -186,14 +181,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
     if (m_followingProfile) {
       // following profile
     } else {
-      m_frontLeft.m_drive.Set(0.0);
-      m_frontLeft.m_turn.Set(0.0);
-      m_frontRight.m_drive.Set(0.0);
-      m_frontRight.m_turn.Set(0.0);
-      m_backRight.m_drive.Set(0.0);
-      m_backRight.m_turn.Set(0.0);
-      m_backLeft.m_drive.Set(0.0);
-      m_backLeft.m_turn.Set(0.0);
+      StopDrive();
       return;
     }
   } else {
@@ -295,6 +283,17 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                  moduleStates.at(indexes::swerveModules::backLeftIndex).angle.Degrees().to<double>());
 }
 
+void SwerveDriveSubsystem::StopDrive() {
+  m_frontLeft.m_drive.Set(0.0);
+  m_frontLeft.m_turn.Set(0.0);
+  m_frontRight.m_drive.Set(0.0);
+  m_frontRight.m_turn.Set(0.0);
+  m_backRight.m_drive.Set(0.0);
+  m_backRight.m_turn.Set(0.0);
+  m_backLeft.m_drive.Set(0.0);
+  m_backLeft.m_turn.Set(0.0);
+}
+
 void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   HomeToFS(angle);
 
@@ -309,7 +308,7 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
 }
 
 void SwerveDriveSubsystem::FieldHome(units::degree_t homeAngle, bool updateOdometry) {
-  m_fieldHomeOffset = m_imu.GetAngle() - homeAngle;
+  m_fieldHomeOffset = -m_imu.GetAngle() - homeAngle;
   if (updateOdometry) {
     // Update odometry as well
     const auto currentPose = m_odometry.GetPose();
@@ -332,7 +331,7 @@ frc::Pose2d SwerveDriveSubsystem::UpdateOdometry() {
 }
 
 units::degree_t SwerveDriveSubsystem::GetFieldCentricAngle() const {
-  return m_imu.GetAngle() - m_fieldHomeOffset;
+  return -m_imu.GetAngle() - m_fieldHomeOffset;
 }
 
 void SwerveDriveSubsystem::SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode) {

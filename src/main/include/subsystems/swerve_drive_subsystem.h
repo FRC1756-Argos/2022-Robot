@@ -49,10 +49,14 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    */
   enum DriveControlMode { fieldCentricControl, robotCentricControl };
 
-  DriveControlMode m_controlMode;
-
   explicit SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable,
                                 const argos_lib::RobotInstance instance);
+
+  /**
+   * @brief Handle the robot disabling
+   */
+  void Disable();
+
   /**
    * @brief Main drive function for the robot
    *
@@ -61,6 +65,11 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    * @param rotVelocity Percent speed of rotation of the chassis.  Range [-1.0, 1.0] where positive 1.0 is full speed counterclockwise
    */
   void SwerveDrive(const double& fwVelocity, const double& sideVelocity, const double& rotVelocity);
+
+  /**
+   * @brief Stop all motors
+   */
+  void StopDrive();
 
   /**
    * @brief Save homes to persistent storage and updates module motors
@@ -118,8 +127,8 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   void CancelDrivingProfile();
 
  private:
-  // Components (e.g. motor controllers and sensors) should generally be
-  // declared private and exposed only through public methods.
+  DriveControlMode m_controlMode;  ///< Active control mode
+
   SwerveModule m_frontLeft;   ///< Front left swerve module
   SwerveModule m_frontRight;  ///< Front right swerve module
   SwerveModule m_backRight;   ///< Back right swerve module
