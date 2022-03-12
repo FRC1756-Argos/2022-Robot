@@ -128,14 +128,51 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    */
   void InitializeMotors();
 
-  /// @todo implement these
+  /**
+   * @brief Change PID parameters for linear follower.  These adjust velocities based on distance
+   *        error from path goal
+   *
+   * @param kP Proportional gain
+   * @param kI Integral gain
+   * @param kD Derivative gain
+   */
   void UpdateFollowerLinearPIDParams(double kP, double kI, double kD);
+
+  /**
+   * @brief Change PID parameters for rotational follower.  These adjust velocities based on angle
+   *        error from path goal
+   *
+   * @param kP Proportional gain
+   * @param kI Integral gain
+   * @param kD Derivative gain
+   */
   void UpdateFollowerRotationalPIDParams(double kP, double kI, double kD);
+
+  /**
+   * @brief Update constraints to rotate robot along profiled path
+   *
+   * @param constraints Rotational velocity and acceleration constraints
+   */
   void UpdateFollowerRotationalPIDConstraints(frc::TrapezoidProfile<units::degrees>::Constraints constraints);
 
+  /**
+   * @brief Start driving a new profile.  This also resets the finished flag
+   *
+   * @param newProfile Profile to follow with t=0 being the time this function is called
+   */
   void StartDrivingProfile(SwerveTrapezoidalProfileSegment newProfile);
 
+  /**
+   * @brief Cancel the current driving profile without marking it complete
+   */
   void CancelDrivingProfile();
+
+  /**
+   * @brief Check if a driving profile path has been completed
+   *
+   * @return true when a path is completed and not canceled
+   */
+  bool ProfileIsComplete() const;
 
  private:
   DriveControlMode m_controlMode;  ///< Active control mode
@@ -148,7 +185,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   // GYROSCOPIC SENSORS
   frc::ADIS16448_IMU m_imu;
 
-  units::degree_t m_fieldHomeOffset;
+  units::degree_t m_fieldHomeOffset;  ///< Offset from IMU angle to 0 field angle (intake away from driver station)
 
   /**
  * @brief A struct for holding the 3 different input velocities, for organization
@@ -172,14 +209,16 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   // std::FILE SYSTEM HOMING STORAGE
   FileSystemHomingStorage m_fsStorage;
 
-  bool m_followingProfile;
-  std::unique_ptr<SwerveTrapezoidalProfileSegment> m_pActiveSwerveProfile;
-  std::chrono::time_point<std::chrono::steady_clock> m_swerveProfileStartTime;
-  frc2::PIDController m_linearPID;
-  frc::ProfiledPIDController<units::radians> m_rotationalPID;
-  frc::HolonomicDriveController m_followerController;
+  bool m_followingProfile;  ///< True when an incomplete drive profile is being run
+  bool m_profileComplete;   ///< True once a drive profile has been completed
+  std::unique_ptr<SwerveTrapezoidalProfileSegment> m_pActiveSwerveProfile;      ///< Profile to execute
+  std::chrono::time_point<std::chrono::steady_clock> m_swerveProfileStartTime;  ///< Time when active profile began
+  frc2::PIDController m_linearPID;  ///< Correction parameters for x/y error when following drive profile
+  frc::ProfiledPIDController<units::radians>
+      m_rotationalPID;  ///< Correction parameters for rotational error when following drive profile
+  frc::HolonomicDriveController m_followerController;  ///< Controller to follow drive profile
 
-  argos_lib::NTMotorPIDTuner m_driveMotorPIDTuner;
+  argos_lib::NTMotorPIDTuner m_driveMotorPIDTuner;  ///< Utility to tune drive motors
 
   /**
  * @brief Get the Raw Module States object and switch between robot-centric and field-centric

@@ -18,15 +18,23 @@ DriveToLocation::DriveToLocation(SwerveDriveSubsystem* drive,
 }
 
 // Called when the command is initially scheduled.
-void DriveToLocation::Initialize() {}
+void DriveToLocation::Initialize() {
+  m_pDrive->UpdateFollowerRotationalPIDConstraints(m_rotationalConstraints);
+  m_pDrive->StartDrivingProfile(
+      SwerveTrapezoidalProfileSegment{m_pDrive->GetContinuousOdometry(), m_destination, m_linearConstraints});
+}
 
 // Called repeatedly when this Command is scheduled to run
-void DriveToLocation::Execute() {}
+void DriveToLocation::Execute() {
+  // No need to do anything beyond initialize
+}
 
 // Called once the command ends or is interrupted.
-void DriveToLocation::End(bool interrupted) {}
+void DriveToLocation::End(bool interrupted) {
+  m_pDrive->StopDrive();
+}
 
 // Returns true when the command should end.
 bool DriveToLocation::IsFinished() {
-  return false;
+  return m_pDrive->ProfileIsComplete();
 }

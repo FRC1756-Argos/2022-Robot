@@ -48,6 +48,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
     , m_pNetworkTable(networkTable)
     , m_fsStorage(paths::swerveHomesPath)
     , m_followingProfile(false)
+    , m_profileComplete(false)
     , m_pActiveSwerveProfile(nullptr)
     , m_swerveProfileStartTime()
     , m_linearPID(instance == argos_lib::RobotInstance::Competition ?
@@ -129,6 +130,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 void SwerveDriveSubsystem::Disable() {
   m_controlMode = DriveControlMode::fieldCentricControl;
   m_followingProfile = false;
+  m_profileComplete = false;
   StopDrive();
 }
 
@@ -193,6 +195,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   } else {
     // Manual override
     m_followingProfile = false;
+    m_profileComplete = false;
   }
 
   SwerveDriveSubsystem::Velocities velocities{fwVelocity, sideVelocity, rotVelocity};
@@ -245,11 +248,14 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                      units::degrees_per_second_t{controllerChassisSpeeds.omega}.to<double>());
       // frc::SmartDashboard::PutNumber("(SwerveFollower) Current Vel", units::feet_per_second_t{desiredProfileState.velocity}.to<double>());
     } else {
+      // Finished profile
       m_followingProfile = false;
+      m_profileComplete = true;
     }
   } else if (m_followingProfile) {
     // Bad profile
     m_followingProfile = false;
+    m_profileComplete = false;
   } else {
     moduleStates = GetRawModuleStates(velocities);
   }
@@ -591,6 +597,7 @@ void SwerveDriveSubsystem::UpdateFollowerRotationalPIDConstraints(
 }
 
 void SwerveDriveSubsystem::StartDrivingProfile(SwerveTrapezoidalProfileSegment newProfile) {
+  m_profileComplete = false;
   m_pActiveSwerveProfile = std::make_unique<SwerveTrapezoidalProfileSegment>(newProfile);
   m_followerController = frc::HolonomicDriveController(m_linearPID, m_linearPID, m_rotationalPID);
   m_swerveProfileStartTime = std::chrono::steady_clock::now();
@@ -598,5 +605,10 @@ void SwerveDriveSubsystem::StartDrivingProfile(SwerveTrapezoidalProfileSegment n
 }
 
 void SwerveDriveSubsystem::CancelDrivingProfile() {
+  m_profileComplete = false;
   m_followingProfile = false;
+}
+
+bool SwerveDriveSubsystem::ProfileIsComplete() const {
+  return m_profileComplete;
 }
