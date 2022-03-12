@@ -7,6 +7,7 @@
 #include <units/length.h>
 #include <units/velocity.h>
 
+#include "constants/measure_up.h"
 #include "utils/sensor_conversions.h"
 
 struct ClimberPoint {
@@ -18,6 +19,7 @@ struct ClimberPoint {
 
 namespace ClimberSetpoints {
   constexpr ClimberPoint setup = {34_in, 37_in, 10_ips, 10_ips};
+  constexpr ClimberPoint storage = {measure_up::climber_hook::maxExtension - 6_in, 21.5_in, 10_ips, 10_ips};
   constexpr ClimberPoint latchL2 = {34_in, 28.7_in, 10_ips, 10_ips};
   constexpr ClimberPoint prepL2 = {28.7_in, 35.8_in, 10_ips, 10_ips};
   constexpr ClimberPoint secureL2 = {1_in, 35.8_in, 10_ips, 10_ips};

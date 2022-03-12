@@ -4,6 +4,8 @@
 
 #include "commands/climb_command.h"
 
+#include "constants/climber_setpoints.h"
+
 climb_command::climb_command(ClimberSubsystem* subsystem) : m_pClimberSubsystem(subsystem) {
   if (subsystem != nullptr) {
     AddRequirements(subsystem);
@@ -23,6 +25,27 @@ void climb_command::Execute() {
   if (m_pClimberSubsystem == nullptr) {
     Cancel();
     return;
+  }
+
+  ClimberSubsystem::ClimberStatus curStatus = m_pClimberSubsystem->GetClimberStatus();
+
+  switch (curStatus) {
+    case ClimberSubsystem::ClimberStatus::CLIMBER_STOP:
+      m_pClimberSubsystem->Disable();
+      Cancel();
+      break;
+    case ClimberSubsystem::ClimberStatus::CLIMBER_STORAGE:
+      m_pClimberSubsystem->ClimberToSetpoint(ClimberSetpoints::storage);
+      break;
+    case ClimberSubsystem::ClimberStatus::CLIMBER_READY:
+      /* code */
+      break;
+    case ClimberSubsystem::ClimberStatus::CLIMBER_CLIMB:
+      /* code */
+      break;
+
+    default:
+      break;
   }
 }
 

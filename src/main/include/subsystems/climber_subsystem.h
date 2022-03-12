@@ -15,7 +15,7 @@
 
 class ClimberSubsystem : public frc2::SubsystemBase {
  public:
-  enum class ClimberStatus { CLIMBER_STORAGE, CLIMBER_READY };
+  enum class ClimberStatus { CLIMBER_STOP = 0, CLIMBER_STORAGE = 1, CLIMBER_READY = 2, CLIMBER_CLIMB = 3 };
 
   explicit ClimberSubsystem(const argos_lib::RobotInstance instance);
 
@@ -197,9 +197,11 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    * @brief Readies the climber for climb sequence
    *
    */
-  void ClimbSequenceReady(bool ready);
+  void SetClimbReady();
 
-  void ClimbSequence();
+  void SetClimberStatus(ClimberStatus status);
+
+  void UpdateStatus();
 
   ClimberSubsystem::ClimberStatus GetClimberStatus();
 
@@ -216,6 +218,8 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   constexpr static bool InThreshold(const T value, const T target, const T threshold) {
     return value >= target - threshold && value <= target + threshold;
   }
+
+  void ClimberToSetpoint(ClimberPoint setPoint);
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
@@ -237,7 +241,6 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   bool HooksAtPosition(units::inch_t target);
   bool ArmsAtPosition(units::inch_t target);
   bool ClimberAtPoint(ClimberPoint target);
-  void ClimberToSetpoint(ClimberPoint setPoint);
 
   void ClimberPositionStorage();
   void ClimberPositionSetup();

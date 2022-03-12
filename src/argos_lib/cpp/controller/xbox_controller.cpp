@@ -202,12 +202,12 @@ XboxController::UpdateStatus XboxController::UpdateButton(Button buttonIdx) {
     const auto timeSinceTransition = units::millisecond_t{static_cast<double>(
         std::chrono::duration_cast<std::chrono::milliseconds>(curTime - activeTransitionTime).count())};
     if (newVal) {
-      if (timeSinceTransition > m_buttonDebounceSettings.at(static_cast<int>(buttonIdx)).activateTime) {
+      if (timeSinceTransition >= m_buttonDebounceSettings.at(static_cast<int>(buttonIdx)).activateTime) {
         retVal.debouncePress = true;
         m_buttonDebounceStatus.at(static_cast<int>(buttonIdx)) = newVal;
       }
     } else {
-      if (timeSinceTransition > m_buttonDebounceSettings.at(static_cast<int>(buttonIdx)).clearTime) {
+      if (timeSinceTransition >= m_buttonDebounceSettings.at(static_cast<int>(buttonIdx)).clearTime) {
         retVal.debounceRelease = true;
         m_buttonDebounceStatus.at(static_cast<int>(buttonIdx)) = newVal;
       }

@@ -6,6 +6,7 @@
 
 #include "Constants.h"
 #include "argos_lib/config/falcon_config.h"
+#include "frc/smartdashboard/SmartDashboard.h"
 
 ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
     : m_motorLiftRight(address::climber::liftRight)
@@ -247,25 +248,13 @@ bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {
   return (ArmsAtPosition(target.armExtension) && HooksAtPosition(target.hookExtension)) ? true : false;
 }
 
-// DESIGN IN COMMAND SO IT CAN BE INTERUPTED
-void ClimberSubsystem::ClimbSequenceReady(bool ready) {
-  if (ready) {
-    m_climberStatus = ClimberStatus::CLIMBER_READY;
-    ClimberPositionSetup();
-  } else {
-    m_climberStatus = ClimberStatus::CLIMBER_STORAGE;
-    ClimberPositionStorage();
-  }
-  ready ? ClimberPositionSetup() : ClimberPositionStorage();
+void ClimberSubsystem::SetClimberStatus(ClimberStatus status) {
+  m_climberStatus = status;
+  UpdateStatus();
 }
 
-void ClimberSubsystem::ClimbSequence() {
-  if (GetClimberStatus() != ClimberStatus::CLIMBER_READY) {
-    return;
-  }
-  if (!ClimberAtPoint(ClimberSetpoints::setup)) {
-    ClimberToSetpoint(ClimberSetpoints::setup);
-  }
+void ClimberSubsystem::UpdateStatus() {
+  /// @todo asses need of this function if using command
 }
 
 ClimberSubsystem::ClimberStatus ClimberSubsystem::GetClimberStatus() {
