@@ -6,10 +6,15 @@
 
 #include "argos_lib/general/debounce_settings.h"
 #include "argos_lib/general/debouncer.h"
+#include "argos_lib/general/swerve_utils.h"
+#include "constants/field_points.h"
 #include "frc/smartdashboard/SmartDashboard.h"
+#include "units/math.h"
 
-AutoAimCommand::AutoAimCommand(ShooterSubsystem* subsystem)
-    : m_shooter(subsystem), m_threshDebounce({threshholds::shooter::acceptableRangeTime, 0_ms}) {
+AutoAimCommand::AutoAimCommand(ShooterSubsystem* subsystem, SwerveDriveSubsystem* drive_subsystem)
+    : m_shooter(subsystem)
+    , m_drive(drive_subsystem)
+    , m_threshDebounce({threshholds::shooter::acceptableRangeTime, 0_ms}) {
   if (subsystem != nullptr) {
     AddRequirements(subsystem);
   }
@@ -30,7 +35,19 @@ void AutoAimCommand::Execute() {
     return;
   }
 
-  m_shooter->AutoAim();
+  frc::Pose2d curPos = m_drive->GetContinuousOdometry();
+
+  // subract 24 inches because target is 4 feet Ø and vision aims from edge
+  units::length::inch_t distanceToHub = units::length::inch_t(curPos.Translation().Distance(fieldPoints::hub)) - 24_in;
+
+  units::length::inch_t a = fieldPoints::hub.X() - curPos.X();
+
+  units::degree_t alpha = units::math::acos(a / distanceToHub);
+
+  // change auto
+  units::degree_t psi = argos_lib::swerve::ConstrainAngle(curPos.Rotation().Degrees(), 0_deg, 360_deg);
+
+  units::degree_t turretAngle = alpha - psi;
 }
 
 // Called once the command ends or is interrupted.
@@ -43,6 +60,8 @@ void AutoAimCommand::End(bool interrupted) {
 // Returns true when the command should end.
 bool AutoAimCommand::IsFinished() {
   if (m_shooter == nullptr) {
+    // This function is finished when the target angle is reached
+
     return true;
   }
 

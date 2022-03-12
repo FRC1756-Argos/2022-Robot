@@ -9,6 +9,7 @@
 
 #include "argos_lib/general/debouncer.h"
 #include "subsystems/shooter_subsystem.h"
+#include "subsystems/swerve_drive_subsystem.h"
 
 /**
  * An example command.
@@ -19,7 +20,7 @@
  */
 class AutoAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoAimCommand> {
  public:
-  explicit AutoAimCommand(ShooterSubsystem* subsystem);
+  explicit AutoAimCommand(ShooterSubsystem* subsystem, SwerveDriveSubsystem* drive_subsystem);
 
   void Initialize() override;
 
@@ -31,6 +32,7 @@ class AutoAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoAimComm
 
  private:
   ShooterSubsystem* m_shooter;
+  SwerveDriveSubsystem* m_drive;
   argos_lib::Debouncer m_threshDebounce;
 
   template <typename T>

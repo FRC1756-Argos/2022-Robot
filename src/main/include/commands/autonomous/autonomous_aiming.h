@@ -7,10 +7,10 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
-#include "subsystems/swerve_drive_subsystem.h"
-#include "subsystems/shooter_subsystem.h"
-#include "utils/sensor_conversions.h"
 #include "argos_lib/general/debouncer.h"
+#include "subsystems/shooter_subsystem.h"
+#include "subsystems/swerve_drive_subsystem.h"
+#include "utils/sensor_conversions.h"
 
 /**
  * An example command.
@@ -21,7 +21,7 @@
  */
 class AutonomousAiming : public frc2::CommandHelper<frc2::CommandBase, AutonomousAiming> {
  public:
-  AutonomousAiming(ShooterSubsystem* subsystem);
+  explicit AutonomousAiming(ShooterSubsystem* subsystem);
 
   void Initialize() override;
 

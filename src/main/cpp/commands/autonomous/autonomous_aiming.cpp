@@ -26,7 +26,7 @@ void AutonomousAiming::Execute() {
     return;
   }
 
-  //TODO: set angle based on the current auto position
+  // TODO: set angle based on the current auto position
   m_shooter->TurretSetPosition(170_deg);
 }
 
