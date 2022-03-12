@@ -8,6 +8,8 @@
 #include <units/length.h>
 
 namespace measure_up {
+  constexpr auto intakeExtension = 18_cm;  ///< Distance from frame to center of intake in x direction
+  constexpr auto bumperExtension = 3_in;   ///< Distance from frame to outer edge of bumpers
   namespace chassis {
     constexpr units::inch_t width{28.0};
     constexpr units::inch_t length{31.0};

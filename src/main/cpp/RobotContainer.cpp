@@ -73,7 +73,8 @@ RobotContainer::RobotContainer()
     , m_driveProfileMaxLinearVel(12_fps)
     , m_driveProfileMaxLinearAccel(units::feet_per_second_squared_t{10})
     , m_driveProfileMaxRotationalVel(60_rpm)
-    , m_driveProfileMaxRotationalAccel(units::degrees_per_second_squared_t{360}) {
+    , m_driveProfileMaxRotationalAccel(units::degrees_per_second_squared_t{360})
+    , m_autoRight2Ball{&m_intake, &m_shooter, &m_swerveDrive} {
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
 
@@ -460,23 +461,23 @@ void RobotContainer::ConfigureButtonBindings() {
   auto driveProfileTrigger = (frc2::Trigger{
       [this]() { return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kDown); }});
 
-  driveProfileTrigger.WhenActive(
-      [this]() {
-        m_swerveDrive.UpdateFollowerLinearPIDParams(
-            m_driveFollowerLinearkP, m_driveFollowerLinearkI, m_driveFollowerLinearkD);
-        m_swerveDrive.UpdateFollowerRotationalPIDParams(
-            m_driveFollowerRotationalkP, m_driveFollowerRotationalkI, m_driveFollowerRotationalkD);
-        m_swerveDrive.UpdateFollowerRotationalPIDConstraints(frc::TrapezoidProfile<units::degrees>::Constraints{
-            m_driveFollowerRotationalVelocity, m_driveFollowerRotationalAcceleration});
-        m_swerveDrive.StartDrivingProfile(
-            SwerveTrapezoidalProfileSegment(m_swerveDrive.GetPoseEstimate(),
-                                            frc::Translation2d{m_driveProfileDistX, m_driveProfileDistY},
-                                            frc::Rotation2d{m_driveProfileRot},
-                                            frc::TrapezoidProfile<units::inches>::Constraints{
-                                                m_driveProfileMaxLinearVel, m_driveProfileMaxLinearAccel}));
-      },
-      {&m_swerveDrive});
-  driveProfileTrigger.WhenInactive([this]() { m_swerveDrive.CancelDrivingProfile(); }, {&m_swerveDrive});
+  driveProfileTrigger.WhenActive(&m_autoRight2Ball);
+  //   [this]() {
+  //     // m_swerveDrive.UpdateFollowerLinearPIDParams(
+  //     //     m_driveFollowerLinearkP, m_driveFollowerLinearkI, m_driveFollowerLinearkD);
+  //     // m_swerveDrive.UpdateFollowerRotationalPIDParams(
+  //     //     m_driveFollowerRotationalkP, m_driveFollowerRotationalkI, m_driveFollowerRotationalkD);
+  //     // m_swerveDrive.UpdateFollowerRotationalPIDConstraints(frc::TrapezoidProfile<units::degrees>::Constraints{
+  //     //     m_driveFollowerRotationalVelocity, m_driveFollowerRotationalAcceleration});
+  //     // m_swerveDrive.StartDrivingProfile(
+  //     //     SwerveTrapezoidalProfileSegment(m_swerveDrive.GetPoseEstimate(),
+  //     //                                     frc::Translation2d{m_driveProfileDistX, m_driveProfileDistY},
+  //     //                                     frc::Rotation2d{m_driveProfileRot},
+  //     //                                     frc::TrapezoidProfile<units::inches>::Constraints{
+  //     //                                         m_driveProfileMaxLinearVel, m_driveProfileMaxLinearAccel}));
+  //   },
+  //   {&m_swerveDrive});
+  driveProfileTrigger.WhenInactive([this]() { m_autoRight2Ball.Cancel(); }, {&m_swerveDrive});
 }
 
 // ----------------------------------------------------------------------------------------------------------

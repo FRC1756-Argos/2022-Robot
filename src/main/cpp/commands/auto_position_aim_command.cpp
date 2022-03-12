@@ -24,7 +24,7 @@ void AutoPositionAimCommand::Initialize() {
     Cancel();
     return;
   }
-  units::degree_t turretAngle = GetTurretAngleToTarget(m_shootingPosition, fieldPoints::hub);
+  units::degree_t turretAngle = GetTurretAngleToTarget(m_shootingPosition, field_points::hub);
 
   // turret angle to smart dashboard in field reference frame.
   frc::SmartDashboard::PutNumber("(Static Auto Shoot) Turret Set Position", turretAngle.to<double>());

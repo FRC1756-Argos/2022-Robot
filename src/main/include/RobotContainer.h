@@ -14,6 +14,7 @@
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "commands/autonomous/autonomous_right_2ball.h"
 #include "commands/home_climber_arm_command.h"
 #include "commands/home_climber_hook_command.h"
 #include "commands/home_hood_command.h"
@@ -106,6 +107,9 @@ class RobotContainer {
   units::feet_per_second_squared_t m_driveProfileMaxLinearAccel;
   units::degrees_per_second_t m_driveProfileMaxRotationalVel;
   units::degrees_per_second_squared_t m_driveProfileMaxRotationalAccel;
+
+  // Autonomous Commands
+  AutonomousRight2ball m_autoRight2Ball;
 
   void ConfigureButtonBindings();
 };
