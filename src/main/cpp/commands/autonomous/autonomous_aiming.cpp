@@ -4,7 +4,9 @@
 
 #include "commands/autonomous/autonomous_aiming.h"
 
+#include "constants/field_points.h"
 #include "frc/geometry/Pose2d.h"
+#include "frc/smartdashboard/SmartDashboard.h"
 #include "units/math.h"
 
 AutonomousAiming::AutonomousAiming(ShooterSubsystem* shootSys, SwerveDriveSubsystem* driveSys)
@@ -31,10 +33,13 @@ void AutonomousAiming::Execute() {
     return;
   }
 
-  frc::Pose2d curPos = m_swerveDrive->GetContinuousOdometry();
+  units::degree_t turretAngle = GetTurretAngleToTarget(m_swerveDrive->GetContinuousOdometry(), fieldPoints::hub);
+
+  // turret angle to smart dashboard in field reference frame.
+  frc::SmartDashboard::PutNumber("(Static Auto Shoot) Turret Set Position", turretAngle.to<double>());
 
   // TODO: set angle based on the current auto position
-  m_shooter->TurretSetPosition(170_deg);
+  m_shooter->TurretSetPosition(turretAngle);
 }
 
 // Called once the command ends or is interrupted.
@@ -72,4 +77,10 @@ units::degree_t AutonomousAiming::GetAngleToPoint(frc::Translation2d curPos, frc
   } else {
     return offset + psi;
   }
+}
+
+units::degree_t AutonomousAiming::GetTurretAngleToTarget(const frc::Pose2d curRobotPos, frc::Translation2d target) {
+  units::degree_t curRobotRotation = curRobotPos.Rotation().Degrees();
+  units::degree_t angleToTarget = GetAngleToPoint(curRobotPos.Translation(), target);
+  return argos_lib::swerve::ConstrainAngle(360 - (curRobotRotation - angleToTarget), 0_deg, 360_deg);
 }

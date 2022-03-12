@@ -40,4 +40,6 @@ class AutonomousAiming : public frc2::CommandHelper<frc2::CommandBase, Autonomou
   units::degree_t GetOffsetAngle(frc::Translation2d curPos, frc::Translation2d target);
 
   units::degree_t GetAngleToPoint(frc::Translation2d curPos, frc::Translation2d target);
+
+  units::degree_t GetTurretAngleToTarget(frc::Pose2d curRobotPos, frc::Translation2d target);
 };
