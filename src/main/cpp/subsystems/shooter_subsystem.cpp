@@ -126,10 +126,10 @@ void ShooterSubsystem::AutoAim() {
     distanceToTarget = GetTargetDistance(targetValues.pitch);
   }
 
-  if (distanceToTarget > (units::inch_t)140) {
-    // fitting 2nd degree polynomial to get the offset
-    distanceToTarget -= GetPolynomialOffset(distanceToTarget);
-  }
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance without offset", distanceToTarget.to<double>());
+
+  // fitting 2nd degree polynomial to get the offset
+  distanceToTarget -= GetPolynomialOffset(distanceToTarget);
 
   const auto shooterSetpoints = SetShooterDistance(distanceToTarget);
 
@@ -148,9 +148,29 @@ void ShooterSubsystem::AutoAim() {
 
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
   units::inch_t offset;
-  double y = (45 - (0.4166667 * actualDistance.to<double>()) +
-              (0.001388889 * (actualDistance.to<double>() * actualDistance.to<double>())));
-  offset = (units::inch_t)y;
+  double camDegOffsetAcounting;
+  if (m_instance == argos_lib::RobotInstance::Competition) {
+    camDegOffsetAcounting = 2.928571;
+  } else {
+    camDegOffsetAcounting = -17.071429;
+  }
+
+  if (actualDistance >= (units::inch_t)160) {
+    if (m_instance == argos_lib::RobotInstance::Competition) {
+      double y =
+          (50 - (0.4166667 * actualDistance.to<double>()) + (0.001388889 * std::pow(actualDistance.to<double>(), 2)));
+      offset = (units::inch_t)y;
+    } else {
+      double y = (8 - (0.1 * actualDistance.to<double>()) - (0.00028 * std::pow(actualDistance.to<double>(), 2)));
+      offset = (units::inch_t)y;
+    }
+  } else if (actualDistance >= (units::inch_t)90 && actualDistance < (units::inch_t)160) {
+    double y = (camDegOffsetAcounting - (0.1528571 * actualDistance.to<double>()) +
+                (0.001428571 * std::pow(actualDistance.to<double>(), 2)));
+    offset = (units::inch_t)y;
+  } else {
+    offset = (units::inch_t)0;
+  }
   return offset;
 }
 
@@ -329,9 +349,15 @@ void ShooterSubsystem::Disable() {
 }
 
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
+  units::degree_t mountAngle;
+
+  if (m_instance == argos_lib::RobotInstance::Competition) {
+    mountAngle = measure_up::camera::cameraMountAngle;
+  } else {
+    mountAngle = measure_up::camera::cameraMountAnglePracticeBot;
+  }
   return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) /
-         std::tan(
-             static_cast<units::radian_t>(measure_up::camera::cameraMountAngle + targetVerticalAngle).to<double>());
+         std::tan(static_cast<units::radian_t>(mountAngle + targetVerticalAngle).to<double>());
 }
 
 ShooterSubsystem::ShooterDistanceSetpoints ShooterSubsystem::GetShooterDistanceSetpoints(

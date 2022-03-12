@@ -38,7 +38,8 @@ namespace measure_up {
   namespace camera {
     constexpr auto cameraHeight = 28.5_in;
     constexpr auto upperHubHeight = 104_in;
-    constexpr auto cameraMountAngle = 27_deg;
+    constexpr auto cameraMountAngle = 27_deg;               // actual current camera mount angle is 27.8 degrees
+    constexpr auto cameraMountAnglePracticeBot = 28.3_deg;  // actual currect camera mount angle is 29.1
     constexpr auto toRotationCenter = 9_in;
   }  // namespace camera
   namespace climber_arm {
