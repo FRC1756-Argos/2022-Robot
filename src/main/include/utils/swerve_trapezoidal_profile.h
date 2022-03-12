@@ -21,8 +21,10 @@ class SwerveTrapezoidalProfileSegment {
   SwerveTrapezoidalProfileSegment(const frc::Pose2d initialPosition,
                                   const frc::Translation2d relativeTranslation,
                                   const frc::Rotation2d relativeRotation,
-                                  const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints,
-                                  const frc::TrapezoidProfile<units::degrees>::Constraints rotationalConstraints);
+                                  const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints);
+  SwerveTrapezoidalProfileSegment(const frc::Pose2d initialPosition,
+                                  const frc::Pose2d finalPosition,
+                                  const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints);
   SwerveTrapezoidalProfileSegment(const SwerveTrapezoidalProfileSegment& other) = default;
   SwerveTrapezoidalProfileSegment(SwerveTrapezoidalProfileSegment&& other) = default;
 
@@ -41,7 +43,6 @@ class SwerveTrapezoidalProfileSegment {
   const frc::Translation2d m_relativeTranslation;
   const frc::Rotation2d m_relativeRotation;
   const frc::TrapezoidProfile<units::inches> m_linearProfile;
-  const frc::TrapezoidProfile<units::degrees> m_rotationalProfile;
   const units::degree_t m_motionAngle;
 };
 

@@ -468,13 +468,12 @@ void RobotContainer::ConfigureButtonBindings() {
             m_driveFollowerRotationalkP, m_driveFollowerRotationalkI, m_driveFollowerRotationalkD);
         m_swerveDrive.UpdateFollowerRotationalPIDConstraints(frc::TrapezoidProfile<units::degrees>::Constraints{
             m_driveFollowerRotationalVelocity, m_driveFollowerRotationalAcceleration});
-        m_swerveDrive.StartDrivingProfile(SwerveTrapezoidalProfileSegment(
-            m_swerveDrive.GetPoseEstimate(),
-            frc::Translation2d{m_driveProfileDistX, m_driveProfileDistY},
-            frc::Rotation2d{m_driveProfileRot},
-            frc::TrapezoidProfile<units::inches>::Constraints{m_driveProfileMaxLinearVel, m_driveProfileMaxLinearAccel},
-            frc::TrapezoidProfile<units::degrees>::Constraints{m_driveProfileMaxRotationalVel,
-                                                               m_driveProfileMaxRotationalAccel}));
+        m_swerveDrive.StartDrivingProfile(
+            SwerveTrapezoidalProfileSegment(m_swerveDrive.GetPoseEstimate(),
+                                            frc::Translation2d{m_driveProfileDistX, m_driveProfileDistY},
+                                            frc::Rotation2d{m_driveProfileRot},
+                                            frc::TrapezoidProfile<units::inches>::Constraints{
+                                                m_driveProfileMaxLinearVel, m_driveProfileMaxLinearAccel}));
       },
       {&m_swerveDrive});
   driveProfileTrigger.WhenInactive([this]() { m_swerveDrive.CancelDrivingProfile(); }, {&m_swerveDrive});
