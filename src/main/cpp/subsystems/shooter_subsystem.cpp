@@ -148,13 +148,25 @@ void ShooterSubsystem::AutoAim() {
 
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
   units::inch_t offset;
-  if (actualDistance >= (units::inch_t)160) {
-    double y =
-        (50 - (0.4166667 * actualDistance.to<double>()) + (0.001388889 * std::pow(actualDistance.to<double>(), 2)));
-    offset = (units::inch_t)y;
+  int camDegOffsetAcounting;
+  int camDegOffsetAcounting2;
+  if (m_instance == argos_lib::RobotInstance::Competition) {
+    camDegOffsetAcounting2 = 2.928571;
+  } else {
+    camDegOffsetAcounting2 = -17.071429;
+  }
 
+  if (actualDistance >= (units::inch_t)160) {
+    if (m_instance == argos_lib::RobotInstance::Competition) {
+      double y =
+          (50 - (0.4166667 * actualDistance.to<double>()) + (0.001388889 * std::pow(actualDistance.to<double>(), 2)));
+      offset = (units::inch_t)y;
+    } else {
+      double y = (8 - (0.1 * actualDistance.to<double>()) - (0.00028 * std::pow(actualDistance.to<double>(), 2)));
+      offset = (units::inch_t)y;
+    }
   } else if (actualDistance >= (units::inch_t)90 && actualDistance < (units::inch_t)160) {
-    double y = (2.928571 - (0.1528571 * actualDistance.to<double>()) +
+    double y = (camDegOffsetAcounting2 - (0.1528571 * actualDistance.to<double>()) +
                 (0.001428571 * std::pow(actualDistance.to<double>(), 2)));
     offset = (units::inch_t)y;
   } else {
