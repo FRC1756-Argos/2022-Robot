@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"namespacecontrol_loop_1_1comp__bot_1_1drive.html":[2,0,4,0,1],
 "namespacecontrol_loop_1_1comp__bot_1_1shooter.html":[2,0,4,0,2],
 "namespacecontrol_loop_1_1practice__bot.html":[2,0,4,1],
 "namespacecontrol_loop_1_1practice__bot_1_1drive.html":[2,0,4,1,0],
@@ -24,8 +25,9 @@ var NAVTREEINDEX4 =
 "namespaceindexes_1_1swerve_modules.html#afda1c6bed84d2c9a557ad2a37d86545c":[2,0,5,0,0],
 "namespacemeasure__up.html":[2,0,6],
 "namespacemeasure__up_1_1camera.html":[2,0,6,0],
-"namespacemeasure__up_1_1camera.html#a3c22068b76ca9c720e7c98dd4cd11c3e":[2,0,6,0,3],
-"namespacemeasure__up_1_1camera.html#a56a78f7e1115dee7de3d58028f4b6c7e":[2,0,6,0,2],
+"namespacemeasure__up_1_1camera.html#a3c22068b76ca9c720e7c98dd4cd11c3e":[2,0,6,0,4],
+"namespacemeasure__up_1_1camera.html#a56a78f7e1115dee7de3d58028f4b6c7e":[2,0,6,0,3],
+"namespacemeasure__up_1_1camera.html#a5b7be7d09cd2656c99739e759b9dbe80":[2,0,6,0,2],
 "namespacemeasure__up_1_1camera.html#a609f336767fd0a39791ff0f5b780be23":[2,0,6,0,1],
 "namespacemeasure__up_1_1camera.html#aa02156baaefca0333ca8e962e9c8f0cc":[2,0,6,0,0],
 "namespacemeasure__up_1_1chassis.html":[2,0,6,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "shoot__command_8cpp.html":[4,0,0,1,0,0,6],
 "shoot__command_8h.html":[4,0,0,1,1,0,6],
 "shoot__command_8h_source.html":[4,0,0,1,1,0,6],
-"shooter__subsystem_8cpp.html":[4,0,0,1,0,1,2],
-"shooter__subsystem_8h.html":[4,0,0,1,1,2,2],
-"shooter__subsystem_8h_source.html":[4,0,0,1,1,2,2]
+"shooter__subsystem_8cpp.html":[4,0,0,1,0,1,2]
 };

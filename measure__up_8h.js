@@ -6,6 +6,7 @@ var measure__up_8h =
     [ "backRightWOffset", "measure__up_8h.html#a4a79bffd93818af42fe1894b26de550b", null ],
     [ "cameraHeight", "measure__up_8h.html#aa02156baaefca0333ca8e962e9c8f0cc", null ],
     [ "cameraMountAngle", "measure__up_8h.html#a609f336767fd0a39791ff0f5b780be23", null ],
+    [ "cameraMountAnglePracticeBot", "measure__up_8h.html#a5b7be7d09cd2656c99739e759b9dbe80", null ],
     [ "fixedBackPos", "measure__up_8h.html#ab2957c9b97aec3856a00f69098f03cbe", null ],
     [ "fixedFrontPos", "measure__up_8h.html#aacae0434bea34b49a86002da25462b4a", null ],
     [ "fixedLeftPos", "measure__up_8h.html#afdd93ae4cf454ad509e60fdbdd19e109", null ],
