@@ -13,16 +13,9 @@
 #include "subsystems/swerve_drive_subsystem.h"
 #include "utils/sensor_conversions.h"
 
-/**
- * An example command.
- *
- * <p>Note that this extends CommandHelper, rather extending CommandBase
- * directly; this is crucially important, or else the decorator functions in
- * Command will *not* work!
- */
-class AutonomousAiming : public frc2::CommandHelper<frc2::CommandBase, AutonomousAiming> {
+class AutoPositionAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoPositionAimCommand> {
  public:
-  explicit AutonomousAiming(ShooterSubsystem* shootSys, SwerveDriveSubsystem* driveSys);
+  explicit AutoPositionAimCommand(ShooterSubsystem* shootSys, frc::Pose2d shootingPosition);
 
   void Initialize() override;
 
@@ -33,8 +26,8 @@ class AutonomousAiming : public frc2::CommandHelper<frc2::CommandBase, Autonomou
   bool IsFinished() override;
 
  private:
-  ShooterSubsystem* m_shooter;
-  SwerveDriveSubsystem* m_swerveDrive;
+  ShooterSubsystem* m_pShooter;
+  frc::Pose2d m_shootingPosition;
   argos_lib::Debouncer m_threshDebounce;
 
   units::degree_t GetOffsetAngle(frc::Translation2d curPos, frc::Translation2d target);
