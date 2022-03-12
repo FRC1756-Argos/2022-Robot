@@ -12,5 +12,10 @@ namespace fieldPoints {
   namespace balls {
     const frc::Translation2d A = frc::Translation2d(297_in, 11.21_in);
   }  // namespace balls
-
+  namespace startingpositions {
+    const frc::Translation2d W = frc::Translation2d(309.95_in, 72.18_in);
+    const frc::Translation2d X = frc::Translation2d(272.81_in, 105.36_in);
+    const frc::Translation2d Y = frc::Translation2d(247.37_in, 175.67_in);
+    const frc::Translation2d Z = frc::Translation2d(252.5_in, 217.67_in);
+  }  // namespace startingpositions
 }  // namespace fieldPoints
