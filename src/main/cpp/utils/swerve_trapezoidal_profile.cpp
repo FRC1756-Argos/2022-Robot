@@ -43,6 +43,7 @@ frc::Trajectory::State SwerveTrapezoidalProfileSegment::Calculate(units::second_
                                  units::inch_t{m_relativeTranslation.Norm()}.to<double>());
   frc::SmartDashboard::PutNumber("(SwerveFollower) Completion %",
                                  (linearState.position / m_relativeTranslation.Norm()).to<double>());
+  // const auto newRotation = m_relativeRotation * (rotationalState.position / m_relativeRotation.Degrees()).to<double>();
   return frc::Trajectory::State{time,
                                 linearState.velocity,
                                 0_mps_sq,
