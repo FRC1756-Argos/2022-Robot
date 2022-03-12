@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <frc/geometry/Translation2d.h>
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
@@ -21,7 +22,7 @@
  */
 class AutonomousAiming : public frc2::CommandHelper<frc2::CommandBase, AutonomousAiming> {
  public:
-  explicit AutonomousAiming(ShooterSubsystem* subsystem);
+  explicit AutonomousAiming(ShooterSubsystem* shootSys, SwerveDriveSubsystem* driveSys);
 
   void Initialize() override;
 
@@ -35,4 +36,8 @@ class AutonomousAiming : public frc2::CommandHelper<frc2::CommandBase, Autonomou
   ShooterSubsystem* m_shooter;
   SwerveDriveSubsystem* m_swerveDrive;
   argos_lib::Debouncer m_threshDebounce;
+
+  units::degree_t GetOffsetAngle(frc::Translation2d curPos, frc::Translation2d target);
+
+  units::degree_t GetAngleToPoint(frc::Translation2d curPos, frc::Translation2d target);
 };
