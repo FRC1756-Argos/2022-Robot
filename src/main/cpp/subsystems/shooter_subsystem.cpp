@@ -338,9 +338,15 @@ void ShooterSubsystem::Disable() {
 }
 
 units::inch_t ShooterSubsystem::GetTargetDistance(units::degree_t targetVerticalAngle) {
+  units::degree_t mountAngle;
+
+  if (m_instance == argos_lib::RobotInstance::Competition) {
+    mountAngle = measure_up::camera::cameraMountAngle;
+  } else {
+    mountAngle = measure_up::camera::cameraMountAnglePracticeBot;
+  }
   return (measure_up::camera::upperHubHeight - measure_up::camera::cameraHeight) /
-         std::tan(
-             static_cast<units::radian_t>(measure_up::camera::cameraMountAngle + targetVerticalAngle).to<double>());
+         std::tan(static_cast<units::radian_t>(mountAngle + targetVerticalAngle).to<double>());
 }
 
 ShooterSubsystem::ShooterDistanceSetpoints ShooterSubsystem::GetShooterDistanceSetpoints(
