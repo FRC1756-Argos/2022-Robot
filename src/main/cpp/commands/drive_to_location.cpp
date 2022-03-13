@@ -7,10 +7,12 @@
 #include "utils/swerve_trapezoidal_profile.h"
 
 DriveToLocation::DriveToLocation(SwerveDriveSubsystem* drive,
+                                 const frc::Pose2d source,
                                  const frc::Pose2d destination,
                                  const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints,
                                  const frc::TrapezoidProfile<units::degrees>::Constraints rotationalConstraints)
     : m_pDrive(drive)
+    , m_source(source)
     , m_destination(destination)
     , m_linearConstraints(linearConstraints)
     , m_rotationalConstraints(rotationalConstraints) {
@@ -20,8 +22,7 @@ DriveToLocation::DriveToLocation(SwerveDriveSubsystem* drive,
 // Called when the command is initially scheduled.
 void DriveToLocation::Initialize() {
   m_pDrive->UpdateFollowerRotationalPIDConstraints(m_rotationalConstraints);
-  m_pDrive->StartDrivingProfile(
-      SwerveTrapezoidalProfileSegment{m_pDrive->GetContinuousOdometry(), m_destination, m_linearConstraints});
+  m_pDrive->StartDrivingProfile(SwerveTrapezoidalProfileSegment{m_source, m_destination, m_linearConstraints});
 }
 
 // Called repeatedly when this Command is scheduled to run

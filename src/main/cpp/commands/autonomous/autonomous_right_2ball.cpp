@@ -15,20 +15,23 @@ AutonomousRight2ball::AutonomousRight2ball(IntakeSubsystem* pIntake,
     : m_pIntake{pIntake}
     , m_pShooter{pShooter}
     , m_pDrive{pDrive}
+    , m_startDelay{250_ms}
     , m_driveToBallA{m_pDrive,
-                     frc::Pose2d{},
+                     field_points::starting_positions::W,
+                     field_points::pickup_positions::W_A,
                      constraints::first_ball_path::linearConstraints,
                      constraints::first_ball_path::rotationalConstraints}  ///< @todo add position
     , m_homeHoodCommand{m_pShooter}
     , m_intakeCommand{m_pIntake}
     , m_shootCommand{m_pIntake, 2, 1.2_s}
-    , m_aimBallA{m_pShooter, frc::Pose2d{}}
+    , m_aimBallA{m_pShooter, field_points::pickup_positions::W_A}
     , m_initOdometry{m_pDrive, field_points::starting_positions::W}
     , m_allCommands{} {
-  m_allCommands.AddCommands(frc2::ParallelCommandGroup{frc2::SequentialCommandGroup{m_homeHoodCommand, m_aimBallA},
-                                                       m_intakeCommand,
-                                                       frc2::SequentialCommandGroup{m_initOdometry, m_driveToBallA}},
-                            m_shootCommand);
+  m_allCommands.AddCommands(
+      frc2::ParallelCommandGroup{frc2::SequentialCommandGroup{m_homeHoodCommand, m_aimBallA},
+                                 m_intakeCommand,
+                                 frc2::SequentialCommandGroup{m_initOdometry, m_startDelay, m_driveToBallA}},
+      m_shootCommand);
 }
 
 // Called when the command is initially scheduled.

@@ -115,7 +115,7 @@ class RobotContainer {
   AutonomousNothing m_autoNothing;
 
   // Autonomous Selector
-  AutoSelector m_autoRoutineSelector;
+  //   AutoSelector m_autoRoutineSelector;
 
   void ConfigureButtonBindings();
 };

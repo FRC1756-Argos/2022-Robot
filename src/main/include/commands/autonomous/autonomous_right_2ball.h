@@ -5,6 +5,7 @@
 #pragma once
 
 #include <commands/auto_position_aim_command.h>
+#include <commands/delay_command.h>
 #include <commands/drive_to_location.h>
 #include <commands/home_hood_command.h>
 #include <commands/initialize_odometry_command.h>
@@ -49,6 +50,7 @@ class AutonomousRight2ball
   ShooterSubsystem* m_pShooter;
   SwerveDriveSubsystem* m_pDrive;
 
+  DelayCommand m_startDelay;
   DriveToLocation m_driveToBallA;
   HomeHoodCommand m_homeHoodCommand;
   IntakeCommand m_intakeCommand;

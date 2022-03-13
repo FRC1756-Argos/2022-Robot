@@ -30,6 +30,7 @@ void AutoPositionAimCommand::Initialize() {
   frc::SmartDashboard::PutNumber("(Static Auto Shoot) Turret Set Position", turretAngle.to<double>());
 
   m_pShooter->TurretSetPosition(turretAngle);
+  m_pShooter->SetShooterDistance(m_shootingPosition.Translation().Distance(field_points::hub) - 2_ft);
 }
 
 // Called repeatedly when this Command is scheduled to run

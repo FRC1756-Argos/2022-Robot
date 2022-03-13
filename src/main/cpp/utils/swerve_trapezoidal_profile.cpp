@@ -30,9 +30,25 @@ SwerveTrapezoidalProfileSegment::SwerveTrapezoidalProfileSegment(
     const frc::Pose2d finalPosition,
     const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints)
     : SwerveTrapezoidalProfileSegment(initialPosition,
-                                      (finalPosition - initialPosition).Translation(),
-                                      (finalPosition - initialPosition).Rotation(),
-                                      linearConstraints) {}
+                                      finalPosition.Translation() - initialPosition.Translation(),
+                                      finalPosition.Rotation().Degrees() - initialPosition.Rotation().Degrees(),
+                                      linearConstraints) {
+  frc::SmartDashboard::PutNumber("(TrapezoidalProfile) Initial Position X",
+                                 units::inch_t{initialPosition.X()}.to<double>());
+  frc::SmartDashboard::PutNumber("(TrapezoidalProfile) Initial Position Y",
+                                 units::inch_t{initialPosition.Y()}.to<double>());
+  frc::SmartDashboard::PutNumber("(TrapezoidalProfile) Initial Position Angle",
+                                 initialPosition.Rotation().Degrees().to<double>());
+  frc::SmartDashboard::PutNumber("(TrapezoidalProfile) Final Position X",
+                                 units::inch_t{finalPosition.X()}.to<double>());
+  frc::SmartDashboard::PutNumber("(TrapezoidalProfile) Final Position Y",
+                                 units::inch_t{finalPosition.Y()}.to<double>());
+  frc::SmartDashboard::PutNumber("(TrapezoidalProfile) Final Position Angle",
+                                 finalPosition.Rotation().Degrees().to<double>());
+  auto translation = finalPosition.Translation() - initialPosition.Translation();
+  frc::SmartDashboard::PutNumber("(TrapezoidalProfile) Translation X", units::inch_t{translation.X()}.to<double>());
+  frc::SmartDashboard::PutNumber("(TrapezoidalProfile) Translation Y", units::inch_t{translation.Y()}.to<double>());
+}
 
 frc::Trajectory::State SwerveTrapezoidalProfileSegment::Calculate(units::second_t time) const {
   const auto linearState = m_linearProfile.Calculate(time);

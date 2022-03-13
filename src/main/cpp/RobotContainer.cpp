@@ -75,8 +75,8 @@ RobotContainer::RobotContainer()
     , m_driveProfileMaxRotationalVel(60_rpm)
     , m_driveProfileMaxRotationalAccel(units::degrees_per_second_squared_t{360})
     , m_autoRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
-    , m_autoNothing{}
-    , m_autoRoutineSelector{{&m_autoRight2Ball, &m_autoNothing}, &m_autoNothing} {
+    , m_autoNothing{} {
+  // , m_autoRoutineSelector{{&m_autoRight2Ball, &m_autoNothing}, &m_autoNothing} {
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
 
@@ -486,7 +486,8 @@ void RobotContainer::ConfigureButtonBindings() {
 // ----------------------------------------------------------------------------------------------------------
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
-  return m_autoRoutineSelector.GetSelectedCommand();
+  //   return m_autoRoutineSelector.GetSelectedCommand();
+  return nullptr;
 }
 
 void RobotContainer::Disable() {
