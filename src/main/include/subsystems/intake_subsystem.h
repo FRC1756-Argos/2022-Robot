@@ -23,6 +23,11 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   enum class IntakeState { Stop, Intaking, Outtaking };
 
   /**
+   * @brief Handle robot disabling
+   */
+  void Disable();
+
+  /**
    * @brief Determines whether ball is present at intake
    *
    * @return true - Ball is present at checked sensor

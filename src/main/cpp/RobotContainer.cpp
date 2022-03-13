@@ -404,7 +404,9 @@ frc2::Command* RobotContainer::GetAutonomousCommand() {
 }
 
 void RobotContainer::Disable() {
+  m_swerveDrive.Disable();
   m_shooter.Disable();
+  m_intake.Disable();
   if (m_pClimber) {
     m_pClimber->Disable();
   }
