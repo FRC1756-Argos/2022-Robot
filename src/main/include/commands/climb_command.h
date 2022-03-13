@@ -21,7 +21,7 @@
  */
 class ClimbCommand : public frc2::CommandHelper<frc2::CommandBase, ClimbCommand> {
  public:
-  explicit ClimbCommand(ClimberSubsystem* subsystem, std::vector<ClimberPoint> points);
+  ClimbCommand(ClimberSubsystem* subsystem, std::vector<ClimberPoint> points);
 
   void Initialize() override;
 

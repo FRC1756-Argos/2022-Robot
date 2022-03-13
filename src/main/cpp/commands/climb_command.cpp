@@ -23,7 +23,8 @@ void ClimbCommand::Initialize() {
   }
 
   // check if the robot is ready, if not, exit
-  if (m_pClimberSubsystem->GetClimberStatus() != ClimberSubsystem::ClimberStatus::CLIMBER_READY) {
+  if (m_pClimberSubsystem->GetClimberStatus() != ClimberSubsystem::ClimberStatus::CLIMBER_READY ||
+      m_initPoints.empty()) {
     Cancel();
     return;
   }
