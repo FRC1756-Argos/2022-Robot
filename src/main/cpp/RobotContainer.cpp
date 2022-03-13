@@ -320,7 +320,27 @@ void RobotContainer::ConfigureButtonBindings() {
   climbStorage.WhenInactive([this]() { frc::SmartDashboard::PutBoolean("(Climb Debug) Storage", false); },
                             {m_pClimber.get()});
 
-  climbConfirm.WhenActive(m_climbCommand);
+  climbConfirm.WhenActive(
+      [this]() {
+        switch (m_pClimber->GetClimberStatus()) {
+          case ClimberSubsystem::ClimberStatus::CLIMBER_STORAGE:
+            return;
+            break;
+
+          case ClimberSubsystem::ClimberStatus::CLIMBER_READY:
+            m_pClimber->SetClimberLatch();
+            return;
+            break;
+
+          case ClimberSubsystem::ClimberStatus::CLIMBER_CLIMB:
+            m_climbCommand;
+            break;
+
+          default:
+            break;
+        }
+      },
+      {m_pClimber.get()});
 
   // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
 

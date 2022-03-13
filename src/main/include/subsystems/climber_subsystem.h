@@ -15,7 +15,7 @@
 
 class ClimberSubsystem : public frc2::SubsystemBase {
  public:
-  enum class ClimberStatus { CLIMBER_STORAGE = 0, CLIMBER_READY = 1 };
+  enum class ClimberStatus { CLIMBER_STORAGE = 0, CLIMBER_READY = 1, CLIMBER_CLIMB = 2 };
 
   explicit ClimberSubsystem(const argos_lib::RobotInstance instance);
 
@@ -172,6 +172,8 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   void SetClimberReady();
 
   void SetClimberStorage();
+
+  void SetClimberLatch();
 
   ClimberStatus GetClimberStatus();
 

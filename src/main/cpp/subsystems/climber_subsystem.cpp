@@ -197,6 +197,11 @@ void ClimberSubsystem::SetClimberStorage() {
   m_climberStatus = ClimberStatus::CLIMBER_STORAGE;
 }
 
+void ClimberSubsystem::SetClimberLatch() {
+  ClimberToSetpoint(ClimberSetpoints::latchL2);
+  m_climberStatus = ClimberStatus::CLIMBER_CLIMB;
+}
+
 ClimberSubsystem::ClimberStatus ClimberSubsystem::GetClimberStatus() {
   return m_climberStatus;
 }

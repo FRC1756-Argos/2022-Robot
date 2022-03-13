@@ -33,5 +33,5 @@ namespace ClimberSetpoints {
 
 // the sequence to get fed into climb command
 namespace ClimberSequence {
-  const std::vector<ClimberPoint> sequence = {ClimberSetpoints::latchL2, ClimberSetpoints::secureL2};
+  const std::vector<ClimberPoint> sequence = {ClimberSetpoints::secureL2};
 }  // namespace ClimberSequence
