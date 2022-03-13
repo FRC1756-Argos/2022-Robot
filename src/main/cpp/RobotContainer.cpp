@@ -469,7 +469,6 @@ void RobotContainer::ConfigureButtonBindings() {
   auto driveProfileTrigger = (frc2::Trigger{
       [this]() { return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kDown); }});
 
-  //driveProfileTrigger.WhenActive(&m_autoRight2Ball);
   driveProfileTrigger.WhenActive(GetAutonomousCommand());
   //   [this]() {
   //     // m_swerveDrive.UpdateFollowerLinearPIDParams(
@@ -486,7 +485,7 @@ void RobotContainer::ConfigureButtonBindings() {
   //     //                                         m_driveProfileMaxLinearVel, m_driveProfileMaxLinearAccel}));
   //   },
   //   {&m_swerveDrive});
-  //driveProfileTrigger.WhenInactive([this]() { m_autoRight2Ball.Cancel(); }, {&m_swerveDrive});
+
   driveProfileTrigger.WhenInactive([this]() { GetAutonomousCommand()->Cancel(); }, {&m_swerveDrive});
 }
 
@@ -494,7 +493,6 @@ void RobotContainer::ConfigureButtonBindings() {
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
   return m_autoRoutineSelector.GetSelectedCommand();
-  //return nullptr;
 }
 
 void RobotContainer::Disable() {
