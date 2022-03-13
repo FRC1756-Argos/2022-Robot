@@ -21,7 +21,7 @@ AutonomousRight2ball::AutonomousRight2ball(IntakeSubsystem* pIntake,
                      constraints::first_ball_path::rotationalConstraints}  ///< @todo add position
     , m_homeHoodCommand{m_pShooter}
     , m_intakeCommand{m_pIntake}
-    , m_shootCommand{m_pIntake}
+    , m_shootCommand{m_pIntake, 2, 1.2_s}
     , m_aimBallA{m_pShooter, frc::Pose2d{}}
     , m_initOdometry{m_pDrive, field_points::starting_positions::W}
     , m_allCommands{} {
