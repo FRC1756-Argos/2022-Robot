@@ -28,7 +28,8 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
                      argos_lib::ClosedLoopSensorConversions{
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension),
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToVelocity),
-                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension)}} {
+                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension)}}
+    , m_climberStatus{ClimberStatus::CLIMBER_STORAGE} {
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::climber::liftRight,
                                          motorConfig::practice_bot::climber::liftRight>(
       m_motorLiftRight, 50_ms, instance);
@@ -168,18 +169,18 @@ void ClimberSubsystem::DisableHookSoftLimits() {
 }
 
 void ClimberSubsystem::ClimberToSetpoint(ClimberPoint setPoint) {
-  ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 10_ips2);
-  HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 10_ips2);
+  ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 15_ips2);
+  HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 15_ips2);
 }
 
 bool ClimberSubsystem::HooksAtPosition(units::inch_t target) {
   units::inch_t curPosition = sensor_conversions::climb_hooks::ToExtension(m_motorMoveHook.GetSelectedSensorPosition());
-  return InThreshold<units::inch_t>(curPosition, target, 0.5_in);
+  return InThreshold<units::inch_t>(curPosition, target, 0.125_in);
 }
 
 bool ClimberSubsystem::ArmsAtPosition(units::inch_t target) {
   units::inch_t curPosition = sensor_conversions::climb_arms::ToExtension(m_motorLiftRight.GetSelectedSensorPosition());
-  return InThreshold<units::inch_t>(curPosition, target, 0.5_in);
+  return InThreshold<units::inch_t>(curPosition, target, 0.125_in);
 }
 
 bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {

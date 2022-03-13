@@ -10,6 +10,8 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
+#include <networktables/NetworkTable.h>
+#include <networktables/NetworkTableInstance.h>
 #include <wpi/PortForwarder.h>
 
 #include "argos_lib/commands/swap_controllers_command.h"
@@ -266,24 +268,25 @@ void RobotContainer::ConfigureButtonBindings() {
         {argos_lib::XboxController::Button::kBack, argos_lib::XboxController::Button::kStart});
   }};
 
-  // CLIMBER TRIGGERS
-  // frc2::Trigger climbSetPoints{(frc2::Trigger{[this]() {
-  //   return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
-  // }})};
+  frc2::Trigger climbSetPoints{(frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
+  }})};
 
-  // climbSetPoints.WhenActive(
-  //     [this]() {
-  //       m_pClimber->HooksSetPosition(m_climberHookTargetExtension, m_climberHookCruiseVelocity, m_climberHookAccel);
-  //       m_pClimber->ArmSetPosition(m_climberArmTargetExtension, m_climberArmCruiseVelocity, m_climberArmAccel);
-  //     },
-  //     {m_pClimber.get()});
+  climbSetPoints.WhenActive(
+      [this]() {
+        m_pClimber->HooksSetPosition(m_climberHookTargetExtension, m_climberHookCruiseVelocity, m_climberHookAccel);
+        m_pClimber->ArmSetPosition(m_climberArmTargetExtension, m_climberArmCruiseVelocity, m_climberArmAccel);
+      },
+      {m_pClimber.get()});
 
-  // climbSetPoints.WhenInactive(
-  //     [this]() {
-  //       m_pClimber->MoveHook(0);
-  //       m_pClimber->MoveArm(0);
-  //     },
-  //     {m_pClimber.get()});
+  climbSetPoints.WhenInactive(
+      [this]() {
+        m_pClimber->MoveHook(0);
+        m_pClimber->MoveArm(0);
+      },
+      {m_pClimber.get()});
+
+  // @todo UNCOMMENT AFTER TESTING
 
   frc2::Trigger climbReady{(frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetDebouncedButton(argos_lib::XboxController::Button::kRight);
@@ -299,9 +302,23 @@ void RobotContainer::ConfigureButtonBindings() {
     return m_controllers.DriverController().GetDebouncedButtonPressed(argos_lib::XboxController::Button::kDown);
   }})};
 
-  climbReady.WhenActive([this]() { m_pClimber->SetClimberReady(); }, {m_pClimber.get()});
+  climbReady.WhenActive(
+      [this]() {
+        frc::SmartDashboard::PutBoolean("(Climb Debug) Ready", true);
+        m_pClimber->SetClimberReady();
+      },
+      {m_pClimber.get()});
+  climbStorage.WhenInactive([this]() { frc::SmartDashboard::PutBoolean("(Climb Debug) Ready", false); },
+                            {m_pClimber.get()});
 
-  climbStorage.WhenActive([this]() { m_pClimber->SetClimberStorage(); }, {m_pClimber.get()});
+  climbStorage.WhenActive(
+      [this]() {
+        frc::SmartDashboard::PutBoolean("(Climb Debug) Storage", true);
+        m_pClimber->SetClimberStorage();
+      },
+      {m_pClimber.get()});
+  climbStorage.WhenInactive([this]() { frc::SmartDashboard::PutBoolean("(Climb Debug) Storage", false); },
+                            {m_pClimber.get()});
 
   climbConfirm.WhenActive(m_climbCommand);
 

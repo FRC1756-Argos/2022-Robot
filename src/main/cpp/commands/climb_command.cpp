@@ -61,6 +61,11 @@ void ClimbCommand::End(bool interrupted) {
   if (m_pClimberSubsystem == nullptr) {
     return;
   }
+  for (int i = 0; i < m_climbPoints.size(); i++) {
+    if (!m_climbPoints.empty()) {
+      m_climbPoints.pop();
+    }
+  }
 }
 
 // Returns true when the command should end.
