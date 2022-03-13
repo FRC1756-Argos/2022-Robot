@@ -16,6 +16,9 @@
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_right_2ball.h"
+#include "commands/autonomous/autonomous_center_right_2ball.h"
+#include "commands/autonomous/autonomous_center_1ball.h"
+#include "commands/autonomous/autonomous_center_left_2ball.h"
 #include "commands/home_climber_arm_command.h"
 #include "commands/home_climber_hook_command.h"
 #include "commands/home_hood_command.h"
@@ -112,10 +115,13 @@ class RobotContainer {
 
   // Autonomous Commands
   AutonomousRight2ball m_autoRight2Ball;
+  AutonomousCenterRight2ball m_autoCenterRight2Ball;
+  AutonomousCenter1ball m_autoCenter1ball;
+  AutonomousCenterLeft2ball m_autoCenterLeft2Ball;
   AutonomousNothing m_autoNothing;
 
   // Autonomous Selector
-  //   AutoSelector m_autoRoutineSelector;
+  AutoSelector m_autoRoutineSelector;
 
   void ConfigureButtonBindings();
 };

@@ -51,10 +51,10 @@ frc2::Command* AutoSelector::GetSelectedCommand() const {
 }
 
 void AutoSelector::UpdateSelectorEntries() const {
-  wpi::span<std::string> routines;
-  std::transform(m_commands.begin(), m_commands.end(), routines.end(), [](AutonomousCommand* command) {
+  std::vector<std::string> routines;
+  std::transform(m_commands.begin(), m_commands.end(), std::back_inserter(routines), [](AutonomousCommand* command) {
     std::printf("commandptr=%d\n", reinterpret_cast<int>(command));
     return command->GetName();
   });
-  nt::NetworkTableInstance::GetDefault().GetTable("")->PutStringArray("Auto List", routines);
+  nt::NetworkTableInstance::GetDefault().GetTable("SmartDashboard")->PutStringArray("Auto List", routines);
 }

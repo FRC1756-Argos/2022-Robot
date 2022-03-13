@@ -75,8 +75,13 @@ RobotContainer::RobotContainer()
     , m_driveProfileMaxRotationalVel(60_rpm)
     , m_driveProfileMaxRotationalAccel(units::degrees_per_second_squared_t{360})
     , m_autoRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
-    , m_autoNothing{} {
-  // , m_autoRoutineSelector{{&m_autoRight2Ball, &m_autoNothing}, &m_autoNothing} {
+    , m_autoCenterRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoCenter1ball{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoCenterLeft2Ball{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoNothing{}
+    , m_autoRoutineSelector{
+          {&m_autoRight2Ball, &m_autoCenterRight2Ball, &m_autoCenter1ball, &m_autoCenterLeft2Ball, &m_autoNothing},
+          &m_autoNothing} {
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
 
@@ -464,7 +469,8 @@ void RobotContainer::ConfigureButtonBindings() {
   auto driveProfileTrigger = (frc2::Trigger{
       [this]() { return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kDown); }});
 
-  driveProfileTrigger.WhenActive(&m_autoRight2Ball);
+  //driveProfileTrigger.WhenActive(&m_autoRight2Ball);
+  driveProfileTrigger.WhenActive(GetAutonomousCommand());
   //   [this]() {
   //     // m_swerveDrive.UpdateFollowerLinearPIDParams(
   //     //     m_driveFollowerLinearkP, m_driveFollowerLinearkI, m_driveFollowerLinearkD);
@@ -480,14 +486,15 @@ void RobotContainer::ConfigureButtonBindings() {
   //     //                                         m_driveProfileMaxLinearVel, m_driveProfileMaxLinearAccel}));
   //   },
   //   {&m_swerveDrive});
-  driveProfileTrigger.WhenInactive([this]() { m_autoRight2Ball.Cancel(); }, {&m_swerveDrive});
+  //driveProfileTrigger.WhenInactive([this]() { m_autoRight2Ball.Cancel(); }, {&m_swerveDrive});
+  driveProfileTrigger.WhenInactive([this]() { GetAutonomousCommand()->Cancel(); }, {&m_swerveDrive});
 }
 
 // ----------------------------------------------------------------------------------------------------------
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
-  //   return m_autoRoutineSelector.GetSelectedCommand();
-  return nullptr;
+  return m_autoRoutineSelector.GetSelectedCommand();
+  //return nullptr;
 }
 
 void RobotContainer::Disable() {
