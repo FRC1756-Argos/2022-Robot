@@ -32,7 +32,8 @@ void AutoSelector::SetDefaultCommand(AutonomousCommand* defaultCommand) {
 }
 
 frc2::Command* AutoSelector::GetSelectedCommand() const {
-  std::string selectedRoutineName = nt::NetworkTableInstance::GetDefault().GetTable("")->GetString("Auto Selector", "");
+  std::string selectedRoutineName =
+      nt::NetworkTableInstance::GetDefault().GetTable("SmartDashboard")->GetString("Auto Selector", "");
 
   const auto selectedRoutineIt =
       std::find_if(m_commands.begin(), m_commands.end(), [selectedRoutineName](AutonomousCommand* toCheck) {

@@ -15,7 +15,7 @@ AutonomousCenterLeft2ball::AutonomousCenterLeft2ball(IntakeSubsystem* pIntake,
     : m_pIntake{pIntake}
     , m_pShooter{pShooter}
     , m_pDrive{pDrive}
-    , m_startDelay{250_ms}
+    , m_startDelay{600_ms}
     , m_driveToBallC{m_pDrive,
                      field_points::starting_positions::Z,
                      field_points::pickup_positions::Z_C,
