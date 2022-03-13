@@ -15,19 +15,33 @@ namespace field_points {
   static const frc::Translation2d hub = frc::Translation2d(324_in, 162_in);
   namespace balls {
     static const frc::Translation2d A = frc::Translation2d(298_in, 11.5_in);
-    static const frc::Translation2d B = frc::Translation2d(76_in, 200_in);
-    static const frc::Translation2d C = frc::Translation2d(194_in, 242_in);
+    static const frc::Translation2d B = frc::Translation2d(198.4_in, 74_in);
+    static const frc::Translation2d C = frc::Translation2d(194.2_in, 243.9_in);
     static const frc::Translation2d D = frc::Translation2d(42_in, 45_in);
   }  // namespace balls
   namespace starting_positions {
     static const frc::Pose2d W = frc::Pose2d(298.5_in, 72.18_in, -90_deg);
-    static const frc::Pose2d X = frc::Pose2d(272.81_in, 105.36_in, -147.5_deg);
+    static const frc::Pose2d X = frc::Pose2d(261.2_in, 105.6_in, -147.5_deg);
     static const frc::Pose2d Y = frc::Pose2d(247.37_in, 175.67_in, 180_deg);
-    static const frc::Pose2d Z = frc::Pose2d(252.5_in, 217.67_in, 135_deg);
+    static const frc::Pose2d Z = frc::Pose2d(239.9_in, 203.6_in, 135_deg);
   }  // namespace starting_positions
   namespace pickup_positions {
     static const frc::Pose2d W_A = frc::Pose2d(balls::A.X(),
                                                balls::A.Y() + (measure_up::chassis::length / 2) + 6_in,
                                                -90_deg);  ///< Drive so intake goes 1 bumper width past ball center
-  }                                                       // namespace pickup_positions
+
+    static const frc::Pose2d X_B = frc::Pose2d(balls::B.X() + (measure_up::chassis::width / 2) + 6_in,
+                                               balls::B.Y() + (measure_up::chassis::length / 2) + 6_in,
+                                               -147.5_deg);  ///< Drive so intake goes 1 bumper width past ball center
+
+    static const frc::Pose2d Z_C = frc::Pose2d(balls::C.X() + (measure_up::chassis::width / 2) + 6_in,
+                                               balls::C.Y() - (measure_up::chassis::length / 2) + 6_in,
+                                               135_deg);  ///< Drive so intake goes 1 bumper width past ball center
+
+    static const frc::Pose2d Y_Y = frc::Pose2d(starting_positions::Y.X() - 24_in,
+                                               starting_positions::Y.Y(),
+                                               135_deg);  ///< Drive so intake goes 1 bumper width past ball center
+
+  }  // namespace pickup_positions
+
 }  // namespace field_points
