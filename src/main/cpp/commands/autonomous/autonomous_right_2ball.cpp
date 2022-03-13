@@ -50,3 +50,11 @@ void AutonomousRight2ball::End(bool interrupted) {
 bool AutonomousRight2ball::IsFinished() {
   return m_allCommands.IsFinished();
 }
+
+std::string AutonomousRight2ball::GetName() const {
+  return "Right 2 Ball";
+}
+
+frc2::Command* AutonomousRight2ball::GetCommand() {
+  return dynamic_cast<frc2::Command*>(this);
+}

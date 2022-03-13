@@ -21,3 +21,11 @@ void AutonomousNothing::End(bool interrupted) {}
 bool AutonomousNothing::IsFinished() {
   return true;
 }
+
+std::string AutonomousNothing::GetName() const {
+  return "Do Nothing";
+}
+
+frc2::Command* AutonomousNothing::GetCommand() {
+  return dynamic_cast<frc2::Command*>(this);
+}

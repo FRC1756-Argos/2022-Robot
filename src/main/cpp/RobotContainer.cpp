@@ -74,7 +74,9 @@ RobotContainer::RobotContainer()
     , m_driveProfileMaxLinearAccel(units::feet_per_second_squared_t{10})
     , m_driveProfileMaxRotationalVel(60_rpm)
     , m_driveProfileMaxRotationalAccel(units::degrees_per_second_squared_t{360})
-    , m_autoRight2Ball{&m_intake, &m_shooter, &m_swerveDrive} {
+    , m_autoRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoNothing{}
+    , m_autoRoutineSelector{{&m_autoRight2Ball, &m_autoNothing}, &m_autoNothing} {
   // Live window is causing various watchdog timeouts
   frc::LiveWindow::DisableAllTelemetry();
 
@@ -129,6 +131,7 @@ RobotContainer::RobotContainer()
 
   // Robot state triggers
   auto robotEnableTrigger = (frc2::Trigger{[this]() { return frc::DriverStation::IsEnabled(); }});
+  auto teleopEnableTrigger = (frc2::Trigger{[this]() { return frc::DriverStation::IsTeleopEnabled(); }});
 
   // Override triggers
   auto shooterOverrideTrigger = (frc2::Trigger{[this]() {
@@ -153,9 +156,9 @@ RobotContainer::RobotContainer()
       (frc2::Trigger{[this]() { return m_pClimber ? m_pClimber->IsArmHomed() : false; }});
 
   // Homing commands
-  (robotEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
-  (robotEnableTrigger && !climberArmHomingCompleteTrigger).WhenActive(m_homeClimberArmCommand);
-  (robotEnableTrigger && !climberHookHomingCompleteTrigger).WhenActive(m_homeClimberHookCommand);
+  (teleopEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
+  (robotEnableTrigger && (!climberArmHomingCompleteTrigger || !climberHookHomingCompleteTrigger))
+      .WhenActive(frc2::SequentialCommandGroup(m_homeClimberArmCommand, m_homeClimberHookCommand));
 
   shooterOverrideTrigger.WhenActive([this]() { m_shooter.ManualOverride(); }, {&m_shooter});
   if (m_pClimber) {
@@ -483,8 +486,7 @@ void RobotContainer::ConfigureButtonBindings() {
 // ----------------------------------------------------------------------------------------------------------
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
-  // An example command will be run in autonomous
-  return nullptr;
+  return m_autoRoutineSelector.GetSelectedCommand();
 }
 
 void RobotContainer::Disable() {

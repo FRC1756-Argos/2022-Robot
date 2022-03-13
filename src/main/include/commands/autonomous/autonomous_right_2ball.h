@@ -17,7 +17,13 @@
 #include <subsystems/shooter_subsystem.h>
 #include <subsystems/swerve_drive_subsystem.h>
 
-class AutonomousRight2ball : public frc2::CommandHelper<frc2::CommandBase, AutonomousRight2ball> {
+#include <string>
+
+#include "autonomous_command.h"
+
+class AutonomousRight2ball
+    : public frc2::CommandHelper<frc2::CommandBase, AutonomousRight2ball>
+    , public AutonomousCommand {
  public:
   AutonomousRight2ball(IntakeSubsystem* pIntake, ShooterSubsystem* pShooter, SwerveDriveSubsystem* pDrive);
 
@@ -28,6 +34,15 @@ class AutonomousRight2ball : public frc2::CommandHelper<frc2::CommandBase, Auton
   void End(bool interrupted) override;
 
   bool IsFinished() override;
+
+  /**
+   * @copydoc AutonomousCommand::GetName()
+   */
+  std::string GetName() const final;
+  /**
+   * @copydoc AutonomousCommand::GetCommand()
+   */
+  frc2::Command* GetCommand() final;
 
  private:
   IntakeSubsystem* m_pIntake;

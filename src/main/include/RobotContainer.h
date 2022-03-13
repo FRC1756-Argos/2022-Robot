@@ -14,6 +14,7 @@
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_right_2ball.h"
 #include "commands/home_climber_arm_command.h"
 #include "commands/home_climber_hook_command.h"
@@ -22,6 +23,7 @@
 #include "subsystems/intake_subsystem.h"
 #include "subsystems/shooter_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
+#include "utils/auto_selector.h"
 #include "utils/network_tables_wrapper.h"
 #include "utils/sensor_conversions.h"
 
@@ -110,6 +112,10 @@ class RobotContainer {
 
   // Autonomous Commands
   AutonomousRight2ball m_autoRight2Ball;
+  AutonomousNothing m_autoNothing;
+
+  // Autonomous Selector
+  AutoSelector m_autoRoutineSelector;
 
   void ConfigureButtonBindings();
 };
