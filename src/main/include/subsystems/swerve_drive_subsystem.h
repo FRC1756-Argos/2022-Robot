@@ -133,19 +133,6 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   wpi::array<frc::SwerveModuleState, 4> GetRawModuleStates(SwerveDriveSubsystem::Velocities velocities);
 
   /**
-   * @brief HomeToNetworkTables all of the modules back to zero
-   *
-   * @param angle the angle of the module in it's current state
-   */
-  void HomeToNetworkTables(const units::degree_t& angle);
-
-  /**
-   * @brief Will load saved homes, and set the encoders to reset to true angle relative to robot "front"
-   *
-   */
-  void InitializeMotorsFromNetworkTables();
-
-  /**
    * @brief Save homes to a file
    *
    * @param angle Current angle of all the swerve modules.  They should all be oriented the same during homing.

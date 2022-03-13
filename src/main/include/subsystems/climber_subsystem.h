@@ -22,54 +22,6 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   void Periodic() override;
 
   /**
- * @brief moves arms up
- *
- */
-
-  void ArmReady();
-  /**
- * @brief pull hook down
- *
- */
-
-  void hookRetract();
-
-  /**
- * @brief extend hook along rail
- *
- */
-
-  void HookExtend();
-
-  /**
- * @brief lower body for center of gravity & hook handoff
- *
- */
-
-  void LowerBody();
-
-  /**
- * @brief move arm to against bottom of bar
- *
- */
-
-  void ArmToBar();
-
-  /**
- * @brief pull body up to stabilize body
- *
- */
-
-  void BodyUp();
-
-  /**
- * @brief detract hooks, bring arms down
- *
- */
-
-  void StartingPosition();
-
-  /**
  * @brief manually moves the hook, and/or arm
  *
  * @param hookSpeed moves hook up or down based on the climber a full forward input is 1.0 and a
@@ -186,8 +138,16 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    */
   void ManualOverride();
 
+  /**
+   * @brief Enables the hook soft limits
+   *
+   */
   void SetHookSoftLimits();
 
+  /**
+   * @brief Disables hook soft limit
+   *
+   */
   void DisableHookSoftLimits();
 
  private:
@@ -204,13 +164,4 @@ class ClimberSubsystem : public frc2::SubsystemBase {
 
   argos_lib::NTMotorPIDTuner m_armPIDTuner;
   argos_lib::NTMotorPIDTuner m_hookPIDTuner;
-
-  void ClimberPositionSetup();
-  void ClimberPositionLatchL2();
-  void ClimberPositionPrepareL2();
-  void ClimberPositionSecureL2();
-  void ClimberPositionPassL3();
-  void ClimberPositionLatchL3();
-  void ClimberPositionPrepareTransferL3();
-  void ClimberPositionTransferL3();
 };

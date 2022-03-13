@@ -25,7 +25,7 @@ void IntakeCommand::End(bool interrupted) {
 
 // Returns true when the command should end.
 bool IntakeCommand::IsFinished() {
-  bool ballPresent = m_pIntake->getBallPresentIntake();
+  bool ballPresent = m_pIntake->GetBallPresentIntake();
   if (!m_previousBallPresent && ballPresent) {
     m_previousBallPresent = ballPresent;
     return true;

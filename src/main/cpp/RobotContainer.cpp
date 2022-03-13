@@ -210,14 +210,6 @@ void RobotContainer::ConfigureButtonBindings() {
   auto shooter = (frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);
   }});
-  /// @todo Update shoot/aim trigger responsibilities
-  // shooter.WhenActive(
-  //     [this]() {
-  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
-  //     },
-  //     {&m_shooter});
-  // shooter.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
 
   // Fixed Shooting Position Trigger
   auto fixedFrontTrigger = (frc2::Trigger{

@@ -93,7 +93,6 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
 
   );
 
-  /// @todo DEFAULT TO ROBOT CENTRIC FOR NOW (change later)
   m_controlMode = SwerveDriveSubsystem::DriveControlMode::fieldCentricControl;
 
   m_pSwerveDriveKinematics = std::make_unique<frc::SwerveDriveKinematics<4>>(
@@ -117,7 +116,6 @@ wpi::array<frc::SwerveModuleState, 4> SwerveDriveSubsystem::GetRawModuleStates(
   // IF SPEEDS ZERO, SET MOTORS TO ZERO AND RETURN
   if (velocities.fwVelocity == 0 && velocities.sideVelocity == 0 && velocities.rotVelocity == 0) {
     StopDrive();
-    /// @todo fix later
     frc::ChassisSpeeds emptySpeeds{units::make_unit<units::velocity::meters_per_second_t>(0),
                                    units::make_unit<units::velocity::meters_per_second_t>(0),
                                    units::make_unit<units::angular_velocity::radians_per_second_t>(0)};
@@ -175,7 +173,6 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   // SET MODULES BASED OFF OF CONTROL MODE
   auto moduleStates = GetRawModuleStates(velocities);
 
-  /// @todo Convert sensor velocities for optimizer instead of constants
   moduleStates.at(0) = argos_lib::swerve::Optimize(
       moduleStates.at(0),
       sensor_conversions::swerve_drive::turn::ToAngle(m_frontLeft.m_turn.GetSelectedSensorPosition()),
@@ -293,25 +290,6 @@ void SwerveDriveSubsystem::InitializeMotors() {
   InitializeMotorsFromFS();
 }
 
-void SwerveDriveSubsystem::HomeToNetworkTables(const units::degree_t& angle) {
-  // GET CURRENT HOME POSITION AND SAVE IT
-  const SwerveModulePositions homes{
-      // GET OUR ABSOLUTE POSITION AND SET IT TO HOME (0 - 360)
-      ConstrainAngle(
-          units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
-      ConstrainAngle(
-          units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
-      ConstrainAngle(
-          units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg),
-      ConstrainAngle(
-          units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg)};
-
-  m_pNetworkTable->SetEntryDegrees(networkTables::swerveHomes::keys::flHome, homes.FrontLeft);
-  m_pNetworkTable->SetEntryDegrees(networkTables::swerveHomes::keys::frHome, homes.FrontRight);
-  m_pNetworkTable->SetEntryDegrees(networkTables::swerveHomes::keys::brHome, homes.RearRight);
-  m_pNetworkTable->SetEntryDegrees(networkTables::swerveHomes::keys::blHome, homes.RearLeft);
-}
-
 void SwerveDriveSubsystem::HomeToFS(const units::degree_t& angle) {
   const argos_lib::swerve::SwerveModulePositions homes{
       ConstrainAngle(
@@ -324,42 +302,6 @@ void SwerveDriveSubsystem::HomeToFS(const units::degree_t& angle) {
           units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition()) - angle, 0_deg, 360_deg)};
 
   m_fsStorage.Save(homes);
-}
-
-void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables() {
-  // GET SAVED VALUES
-  std::optional<units::degree_t> frontLeft_saved =
-      m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::flHome);
-  std::optional<units::degree_t> frontRight_saved =
-      m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::frHome);
-  std::optional<units::degree_t> backRight_saved =
-      m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::brHome);
-  std::optional<units::degree_t> backLeft_saved =
-      m_pNetworkTable->GetEntryDegrees(networkTables::swerveHomes::keys::blHome);
-
-  if (!frontLeft_saved || !frontRight_saved || !backRight_saved || !backLeft_saved) {
-    // @todo PREVENT MOTION HERE OF MOTOR
-    /// @todo IF NO HOMES LISTED, SET A FLAG SO WE CAN'T DRIVE
-    return;
-  }
-
-  // GET CURRENT VALUES
-  units::degree_t frontLeft_current = units::make_unit<units::degree_t>(m_frontLeft.m_encoder.GetAbsolutePosition());
-  units::degree_t frontRight_current = units::make_unit<units::degree_t>(m_frontRight.m_encoder.GetAbsolutePosition());
-  units::degree_t backRight_current = units::make_unit<units::degree_t>(m_backRight.m_encoder.GetAbsolutePosition());
-  units::degree_t backLeft_current = units::make_unit<units::degree_t>(m_backLeft.m_encoder.GetAbsolutePosition());
-
-  // SUBTRACT SAVED FROM CURRENT
-  const units::degree_t frontLeftCalibrated = frontLeft_current - frontLeft_saved.value();
-  const units::degree_t frontRightCalibrated = frontRight_current - frontRight_saved.value();
-  const units::degree_t backRightCalibrated = backRight_current - backRight_saved.value();
-  const units::degree_t backLeftCalibrated = backLeft_current - backLeft_saved.value();
-
-  // ASSIGN DIFFERENCE TO CURRENT MOTOR RELATIVE POSITION
-  m_frontLeft.m_encoder.SetPosition(frontLeftCalibrated.to<double>(), 50);
-  m_frontRight.m_encoder.SetPosition(frontRightCalibrated.to<double>(), 50);
-  m_backRight.m_encoder.SetPosition(backRightCalibrated.to<double>(), 50);
-  m_backLeft.m_encoder.SetPosition(backLeftCalibrated.to<double>(), 50);
 }
 
 void SwerveDriveSubsystem::InitializeMotorsFromFS() {

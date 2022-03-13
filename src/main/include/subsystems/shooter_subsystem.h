@@ -35,6 +35,10 @@ class LimelightTarget {
  public:
   LimelightTarget() = default;
 
+  /**
+   * @brief Describes the values of vision target
+   *
+   */
   struct tValues {
     units::degree_t pitch;
     units::degree_t yaw;
@@ -43,10 +47,19 @@ class LimelightTarget {
     units::degree_t skew;
   };
 
-  /// @todo ADD DOCUMENTATION
+  /**
+   * @brief Get the values of the camera's current target
+   *
+   * @return tValues
+   */
   tValues GetTarget();
 
-  /// @todo ADD DOCUMENTATION
+  /**
+   * @brief Does the camera see a target?
+   *
+   * @return true - The camera does see a target
+   * @return false - The camera does not see a target
+   */
   bool HasTarget();
 };
 
@@ -63,7 +76,7 @@ class CameraInterface {
  public:
   CameraInterface();
 
-  LimelightTarget m_target;
+  LimelightTarget m_target;  ///< object that holds the current target
 
   /**
    * @brief Get the highest target the camera can see CAN RETURN NONE
@@ -329,20 +342,6 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @param driverMode True changes to driver mode, false changes to operator mode
    */
   void SetCameraDriverMode(bool driverMode);
-
-  /**
-   * @brief Detect if a value is within a threshold of a target value
-   *
-   * @tparam T Type that implements operator+(), operator-(), operator<=() and operator>=()
-   * @param value Value to check
-   * @param target Center of range
-   * @param threshold Allowable error from target
-   * @return true when value is within threshold of target, false otherwise
-   */
-  template <typename T>
-  constexpr static bool InThreshold(const T value, const T target, const T threshold) {
-    return value >= target - threshold && value <= target + threshold;
-  }
 
   /**
    * @brief Checks if all shooter values are close enough to target values
