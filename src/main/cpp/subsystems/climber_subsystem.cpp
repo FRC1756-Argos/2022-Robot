@@ -42,26 +42,6 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic() {}
 
-void ClimberSubsystem::ArmReady() {
-  // Raise arm, listen for confirm or cancel
-}
-
-void ClimberSubsystem::HookExtend() {}
-
-void ClimberSubsystem::LowerBody() {
-  // Lower body to position for transfer/hang
-}
-
-void ClimberSubsystem::ArmToBar() {}
-
-void ClimberSubsystem::BodyUp() {
-  // Opposite of lower body
-}
-
-void ClimberSubsystem::StartingPosition() {
-  // Similar to arm ready?
-}
-
 void ClimberSubsystem::ManualControl(double hookSpeed, double armSpeed) {
   if (hookSpeed != 0 || armSpeed != 0) {
     m_manualOverride = true;
@@ -187,74 +167,33 @@ void ClimberSubsystem::DisableHookSoftLimits() {
   m_motorMoveHook.ConfigReverseSoftLimitEnable(false);
 }
 
-void ClimberSubsystem::ClimberPositionStorage() {
-  ArmSetPosition(21.5_in, 10_ips, 10_ips2);
-  // take six inches in order to keep inside frame perimeter
-  HooksSetPosition(measure_up::climber_hook::maxExtension - 6_in, 10_ips, 10_ips2);
-}
-
 void ClimberSubsystem::ClimberToSetpoint(ClimberPoint setPoint) {
   ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 10_ips2);
   HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 10_ips2);
 }
 
-void ClimberSubsystem::ClimberPositionSetup() {
-  ArmSetPosition(37_in, 10_ips, 10_ips2);
-  HooksSetPosition(34_in, 10_ips, 10_ips2);
-}
-
-void ClimberSubsystem::ClimberPositionLatchL2() {
-  ArmSetPosition(37_in, 10_ips, 10_ips2);
-  HooksSetPosition(28.7_in, 10_ips, 10_ips2);
-}
-
-void ClimberSubsystem::ClimberPositionPrepareL2() {
-  ArmSetPosition(35.8_in, 10_ips, 10_ips2);
-  HooksSetPosition(28.7_in, 10_ips, 10_ips2);
-}
-
-void ClimberSubsystem::ClimberPositionSecureL2() {
-  ArmSetPosition(35.8_in, 10_ips, 10_ips2);
-  HooksSetPosition(1_in, 10_ips, 10_ips2);
-}
-void ClimberSubsystem::ClimberPositionPassL3() {
-  ArmSetPosition(37.1_in, 10_ips, 10_ips2);
-  HooksSetPosition(34_in, 10_ips, 10_ips2);
-}
-void ClimberSubsystem::ClimberPositionLatchL3() {
-  ArmSetPosition(37.1_in, 10_ips, 10_ips2);
-  HooksSetPosition(31.5_in, 10_ips, 10_ips2);
-}
-void ClimberSubsystem::ClimberPositionPrepareTransferL3() {
-  ArmSetPosition(29.0_in, 10_ips, 10_ips2);
-  HooksSetPosition(31.5_in, 10_ips, 10_ips2);
-}
-void ClimberSubsystem::ClimberPositionTransferL3() {
-  ArmSetPosition(29.0_in, 10_ips, 10_ips2);
-  HooksSetPosition(26.0_in, 10_ips, 10_ips2);
-}
-
 bool ClimberSubsystem::HooksAtPosition(units::inch_t target) {
   units::inch_t curPosition = sensor_conversions::climb_hooks::ToExtension(m_motorMoveHook.GetSelectedSensorPosition());
-  return InThreshold<units::inch_t>(curPosition, target, 0.2_in);
+  return InThreshold<units::inch_t>(curPosition, target, 0.5_in);
 }
 
 bool ClimberSubsystem::ArmsAtPosition(units::inch_t target) {
   units::inch_t curPosition = sensor_conversions::climb_arms::ToExtension(m_motorLiftRight.GetSelectedSensorPosition());
-  return InThreshold<units::inch_t>(curPosition, target, 0.2_in);
+  return InThreshold<units::inch_t>(curPosition, target, 0.5_in);
 }
 
 bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {
   return (ArmsAtPosition(target.armExtension) && HooksAtPosition(target.hookExtension)) ? true : false;
 }
 
-void ClimberSubsystem::SetClimberStatus(ClimberStatus status) {
-  m_climberStatus = status;
-  UpdateStatus();
+void ClimberSubsystem::SetClimberReady() {
+  ClimberToSetpoint(ClimberSetpoints::setup);
+  m_climberStatus = ClimberStatus::CLIMBER_READY;
 }
 
-void ClimberSubsystem::UpdateStatus() {
-  /// @todo asses need of this function if using command
+void ClimberSubsystem::SetClimberStorage() {
+  ClimberToSetpoint(ClimberSetpoints::storage);
+  m_climberStatus = ClimberStatus::CLIMBER_STORAGE;
 }
 
 ClimberSubsystem::ClimberStatus ClimberSubsystem::GetClimberStatus() {

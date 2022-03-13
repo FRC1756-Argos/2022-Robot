@@ -7,6 +7,9 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
+#include <queue>
+#include <vector>
+
 #include "subsystems/climber_subsystem.h"
 
 /**
@@ -16,9 +19,9 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class climb_command : public frc2::CommandHelper<frc2::CommandBase, climb_command> {
+class ClimbCommand : public frc2::CommandHelper<frc2::CommandBase, ClimbCommand> {
  public:
-  explicit climb_command(ClimberSubsystem* subsystem);
+  explicit ClimbCommand(ClimberSubsystem* subsystem, std::vector<ClimberPoint> points);
 
   void Initialize() override;
 
@@ -30,4 +33,6 @@ class climb_command : public frc2::CommandHelper<frc2::CommandBase, climb_comman
 
  private:
   ClimberSubsystem* m_pClimberSubsystem;
+  std::vector<ClimberPoint> m_initPoints;
+  std::queue<ClimberPoint> m_climbPoints;
 };

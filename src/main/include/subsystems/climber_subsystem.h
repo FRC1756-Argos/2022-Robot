@@ -15,7 +15,7 @@
 
 class ClimberSubsystem : public frc2::SubsystemBase {
  public:
-  enum class ClimberStatus { CLIMBER_STOP = 0, CLIMBER_STORAGE = 1, CLIMBER_READY = 2, CLIMBER_CLIMB = 3 };
+  enum class ClimberStatus { CLIMBER_STORAGE = 0, CLIMBER_READY = 1 };
 
   explicit ClimberSubsystem(const argos_lib::RobotInstance instance);
 
@@ -23,54 +23,6 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    * Will be called periodically whenever the CommandScheduler runs.
    */
   void Periodic() override;
-
-  /**
- * @brief moves arms up
- *
- */
-
-  void ArmReady();
-  /**
- * @brief pull hook down
- *
- */
-
-  void hookRetract();
-
-  /**
- * @brief extend hook along rail
- *
- */
-
-  void HookExtend();
-
-  /**
- * @brief lower body for center of gravity & hook handoff
- *
- */
-
-  void LowerBody();
-
-  /**
- * @brief move arm to against bottom of bar
- *
- */
-
-  void ArmToBar();
-
-  /**
- * @brief pull body up to stabilize body
- *
- */
-
-  void BodyUp();
-
-  /**
- * @brief detract hooks, bring arms down
- *
- */
-
-  void StartingPosition();
 
   /**
  * @brief manually moves the hook, and/or arm
@@ -199,12 +151,6 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    */
   void SetClimbReady();
 
-  void SetClimberStatus(ClimberStatus status);
-
-  void UpdateStatus();
-
-  ClimberSubsystem::ClimberStatus GetClimberStatus();
-
   /**
    * @brief Detect if a value is within a threshold of a target value
    *
@@ -220,6 +166,14 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   }
 
   void ClimberToSetpoint(ClimberPoint setPoint);
+
+  bool ClimberAtPoint(ClimberPoint target);
+
+  void SetClimberReady();
+
+  void SetClimberStorage();
+
+  ClimberStatus GetClimberStatus();
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
@@ -240,15 +194,4 @@ class ClimberSubsystem : public frc2::SubsystemBase {
 
   bool HooksAtPosition(units::inch_t target);
   bool ArmsAtPosition(units::inch_t target);
-  bool ClimberAtPoint(ClimberPoint target);
-
-  void ClimberPositionStorage();
-  void ClimberPositionSetup();
-  void ClimberPositionLatchL2();
-  void ClimberPositionPrepareL2();
-  void ClimberPositionSecureL2();
-  void ClimberPositionPassL3();
-  void ClimberPositionLatchL3();
-  void ClimberPositionPrepareTransferL3();
-  void ClimberPositionTransferL3();
 };

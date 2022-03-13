@@ -7,6 +7,8 @@
 #include <units/length.h>
 #include <units/velocity.h>
 
+#include <vector>
+
 #include "constants/measure_up.h"
 #include "utils/sensor_conversions.h"
 
@@ -28,3 +30,11 @@ namespace ClimberSetpoints {
   constexpr ClimberPoint prepTransferL3 = {31.5_in, 29_in, 10_ips, 10_ips};
   constexpr ClimberPoint transferL3 = {26_in, 29_in, 10_ips, 10_ips};
 }  // namespace ClimberSetpoints
+
+// the sequence to get fed into climb command
+namespace ClimberSequence {
+  const std::vector<ClimberPoint> sequence = {ClimberSetpoints::latchL2,
+                                              ClimberSetpoints::secureL2,
+                                              ClimberSetpoints::prepTransferL3,
+                                              ClimberSetpoints::latchL3};
+}  // namespace ClimberSequence

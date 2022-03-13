@@ -13,6 +13,7 @@
 #include <wpi/PortForwarder.h>
 
 #include "argos_lib/commands/swap_controllers_command.h"
+#include "constants/climber_setpoints.h"
 
 RobotContainer::RobotContainer()
     : m_pNetworkTable(std::make_shared<NetworkTablesWrapper>())
@@ -33,6 +34,7 @@ RobotContainer::RobotContainer()
     , m_homeHoodCommand(&m_shooter)
     , m_homeClimberArmCommand(m_pClimber.get())
     , m_homeClimberHookCommand(m_pClimber.get())
+    , m_climbCommand(m_pClimber.get(), ClimberSequence::sequence)
     , m_hoodTargetPosition(30_deg)
     , m_shooterTargetVelocity(3000_rpm)
     , m_climberArmTargetExtension(25_in)
@@ -297,11 +299,11 @@ void RobotContainer::ConfigureButtonBindings() {
     return m_controllers.DriverController().GetDebouncedButtonPressed(argos_lib::XboxController::Button::kDown);
   }})};
 
-  climbReady.WhenActive([this]() { m_pClimber->SetClimberStatus(ClimberSubsystem::ClimberStatus::CLIMBER_READY); },
-                        {m_pClimber.get()});
+  climbReady.WhenActive([this]() { m_pClimber->SetClimberReady(); }, {m_pClimber.get()});
 
-  climbStorage.WhenActive([this]() { m_pClimber->SetClimberStatus(ClimberSubsystem::ClimberStatus::CLIMBER_STORAGE); },
-                          {m_pClimber.get()});
+  climbStorage.WhenActive([this]() { m_pClimber->SetClimberStorage(); }, {m_pClimber.get()});
+
+  climbConfirm.WhenActive(m_climbCommand);
 
   // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
 

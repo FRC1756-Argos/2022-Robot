@@ -14,6 +14,7 @@
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "commands/climb_command.h"
 #include "commands/home_climber_arm_command.h"
 #include "commands/home_climber_hook_command.h"
 #include "commands/home_hood_command.h"
@@ -76,6 +77,7 @@ class RobotContainer {
   HomeHoodCommand m_homeHoodCommand;
   HomeClimberArmCommand m_homeClimberArmCommand;
   HomeClimberHookCommand m_homeClimberHookCommand;
+  ClimbCommand m_climbCommand;
 
   // Tuning stuff
   units::degree_t m_hoodTargetPosition;
