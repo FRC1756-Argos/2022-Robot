@@ -29,6 +29,7 @@ class AutoPositionAimCommand : public frc2::CommandHelper<frc2::CommandBase, Aut
   ShooterSubsystem* m_pShooter;
   frc::Pose2d m_shootingPosition;
   argos_lib::Debouncer m_threshDebounce;
+  std::chrono::time_point<std::chrono::steady_clock> m_startTime;  ///< When the command began
 
   units::degree_t GetOffsetAngle(frc::Translation2d curPos, frc::Translation2d target);
 

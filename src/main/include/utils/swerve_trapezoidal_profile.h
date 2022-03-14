@@ -19,11 +19,14 @@ class SwerveTrapezoidalProfileSegment {
  public:
   SwerveTrapezoidalProfileSegment();
   SwerveTrapezoidalProfileSegment(const frc::Pose2d initialPosition,
+                                  const units::degree_t initialAngle,
                                   const frc::Translation2d relativeTranslation,
-                                  const frc::Rotation2d relativeRotation,
+                                  const units::degree_t relativeRotation,
                                   const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints);
   SwerveTrapezoidalProfileSegment(const frc::Pose2d initialPosition,
+                                  const units::degree_t initialAngle,
                                   const frc::Pose2d finalPosition,
+                                  const units::degree_t finalAngle,
                                   const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints);
   SwerveTrapezoidalProfileSegment(const SwerveTrapezoidalProfileSegment& other) = default;
   SwerveTrapezoidalProfileSegment(SwerveTrapezoidalProfileSegment&& other) = default;
@@ -33,17 +36,21 @@ class SwerveTrapezoidalProfileSegment {
 
   frc::Trajectory::State Calculate(units::second_t time) const;
   bool IsFinished(units::second_t time) const;
-  frc::Rotation2d GetEndAngle() const;
+  units::degree_t GetEndAngle() const;
+  units::degree_t GetOdometryOffset() const;
 
   units::feet_per_second_t GetXVelocity(const frc::Trajectory::State& state) const;
   units::feet_per_second_t GetYVelocity(const frc::Trajectory::State& state) const;
 
  private:
-  const frc::Pose2d m_initialPosition;
+  frc::Pose2d m_initialPosition;
+  units::degree_t m_initialAngle;
   const frc::Translation2d m_relativeTranslation;
-  const frc::Rotation2d m_relativeRotation;
+  units::degree_t m_relativeRotation;
   const frc::TrapezoidProfile<units::inches> m_linearProfile;
   const units::degree_t m_motionAngle;
+
+  units::degree_t m_odometryOffsetAngle;
 };
 
 class SwerveTrapezoidalProfile {

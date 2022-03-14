@@ -31,6 +31,8 @@ void AutoPositionAimCommand::Initialize() {
 
   m_pShooter->TurretSetPosition(turretAngle);
   m_pShooter->SetShooterDistance(m_shootingPosition.Translation().Distance(field_points::hub) - 2_ft);
+
+  m_startTime = std::chrono::steady_clock::now();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -46,6 +48,8 @@ void AutoPositionAimCommand::End(bool interrupted) {}
 
 // Returns true when the command should end.
 bool AutoPositionAimCommand::IsFinished() {
+  // Delay a few milliseconds to allow wheel to speed up
+  units::millisecond_t{std::chrono::steady_clock::now() - m_startTime} > 200_ms;
   return true;
 }
 

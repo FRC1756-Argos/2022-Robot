@@ -16,6 +16,7 @@
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_right_2ball.h"
+#include "commands/autonomous/autonomous_right_5ball.h"
 #include "commands/home_climber_arm_command.h"
 #include "commands/home_climber_hook_command.h"
 #include "commands/home_hood_command.h"
@@ -112,6 +113,7 @@ class RobotContainer {
 
   // Autonomous Commands
   AutonomousRight2ball m_autoRight2Ball;
+  AutonomousRight5ball m_autoRight5Ball;
   AutonomousNothing m_autoNothing;
 
   // Autonomous Selector

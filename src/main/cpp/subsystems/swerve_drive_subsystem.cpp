@@ -215,8 +215,13 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                                                                    m_swerveProfileStartTime);
     if (!m_pActiveSwerveProfile->IsFinished(elapsedTime)) {
       desiredProfileState = m_pActiveSwerveProfile->Calculate(elapsedTime);
+      auto continuousOdometry = GetContinuousOdometry();
       const auto controllerChassisSpeeds = m_followerController.Calculate(
-          GetContinuousOdometry(), desiredProfileState, m_pActiveSwerveProfile->GetEndAngle());
+          frc::Pose2d{
+              continuousOdometry.Translation(),
+              frc::Rotation2d{continuousOdometry.Rotation().Degrees() + m_pActiveSwerveProfile->GetOdometryOffset()}},
+          desiredProfileState,
+          m_pActiveSwerveProfile->GetEndAngle() + m_pActiveSwerveProfile->GetOdometryOffset());
       // const auto controllerChassisSpeeds =  m_followerController.Calculate(GetContinuousOdometry(), desiredProfileState.pose, desiredProfileState.velocity, m_pActiveSwerveProfile->GetEndAngle());
       // const auto swappedChassisSpeeds = frc::ChassisSpeeds{controllerChassisSpeeds.vy, controllerChassisSpeeds.vx, controllerChassisSpeeds.omega};
       moduleStates = m_swerveDriveKinematics.ToSwerveModuleStates(controllerChassisSpeeds);
@@ -230,8 +235,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                      units::unit_t<units::compound_unit<units::degrees, units::inverse<units::feet>>>{
                                          desiredProfileState.curvature}
                                          .to<double>());
-      frc::SmartDashboard::PutNumber("(SwerveFollower) End Angle",
-                                     m_pActiveSwerveProfile->GetEndAngle().Degrees().to<double>());
+      frc::SmartDashboard::PutNumber("(SwerveFollower) End Angle", m_pActiveSwerveProfile->GetEndAngle().to<double>());
       frc::SmartDashboard::PutNumber("(SwerveFollower) Desired Vel",
                                      units::feet_per_second_t{desiredProfileState.velocity}.to<double>());
       frc::SmartDashboard::PutNumber("(SwerveFollower) Current X",

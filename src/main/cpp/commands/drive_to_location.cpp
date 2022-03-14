@@ -8,12 +8,16 @@
 
 DriveToLocation::DriveToLocation(SwerveDriveSubsystem* drive,
                                  const frc::Pose2d source,
+                                 const units::degree_t sourceAngle,
                                  const frc::Pose2d destination,
+                                 const units::degree_t destAngle,
                                  const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints,
                                  const frc::TrapezoidProfile<units::degrees>::Constraints rotationalConstraints)
     : m_pDrive(drive)
     , m_source(source)
+    , m_sourceAngle(sourceAngle)
     , m_destination(destination)
+    , m_destAngle{destAngle}
     , m_linearConstraints(linearConstraints)
     , m_rotationalConstraints(rotationalConstraints) {
   AddRequirements(drive);
@@ -22,7 +26,8 @@ DriveToLocation::DriveToLocation(SwerveDriveSubsystem* drive,
 // Called when the command is initially scheduled.
 void DriveToLocation::Initialize() {
   m_pDrive->UpdateFollowerRotationalPIDConstraints(m_rotationalConstraints);
-  m_pDrive->StartDrivingProfile(SwerveTrapezoidalProfileSegment{m_source, m_destination, m_linearConstraints});
+  m_pDrive->StartDrivingProfile(
+      SwerveTrapezoidalProfileSegment{m_source, m_sourceAngle, m_destination, m_destAngle, m_linearConstraints});
 }
 
 // Called repeatedly when this Command is scheduled to run

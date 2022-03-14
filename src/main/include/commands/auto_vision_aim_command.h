@@ -23,7 +23,7 @@ class AutoVisionAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoV
   bool IsFinished() override;
 
  private:
-  ShooterSubsystem* m_shooter;
+  ShooterSubsystem* m_pShooter;
   argos_lib::Debouncer m_threshDebounce;
 
   template <typename T>

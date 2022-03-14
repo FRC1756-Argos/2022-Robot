@@ -7,12 +7,14 @@
 ShootCommand::ShootCommand(IntakeSubsystem* subsystem) : ShootCommand(subsystem, 1, 0_ms) {}
 
 ShootCommand::ShootCommand(IntakeSubsystem* subsystem, uint numCargo, units::millisecond_t timeout)
-    : m_pIntake{subsystem}, m_totalCargo{numCargo}, m_timeout{timeout} {
+    : m_pIntake{subsystem}, m_totalCargo{numCargo}, m_cargoShot{0}, m_timeout{timeout} {
   AddRequirements(m_pIntake);
 }
 
 // Called when the command is initially scheduled.
 void ShootCommand::Initialize() {
+  m_previousBallPresent = false;
+  m_cargoShot = 0;
   m_startTime = std::chrono::steady_clock::now();
   m_pIntake->Shoot();
 }

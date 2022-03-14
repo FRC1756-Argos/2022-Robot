@@ -8,26 +8,24 @@
 #include <commands/auto_vision_aim_command.h>
 #include <commands/delay_command.h>
 #include <commands/drive_to_location.h>
-#include <commands/home_hood_command.h>
-#include <commands/initialize_odometry_command.h>
 #include <commands/intake_command.h>
 #include <commands/shoot_command.h>
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 #include <frc2/command/SequentialCommandGroup.h>
-#include <subsystems/intake_subsystem.h>
 #include <subsystems/shooter_subsystem.h>
 #include <subsystems/swerve_drive_subsystem.h>
 
 #include <string>
 
 #include "autonomous_command.h"
+#include "autonomous_right_2ball.h"
 
-class AutonomousRight2ball
-    : public frc2::CommandHelper<frc2::CommandBase, AutonomousRight2ball>
+class AutonomousRight5ball
+    : public frc2::CommandHelper<frc2::CommandBase, AutonomousRight5ball>
     , public AutonomousCommand {
  public:
-  AutonomousRight2ball(IntakeSubsystem* pIntake, ShooterSubsystem* pShooter, SwerveDriveSubsystem* pDrive);
+  AutonomousRight5ball(IntakeSubsystem* pIntake, ShooterSubsystem* pShooter, SwerveDriveSubsystem* pDrive);
 
   void Initialize() override;
 
@@ -51,14 +49,17 @@ class AutonomousRight2ball
   ShooterSubsystem* m_pShooter;
   SwerveDriveSubsystem* m_pDrive;
 
-  DelayCommand m_startDelay;
-  DriveToLocation m_driveToBallA;
-  HomeHoodCommand m_homeHoodCommand;
-  IntakeCommand m_intakeCommand;
-  ShootCommand m_shootCommand;
-  AutoPositionAimCommand m_aimBallA;
+  // AutonomousRight2ball m_2ball;
+  DelayCommand m_humanPlayerDelay;
+  DelayCommand m_shootDelay;
+  DriveToLocation m_driveToBallB;
+  DriveToLocation m_driveToBallD;
+  DriveToLocation m_driveToFinalShootPosition;
+  ShootCommand m_shootOneBall;
+  ShootCommand m_shootTwoBall;
+  AutoPositionAimCommand m_aimBallB;
+  AutoPositionAimCommand m_aimBallD;
   AutoVisionAimCommand m_visionAim;
-  InitializeOdometryCommand m_initOdometry;
 
   frc2::SequentialCommandGroup m_allCommands;
 };

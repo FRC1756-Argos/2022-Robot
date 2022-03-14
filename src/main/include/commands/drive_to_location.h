@@ -16,7 +16,9 @@ class DriveToLocation : public frc2::CommandHelper<frc2::CommandBase, DriveToLoc
  public:
   DriveToLocation(SwerveDriveSubsystem* drive,
                   const frc::Pose2d source,
+                  const units::degree_t sourceAngle,
                   const frc::Pose2d destination,
+                  const units::degree_t destAngle,
                   const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints,
                   const frc::TrapezoidProfile<units::degrees>::Constraints rotationalConstraints);
 
@@ -31,7 +33,9 @@ class DriveToLocation : public frc2::CommandHelper<frc2::CommandBase, DriveToLoc
  private:
   SwerveDriveSubsystem* m_pDrive;
   const frc::Pose2d m_source;
+  const units::degree_t m_sourceAngle;
   const frc::Pose2d m_destination;
+  const units::degree_t m_destAngle;
   const frc::TrapezoidProfile<units::inches>::Constraints m_linearConstraints;
   const frc::TrapezoidProfile<units::degrees>::Constraints m_rotationalConstraints;
 };
