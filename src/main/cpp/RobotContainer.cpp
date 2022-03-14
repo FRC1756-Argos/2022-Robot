@@ -471,10 +471,10 @@ void RobotContainer::ConfigureButtonBindings() {
   homeDrive.WhenActive([this]() { m_swerveDrive.Home(0_deg); }, {&m_swerveDrive});
 
   // Drive profile tuning
-  auto driveProfileTrigger = (frc2::Trigger{
-      [this]() { return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kDown); }});
+  // auto driveProfileTrigger = (frc2::Trigger{
+  //     [this]() { return m_controllers.DriverController().GetRawButton(argos_lib::XboxController::Button::kDown); }});
 
-  driveProfileTrigger.WhenActive(GetAutonomousCommand());
+  // driveProfileTrigger.WhenActive(GetAutonomousCommand());
   //   [this]() {
   //     // m_swerveDrive.UpdateFollowerLinearPIDParams(
   //     //     m_driveFollowerLinearkP, m_driveFollowerLinearkI, m_driveFollowerLinearkD);
@@ -491,7 +491,7 @@ void RobotContainer::ConfigureButtonBindings() {
   //   },
   //   {&m_swerveDrive});
 
-  driveProfileTrigger.WhenInactive([this]() { GetAutonomousCommand()->Cancel(); }, {&m_swerveDrive});
+  // driveProfileTrigger.WhenInactive([this]() { GetAutonomousCommand()->Cancel(); }, {&m_swerveDrive});
 }
 
 // ----------------------------------------------------------------------------------------------------------
