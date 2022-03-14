@@ -304,14 +304,7 @@ void RobotContainer::ConfigureButtonBindings() {
 
   climbReady.WhenActive([this]() { m_pClimber->SetClimberReady(); }, {m_pClimber.get()});
 
-  climbStorage.WhenActive(
-      [this]() {
-        if (m_pClimber->IsArmMoving() || m_pClimber->IsHookMoving()) {
-          return;
-        }
-        m_pClimber->SetClimberStorage();
-      },
-      {m_pClimber.get()});
+  climbStorage.WhenActive([this]() { m_pClimber->SetClimberStorage(); }, {m_pClimber.get()});
 
   climbConfirm.WhenActive(
       [this]() {
