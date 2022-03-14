@@ -169,8 +169,8 @@ void ClimberSubsystem::DisableHookSoftLimits() {
 }
 
 void ClimberSubsystem::ClimberToSetpoint(ClimberPoint setPoint) {
-  ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 15_ips2);
-  HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 15_ips2);
+  ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 17_ips2);
+  HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 17_ips2);
 }
 
 bool ClimberSubsystem::HooksAtPosition(units::inch_t target) {

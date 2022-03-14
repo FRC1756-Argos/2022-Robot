@@ -23,7 +23,7 @@ void ClimbCommand::Initialize() {
   }
 
   // check if the robot is ready, if not, exit
-  if (m_pClimberSubsystem->GetClimberStatus() != ClimberSubsystem::ClimberStatus::CLIMBER_READY ||
+  if (m_pClimberSubsystem->GetClimberStatus() != ClimberSubsystem::ClimberStatus::CLIMBER_CLIMB ||
       m_initPoints.empty()) {
     Cancel();
     return;
@@ -41,7 +41,7 @@ void ClimbCommand::Execute() {
     return;
   }
 
-  if (m_pClimberSubsystem->GetClimberStatus() != ClimberSubsystem::ClimberStatus::CLIMBER_READY) {
+  if (m_pClimberSubsystem->GetClimberStatus() != ClimberSubsystem::ClimberStatus::CLIMBER_CLIMB) {
     Cancel();
     return;
   }
@@ -66,6 +66,7 @@ void ClimbCommand::End(bool interrupted) {
       m_climbPoints.pop();
     }
   }
+  m_pClimberSubsystem->Disable();
 }
 
 // Returns true when the command should end.
