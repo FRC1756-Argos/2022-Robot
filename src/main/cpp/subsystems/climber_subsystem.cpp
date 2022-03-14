@@ -193,6 +193,13 @@ void ClimberSubsystem::SetClimberReady() {
 }
 
 void ClimberSubsystem::SetClimberStorage() {
+  if (m_climberStatus == ClimberStatus::CLIMBER_CLIMB) {
+    return;
+  }
+
+  if (IsArmMoving() || IsHookMoving()) {
+    return;
+  }
   ClimberToSetpoint(ClimberSetpoints::storage);
   m_climberStatus = ClimberStatus::CLIMBER_STORAGE;
 }
