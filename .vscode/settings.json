@@ -90,6 +90,8 @@
     "typeinfo": "cpp"
   },
   "cSpell.words": [
+    "ctre",
+    "holonomic",
     "odometry",
     "talonsrx",
     "teleop"

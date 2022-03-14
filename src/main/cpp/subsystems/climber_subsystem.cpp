@@ -41,26 +41,6 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic() {}
 
-void ClimberSubsystem::ArmReady() {
-  // Raise arm, listen for confirm or cancel
-}
-
-void ClimberSubsystem::HookExtend() {}
-
-void ClimberSubsystem::LowerBody() {
-  // Lower body to position for transfer/hang
-}
-
-void ClimberSubsystem::ArmToBar() {}
-
-void ClimberSubsystem::BodyUp() {
-  // Opposite of lower body
-}
-
-void ClimberSubsystem::StartingPosition() {
-  // Similar to arm ready?
-}
-
 void ClimberSubsystem::ManualControl(double hookSpeed, double armSpeed) {
   if (hookSpeed != 0 || armSpeed != 0) {
     m_manualOverride = true;
@@ -185,45 +165,3 @@ void ClimberSubsystem::DisableHookSoftLimits() {
   m_motorMoveHook.ConfigForwardSoftLimitEnable(false);
   m_motorMoveHook.ConfigReverseSoftLimitEnable(false);
 }
-
-void ClimberSubsystem::ClimberPositionSetup() {
-  ArmSetPosition(37_in, 10_ips, 10_ips2);
-  HooksSetPosition(34_in, 10_ips, 10_ips2);
-}
-
-void ClimberSubsystem::ClimberPositionLatchL2() {
-  ArmSetPosition(37_in, 10_ips, 10_ips2);
-  HooksSetPosition(28.7_in, 10_ips, 10_ips2);
-}
-
-void ClimberSubsystem::ClimberPositionPrepareL2() {
-  ArmSetPosition(35.8_in, 10_ips, 10_ips2);
-  HooksSetPosition(28.7_in, 10_ips, 10_ips2);
-}
-
-void ClimberSubsystem::ClimberPositionSecureL2() {
-  ArmSetPosition(35.8_in, 10_ips, 10_ips2);
-  HooksSetPosition(1_in, 10_ips, 10_ips2);
-}
-void ClimberSubsystem::ClimberPositionPassL3() {
-  ArmSetPosition(37.1_in, 10_ips, 10_ips2);
-  HooksSetPosition(34_in, 10_ips, 10_ips2);
-}
-void ClimberSubsystem::ClimberPositionLatchL3() {
-  ArmSetPosition(37.1_in, 10_ips, 10_ips2);
-  HooksSetPosition(31.5_in, 10_ips, 10_ips2);
-}
-void ClimberSubsystem::ClimberPositionPrepareTransferL3() {
-  ArmSetPosition(29.0_in, 10_ips, 10_ips2);
-  HooksSetPosition(31.5_in, 10_ips, 10_ips2);
-}
-void ClimberSubsystem::ClimberPositionTransferL3() {
-  ArmSetPosition(29.0_in, 10_ips, 10_ips2);
-  HooksSetPosition(26.0_in, 10_ips, 10_ips2);
-}
-
-// SecureL2
-// PassL3
-// Latch L3
-// PrepareTransferL3
-// PositionTransferL3

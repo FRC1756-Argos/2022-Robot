@@ -44,7 +44,7 @@ void IntakeSubsystem::Periodic() {
   double periodicCallSpeed = 1000 / lastCalledDuration.count();
   lastCalled = currentTime;
 
-  bool debouncerStatus = m_shooterTimeDebouncer(m_edgeDetector(getBallPresentShooter()));
+  bool debouncerStatus = m_shooterTimeDebouncer(m_edgeDetector(GetBallPresentShooter()));
 
   frc::SmartDashboard::PutNumber("Periodic Speed", periodicCallSpeed);
   frc::SmartDashboard::PutNumber("ToF Distance Intake",
@@ -72,14 +72,14 @@ void IntakeSubsystem::Periodic() {
         m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
       }
       if (m_intakeButtonPressed == true) {
-        m_intakeDrive.Set(getBallPresentIntake() ? speeds::intake::intakeCreep : speeds::intake::intakeForward);
-      } else if (getBallPresentIntake() == true && getIsBallTeamColor() == false) {
+        m_intakeDrive.Set(GetBallPresentIntake() ? speeds::intake::intakeCreep : speeds::intake::intakeForward);
+      } else if (GetBallPresentIntake() == true && GetIsBallTeamColor() == false) {
         m_intakeDrive.Set(speeds::intake::intakeReverse);
       } else {
         m_intakeDrive.Set(0);
       }
       if ((m_shooterButtonPressed == true && !debouncerStatus) ||
-          ((getBallPresentIntake() == true && getIsBallTeamColor() == true) && getBallPresentShooter() == false)) {
+          ((GetBallPresentIntake() == true && GetIsBallTeamColor() == true) && GetBallPresentShooter() == false)) {
         m_beltDrive.Set(m_shooterButtonPressed ? speeds::intake::beltForwardShoot : speeds::intake::beltForwardIntake);
       } else {
         m_beltDrive.Set(0);
@@ -95,17 +95,17 @@ void IntakeSubsystem::Periodic() {
   frc::SmartDashboard::PutBoolean("(Ball-Delay) Debouncer Status", debouncerStatus);
 }
 
-bool IntakeSubsystem::getBallPresentIntake() {
+bool IntakeSubsystem::GetBallPresentIntake() {
   units::inch_t ballDistanceIntake = units::make_unit<units::millimeter_t>(m_ballPresentIntake.GetRange());
   return !m_hysteresisIntake(ballDistanceIntake);
 }
 
-bool IntakeSubsystem::getBallPresentShooter() {
+bool IntakeSubsystem::GetBallPresentShooter() {
   units::inch_t ballDistanceShooter = units::make_unit<units::millimeter_t>(m_ballPresentShooter.GetRange());
   return !m_hysteresisShooter(ballDistanceShooter);
 }
 
-bool IntakeSubsystem::getIsBallTeamColor() {
+bool IntakeSubsystem::GetIsBallTeamColor() {
   return true;  //< Replace when sensors are integrated
 }
 

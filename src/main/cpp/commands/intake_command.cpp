@@ -28,7 +28,7 @@ void IntakeCommand::End(bool interrupted) {
 bool IntakeCommand::IsFinished() {
   // For now, just set intake and exit
   return true;
-  // bool ballPresent = m_pIntake->getBallPresentIntake();
+  // bool ballPresent = m_pIntake->GetBallPresentIntake();
   // if (!m_previousBallPresent && ballPresent) {
   //   m_previousBallPresent = ballPresent;
   //   return true;

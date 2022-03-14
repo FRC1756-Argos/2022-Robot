@@ -13,6 +13,7 @@
 #include "argos_lib/general/swerve_utils.h"
 #include "frc/smartdashboard/SmartDashboard.h"
 #include "units/length.h"
+#include "utils/general.h"
 #include "utils/sensor_conversions.h"
 
 ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,

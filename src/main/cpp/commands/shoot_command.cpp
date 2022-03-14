@@ -21,7 +21,7 @@ void ShootCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ShootCommand::Execute() {
-  bool ballPresent = m_pIntake->getBallPresentShooter();
+  bool ballPresent = m_pIntake->GetBallPresentShooter();
   if (m_previousBallPresent && !ballPresent) {
     m_previousBallPresent = ballPresent;
     ++m_cargoShot;
