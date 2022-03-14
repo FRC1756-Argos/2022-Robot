@@ -115,9 +115,10 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> = <span class="keywordtype">void</span>&gt; \</div>
-<div class="line">  struct has_##X : std::false_type {};   \</div>
+<div class="line">  struct has_##<a class="code hl_variable" href="namespacefield__points_1_1starting__positions.html#a93c751fc9f95abb21a9089f39aeb2690">X</a> : std::false_type {};   \</div>
 <div class="line">  template &lt;typename T&gt;                  \</div>
-<div class="line">  struct has_##X&lt;T, <span class="keyword">decltype</span>((void)T::X, <span class="keywordtype">void</span>())&gt; : std::true_type {};</div>
+<div class="line">  struct has_##<a class="code hl_variable" href="namespacefield__points_1_1starting__positions.html#a93c751fc9f95abb21a9089f39aeb2690">X</a>&lt;T, <span class="keyword">decltype</span>((void)<a class="code hl_variable" href="namespacefield__points_1_1starting__positions.html#a93c751fc9f95abb21a9089f39aeb2690">T::X</a>, <span class="keywordtype">void</span>())&gt; : std::true_type {};</div>
+<div class="ttc" id="anamespacefield__points_1_1starting__positions_html_a93c751fc9f95abb21a9089f39aeb2690"><div class="ttname"><a href="namespacefield__points_1_1starting__positions.html#a93c751fc9f95abb21a9089f39aeb2690">field_points::starting_positions::X</a></div><div class="ttdeci">static const frc::Pose2d X</div><div class="ttdef"><b>Definition:</b> field_points.h:24</div></div>
 </div><!-- fragment -->
 <p>Helper function generator to detect if a namespace has a member defined. </p>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project.</dd></dl>

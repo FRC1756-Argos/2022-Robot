@@ -30,7 +30,7 @@ var NAVTREE =
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
@@ -54,6 +54,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -63,14 +64,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_intake_subsystem.html#afbe996c1e7c8ebb04df1bc437cbd8ce9",
-"classargos__lib_1_1_swap_controllers_command.html#aee37eb53ea8beb23636d6332bbe2294b",
-"functions_func_c.html",
-"namespacecontrol_loop_1_1comp__bot_1_1drive.html",
-"shooter__subsystem_8h.html",
-"structargos__lib_1_1talonsrx__config_1_1has__peak_output_forward_3_01_t_00_01decltype_07_07void_ce1393e4ba3aff645158e2468cf2e124.html",
-"structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#a4080a65d494276225bd9d86cee88d9d8",
-"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#ab3f882266ec15f48616610bb20576b86"
+"class_autonomous_right5ball.html#ab84593bb3b85824395cbbfada2881043",
+"class_robot_container.html#a94eea32ea5b3b5c99cc4d7b3fadcce38",
+"classargos__lib_1_1_swap_controllers_command.html",
+"dir_fdf2b31f12d3ebb2f617242d0514024b.html",
+"namespaceargos__lib_1_1cancoder__config.html#a127a5060105e8266790116391eebeb63",
+"namespacesensor__conversions_1_1hood.html",
+"structargos__lib_1_1falcon__config_1_1has__forward_limit__normal_state_3_01_t_00_01decltype_07_0ecc9d7a2c7e7d191f194154e369f1861.html",
+"structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#af01b4652eb4500e6dadc79890dbb9fd4",
+"structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#aa90323521df86bf65b2a49a9d133a10a",
+"structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a0fa1833f0578ff3d24a9538eb8134001"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

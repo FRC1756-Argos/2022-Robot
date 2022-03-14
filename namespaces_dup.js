@@ -10,6 +10,7 @@ var namespaces_dup =
       [ "verticalAngleResolution", "namespacecamera.html#ad94933e1dd640a0c1cd401cbce236541", null ],
       [ "verticalPixelResolution", "namespacecamera.html#a0335d77652a08a0006964684ce57537e", null ]
     ] ],
+    [ "constraints", "namespaceconstraints.html", "namespaceconstraints" ],
     [ "controllerMap", "namespacecontroller_map.html", [
       [ "armSpeed", "namespacecontroller_map.html#a380aa1e65ee269eb4a4b8a701befcedc", null ],
       [ "driveLatSpeed", "namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162", null ],
@@ -20,6 +21,7 @@ var namespaces_dup =
       [ "turretSpeed", "namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250", null ]
     ] ],
     [ "controlLoop", "namespacecontrol_loop.html", "namespacecontrol_loop" ],
+    [ "field_points", "namespacefield__points.html", "namespacefield__points" ],
     [ "indexes", "namespaceindexes.html", "namespaceindexes" ],
     [ "measure_up", "namespacemeasure__up.html", "namespacemeasure__up" ],
     [ "motorConfig", "namespacemotor_config.html", "namespacemotor_config" ],

@@ -132,22 +132,57 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a002a0509339ff38f00fd6ca2e74a85f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a002a0509339ff38f00fd6ca2e74a85f0">Home</a> (const units::degree_t &amp;angle)</td></tr>
 <tr class="memdesc:a002a0509339ff38f00fd6ca2e74a85f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save homes to persistent storage and updates module motors.  <a href="class_swerve_drive_subsystem.html#a002a0509339ff38f00fd6ca2e74a85f0">More...</a><br /></td></tr>
 <tr class="separator:a002a0509339ff38f00fd6ca2e74a85f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa783e841c6b4228638ef873ada402dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#aaa783e841c6b4228638ef873ada402dc">FieldHome</a> (units::degree_t homeAngle=0_deg)</td></tr>
-<tr class="memdesc:aaa783e841c6b4228638ef873ada402dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tell the robot it's in it's correct field-oriented "Front".  <a href="class_swerve_drive_subsystem.html#aaa783e841c6b4228638ef873ada402dc">More...</a><br /></td></tr>
-<tr class="separator:aaa783e841c6b4228638ef873ada402dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c2f60687677072bdf6bcb5fce76a4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a10c2f60687677072bdf6bcb5fce76a4c">FieldHome</a> (units::degree_t homeAngle=0_deg, bool updateOdometry=true)</td></tr>
+<tr class="memdesc:a10c2f60687677072bdf6bcb5fce76a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tell the robot it's in it's correct field-oriented "Front".  <a href="class_swerve_drive_subsystem.html#a10c2f60687677072bdf6bcb5fce76a4c">More...</a><br /></td></tr>
+<tr class="separator:a10c2f60687677072bdf6bcb5fce76a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47d8e89c8595e534505c1911a3fe1f9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a47d8e89c8595e534505c1911a3fe1f9e">InitializeOdometry</a> (const frc::Pose2d &amp;currentPose)</td></tr>
+<tr class="memdesc:a47d8e89c8595e534505c1911a3fe1f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set current robot position. Useful for initializing initial position before autonomous.  <a href="class_swerve_drive_subsystem.html#a47d8e89c8595e534505c1911a3fe1f9e">More...</a><br /></td></tr>
+<tr class="separator:a47d8e89c8595e534505c1911a3fe1f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad651bed336533905b8e5f6ca6bfb926b"><td class="memItemLeft" align="right" valign="top">frc::Rotation2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ad651bed336533905b8e5f6ca6bfb926b">GetContinuousOdometryAngle</a> ()</td></tr>
+<tr class="separator:ad651bed336533905b8e5f6ca6bfb926b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e9a6cdaf6a6312d779606f6c968523"><td class="memItemLeft" align="right" valign="top">frc::Pose2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a01e9a6cdaf6a6312d779606f6c968523">GetContinuousOdometry</a> ()</td></tr>
+<tr class="separator:a01e9a6cdaf6a6312d779606f6c968523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a381336772dbaba56d9d824c0bf49a077"><td class="memItemLeft" align="right" valign="top">frc::Pose2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a381336772dbaba56d9d824c0bf49a077">UpdateOdometry</a> ()</td></tr>
+<tr class="memdesc:a381336772dbaba56d9d824c0bf49a077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads module states &amp; gyro, updates odometry, and returns latest pose estimate.  <a href="class_swerve_drive_subsystem.html#a381336772dbaba56d9d824c0bf49a077">More...</a><br /></td></tr>
+<tr class="separator:a381336772dbaba56d9d824c0bf49a077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaf546a93b3128016b08f1e427418c0c"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#afaf546a93b3128016b08f1e427418c0c">GetFieldCentricAngle</a> () const</td></tr>
+<tr class="memdesc:afaf546a93b3128016b08f1e427418c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the field-centric angle of the robot based on gyro and saved reference orientation.  <a href="class_swerve_drive_subsystem.html#afaf546a93b3128016b08f1e427418c0c">More...</a><br /></td></tr>
+<tr class="separator:afaf546a93b3128016b08f1e427418c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0441f3752ec287551c35a5be2ab027b1"><td class="memItemLeft" align="right" valign="top">frc::Pose2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a0441f3752ec287551c35a5be2ab027b1">GetPoseEstimate</a> ()</td></tr>
+<tr class="memdesc:a0441f3752ec287551c35a5be2ab027b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the latest pose estimate.  <a href="class_swerve_drive_subsystem.html#a0441f3752ec287551c35a5be2ab027b1">More...</a><br /></td></tr>
+<tr class="separator:a0441f3752ec287551c35a5be2ab027b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d4cda6ee182e7411d064e127f71dcb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a6d4cda6ee182e7411d064e127f71dcb0">SetControlMode</a> (<a class="el" href="class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512c">SwerveDriveSubsystem::DriveControlMode</a> controlMode)</td></tr>
 <tr class="separator:a6d4cda6ee182e7411d064e127f71dcb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fb9ad0c77dfe6779902653b7ae7e405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a8fb9ad0c77dfe6779902653b7ae7e405">InitializeMotors</a> ()</td></tr>
 <tr class="memdesc:a8fb9ad0c77dfe6779902653b7ae7e405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize motors from persistent storage.  <a href="class_swerve_drive_subsystem.html#a8fb9ad0c77dfe6779902653b7ae7e405">More...</a><br /></td></tr>
 <tr class="separator:a8fb9ad0c77dfe6779902653b7ae7e405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac11787e2a63cf67785aee01665d040ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ac11787e2a63cf67785aee01665d040ba">Periodic</a> () override</td></tr>
-<tr class="separator:ac11787e2a63cf67785aee01665d040ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ed0c7b4057297cd9f0342f726af3211"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a3ed0c7b4057297cd9f0342f726af3211">UpdateFollowerLinearPIDParams</a> (double kP, double kI, double kD)</td></tr>
+<tr class="memdesc:a3ed0c7b4057297cd9f0342f726af3211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change PID parameters for linear follower. These adjust velocities based on distance error from path goal.  <a href="class_swerve_drive_subsystem.html#a3ed0c7b4057297cd9f0342f726af3211">More...</a><br /></td></tr>
+<tr class="separator:a3ed0c7b4057297cd9f0342f726af3211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10edb0402fa438ea80b45e06b9efbd55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a10edb0402fa438ea80b45e06b9efbd55">UpdateFollowerRotationalPIDParams</a> (double kP, double kI, double kD)</td></tr>
+<tr class="memdesc:a10edb0402fa438ea80b45e06b9efbd55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change PID parameters for rotational follower. These adjust velocities based on angle error from path goal.  <a href="class_swerve_drive_subsystem.html#a10edb0402fa438ea80b45e06b9efbd55">More...</a><br /></td></tr>
+<tr class="separator:a10edb0402fa438ea80b45e06b9efbd55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3602864bf0f0f24b36cae18fcc340286"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a3602864bf0f0f24b36cae18fcc340286">UpdateFollowerRotationalPIDConstraints</a> (frc::TrapezoidProfile&lt; units::degrees &gt;::Constraints constraints)</td></tr>
+<tr class="memdesc:a3602864bf0f0f24b36cae18fcc340286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update constraints to rotate robot along profiled path.  <a href="class_swerve_drive_subsystem.html#a3602864bf0f0f24b36cae18fcc340286">More...</a><br /></td></tr>
+<tr class="separator:a3602864bf0f0f24b36cae18fcc340286"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d77a590244398cfe9f6bfc644af551e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a4d77a590244398cfe9f6bfc644af551e">StartDrivingProfile</a> (<a class="el" href="class_swerve_trapezoidal_profile_segment.html">SwerveTrapezoidalProfileSegment</a> newProfile)</td></tr>
+<tr class="memdesc:a4d77a590244398cfe9f6bfc644af551e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start driving a new profile. This also resets the finished flag.  <a href="class_swerve_drive_subsystem.html#a4d77a590244398cfe9f6bfc644af551e">More...</a><br /></td></tr>
+<tr class="separator:a4d77a590244398cfe9f6bfc644af551e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3238d024639a5df1af633317e4f21b74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a3238d024639a5df1af633317e4f21b74">CancelDrivingProfile</a> ()</td></tr>
+<tr class="memdesc:a3238d024639a5df1af633317e4f21b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel the current driving profile without marking it complete.  <a href="class_swerve_drive_subsystem.html#a3238d024639a5df1af633317e4f21b74">More...</a><br /></td></tr>
+<tr class="separator:a3238d024639a5df1af633317e4f21b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86dcd4de68ceea46c8039406e7eef04d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a86dcd4de68ceea46c8039406e7eef04d">ProfileIsComplete</a> () const</td></tr>
+<tr class="memdesc:a86dcd4de68ceea46c8039406e7eef04d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a driving profile path has been completed.  <a href="class_swerve_drive_subsystem.html#a86dcd4de68ceea46c8039406e7eef04d">More...</a><br /></td></tr>
+<tr class="separator:a86dcd4de68ceea46c8039406e7eef04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a6ec0aa2955d381e3eb585bc210da5d39"><td class="memItemLeft" align="right" valign="top">wpi::array&lt; frc::SwerveModuleState, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a6ec0aa2955d381e3eb585bc210da5d39">GetRawModuleStates</a> (<a class="el" href="struct_swerve_drive_subsystem_1_1_velocities.html">SwerveDriveSubsystem::Velocities</a> velocities)</td></tr>
 <tr class="memdesc:a6ec0aa2955d381e3eb585bc210da5d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Raw Module States object and switch between robot-centric and field-centric.  <a href="class_swerve_drive_subsystem.html#a6ec0aa2955d381e3eb585bc210da5d39">More...</a><br /></td></tr>
 <tr class="separator:a6ec0aa2955d381e3eb585bc210da5d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804a3ece8183c38c6f216d51ddabf3ec"><td class="memItemLeft" align="right" valign="top">wpi::array&lt; frc::SwerveModuleState, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a804a3ece8183c38c6f216d51ddabf3ec">GetCurrentModuleStates</a> ()</td></tr>
+<tr class="memdesc:a804a3ece8183c38c6f216d51ddabf3ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the active states of all swerve modules.  <a href="class_swerve_drive_subsystem.html#a804a3ece8183c38c6f216d51ddabf3ec">More...</a><br /></td></tr>
+<tr class="separator:a804a3ece8183c38c6f216d51ddabf3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72c672c6885c8eb4c8a95595c4a15382"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a72c672c6885c8eb4c8a95595c4a15382">HomeToNetworkTables</a> (const units::degree_t &amp;angle)</td></tr>
 <tr class="memdesc:a72c672c6885c8eb4c8a95595c4a15382"><td class="mdescLeft">&#160;</td><td class="mdescRight">HomeToNetworkTables all of the modules back to zero.  <a href="class_swerve_drive_subsystem.html#a72c672c6885c8eb4c8a95595c4a15382">More...</a><br /></td></tr>
 <tr class="separator:a72c672c6885c8eb4c8a95595c4a15382"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,15 +216,49 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a94814ca86481c09185e6c308ec008892"><td class="memItemLeft" align="right" valign="top">frc::ADIS16448_IMU&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a94814ca86481c09185e6c308ec008892">m_imu</a></td></tr>
 <tr class="separator:a94814ca86481c09185e6c308ec008892"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37214334cb707509a1191baeda8d452e"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a37214334cb707509a1191baeda8d452e">m_fieldHomeOffset</a></td></tr>
+<tr class="memdesc:a37214334cb707509a1191baeda8d452e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset from IMU angle to 0 field angle (intake away from driver station)  <a href="class_swerve_drive_subsystem.html#a37214334cb707509a1191baeda8d452e">More...</a><br /></td></tr>
 <tr class="separator:a37214334cb707509a1191baeda8d452e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dbe305c5f1c8682596e8121f97d5a9e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; frc::SwerveDriveKinematics&lt; 4 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a0dbe305c5f1c8682596e8121f97d5a9e">m_pSwerveDriveKinematics</a></td></tr>
-<tr class="memdesc:a0dbe305c5f1c8682596e8121f97d5a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kinematics model for swerve drive system.  <a href="class_swerve_drive_subsystem.html#a0dbe305c5f1c8682596e8121f97d5a9e">More...</a><br /></td></tr>
-<tr class="separator:a0dbe305c5f1c8682596e8121f97d5a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5768e57fb40ef75698e44347ca6ee1b5"><td class="memItemLeft" align="right" valign="top">frc::SwerveDriveKinematics&lt; 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a5768e57fb40ef75698e44347ca6ee1b5">m_swerveDriveKinematics</a></td></tr>
+<tr class="memdesc:a5768e57fb40ef75698e44347ca6ee1b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kinematics model for swerve drive system.  <a href="class_swerve_drive_subsystem.html#a5768e57fb40ef75698e44347ca6ee1b5">More...</a><br /></td></tr>
+<tr class="separator:a5768e57fb40ef75698e44347ca6ee1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac670fc57127646833a235fa400845879"><td class="memItemLeft" align="right" valign="top">frc::SwerveDriveOdometry&lt; 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ac670fc57127646833a235fa400845879">m_odometry</a></td></tr>
+<tr class="memdesc:ac670fc57127646833a235fa400845879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Odometry to track robot.  <a href="class_swerve_drive_subsystem.html#ac670fc57127646833a235fa400845879">More...</a><br /></td></tr>
+<tr class="separator:ac670fc57127646833a235fa400845879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9b72fd312865f6181738b54532339b5"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#af9b72fd312865f6181738b54532339b5">m_prevOdometryAngle</a></td></tr>
+<tr class="memdesc:af9b72fd312865f6181738b54532339b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last odometry angle used for continuous calculations.  <a href="class_swerve_drive_subsystem.html#af9b72fd312865f6181738b54532339b5">More...</a><br /></td></tr>
+<tr class="separator:af9b72fd312865f6181738b54532339b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad75cacb57a59ced88e4564448ad56467"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ad75cacb57a59ced88e4564448ad56467">m_continuousOdometryOffset</a></td></tr>
+<tr class="memdesc:ad75cacb57a59ced88e4564448ad56467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset to convert [-180,180] odometry angle to continuous angle.  <a href="class_swerve_drive_subsystem.html#ad75cacb57a59ced88e4564448ad56467">More...</a><br /></td></tr>
+<tr class="separator:ad75cacb57a59ced88e4564448ad56467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaffa9a15da4f163ea55345c90050fd1b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_network_tables_wrapper.html">NetworkTablesWrapper</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#aaffa9a15da4f163ea55345c90050fd1b">m_pNetworkTable</a></td></tr>
 <tr class="memdesc:aaffa9a15da4f163ea55345c90050fd1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of network table class.  <a href="class_swerve_drive_subsystem.html#aaffa9a15da4f163ea55345c90050fd1b">More...</a><br /></td></tr>
 <tr class="separator:aaffa9a15da4f163ea55345c90050fd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36e0566eb3586b8a1bdbd8241d50054c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_file_system_homing_storage.html">FileSystemHomingStorage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a36e0566eb3586b8a1bdbd8241d50054c">m_fsStorage</a></td></tr>
 <tr class="separator:a36e0566eb3586b8a1bdbd8241d50054c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334038600b5c16bc843c3488b02bc28c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a334038600b5c16bc843c3488b02bc28c">m_followingProfile</a></td></tr>
+<tr class="memdesc:a334038600b5c16bc843c3488b02bc28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when an incomplete drive profile is being run.  <a href="class_swerve_drive_subsystem.html#a334038600b5c16bc843c3488b02bc28c">More...</a><br /></td></tr>
+<tr class="separator:a334038600b5c16bc843c3488b02bc28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a310299d3355477d32010df3929b17378"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a310299d3355477d32010df3929b17378">m_profileComplete</a></td></tr>
+<tr class="memdesc:a310299d3355477d32010df3929b17378"><td class="mdescLeft">&#160;</td><td class="mdescRight">True once a drive profile has been completed.  <a href="class_swerve_drive_subsystem.html#a310299d3355477d32010df3929b17378">More...</a><br /></td></tr>
+<tr class="separator:a310299d3355477d32010df3929b17378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab664ac0af470e438d25ce755fd4f7617"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_swerve_trapezoidal_profile_segment.html">SwerveTrapezoidalProfileSegment</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ab664ac0af470e438d25ce755fd4f7617">m_pActiveSwerveProfile</a></td></tr>
+<tr class="memdesc:ab664ac0af470e438d25ce755fd4f7617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Profile to execute.  <a href="class_swerve_drive_subsystem.html#ab664ac0af470e438d25ce755fd4f7617">More...</a><br /></td></tr>
+<tr class="separator:ab664ac0af470e438d25ce755fd4f7617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2142e0924e799619752691fb49ffefbf"><td class="memItemLeft" align="right" valign="top">std::chrono::time_point&lt; std::chrono::steady_clock &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a2142e0924e799619752691fb49ffefbf">m_swerveProfileStartTime</a></td></tr>
+<tr class="memdesc:a2142e0924e799619752691fb49ffefbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time when active profile began.  <a href="class_swerve_drive_subsystem.html#a2142e0924e799619752691fb49ffefbf">More...</a><br /></td></tr>
+<tr class="separator:a2142e0924e799619752691fb49ffefbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258e6f6f62a686b8b22f11577c0a5377"><td class="memItemLeft" align="right" valign="top">frc2::PIDController&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a258e6f6f62a686b8b22f11577c0a5377">m_linearPID</a></td></tr>
+<tr class="memdesc:a258e6f6f62a686b8b22f11577c0a5377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Correction parameters for x/y error when following drive profile.  <a href="class_swerve_drive_subsystem.html#a258e6f6f62a686b8b22f11577c0a5377">More...</a><br /></td></tr>
+<tr class="separator:a258e6f6f62a686b8b22f11577c0a5377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cbb932d112f3d28fd49e301dd6035e5"><td class="memItemLeft" align="right" valign="top">frc::ProfiledPIDController&lt; units::radians &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a6cbb932d112f3d28fd49e301dd6035e5">m_rotationalPID</a></td></tr>
+<tr class="memdesc:a6cbb932d112f3d28fd49e301dd6035e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Correction parameters for rotational error when following drive profile.  <a href="class_swerve_drive_subsystem.html#a6cbb932d112f3d28fd49e301dd6035e5">More...</a><br /></td></tr>
+<tr class="separator:a6cbb932d112f3d28fd49e301dd6035e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a178d22005a47e304715aeb0c438e7e2e"><td class="memItemLeft" align="right" valign="top">frc::HolonomicDriveController&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a178d22005a47e304715aeb0c438e7e2e">m_followerController</a></td></tr>
+<tr class="memdesc:a178d22005a47e304715aeb0c438e7e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controller to follow drive profile.  <a href="class_swerve_drive_subsystem.html#a178d22005a47e304715aeb0c438e7e2e">More...</a><br /></td></tr>
+<tr class="separator:a178d22005a47e304715aeb0c438e7e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e2acf2ab17615410ca89a87f8f73813"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a7e2acf2ab17615410ca89a87f8f73813">m_driveMotorPIDTuner</a></td></tr>
+<tr class="memdesc:a7e2acf2ab17615410ca89a87f8f73813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility to tune drive motors.  <a href="class_swerve_drive_subsystem.html#a7e2acf2ab17615410ca89a87f8f73813">More...</a><br /></td></tr>
+<tr class="separator:a7e2acf2ab17615410ca89a87f8f73813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a2c302fd1392bd8bca475c407248d512c" name="a2c302fd1392bd8bca475c407248d512c"></a>
@@ -246,11 +315,29 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>DEFAULT TO ROBOT CENTRIC FOR NOW (change later) </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3238d024639a5df1af633317e4f21b74" name="a3238d024639a5df1af633317e4f21b74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3238d024639a5df1af633317e4f21b74">&#9670;&nbsp;</a></span>CancelDrivingProfile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwerveDriveSubsystem::CancelDrivingProfile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cancel the current driving profile without marking it complete. </p>
+
+</div>
+</div>
 <a id="a0799d7ebc2d49f21f26cb9297accb091" name="a0799d7ebc2d49f21f26cb9297accb091"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0799d7ebc2d49f21f26cb9297accb091">&#9670;&nbsp;</a></span>Disable()</h2>
 
@@ -270,8 +357,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa783e841c6b4228638ef873ada402dc" name="aaa783e841c6b4228638ef873ada402dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa783e841c6b4228638ef873ada402dc">&#9670;&nbsp;</a></span>FieldHome()</h2>
+<a id="a10c2f60687677072bdf6bcb5fce76a4c" name="a10c2f60687677072bdf6bcb5fce76a4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c2f60687677072bdf6bcb5fce76a4c">&#9670;&nbsp;</a></span>FieldHome()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -280,13 +367,132 @@ Private Attributes</h2></td></tr>
           <td class="memname">void SwerveDriveSubsystem::FieldHome </td>
           <td>(</td>
           <td class="paramtype">units::degree_t&#160;</td>
-          <td class="paramname"><em>homeAngle</em> = <code>0_deg</code></td><td>)</td>
+          <td class="paramname"><em>homeAngle</em> = <code>0_deg</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>updateOdometry</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Tell the robot it's in it's correct field-oriented "Front". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">homeAngle</td><td>Current orientation of the robot </td></tr>
+    <tr><td class="paramname">updateOdometry</td><td>Also update odometry field-centric angle </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a01e9a6cdaf6a6312d779606f6c968523" name="a01e9a6cdaf6a6312d779606f6c968523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01e9a6cdaf6a6312d779606f6c968523">&#9670;&nbsp;</a></span>GetContinuousOdometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::Pose2d SwerveDriveSubsystem::GetContinuousOdometry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad651bed336533905b8e5f6ca6bfb926b" name="ad651bed336533905b8e5f6ca6bfb926b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad651bed336533905b8e5f6ca6bfb926b">&#9670;&nbsp;</a></span>GetContinuousOdometryAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::Rotation2d SwerveDriveSubsystem::GetContinuousOdometryAngle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a804a3ece8183c38c6f216d51ddabf3ec" name="a804a3ece8183c38c6f216d51ddabf3ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a804a3ece8183c38c6f216d51ddabf3ec">&#9670;&nbsp;</a></span>GetCurrentModuleStates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">wpi::array&lt; frc::SwerveModuleState, 4 &gt; SwerveDriveSubsystem::GetCurrentModuleStates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the active states of all swerve modules. </p>
+<dl class="section return"><dt>Returns</dt><dd>Active module states </dd></dl>
+
+</div>
+</div>
+<a id="afaf546a93b3128016b08f1e427418c0c" name="afaf546a93b3128016b08f1e427418c0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaf546a93b3128016b08f1e427418c0c">&#9670;&nbsp;</a></span>GetFieldCentricAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::degree_t SwerveDriveSubsystem::GetFieldCentricAngle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the field-centric angle of the robot based on gyro and saved reference orientation. </p>
+<dl class="section return"><dt>Returns</dt><dd>Field-centric angle of the robot where 0 degrees is intake oriented toward opposing alliance operator station positive CCW. </dd></dl>
+
+</div>
+</div>
+<a id="a0441f3752ec287551c35a5be2ab027b1" name="a0441f3752ec287551c35a5be2ab027b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0441f3752ec287551c35a5be2ab027b1">&#9670;&nbsp;</a></span>GetPoseEstimate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::Pose2d SwerveDriveSubsystem::GetPoseEstimate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the latest pose estimate. </p>
+<dl class="section return"><dt>Returns</dt><dd>Latest pose </dd></dl>
 
 </div>
 </div>
@@ -322,7 +528,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>wpi::array&lt;frc::SwerveModuleState, 4&gt; </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>fix later </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>fix later </dd></dl>
 
 </div>
 </div>
@@ -490,33 +696,53 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Will load saved homes, and set the encoders to reset to true angle relative to robot "front". </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>IF NO HOMES LISTED, SET A FLAG SO WE CAN'T DRIVE </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>IF NO HOMES LISTED, SET A FLAG SO WE CAN'T DRIVE </dd></dl>
 
 </div>
 </div>
-<a id="ac11787e2a63cf67785aee01665d040ba" name="ac11787e2a63cf67785aee01665d040ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac11787e2a63cf67785aee01665d040ba">&#9670;&nbsp;</a></span>Periodic()</h2>
+<a id="a47d8e89c8595e534505c1911a3fe1f9e" name="a47d8e89c8595e534505c1911a3fe1f9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47d8e89c8595e534505c1911a3fe1f9e">&#9670;&nbsp;</a></span>InitializeOdometry()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SwerveDriveSubsystem::Periodic </td>
+          <td class="memname">void SwerveDriveSubsystem::InitializeOdometry </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const frc::Pose2d &amp;&#160;</td>
+          <td class="paramname"><em>currentPose</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p >Will be called periodically whenever the CommandScheduler runs. </p>
+
+<p>Set current robot position. Useful for initializing initial position before autonomous. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currentPose</td><td>Field-centric pose of the robot </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86dcd4de68ceea46c8039406e7eef04d" name="a86dcd4de68ceea46c8039406e7eef04d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86dcd4de68ceea46c8039406e7eef04d">&#9670;&nbsp;</a></span>ProfileIsComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SwerveDriveSubsystem::ProfileIsComplete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a driving profile path has been completed. </p>
+<dl class="section return"><dt>Returns</dt><dd>true when a path is completed and not canceled </dd></dl>
 
 </div>
 </div>
@@ -535,6 +761,32 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d77a590244398cfe9f6bfc644af551e" name="a4d77a590244398cfe9f6bfc644af551e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d77a590244398cfe9f6bfc644af551e">&#9670;&nbsp;</a></span>StartDrivingProfile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwerveDriveSubsystem::StartDrivingProfile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_swerve_trapezoidal_profile_segment.html">SwerveTrapezoidalProfileSegment</a>&#160;</td>
+          <td class="paramname"><em>newProfile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start driving a new profile. This also resets the finished flag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newProfile</td><td>Profile to follow with t=0 being the time this function is called </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -598,7 +850,141 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Convert sensor velocities for optimizer instead of constants </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Convert sensor velocities for optimizer instead of constants </dd></dl>
+
+</div>
+</div>
+<a id="a3ed0c7b4057297cd9f0342f726af3211" name="a3ed0c7b4057297cd9f0342f726af3211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ed0c7b4057297cd9f0342f726af3211">&#9670;&nbsp;</a></span>UpdateFollowerLinearPIDParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwerveDriveSubsystem::UpdateFollowerLinearPIDParams </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>kP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>kI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>kD</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change PID parameters for linear follower. These adjust velocities based on distance error from path goal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kP</td><td>Proportional gain </td></tr>
+    <tr><td class="paramname">kI</td><td>Integral gain </td></tr>
+    <tr><td class="paramname">kD</td><td>Derivative gain </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3602864bf0f0f24b36cae18fcc340286" name="a3602864bf0f0f24b36cae18fcc340286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3602864bf0f0f24b36cae18fcc340286">&#9670;&nbsp;</a></span>UpdateFollowerRotationalPIDConstraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwerveDriveSubsystem::UpdateFollowerRotationalPIDConstraints </td>
+          <td>(</td>
+          <td class="paramtype">frc::TrapezoidProfile&lt; units::degrees &gt;::Constraints&#160;</td>
+          <td class="paramname"><em>constraints</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update constraints to rotate robot along profiled path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constraints</td><td>Rotational velocity and acceleration constraints </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a10edb0402fa438ea80b45e06b9efbd55" name="a10edb0402fa438ea80b45e06b9efbd55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10edb0402fa438ea80b45e06b9efbd55">&#9670;&nbsp;</a></span>UpdateFollowerRotationalPIDParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwerveDriveSubsystem::UpdateFollowerRotationalPIDParams </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>kP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>kI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>kD</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change PID parameters for rotational follower. These adjust velocities based on angle error from path goal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kP</td><td>Proportional gain </td></tr>
+    <tr><td class="paramname">kI</td><td>Integral gain </td></tr>
+    <tr><td class="paramname">kD</td><td>Derivative gain </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a381336772dbaba56d9d824c0bf49a077" name="a381336772dbaba56d9d824c0bf49a077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a381336772dbaba56d9d824c0bf49a077">&#9670;&nbsp;</a></span>UpdateOdometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::Pose2d SwerveDriveSubsystem::UpdateOdometry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads module states &amp; gyro, updates odometry, and returns latest pose estimate. </p>
+<dl class="section return"><dt>Returns</dt><dd>Estimate of robot pose </dd></dl>
 
 </div>
 </div>
@@ -651,6 +1037,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad75cacb57a59ced88e4564448ad56467" name="ad75cacb57a59ced88e4564448ad56467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75cacb57a59ced88e4564448ad56467">&#9670;&nbsp;</a></span>m_continuousOdometryOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::degree_t SwerveDriveSubsystem::m_continuousOdometryOffset</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Offset to convert [-180,180] odometry angle to continuous angle. </p>
+
+</div>
+</div>
 <a id="a5f7a1b2acb107dd18f2cf9f03ccb396d" name="a5f7a1b2acb107dd18f2cf9f03ccb396d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f7a1b2acb107dd18f2cf9f03ccb396d">&#9670;&nbsp;</a></span>m_controlMode</h2>
 
@@ -675,6 +1085,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7e2acf2ab17615410ca89a87f8f73813" name="a7e2acf2ab17615410ca89a87f8f73813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e2acf2ab17615410ca89a87f8f73813">&#9670;&nbsp;</a></span>m_driveMotorPIDTuner</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a> SwerveDriveSubsystem::m_driveMotorPIDTuner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Utility to tune drive motors. </p>
+
+</div>
+</div>
 <a id="a37214334cb707509a1191baeda8d452e" name="a37214334cb707509a1191baeda8d452e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a37214334cb707509a1191baeda8d452e">&#9670;&nbsp;</a></span>m_fieldHomeOffset</h2>
 
@@ -694,6 +1128,56 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Offset from IMU angle to 0 field angle (intake away from driver station) </p>
+
+</div>
+</div>
+<a id="a178d22005a47e304715aeb0c438e7e2e" name="a178d22005a47e304715aeb0c438e7e2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a178d22005a47e304715aeb0c438e7e2e">&#9670;&nbsp;</a></span>m_followerController</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::HolonomicDriveController SwerveDriveSubsystem::m_followerController</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Controller to follow drive profile. </p>
+
+</div>
+</div>
+<a id="a334038600b5c16bc843c3488b02bc28c" name="a334038600b5c16bc843c3488b02bc28c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a334038600b5c16bc843c3488b02bc28c">&#9670;&nbsp;</a></span>m_followingProfile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SwerveDriveSubsystem::m_followingProfile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True when an incomplete drive profile is being run. </p>
 
 </div>
 </div>
@@ -789,6 +1273,78 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a258e6f6f62a686b8b22f11577c0a5377" name="a258e6f6f62a686b8b22f11577c0a5377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258e6f6f62a686b8b22f11577c0a5377">&#9670;&nbsp;</a></span>m_linearPID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc2::PIDController SwerveDriveSubsystem::m_linearPID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Correction parameters for x/y error when following drive profile. </p>
+
+</div>
+</div>
+<a id="ac670fc57127646833a235fa400845879" name="ac670fc57127646833a235fa400845879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac670fc57127646833a235fa400845879">&#9670;&nbsp;</a></span>m_odometry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::SwerveDriveOdometry&lt;4&gt; SwerveDriveSubsystem::m_odometry</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Odometry to track robot. </p>
+
+</div>
+</div>
+<a id="ab664ac0af470e438d25ce755fd4f7617" name="ab664ac0af470e438d25ce755fd4f7617"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab664ac0af470e438d25ce755fd4f7617">&#9670;&nbsp;</a></span>m_pActiveSwerveProfile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_swerve_trapezoidal_profile_segment.html">SwerveTrapezoidalProfileSegment</a>&gt; SwerveDriveSubsystem::m_pActiveSwerveProfile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Profile to execute. </p>
+
+</div>
+</div>
 <a id="aaffa9a15da4f163ea55345c90050fd1b" name="aaffa9a15da4f163ea55345c90050fd1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaffa9a15da4f163ea55345c90050fd1b">&#9670;&nbsp;</a></span>m_pNetworkTable</h2>
 
@@ -813,8 +1369,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0dbe305c5f1c8682596e8121f97d5a9e" name="a0dbe305c5f1c8682596e8121f97d5a9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0dbe305c5f1c8682596e8121f97d5a9e">&#9670;&nbsp;</a></span>m_pSwerveDriveKinematics</h2>
+<a id="af9b72fd312865f6181738b54532339b5" name="af9b72fd312865f6181738b54532339b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9b72fd312865f6181738b54532339b5">&#9670;&nbsp;</a></span>m_prevOdometryAngle</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -823,7 +1379,79 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;frc::SwerveDriveKinematics&lt;4&gt; &gt; SwerveDriveSubsystem::m_pSwerveDriveKinematics</td>
+          <td class="memname">units::degree_t SwerveDriveSubsystem::m_prevOdometryAngle</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Last odometry angle used for continuous calculations. </p>
+
+</div>
+</div>
+<a id="a310299d3355477d32010df3929b17378" name="a310299d3355477d32010df3929b17378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a310299d3355477d32010df3929b17378">&#9670;&nbsp;</a></span>m_profileComplete</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SwerveDriveSubsystem::m_profileComplete</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True once a drive profile has been completed. </p>
+
+</div>
+</div>
+<a id="a6cbb932d112f3d28fd49e301dd6035e5" name="a6cbb932d112f3d28fd49e301dd6035e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cbb932d112f3d28fd49e301dd6035e5">&#9670;&nbsp;</a></span>m_rotationalPID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::ProfiledPIDController&lt;units::radians&gt; SwerveDriveSubsystem::m_rotationalPID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Correction parameters for rotational error when following drive profile. </p>
+
+</div>
+</div>
+<a id="a5768e57fb40ef75698e44347ca6ee1b5" name="a5768e57fb40ef75698e44347ca6ee1b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5768e57fb40ef75698e44347ca6ee1b5">&#9670;&nbsp;</a></span>m_swerveDriveKinematics</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::SwerveDriveKinematics&lt;4&gt; SwerveDriveSubsystem::m_swerveDriveKinematics</td>
         </tr>
       </table>
   </td>
@@ -834,6 +1462,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Kinematics model for swerve drive system. </p>
+
+</div>
+</div>
+<a id="a2142e0924e799619752691fb49ffefbf" name="a2142e0924e799619752691fb49ffefbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2142e0924e799619752691fb49ffefbf">&#9670;&nbsp;</a></span>m_swerveProfileStartTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::time_point&lt;std::chrono::steady_clock&gt; SwerveDriveSubsystem::m_swerveProfileStartTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time when active profile began. </p>
 
 </div>
 </div>

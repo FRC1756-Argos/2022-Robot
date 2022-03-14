@@ -80,8 +80,8 @@ var searchData=
   ['home_5fhood_5fcommand_2ecpp_77',['home_hood_command.cpp',['../home__hood__command_8cpp.html',1,'']]],
   ['home_5fhood_5fcommand_2eh_78',['home_hood_command.h',['../home__hood__command_8h.html',1,'']]],
   ['homeangle_79',['homeAngle',['../namespacemeasure__up_1_1hood_1_1comp__bot.html#a5c8d5ad9d90de05e6bcb828dda8105e5',1,'measure_up::hood::comp_bot::homeAngle()'],['../namespacemeasure__up_1_1hood_1_1practice__bot.html#a482dac18adff52e3b310ddf2a744a2af',1,'measure_up::hood::practice_bot::homeAngle()'],['../namespacemeasure__up_1_1turret.html#a85362a9066b4db683599902f64283eac',1,'measure_up::turret::homeAngle()']]],
-  ['homeclimberarmcommand_80',['HomeClimberArmCommand',['../class_home_climber_arm_command.html',1,'HomeClimberArmCommand'],['../class_home_climber_arm_command.html#a642cab405ca868b26f2210a86384216d',1,'HomeClimberArmCommand::HomeClimberArmCommand()']]],
-  ['homeclimberhookcommand_81',['HomeClimberHookCommand',['../class_home_climber_hook_command.html#a31b1424952714afe8d6a1af293ed8903',1,'HomeClimberHookCommand::HomeClimberHookCommand()'],['../class_home_climber_hook_command.html',1,'HomeClimberHookCommand']]],
+  ['homeclimberarmcommand_80',['HomeClimberArmCommand',['../class_home_climber_arm_command.html#a642cab405ca868b26f2210a86384216d',1,'HomeClimberArmCommand::HomeClimberArmCommand()'],['../class_home_climber_arm_command.html',1,'HomeClimberArmCommand']]],
+  ['homeclimberhookcommand_81',['HomeClimberHookCommand',['../class_home_climber_hook_command.html',1,'HomeClimberHookCommand'],['../class_home_climber_hook_command.html#a31b1424952714afe8d6a1af293ed8903',1,'HomeClimberHookCommand::HomeClimberHookCommand()']]],
   ['homeextension_82',['homeExtension',['../namespacemeasure__up_1_1climber__arm.html#a24f3e1f5ae850265147bce0fd08c24d9',1,'measure_up::climber_arm::homeExtension()'],['../namespacemeasure__up_1_1climber__hook.html#af555af33e5a26190d8916a9aff9705f7',1,'measure_up::climber_hook::homeExtension()']]],
   ['homehoodcommand_83',['HomeHoodCommand',['../class_home_hood_command.html',1,'HomeHoodCommand'],['../class_home_hood_command.html#aba688ffd460412c49a510ad6520a7d58',1,'HomeHoodCommand::HomeHoodCommand()']]],
   ['hometofs_84',['HomeToFS',['../class_swerve_drive_subsystem.html#a0e830d13b90bdbd5b25d1bfc9e3aa60d',1,'SwerveDriveSubsystem']]],
@@ -102,7 +102,8 @@ var searchData=
   ['horizontalangleresolution_99',['horizontalAngleResolution',['../namespacecamera.html#a8dfca834192be2214c62ba7dac08bca6',1,'camera']]],
   ['horizontalpixelresolution_100',['horizontalPixelResolution',['../namespacecamera.html#a03415aaaebc486386de1820a14cc05a0',1,'camera']]],
   ['horizontalpixeltoangle_101',['HorizontalPixelToAngle',['../class_camera_interface.html#ab937d7be9da32dc393a16cec6b9d9a1f',1,'CameraInterface']]],
-  ['hysteresis_5ffilter_2eh_102',['hysteresis_filter.h',['../hysteresis__filter_8h.html',1,'']]],
-  ['hysteresisfilter_103',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib::HysteresisFilter&lt; T &gt;'],['../classargos__lib_1_1_hysteresis_filter.html#a71893324ea8606f6716261b14d79a20b',1,'argos_lib::HysteresisFilter::HysteresisFilter()=delete'],['../classargos__lib_1_1_hysteresis_filter.html#a48bc031f5d458919079c7329a1ab77ad',1,'argos_lib::HysteresisFilter::HysteresisFilter(T deactivateThreshold, T activateThreshold)']]],
-  ['hysteresisfilter_3c_20units_3a_3ainch_5ft_20_3e_104',['HysteresisFilter&lt; units::inch_t &gt;',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
+  ['hub_102',['hub',['../namespacefield__points.html#a20b44bacb7abbfc55cf968c5447a7867',1,'field_points']]],
+  ['hysteresis_5ffilter_2eh_103',['hysteresis_filter.h',['../hysteresis__filter_8h.html',1,'']]],
+  ['hysteresisfilter_104',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib::HysteresisFilter&lt; T &gt;'],['../classargos__lib_1_1_hysteresis_filter.html#a48bc031f5d458919079c7329a1ab77ad',1,'argos_lib::HysteresisFilter::HysteresisFilter(T deactivateThreshold, T activateThreshold)'],['../classargos__lib_1_1_hysteresis_filter.html#a71893324ea8606f6716261b14d79a20b',1,'argos_lib::HysteresisFilter::HysteresisFilter()=delete']]],
+  ['hysteresisfilter_3c_20units_3a_3ainch_5ft_20_3e_105',['HysteresisFilter&lt; units::inch_t &gt;',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
 ];

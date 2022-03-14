@@ -1,5 +1,8 @@
 var dir_bd65bb97b62f4ac97bd77359c176efa8 =
 [
+    [ "auto_selector.h", "auto__selector_8h.html", [
+      [ "AutoSelector", "class_auto_selector.html", "class_auto_selector" ]
+    ] ],
     [ "edge_detector.h", "edge__detector_8h.html", [
       [ "EdgeDetector", "class_edge_detector.html", "class_edge_detector" ]
     ] ],
@@ -13,5 +16,7 @@ var dir_bd65bb97b62f4ac97bd77359c176efa8 =
     [ "network_tables_wrapper.h", "network__tables__wrapper_8h.html", [
       [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", "class_network_tables_wrapper" ]
     ] ],
-    [ "sensor_conversions.h", "sensor__conversions_8h.html", "sensor__conversions_8h" ]
+    [ "pose_continuity_fix.h", "pose__continuity__fix_8h.html", "pose__continuity__fix_8h" ],
+    [ "sensor_conversions.h", "sensor__conversions_8h.html", "sensor__conversions_8h" ],
+    [ "swerve_trapezoidal_profile.h", "swerve__trapezoidal__profile_8h.html", "swerve__trapezoidal__profile_8h" ]
 ];

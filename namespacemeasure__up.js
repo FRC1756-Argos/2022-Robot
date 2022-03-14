@@ -42,5 +42,7 @@ var namespacemeasure__up =
       [ "homeAngle", "namespacemeasure__up_1_1turret.html#a85362a9066b4db683599902f64283eac", null ],
       [ "maxAngle", "namespacemeasure__up_1_1turret.html#a657d6cfebd013ef5acbaa4f5273024c6", null ],
       [ "minAngle", "namespacemeasure__up_1_1turret.html#ad1eb07c86b30a2bb396ec5ef939b9214", null ]
-    ] ]
+    ] ],
+    [ "bumperExtension", "namespacemeasure__up.html#ae49efe93e07f5ad7579143b38853122a", null ],
+    [ "intakeExtension", "namespacemeasure__up.html#aab4edab9da55ffcc44189d07f1e03ac5", null ]
 ];

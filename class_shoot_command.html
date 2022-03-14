@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('class_shoot_command.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_shoot_command-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ShootCommand Class Reference</div></div>
 </div><!--header-->
@@ -103,6 +103,8 @@ Inheritance diagram for ShootCommand:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a841e7c110f970a95eb52a1189991ab05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#a841e7c110f970a95eb52a1189991ab05">ShootCommand</a> (<a class="el" href="class_intake_subsystem.html">IntakeSubsystem</a> *subsystem)</td></tr>
 <tr class="separator:a841e7c110f970a95eb52a1189991ab05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d31e43e6c77a9be7d7f2d160f7bea06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#a1d31e43e6c77a9be7d7f2d160f7bea06">ShootCommand</a> (<a class="el" href="class_intake_subsystem.html">IntakeSubsystem</a> *subsystem, uint numCargo, units::millisecond_t timeout)</td></tr>
+<tr class="separator:a1d31e43e6c77a9be7d7f2d160f7bea06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fd0f01f884fe8b1efe6d7d73c297492"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#a4fd0f01f884fe8b1efe6d7d73c297492">Initialize</a> () override</td></tr>
 <tr class="separator:a4fd0f01f884fe8b1efe6d7d73c297492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3b8137c344556452ebcb451d965721f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#af3b8137c344556452ebcb451d965721f">Execute</a> () override</td></tr>
@@ -112,19 +114,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a49d10977279522501e1f52620c2cb894"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#a49d10977279522501e1f52620c2cb894">IsFinished</a> () override</td></tr>
 <tr class="separator:a49d10977279522501e1f52620c2cb894"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
 <tr class="memitem:a6698258f67b00a3043d653be941413ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_intake_subsystem.html">IntakeSubsystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#a6698258f67b00a3043d653be941413ee">m_pIntake</a></td></tr>
 <tr class="separator:a6698258f67b00a3043d653be941413ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa600d98dd8fd413dd94e464a9eee801"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#afa600d98dd8fd413dd94e464a9eee801">m_previousBallPresent</a></td></tr>
 <tr class="separator:afa600d98dd8fd413dd94e464a9eee801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac000488a1765120dd90469608d7dd663"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#ac000488a1765120dd90469608d7dd663">m_totalCargo</a></td></tr>
+<tr class="memdesc:ac000488a1765120dd90469608d7dd663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total cargo we expect to shoot. 0 indicates shoot until timeout.  <a href="class_shoot_command.html#ac000488a1765120dd90469608d7dd663">More...</a><br /></td></tr>
+<tr class="separator:ac000488a1765120dd90469608d7dd663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5a696afb57745c2091f6f226370b2d8"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#ad5a696afb57745c2091f6f226370b2d8">m_cargoShot</a></td></tr>
+<tr class="memdesc:ad5a696afb57745c2091f6f226370b2d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cargo shot so far.  <a href="class_shoot_command.html#ad5a696afb57745c2091f6f226370b2d8">More...</a><br /></td></tr>
+<tr class="separator:ad5a696afb57745c2091f6f226370b2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a444df7975692af388d23ee71b5e6a049"><td class="memItemLeft" align="right" valign="top">std::chrono::time_point&lt; std::chrono::steady_clock &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#a444df7975692af388d23ee71b5e6a049">m_startTime</a></td></tr>
+<tr class="memdesc:a444df7975692af388d23ee71b5e6a049"><td class="mdescLeft">&#160;</td><td class="mdescRight">When the command began.  <a href="class_shoot_command.html#a444df7975692af388d23ee71b5e6a049">More...</a><br /></td></tr>
+<tr class="separator:a444df7975692af388d23ee71b5e6a049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeb7ddb540e28aa4aed6088608afa290"><td class="memItemLeft" align="right" valign="top">units::millisecond_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shoot_command.html#adeb7ddb540e28aa4aed6088608afa290">m_timeout</a></td></tr>
+<tr class="memdesc:adeb7ddb540e28aa4aed6088608afa290"><td class="mdescLeft">&#160;</td><td class="mdescRight">0 indicates no timeout  <a href="class_shoot_command.html#adeb7ddb540e28aa4aed6088608afa290">More...</a><br /></td></tr>
+<tr class="separator:adeb7ddb540e28aa4aed6088608afa290"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. An example command.</dd></dl>
-<p >Note that this extends CommandHelper, rather extending CommandBase directly; this is crucially important, or else the decorator functions in Command will <em>not</em> work! </p>
+<div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a841e7c110f970a95eb52a1189991ab05" name="a841e7c110f970a95eb52a1189991ab05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a841e7c110f970a95eb52a1189991ab05">&#9670;&nbsp;</a></span>ShootCommand()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a841e7c110f970a95eb52a1189991ab05">&#9670;&nbsp;</a></span>ShootCommand() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,6 +160,40 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
+
+</div>
+</div>
+<a id="a1d31e43e6c77a9be7d7f2d160f7bea06" name="a1d31e43e6c77a9be7d7f2d160f7bea06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d31e43e6c77a9be7d7f2d160f7bea06">&#9670;&nbsp;</a></span>ShootCommand() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ShootCommand::ShootCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_intake_subsystem.html">IntakeSubsystem</a> *&#160;</td>
+          <td class="paramname"><em>subsystem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint&#160;</td>
+          <td class="paramname"><em>numCargo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">units::millisecond_t&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -253,16 +300,48 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad5a696afb57745c2091f6f226370b2d8" name="ad5a696afb57745c2091f6f226370b2d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5a696afb57745c2091f6f226370b2d8">&#9670;&nbsp;</a></span>m_cargoShot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint ShootCommand::m_cargoShot</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cargo shot so far. </p>
+
+</div>
+</div>
 <a id="a6698258f67b00a3043d653be941413ee" name="a6698258f67b00a3043d653be941413ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6698258f67b00a3043d653be941413ee">&#9670;&nbsp;</a></span>m_pIntake</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_intake_subsystem.html">IntakeSubsystem</a>* ShootCommand::m_pIntake</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -272,12 +351,92 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool ShootCommand::m_previousBallPresent</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a444df7975692af388d23ee71b5e6a049" name="a444df7975692af388d23ee71b5e6a049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a444df7975692af388d23ee71b5e6a049">&#9670;&nbsp;</a></span>m_startTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::time_point&lt;std::chrono::steady_clock&gt; ShootCommand::m_startTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>When the command began. </p>
+
+</div>
+</div>
+<a id="adeb7ddb540e28aa4aed6088608afa290" name="adeb7ddb540e28aa4aed6088608afa290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeb7ddb540e28aa4aed6088608afa290">&#9670;&nbsp;</a></span>m_timeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::millisecond_t ShootCommand::m_timeout</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>0 indicates no timeout </p>
+
+</div>
+</div>
+<a id="ac000488a1765120dd90469608d7dd663" name="ac000488a1765120dd90469608d7dd663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac000488a1765120dd90469608d7dd663">&#9670;&nbsp;</a></span>m_totalCargo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint ShootCommand::m_totalCargo</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Total cargo we expect to shoot. 0 indicates shoot until timeout. </p>
 
 </div>
 </div>

@@ -9,7 +9,7 @@ var class_shooter_subsystem =
     ] ],
     [ "ShooterSubsystem", "class_shooter_subsystem.html#a8963599316bb028120c6686cdeeb54e9", null ],
     [ "AimedFeedback", "class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c", null ],
-    [ "AutoAim", "class_shooter_subsystem.html#a8453d10a1009bdc01d19a50631baedf3", null ],
+    [ "AutoAim", "class_shooter_subsystem.html#a08a7e36a73d7b5294129d9e9a5239de5", null ],
     [ "CloseLoopShoot", "class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1", null ],
     [ "Disable", "class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e", null ],
     [ "DisableTurretSoftLimits", "class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b", null ],

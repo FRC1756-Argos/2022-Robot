@@ -1,8 +1,23 @@
 var searchData=
 [
   ['addresses_2eh_0',['addresses.h',['../addresses_8h.html',1,'']]],
-  ['auto_5faim_5fcommand_2ecpp_1',['auto_aim_command.cpp',['../auto__aim__command_8cpp.html',1,'']]],
-  ['auto_5faim_5fcommand_2eh_2',['auto_aim_command.h',['../auto__aim__command_8h.html',1,'']]],
-  ['autonomous_5fnothing_2ecpp_3',['autonomous_nothing.cpp',['../autonomous__nothing_8cpp.html',1,'']]],
-  ['autonomous_5fnothing_2eh_4',['autonomous_nothing.h',['../autonomous__nothing_8h.html',1,'']]]
+  ['auto_5fposition_5faim_5fcommand_2ecpp_1',['auto_position_aim_command.cpp',['../auto__position__aim__command_8cpp.html',1,'']]],
+  ['auto_5fposition_5faim_5fcommand_2eh_2',['auto_position_aim_command.h',['../auto__position__aim__command_8h.html',1,'']]],
+  ['auto_5fselector_2ecpp_3',['auto_selector.cpp',['../auto__selector_8cpp.html',1,'']]],
+  ['auto_5fselector_2eh_4',['auto_selector.h',['../auto__selector_8h.html',1,'']]],
+  ['auto_5fvision_5faim_5fcommand_2ecpp_5',['auto_vision_aim_command.cpp',['../auto__vision__aim__command_8cpp.html',1,'']]],
+  ['auto_5fvision_5faim_5fcommand_2eh_6',['auto_vision_aim_command.h',['../auto__vision__aim__command_8h.html',1,'']]],
+  ['autonomous_5fcenter_5f1ball_2ecpp_7',['autonomous_center_1ball.cpp',['../autonomous__center__1ball_8cpp.html',1,'']]],
+  ['autonomous_5fcenter_5f1ball_2eh_8',['autonomous_center_1ball.h',['../autonomous__center__1ball_8h.html',1,'']]],
+  ['autonomous_5fcenter_5fleft_5f2ball_2ecpp_9',['autonomous_center_left_2ball.cpp',['../autonomous__center__left__2ball_8cpp.html',1,'']]],
+  ['autonomous_5fcenter_5fleft_5f2ball_2eh_10',['autonomous_center_left_2ball.h',['../autonomous__center__left__2ball_8h.html',1,'']]],
+  ['autonomous_5fcenter_5fright_5f2ball_2ecpp_11',['autonomous_center_right_2ball.cpp',['../autonomous__center__right__2ball_8cpp.html',1,'']]],
+  ['autonomous_5fcenter_5fright_5f2ball_2eh_12',['autonomous_center_right_2ball.h',['../autonomous__center__right__2ball_8h.html',1,'']]],
+  ['autonomous_5fcommand_2eh_13',['autonomous_command.h',['../autonomous__command_8h.html',1,'']]],
+  ['autonomous_5fnothing_2ecpp_14',['autonomous_nothing.cpp',['../autonomous__nothing_8cpp.html',1,'']]],
+  ['autonomous_5fnothing_2eh_15',['autonomous_nothing.h',['../autonomous__nothing_8h.html',1,'']]],
+  ['autonomous_5fright_5f2ball_2ecpp_16',['autonomous_right_2ball.cpp',['../autonomous__right__2ball_8cpp.html',1,'']]],
+  ['autonomous_5fright_5f2ball_2eh_17',['autonomous_right_2ball.h',['../autonomous__right__2ball_8h.html',1,'']]],
+  ['autonomous_5fright_5f5ball_2ecpp_18',['autonomous_right_5ball.cpp',['../autonomous__right__5ball_8cpp.html',1,'']]],
+  ['autonomous_5fright_5f5ball_2eh_19',['autonomous_right_5ball.h',['../autonomous__right__5ball_8h.html',1,'']]]
 ];

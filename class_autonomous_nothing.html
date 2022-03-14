@@ -95,8 +95,11 @@ $(document).ready(function(){initNavTree('class_autonomous_nothing.html',''); in
 Inheritance diagram for AutonomousNothing:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_autonomous_nothing.png" alt=""/>
- </div></div>
+  <img src="class_autonomous_nothing.png" usemap="#AutonomousNothing_map" alt=""/>
+  <map id="AutonomousNothing_map" name="AutonomousNothing_map">
+<area href="class_autonomous_command.html" title="A command that can be selected from the dashboard." alt="AutonomousCommand" shape="rect" coords="401,0,792,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -110,6 +113,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a100d6770b9b03d986aaba8554b41f317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a193f83e489bc35832a6fab6f3e78bbb9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_nothing.html#a193f83e489bc35832a6fab6f3e78bbb9">IsFinished</a> () override</td></tr>
 <tr class="separator:a193f83e489bc35832a6fab6f3e78bbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2908fb4d86d40c82c815ef8e4033f8d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_nothing.html#aa2908fb4d86d40c82c815ef8e4033f8d">GetName</a> () const final</td></tr>
+<tr class="memdesc:aa2908fb4d86d40c82c815ef8e4033f8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the command to display on the dashboard.  <a href="class_autonomous_nothing.html#aa2908fb4d86d40c82c815ef8e4033f8d">More...</a><br /></td></tr>
+<tr class="separator:aa2908fb4d86d40c82c815ef8e4033f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b79c9863a46ed0aa2ada3859973e8d"><td class="memItemLeft" align="right" valign="top">frc2::Command *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_nothing.html#a00b79c9863a46ed0aa2ada3859973e8d">GetCommand</a> () final</td></tr>
+<tr class="memdesc:a00b79c9863a46ed0aa2ada3859973e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the command to run when selected from dashboard.  <a href="class_autonomous_nothing.html#a00b79c9863a46ed0aa2ada3859973e8d">More...</a><br /></td></tr>
+<tr class="separator:a00b79c9863a46ed0aa2ada3859973e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_autonomous_command"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_autonomous_command')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_autonomous_command.html">AutonomousCommand</a></td></tr>
+<tr class="memitem:a05710f86b7a3e7f8420c8ef166c21dbd inherit pub_methods_class_autonomous_command"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_command.html#a05710f86b7a3e7f8420c8ef166c21dbd">AutonomousCommand</a> ()=default</td></tr>
+<tr class="separator:a05710f86b7a3e7f8420c8ef166c21dbd inherit pub_methods_class_autonomous_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1bc371ef6df9f041e3b9b7931e1644c inherit pub_methods_class_autonomous_command"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_command.html#ab1bc371ef6df9f041e3b9b7931e1644c">GetName</a> () const =0</td></tr>
+<tr class="memdesc:ab1bc371ef6df9f041e3b9b7931e1644c inherit pub_methods_class_autonomous_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the command to display on the dashboard.  <a href="class_autonomous_command.html#ab1bc371ef6df9f041e3b9b7931e1644c">More...</a><br /></td></tr>
+<tr class="separator:ab1bc371ef6df9f041e3b9b7931e1644c inherit pub_methods_class_autonomous_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a352a45d53e666f389292df417c74a9 inherit pub_methods_class_autonomous_command"><td class="memItemLeft" align="right" valign="top">virtual frc2::Command *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_command.html#a3a352a45d53e666f389292df417c74a9">GetCommand</a> ()=0</td></tr>
+<tr class="memdesc:a3a352a45d53e666f389292df417c74a9 inherit pub_methods_class_autonomous_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the command to run when selected from dashboard.  <a href="class_autonomous_command.html#a3a352a45d53e666f389292df417c74a9">More...</a><br /></td></tr>
+<tr class="separator:a3a352a45d53e666f389292df417c74a9 inherit pub_methods_class_autonomous_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. An example command.</dd></dl>
@@ -182,6 +200,66 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00b79c9863a46ed0aa2ada3859973e8d" name="a00b79c9863a46ed0aa2ada3859973e8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00b79c9863a46ed0aa2ada3859973e8d">&#9670;&nbsp;</a></span>GetCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc2::Command * AutonomousNothing::GetCommand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the command to run when selected from dashboard. </p>
+<dl class="section return"><dt>Returns</dt><dd>frc2::Command* Command to run </dd></dl>
+
+<p>Implements <a class="el" href="class_autonomous_command.html#a3a352a45d53e666f389292df417c74a9">AutonomousCommand</a>.</p>
+
+</div>
+</div>
+<a id="aa2908fb4d86d40c82c815ef8e4033f8d" name="aa2908fb4d86d40c82c815ef8e4033f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2908fb4d86d40c82c815ef8e4033f8d">&#9670;&nbsp;</a></span>GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AutonomousNothing::GetName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the name of the command to display on the dashboard. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::string Name to display </dd></dl>
+
+<p>Implements <a class="el" href="class_autonomous_command.html#ab1bc371ef6df9f041e3b9b7931e1644c">AutonomousCommand</a>.</p>
 
 </div>
 </div>

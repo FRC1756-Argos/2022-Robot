@@ -11,5 +11,7 @@ var searchData=
   ['swervedrivesubsystem_8',['SwerveDriveSubsystem',['../class_swerve_drive_subsystem.html',1,'']]],
   ['swervehomestorageinterface_9',['SwerveHomeStorageInterface',['../classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html',1,'argos_lib::swerve']]],
   ['swervemodule_10',['SwerveModule',['../class_swerve_module.html',1,'']]],
-  ['swervemodulepositions_11',['SwerveModulePositions',['../structargos__lib_1_1swerve_1_1_swerve_module_positions.html',1,'argos_lib::swerve']]]
+  ['swervemodulepositions_11',['SwerveModulePositions',['../structargos__lib_1_1swerve_1_1_swerve_module_positions.html',1,'argos_lib::swerve']]],
+  ['swervetrapezoidalprofile_12',['SwerveTrapezoidalProfile',['../class_swerve_trapezoidal_profile.html',1,'']]],
+  ['swervetrapezoidalprofilesegment_13',['SwerveTrapezoidalProfileSegment',['../class_swerve_trapezoidal_profile_segment.html',1,'']]]
 ];

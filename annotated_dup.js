@@ -130,7 +130,10 @@ var annotated_dup =
     [ "controlLoop", "namespacecontrol_loop.html", [
       [ "comp_bot", "namespacecontrol_loop_1_1comp__bot.html", [
         [ "drive", "namespacecontrol_loop_1_1comp__bot_1_1drive.html", [
-          [ "rotate", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate" ]
+          [ "drive", "structcontrol_loop_1_1comp__bot_1_1drive_1_1drive.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1drive" ],
+          [ "linear_follower", "structcontrol_loop_1_1comp__bot_1_1drive_1_1linear__follower.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1linear__follower" ],
+          [ "rotate", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate" ],
+          [ "rotational_follower", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower" ]
         ] ],
         [ "shooter", "namespacecontrol_loop_1_1comp__bot_1_1shooter.html", [
           [ "hood", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood" ],
@@ -175,10 +178,20 @@ var annotated_dup =
       ] ]
     ] ],
     [ "AimValues", "struct_aim_values.html", "struct_aim_values" ],
-    [ "AutoAimCommand", "class_auto_aim_command.html", "class_auto_aim_command" ],
+    [ "AutonomousCenter1ball", "class_autonomous_center1ball.html", "class_autonomous_center1ball" ],
+    [ "AutonomousCenterLeft2ball", "class_autonomous_center_left2ball.html", "class_autonomous_center_left2ball" ],
+    [ "AutonomousCenterRight2ball", "class_autonomous_center_right2ball.html", "class_autonomous_center_right2ball" ],
+    [ "AutonomousCommand", "class_autonomous_command.html", "class_autonomous_command" ],
     [ "AutonomousNothing", "class_autonomous_nothing.html", "class_autonomous_nothing" ],
+    [ "AutonomousRight2ball", "class_autonomous_right2ball.html", "class_autonomous_right2ball" ],
+    [ "AutonomousRight5ball", "class_autonomous_right5ball.html", "class_autonomous_right5ball" ],
+    [ "AutoPositionAimCommand", "class_auto_position_aim_command.html", "class_auto_position_aim_command" ],
+    [ "AutoSelector", "class_auto_selector.html", "class_auto_selector" ],
+    [ "AutoVisionAimCommand", "class_auto_vision_aim_command.html", "class_auto_vision_aim_command" ],
     [ "CameraInterface", "class_camera_interface.html", "class_camera_interface" ],
     [ "ClimberSubsystem", "class_climber_subsystem.html", "class_climber_subsystem" ],
+    [ "DelayCommand", "class_delay_command.html", "class_delay_command" ],
+    [ "DriveToLocation", "class_drive_to_location.html", "class_drive_to_location" ],
     [ "EdgeDetector", "class_edge_detector.html", "class_edge_detector" ],
     [ "FileSystemHomingStorage", "class_file_system_homing_storage.html", "class_file_system_homing_storage" ],
     [ "FSHomingStorage", "class_f_s_homing_storage.html", "class_f_s_homing_storage" ],
@@ -186,6 +199,7 @@ var annotated_dup =
     [ "HomeClimberHookCommand", "class_home_climber_hook_command.html", "class_home_climber_hook_command" ],
     [ "HomeHoodCommand", "class_home_hood_command.html", "class_home_hood_command" ],
     [ "HomingStorageInterface", "class_homing_storage_interface.html", "class_homing_storage_interface" ],
+    [ "InitializeOdometryCommand", "class_initialize_odometry_command.html", "class_initialize_odometry_command" ],
     [ "IntakeCommand", "class_intake_command.html", "class_intake_command" ],
     [ "IntakeSubsystem", "class_intake_subsystem.html", "class_intake_subsystem" ],
     [ "LimelightTarget", "class_limelight_target.html", "class_limelight_target" ],
@@ -195,5 +209,7 @@ var annotated_dup =
     [ "ShootCommand", "class_shoot_command.html", "class_shoot_command" ],
     [ "ShooterSubsystem", "class_shooter_subsystem.html", "class_shooter_subsystem" ],
     [ "SwerveDriveSubsystem", "class_swerve_drive_subsystem.html", "class_swerve_drive_subsystem" ],
-    [ "SwerveModule", "class_swerve_module.html", "class_swerve_module" ]
+    [ "SwerveModule", "class_swerve_module.html", "class_swerve_module" ],
+    [ "SwerveTrapezoidalProfile", "class_swerve_trapezoidal_profile.html", "class_swerve_trapezoidal_profile" ],
+    [ "SwerveTrapezoidalProfileSegment", "class_swerve_trapezoidal_profile_segment.html", "class_swerve_trapezoidal_profile_segment" ]
 ];

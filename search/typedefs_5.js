@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['liftleft_0',['liftLeft',['../namespacemotor_config_1_1practice__bot_1_1climber.html#a291dd7c0ae5ee8d5db4fe3ddcdf4c069',1,'motorConfig::practice_bot::climber']]],
-  ['liftright_1',['liftRight',['../namespacemotor_config_1_1practice__bot_1_1climber.html#aa29d14b03a08dac60e6fc6ad79f222f8',1,'motorConfig::practice_bot::climber']]]
+  ['intakedrive_0',['intakeDrive',['../namespacemotor_config_1_1practice__bot_1_1intake.html#af9f456739476c2f74ee223d3bb69d1e0',1,'motorConfig::practice_bot::intake']]]
 ];

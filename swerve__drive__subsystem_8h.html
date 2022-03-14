@@ -89,15 +89,19 @@ $(document).ready(function(){initNavTree('swerve__drive__subsystem_8h.html','');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;frc/ADIS16448_IMU.h&gt;</code><br />
+<code>#include &lt;frc/controller/HolonomicDriveController.h&gt;</code><br />
 <code>#include &lt;frc/kinematics/ChassisSpeeds.h&gt;</code><br />
 <code>#include &lt;frc/kinematics/SwerveDriveKinematics.h&gt;</code><br />
+<code>#include &lt;frc/kinematics/SwerveDriveOdometry.h&gt;</code><br />
 <code>#include &lt;frc/kinematics/SwerveModuleState.h&gt;</code><br />
 <code>#include &lt;frc2/command/SubsystemBase.h&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &quot;<a class="el" href="robot__instance_8h_source.html">argos_lib/config/robot_instance.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="nt__motor__pid__tuner_8h_source.html">argos_lib/general/nt_motor_pid_tuner.h</a>&quot;</code><br />
 <code>#include &quot;ctre/Phoenix.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="file__system__homing__storage_8h_source.html">utils/file_system_homing_storage.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="network__tables__wrapper_8h_source.html">utils/network_tables_wrapper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="swerve__trapezoidal__profile_8h_source.html">utils/swerve_trapezoidal_profile.h</a>&quot;</code><br />
 </div>
 <p><a href="swerve__drive__subsystem_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">

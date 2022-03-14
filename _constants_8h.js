@@ -23,6 +23,7 @@ var _constants_8h =
     [ "horizontalAngleResolution", "_constants_8h.html#a8dfca834192be2214c62ba7dac08bca6", null ],
     [ "horizontalPixelResolution", "_constants_8h.html#a03415aaaebc486386de1820a14cc05a0", null ],
     [ "intakeActivate", "_constants_8h.html#ab051a61981bb1ce2fbfaa24c059e14a4", null ],
+    [ "intakeCreep", "_constants_8h.html#a66a26c3214e4f906700ba4a8816d4277", null ],
     [ "intakeDeactivate", "_constants_8h.html#a288db7faf4a58c20ed9878cb471a65d8", null ],
     [ "intakeExtend", "_constants_8h.html#a6e607a8f12b192fae355e3bace62c7d0", null ],
     [ "intakeForward", "_constants_8h.html#a013668ebd822e7534817c655606cfee8", null ],

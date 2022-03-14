@@ -1,20 +1,5 @@
 var searchData=
 [
-  ['camera_0',['camera',['../namespacemeasure__up_1_1camera.html',1,'measure_up']]],
-  ['chassis_1',['chassis',['../namespacemeasure__up_1_1chassis.html',1,'measure_up']]],
-  ['climber_2',['climber',['../namespacemotor_config_1_1comp__bot_1_1climber.html',1,'motorConfig::comp_bot::climber'],['../namespacemotor_config_1_1practice__bot_1_1climber.html',1,'motorConfig::practice_bot::climber']]],
-  ['climber_5farm_3',['climber_arm',['../namespacemeasure__up_1_1climber__arm.html',1,'measure_up']]],
-  ['climber_5fhook_4',['climber_hook',['../namespacemeasure__up_1_1climber__hook.html',1,'measure_up']]],
-  ['closepositions_5',['closepositions',['../namespacemeasure__up_1_1closepositions.html',1,'measure_up']]],
-  ['common_6',['common',['../namespacemotor_config_1_1common.html',1,'motorConfig']]],
-  ['comp_5fbot_7',['comp_bot',['../namespacemeasure__up_1_1hood_1_1comp__bot.html',1,'measure_up::hood::comp_bot'],['../namespacemotor_config_1_1comp__bot.html',1,'motorConfig::comp_bot']]],
-  ['drive_8',['drive',['../namespacemotor_config_1_1comp__bot_1_1drive.html',1,'motorConfig::comp_bot::drive'],['../namespacemotor_config_1_1practice__bot_1_1drive.html',1,'motorConfig::practice_bot::drive']]],
-  ['hood_9',['hood',['../namespacemeasure__up_1_1hood.html',1,'measure_up']]],
-  ['intake_10',['intake',['../namespacemotor_config_1_1comp__bot_1_1intake.html',1,'motorConfig::comp_bot::intake'],['../namespacemotor_config_1_1practice__bot_1_1intake.html',1,'motorConfig::practice_bot::intake']]],
-  ['measure_5fup_11',['measure_up',['../namespacemeasure__up.html',1,'']]],
-  ['motorconfig_12',['motorConfig',['../namespacemotor_config.html',1,'']]],
-  ['practice_5fbot_13',['practice_bot',['../namespacemeasure__up_1_1hood_1_1practice__bot.html',1,'measure_up::hood::practice_bot'],['../namespacemotor_config_1_1practice__bot.html',1,'motorConfig::practice_bot']]],
-  ['shooter_14',['shooter',['../namespacemotor_config_1_1comp__bot_1_1shooter.html',1,'motorConfig::comp_bot::shooter'],['../namespacemotor_config_1_1practice__bot_1_1shooter.html',1,'motorConfig::practice_bot::shooter']]],
-  ['swerve_5foffsets_15',['swerve_offsets',['../namespacemeasure__up_1_1swerve__offsets.html',1,'measure_up']]],
-  ['turret_16',['turret',['../namespacemeasure__up_1_1turret.html',1,'measure_up']]]
+  ['indexes_0',['indexes',['../namespaceindexes.html',1,'']]],
+  ['swervemodules_1',['swerveModules',['../namespaceindexes_1_1swerve_modules.html',1,'indexes']]]
 ];

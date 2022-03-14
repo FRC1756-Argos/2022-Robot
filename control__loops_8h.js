@@ -1,11 +1,17 @@
 var control__loops_8h =
 [
     [ "controlLoop::comp_bot::drive::rotate", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate" ],
+    [ "controlLoop::comp_bot::drive::drive", "structcontrol_loop_1_1comp__bot_1_1drive_1_1drive.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1drive" ],
+    [ "controlLoop::comp_bot::drive::linear_follower", "structcontrol_loop_1_1comp__bot_1_1drive_1_1linear__follower.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1linear__follower" ],
+    [ "controlLoop::comp_bot::drive::rotational_follower", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower" ],
     [ "controlLoop::comp_bot::shooter::shooter", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1shooter.html", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1shooter" ],
     [ "controlLoop::comp_bot::shooter::hood", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood" ],
     [ "controlLoop::comp_bot::shooter::turret", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1turret.html", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1turret" ],
+    [ "drive", "control__loops_8h.html#a8c6c3c5ce087979a874bbe615fd7fb62", null ],
     [ "hood", "control__loops_8h.html#a6255b1de5ae55e2b3403cc5e2a57ac33", null ],
+    [ "linear_follower", "control__loops_8h.html#a30d7a6b028e52dbb9871f6020a660093", null ],
     [ "rotate", "control__loops_8h.html#af10ae67d344c94789140ddbc5757fd4a", null ],
+    [ "rotational_follower", "control__loops_8h.html#a94b4505801baf3e3b7940c59d31b27bd", null ],
     [ "shooter", "control__loops_8h.html#a3ec13d4156f53e10fd00b0cc6cda6aa5", null ],
     [ "turret", "control__loops_8h.html#aef20c8aa2ee9c4a1bca7798585c72739", null ],
     [ "allowableError", "control__loops_8h.html#aa2652e8a9cb25df0d78137564a2cc9a8", null ],

@@ -1,6 +1,15 @@
 var hierarchy =
 [
     [ "AimValues", "struct_aim_values.html", null ],
+    [ "AutonomousCommand", "class_autonomous_command.html", [
+      [ "AutonomousCenter1ball", "class_autonomous_center1ball.html", null ],
+      [ "AutonomousCenterLeft2ball", "class_autonomous_center_left2ball.html", null ],
+      [ "AutonomousCenterRight2ball", "class_autonomous_center_right2ball.html", null ],
+      [ "AutonomousNothing", "class_autonomous_nothing.html", null ],
+      [ "AutonomousRight2ball", "class_autonomous_right2ball.html", null ],
+      [ "AutonomousRight5ball", "class_autonomous_right5ball.html", null ]
+    ] ],
+    [ "AutoSelector", "class_auto_selector.html", null ],
     [ "motorConfig::comp_bot::drive::backLeftTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_left_turn.html", null ],
     [ "motorConfig::comp_bot::drive::backRightTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html", null ],
     [ "motorConfig::comp_bot::intake::beltDrive", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html", null ],
@@ -8,11 +17,20 @@ var hierarchy =
     [ "CameraInterface", "class_camera_interface.html", null ],
     [ "argos_lib::ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", null ],
     [ "frc2::CommandHelper", null, [
-      [ "AutoAimCommand", "class_auto_aim_command.html", null ],
+      [ "AutoPositionAimCommand", "class_auto_position_aim_command.html", null ],
+      [ "AutoVisionAimCommand", "class_auto_vision_aim_command.html", null ],
+      [ "AutonomousCenter1ball", "class_autonomous_center1ball.html", null ],
+      [ "AutonomousCenterLeft2ball", "class_autonomous_center_left2ball.html", null ],
+      [ "AutonomousCenterRight2ball", "class_autonomous_center_right2ball.html", null ],
       [ "AutonomousNothing", "class_autonomous_nothing.html", null ],
+      [ "AutonomousRight2ball", "class_autonomous_right2ball.html", null ],
+      [ "AutonomousRight5ball", "class_autonomous_right5ball.html", null ],
+      [ "DelayCommand", "class_delay_command.html", null ],
+      [ "DriveToLocation", "class_drive_to_location.html", null ],
       [ "HomeClimberArmCommand", "class_home_climber_arm_command.html", null ],
       [ "HomeClimberHookCommand", "class_home_climber_hook_command.html", null ],
       [ "HomeHoodCommand", "class_home_hood_command.html", null ],
+      [ "InitializeOdometryCommand", "class_initialize_odometry_command.html", null ],
       [ "IntakeCommand", "class_intake_command.html", null ],
       [ "ShootCommand", "class_shoot_command.html", null ],
       [ "argos_lib::SwapControllersCommand", "classargos__lib_1_1_swap_controllers_command.html", null ]
@@ -20,6 +38,7 @@ var hierarchy =
     [ "argos_lib::Debouncer", "classargos__lib_1_1_debouncer.html", null ],
     [ "argos_lib::DebounceSettings", "structargos__lib_1_1_debounce_settings.html", null ],
     [ "argos_lib::XboxController::DPadButtons", "structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html", null ],
+    [ "controlLoop::comp_bot::drive::drive", "structcontrol_loop_1_1comp__bot_1_1drive_1_1drive.html", null ],
     [ "EdgeDetector", "class_edge_detector.html", null ],
     [ "std::false_type", null, [
       [ "argos_lib::cancoder_config::has_direction< T, typename >", "structargos__lib_1_1cancoder__config_1_1has__direction.html", null ],
@@ -106,12 +125,14 @@ var hierarchy =
     [ "motorConfig::comp_bot::climber::liftLeft", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html", null ],
     [ "motorConfig::comp_bot::climber::liftRight", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_right.html", null ],
     [ "LimelightTarget", "class_limelight_target.html", null ],
+    [ "controlLoop::comp_bot::drive::linear_follower", "structcontrol_loop_1_1comp__bot_1_1drive_1_1linear__follower.html", null ],
     [ "motorConfig::comp_bot::climber::moveHook", "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html", null ],
     [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", null ],
     [ "argos_lib::NTMotorPIDTuner", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html", null ],
     [ "argos_lib::NTSubscriber", "classargos__lib_1_1_n_t_subscriber.html", null ],
     [ "RobotContainer", "class_robot_container.html", null ],
     [ "controlLoop::comp_bot::drive::rotate", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate.html", null ],
+    [ "controlLoop::comp_bot::drive::rotational_follower", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html", null ],
     [ "controlLoop::comp_bot::shooter::shooter", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1shooter.html", null ],
     [ "ShooterSubsystem::ShooterDistanceSetpoints", "struct_shooter_subsystem_1_1_shooter_distance_setpoints.html", null ],
     [ "motorConfig::comp_bot::shooter::shooterWheelLeft", "structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_left.html", null ],
@@ -129,6 +150,8 @@ var hierarchy =
     ] ],
     [ "SwerveModule", "class_swerve_module.html", null ],
     [ "argos_lib::swerve::SwerveModulePositions", "structargos__lib_1_1swerve_1_1_swerve_module_positions.html", null ],
+    [ "SwerveTrapezoidalProfile", "class_swerve_trapezoidal_profile.html", null ],
+    [ "SwerveTrapezoidalProfileSegment", "class_swerve_trapezoidal_profile_segment.html", null ],
     [ "frc::TimedRobot", null, [
       [ "Robot", "class_robot.html", null ]
     ] ],
