@@ -219,10 +219,6 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1bc0469fe560eb8e037df015ed23ef45"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a1bc0469fe560eb8e037df015ed23ef45"><td class="memTemplItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a1bc0469fe560eb8e037df015ed23ef45">InThreshold</a> (const T value, const T target, const T threshold)</td></tr>
-<tr class="memdesc:a1bc0469fe560eb8e037df015ed23ef45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if a value is within a threshold of a target value.  <a href="class_shooter_subsystem.html#a1bc0469fe560eb8e037df015ed23ef45">More...</a><br /></td></tr>
-<tr class="separator:a1bc0469fe560eb8e037df015ed23ef45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a347fa0e68e743f86fc91c6080bf123"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a9a347fa0e68e743f86fc91c6080bf123">InAcceptableRanges</a> (const <a class="el" href="struct_aim_values.html">AimValues</a> targets, const <a class="el" href="struct_aim_values.html">AimValues</a> real)</td></tr>
 <tr class="memdesc:a9a347fa0e68e743f86fc91c6080bf123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if all shooter values are close enough to target values.  <a href="class_shooter_subsystem.html#a9a347fa0e68e743f86fc91c6080bf123">More...</a><br /></td></tr>
 <tr class="separator:a9a347fa0e68e743f86fc91c6080bf123"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -482,7 +478,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the pitch and yaw of target. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_limelight_target_1_1t_values.html">LimelightTarget::tValues</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_limelight_target_1_1t_values.html" title="Describes the values of vision target.">LimelightTarget::tValues</a> </dd></dl>
 
 </div>
 </div>
@@ -642,7 +638,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>document function </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>document function </dd></dl>
 
 </div>
 </div>
@@ -735,67 +731,6 @@ Private Attributes</h2></td></tr>
 
 <p>Initialize turret position based on saved home. </p>
 <dl class="section note"><dt>Note</dt><dd>Turret can break itself if it moves above about 370 degrees or below about 10 degrees, but if turret starts near the 0/360 degree point, the homing position is ambiguous. To account for this, interpret position as greater than 360 if angle is in the 0-10/360-370 degree region </dd></dl>
-
-</div>
-</div>
-<a id="a1bc0469fe560eb8e037df015ed23ef45" name="a1bc0469fe560eb8e037df015ed23ef45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bc0469fe560eb8e037df015ed23ef45">&#9670;&nbsp;</a></span>InThreshold()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr bool ShooterSubsystem::InThreshold </td>
-          <td>(</td>
-          <td class="paramtype">const T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T&#160;</td>
-          <td class="paramname"><em>target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T&#160;</td>
-          <td class="paramname"><em>threshold</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Detect if a value is within a threshold of a target value. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Type that implements operator+(), operator-(), operator&lt;=() and operator&gt;=() </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Value to check </td></tr>
-    <tr><td class="paramname">target</td><td>Center of range </td></tr>
-    <tr><td class="paramname">threshold</td><td>Allowable error from target </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true when value is within threshold of target, false otherwise </dd></dl>
 
 </div>
 </div>

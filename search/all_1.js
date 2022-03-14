@@ -24,9 +24,8 @@ var searchData=
   ['beltreverse_21',['beltReverse',['../namespacespeeds_1_1intake.html#afcbd92b7804dc8565fbd200d347ed857',1,'speeds::intake']]],
   ['blhome_22',['blHome',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a14c22b907cf617733054eb5637a4e85c',1,'networkTables::swerveHomes::keys']]],
   ['blhomefullpath_23',['blHomeFullPath',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a5c47b6bcf26065b0aab95a2644692047',1,'networkTables::swerveHomes::keys']]],
-  ['bodyup_24',['BodyUp',['../class_climber_subsystem.html#a6cb96cb3b8ad170777914f1f043a2d1c',1,'ClimberSubsystem']]],
-  ['brhome_25',['brHome',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a76ecc849d0d8ed33ee48f5443e59a4f7',1,'networkTables::swerveHomes::keys']]],
-  ['brhomefullpath_26',['brHomeFullPath',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#aa8d9ed48bb92f653121fc87052fe5392',1,'networkTables::swerveHomes::keys']]],
-  ['bumperextension_27',['bumperExtension',['../namespacemeasure__up.html#ae49efe93e07f5ad7579143b38853122a',1,'measure_up']]],
-  ['button_28',['Button',['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fc',1,'argos_lib::XboxController']]]
+  ['brhome_24',['brHome',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a76ecc849d0d8ed33ee48f5443e59a4f7',1,'networkTables::swerveHomes::keys']]],
+  ['brhomefullpath_25',['brHomeFullPath',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#aa8d9ed48bb92f653121fc87052fe5392',1,'networkTables::swerveHomes::keys']]],
+  ['bumperextension_26',['bumperExtension',['../namespacemeasure__up.html#ae49efe93e07f5ad7579143b38853122a',1,'measure_up']]],
+  ['button_27',['Button',['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fc',1,'argos_lib::XboxController']]]
 ];

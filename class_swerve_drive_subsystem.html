@@ -183,12 +183,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a804a3ece8183c38c6f216d51ddabf3ec"><td class="memItemLeft" align="right" valign="top">wpi::array&lt; frc::SwerveModuleState, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a804a3ece8183c38c6f216d51ddabf3ec">GetCurrentModuleStates</a> ()</td></tr>
 <tr class="memdesc:a804a3ece8183c38c6f216d51ddabf3ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the active states of all swerve modules.  <a href="class_swerve_drive_subsystem.html#a804a3ece8183c38c6f216d51ddabf3ec">More...</a><br /></td></tr>
 <tr class="separator:a804a3ece8183c38c6f216d51ddabf3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72c672c6885c8eb4c8a95595c4a15382"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a72c672c6885c8eb4c8a95595c4a15382">HomeToNetworkTables</a> (const units::degree_t &amp;angle)</td></tr>
-<tr class="memdesc:a72c672c6885c8eb4c8a95595c4a15382"><td class="mdescLeft">&#160;</td><td class="mdescRight">HomeToNetworkTables all of the modules back to zero.  <a href="class_swerve_drive_subsystem.html#a72c672c6885c8eb4c8a95595c4a15382">More...</a><br /></td></tr>
-<tr class="separator:a72c672c6885c8eb4c8a95595c4a15382"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d36605e92966df8a891d5be634969ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a3d36605e92966df8a891d5be634969ac">InitializeMotorsFromNetworkTables</a> ()</td></tr>
-<tr class="memdesc:a3d36605e92966df8a891d5be634969ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will load saved homes, and set the encoders to reset to true angle relative to robot "front".  <a href="class_swerve_drive_subsystem.html#a3d36605e92966df8a891d5be634969ac">More...</a><br /></td></tr>
-<tr class="separator:a3d36605e92966df8a891d5be634969ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e830d13b90bdbd5b25d1bfc9e3aa60d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a0e830d13b90bdbd5b25d1bfc9e3aa60d">HomeToFS</a> (const units::degree_t &amp;angle)</td></tr>
 <tr class="memdesc:a0e830d13b90bdbd5b25d1bfc9e3aa60d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save homes to a file.  <a href="class_swerve_drive_subsystem.html#a0e830d13b90bdbd5b25d1bfc9e3aa60d">More...</a><br /></td></tr>
 <tr class="separator:a0e830d13b90bdbd5b25d1bfc9e3aa60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -528,7 +522,6 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>wpi::array&lt;frc::SwerveModuleState, 4&gt; </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>fix later </dd></dl>
 
 </div>
 </div>
@@ -592,40 +585,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a72c672c6885c8eb4c8a95595c4a15382" name="a72c672c6885c8eb4c8a95595c4a15382"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72c672c6885c8eb4c8a95595c4a15382">&#9670;&nbsp;</a></span>HomeToNetworkTables()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SwerveDriveSubsystem::HomeToNetworkTables </td>
-          <td>(</td>
-          <td class="paramtype">const units::degree_t &amp;&#160;</td>
-          <td class="paramname"><em>angle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>HomeToNetworkTables all of the modules back to zero. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">angle</td><td>the angle of the module in it's current state </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a8fb9ad0c77dfe6779902653b7ae7e405" name="a8fb9ad0c77dfe6779902653b7ae7e405"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8fb9ad0c77dfe6779902653b7ae7e405">&#9670;&nbsp;</a></span>InitializeMotors()</h2>
 
@@ -669,34 +628,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize motors from saved file. </p>
-
-</div>
-</div>
-<a id="a3d36605e92966df8a891d5be634969ac" name="a3d36605e92966df8a891d5be634969ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d36605e92966df8a891d5be634969ac">&#9670;&nbsp;</a></span>InitializeMotorsFromNetworkTables()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SwerveDriveSubsystem::InitializeMotorsFromNetworkTables </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Will load saved homes, and set the encoders to reset to true angle relative to robot "front". </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>IF NO HOMES LISTED, SET A FLAG SO WE CAN'T DRIVE </dd></dl>
 
 </div>
 </div>
@@ -850,7 +781,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Convert sensor velocities for optimizer instead of constants </dd></dl>
 
 </div>
 </div>

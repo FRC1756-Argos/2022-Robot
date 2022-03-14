@@ -25,7 +25,6 @@ var class_shooter_subsystem =
     [ "HoodSetPosition", "class_shooter_subsystem.html#a059d48f9f9c5e421be265307b3363ca3", null ],
     [ "InAcceptableRanges", "class_shooter_subsystem.html#a9a347fa0e68e743f86fc91c6080bf123", null ],
     [ "InitializeTurretHome", "class_shooter_subsystem.html#ae0bdc196ad93958858dfcc8d14be3491", null ],
-    [ "InThreshold", "class_shooter_subsystem.html#a1bc0469fe560eb8e037df015ed23ef45", null ],
     [ "IsHoodHomed", "class_shooter_subsystem.html#a3d716745d88799fa1561553d94778015", null ],
     [ "IsHoodMoving", "class_shooter_subsystem.html#ae1115858f792e295d57030d2b4887f8b", null ],
     [ "IsManualOverride", "class_shooter_subsystem.html#a8b11bec1713a289dc29d9303337dbf6d", null ],

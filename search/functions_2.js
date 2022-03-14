@@ -1,19 +1,15 @@
 var searchData=
 [
-  ['calculate_0',['Calculate',['../class_swerve_trapezoidal_profile_segment.html#a3e337ac9db3382f9192a6c384bce925b',1,'SwerveTrapezoidalProfileSegment::Calculate()'],['../class_edge_detector.html#ac4d5b680f8ac7b94370958ac9b88d205',1,'EdgeDetector::Calculate()']]],
-  ['camerainterface_1',['CameraInterface',['../class_camera_interface.html#a62af2e7390904d839c465d2b07d0fcab',1,'CameraInterface']]],
-  ['canceldrivingprofile_2',['CancelDrivingProfile',['../class_swerve_drive_subsystem.html#a3238d024639a5df1af633317e4f21b74',1,'SwerveDriveSubsystem']]],
-  ['cancoderconfig_3',['CanCoderConfig',['../namespaceargos__lib_1_1cancoder__config.html#ad4761448a82be9f301cea9cb92f8631b',1,'argos_lib::cancoder_config::CanCoderConfig(CANCoder &amp;encoder, units::millisecond_t configTimeout, argos_lib::RobotInstance instance)'],['../namespaceargos__lib_1_1cancoder__config.html#a127a5060105e8266790116391eebeb63',1,'argos_lib::cancoder_config::CanCoderConfig(CANCoder &amp;encoder, units::millisecond_t configTimeout)']]],
-  ['climberpositionlatchl2_4',['ClimberPositionLatchL2',['../class_climber_subsystem.html#a25896dafe2e02bf096153d013148a80c',1,'ClimberSubsystem']]],
-  ['climberpositionlatchl3_5',['ClimberPositionLatchL3',['../class_climber_subsystem.html#a9909936d97ec5aa7e4f465a8a0675dbd',1,'ClimberSubsystem']]],
-  ['climberpositionpassl3_6',['ClimberPositionPassL3',['../class_climber_subsystem.html#a8380d38b3f3ed8888ae7973a6f1af256',1,'ClimberSubsystem']]],
-  ['climberpositionpreparel2_7',['ClimberPositionPrepareL2',['../class_climber_subsystem.html#a8cb21891ef415bad25e8522d7557614f',1,'ClimberSubsystem']]],
-  ['climberpositionpreparetransferl3_8',['ClimberPositionPrepareTransferL3',['../class_climber_subsystem.html#a3f5537e815157df8c2c027a51563e7b9',1,'ClimberSubsystem']]],
-  ['climberpositionsecurel2_9',['ClimberPositionSecureL2',['../class_climber_subsystem.html#a739d05d0959a9e66b2143be7db8506a0',1,'ClimberSubsystem']]],
-  ['climberpositionsetup_10',['ClimberPositionSetup',['../class_climber_subsystem.html#a515258f0afa29dbb177f282be9f467a0',1,'ClimberSubsystem']]],
-  ['climberpositiontransferl3_11',['ClimberPositionTransferL3',['../class_climber_subsystem.html#acb7f0214d365e97206675255d25438ef',1,'ClimberSubsystem']]],
-  ['climbersubsystem_12',['ClimberSubsystem',['../class_climber_subsystem.html#ae3f5cf4dabad5e28e7da2df5e4c3290d',1,'ClimberSubsystem']]],
-  ['closeloopshoot_13',['CloseLoopShoot',['../class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1',1,'ShooterSubsystem']]],
-  ['configurebuttonbindings_14',['ConfigureButtonBindings',['../class_robot_container.html#aa1b33cbe7d850dfd456ad0b352b82ba5',1,'RobotContainer']]],
-  ['constrainangle_15',['ConstrainAngle',['../namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653',1,'argos_lib::swerve::ConstrainAngle(units::degree_t inVal, units::degree_t minVal, units::degree_t maxVal)'],['../namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6',1,'argos_lib::swerve::ConstrainAngle(double inVal, double minVal, double maxVal)']]]
+  ['debouncer_0',['Debouncer',['../classargos__lib_1_1_debouncer.html#a58a7ddbe4d21d9bf71d3d0b4fabe58e4',1,'argos_lib::Debouncer::Debouncer(const units::millisecond_t symmetricDebounceTime)'],['../classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4',1,'argos_lib::Debouncer::Debouncer(const argos_lib::DebounceSettings debounceSettings, bool initialValue=false)']]],
+  ['delaycommand_1',['DelayCommand',['../class_delay_command.html#a6ff4fda2099843cca5592bffc7c3a1dd',1,'DelayCommand']]],
+  ['detectfalling_2',['DetectFalling',['../class_edge_detector.html#ab21eee9433c65ae80560372ab487f485',1,'EdgeDetector']]],
+  ['detectrising_3',['DetectRising',['../class_edge_detector.html#a47a3ee6ec09c9b707f63b229105aac3e',1,'EdgeDetector']]],
+  ['disable_4',['Disable',['../class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e',1,'ShooterSubsystem::Disable()'],['../class_swerve_drive_subsystem.html#a0799d7ebc2d49f21f26cb9297accb091',1,'SwerveDriveSubsystem::Disable()'],['../class_intake_subsystem.html#a1a88f5365448817ffeff0bcf1d315327',1,'IntakeSubsystem::Disable()'],['../class_climber_subsystem.html#ace65f6734f00ea77d23b93d661b375c2',1,'ClimberSubsystem::Disable()'],['../class_robot_container.html#a4f0a00e79a6b43c1eea301782d785b7f',1,'RobotContainer::Disable()']]],
+  ['disabledinit_5',['DisabledInit',['../class_robot.html#a810e6143a208a6314491366e3c714357',1,'Robot']]],
+  ['disabledperiodic_6',['DisabledPeriodic',['../class_robot.html#a8c7309f5f1cb242ea8c74f1abf03b540',1,'Robot']]],
+  ['disablehooksoftlimits_7',['DisableHookSoftLimits',['../class_climber_subsystem.html#a9db3ba324ad8a7a2c858ca2aa507b53e',1,'ClimberSubsystem']]],
+  ['disableturretsoftlimits_8',['DisableTurretSoftLimits',['../class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b',1,'ShooterSubsystem']]],
+  ['drivercontroller_9',['DriverController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#aab24f6aac86bd7a79f2e6af9de0d35e2',1,'argos_lib::SwappableControllersSubsystem']]],
+  ['drivetolocation_10',['DriveToLocation',['../class_drive_to_location.html#ae5ea7893537447fade04abca51e3c3e2',1,'DriveToLocation']]],
+  ['dumpball_11',['DumpBall',['../class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9',1,'IntakeSubsystem']]]
 ];
