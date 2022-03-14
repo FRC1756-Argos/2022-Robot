@@ -90,7 +90,9 @@
     "typeinfo": "cpp"
   },
   "cSpell.words": [
-    "talonsrx"
+    "odometry",
+    "talonsrx",
+    "teleop"
   ],
   "todo-tree.general.tags": [
     "BUG",

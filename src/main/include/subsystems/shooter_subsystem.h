@@ -136,7 +136,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @brief auto aims shooter to hub
    *
    */
-  void AutoAim();
+  bool AutoAim();
 
   /**
    * @brief pressing a button to fire a ball

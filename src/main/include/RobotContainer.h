@@ -14,6 +14,12 @@
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "commands/autonomous/autonomous_center_1ball.h"
+#include "commands/autonomous/autonomous_center_left_2ball.h"
+#include "commands/autonomous/autonomous_center_right_2ball.h"
+#include "commands/autonomous/autonomous_nothing.h"
+#include "commands/autonomous/autonomous_right_2ball.h"
+#include "commands/autonomous/autonomous_right_5ball.h"
 #include "commands/home_climber_arm_command.h"
 #include "commands/home_climber_hook_command.h"
 #include "commands/home_hood_command.h"
@@ -21,6 +27,7 @@
 #include "subsystems/intake_subsystem.h"
 #include "subsystems/shooter_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
+#include "utils/auto_selector.h"
 #include "utils/network_tables_wrapper.h"
 #include "utils/sensor_conversions.h"
 
@@ -88,6 +95,35 @@ class RobotContainer {
   units::inches_per_second_squared_t m_climberHookAccel;
   units::degree_t m_turretTargetPosition;
   argos_lib::NTSubscriber m_NTMonitor;
+
+  // Drive profile tuning
+  double m_driveFollowerLinearkP;
+  double m_driveFollowerLinearkI;
+  double m_driveFollowerLinearkD;
+  double m_driveFollowerRotationalkP;
+  double m_driveFollowerRotationalkI;
+  double m_driveFollowerRotationalkD;
+  units::degrees_per_second_t m_driveFollowerRotationalVelocity;
+  units::degrees_per_second_squared_t m_driveFollowerRotationalAcceleration;
+
+  units::inch_t m_driveProfileDistX;
+  units::inch_t m_driveProfileDistY;
+  units::degree_t m_driveProfileRot;
+  units::feet_per_second_t m_driveProfileMaxLinearVel;
+  units::feet_per_second_squared_t m_driveProfileMaxLinearAccel;
+  units::degrees_per_second_t m_driveProfileMaxRotationalVel;
+  units::degrees_per_second_squared_t m_driveProfileMaxRotationalAccel;
+
+  // Autonomous Commands
+  AutonomousRight2ball m_autoRight2Ball;
+  AutonomousRight5ball m_autoRight5Ball;
+  AutonomousCenterRight2ball m_autoCenterRight2Ball;
+  AutonomousCenter1ball m_autoCenter1ball;
+  AutonomousCenterLeft2ball m_autoCenterLeft2Ball;
+  AutonomousNothing m_autoNothing;
+
+  // Autonomous Selector
+  AutoSelector m_autoRoutineSelector;
 
   void ConfigureButtonBindings();
 };

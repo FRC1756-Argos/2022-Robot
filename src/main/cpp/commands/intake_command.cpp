@@ -20,16 +20,19 @@ void IntakeCommand::Execute() {}
 
 // Called once the command ends or is interrupted.
 void IntakeCommand::End(bool interrupted) {
-  m_pIntake->StopIntake();
+  // Just keep intakeing
+  // m_pIntake->StopIntake();
 }
 
 // Returns true when the command should end.
 bool IntakeCommand::IsFinished() {
-  bool ballPresent = m_pIntake->getBallPresentIntake();
-  if (!m_previousBallPresent && ballPresent) {
-    m_previousBallPresent = ballPresent;
-    return true;
-  }
-  m_previousBallPresent = ballPresent;
-  return false;
+  // For now, just set intake and exit
+  return true;
+  // bool ballPresent = m_pIntake->getBallPresentIntake();
+  // if (!m_previousBallPresent && ballPresent) {
+  //   m_previousBallPresent = ballPresent;
+  //   return true;
+  // }
+  // m_previousBallPresent = ballPresent;
+  // return false;
 }

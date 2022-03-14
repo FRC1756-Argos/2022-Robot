@@ -10,12 +10,9 @@
 
 #include <chrono>
 
-#include "subsystems/intake_subsystem.h"
-
-class ShootCommand : public frc2::CommandHelper<frc2::CommandBase, ShootCommand> {
+class DelayCommand : public frc2::CommandHelper<frc2::CommandBase, DelayCommand> {
  public:
-  explicit ShootCommand(IntakeSubsystem* subsystem);
-  ShootCommand(IntakeSubsystem* subsystem, uint numCargo, units::millisecond_t timeout);
+  explicit DelayCommand(units::millisecond_t delayTime);
 
   void Initialize() override;
 
@@ -26,11 +23,6 @@ class ShootCommand : public frc2::CommandHelper<frc2::CommandBase, ShootCommand>
   bool IsFinished() override;
 
  private:
-  IntakeSubsystem* m_pIntake;
-  bool m_previousBallPresent;
-  uint m_totalCargo;  ///< Total cargo we expect to shoot.  0 indicates shoot until timeout
-  uint m_cargoShot;   ///< Cargo shot so far
-
   std::chrono::time_point<std::chrono::steady_clock> m_startTime;  ///< When the command began
   units::millisecond_t m_timeout;                                  ///< 0 indicates no timeout
 };

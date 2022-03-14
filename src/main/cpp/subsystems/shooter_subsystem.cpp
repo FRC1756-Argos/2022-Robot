@@ -91,14 +91,14 @@ void ShooterSubsystem::Periodic() {
   }
 }
 
-void ShooterSubsystem::AutoAim() {
+bool ShooterSubsystem::AutoAim() {
   LimelightTarget::tValues targetValues = m_cameraInterface.m_target.GetTarget();
 
   // Get target angle & assign to turret
   m_cameraInterface.SetDriverMode(false);
   if (!m_cameraInterface.m_target.HasTarget()) {
     StopFeedback();
-    return;
+    return false;
   }
 
   frc::SmartDashboard::PutBoolean("(Auto-Aim) Is Highest Target Present?", m_cameraInterface.m_target.HasTarget());
@@ -144,6 +144,8 @@ void ShooterSubsystem::AutoAim() {
   } else {
     StopFeedback();
   }
+
+  return true;
 }
 
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
