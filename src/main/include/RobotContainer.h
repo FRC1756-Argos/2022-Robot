@@ -14,6 +14,9 @@
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
+#include "commands/autonomous/autonomous_center_1ball.h"
+#include "commands/autonomous/autonomous_center_left_2ball.h"
+#include "commands/autonomous/autonomous_center_right_2ball.h"
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_right_2ball.h"
 #include "commands/autonomous/autonomous_right_5ball.h"
@@ -114,10 +117,13 @@ class RobotContainer {
   // Autonomous Commands
   AutonomousRight2ball m_autoRight2Ball;
   AutonomousRight5ball m_autoRight5Ball;
+  AutonomousCenterRight2ball m_autoCenterRight2Ball;
+  AutonomousCenter1ball m_autoCenter1ball;
+  AutonomousCenterLeft2ball m_autoCenterLeft2Ball;
   AutonomousNothing m_autoNothing;
 
   // Autonomous Selector
-  //   AutoSelector m_autoRoutineSelector;
+  AutoSelector m_autoRoutineSelector;
 
   void ConfigureButtonBindings();
 };
