@@ -10,16 +10,9 @@
 #include "argos_lib/general/debouncer.h"
 #include "subsystems/shooter_subsystem.h"
 
-/**
- * An example command.
- *
- * <p>Note that this extends CommandHelper, rather extending CommandBase
- * directly; this is crucially important, or else the decorator functions in
- * Command will *not* work!
- */
-class AutoAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoAimCommand> {
+class AutoVisionAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoVisionAimCommand> {
  public:
-  explicit AutoAimCommand(ShooterSubsystem* subsystem);
+  explicit AutoVisionAimCommand(ShooterSubsystem* subsystem);
 
   void Initialize() override;
 
@@ -30,7 +23,7 @@ class AutoAimCommand : public frc2::CommandHelper<frc2::CommandBase, AutoAimComm
   bool IsFinished() override;
 
  private:
-  ShooterSubsystem* m_shooter;
+  ShooterSubsystem* m_pShooter;
   argos_lib::Debouncer m_threshDebounce;
 
   template <typename T>

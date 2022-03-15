@@ -33,7 +33,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
    * @return true - Ball is present at checked sensor
    * @return false - Ball is not present at checked sensor
    */
-  bool getBallPresentIntake();
+  bool GetBallPresentIntake();
 
   /**
    * @brief Determines whether ball is present at shooter
@@ -41,7 +41,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
    * @return true - Ball is present at checked sensor
    * @return false - Ball is not present at checked sensor
    */
-  bool getBallPresentShooter();
+  bool GetBallPresentShooter();
 
   /**
    *
@@ -51,7 +51,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
    * @return true - Ball is team color
    * @return false - Ball is not team color
    */
-  bool getIsBallTeamColor();
+  bool GetIsBallTeamColor();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.

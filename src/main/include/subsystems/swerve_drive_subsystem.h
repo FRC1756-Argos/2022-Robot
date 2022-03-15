@@ -5,17 +5,21 @@
 #pragma once
 
 #include <frc/ADIS16448_IMU.h>
+#include <frc/controller/HolonomicDriveController.h>
 #include <frc/kinematics/ChassisSpeeds.h>
 #include <frc/kinematics/SwerveDriveKinematics.h>
+#include <frc/kinematics/SwerveDriveOdometry.h>
 #include <frc/kinematics/SwerveModuleState.h>
 #include <frc2/command/SubsystemBase.h>
 
 #include <memory>
 
 #include "argos_lib/config/robot_instance.h"
+#include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 #include "utils/file_system_homing_storage.h"
 #include "utils/network_tables_wrapper.h"
+#include "utils/swerve_trapezoidal_profile.h"
 
 class SwerveModule {
  public:
@@ -33,6 +37,8 @@ class SwerveModule {
    * @param encoderAddr address of the encoder on this module
    */
   SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr);
+
+  frc::SwerveModuleState GetState();
 };
 
 class SwerveDriveSubsystem : public frc2::SubsystemBase {
@@ -76,8 +82,43 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   /**
    * @brief Tell the robot it's in it's correct field-oriented "Front"
    *
+   * @param homeAngle Current orientation of the robot
+   * @param updateOdometry Also update odometry field-centric angle
    */
-  void FieldHome(units::degree_t homeAngle = 0_deg);
+  void FieldHome(units::degree_t homeAngle = 0_deg, bool updateOdometry = true);
+
+  /**
+   * @brief Set current robot position.  Useful for initializing initial position before autonomous
+   *
+   * @param currentPose Field-centric pose of the robot
+   */
+  void InitializeOdometry(const frc::Pose2d& currentPose);
+
+  frc::Rotation2d GetContinuousOdometryAngle();
+
+  frc::Pose2d GetContinuousOdometry();
+
+  /**
+   * @brief Reads module states & gyro, updates odometry, and returns latest pose estimate
+   *
+   * @return Estimate of robot pose
+   */
+  frc::Pose2d UpdateOdometry();
+
+  /**
+   * @brief Get the field-centric angle of the robot based on gyro and saved reference orientation
+   *
+   * @return Field-centric angle of the robot where 0 degrees is intake oriented toward
+   *         opposing alliance operator station positive CCW.
+   */
+  units::degree_t GetFieldCentricAngle() const;
+
+  /**
+   * @brief Get the latest pose estimate
+   *
+   * @return Latest pose
+   */
+  frc::Pose2d GetPoseEstimate();
 
   void SetControlMode(SwerveDriveSubsystem::DriveControlMode controlMode);
 
@@ -88,9 +129,50 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   void InitializeMotors();
 
   /**
-   * Will be called periodically whenever the CommandScheduler runs.
+   * @brief Change PID parameters for linear follower.  These adjust velocities based on distance
+   *        error from path goal
+   *
+   * @param kP Proportional gain
+   * @param kI Integral gain
+   * @param kD Derivative gain
    */
-  void Periodic() override;
+  void UpdateFollowerLinearPIDParams(double kP, double kI, double kD);
+
+  /**
+   * @brief Change PID parameters for rotational follower.  These adjust velocities based on angle
+   *        error from path goal
+   *
+   * @param kP Proportional gain
+   * @param kI Integral gain
+   * @param kD Derivative gain
+   */
+  void UpdateFollowerRotationalPIDParams(double kP, double kI, double kD);
+
+  /**
+   * @brief Update constraints to rotate robot along profiled path
+   *
+   * @param constraints Rotational velocity and acceleration constraints
+   */
+  void UpdateFollowerRotationalPIDConstraints(frc::TrapezoidProfile<units::degrees>::Constraints constraints);
+
+  /**
+   * @brief Start driving a new profile.  This also resets the finished flag
+   *
+   * @param newProfile Profile to follow with t=0 being the time this function is called
+   */
+  void StartDrivingProfile(SwerveTrapezoidalProfileSegment newProfile);
+
+  /**
+   * @brief Cancel the current driving profile without marking it complete
+   */
+  void CancelDrivingProfile();
+
+  /**
+   * @brief Check if a driving profile path has been completed
+   *
+   * @return true when a path is completed and not canceled
+   */
+  bool ProfileIsComplete() const;
 
  private:
   DriveControlMode m_controlMode;  ///< Active control mode
@@ -103,7 +185,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   // GYROSCOPIC SENSORS
   frc::ADIS16448_IMU m_imu;
 
-  units::degree_t m_fieldHomeOffset;
+  units::degree_t m_fieldHomeOffset;  ///< Offset from IMU angle to 0 field angle (intake away from driver station)
 
   /**
  * @brief A struct for holding the 3 different input velocities, for organization
@@ -115,14 +197,28 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
     const double rotVelocity;
   };
 
-  std::unique_ptr<frc::SwerveDriveKinematics<4>>
-      m_pSwerveDriveKinematics;  ///< Kinematics model for swerve drive system
+  frc::SwerveDriveKinematics<4> m_swerveDriveKinematics;  ///< Kinematics model for swerve drive system
+
+  frc::SwerveDriveOdometry<4> m_odometry;      ///< Odometry to track robot
+  units::degree_t m_prevOdometryAngle;         ///< Last odometry angle used for continuous calculations
+  units::degree_t m_continuousOdometryOffset;  ///< Offset to convert [-180,180] odometry angle to continuous angle
 
   // POINTER TO NETWORK TABLE CLASS OBJECT
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;  ///< Instance of network table class
 
   // std::FILE SYSTEM HOMING STORAGE
   FileSystemHomingStorage m_fsStorage;
+
+  bool m_followingProfile;  ///< True when an incomplete drive profile is being run
+  bool m_profileComplete;   ///< True once a drive profile has been completed
+  std::unique_ptr<SwerveTrapezoidalProfileSegment> m_pActiveSwerveProfile;      ///< Profile to execute
+  std::chrono::time_point<std::chrono::steady_clock> m_swerveProfileStartTime;  ///< Time when active profile began
+  frc2::PIDController m_linearPID;  ///< Correction parameters for x/y error when following drive profile
+  frc::ProfiledPIDController<units::radians>
+      m_rotationalPID;  ///< Correction parameters for rotational error when following drive profile
+  frc::HolonomicDriveController m_followerController;  ///< Controller to follow drive profile
+
+  argos_lib::NTMotorPIDTuner m_driveMotorPIDTuner;  ///< Utility to tune drive motors
 
   /**
  * @brief Get the Raw Module States object and switch between robot-centric and field-centric
@@ -133,17 +229,11 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   wpi::array<frc::SwerveModuleState, 4> GetRawModuleStates(SwerveDriveSubsystem::Velocities velocities);
 
   /**
-   * @brief HomeToNetworkTables all of the modules back to zero
+   * @brief Get the active states of all swerve modules
    *
-   * @param angle the angle of the module in it's current state
+   * @return Active module states
    */
-  void HomeToNetworkTables(const units::degree_t& angle);
-
-  /**
-   * @brief Will load saved homes, and set the encoders to reset to true angle relative to robot "front"
-   *
-   */
-  void InitializeMotorsFromNetworkTables();
+  wpi::array<frc::SwerveModuleState, 4> GetCurrentModuleStates();
 
   /**
    * @brief Save homes to a file

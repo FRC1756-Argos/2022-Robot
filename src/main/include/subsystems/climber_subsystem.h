@@ -141,8 +141,16 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    */
   void ManualOverride();
 
+  /**
+   * @brief Enables the hook soft limits
+   *
+   */
   void SetHookSoftLimits();
 
+  /**
+   * @brief Disables hook soft limit
+   *
+   */
   void DisableHookSoftLimits();
 
   /**
