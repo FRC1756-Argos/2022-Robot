@@ -212,9 +212,3 @@ void ClimberSubsystem::SetClimberLatch() {
 ClimberSubsystem::ClimberStatus ClimberSubsystem::GetClimberStatus() {
   return m_climberStatus;
 }
-
-// SecureL2
-// PassL3
-// Latch L3
-// PrepareTransferL3
-// PositionTransferL3

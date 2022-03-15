@@ -46,7 +46,6 @@ void ClimbCommand::Execute() {
     return;
   }
 
-  /// @todo did the user disable the climb from the controller?
   ClimberPoint curPoint = m_climbPoints.front();
   if (m_pClimberSubsystem->ClimberAtPoint(curPoint)) {
     m_climbPoints.pop();
@@ -61,11 +60,8 @@ void ClimbCommand::End(bool interrupted) {
   if (m_pClimberSubsystem == nullptr) {
     return;
   }
-  for (int i = 0; i < m_climbPoints.size(); i++) {
-    if (!m_climbPoints.empty()) {
-      m_climbPoints.pop();
-    }
-  }
+  // Clear queue so no weird motion on next run
+  m_climbPoints = {};
   m_pClimberSubsystem->Disable();
 }
 
