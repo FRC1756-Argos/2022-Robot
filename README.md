@@ -90,3 +90,29 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | Start           | Swap (hold with <kbd>Back</kbd>) |
 | Left JS Button  | Unused |
 | Right JS Button | Unused |
+
+## Software Checkout
+1. Check turret position
+2. Drive and Turn
+    1. Drive forward
+    2. Drive backward
+    3. Drive left
+    4. Drive right
+    5. Turn left
+    6. Turn right
+    7. Drive forward
+3. Intake
+    1. Intake a ball
+    2. Outtake a ball
+4. Shooter
+    1. Move turret left and right manually
+    2. Move hood up and down manually
+    3. Check the four setpoints (using the d-pad on the operator controller) for the proper turret positions
+    4. Aim (vision; make sure camera is working)
+    5. Intake and shoot a ball (this also checks the elevator functionality)
+5. Climber
+    1. Move the climb arms up and down
+    2. Move the hooks up and down
+    3. Go through the climb sequence
+6. Wait for air
+7. Change battery
