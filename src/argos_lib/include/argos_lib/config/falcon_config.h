@@ -159,7 +159,7 @@ namespace argos_lib {
         config.slot0.allowableClosedloopError = T::pid0_allowableError;
       }
       if constexpr (has_pid1_selectedSensor<T>{}) {
-        config.primaryPID.selectedFeedbackSensor = T::pid1_selectedSensor;
+        config.primaryPID.selectedFeedbackSensor = T::pid0_selectedSensor;
       }
       if constexpr (has_pid1_kP<T>{}) {
         config.slot1.kP = T::pid1_kP;
