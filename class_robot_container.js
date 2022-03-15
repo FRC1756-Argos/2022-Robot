@@ -19,6 +19,7 @@ var class_robot_container =
     [ "m_climberHookAccel", "class_robot_container.html#aef1b27b131233a9d649ac7c654991193", null ],
     [ "m_climberHookCruiseVelocity", "class_robot_container.html#aadf1c6ac3dff8ff14384ba46470053f7", null ],
     [ "m_climberHookTargetExtension", "class_robot_container.html#a13e75fe1d9d4555fe31cb9d92f128a18", null ],
+    [ "m_compressor", "class_robot_container.html#ae41a29456d95fa8e37e6a8c09ddf9c80", null ],
     [ "m_controllers", "class_robot_container.html#ac4ef9d6a42ca8cf49d8b844fd470bba7", null ],
     [ "m_driveFollowerLinearkD", "class_robot_container.html#aeee0653405b192a203fc3725803e9f5d", null ],
     [ "m_driveFollowerLinearkI", "class_robot_container.html#a0f60cdfe677a11ea4b516b9e23793ec4", null ],

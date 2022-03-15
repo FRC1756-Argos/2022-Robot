@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"structcontrol_loop_1_1comp__bot_1_1drive_1_1drive.html#a2a3a5d01099867a1a1cdbdc59ed50417":[2,0,7,0,1,0,2],
 "structcontrol_loop_1_1comp__bot_1_1drive_1_1drive.html#a6e3088905de999b47356c5fcb0c52540":[3,0,1,0,0,0,5],
 "structcontrol_loop_1_1comp__bot_1_1drive_1_1drive.html#a6e3088905de999b47356c5fcb0c52540":[2,0,7,0,1,0,5],
 "structcontrol_loop_1_1comp__bot_1_1drive_1_1drive.html#a76e2fe3c870d2d1c4f0e0366523e1397":[3,0,1,0,0,0,0],
@@ -176,8 +177,8 @@ var NAVTREEINDEX8 =
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a9f76d7b975f8dc094e965a76d84d3c7d":[2,0,11,1,0,2,4],
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#ad5f80f17dd5cf7397d69496d8936b0ba":[2,0,11,1,0,2,1],
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#ad5f80f17dd5cf7397d69496d8936b0ba":[3,0,2,0,0,2,1],
-"structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#adedc68aed1ff5a1cd6166c34e46258e8":[2,0,11,1,0,2,0],
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#adedc68aed1ff5a1cd6166c34e46258e8":[3,0,2,0,0,2,0],
+"structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#adedc68aed1ff5a1cd6166c34e46258e8":[2,0,11,1,0,2,0],
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#ae342bcd9539f28f0af08a44bec70ee3b":[3,0,2,0,0,2,7],
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#ae342bcd9539f28f0af08a44bec70ee3b":[2,0,11,1,0,2,7],
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#aec4501f8c3b3a859f4118cf943508249":[3,0,2,0,0,2,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#aee4d5c7be0b2e34e9a6ce7c22be0b3ec":[2,0,11,1,1,1,2],
 "structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html":[2,0,11,1,1,2],
 "structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html":[3,0,2,0,1,2],
-"structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html#a32f1a19b620922ebb7336039bb4e140a":[2,0,11,1,1,2,1],
-"structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html#a32f1a19b620922ebb7336039bb4e140a":[3,0,2,0,1,2,1]
+"structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html#a32f1a19b620922ebb7336039bb4e140a":[2,0,11,1,1,2,1]
 };
