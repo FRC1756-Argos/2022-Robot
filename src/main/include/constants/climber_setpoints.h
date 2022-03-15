@@ -25,11 +25,11 @@ namespace ClimberSetpoints {
   constexpr ClimberPoint latchL2 = {28.7_in, 37_in, 17_ips, 17_ips};
   constexpr ClimberPoint prepL2 = {28.7_in, 35.8_in, 10_ips, 10_ips};
   constexpr ClimberPoint secureL2 = {1_in, 37_in, 17_ips, 17_ips};
-  constexpr ClimberPoint passL3 = {34.4_in, 31.1_in, 10_ips, 10_ips};
+  constexpr ClimberPoint passL3 = {34.4_in, 31.1_in, 20_ips, 20_ips};
   constexpr ClimberPoint latchL3 = {31.5_in, 37.1_in, 10_ips, 10_ips};
   constexpr ClimberPoint prepTransferL3 = {31.5_in, 29_in, 10_ips, 10_ips};
   constexpr ClimberPoint transferL3 = {26_in, 29_in, 10_ips, 10_ips};
-  constexpr ClimberPoint holdL3 = {26_in, 31.1_in, 10_ips, 10_ips};
+  constexpr ClimberPoint holdL3 = {26_in, 31.1_in, 17_ips, 25_ips};
 }  // namespace ClimberSetpoints
 
 // the sequence to get fed into climb command

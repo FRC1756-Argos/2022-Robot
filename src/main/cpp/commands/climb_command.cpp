@@ -36,7 +36,7 @@ void ClimbCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ClimbCommand::Execute() {
-  if (m_pClimberSubsystem == nullptr) {
+  if (m_pClimberSubsystem == nullptr || m_pClimberSubsystem->IsManualOverride()) {
     Cancel();
     return;
   }
