@@ -17,19 +17,20 @@ struct ClimberPoint {
   units::inch_t armExtension;
   units::velocity::inches_per_second_t hookSpeed;
   units::velocity::inches_per_second_t armSpeed;
+  char pidSlot;
 };
 
 namespace ClimberSetpoints {
-  constexpr ClimberPoint setup = {measure_up::climber_hook::maxExtension - 1_in, 37_in, 10_ips, 10_ips};
-  constexpr ClimberPoint storage = {measure_up::climber_hook::maxExtension - 6_in, 21.5_in, 10_ips, 10_ips};
-  constexpr ClimberPoint latchL2 = {28.7_in, 37_in, 17_ips, 17_ips};
-  constexpr ClimberPoint prepL2 = {28.7_in, 35.8_in, 10_ips, 10_ips};
-  constexpr ClimberPoint secureL2 = {1_in, 37_in, 17_ips, 17_ips};
-  constexpr ClimberPoint passL3 = {34.4_in, 31.1_in, 20_ips, 20_ips};
-  constexpr ClimberPoint latchL3 = {31.5_in, 37.1_in, 10_ips, 10_ips};
-  constexpr ClimberPoint prepTransferL3 = {31.5_in, 29_in, 10_ips, 10_ips};
-  constexpr ClimberPoint transferL3 = {26_in, 29_in, 10_ips, 10_ips};
-  constexpr ClimberPoint holdL3 = {26_in, 31.1_in, 17_ips, 25_ips};
+  constexpr ClimberPoint setup = {measure_up::climber_hook::maxExtension - 1_in, 37_in, 10_ips, 10_ips, 0};
+  constexpr ClimberPoint storage = {measure_up::climber_hook::maxExtension - 6_in, 21.5_in, 10_ips, 10_ips, 0};
+  constexpr ClimberPoint latchL2 = {28.7_in, 37_in, 17_ips, 17_ips, 0};
+  constexpr ClimberPoint prepL2 = {28.7_in, 35.8_in, 10_ips, 10_ips, 0};
+  constexpr ClimberPoint secureL2 = {1_in, 37_in, 17_ips, 17_ips, 0};
+  constexpr ClimberPoint passL3 = {34.4_in, 31.1_in, 20_ips, 20_ips, 1};
+  constexpr ClimberPoint latchL3 = {31.5_in, 37.1_in, 10_ips, 10_ips, 0};
+  constexpr ClimberPoint prepTransferL3 = {31.5_in, 29_in, 10_ips, 10_ips, 0};
+  constexpr ClimberPoint transferL3 = {26_in, 29_in, 10_ips, 10_ips, 0};
+  constexpr ClimberPoint holdL3 = {26_in, 31.1_in, 17_ips, 25_ips, 1};
 }  // namespace ClimberSetpoints
 
 // the sequence to get fed into climb command

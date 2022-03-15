@@ -169,8 +169,15 @@ void ClimberSubsystem::DisableHookSoftLimits() {
 }
 
 void ClimberSubsystem::ClimberToSetpoint(ClimberPoint setPoint) {
+  SetClimbMotorsPID(setPoint.pidSlot);
   ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 17_ips2);
   HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 17_ips2);
+}
+
+void ClimberSubsystem::SetClimbMotorsPID(char slot) {
+  m_motorMoveHook.SelectProfileSlot(slot, 0);
+  m_motorLiftLeft.SelectProfileSlot(slot, 0);
+  m_motorLiftRight.SelectProfileSlot(slot, 0);
 }
 
 bool ClimberSubsystem::HooksAtPosition(units::inch_t target) {

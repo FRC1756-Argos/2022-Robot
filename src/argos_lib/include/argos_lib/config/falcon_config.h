@@ -34,6 +34,13 @@ namespace argos_lib {
     HAS_MEMBER(pid0_kI)
     HAS_MEMBER(pid0_kP)
     HAS_MEMBER(pid0_selectedSensor)
+    HAS_MEMBER(pid1_allowableError)
+    HAS_MEMBER(pid1_iZone)
+    HAS_MEMBER(pid1_kD)
+    HAS_MEMBER(pid1_kF)
+    HAS_MEMBER(pid1_kI)
+    HAS_MEMBER(pid1_kP)
+    HAS_MEMBER(pid1_selectedSensor)
     HAS_MEMBER(remoteFilter0_addr)
     HAS_MEMBER(remoteFilter0_type)
     HAS_MEMBER(reverseLimit_deviceID)
@@ -68,6 +75,13 @@ namespace argos_lib {
      *           - pid0_kI
      *           - pid0_kP
      *           - pid0_selectedSensor
+     *           - pid1_allowableError
+     *           - pid1_iZone
+     *           - pid1_kD
+     *           - pid1_kF
+     *           - pid1_kI
+     *           - pid1_kP
+     *           - pid1_selectedSensor
      *           - remoteFilter0_addr
      *           - remoteFilter0_type
      *           - reverseLimit_deviceID
@@ -143,6 +157,27 @@ namespace argos_lib {
       }
       if constexpr (has_pid0_allowableError<T>{}) {
         config.slot0.allowableClosedloopError = T::pid0_allowableError;
+      }
+      if constexpr (has_pid1_selectedSensor<T>{}) {
+        config.primaryPID.selectedFeedbackSensor = T::pid1_selectedSensor;
+      }
+      if constexpr (has_pid1_kP<T>{}) {
+        config.slot1.kP = T::pid1_kP;
+      }
+      if constexpr (has_pid1_kI<T>{}) {
+        config.slot1.kI = T::pid1_kI;
+      }
+      if constexpr (has_pid1_kD<T>{}) {
+        config.slot1.kD = T::pid1_kD;
+      }
+      if constexpr (has_pid1_kF<T>{}) {
+        config.slot1.kF = T::pid1_kF;
+      }
+      if constexpr (has_pid1_iZone<T>{}) {
+        config.slot1.integralZone = T::pid1_iZone;
+      }
+      if constexpr (has_pid1_allowableError<T>{}) {
+        config.slot1.allowableClosedloopError = T::pid1_allowableError;
       }
       if constexpr (has_supplyCurrentLimit<T>{} || has_supplyCurrentThreshold<T>{} ||
                     has_supplyCurrentThresholdTime<T>{}) {

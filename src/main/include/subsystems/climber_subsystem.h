@@ -175,6 +175,8 @@ class ClimberSubsystem : public frc2::SubsystemBase {
 
   void ClimberToSetpoint(ClimberPoint setPoint);
 
+  void ClimberSubsystem::SetClimbMotorsPID(char slot);
+
   bool ClimberAtPoint(ClimberPoint target);
 
   void SetClimberReady();

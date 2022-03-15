@@ -229,6 +229,12 @@ namespace motorConfig {
         constexpr static auto pid0_kF = controlLoop::comp_bot::climber::arm::kF;
         constexpr static auto pid0_iZone = controlLoop::comp_bot::climber::arm::iZone;
         constexpr static auto pid0_allowableError = controlLoop::comp_bot::climber::arm::allowableError;
+        constexpr static auto pid1_kP = controlLoop::comp_bot::climber_loaded::arm::kP;
+        constexpr static auto pid1_kI = controlLoop::comp_bot::climber_loaded::arm::kI;
+        constexpr static auto pid1_kD = controlLoop::comp_bot::climber_loaded::arm::kD;
+        constexpr static auto pid1_kF = controlLoop::comp_bot::climber_loaded::arm::kF;
+        constexpr static auto pid1_iZone = controlLoop::comp_bot::climber_loaded::arm::iZone;
+        constexpr static auto pid1_allowableError = controlLoop::comp_bot::climber_loaded::arm::allowableError;
       };
       struct liftLeft {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::None;
@@ -248,6 +254,12 @@ namespace motorConfig {
         constexpr static auto pid0_kF = controlLoop::comp_bot::climber::arm::kF;
         constexpr static auto pid0_iZone = controlLoop::comp_bot::climber::arm::iZone;
         constexpr static auto pid0_allowableError = controlLoop::comp_bot::climber::arm::allowableError;
+        constexpr static auto pid1_kP = controlLoop::comp_bot::climber_loaded::arm::kP;
+        constexpr static auto pid1_kI = controlLoop::comp_bot::climber_loaded::arm::kI;
+        constexpr static auto pid1_kD = controlLoop::comp_bot::climber_loaded::arm::kD;
+        constexpr static auto pid1_kF = controlLoop::comp_bot::climber_loaded::arm::kF;
+        constexpr static auto pid1_iZone = controlLoop::comp_bot::climber_loaded::arm::iZone;
+        constexpr static auto pid1_allowableError = controlLoop::comp_bot::climber_loaded::arm::allowableError;
       };
       struct moveHook {
         constexpr static auto inverted = ctre::phoenix::motorcontrol::InvertType::InvertMotorOutput;
@@ -263,6 +275,12 @@ namespace motorConfig {
         constexpr static auto pid0_kF = controlLoop::comp_bot::climber::hook::kF;
         constexpr static auto pid0_iZone = controlLoop::comp_bot::climber::hook::iZone;
         constexpr static auto pid0_allowableError = controlLoop::comp_bot::climber::hook::allowableError;
+        constexpr static auto pid1_kP = controlLoop::comp_bot::climber_loaded::hook::kP;
+        constexpr static auto pid1_kI = controlLoop::comp_bot::climber_loaded::hook::kI;
+        constexpr static auto pid1_kD = controlLoop::comp_bot::climber_loaded::hook::kD;
+        constexpr static auto pid1_kF = controlLoop::comp_bot::climber_loaded::hook::kF;
+        constexpr static auto pid1_iZone = controlLoop::comp_bot::climber_loaded::hook::iZone;
+        constexpr static auto pid1_allowableError = controlLoop::comp_bot::climber_loaded::hook::allowableError;
       };
     }  // namespace climber
   }    // namespace comp_bot
