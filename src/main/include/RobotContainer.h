@@ -20,6 +20,7 @@
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_right_2ball.h"
 #include "commands/autonomous/autonomous_right_5ball.h"
+#include "commands/climb_command.h"
 #include "commands/home_climber_arm_command.h"
 #include "commands/home_climber_hook_command.h"
 #include "commands/home_hood_command.h"
@@ -83,6 +84,7 @@ class RobotContainer {
   HomeHoodCommand m_homeHoodCommand;
   HomeClimberArmCommand m_homeClimberArmCommand;
   HomeClimberHookCommand m_homeClimberHookCommand;
+  ClimbCommand m_climbCommand;
 
   // Tuning stuff
   units::degree_t m_hoodTargetPosition;

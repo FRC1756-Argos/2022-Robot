@@ -6,6 +6,7 @@
 
 #include <frc2/command/SubsystemBase.h>
 
+#include "Constants.h"
 #include "argos_lib/config/robot_instance.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
@@ -14,6 +15,8 @@
 
 class ClimberSubsystem : public frc2::SubsystemBase {
  public:
+  enum class ClimberStatus { CLIMBER_STORAGE = 0, CLIMBER_READY = 1, CLIMBER_CLIMB = 2 };
+
   explicit ClimberSubsystem(const argos_lib::RobotInstance instance);
 
   /**
@@ -150,6 +153,38 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    */
   void DisableHookSoftLimits();
 
+  /**
+   * @brief Readies the climber for climb sequence
+   *
+   */
+  void SetClimbReady();
+
+  /**
+   * @brief Detect if a value is within a threshold of a target value
+   *
+   * @tparam T Type that implements operator+(), operator-(), operator<=() and operator>=()
+   * @param value Value to check
+   * @param target Center of range
+   * @param threshold Allowable error from target
+   * @return true when value is within threshold of target, false otherwise
+   */
+  template <typename T>
+  constexpr static bool InThreshold(const T value, const T target, const T threshold) {
+    return value >= target - threshold && value <= target + threshold;
+  }
+
+  void ClimberToSetpoint(ClimberPoint setPoint);
+
+  bool ClimberAtPoint(ClimberPoint target);
+
+  void SetClimberReady();
+
+  void SetClimberStorage();
+
+  void SetClimberLatch();
+
+  ClimberStatus GetClimberStatus();
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
@@ -164,4 +199,9 @@ class ClimberSubsystem : public frc2::SubsystemBase {
 
   argos_lib::NTMotorPIDTuner m_armPIDTuner;
   argos_lib::NTMotorPIDTuner m_hookPIDTuner;
+
+  ClimberSubsystem::ClimberStatus m_climberStatus;
+
+  bool HooksAtPosition(units::inch_t target);
+  bool ArmsAtPosition(units::inch_t target);
 };

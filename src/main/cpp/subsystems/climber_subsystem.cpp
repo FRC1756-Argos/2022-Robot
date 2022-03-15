@@ -6,6 +6,7 @@
 
 #include "Constants.h"
 #include "argos_lib/config/falcon_config.h"
+#include "frc/smartdashboard/SmartDashboard.h"
 
 ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
     : m_motorLiftRight(address::climber::liftRight)
@@ -27,7 +28,8 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
                      argos_lib::ClosedLoopSensorConversions{
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension),
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToVelocity),
-                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension)}} {
+                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension)}}
+    , m_climberStatus{ClimberStatus::CLIMBER_STORAGE} {
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::climber::liftRight,
                                          motorConfig::practice_bot::climber::liftRight>(
       m_motorLiftRight, 50_ms, instance);
@@ -164,4 +166,49 @@ void ClimberSubsystem::SetHookSoftLimits() {
 void ClimberSubsystem::DisableHookSoftLimits() {
   m_motorMoveHook.ConfigForwardSoftLimitEnable(false);
   m_motorMoveHook.ConfigReverseSoftLimitEnable(false);
+}
+
+void ClimberSubsystem::ClimberToSetpoint(ClimberPoint setPoint) {
+  ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 17_ips2);
+  HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 17_ips2);
+}
+
+bool ClimberSubsystem::HooksAtPosition(units::inch_t target) {
+  units::inch_t curPosition = sensor_conversions::climb_hooks::ToExtension(m_motorMoveHook.GetSelectedSensorPosition());
+  return InThreshold<units::inch_t>(curPosition, target, 0.125_in);
+}
+
+bool ClimberSubsystem::ArmsAtPosition(units::inch_t target) {
+  units::inch_t curPosition = sensor_conversions::climb_arms::ToExtension(m_motorLiftRight.GetSelectedSensorPosition());
+  return InThreshold<units::inch_t>(curPosition, target, 0.125_in);
+}
+
+bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {
+  return (ArmsAtPosition(target.armExtension) && HooksAtPosition(target.hookExtension)) ? true : false;
+}
+
+void ClimberSubsystem::SetClimberReady() {
+  ClimberToSetpoint(ClimberSetpoints::setup);
+  m_climberStatus = ClimberStatus::CLIMBER_READY;
+}
+
+void ClimberSubsystem::SetClimberStorage() {
+  if (m_climberStatus == ClimberStatus::CLIMBER_CLIMB) {
+    return;
+  }
+
+  if (IsArmMoving() || IsHookMoving()) {
+    return;
+  }
+  ClimberToSetpoint(ClimberSetpoints::storage);
+  m_climberStatus = ClimberStatus::CLIMBER_STORAGE;
+}
+
+void ClimberSubsystem::SetClimberLatch() {
+  ClimberToSetpoint(ClimberSetpoints::latchL2);
+  m_climberStatus = ClimberStatus::CLIMBER_CLIMB;
+}
+
+ClimberSubsystem::ClimberStatus ClimberSubsystem::GetClimberStatus() {
+  return m_climberStatus;
 }

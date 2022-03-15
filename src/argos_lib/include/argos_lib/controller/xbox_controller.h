@@ -40,6 +40,18 @@ namespace argos_lib {
       COUNT
     };
 
+    /**
+     * @brief State of an individual button
+     */
+    struct UpdateStatus {
+      bool pressed = false;          ///< Transitioned from inactive to active
+      bool released = false;         ///< Transitioned from active to inactive
+      bool debouncePress = false;    ///< Transitioned from inactive to active after debounce applied
+      bool debounceRelease = false;  ///< Transitioned from active to inactive after debounce applied
+      bool rawActive = false;        ///< Raw button status
+      bool debounceActive = false;   ///< Button status after debounce applied
+    };
+
     enum class Axis { kLeftX = 0, kLeftY = 1, kLeftTrigger = 2, kRightTrigger = 3, kRightX = 4, kRightY = 5, COUNT };
 
     XboxController() = delete;
@@ -197,19 +209,16 @@ namespace argos_lib {
      */
     void UpdateVibration();
 
-   private:
     /**
-     * @brief State of an individual button
+     * @brief Determines the new status of a button.  This is used by the other
+     *        status retrieval functions.
+     *
+     * @param buttonIdx Index of button to update
+     * @return UpdateStatus Full button state
      */
-    struct UpdateStatus {
-      bool pressed = false;          ///< Transitioned from inactive to active
-      bool released = false;         ///< Transitioned from active to inactive
-      bool debouncePress = false;    ///< Transitioned from inactive to active after debounce applied
-      bool debounceRelease = false;  ///< Transitioned from active to inactive after debounce applied
-      bool rawActive = false;        ///< Raw button status
-      bool debounceActive = false;   ///< Button status after debounce applied
-    };
+    UpdateStatus UpdateButton(Button buttonIdx);
 
+   private:
     /**
      * @brief Parsed directional pad button states
      */
@@ -219,15 +228,6 @@ namespace argos_lib {
       bool down = false;   ///< Down active (including adjacent diagonals)
       bool left = false;   ///< Left active (including adjacent diagonals)
     };
-
-    /**
-     * @brief Determines the new status of a button.  This is used by the other
-     *        status retrieval functions.
-     *
-     * @param buttonIdx Index of button to update
-     * @return UpdateStatus Full button state
-     */
-    UpdateStatus UpdateButton(Button buttonIdx);
 
     /**
      * @brief Convert POV angle to usable DPad button values
