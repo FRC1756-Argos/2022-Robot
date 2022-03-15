@@ -12,6 +12,7 @@ var class_robot_container =
     [ "m_autoRight2Ball", "class_robot_container.html#a4a33e5e8624974cf3d4b6bd3ebc9c70b", null ],
     [ "m_autoRight5Ball", "class_robot_container.html#a106dd3950a7db8934b05f87f259ada25", null ],
     [ "m_autoRoutineSelector", "class_robot_container.html#a1cd33bbf3b9899c64f6a34e489583a72", null ],
+    [ "m_climbCommand", "class_robot_container.html#a0750b95cc9998443a2a9312c40879510", null ],
     [ "m_climberArmAccel", "class_robot_container.html#ab437fcaf9494c71ae3a800266f22296d", null ],
     [ "m_climberArmCruiseVelocity", "class_robot_container.html#a4a999eef5a7cca81ce094970084706ed", null ],
     [ "m_climberArmTargetExtension", "class_robot_container.html#a2dbc324d2a7df7a4b90f2ed26f7eed56", null ],

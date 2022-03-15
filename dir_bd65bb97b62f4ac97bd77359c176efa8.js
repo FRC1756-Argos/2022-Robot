@@ -17,6 +17,9 @@ var dir_bd65bb97b62f4ac97bd77359c176efa8 =
     [ "network_tables_wrapper.h", "network__tables__wrapper_8h.html", [
       [ "NetworkTablesWrapper", "class_network_tables_wrapper.html", "class_network_tables_wrapper" ]
     ] ],
+    [ "nt_button_monitor.h", "nt__button__monitor_8h.html", [
+      [ "NtButtonMonitor", "class_nt_button_monitor.html", "class_nt_button_monitor" ]
+    ] ],
     [ "pose_continuity_fix.h", "pose__continuity__fix_8h.html", "pose__continuity__fix_8h" ],
     [ "sensor_conversions.h", "sensor__conversions_8h.html", "sensor__conversions_8h" ],
     [ "swerve_trapezoidal_profile.h", "swerve__trapezoidal__profile_8h.html", "swerve__trapezoidal__profile_8h" ]

@@ -84,7 +84,10 @@ $(document).ready(function(){initNavTree('class_climber_subsystem.html',''); ini
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_climber_subsystem-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ClimberSubsystem Class Reference</div></div>
@@ -99,6 +102,14 @@ Inheritance diagram for ClimberSubsystem:</div>
   <img src="class_climber_subsystem.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a6366518ca0bc989cba636a52e2e3ab1e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a6366518ca0bc989cba636a52e2e3ab1e">ClimberStatus</a> { <a class="el" href="class_climber_subsystem.html#a6366518ca0bc989cba636a52e2e3ab1ea36340fb79ee7f80fea4324c0e336bea3">CLIMBER_STORAGE</a> = 0
+, <a class="el" href="class_climber_subsystem.html#a6366518ca0bc989cba636a52e2e3ab1ea5b4933b8c0b7f78ca7883ab1074075ae">CLIMBER_READY</a> = 1
+, <a class="el" href="class_climber_subsystem.html#a6366518ca0bc989cba636a52e2e3ab1ea6ba0b156c2e0a275c4d024a83f1706dc">CLIMBER_CLIMB</a> = 2
+ }</td></tr>
+<tr class="separator:a6366518ca0bc989cba636a52e2e3ab1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3f5cf4dabad5e28e7da2df5e4c3290d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#ae3f5cf4dabad5e28e7da2df5e4c3290d">ClimberSubsystem</a> (const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance)</td></tr>
@@ -159,6 +170,35 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9db3ba324ad8a7a2c858ca2aa507b53e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a9db3ba324ad8a7a2c858ca2aa507b53e">DisableHookSoftLimits</a> ()</td></tr>
 <tr class="memdesc:a9db3ba324ad8a7a2c858ca2aa507b53e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables hook soft limit.  <a href="class_climber_subsystem.html#a9db3ba324ad8a7a2c858ca2aa507b53e">More...</a><br /></td></tr>
 <tr class="separator:a9db3ba324ad8a7a2c858ca2aa507b53e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee8aa7e7d536b41a910a33f6822d45fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#aee8aa7e7d536b41a910a33f6822d45fe">SetClimbReady</a> ()</td></tr>
+<tr class="memdesc:aee8aa7e7d536b41a910a33f6822d45fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Readies the climber for climb sequence.  <a href="class_climber_subsystem.html#aee8aa7e7d536b41a910a33f6822d45fe">More...</a><br /></td></tr>
+<tr class="separator:aee8aa7e7d536b41a910a33f6822d45fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61857b644484218241e61af5071cdff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a61857b644484218241e61af5071cdff5">ClimberToSetpoint</a> (<a class="el" href="struct_climber_point.html">ClimberPoint</a> setPoint)</td></tr>
+<tr class="separator:a61857b644484218241e61af5071cdff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7985559dde2c6fec0cb5677ff59177d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a7985559dde2c6fec0cb5677ff59177d5">ClimberAtPoint</a> (<a class="el" href="struct_climber_point.html">ClimberPoint</a> target)</td></tr>
+<tr class="separator:a7985559dde2c6fec0cb5677ff59177d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a927615e952d124f2048f7b55e1baf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#af5a927615e952d124f2048f7b55e1baf">SetClimberReady</a> ()</td></tr>
+<tr class="separator:af5a927615e952d124f2048f7b55e1baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3502129599d85afaf4d284f6c56cc0be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a3502129599d85afaf4d284f6c56cc0be">SetClimberStorage</a> ()</td></tr>
+<tr class="separator:a3502129599d85afaf4d284f6c56cc0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a000edf54381f1d428e0fce9ee209d1d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a000edf54381f1d428e0fce9ee209d1d9">SetClimberLatch</a> ()</td></tr>
+<tr class="separator:a000edf54381f1d428e0fce9ee209d1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26b86b176e4124a51199952d5e3ba83e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_climber_subsystem.html#a6366518ca0bc989cba636a52e2e3ab1e">ClimberStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a26b86b176e4124a51199952d5e3ba83e">GetClimberStatus</a> ()</td></tr>
+<tr class="separator:a26b86b176e4124a51199952d5e3ba83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a627a4726f15cdf1ced25caf274d670c3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a627a4726f15cdf1ced25caf274d670c3"><td class="memTemplItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a627a4726f15cdf1ced25caf274d670c3">InThreshold</a> (const T value, const T target, const T threshold)</td></tr>
+<tr class="memdesc:a627a4726f15cdf1ced25caf274d670c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if a value is within a threshold of a target value.  <a href="class_climber_subsystem.html#a627a4726f15cdf1ced25caf274d670c3">More...</a><br /></td></tr>
+<tr class="separator:a627a4726f15cdf1ced25caf274d670c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a84998ec1a4bd9816dcec1cb95716e430"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a84998ec1a4bd9816dcec1cb95716e430">HooksAtPosition</a> (units::inch_t target)</td></tr>
+<tr class="separator:a84998ec1a4bd9816dcec1cb95716e430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4b165732db911f3d0f6471a83cc7251"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#ae4b165732db911f3d0f6471a83cc7251">ArmsAtPosition</a> (units::inch_t target)</td></tr>
+<tr class="separator:ae4b165732db911f3d0f6471a83cc7251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -178,10 +218,40 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a2da152bac315a9ae7154c98e2ab69518"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbb01447dc2441f0b8463324c83da3f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#adbb01447dc2441f0b8463324c83da3f4">m_hookPIDTuner</a></td></tr>
 <tr class="separator:adbb01447dc2441f0b8463324c83da3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11da949ffac0ec0d2ede7870a7ccded3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_climber_subsystem.html#a6366518ca0bc989cba636a52e2e3ab1e">ClimberSubsystem::ClimberStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_climber_subsystem.html#a11da949ffac0ec0d2ede7870a7ccded3">m_climberStatus</a></td></tr>
+<tr class="separator:a11da949ffac0ec0d2ede7870a7ccded3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a6366518ca0bc989cba636a52e2e3ab1e" name="a6366518ca0bc989cba636a52e2e3ab1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6366518ca0bc989cba636a52e2e3ab1e">&#9670;&nbsp;</a></span>ClimberStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="class_climber_subsystem.html#a6366518ca0bc989cba636a52e2e3ab1e">ClimberSubsystem::ClimberStatus</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6366518ca0bc989cba636a52e2e3ab1ea36340fb79ee7f80fea4324c0e336bea3" name="a6366518ca0bc989cba636a52e2e3ab1ea36340fb79ee7f80fea4324c0e336bea3"></a>CLIMBER_STORAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6366518ca0bc989cba636a52e2e3ab1ea5b4933b8c0b7f78ca7883ab1074075ae" name="a6366518ca0bc989cba636a52e2e3ab1ea5b4933b8c0b7f78ca7883ab1074075ae"></a>CLIMBER_READY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6366518ca0bc989cba636a52e2e3ab1ea6ba0b156c2e0a275c4d024a83f1706dc" name="a6366518ca0bc989cba636a52e2e3ab1ea6ba0b156c2e0a275c4d024a83f1706dc"></a>CLIMBER_CLIMB&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae3f5cf4dabad5e28e7da2df5e4c3290d" name="ae3f5cf4dabad5e28e7da2df5e4c3290d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3f5cf4dabad5e28e7da2df5e4c3290d">&#9670;&nbsp;</a></span>ClimberSubsystem()</h2>
 
@@ -210,6 +280,32 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae4b165732db911f3d0f6471a83cc7251" name="ae4b165732db911f3d0f6471a83cc7251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4b165732db911f3d0f6471a83cc7251">&#9670;&nbsp;</a></span>ArmsAtPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ClimberSubsystem::ArmsAtPosition </td>
+          <td>(</td>
+          <td class="paramtype">units::inch_t&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1cdaf5e98ec061c20c2b1cc14903fc40" name="a1cdaf5e98ec061c20c2b1cc14903fc40"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1cdaf5e98ec061c20c2b1cc14903fc40">&#9670;&nbsp;</a></span>ArmSetPosition() <span class="overload">[1/2]</span></h2>
 
@@ -280,6 +376,42 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7985559dde2c6fec0cb5677ff59177d5" name="a7985559dde2c6fec0cb5677ff59177d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7985559dde2c6fec0cb5677ff59177d5">&#9670;&nbsp;</a></span>ClimberAtPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ClimberSubsystem::ClimberAtPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_climber_point.html">ClimberPoint</a>&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61857b644484218241e61af5071cdff5" name="a61857b644484218241e61af5071cdff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61857b644484218241e61af5071cdff5">&#9670;&nbsp;</a></span>ClimberToSetpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClimberSubsystem::ClimberToSetpoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_climber_point.html">ClimberPoint</a>&#160;</td>
+          <td class="paramname"><em>setPoint</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ace65f6734f00ea77d23b93d661b375c2" name="ace65f6734f00ea77d23b93d661b375c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ace65f6734f00ea77d23b93d661b375c2">&#9670;&nbsp;</a></span>Disable()</h2>
 
@@ -315,6 +447,49 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Disables hook soft limit. </p>
+
+</div>
+</div>
+<a id="a26b86b176e4124a51199952d5e3ba83e" name="a26b86b176e4124a51199952d5e3ba83e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26b86b176e4124a51199952d5e3ba83e">&#9670;&nbsp;</a></span>GetClimberStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_climber_subsystem.html#a6366518ca0bc989cba636a52e2e3ab1e">ClimberSubsystem::ClimberStatus</a> ClimberSubsystem::GetClimberStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84998ec1a4bd9816dcec1cb95716e430" name="a84998ec1a4bd9816dcec1cb95716e430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84998ec1a4bd9816dcec1cb95716e430">&#9670;&nbsp;</a></span>HooksAtPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ClimberSubsystem::HooksAtPosition </td>
+          <td>(</td>
+          <td class="paramtype">units::inch_t&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -385,6 +560,67 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a627a4726f15cdf1ced25caf274d670c3" name="a627a4726f15cdf1ced25caf274d670c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a627a4726f15cdf1ced25caf274d670c3">&#9670;&nbsp;</a></span>InThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr bool ClimberSubsystem::InThreshold </td>
+          <td>(</td>
+          <td class="paramtype">const T&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T&#160;</td>
+          <td class="paramname"><em>threshold</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Detect if a value is within a threshold of a target value. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type that implements operator+(), operator-(), operator&lt;=() and operator&gt;=() </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Value to check </td></tr>
+    <tr><td class="paramname">target</td><td>Center of range </td></tr>
+    <tr><td class="paramname">threshold</td><td>Allowable error from target </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true when value is within threshold of target, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -622,6 +858,76 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a000edf54381f1d428e0fce9ee209d1d9" name="a000edf54381f1d428e0fce9ee209d1d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a000edf54381f1d428e0fce9ee209d1d9">&#9670;&nbsp;</a></span>SetClimberLatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClimberSubsystem::SetClimberLatch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5a927615e952d124f2048f7b55e1baf" name="af5a927615e952d124f2048f7b55e1baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5a927615e952d124f2048f7b55e1baf">&#9670;&nbsp;</a></span>SetClimberReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClimberSubsystem::SetClimberReady </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3502129599d85afaf4d284f6c56cc0be" name="a3502129599d85afaf4d284f6c56cc0be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3502129599d85afaf4d284f6c56cc0be">&#9670;&nbsp;</a></span>SetClimberStorage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClimberSubsystem::SetClimberStorage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee8aa7e7d536b41a910a33f6822d45fe" name="aee8aa7e7d536b41a910a33f6822d45fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee8aa7e7d536b41a910a33f6822d45fe">&#9670;&nbsp;</a></span>SetClimbReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClimberSubsystem::SetClimbReady </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Readies the climber for climb sequence. </p>
+
+</div>
+</div>
 <a id="a1851958cc967ccc3032f8c6f2630eac4" name="a1851958cc967ccc3032f8c6f2630eac4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1851958cc967ccc3032f8c6f2630eac4">&#9670;&nbsp;</a></span>SetHookSoftLimits()</h2>
 
@@ -713,6 +1019,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a> ClimberSubsystem::m_armPIDTuner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11da949ffac0ec0d2ede7870a7ccded3" name="a11da949ffac0ec0d2ede7870a7ccded3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11da949ffac0ec0d2ede7870a7ccded3">&#9670;&nbsp;</a></span>m_climberStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_climber_subsystem.html#a6366518ca0bc989cba636a52e2e3ab1e">ClimberSubsystem::ClimberStatus</a> ClimberSubsystem::m_climberStatus</td>
         </tr>
       </table>
   </td>

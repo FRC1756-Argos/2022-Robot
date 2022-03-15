@@ -2,7 +2,7 @@ var searchData=
 [
   ['unit_5fadd_0',['UNIT_ADD',['../namespaceunits.html#a6e423a2262132d26e8ff94ee0a5602a3',1,'units']]],
   ['updatearmhome_1',['UpdateArmHome',['../class_climber_subsystem.html#a8fd60e427404f9331b2fdefe05580c71',1,'ClimberSubsystem']]],
-  ['updatebutton_2',['UpdateButton',['../classargos__lib_1_1_xbox_controller.html#a9646359d9a7bd868f0973d53640c24dc',1,'argos_lib::XboxController']]],
+  ['updatebutton_2',['UpdateButton',['../classargos__lib_1_1_xbox_controller.html#a9646359d9a7bd868f0973d53640c24dc',1,'argos_lib::XboxController::UpdateButton()'],['../class_nt_button_monitor.html#a8417c6a3e39889b355f38d61cc54c854',1,'NtButtonMonitor::UpdateButton()']]],
   ['updateclosedloopmonitoringthread_3',['UpdateClosedLoopMonitoringThread',['../classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#ac6dab53d0071dc6c5507cc643ea51e24',1,'argos_lib::NTMotorPIDTuner']]],
   ['updatefollowerlinearpidparams_4',['UpdateFollowerLinearPIDParams',['../class_swerve_drive_subsystem.html#a3ed0c7b4057297cd9f0342f726af3211',1,'SwerveDriveSubsystem']]],
   ['updatefollowerrotationalpidconstraints_5',['UpdateFollowerRotationalPIDConstraints',['../class_swerve_drive_subsystem.html#a3602864bf0f0f24b36cae18fcc340286',1,'SwerveDriveSubsystem']]],

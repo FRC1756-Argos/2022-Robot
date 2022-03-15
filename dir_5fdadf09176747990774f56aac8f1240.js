@@ -1,6 +1,7 @@
 var dir_5fdadf09176747990774f56aac8f1240 =
 [
     [ "addresses.h", "addresses_8h.html", "addresses_8h" ],
+    [ "climber_setpoints.h", "climber__setpoints_8h.html", "climber__setpoints_8h" ],
     [ "constraints.h", "constraints_8h.html", "constraints_8h" ],
     [ "control_loops.h", "control__loops_8h.html", "control__loops_8h" ],
     [ "field_points.h", "field__points_8h.html", "field__points_8h" ],

@@ -7,6 +7,9 @@ var dir_8351edd85a1483fb2b79b8acebf64e28 =
     [ "auto_vision_aim_command.h", "auto__vision__aim__command_8h.html", [
       [ "AutoVisionAimCommand", "class_auto_vision_aim_command.html", "class_auto_vision_aim_command" ]
     ] ],
+    [ "climb_command.h", "climb__command_8h.html", [
+      [ "ClimbCommand", "class_climb_command.html", "class_climb_command" ]
+    ] ],
     [ "delay_command.h", "delay__command_8h.html", [
       [ "DelayCommand", "class_delay_command.html", "class_delay_command" ]
     ] ],
