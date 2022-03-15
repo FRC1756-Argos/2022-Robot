@@ -40,7 +40,6 @@ namespace argos_lib {
     HAS_MEMBER(pid1_kF)
     HAS_MEMBER(pid1_kI)
     HAS_MEMBER(pid1_kP)
-    HAS_MEMBER(pid1_selectedSensor)
     HAS_MEMBER(remoteFilter0_addr)
     HAS_MEMBER(remoteFilter0_type)
     HAS_MEMBER(reverseLimit_deviceID)
@@ -81,7 +80,6 @@ namespace argos_lib {
      *           - pid1_kF
      *           - pid1_kI
      *           - pid1_kP
-     *           - pid1_selectedSensor
      *           - remoteFilter0_addr
      *           - remoteFilter0_type
      *           - reverseLimit_deviceID
@@ -157,9 +155,6 @@ namespace argos_lib {
       }
       if constexpr (has_pid0_allowableError<T>{}) {
         config.slot0.allowableClosedloopError = T::pid0_allowableError;
-      }
-      if constexpr (has_pid1_selectedSensor<T>{}) {
-        config.primaryPID.selectedFeedbackSensor = T::pid0_selectedSensor;
       }
       if constexpr (has_pid1_kP<T>{}) {
         config.slot1.kP = T::pid1_kP;
