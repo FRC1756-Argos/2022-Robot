@@ -75,6 +75,8 @@ class RobotContainer {
 
   const argos_lib::RobotInstance m_instance;
 
+  frc::Compressor m_compressor;
+
   argos_lib::SwappableControllersSubsystem m_controllers;
   SwerveDriveSubsystem m_swerveDrive;
   IntakeSubsystem m_intake;

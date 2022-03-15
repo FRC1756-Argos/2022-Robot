@@ -8,6 +8,7 @@
 #include <frc/DriverStation.h>
 #include <frc/livewindow/LiveWindow.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <frc2/command/InstantCommand.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/button/Trigger.h>
 #include <networktables/NetworkTable.h>
@@ -27,6 +28,7 @@ RobotContainer::RobotContainer()
     , m_turretSpeedMap(controllerMap::turretSpeed)
     , m_hoodSpeedMap(controllerMap::hoodSpeed)
     , m_instance(argos_lib::GetRobotInstance())
+    , m_compressor(1, frc::PneumaticsModuleType::REVPH)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable, m_instance)
     , m_intake(m_instance)
@@ -172,7 +174,13 @@ RobotContainer::RobotContainer()
   // Homing commands
   (teleopEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
   (robotEnableTrigger && (!climberArmHomingCompleteTrigger || !climberHookHomingCompleteTrigger))
-      .WhenActive(frc2::SequentialCommandGroup(m_homeClimberArmCommand, m_homeClimberHookCommand));
+      .WhenActive(frc2::SequentialCommandGroup(
+          m_homeClimberArmCommand,
+          m_homeClimberHookCommand,
+          frc2::InstantCommand{[this]() { m_pClimber->SetClimberStorage(); }, {m_pClimber.get()}}));
+
+  // Re-enable compressor on enable
+  robotEnableTrigger.WhenActive([this]() { m_compressor.EnableDigital(); }, {});
 
   shooterOverrideTrigger.WhenActive([this]() { m_shooter.ManualOverride(); }, {&m_shooter});
   if (m_pClimber) {
@@ -408,9 +416,20 @@ void RobotContainer::ConfigureButtonBindings() {
     return m_controllers.DriverController().GetDebouncedButtonPressed(argos_lib::XboxController::Button::kDown);
   }})};
 
-  climbReady.WhenActive([this]() { m_pClimber->SetClimberReady(); }, {m_pClimber.get()});
+  climbReady.WhenActive(
+      [this]() {
+        m_compressor.Disable();
+        m_shooter.Disable();
+        m_pClimber->SetClimberReady();
+      },
+      {m_pClimber.get(), &m_shooter});
 
-  climbStorage.WhenActive([this]() { m_pClimber->SetClimberStorage(); }, {m_pClimber.get()});
+  climbStorage.WhenActive(
+      [this]() {
+        m_compressor.EnableDigital();
+        m_pClimber->SetClimberStorage();
+      },
+      {m_pClimber.get()});
 
   climbConfirm.WhenActive(
       [this]() {
@@ -420,11 +439,15 @@ void RobotContainer::ConfigureButtonBindings() {
             break;
 
           case ClimberSubsystem::ClimberStatus::CLIMBER_READY:
+            m_compressor.Disable();
+            m_shooter.Disable();
             m_pClimber->SetClimberLatch();
             return;
             break;
 
           case ClimberSubsystem::ClimberStatus::CLIMBER_CLIMB:
+            m_compressor.Disable();
+            m_shooter.Disable();
             m_climbCommand.Schedule();
             break;
 
@@ -432,7 +455,7 @@ void RobotContainer::ConfigureButtonBindings() {
             break;
         }
       },
-      {m_pClimber.get()});
+      {m_pClimber.get(), &m_shooter});
 
   // TRIGGER ACTIVATION -------------------------------------------------------------------------------------
 
