@@ -31,6 +31,7 @@ var class_climber_subsystem =
     [ "SetClimberLatch", "class_climber_subsystem.html#a000edf54381f1d428e0fce9ee209d1d9", null ],
     [ "SetClimberReady", "class_climber_subsystem.html#af5a927615e952d124f2048f7b55e1baf", null ],
     [ "SetClimberStorage", "class_climber_subsystem.html#a3502129599d85afaf4d284f6c56cc0be", null ],
+    [ "SetClimbMotorsPID", "class_climber_subsystem.html#af1468e80ff128dbf0e646e49ca520274", null ],
     [ "SetClimbReady", "class_climber_subsystem.html#aee8aa7e7d536b41a910a33f6822d45fe", null ],
     [ "SetHookSoftLimits", "class_climber_subsystem.html#a1851958cc967ccc3032f8c6f2630eac4", null ],
     [ "UpdateArmHome", "class_climber_subsystem.html#a8fd60e427404f9331b2fdefe05580c71", null ],
