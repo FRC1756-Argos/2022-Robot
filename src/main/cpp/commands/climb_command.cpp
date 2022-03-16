@@ -62,6 +62,7 @@ void ClimbCommand::End(bool interrupted) {
   }
   // Clear queue so no weird motion on next run
   m_climbPoints = {};
+  m_pClimberSubsystem->SetClimbMotorsPID(0);  // Reset to unloaded
   m_pClimberSubsystem->Disable();
 }
 

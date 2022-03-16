@@ -94,10 +94,10 @@ namespace controlLoop {
         constexpr static double allowableError = 0;
       }  // namespace hook
       namespace arm {
-        constexpr static double kP = 0.06;
-        constexpr static double kI = 0.03;
+        constexpr static double kP = 0.03;
+        constexpr static double kI = 0.01;
         constexpr static double kD = 0.0;
-        constexpr static double kF = 0.09;
+        constexpr static double kF = 0.05;
         constexpr static double iZone = 200.0;
         constexpr static double allowableError = 0;
       }  // namespace arm

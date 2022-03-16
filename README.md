@@ -50,10 +50,10 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | Left JS Y       | Drive |
 | Right JS X      | Turn |
 | Right JS Y      | Unused |
-| DPad Up         | Initiates Climb|
-| DPad Right      | Unused |
-| DPad Down       | Redo Climb |
-| DPad Left       | Retract Hook |
+| DPad Up         | Unused|
+| DPad Right      | Initialize (hold) / Cancel (press) climb |
+| DPad Down       | Confirm (hold) climb |
+| DPad Left       | Unused |
 | A               | Home Swerve (hold with <kbd>B</kbd> and <kbd>X</kbd>) |
 | B               | Home Swerve (hold with <kbd>A</kbd> and <kbd>X</kbd>) |
 | X               | Home Swerve (hold with <kbd>A</kbd> and <kbd>B</kbd>) |
@@ -77,7 +77,7 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | A               | Home Turret (hold with <kbd>X</kbd> and <kbd>B</kbd>) + Lower Arm |
 | B               | Home Turret (hold with <kbd>X</kbd> and <kbd>A</kbd>) + Extend Hook |
 | X               | Home Turret (hold with <kbd>A</kbd> and <kbd>B</kbd>) + Retract Hook |
-| Y               | Raise Arm |
+| Y               | Unused |
 | DPad Up         | Front Close Up Shot |
 | DPad Right      | Right Close Up Shot |
 | DPad Down       | Back Close Up Shot |
