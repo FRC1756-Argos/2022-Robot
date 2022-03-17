@@ -118,7 +118,7 @@ bool ShooterSubsystem::AutoAim() {
   // Get target distance & assign to hood & shooter
   units::length::inch_t distanceToTarget;
 
-  units::length::inch_t fudgeFactor = 18_in;
+  units::length::inch_t fudgeFactor = 12_in;
 
   if (m_useCalculatedPitch) {
     units::degree_t newPitch = m_cameraInterface.GetNewPitch(
