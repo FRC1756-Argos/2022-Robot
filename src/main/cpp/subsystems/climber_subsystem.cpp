@@ -195,6 +195,9 @@ bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {
 }
 
 void ClimberSubsystem::SetClimberReady() {
+  if (IsArmMoving() || IsHookMoving()) {
+    return;
+  }
   ClimberToSetpoint(ClimberSetpoints::setup);
   m_climberStatus = ClimberStatus::CLIMBER_READY;
 }
