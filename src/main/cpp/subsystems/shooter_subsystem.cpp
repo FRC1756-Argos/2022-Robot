@@ -118,6 +118,8 @@ bool ShooterSubsystem::AutoAim() {
   // Get target distance & assign to hood & shooter
   units::length::inch_t distanceToTarget;
 
+  units::length::inch_t fudgeFactor = 12_in;
+
   if (m_useCalculatedPitch) {
     units::degree_t newPitch = m_cameraInterface.GetNewPitch(
         targetValues.yaw, targetValues.pitch, targetValues.bboxHor, targetValues.bboxVer, targetValues.skew);
@@ -131,6 +133,8 @@ bool ShooterSubsystem::AutoAim() {
 
   // fitting 2nd degree polynomial to get the offset
   distanceToTarget -= GetPolynomialOffset(distanceToTarget);
+
+  distanceToTarget += fudgeFactor;
 
   const auto shooterSetpoints = SetShooterDistance(distanceToTarget);
 
