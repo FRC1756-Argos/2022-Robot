@@ -13,3 +13,8 @@ modifiableFileExclude {
    gradle/
    gradlew
 }
+
+generatedFileExclude {
+   \.odg$
+   \.pdf$
+}
