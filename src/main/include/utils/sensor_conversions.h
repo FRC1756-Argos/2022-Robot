@@ -128,16 +128,17 @@ namespace sensor_conversions {
     constexpr double sensorToMotorRev = 1.0 / 2048;
     constexpr double gearboxReduction = 1.0 / 8;
     constexpr double driveSprocketTeethPerRevolution = 18.0;
+    constexpr double sprocketRatio = 18.0 / 22.0;
     constexpr double extensionInchesPerDriveSprocketTooth = 0.25 / 1;
     constexpr double fudgeFactor = 0.88;  ///< @todo Why are we off by this amount?
     constexpr units::inch_t ToExtension(const double sensorUnit) {
-      return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction *
+      return units::make_unit<units::inch_t>(sensorUnit * sensorToMotorRev * gearboxReduction * sprocketRatio *
                                              driveSprocketTeethPerRevolution * extensionInchesPerDriveSprocketTooth *
                                              fudgeFactor);
     }
     constexpr double ToSensorUnit(const units::inch_t extension) {
       return extension.to<double>() / fudgeFactor / extensionInchesPerDriveSprocketTooth /
-             driveSprocketTeethPerRevolution / gearboxReduction / sensorToMotorRev;
+             driveSprocketTeethPerRevolution / gearboxReduction / sprocketRatio / sensorToMotorRev;
     }
 
     constexpr double ToSensorVelocity(const units::meters_per_second_t velocity) {
