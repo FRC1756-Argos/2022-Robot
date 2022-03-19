@@ -86,6 +86,7 @@ RobotContainer::RobotContainer()
     , m_autoCenterRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoCenter1ball{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoCenterLeft2Ball{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoCenterLeft2BallDefense{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoNothing{}
     , m_autoRoutineSelector{{&m_autoRight2Ball,
                              &m_autoRight5Ball,
@@ -93,6 +94,7 @@ RobotContainer::RobotContainer()
                              &m_autoCenterRight2Ball,
                              &m_autoCenter1ball,
                              &m_autoCenterLeft2Ball,
+                             &m_autoCenterLeft2BallDefense,
                              &m_autoNothing},
                             &m_autoNothing} {
   // Live window is causing various watchdog timeouts

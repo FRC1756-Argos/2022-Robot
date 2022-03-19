@@ -16,6 +16,7 @@
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "commands/autonomous/autonomous_center_1ball.h"
 #include "commands/autonomous/autonomous_center_left_2ball.h"
+#include "commands/autonomous/autonomous_center_left_2ball_defense.h"
 #include "commands/autonomous/autonomous_center_right_2ball.h"
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_right_2ball.h"
@@ -126,6 +127,7 @@ class RobotContainer {
   AutonomousCenterRight2ball m_autoCenterRight2Ball;
   AutonomousCenter1ball m_autoCenter1ball;
   AutonomousCenterLeft2ball m_autoCenterLeft2Ball;
+  AutonomousCenterLeft2ballDefense m_autoCenterLeft2BallDefense;
   AutonomousNothing m_autoNothing;
 
   // Autonomous Selector
