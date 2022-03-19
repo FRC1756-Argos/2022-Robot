@@ -32,6 +32,12 @@ namespace constraints {
     static const frc::TrapezoidProfile<units::degrees>::Constraints rotationalConstraints{
         units::degrees_per_second_t{360}, units::degrees_per_second_squared_t{360}};
   }  // namespace BD_path
+  namespace terminal_gap_path {
+    static const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints{
+        10_fps, units::feet_per_second_squared_t{12}};
+    static const frc::TrapezoidProfile<units::degrees>::Constraints rotationalConstraints{
+        units::degrees_per_second_t{360}, units::degrees_per_second_squared_t{360}};
+  }  // namespace terminal_gap_path
   namespace D_5_final {
     static const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints{
         10_fps, units::feet_per_second_squared_t{12}};

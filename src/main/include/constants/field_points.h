@@ -36,6 +36,9 @@ namespace field_points {
                                              balls::D.Y() + 24_in,
                                              -135_deg);  ///< Approach at 45 degree angle
 
+    static const frc::Pose2d HumanPlayer =
+        frc::Pose2d(pickup_positions::D.X() + 6_in, pickup_positions::D.Y() + 6_in, pickup_positions::D.Rotation());
+
     static const frc::Pose2d Shoot_D = frc::Pose2d(balls::B.X(),
                                                    balls::B.Y(),
                                                    -135_deg);  ///< Approach at 45 degree angle
