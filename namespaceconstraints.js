@@ -15,5 +15,9 @@ var namespaceconstraints =
     [ "first_ball_path", "namespaceconstraints_1_1first__ball__path.html", [
       [ "linearConstraints", "namespaceconstraints_1_1first__ball__path.html#a2a1d58c5d14243b2b57847f16eda8bb6", null ],
       [ "rotationalConstraints", "namespaceconstraints_1_1first__ball__path.html#a7a833f90d8ab27b0f35e43040dcb2632", null ]
+    ] ],
+    [ "terminal_gap_path", "namespaceconstraints_1_1terminal__gap__path.html", [
+      [ "linearConstraints", "namespaceconstraints_1_1terminal__gap__path.html#ac5afb68d78387688c0d1c92b813304cb", null ],
+      [ "rotationalConstraints", "namespaceconstraints_1_1terminal__gap__path.html#aecc6144101f1de3e6ddb09f662735e78", null ]
     ] ]
 ];

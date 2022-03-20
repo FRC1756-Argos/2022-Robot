@@ -23,7 +23,8 @@ var namespacesensor__conversions =
       [ "extensionInchesPerDriveSprocketTooth", "namespacesensor__conversions_1_1climb__hooks.html#abb5e81026ade54f9101fe970f3a8ad08", null ],
       [ "fudgeFactor", "namespacesensor__conversions_1_1climb__hooks.html#a1827c5505cea37146c6c5bd7a82344c0", null ],
       [ "gearboxReduction", "namespacesensor__conversions_1_1climb__hooks.html#a2735c94dc35b612beb748bc359fd7b0b", null ],
-      [ "sensorToMotorRev", "namespacesensor__conversions_1_1climb__hooks.html#acf3f3463fa0b891443f9461d9f26cc34", null ]
+      [ "sensorToMotorRev", "namespacesensor__conversions_1_1climb__hooks.html#acf3f3463fa0b891443f9461d9f26cc34", null ],
+      [ "sprocketRatio", "namespacesensor__conversions_1_1climb__hooks.html#a58c9f6523fb854f81357496c68539036", null ]
     ] ],
     [ "hood", "namespacesensor__conversions_1_1hood.html", [
       [ "ToAngle", "namespacesensor__conversions_1_1hood.html#ac502050673c24e8e8bb8d40512fe6364", null ],

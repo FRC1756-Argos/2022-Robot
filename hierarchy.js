@@ -4,10 +4,12 @@ var hierarchy =
     [ "AutonomousCommand", "class_autonomous_command.html", [
       [ "AutonomousCenter1ball", "class_autonomous_center1ball.html", null ],
       [ "AutonomousCenterLeft2ball", "class_autonomous_center_left2ball.html", null ],
+      [ "AutonomousCenterLeft2ballDefense", "class_autonomous_center_left2ball_defense.html", null ],
       [ "AutonomousCenterRight2ball", "class_autonomous_center_right2ball.html", null ],
       [ "AutonomousNothing", "class_autonomous_nothing.html", null ],
       [ "AutonomousRight2ball", "class_autonomous_right2ball.html", null ],
-      [ "AutonomousRight5ball", "class_autonomous_right5ball.html", null ]
+      [ "AutonomousRight5ball", "class_autonomous_right5ball.html", null ],
+      [ "AutonomousRight5ballGap", "class_autonomous_right5ball_gap.html", null ]
     ] ],
     [ "AutoSelector", "class_auto_selector.html", null ],
     [ "motorConfig::comp_bot::drive::backLeftTurn", "structmotor_config_1_1comp__bot_1_1drive_1_1back_left_turn.html", null ],
@@ -22,10 +24,12 @@ var hierarchy =
       [ "AutoVisionAimCommand", "class_auto_vision_aim_command.html", null ],
       [ "AutonomousCenter1ball", "class_autonomous_center1ball.html", null ],
       [ "AutonomousCenterLeft2ball", "class_autonomous_center_left2ball.html", null ],
+      [ "AutonomousCenterLeft2ballDefense", "class_autonomous_center_left2ball_defense.html", null ],
       [ "AutonomousCenterRight2ball", "class_autonomous_center_right2ball.html", null ],
       [ "AutonomousNothing", "class_autonomous_nothing.html", null ],
       [ "AutonomousRight2ball", "class_autonomous_right2ball.html", null ],
       [ "AutonomousRight5ball", "class_autonomous_right5ball.html", null ],
+      [ "AutonomousRight5ballGap", "class_autonomous_right5ball_gap.html", null ],
       [ "ClimbCommand", "class_climb_command.html", null ],
       [ "DelayCommand", "class_delay_command.html", null ],
       [ "DriveToLocation", "class_drive_to_location.html", null ],

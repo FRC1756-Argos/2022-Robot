@@ -64,16 +64,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_autonomous_right5ball.html#ab84593bb3b85824395cbbfada2881043",
-"class_robot_container.html#a43a550b672298335ae731ad63e20a201",
-"classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#aad13bf81b68e3bda0daf7f7b134fdb25",
-"control__loops_8h.html#ae7795fe713d8f68285f446ee643fb554",
-"namespace_climber_setpoints.html#aa477897e787b9496f3966289fe23515e",
-"namespacemembers_x.html",
-"struct_swerve_drive_subsystem_1_1_velocities.html#a7609c8530bca30d8522f9d5ca81e4134",
-"structargos__lib_1_1talonsrx__config_1_1has__pid0__allowable_error_3_01_t_00_01decltype_07_07voi5493ef1e2db98309090f19c7439edbd9.html",
-"structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a8ea55a58236b6cd213472c0c3e690bef",
-"structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html#af85d54e87bd9efcd4d8ae627f46966dd"
+"class_autonomous_right2ball.html#a65c660865907cb736a72894c2e387158",
+"class_limelight_target.html#a44ef81b7499d002116db731b69fbbff3",
+"classargos__lib_1_1_debouncer.html#a820db50f5ff5b1f3d4074d60501533ab",
+"climber__setpoints_8h.html#a31385a8bd295a45e3fdfab8bdb235c91",
+"md_src_argos_lib__readme.html",
+"namespacemeasure__up.html#ae49efe93e07f5ad7579143b38853122a",
+"sensor__conversions_8h.html#a6b018f639d7cc8cf05f2a5a62a27561b",
+"structargos__lib_1_1falcon__config_1_1has__reverse_limit__normal_state_3_01_t_00_01decltype_07_0a382814b0f38b30f034d150cee564e44.html",
+"structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#aef9ff4c9f64be99fc1b4ad8d1f4368c3",
+"structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a02d1ea09269c1a421c674b60953cc468",
+"swerve__drive__subsystem_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

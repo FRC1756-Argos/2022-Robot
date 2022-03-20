@@ -8,6 +8,10 @@ var namespacefield__points =
     ] ],
     [ "pickup_positions", "namespacefield__points_1_1pickup__positions.html", [
       [ "D", "namespacefield__points_1_1pickup__positions.html#a090c429a4980f0ff394830ba4187d34f", null ],
+      [ "Defense_Left", "namespacefield__points_1_1pickup__positions.html#a552748f31d336053e81f99bb4036e297", null ],
+      [ "Defense_Right", "namespacefield__points_1_1pickup__positions.html#a3c8020a4e48f15463fa5c36c73be2855", null ],
+      [ "Defense_Virt", "namespacefield__points_1_1pickup__positions.html#ad65e0b9a9137145a1f08bfabb1d13407", null ],
+      [ "HumanPlayer", "namespacefield__points_1_1pickup__positions.html#ab8a36f59c60b9c8d2e434291750cb3c9", null ],
       [ "Shoot_D", "namespacefield__points_1_1pickup__positions.html#a7f5892cc9ad492318440253c53a7628c", null ],
       [ "W_A", "namespacefield__points_1_1pickup__positions.html#ab05f80a076ddca57d768fd6cb466b259", null ],
       [ "W_A_B", "namespacefield__points_1_1pickup__positions.html#a077c25265e8f8ac8b7a3bdf9bd924f99", null ],
