@@ -26,7 +26,7 @@ namespace measure_up {
   }  // namespace swerve_offsets
   namespace hood {
     namespace comp_bot {
-      constexpr auto homeAngle = 1.0_deg * -1;
+      constexpr auto homeAngle = 1.3_deg * -1;
     }  // namespace comp_bot
     namespace practice_bot {
       constexpr auto homeAngle = 1.2_deg * -1;

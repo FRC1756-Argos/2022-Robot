@@ -86,10 +86,10 @@ namespace controlLoop {
 
     namespace climber_loaded {
       namespace hook {
-        constexpr static double kP = 0.4;
+        constexpr static double kP = 0.7;
         constexpr static double kI = 0.0;
         constexpr static double kD = 0.0;
-        constexpr static double kF = 0.1;
+        constexpr static double kF = 0.15;
         constexpr static double iZone = 200.0;
         constexpr static double allowableError = 0;
       }  // namespace hook

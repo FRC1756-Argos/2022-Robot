@@ -25,8 +25,8 @@ namespace ClimberSetpoints {
   constexpr ClimberPoint storage = {measure_up::climber_hook::maxExtension - 6_in, 21.5_in, 25_ips, 25_ips, 0};
   constexpr ClimberPoint latchL2 = {30.75_in, 37_in, 17_ips, 17_ips, 0};
   constexpr ClimberPoint prepL2 = {28.7_in, 35.8_in, 10_ips, 10_ips, 0};
-  constexpr ClimberPoint secureL2 = {1_in, 37_in, 18_ips, 18_ips, 0};
-  constexpr ClimberPoint passL3 = {34.4_in, 31.1_in, 20_ips, 20_ips, 1};
+  constexpr ClimberPoint secureL2 = {1_in, 37_in, 18_ips, 18_ips, 1};
+  constexpr ClimberPoint passL3 = {34.4_in, 31.1_in, 20_ips, 20_ips, 0};
   constexpr ClimberPoint latchL3 = {31.5_in, 37.1_in, 10_ips, 10_ips, 0};
   constexpr ClimberPoint prepTransferL3 = {31.5_in, 29_in, 10_ips, 10_ips, 0};
   constexpr ClimberPoint transferL3 = {26_in, 29_in, 10_ips, 10_ips, 0};
