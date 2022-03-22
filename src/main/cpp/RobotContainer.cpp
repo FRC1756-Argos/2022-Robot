@@ -177,11 +177,13 @@ RobotContainer::RobotContainer()
 
   // Homing commands
   (teleopEnableTrigger && !hoodHomingCompleteTrigger).WhenActive(m_homeHoodCommand);
-  (robotEnableTrigger && (!climberArmHomingCompleteTrigger || !climberHookHomingCompleteTrigger))
-      .WhenActive(frc2::SequentialCommandGroup(
-          m_homeClimberArmCommand,
-          m_homeClimberHookCommand,
-          frc2::InstantCommand{[this]() { m_pClimber->SetClimberStorage(); }, {m_pClimber.get()}}));
+  if (m_pClimber) {
+    (robotEnableTrigger && (!climberArmHomingCompleteTrigger || !climberHookHomingCompleteTrigger))
+        .WhenActive(frc2::SequentialCommandGroup(
+            m_homeClimberArmCommand,
+            m_homeClimberHookCommand,
+            frc2::InstantCommand{[this]() { m_pClimber->SetClimberStorage(); }, {m_pClimber.get()}}));
+  }
 
   // Re-enable compressor on enable
   robotEnableTrigger.WhenActive([this]() { m_compressor.EnableDigital(); }, {});

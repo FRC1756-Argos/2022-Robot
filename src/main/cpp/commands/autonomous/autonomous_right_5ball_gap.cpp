@@ -53,6 +53,7 @@ AutonomousRight5ballGap::AutonomousRight5ballGap(IntakeSubsystem* pIntake,
     , m_allCommands{} {
   m_allCommands.AddCommands(
       AutonomousRight2ball{m_pIntake, m_pShooter, m_pDrive},
+      m_shootDelay,
       frc2::ParallelCommandGroup{m_aimBallB, m_driveToBallB},
       m_visionAim,
       m_shootOneBall,
