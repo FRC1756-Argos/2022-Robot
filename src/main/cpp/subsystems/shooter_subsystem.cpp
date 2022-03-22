@@ -180,7 +180,7 @@ units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance
       offset = (units::inch_t)y;
     }
   } else {
-    offset = (units::inch_t)-18;  //for practice bot, needs further tuning!!!
+    offset = (units::inch_t)-18;  // for practice bot, needs further tuning!!!
   }
   return offset;
 }
