@@ -175,12 +175,12 @@ units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance
     if (m_instance == argos_lib::RobotInstance::Competition) {
       double y = (camDegOffsetAcounting - (0.008571 * actualDistance.to<double>()) +
                   (0.151428571 * std::pow(actualDistance.to<double>(), 2)));
+      offset = units::inch_t{y};
     } else {
-      double y = -15;
-      offset = (units::inch_t)y;
+      offset = -15_in;
     }
   } else if (m_instance == argos_lib::RobotInstance::Practice) {
-    offset = (units::inch_t)-18;  // for practice bot, needs further tuning!!!
+    offset = -18_in;  // for practice bot, needs further tuning!!!
   }
   return offset;
 }
