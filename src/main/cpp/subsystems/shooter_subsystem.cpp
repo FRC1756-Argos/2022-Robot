@@ -154,7 +154,7 @@ bool ShooterSubsystem::AutoAim() {
 }
 
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
-  units::inch_t offset;
+  units::inch_t offset = 0_in;
   double camDegOffsetAcounting;
   if (m_instance == argos_lib::RobotInstance::Competition) {
     camDegOffsetAcounting = 2.928571;
@@ -179,7 +179,7 @@ units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance
       double y = -15;
       offset = (units::inch_t)y;
     }
-  } else {
+  } else if (m_instance == argos_lib::RobotInstance::Practice) {
     offset = (units::inch_t)-18;  // for practice bot, needs further tuning!!!
   }
   return offset;
