@@ -17,6 +17,7 @@
 #include "networktables/NetworkTableInstance.h"
 #include "networktables/NetworkTableValue.h"
 #include "photonlib/PhotonCamera.h"
+#include "swerve_drive_subsystem.h"
 #include "units/angle.h"
 #include "units/angular_velocity.h"
 #include "units/length.h"
@@ -126,6 +127,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   };
 
   ShooterSubsystem(const argos_lib::RobotInstance instance,
+                   SwerveDriveSubsystem* pDriveSubsystem,
                    argos_lib::SwappableControllersSubsystem* controllers = nullptr);
 
   enum class FixedPosState { Front, Left, Right, Back };
@@ -393,5 +395,6 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   argos_lib::NTMotorPIDTuner m_turretPIDTuner;
 
   argos_lib::RobotInstance m_instance;
+  SwerveDriveSubsystem* m_pDriveSubsystem;
   argos_lib::SwappableControllersSubsystem* m_pControllers;
 };
