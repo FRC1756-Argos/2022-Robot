@@ -17,6 +17,7 @@
 #include "utils/sensor_conversions.h"
 
 ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
+                                   SwerveDriveSubsystem* pDriveSubsystem,
                                    argos_lib::SwappableControllersSubsystem* controllers)
     : m_shooterWheelLeft(address::shooter::shooterWheelLeft)
     , m_shooterWheelRight(address::shooter::shooterWheelRight)
@@ -52,6 +53,7 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
                            1.0,
                            argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle)}}
     , m_instance(instance)
+    , m_pDriveSubsystem(pDriveSubsystem)
     , m_pControllers(controllers) {
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::shooter::shooterWheelLeft,
                                          motorConfig::practice_bot::shooter::shooterWheelLeft>(

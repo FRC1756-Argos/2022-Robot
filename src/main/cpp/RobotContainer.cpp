@@ -34,7 +34,7 @@ RobotContainer::RobotContainer()
     , m_intake(m_instance)
     , m_pClimber(m_instance == argos_lib::RobotInstance::Competition ? std::make_unique<ClimberSubsystem>(m_instance) :
                                                                        nullptr)
-    , m_shooter(m_instance, &m_controllers)
+    , m_shooter(m_instance, &m_swerveDrive, &m_controllers)
     , m_homeHoodCommand(&m_shooter)
     , m_homeClimberArmCommand(m_pClimber.get())
     , m_homeClimberHookCommand(m_pClimber.get())
