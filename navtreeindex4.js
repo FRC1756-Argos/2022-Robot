@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"climber__setpoints_8h.html#a1f8c379911e85bbe38919d3cd263f07e":[4,0,0,1,1,1,1,10],
 "climber__setpoints_8h.html#a31385a8bd295a45e3fdfab8bdb235c91":[4,0,0,1,1,1,1,2],
 "climber__setpoints_8h.html#a4b0832f52646159b8bda67ed9c229d2c":[4,0,0,1,1,1,1,1],
 "climber__setpoints_8h.html#a717e755003cf2acd9a7ea0f84922e204":[4,0,0,1,1,1,1,7],
@@ -134,8 +135,8 @@ var NAVTREEINDEX4 =
 "file__system__homing__storage_8h.html":[4,0,0,1,1,3,2],
 "file__system__homing__storage_8h_source.html":[4,0,0,1,1,3,2],
 "files.html":[4,0],
-"functions.html":[3,3,0,0],
 "functions.html":[3,3,0],
+"functions.html":[3,3,0,0],
 "functions_b.html":[3,3,0,1],
 "functions_c.html":[3,3,0,2],
 "functions_d.html":[3,3,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "interpolation__maps_8h.html#adc91dc4d2e883f10ec2433773b906162":[4,0,0,1,1,1,5,1],
 "interpolation__maps_8h.html#addfaca7b509806dafab99c4008a9d250":[4,0,0,1,1,1,5,8],
 "interpolation__maps_8h_source.html":[4,0,0,1,1,1,5],
-"main_8cpp.html":[4,0,0,2,0,0],
-"main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[4,0,0,2,0,0,0]
+"main_8cpp.html":[4,0,0,2,0,0]
 };

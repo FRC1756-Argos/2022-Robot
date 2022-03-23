@@ -48,7 +48,7 @@ var searchData=
   ['shooterdistancesetpoints_45',['ShooterDistanceSetpoints',['../struct_shooter_subsystem_1_1_shooter_distance_setpoints.html',1,'ShooterSubsystem']]],
   ['shooterrange_46',['shooterRange',['../namespaceshooter_range.html',1,'']]],
   ['shooterspeed_47',['shooterSpeed',['../namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426',1,'shooterRange::shooterSpeed()'],['../struct_shooter_subsystem_1_1_shooter_distance_setpoints.html#a67c7d385c1f83bada25223ebc09159b8',1,'ShooterSubsystem::ShooterDistanceSetpoints::shooterSpeed()']]],
-  ['shootersubsystem_48',['ShooterSubsystem',['../class_shooter_subsystem.html',1,'ShooterSubsystem'],['../class_shooter_subsystem.html#a8963599316bb028120c6686cdeeb54e9',1,'ShooterSubsystem::ShooterSubsystem()']]],
+  ['shootersubsystem_48',['ShooterSubsystem',['../class_shooter_subsystem.html',1,'ShooterSubsystem'],['../class_shooter_subsystem.html#a30322106fc6dc24dd08f421772f00b03',1,'ShooterSubsystem::ShooterSubsystem()']]],
   ['shootertarget_49',['shooterTarget',['../struct_aim_values.html#aaa0467d6fee4fa22d1c9aa453bf907ff',1,'AimValues']]],
   ['shootertimer_50',['shooterTimer',['../namespacethreshholds_1_1shooter.html#a9eca5ec9a153c01a28da7e6488dd9aa9',1,'threshholds::shooter']]],
   ['shooterwheelleft_51',['shooterWheelLeft',['../structmotor_config_1_1comp__bot_1_1shooter_1_1shooter_wheel_left.html',1,'motorConfig::comp_bot::shooter::shooterWheelLeft'],['../namespaceaddress_1_1shooter.html#a3b796d887b91768a68a3994df6faf72f',1,'address::shooter::shooterWheelLeft()'],['../namespacemotor_config_1_1practice__bot_1_1shooter.html#a8c69729f74795dba178d51f1cd6bdebf',1,'motorConfig::practice_bot::shooter::shooterWheelLeft()']]],

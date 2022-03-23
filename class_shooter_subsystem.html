@@ -120,8 +120,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8963599316bb028120c6686cdeeb54e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a8963599316bb028120c6686cdeeb54e9">ShooterSubsystem</a> (const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance, <a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a> *controllers=nullptr)</td></tr>
-<tr class="separator:a8963599316bb028120c6686cdeeb54e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30322106fc6dc24dd08f421772f00b03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a30322106fc6dc24dd08f421772f00b03">ShooterSubsystem</a> (const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance, <a class="el" href="class_swerve_drive_subsystem.html">SwerveDriveSubsystem</a> *pDriveSubsystem, <a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a> *controllers=nullptr)</td></tr>
+<tr class="separator:a30322106fc6dc24dd08f421772f00b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53b9a2b56bb0e5943785fbbddbbecccd"><td class="memItemLeft" align="right" valign="top">std::optional&lt; units::degree_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a53b9a2b56bb0e5943785fbbddbbecccd">GetTurretTargetAngle</a> (<a class="el" href="struct_limelight_target_1_1t_values.html">LimelightTarget::tValues</a> target)</td></tr>
 <tr class="separator:a53b9a2b56bb0e5943785fbbddbbecccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2466fbf822ddd62852b9bbd5e401f120"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_limelight_target_1_1t_values.html">LimelightTarget::tValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a2466fbf822ddd62852b9bbd5e401f120">GetCameraTargetValues</a> ()</td></tr>
@@ -269,6 +269,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ad27554d9f1ba1e5b70a360b16433a5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefe186ca6547811ce0a1a0df5205e50f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#aefe186ca6547811ce0a1a0df5205e50f">m_instance</a></td></tr>
 <tr class="separator:aefe186ca6547811ce0a1a0df5205e50f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68a46a6ceb044c0056e05eb3f0cf651c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_swerve_drive_subsystem.html">SwerveDriveSubsystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a68a46a6ceb044c0056e05eb3f0cf651c">m_pDriveSubsystem</a></td></tr>
+<tr class="separator:a68a46a6ceb044c0056e05eb3f0cf651c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1f2e6abd3ceed9b19294c01d163c64a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ad1f2e6abd3ceed9b19294c01d163c64a">m_pControllers</a></td></tr>
 <tr class="separator:ad1f2e6abd3ceed9b19294c01d163c64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -302,8 +304,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8963599316bb028120c6686cdeeb54e9" name="a8963599316bb028120c6686cdeeb54e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8963599316bb028120c6686cdeeb54e9">&#9670;&nbsp;</a></span>ShooterSubsystem()</h2>
+<a id="a30322106fc6dc24dd08f421772f00b03" name="a30322106fc6dc24dd08f421772f00b03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30322106fc6dc24dd08f421772f00b03">&#9670;&nbsp;</a></span>ShooterSubsystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,6 +315,12 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a>&#160;</td>
           <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_swerve_drive_subsystem.html">SwerveDriveSubsystem</a> *&#160;</td>
+          <td class="paramname"><em>pDriveSubsystem</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1325,6 +1333,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a>* ShooterSubsystem::m_pControllers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68a46a6ceb044c0056e05eb3f0cf651c" name="a68a46a6ceb044c0056e05eb3f0cf651c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a46a6ceb044c0056e05eb3f0cf651c">&#9670;&nbsp;</a></span>m_pDriveSubsystem</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_swerve_drive_subsystem.html">SwerveDriveSubsystem</a>* ShooterSubsystem::m_pDriveSubsystem</td>
         </tr>
       </table>
   </td>

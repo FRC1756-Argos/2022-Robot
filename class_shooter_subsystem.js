@@ -7,7 +7,7 @@ var class_shooter_subsystem =
       [ "Right", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c", null ],
       [ "Back", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da0557fa923dcee4d0f86b1409f5c2167f", null ]
     ] ],
-    [ "ShooterSubsystem", "class_shooter_subsystem.html#a8963599316bb028120c6686cdeeb54e9", null ],
+    [ "ShooterSubsystem", "class_shooter_subsystem.html#a30322106fc6dc24dd08f421772f00b03", null ],
     [ "AimedFeedback", "class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c", null ],
     [ "AutoAim", "class_shooter_subsystem.html#a08a7e36a73d7b5294129d9e9a5239de5", null ],
     [ "CloseLoopShoot", "class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1", null ],
@@ -51,6 +51,7 @@ var class_shooter_subsystem =
     [ "m_instance", "class_shooter_subsystem.html#aefe186ca6547811ce0a1a0df5205e50f", null ],
     [ "m_manualOverride", "class_shooter_subsystem.html#a7b30ad4a450d81f7df71f9989919a444", null ],
     [ "m_pControllers", "class_shooter_subsystem.html#ad1f2e6abd3ceed9b19294c01d163c64a", null ],
+    [ "m_pDriveSubsystem", "class_shooter_subsystem.html#a68a46a6ceb044c0056e05eb3f0cf651c", null ],
     [ "m_shooterPIDTuner", "class_shooter_subsystem.html#ac50ce8c7cecef48d016c873d7af5347e", null ],
     [ "m_shooterSpeedMap", "class_shooter_subsystem.html#ad04d8882bf020c2f52bc0c3112786edf", null ],
     [ "m_shooterWheelLeft", "class_shooter_subsystem.html#ab026571200330d9eeebf10140c44be56", null ],

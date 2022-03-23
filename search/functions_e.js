@@ -19,7 +19,7 @@ var searchData=
   ['setvibration_16',['SetVibration',['../classargos__lib_1_1_xbox_controller.html#a03150062f39deee57cd6e83cd05a9ea5',1,'argos_lib::XboxController']]],
   ['shoot_17',['Shoot',['../class_shooter_subsystem.html#add97f4ce7b4a5a152eaec050920012e1',1,'ShooterSubsystem::Shoot()'],['../class_intake_subsystem.html#afbe996c1e7c8ebb04df1bc437cbd8ce9',1,'IntakeSubsystem::Shoot()']]],
   ['shootcommand_18',['ShootCommand',['../class_shoot_command.html#a841e7c110f970a95eb52a1189991ab05',1,'ShootCommand::ShootCommand(IntakeSubsystem *subsystem)'],['../class_shoot_command.html#a1d31e43e6c77a9be7d7f2d160f7bea06',1,'ShootCommand::ShootCommand(IntakeSubsystem *subsystem, uint numCargo, units::millisecond_t timeout)']]],
-  ['shootersubsystem_19',['ShooterSubsystem',['../class_shooter_subsystem.html#a8963599316bb028120c6686cdeeb54e9',1,'ShooterSubsystem']]],
+  ['shootersubsystem_19',['ShooterSubsystem',['../class_shooter_subsystem.html#a30322106fc6dc24dd08f421772f00b03',1,'ShooterSubsystem']]],
   ['startdrivingprofile_20',['StartDrivingProfile',['../class_swerve_drive_subsystem.html#a4d77a590244398cfe9f6bfc644af551e',1,'SwerveDriveSubsystem']]],
   ['stopdrive_21',['StopDrive',['../class_swerve_drive_subsystem.html#ab9a66efccdf321cadada7a3477af5050',1,'SwerveDriveSubsystem']]],
   ['stopfeedback_22',['StopFeedback',['../class_shooter_subsystem.html#a053e6a869985d50c1d55e0ae1c86aec3',1,'ShooterSubsystem']]],

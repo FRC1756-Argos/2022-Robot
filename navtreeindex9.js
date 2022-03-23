@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#aef9ff4c9f64be99fc1b4ad8d1f4368c3":[3,0,2,0,0,0,21],
 "structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#aef9ff4c9f64be99fc1b4ad8d1f4368c3":[2,0,11,1,0,0,21],
 "structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#af3abb7c2b898ccaa8ba1ea1340f83681":[3,0,2,0,0,0,20],
 "structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#af3abb7c2b898ccaa8ba1ea1340f83681":[2,0,11,1,0,0,20],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#af7d5db6396a27d5b66c02f2ca2406ea5":[3,0,2,0,1,4,0],
 "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#af7d5db6396a27d5b66c02f2ca2406ea5":[2,0,11,1,1,4,0],
 "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html":[2,0,11,1,2,0],
-"structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html":[3,0,2,0,2,0],
-"structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a02d1ea09269c1a421c674b60953cc468":[2,0,11,1,2,0,6]
+"structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html":[3,0,2,0,2,0]
 };
