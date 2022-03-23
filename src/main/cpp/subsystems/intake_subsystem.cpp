@@ -80,7 +80,11 @@ void IntakeSubsystem::Periodic() {
       }
       if ((m_shooterButtonPressed == true && !debouncerStatus) ||
           ((GetBallPresentIntake() == true && GetIsBallTeamColor() == true) && GetBallPresentShooter() == false)) {
-        m_beltDrive.Set(m_shooterButtonPressed ? speeds::intake::beltForwardShoot : speeds::intake::beltForwardIntake);
+        if (m_shooterButtonPressed) {
+          m_beltDrive.Set(m_firstShotMode ? speeds::intake::beltFirstShot : speeds::intake::beltForwardShoot);
+        } else {
+          m_beltDrive.Set(speeds::intake::beltForwardIntake);
+        }
       } else {
         m_beltDrive.Set(0);
       }
@@ -102,7 +106,11 @@ bool IntakeSubsystem::GetBallPresentIntake() {
 
 bool IntakeSubsystem::GetBallPresentShooter() {
   units::inch_t ballDistanceShooter = units::make_unit<units::millimeter_t>(m_ballPresentShooter.GetRange());
-  return !m_hysteresisShooter(ballDistanceShooter);
+  bool ballPresent = !m_hysteresisShooter(ballDistanceShooter);
+  if (ballPresent == true) {
+    m_firstShotMode = false;
+  }
+  return ballPresent;
 }
 
 bool IntakeSubsystem::GetIsBallTeamColor() {
@@ -141,6 +149,7 @@ void IntakeSubsystem::DumpBall() {
 
 void IntakeSubsystem::Shoot() {
   m_shooterButtonPressed = true;
+  m_firstShotMode = !GetBallPresentShooter();
 }
 
 void IntakeSubsystem::StopShoot() {

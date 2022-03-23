@@ -36,6 +36,7 @@ namespace speeds {
   namespace intake {
     constexpr double beltForwardIntake = 0.4;
     constexpr double beltForwardShoot = 0.65;
+    constexpr double beltFirstShot = 1;
     constexpr double beltReverse = -0.8;
     constexpr double intakeCreep = 0.1;
     constexpr double intakeForward = 0.5;
