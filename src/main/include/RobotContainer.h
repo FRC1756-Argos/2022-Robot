@@ -21,6 +21,7 @@
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_right_2ball.h"
 #include "commands/autonomous/autonomous_right_5ball.h"
+#include "commands/autonomous/autonomous_right_5ballDef.h"
 #include "commands/autonomous/autonomous_right_5ball_gap.h"
 #include "commands/climb_command.h"
 #include "commands/home_climber_arm_command.h"
@@ -124,6 +125,7 @@ class RobotContainer {
   AutonomousRight2ball m_autoRight2Ball;
   AutonomousRight5ball m_autoRight5Ball;
   AutonomousRight5ballGap m_autoRight5BallGap;
+  AutonomousRight5ballDef m_autoRight5BallDef;
   AutonomousCenterRight2ball m_autoCenterRight2Ball;
   AutonomousCenter1ball m_autoCenter1ball;
   AutonomousCenterLeft2ball m_autoCenterLeft2Ball;

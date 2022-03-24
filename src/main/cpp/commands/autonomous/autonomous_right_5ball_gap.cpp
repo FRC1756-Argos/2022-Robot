@@ -63,6 +63,7 @@ AutonomousRight5ballGap::AutonomousRight5ballGap(IntakeSubsystem* pIntake,
           frc2::SequentialCommandGroup{
               m_driveToBallD, m_driveBackFromTerminal, m_humanPlayerDelay, m_driveToFinalShootPosition}},
       m_visionAim,
+      m_shootDelay,
       m_shootTwoBall);
 }
 
@@ -88,7 +89,7 @@ bool AutonomousRight5ballGap::IsFinished() {
 }
 
 std::string AutonomousRight5ballGap::GetName() const {
-  return "Right 5 Ball w/ Gap (EXPERIMENTAL)";
+  return "Right 5 Ball w/ Gap";
 }
 
 frc2::Command* AutonomousRight5ballGap::GetCommand() {
