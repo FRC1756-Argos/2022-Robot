@@ -33,7 +33,7 @@ namespace ClimberSetpoints {
   constexpr ClimberPoint holdL3 = {26_in, 31.1_in, 17_ips, 25_ips, 1};
 
   namespace ClimbBeta {
-    constexpr ClimberPoint secureL2 = {3.48_in, 37_in, 18_ips, 18_ips, 1};
+    constexpr ClimberPoint secureL2 = {4.48_in, 37_in, 23_ips, 23_ips, 1};
     constexpr ClimberPoint prepReleaseL2 = {5.48_in, 31.1_in, 20_ips, 20_ips};
     constexpr ClimberPoint releaseL2 = {12_in, 31.1_in, 18_ips, 18_ips, 1};
   }  // namespace ClimbBeta
