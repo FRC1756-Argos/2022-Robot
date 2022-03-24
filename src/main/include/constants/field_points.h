@@ -18,6 +18,7 @@ namespace field_points {
     static const frc::Translation2d B = frc::Translation2d(198.4_in, 74_in);
     static const frc::Translation2d C = frc::Translation2d(194.2_in, 243.9_in);
     static const frc::Translation2d D = frc::Translation2d(42_in, 45_in);
+    static const frc::Translation2d F = frc::Translation2d(184.4_in, 124.6_in);
   }  // namespace balls
   namespace starting_positions {
     static const frc::Pose2d W = frc::Pose2d(298.5_in, 72.18_in, -90_deg);
@@ -41,7 +42,13 @@ namespace field_points {
 
     static const frc::Pose2d Shoot_D = frc::Pose2d(balls::B.X(),
                                                    balls::B.Y(),
-                                                   -135_deg);  ///< Approach at 45 degree angle
+                                                   -225_deg);  ///< Approach at 45 degree angle
+
+    static const frc::Pose2d Shoot_F = frc::Pose2d(balls::F.X() + 12_in,
+                                                   balls::F.Y(),
+                                                   -270_deg);  ///< Approach at 45 degree angle
+
+    static const frc::Pose2d Virtual_Shoot_F = frc::Pose2d(454.1_in, 77.1_in, Shoot_F.Rotation());
 
     static const frc::Pose2d X_B = frc::Pose2d(balls::B.X() + 6_in, balls::B.Y() - 12_in, -147.5_deg);
 

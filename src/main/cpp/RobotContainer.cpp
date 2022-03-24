@@ -83,6 +83,7 @@ RobotContainer::RobotContainer()
     , m_autoRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoRight5Ball{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoRight5BallGap{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoRight5BallDef{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoCenterRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoCenter1ball{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoCenterLeft2Ball{&m_intake, &m_shooter, &m_swerveDrive}
@@ -91,6 +92,7 @@ RobotContainer::RobotContainer()
     , m_autoRoutineSelector{{&m_autoRight2Ball,
                              &m_autoRight5Ball,
                              &m_autoRight5BallGap,
+                             &m_autoRight5BallDef,
                              &m_autoCenterRight2Ball,
                              &m_autoCenter1ball,
                              &m_autoCenterLeft2Ball,
