@@ -119,6 +119,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   bool m_intakeButtonPressed;
   bool m_outtakeButtonPressed;
   bool m_shooterButtonPressed;
+  bool m_firstShotMode;
 
   EdgeDetector m_edgeDetector;
 
