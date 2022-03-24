@@ -23,5 +23,7 @@ var searchData=
   ['autonomous_5fright_5f5ball_2ecpp_20',['autonomous_right_5ball.cpp',['../autonomous__right__5ball_8cpp.html',1,'']]],
   ['autonomous_5fright_5f5ball_2eh_21',['autonomous_right_5ball.h',['../autonomous__right__5ball_8h.html',1,'']]],
   ['autonomous_5fright_5f5ball_5fgap_2ecpp_22',['autonomous_right_5ball_gap.cpp',['../autonomous__right__5ball__gap_8cpp.html',1,'']]],
-  ['autonomous_5fright_5f5ball_5fgap_2eh_23',['autonomous_right_5ball_gap.h',['../autonomous__right__5ball__gap_8h.html',1,'']]]
+  ['autonomous_5fright_5f5ball_5fgap_2eh_23',['autonomous_right_5ball_gap.h',['../autonomous__right__5ball__gap_8h.html',1,'']]],
+  ['autonomous_5fright_5f5balldef_2ecpp_24',['autonomous_right_5ballDef.cpp',['../autonomous__right__5ball_def_8cpp.html',1,'']]],
+  ['autonomous_5fright_5f5balldef_2eh_25',['autonomous_right_5ballDef.h',['../autonomous__right__5ball_def_8h.html',1,'']]]
 ];

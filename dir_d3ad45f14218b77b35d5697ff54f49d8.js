@@ -26,5 +26,8 @@ var dir_d3ad45f14218b77b35d5697ff54f49d8 =
     ] ],
     [ "autonomous_right_5ball_gap.h", "autonomous__right__5ball__gap_8h.html", [
       [ "AutonomousRight5ballGap", "class_autonomous_right5ball_gap.html", "class_autonomous_right5ball_gap" ]
+    ] ],
+    [ "autonomous_right_5ballDef.h", "autonomous__right__5ball_def_8h.html", [
+      [ "AutonomousRight5ballDef", "class_autonomous_right5ball_def.html", "class_autonomous_right5ball_def" ]
     ] ]
 ];

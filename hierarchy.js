@@ -9,6 +9,7 @@ var hierarchy =
       [ "AutonomousNothing", "class_autonomous_nothing.html", null ],
       [ "AutonomousRight2ball", "class_autonomous_right2ball.html", null ],
       [ "AutonomousRight5ball", "class_autonomous_right5ball.html", null ],
+      [ "AutonomousRight5ballDef", "class_autonomous_right5ball_def.html", null ],
       [ "AutonomousRight5ballGap", "class_autonomous_right5ball_gap.html", null ]
     ] ],
     [ "AutoSelector", "class_auto_selector.html", null ],
@@ -29,6 +30,7 @@ var hierarchy =
       [ "AutonomousNothing", "class_autonomous_nothing.html", null ],
       [ "AutonomousRight2ball", "class_autonomous_right2ball.html", null ],
       [ "AutonomousRight5ball", "class_autonomous_right5ball.html", null ],
+      [ "AutonomousRight5ballDef", "class_autonomous_right5ball_def.html", null ],
       [ "AutonomousRight5ballGap", "class_autonomous_right5ball_gap.html", null ],
       [ "ClimbCommand", "class_climb_command.html", null ],
       [ "DelayCommand", "class_delay_command.html", null ],

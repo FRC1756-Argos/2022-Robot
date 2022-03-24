@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>2022-Robot: Class Members - Functions</title>
+<title>2022-Robot: src/main/cpp/commands/autonomous/autonomous_right_5ballDef.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('functions_func.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('autonomous__right__5ball_def_8cpp.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -82,37 +82,20 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 </iframe>
 </div>
 
+<div class="header">
+  <div class="headertitle"><div class="title">autonomous_right_5ballDef.cpp File Reference</div></div>
+</div><!--header-->
 <div class="contents">
-&#160;
-
-<h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>AddCommand()&#160;:&#160;<a class="el" href="class_auto_selector.html#a569ba4e1e5b4d8313048324136d9f7c5">AutoSelector</a></li>
-<li>AddMonitor()&#160;:&#160;<a class="el" href="classargos__lib_1_1_n_t_subscriber.html#a05b27ec085d402693283a763c97ec95e">argos_lib::NTSubscriber</a></li>
-<li>AimedFeedback()&#160;:&#160;<a class="el" href="class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c">ShooterSubsystem</a></li>
-<li>ArmsAtPosition()&#160;:&#160;<a class="el" href="class_climber_subsystem.html#ae4b165732db911f3d0f6471a83cc7251">ClimberSubsystem</a></li>
-<li>ArmSetPosition()&#160;:&#160;<a class="el" href="class_climber_subsystem.html#a1cdaf5e98ec061c20c2b1cc14903fc40">ClimberSubsystem</a></li>
-<li>AutoAim()&#160;:&#160;<a class="el" href="class_shooter_subsystem.html#a08a7e36a73d7b5294129d9e9a5239de5">ShooterSubsystem</a></li>
-<li>AutonomousCenter1ball()&#160;:&#160;<a class="el" href="class_autonomous_center1ball.html#a45358a96f362a01b0b5428bd5a20f12a">AutonomousCenter1ball</a></li>
-<li>AutonomousCenterLeft2ball()&#160;:&#160;<a class="el" href="class_autonomous_center_left2ball.html#af6d2921c34fb60ed840a185e556dc050">AutonomousCenterLeft2ball</a></li>
-<li>AutonomousCenterLeft2ballDefense()&#160;:&#160;<a class="el" href="class_autonomous_center_left2ball_defense.html#a319639eae698284fd4250738b1c5a75f">AutonomousCenterLeft2ballDefense</a></li>
-<li>AutonomousCenterRight2ball()&#160;:&#160;<a class="el" href="class_autonomous_center_right2ball.html#a2a27afc3aa70ca66620bdfd17d1cbdf3">AutonomousCenterRight2ball</a></li>
-<li>AutonomousCommand()&#160;:&#160;<a class="el" href="class_autonomous_command.html#a05710f86b7a3e7f8420c8ef166c21dbd">AutonomousCommand</a></li>
-<li>AutonomousInit()&#160;:&#160;<a class="el" href="class_robot.html#a2136cfc015936285218c8a8db984d6bc">Robot</a></li>
-<li>AutonomousNothing()&#160;:&#160;<a class="el" href="class_autonomous_nothing.html#a7f3c3e774f4252d3c480fd9b258eadbd">AutonomousNothing</a></li>
-<li>AutonomousPeriodic()&#160;:&#160;<a class="el" href="class_robot.html#ac11143dd674e0e02fef5329e2df24830">Robot</a></li>
-<li>AutonomousRight2ball()&#160;:&#160;<a class="el" href="class_autonomous_right2ball.html#acf80e67537a235175af4eb4112401ac5">AutonomousRight2ball</a></li>
-<li>AutonomousRight5ball()&#160;:&#160;<a class="el" href="class_autonomous_right5ball.html#a05b4ba90c556e4bda236e4dae7fd1f1a">AutonomousRight5ball</a></li>
-<li>AutonomousRight5ballDef()&#160;:&#160;<a class="el" href="class_autonomous_right5ball_def.html#a42c5f1c172d65eec6ce4121aaab1cebc">AutonomousRight5ballDef</a></li>
-<li>AutonomousRight5ballGap()&#160;:&#160;<a class="el" href="class_autonomous_right5ball_gap.html#abd68562791be8c5404490b6ece7a307e">AutonomousRight5ballGap</a></li>
-<li>AutoPositionAimCommand()&#160;:&#160;<a class="el" href="class_auto_position_aim_command.html#a539862f865ed40da7b179a4804d6b7da">AutoPositionAimCommand</a></li>
-<li>AutoSelector()&#160;:&#160;<a class="el" href="class_auto_selector.html#a4c8669a1b638cc331aafdfd48777a087">AutoSelector</a></li>
-<li>AutoVisionAimCommand()&#160;:&#160;<a class="el" href="class_auto_vision_aim_command.html#ace585bd733c2c26389dae07ed64868bb">AutoVisionAimCommand</a></li>
-</ul>
-</div><!-- contents -->
+<div class="textblock"><code>#include &quot;<a class="el" href="autonomous__right__5ball_def_8h_source.html">commands/autonomous/autonomous_right_5ballDef.h</a>&quot;</code><br />
+<code>#include &lt;frc2/command/ParallelCommandGroup.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="constraints_8h_source.html">constants/constraints.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="field__points_8h_source.html">constants/field_points.h</a>&quot;</code><br />
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5eb159725f84c66aafd839904a4acdd0.html">main</a></li><li class="navelem"><a class="el" href="dir_fdf2b31f12d3ebb2f617242d0514024b.html">cpp</a></li><li class="navelem"><a class="el" href="dir_936b7b8edf6aa316affdf0e21f6b0c34.html">commands</a></li><li class="navelem"><a class="el" href="dir_96d440179b90d4e3950801e278bb6926.html">autonomous</a></li><li class="navelem"><a class="el" href="autonomous__right__5ball_def_8cpp.html">autonomous_right_5ballDef.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

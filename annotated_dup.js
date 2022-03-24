@@ -198,6 +198,7 @@ var annotated_dup =
     [ "AutonomousNothing", "class_autonomous_nothing.html", "class_autonomous_nothing" ],
     [ "AutonomousRight2ball", "class_autonomous_right2ball.html", "class_autonomous_right2ball" ],
     [ "AutonomousRight5ball", "class_autonomous_right5ball.html", "class_autonomous_right5ball" ],
+    [ "AutonomousRight5ballDef", "class_autonomous_right5ball_def.html", "class_autonomous_right5ball_def" ],
     [ "AutonomousRight5ballGap", "class_autonomous_right5ball_gap.html", "class_autonomous_right5ball_gap" ],
     [ "AutoPositionAimCommand", "class_auto_position_aim_command.html", "class_auto_position_aim_command" ],
     [ "AutoSelector", "class_auto_selector.html", "class_auto_selector" ],

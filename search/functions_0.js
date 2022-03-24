@@ -16,8 +16,9 @@ var searchData=
   ['autonomousperiodic_13',['AutonomousPeriodic',['../class_robot.html#ac11143dd674e0e02fef5329e2df24830',1,'Robot']]],
   ['autonomousright2ball_14',['AutonomousRight2ball',['../class_autonomous_right2ball.html#acf80e67537a235175af4eb4112401ac5',1,'AutonomousRight2ball']]],
   ['autonomousright5ball_15',['AutonomousRight5ball',['../class_autonomous_right5ball.html#a05b4ba90c556e4bda236e4dae7fd1f1a',1,'AutonomousRight5ball']]],
-  ['autonomousright5ballgap_16',['AutonomousRight5ballGap',['../class_autonomous_right5ball_gap.html#abd68562791be8c5404490b6ece7a307e',1,'AutonomousRight5ballGap']]],
-  ['autopositionaimcommand_17',['AutoPositionAimCommand',['../class_auto_position_aim_command.html#a539862f865ed40da7b179a4804d6b7da',1,'AutoPositionAimCommand']]],
-  ['autoselector_18',['AutoSelector',['../class_auto_selector.html#a4c8669a1b638cc331aafdfd48777a087',1,'AutoSelector::AutoSelector()'],['../class_auto_selector.html#aeb392d081679cb543f88a4433bda9044',1,'AutoSelector::AutoSelector(std::initializer_list&lt; AutonomousCommand * &gt; commands, AutonomousCommand *defaultCommand=nullptr)']]],
-  ['autovisionaimcommand_19',['AutoVisionAimCommand',['../class_auto_vision_aim_command.html#ace585bd733c2c26389dae07ed64868bb',1,'AutoVisionAimCommand']]]
+  ['autonomousright5balldef_16',['AutonomousRight5ballDef',['../class_autonomous_right5ball_def.html#a42c5f1c172d65eec6ce4121aaab1cebc',1,'AutonomousRight5ballDef']]],
+  ['autonomousright5ballgap_17',['AutonomousRight5ballGap',['../class_autonomous_right5ball_gap.html#abd68562791be8c5404490b6ece7a307e',1,'AutonomousRight5ballGap']]],
+  ['autopositionaimcommand_18',['AutoPositionAimCommand',['../class_auto_position_aim_command.html#a539862f865ed40da7b179a4804d6b7da',1,'AutoPositionAimCommand']]],
+  ['autoselector_19',['AutoSelector',['../class_auto_selector.html#a4c8669a1b638cc331aafdfd48777a087',1,'AutoSelector::AutoSelector()'],['../class_auto_selector.html#aeb392d081679cb543f88a4433bda9044',1,'AutoSelector::AutoSelector(std::initializer_list&lt; AutonomousCommand * &gt; commands, AutonomousCommand *defaultCommand=nullptr)']]],
+  ['autovisionaimcommand_20',['AutoVisionAimCommand',['../class_auto_vision_aim_command.html#ace585bd733c2c26389dae07ed64868bb',1,'AutoVisionAimCommand']]]
 ];

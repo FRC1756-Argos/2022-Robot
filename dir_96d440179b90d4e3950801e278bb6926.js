@@ -7,5 +7,6 @@ var dir_96d440179b90d4e3950801e278bb6926 =
     [ "autonomous_nothing.cpp", "autonomous__nothing_8cpp.html", null ],
     [ "autonomous_right_2ball.cpp", "autonomous__right__2ball_8cpp.html", null ],
     [ "autonomous_right_5ball.cpp", "autonomous__right__5ball_8cpp.html", null ],
-    [ "autonomous_right_5ball_gap.cpp", "autonomous__right__5ball__gap_8cpp.html", null ]
+    [ "autonomous_right_5ball_gap.cpp", "autonomous__right__5ball__gap_8cpp.html", null ],
+    [ "autonomous_right_5ballDef.cpp", "autonomous__right__5ball_def_8cpp.html", null ]
 ];
