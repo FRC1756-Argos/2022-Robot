@@ -19,13 +19,14 @@ var searchData=
   ['bboxhor_16',['bboxHor',['../struct_limelight_target_1_1t_values.html#af5bda79c04bed5a41a9b60b830430775',1,'LimelightTarget::tValues']]],
   ['bboxver_17',['bboxVer',['../struct_limelight_target_1_1t_values.html#af5cbd18d588c9269ed5798c02eac723c',1,'LimelightTarget::tValues']]],
   ['beltdrive_18',['beltDrive',['../namespaceaddress_1_1intake.html#a37e5b3b6891613c3d9e6e473d3ee8d95',1,'address::intake::beltDrive()'],['../structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html',1,'motorConfig::comp_bot::intake::beltDrive'],['../structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html',1,'motorConfig::practice_bot::intake::beltDrive']]],
-  ['beltforwardintake_19',['beltForwardIntake',['../namespacespeeds_1_1intake.html#af0f4543dea537005feecf29e5237bfda',1,'speeds::intake']]],
-  ['beltforwardshoot_20',['beltForwardShoot',['../namespacespeeds_1_1intake.html#acdfcfef2fdb8df712d15c0a9a4458abe',1,'speeds::intake']]],
-  ['beltreverse_21',['beltReverse',['../namespacespeeds_1_1intake.html#afcbd92b7804dc8565fbd200d347ed857',1,'speeds::intake']]],
-  ['blhome_22',['blHome',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a14c22b907cf617733054eb5637a4e85c',1,'networkTables::swerveHomes::keys']]],
-  ['blhomefullpath_23',['blHomeFullPath',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a5c47b6bcf26065b0aab95a2644692047',1,'networkTables::swerveHomes::keys']]],
-  ['brhome_24',['brHome',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a76ecc849d0d8ed33ee48f5443e59a4f7',1,'networkTables::swerveHomes::keys']]],
-  ['brhomefullpath_25',['brHomeFullPath',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#aa8d9ed48bb92f653121fc87052fe5392',1,'networkTables::swerveHomes::keys']]],
-  ['bumperextension_26',['bumperExtension',['../namespacemeasure__up.html#ae49efe93e07f5ad7579143b38853122a',1,'measure_up']]],
-  ['button_27',['Button',['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fc',1,'argos_lib::XboxController']]]
+  ['beltfirstshot_19',['beltFirstShot',['../namespacespeeds_1_1intake.html#a650ab2de9d2e28d1d16273504c6c5dcc',1,'speeds::intake']]],
+  ['beltforwardintake_20',['beltForwardIntake',['../namespacespeeds_1_1intake.html#af0f4543dea537005feecf29e5237bfda',1,'speeds::intake']]],
+  ['beltforwardshoot_21',['beltForwardShoot',['../namespacespeeds_1_1intake.html#acdfcfef2fdb8df712d15c0a9a4458abe',1,'speeds::intake']]],
+  ['beltreverse_22',['beltReverse',['../namespacespeeds_1_1intake.html#afcbd92b7804dc8565fbd200d347ed857',1,'speeds::intake']]],
+  ['blhome_23',['blHome',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a14c22b907cf617733054eb5637a4e85c',1,'networkTables::swerveHomes::keys']]],
+  ['blhomefullpath_24',['blHomeFullPath',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a5c47b6bcf26065b0aab95a2644692047',1,'networkTables::swerveHomes::keys']]],
+  ['brhome_25',['brHome',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a76ecc849d0d8ed33ee48f5443e59a4f7',1,'networkTables::swerveHomes::keys']]],
+  ['brhomefullpath_26',['brHomeFullPath',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#aa8d9ed48bb92f653121fc87052fe5392',1,'networkTables::swerveHomes::keys']]],
+  ['bumperextension_27',['bumperExtension',['../namespacemeasure__up.html#ae49efe93e07f5ad7579143b38853122a',1,'measure_up']]],
+  ['button_28',['Button',['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fc',1,'argos_lib::XboxController']]]
 ];

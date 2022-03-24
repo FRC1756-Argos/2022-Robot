@@ -6,6 +6,7 @@ var _constants_8h =
     [ "acceptableWheelError", "_constants_8h.html#a79bc934424775135588c4d2be6261348", null ],
     [ "backLeftIndex", "_constants_8h.html#afda1c6bed84d2c9a557ad2a37d86545c", null ],
     [ "backRightIndex", "_constants_8h.html#a3bbc6a04c968b7b8cdb3733eb01f07ed", null ],
+    [ "beltFirstShot", "_constants_8h.html#a650ab2de9d2e28d1d16273504c6c5dcc", null ],
     [ "beltForwardIntake", "_constants_8h.html#af0f4543dea537005feecf29e5237bfda", null ],
     [ "beltForwardShoot", "_constants_8h.html#acdfcfef2fdb8df712d15c0a9a4458abe", null ],
     [ "beltReverse", "_constants_8h.html#afcbd92b7804dc8565fbd200d347ed857", null ],
