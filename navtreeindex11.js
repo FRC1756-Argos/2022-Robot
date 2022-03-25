@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a35cbdf28c0ff14d3ee67d410e036a4ad":[2,0,11,2,3,1,13],
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a3a091fe30e4aa6309ca38fe5a469f4fa":[3,0,2,1,1,1,5],
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a3a091fe30e4aa6309ca38fe5a469f4fa":[2,0,11,2,3,1,5],
 "structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a3e8c39d34878a0f2cf1c8211ebcff5d0":[3,0,2,1,1,1,17],

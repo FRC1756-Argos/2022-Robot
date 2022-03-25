@@ -174,6 +174,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a86dcd4de68ceea46c8039406e7eef04d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a86dcd4de68ceea46c8039406e7eef04d">ProfileIsComplete</a> () const</td></tr>
 <tr class="memdesc:a86dcd4de68ceea46c8039406e7eef04d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a driving profile path has been completed.  <a href="class_swerve_drive_subsystem.html#a86dcd4de68ceea46c8039406e7eef04d">More...</a><br /></td></tr>
 <tr class="separator:a86dcd4de68ceea46c8039406e7eef04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ade7d0e865554eb8c6d447b7a185d05"><td class="memItemLeft" align="right" valign="top">frc::ChassisSpeeds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a9ade7d0e865554eb8c6d447b7a185d05">GetChassisVelocity</a> ()</td></tr>
+<tr class="memdesc:a9ade7d0e865554eb8c6d447b7a185d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the robot velocity in chassis frame (x toward intake, y toward left) based on <a class="el" href="class_swerve_drive_subsystem.html#a804a3ece8183c38c6f216d51ddabf3ec" title="Get the active states of all swerve modules.">GetCurrentModuleStates()</a> output.  <a href="class_swerve_drive_subsystem.html#a9ade7d0e865554eb8c6d447b7a185d05">More...</a><br /></td></tr>
+<tr class="separator:a9ade7d0e865554eb8c6d447b7a185d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -385,6 +388,26 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a9ade7d0e865554eb8c6d447b7a185d05" name="a9ade7d0e865554eb8c6d447b7a185d05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ade7d0e865554eb8c6d447b7a185d05">&#9670;&nbsp;</a></span>GetChassisVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc::ChassisSpeeds SwerveDriveSubsystem::GetChassisVelocity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the robot velocity in chassis frame (x toward intake, y toward left) based on <a class="el" href="class_swerve_drive_subsystem.html#a804a3ece8183c38c6f216d51ddabf3ec" title="Get the active states of all swerve modules.">GetCurrentModuleStates()</a> output. </p>
+<dl class="section return"><dt>Returns</dt><dd>frc::ChassisSpeeds Velocity based on module states </dd></dl>
 
 </div>
 </div>

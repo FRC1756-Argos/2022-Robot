@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"pose__continuity__fix_8h.html#aaf3a8fb7a3322d8f2ba9b63dd536c747":[4,0,0,1,1,3,7,0],
 "pose__continuity__fix_8h_source.html":[4,0,0,1,1,3,7],
 "robot__instance_8cpp.html":[4,0,0,0,0,1,0],
 "robot__instance_8h.html":[4,0,0,0,1,0,1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "structargos__lib_1_1falcon__config_1_1has__pid1__allowable_error_3_01_t_00_01decltype_07_07void_f7861fb4311799075aea27bddfe24a3d.html":[3,0,0,1,35],
 "structargos__lib_1_1falcon__config_1_1has__pid1__i_zone.html":[3,0,0,1,36],
 "structargos__lib_1_1falcon__config_1_1has__pid1__i_zone.html":[2,0,1,1,36],
-"structargos__lib_1_1falcon__config_1_1has__pid1__i_zone_3_01_t_00_01decltype_07_07void_08_01_t_1ea446ab8e6bdb8fcec7ea3e9c0a34690.html":[3,0,0,1,37],
-"structargos__lib_1_1falcon__config_1_1has__pid1__i_zone_3_01_t_00_01decltype_07_07void_08_01_t_1ea446ab8e6bdb8fcec7ea3e9c0a34690.html":[2,0,1,1,37]
+"structargos__lib_1_1falcon__config_1_1has__pid1__i_zone_3_01_t_00_01decltype_07_07void_08_01_t_1ea446ab8e6bdb8fcec7ea3e9c0a34690.html":[3,0,0,1,37]
 };

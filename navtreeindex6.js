@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"namespacefield__points_1_1balls.html#a55b0560d5c6f5654f42839282bb814cf":[2,0,8,0,4],
 "namespacefield__points_1_1balls.html#ae863e1da7ff11050d2b8897d205f8d8b":[2,0,8,0,0],
 "namespacefield__points_1_1balls.html#aea4612ff7a9608118a9696124d89e9bd":[2,0,8,0,2],
 "namespacefield__points_1_1balls.html#afba2a6a9495e0e39405c75121509d5b6":[2,0,8,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "pose__continuity__fix_8cpp.html#a415d90788335889f85526872f95e1167":[4,0,0,1,0,2,5,1],
 "pose__continuity__fix_8cpp.html#aaf3a8fb7a3322d8f2ba9b63dd536c747":[4,0,0,1,0,2,5,0],
 "pose__continuity__fix_8h.html":[4,0,0,1,1,3,7],
-"pose__continuity__fix_8h.html#a415d90788335889f85526872f95e1167":[4,0,0,1,1,3,7,1],
-"pose__continuity__fix_8h.html#aaf3a8fb7a3322d8f2ba9b63dd536c747":[4,0,0,1,1,3,7,0]
+"pose__continuity__fix_8h.html#a415d90788335889f85526872f95e1167":[4,0,0,1,1,3,7,1]
 };

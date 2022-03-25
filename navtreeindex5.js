@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"hysteresis__filter_8h_source.html":[4,0,0,0,1,0,3,2],
 "index.html":[],
 "initialize__odometry__command_8cpp.html":[4,0,0,1,0,0,9],
 "initialize__odometry__command_8h.html":[4,0,0,1,1,0,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "namespacefield__points.html":[2,0,8],
 "namespacefield__points.html#a20b44bacb7abbfc55cf968c5447a7867":[2,0,8,3],
 "namespacefield__points_1_1balls.html":[2,0,8,0],
-"namespacefield__points_1_1balls.html#a46cd978f2033978441b7cad86e038f35":[2,0,8,0,3],
-"namespacefield__points_1_1balls.html#a55b0560d5c6f5654f42839282bb814cf":[2,0,8,0,4]
+"namespacefield__points_1_1balls.html#a46cd978f2033978441b7cad86e038f35":[2,0,8,0,3]
 };

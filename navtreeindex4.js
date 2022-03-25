@@ -1,8 +1,9 @@
 var NAVTREEINDEX4 =
 {
 "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a4d49f9d2e35c5ab0a98bf99761c319c2":[3,0,0,2,0,5],
-"classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a4d4d42822dd11e3ac4b7b65abb5a4c05":[2,0,1,3,0,0],
+"classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a4d49f9d2e35c5ab0a98bf99761c319c2":[2,0,1,3,0,5],
 "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a4d4d42822dd11e3ac4b7b65abb5a4c05":[3,0,0,2,0,0],
+"classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a4d4d42822dd11e3ac4b7b65abb5a4c05":[2,0,1,3,0,0],
 "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a52ef5021c25ee0704647342b46d4937b":[3,0,0,2,0,2],
 "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a52ef5021c25ee0704647342b46d4937b":[2,0,1,3,0,2],
 "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#aab0932c0fdc6daab8133f9b120524217":[3,0,0,2,0,4],
@@ -161,8 +162,8 @@ var NAVTREEINDEX4 =
 "file__system__homing__storage_8h.html":[4,0,0,1,1,3,2],
 "file__system__homing__storage_8h_source.html":[4,0,0,1,1,3,2],
 "files.html":[4,0],
-"functions.html":[3,3,0,0],
 "functions.html":[3,3,0],
+"functions.html":[3,3,0,0],
 "functions_b.html":[3,3,0,1],
 "functions_c.html":[3,3,0,2],
 "functions_d.html":[3,3,0,3],
@@ -206,8 +207,8 @@ var NAVTREEINDEX4 =
 "functions_t.html":[3,3,0,18],
 "functions_u.html":[3,3,0,19],
 "functions_v.html":[3,3,0,20],
-"functions_vars.html":[3,3,2,0],
 "functions_vars.html":[3,3,2],
+"functions_vars.html":[3,3,2,0],
 "functions_vars_b.html":[3,3,2,1],
 "functions_vars_c.html":[3,3,2,2],
 "functions_vars_d.html":[3,3,2,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "home__hood__command_8h_source.html":[4,0,0,1,1,0,8],
 "homing__storage__interface_8h.html":[4,0,0,1,1,3,4],
 "homing__storage__interface_8h_source.html":[4,0,0,1,1,3,4],
-"hysteresis__filter_8h.html":[4,0,0,0,1,0,3,2],
-"hysteresis__filter_8h_source.html":[4,0,0,0,1,0,3,2]
+"hysteresis__filter_8h.html":[4,0,0,0,1,0,3,2]
 };

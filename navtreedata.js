@@ -66,15 +66,15 @@ var NAVTREEINDEX =
 "_constants_8h.html",
 "class_autonomous_right2ball.html#a1337344b82d965c1c4165fb74770c5ce",
 "class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9",
-"class_swerve_trapezoidal_profile_segment.html#a48d19afe9d852c49b731146db99182b1",
+"class_swerve_trapezoidal_profile_segment.html#a3e337ac9db3382f9192a6c384bce925b",
 "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#a4d49f9d2e35c5ab0a98bf99761c319c2",
-"index.html",
-"namespacefield__points_1_1balls.html#ae863e1da7ff11050d2b8897d205f8d8b",
-"pose__continuity__fix_8h_source.html",
-"structargos__lib_1_1falcon__config_1_1has__pid1__k_d.html",
-"structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#a6285b0c977dbace5e080a294537758ff",
-"structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html",
-"structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a3a091fe30e4aa6309ca38fe5a469f4fa"
+"hysteresis__filter_8h_source.html",
+"namespacefield__points_1_1balls.html#a55b0560d5c6f5654f42839282bb814cf",
+"pose__continuity__fix_8h.html#aaf3a8fb7a3322d8f2ba9b63dd536c747",
+"structargos__lib_1_1falcon__config_1_1has__pid1__i_zone_3_01_t_00_01decltype_07_07void_08_01_t_1ea446ab8e6bdb8fcec7ea3e9c0a34690.html",
+"structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#a5cf7f3f8ff3d9eaf82c2c8ed05eb42b9",
+"structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#aed1d5aa5f71a3cd4d889727ddb560227",
+"structmotor_config_1_1practice__bot_1_1shooter_1_1turret_motor.html#a35cbdf28c0ff14d3ee67d410e036a4ad"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -9,6 +9,7 @@ var class_swerve_drive_subsystem =
     [ "CancelDrivingProfile", "class_swerve_drive_subsystem.html#a3238d024639a5df1af633317e4f21b74", null ],
     [ "Disable", "class_swerve_drive_subsystem.html#a0799d7ebc2d49f21f26cb9297accb091", null ],
     [ "FieldHome", "class_swerve_drive_subsystem.html#a10c2f60687677072bdf6bcb5fce76a4c", null ],
+    [ "GetChassisVelocity", "class_swerve_drive_subsystem.html#a9ade7d0e865554eb8c6d447b7a185d05", null ],
     [ "GetContinuousOdometry", "class_swerve_drive_subsystem.html#a01e9a6cdaf6a6312d779606f6c968523", null ],
     [ "GetContinuousOdometryAngle", "class_swerve_drive_subsystem.html#ad651bed336533905b8e5f6ca6bfb926b", null ],
     [ "GetCurrentModuleStates", "class_swerve_drive_subsystem.html#a804a3ece8183c38c6f216d51ddabf3ec", null ],
