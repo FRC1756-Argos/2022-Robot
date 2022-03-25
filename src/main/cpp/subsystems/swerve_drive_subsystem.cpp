@@ -559,3 +559,7 @@ void SwerveDriveSubsystem::CancelDrivingProfile() {
 bool SwerveDriveSubsystem::ProfileIsComplete() const {
   return m_profileComplete;
 }
+
+frc::ChassisSpeeds SwerveDriveSubsystem::GetChassisVelocity() {
+  return m_swerveDriveKinematics.ToChassisSpeeds(GetCurrentModuleStates());
+}

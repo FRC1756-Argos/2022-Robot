@@ -174,6 +174,14 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    */
   bool ProfileIsComplete() const;
 
+  /**
+   * @brief Get the robot velocity in chassis frame (x toward intake, y toward left) based on
+   *        GetCurrentModuleStates() output
+   *
+   * @return frc::ChassisSpeeds Velocity based on module states
+   */
+  frc::ChassisSpeeds GetChassisVelocity();
+
  private:
   DriveControlMode m_controlMode;  ///< Active control mode
 
