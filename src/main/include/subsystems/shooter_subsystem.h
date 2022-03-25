@@ -32,6 +32,8 @@ class LimelightTarget {
   units::degree_t m_skew;
   int m_area;
   bool m_hasTargets;
+  units::millisecond_t m_pipelineLatency;
+  constexpr static units::millisecond_t m_miscLatency{11_ms};
 
  public:
   LimelightTarget() = default;
@@ -46,6 +48,7 @@ class LimelightTarget {
     double bboxHor;
     double bboxVer;
     units::degree_t skew;
+    units::millisecond_t totalLatency;
   };
 
   /**
@@ -130,6 +133,14 @@ class ShooterSubsystem : public frc2::SubsystemBase {
     units::feet_per_second_t radialVelocity;      ///< Positive is velocity toward center of hub
     units::feet_per_second_t tangentialVelocity;  ///< Positive is velocity clockwise around hub
     units::degrees_per_second_t chassisYawRate;   ///< Positive is robot rotating counterclockwise
+  };
+
+  /**
+   * @brief Offsets useful for aiming while driving
+   */
+  struct AimOffsets {
+    units::foot_t distanceOffset;  ///< Positive indicates aim farther to compensate for motion away from hub
+    units::degree_t yawOffset;     ///< Positive indicates aim left of hub to compensate for robot lateral motion
   };
 
   ShooterSubsystem(const argos_lib::RobotInstance instance,
@@ -381,6 +392,11 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   HubRelativeVelocities ChassisVelocitiesToHubVelocities(const frc::ChassisSpeeds robotChassisSpeed,
                                                          units::degree_t hubTurretAngle);
 
+  AimOffsets DrivingAimOffsets(const HubRelativeVelocities robotVelocity,
+                               units::foot_t hubDistance,
+                               units::degree_t hubAngle,
+                               units::second_t targetStaleness);
+
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   WPI_TalonFX m_shooterWheelLeft;
@@ -405,6 +421,10 @@ class ShooterSubsystem : public frc2::SubsystemBase {
                               shooterRange::hoodAngle.size(),
                               decltype(shooterRange::hoodAngle.front().outVal)>
       m_hoodAngleMap;
+  argos_lib::InterpolationMap<decltype(shooterRange::lateralSpeed.front().inVal),
+                              shooterRange::lateralSpeed.size(),
+                              decltype(shooterRange::lateralSpeed.front().outVal)>
+      m_lateralSpeedMap;
 
   argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
   argos_lib::NTMotorPIDTuner m_shooterPIDTuner;

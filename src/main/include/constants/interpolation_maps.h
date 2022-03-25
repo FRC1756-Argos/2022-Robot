@@ -30,6 +30,14 @@ namespace shooterRange {
                                                   InterpMapPoint{240.0_in, 38.0_deg},
                                                   InterpMapPoint{300.0_in, 41.0_deg},
                                                   InterpMapPoint{360.0_in, 42.0_deg}};
+  [[maybe_unused]] constexpr std::array lateralSpeed{InterpMapPoint{10.0_in, 10_fps},
+                                                     InterpMapPoint{21.5_in, 10_fps},
+                                                     InterpMapPoint{60.0_in, 10_fps},
+                                                     InterpMapPoint{120.0_in, 10_fps},
+                                                     InterpMapPoint{180.0_in, 10_fps},
+                                                     InterpMapPoint{240.0_in, 10_fps},
+                                                     InterpMapPoint{300.0_in, 10_fps},
+                                                     InterpMapPoint{360.0_in, 10_fps}};
 }  // namespace shooterRange
 namespace controllerMap {
   using argos_lib::InterpMapPoint;

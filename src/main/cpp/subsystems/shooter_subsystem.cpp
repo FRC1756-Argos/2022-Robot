@@ -31,6 +31,7 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
     , m_useCalculatedPitch(false)
     , m_shooterSpeedMap(shooterRange::shooterSpeed)
     , m_hoodAngleMap(shooterRange::hoodAngle)
+    , m_lateralSpeedMap(shooterRange::lateralSpeed)
     , m_hoodPIDTuner{"argos/hood",
                      {&m_hoodMotor},
                      0,
@@ -473,6 +474,42 @@ ShooterSubsystem::HubRelativeVelocities ShooterSubsystem::ChassisVelocitiesToHub
   return retVal;
 }
 
+ShooterSubsystem::AimOffsets ShooterSubsystem::DrivingAimOffsets(
+    const ShooterSubsystem::HubRelativeVelocities robotVelocity,
+    units::foot_t hubDistance,
+    units::degree_t hubAngle,
+    units::second_t targetStaleness) {
+  // Motion since last target acquisition
+  const units::foot_t radialMotionSinceSample = robotVelocity.radialVelocity * targetStaleness;
+  const units::foot_t tangentialMotionSinceSample = robotVelocity.tangentialVelocity * targetStaleness;
+  const units::degree_t rotationSinceSample = robotVelocity.chassisYawRate * targetStaleness;
+
+  const units::foot_t netMotionSinceSample = units::math::sqrt(units::math::pow<2>(radialMotionSinceSample) +
+                                                               units::math::pow<2>(tangentialMotionSinceSample));
+  const units::degree_t motionAngle = units::math::atan2(radialMotionSinceSample, tangentialMotionSinceSample);
+
+  // Use SAS law of cosines to get hub positions at T=0 (now)
+  const units::foot_t hubDistanceT0 =
+      units::math::sqrt(units::math::pow<2>(hubDistance) + units::math::pow<2>(netMotionSinceSample) -
+                        2 * hubDistance * netMotionSinceSample * units::math::cos(90_deg + motionAngle));
+  const units::degree_t hubAngleT0 =
+      hubAngle - rotationSinceSample -
+      units::math::asin((hubDistance / hubDistanceT0) * units::math::sin(90_deg + motionAngle));
+
+  // Motion while ball in transit
+  const units::second_t ballTravelTime = hubDistanceT0 / m_lateralSpeedMap(hubDistanceT0);
+  const units::foot_t radialMotionInFlight = ballTravelTime * robotVelocity.radialVelocity;
+  const units::foot_t tangentialMotionInFlight = ballTravelTime * robotVelocity.tangentialVelocity;
+  // Rotation doesn't matter while ball is in flight probably?  Maybe this is a bad assumption, but we'll see
+
+  // Now the fun part... How will the ball move due to initial velocity vectors while in flight?
+  const units::foot_t inFlightDistanceAdjustment = radialMotionInFlight;
+  const units::degree_t inFlightAngleAdjustment = -units::math::atan2(tangentialMotionInFlight, hubDistanceT0);
+
+  return AimOffsets{hubDistanceT0 - hubDistanceT0 + inFlightDistanceAdjustment,
+                    hubAngleT0 - hubAngle + inFlightAngleAdjustment};
+}
+
 // CAMERA INTERFACE -----------------------------------------------------------------------------
 CameraInterface::CameraInterface() {}
 
@@ -530,8 +567,9 @@ LimelightTarget::tValues LimelightTarget::GetTarget() {
   m_bboxVer = (table->GetNumber("tshort", 0.0));
   m_skew = units::degree_t{(table->GetNumber("ts", 0.0))};
   m_hasTargets = (table->GetNumber("tv", 0) == 1);
+  m_pipelineLatency = units::millisecond_t{table->GetNumber("tl", 0.0)};
 
-  tValues targetValues{m_pitch, m_yaw, m_bboxHor, m_bboxVer, m_skew};
+  tValues targetValues{m_pitch, m_yaw, m_bboxHor, m_bboxVer, m_skew, m_pipelineLatency + m_miscLatency};
   return targetValues;
 }
 
