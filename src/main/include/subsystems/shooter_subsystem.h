@@ -126,6 +126,12 @@ class ShooterSubsystem : public frc2::SubsystemBase {
     units::degree_t hoodAngle;
   };
 
+  struct HubRelativeVelocities {
+    units::feet_per_second_t radialVelocity;      ///< Positive is velocity toward center of hub
+    units::feet_per_second_t tangentialVelocity;  ///< Positive is velocity clockwise around hub
+    units::degrees_per_second_t chassisYawRate;   ///< Positive is robot rotating counterclockwise
+  };
+
   ShooterSubsystem(const argos_lib::RobotInstance instance,
                    SwerveDriveSubsystem* pDriveSubsystem,
                    argos_lib::SwappableControllersSubsystem* controllers = nullptr);
@@ -364,6 +370,16 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @brief Activate vibration feedback to indicate aimed
    */
   void AimedFeedback() const;
+
+  /**
+   * @brief Generate hub-relative velocities for driving shot
+   *
+   * @param robotChassisSpeed Active robot velocity in chassis frame (x positive forward, y positive left, yaw positive CW)
+   * @param hubTurretAngle Angle of hub in chassis reference frame (0 yaw is robot forward, positive is CW)
+   * @return HubRelativeVelocities Robot's velocities relative to hub
+   */
+  HubRelativeVelocities ChassisVelocitiesToHubVelocities(const frc::ChassisSpeeds robotChassisSpeed,
+                                                         units::degree_t hubTurretAngle);
 
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.

@@ -458,6 +458,21 @@ void ShooterSubsystem::AimedFeedback() const {
   }
 }
 
+ShooterSubsystem::HubRelativeVelocities ShooterSubsystem::ChassisVelocitiesToHubVelocities(
+    const frc::ChassisSpeeds robotChassisSpeed, units::degree_t hubTurretAngle) {
+  ShooterSubsystem::HubRelativeVelocities retVal;
+
+  // Yaw rate is same in both reference frames
+  retVal.chassisYawRate = robotChassisSpeed.omega;
+
+  retVal.radialVelocity =
+      robotChassisSpeed.vy * units::math::sin(hubTurretAngle) - robotChassisSpeed.vx * units::math::cos(hubTurretAngle);
+  retVal.tangentialVelocity =
+      robotChassisSpeed.vy * units::math::cos(hubTurretAngle) + robotChassisSpeed.vx * units::math::sin(hubTurretAngle);
+
+  return retVal;
+}
+
 // CAMERA INTERFACE -----------------------------------------------------------------------------
 CameraInterface::CameraInterface() {}
 
