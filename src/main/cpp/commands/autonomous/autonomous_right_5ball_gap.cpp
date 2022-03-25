@@ -63,7 +63,6 @@ AutonomousRight5ballGap::AutonomousRight5ballGap(IntakeSubsystem* pIntake,
           frc2::SequentialCommandGroup{
               m_driveToBallD, m_driveBackFromTerminal, m_humanPlayerDelay, m_driveToFinalShootPosition}},
       m_visionAim,
-      m_shootDelay,
       m_shootTwoBall);
 }
 

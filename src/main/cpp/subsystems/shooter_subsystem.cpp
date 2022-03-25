@@ -148,11 +148,11 @@ bool ShooterSubsystem::AutoAim() {
 
   if (InAcceptableRanges(targets, currentValues)) {
     AimedFeedback();
+    return true;
   } else {
     StopFeedback();
+    return false;
   }
-
-  return true;
 }
 
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {

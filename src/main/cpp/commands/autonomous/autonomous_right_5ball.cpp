@@ -54,7 +54,6 @@ AutonomousRight5ball::AutonomousRight5ball(IntakeSubsystem* pIntake,
       frc2::ParallelCommandGroup{
           m_aimBallD, frc2::SequentialCommandGroup{m_driveToBallD, m_humanPlayerDelay, m_driveToFinalShootPosition}},
       m_visionAim,
-      m_shootDelay,
       m_shootTwoBall);
 }
 
