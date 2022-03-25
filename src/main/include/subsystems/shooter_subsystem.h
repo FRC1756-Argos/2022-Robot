@@ -165,10 +165,12 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   void Periodic() override;
 
   /**
-   * @brief auto aims shooter to hub
+   * @brief Auto aims shooter to hub using vision
    *
+   * @param drivingAdjustment True enables aiming adjustment for robot motion
+   * @return True when aimed at vision target
    */
-  bool AutoAim();
+  bool AutoAim(bool drivingAdjustment = true);
 
   /**
    * @brief pressing a button to fire a ball

@@ -28,7 +28,7 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
     , m_hoodHomed(false)
     , m_turretHomed(false)
     , m_manualOverride(false)
-    , m_useCalculatedPitch(false)
+    , m_useCalculatedPitch(true)
     , m_shooterSpeedMap(shooterRange::shooterSpeed)
     , m_hoodAngleMap(shooterRange::hoodAngle)
     , m_lateralSpeedMap(shooterRange::lateralSpeed)
@@ -95,7 +95,7 @@ void ShooterSubsystem::Periodic() {
   }
 }
 
-bool ShooterSubsystem::AutoAim() {
+bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   LimelightTarget::tValues targetValues = m_cameraInterface.m_target.GetTarget();
 
   // Get target angle & assign to turret
@@ -110,9 +110,6 @@ bool ShooterSubsystem::AutoAim() {
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target Yaw", targetValues.yaw.to<double>());
 
   std::optional<units::degree_t> targetAngle = GetTurretTargetAngle(targetValues);
-  if (targetAngle) {
-    TurretSetPosition(targetAngle.value());
-  }
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Turret target angle", targetAngle.value().to<double>());
   const auto currentTurretAngle = sensor_conversions::turret::ToAngle(m_turretMotor.GetSelectedSensorPosition());
@@ -139,13 +136,29 @@ bool ShooterSubsystem::AutoAim() {
 
   distanceToTarget += fudgeFactor;
 
-  const auto shooterSetpoints = SetShooterDistance(distanceToTarget);
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance before motion adjust", distanceToTarget.to<double>());
 
-  frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance", distanceToTarget.to<double>());
+  if (drivingAdjustment) {
+    const auto drivingAdjustmentValues = DrivingAimOffsets(
+        ChassisVelocitiesToHubVelocities(m_pDriveSubsystem->GetChassisVelocity(), targetAngle.value()),
+        distanceToTarget,
+        targetAngle.value(),
+        targetValues.totalLatency);
+    distanceToTarget += drivingAdjustmentValues.distanceOffset;
+    targetAngle.value() += drivingAdjustmentValues.yawOffset;
+  }
+
+  frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance final", distanceToTarget.to<double>());
+
+  const auto shooterSetpoints = SetShooterDistance(distanceToTarget);
 
   const AimValues targets{
       targetAngle ? targetAngle.value() : 0_deg, shooterSetpoints.hoodAngle, shooterSetpoints.shooterSpeed};
   const AimValues currentValues{currentTurretAngle, GetHoodPosition(), GetShooterSpeed()};
+
+  if (targetAngle) {
+    TurretSetPosition(targetAngle.value());
+  }
 
   if (InAcceptableRanges(targets, currentValues)) {
     AimedFeedback();
@@ -176,8 +189,8 @@ units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance
     }
   } else if (actualDistance >= (units::inch_t)90 && actualDistance < (units::inch_t)160) {
     if (m_instance == argos_lib::RobotInstance::Competition) {
-      double y = (camDegOffsetAcounting - (0.008571 * actualDistance.to<double>()) +
-                  (0.151428571 * std::pow(actualDistance.to<double>(), 2)));
+      double y = (camDegOffsetAcounting - (0.1528571 * actualDistance.to<double>()) +
+                  (0.00148571 * std::pow(actualDistance.to<double>(), 2)));
       offset = units::inch_t{y};
     } else {
       offset = -15_in;
@@ -471,6 +484,21 @@ ShooterSubsystem::HubRelativeVelocities ShooterSubsystem::ChassisVelocitiesToHub
   retVal.tangentialVelocity =
       robotChassisSpeed.vy * units::math::cos(hubTurretAngle) + robotChassisSpeed.vx * units::math::sin(hubTurretAngle);
 
+  frc::SmartDashboard::PutNumber("(HubRelativeVelocities) v_x",
+                                 units::feet_per_second_t{robotChassisSpeed.vx}.to<double>());
+  frc::SmartDashboard::PutNumber("(HubRelativeVelocities) v_y",
+                                 units::feet_per_second_t{robotChassisSpeed.vy}.to<double>());
+  frc::SmartDashboard::PutNumber("(HubRelativeVelocities) omega",
+                                 units::degrees_per_second_t{robotChassisSpeed.omega}.to<double>());
+  frc::SmartDashboard::PutNumber("(HubRelativeVelocities) hubAngle", units::degree_t{hubTurretAngle}.to<double>());
+
+  frc::SmartDashboard::PutNumber("(HubRelativeVelocities) v_radial",
+                                 units::feet_per_second_t{retVal.radialVelocity}.to<double>());
+  frc::SmartDashboard::PutNumber("(HubRelativeVelocities) v_tangential",
+                                 units::feet_per_second_t{retVal.tangentialVelocity}.to<double>());
+  frc::SmartDashboard::PutNumber("(HubRelativeVelocities) yawRate",
+                                 units::degrees_per_second_t{retVal.chassisYawRate}.to<double>());
+
   return retVal;
 }
 
@@ -479,14 +507,25 @@ ShooterSubsystem::AimOffsets ShooterSubsystem::DrivingAimOffsets(
     units::foot_t hubDistance,
     units::degree_t hubAngle,
     units::second_t targetStaleness) {
+  frc::SmartDashboard::PutNumber("(Driving Shot) hubDistance", hubDistance.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) hubAngle", hubAngle.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) targetStaleness", targetStaleness.to<double>());
   // Motion since last target acquisition
   const units::foot_t radialMotionSinceSample = robotVelocity.radialVelocity * targetStaleness;
   const units::foot_t tangentialMotionSinceSample = robotVelocity.tangentialVelocity * targetStaleness;
   const units::degree_t rotationSinceSample = robotVelocity.chassisYawRate * targetStaleness;
 
+  frc::SmartDashboard::PutNumber("(Driving Shot) radialMotionSinceSample", radialMotionSinceSample.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) tangentialMotionSinceSample",
+                                 tangentialMotionSinceSample.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) rotationSinceSample", rotationSinceSample.to<double>());
+
   const units::foot_t netMotionSinceSample = units::math::sqrt(units::math::pow<2>(radialMotionSinceSample) +
                                                                units::math::pow<2>(tangentialMotionSinceSample));
   const units::degree_t motionAngle = units::math::atan2(radialMotionSinceSample, tangentialMotionSinceSample);
+
+  frc::SmartDashboard::PutNumber("(Driving Shot) netMotionSinceSample", netMotionSinceSample.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) motionAngle", motionAngle.to<double>());
 
   // Use SAS law of cosines to get hub positions at T=0 (now)
   const units::foot_t hubDistanceT0 =
@@ -494,7 +533,11 @@ ShooterSubsystem::AimOffsets ShooterSubsystem::DrivingAimOffsets(
                         2 * hubDistance * netMotionSinceSample * units::math::cos(90_deg + motionAngle));
   const units::degree_t hubAngleT0 =
       hubAngle - rotationSinceSample -
-      units::math::asin((hubDistance / hubDistanceT0) * units::math::sin(90_deg + motionAngle));
+      units::math::asin((netMotionSinceSample / hubDistanceT0) * units::math::sin(90_deg + motionAngle));
+
+  frc::SmartDashboard::PutNumber("(Driving Shot) std::asin(hubDistance/hubDistanceT0)", hubDistanceT0.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) hubDistanceT0", hubDistanceT0.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) hubAngleT0", hubAngleT0.to<double>());
 
   // Motion while ball in transit
   const units::second_t ballTravelTime = hubDistanceT0 / m_lateralSpeedMap(hubDistanceT0);
@@ -502,12 +545,24 @@ ShooterSubsystem::AimOffsets ShooterSubsystem::DrivingAimOffsets(
   const units::foot_t tangentialMotionInFlight = ballTravelTime * robotVelocity.tangentialVelocity;
   // Rotation doesn't matter while ball is in flight probably?  Maybe this is a bad assumption, but we'll see
 
+  frc::SmartDashboard::PutNumber("(Driving Shot) ballTravelTime", ballTravelTime.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) radialMotionInFlight", radialMotionInFlight.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) tangentialMotionInFlight", tangentialMotionInFlight.to<double>());
+
   // Now the fun part... How will the ball move due to initial velocity vectors while in flight?
   const units::foot_t inFlightDistanceAdjustment = radialMotionInFlight;
   const units::degree_t inFlightAngleAdjustment = -units::math::atan2(tangentialMotionInFlight, hubDistanceT0);
 
-  return AimOffsets{hubDistanceT0 - hubDistanceT0 + inFlightDistanceAdjustment,
-                    hubAngleT0 - hubAngle + inFlightAngleAdjustment};
+  frc::SmartDashboard::PutNumber("(Driving Shot) inFlightDistanceAdjustment", inFlightDistanceAdjustment.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) inFlightAngleAdjustment", inFlightAngleAdjustment.to<double>());
+
+  const AimOffsets offsets{hubDistanceT0 - hubDistanceT0 + inFlightDistanceAdjustment,
+                           hubAngleT0 - hubAngle + inFlightAngleAdjustment};
+
+  frc::SmartDashboard::PutNumber("(Driving Shot) offsetDistance", offsets.distanceOffset.to<double>());
+  frc::SmartDashboard::PutNumber("(Driving Shot) offsetAngle", offsets.yawOffset.to<double>());
+
+  return offsets;
 }
 
 // CAMERA INTERFACE -----------------------------------------------------------------------------
