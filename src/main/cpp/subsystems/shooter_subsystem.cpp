@@ -275,6 +275,7 @@ void ShooterSubsystem::UpdateHoodHome() {
   m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(
       m_instance == argos_lib::RobotInstance::Competition ? measure_up::hood::comp_bot::homeAngle :
                                                             measure_up::hood::practice_bot::homeAngle));
+  SetHoodSoftLimits();
   m_hoodHomed = true;
 }
 
@@ -364,6 +365,23 @@ void ShooterSubsystem::SetTurretSoftLimits() {
 void ShooterSubsystem::DisableTurretSoftLimits() {
   m_turretMotor.ConfigForwardSoftLimitEnable(false);
   m_turretMotor.ConfigReverseSoftLimitEnable(false);
+}
+
+void ShooterSubsystem::SetHoodSoftLimits() {
+  units::degree_t minAngle = m_instance == argos_lib::RobotInstance::Competition ?
+                                 measure_up::hood::comp_bot::homeAngle :
+                                 measure_up::hood::practice_bot::homeAngle;
+  units::degree_t maxAngle = m_hoodAngleMap(35_ft);
+
+  m_hoodMotor.ConfigForwardSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(maxAngle));
+  m_hoodMotor.ConfigReverseSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(minAngle));
+  m_hoodMotor.ConfigForwardSoftLimitEnable(true);
+  m_hoodMotor.ConfigReverseSoftLimitEnable(true);
+}
+
+void ShooterSubsystem::DisableHoodSoftLimits() {
+  m_hoodMotor.ConfigForwardSoftLimitEnable(false);
+  m_hoodMotor.ConfigReverseSoftLimitEnable(false);
 }
 
 void ShooterSubsystem::Disable() {

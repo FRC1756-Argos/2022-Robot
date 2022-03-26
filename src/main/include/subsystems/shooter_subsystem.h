@@ -296,6 +296,16 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   void DisableTurretSoftLimits();
 
   /**
+   * @brief Sets and enables soft angle limits for hood
+   */
+  void SetHoodSoftLimits();
+
+  /**
+   * @brief Disables soft angle limits for hood
+   */
+  void DisableHoodSoftLimits();
+
+  /**
    * @brief Detect if manual control has been enabled
    *
    * @return True when manual control is active
