@@ -16,7 +16,7 @@ namespace field_points {
   namespace balls {
     static const frc::Translation2d A = frc::Translation2d(298_in, 11.5_in);
     static const frc::Translation2d B = frc::Translation2d(198.4_in, 74_in);
-    static const frc::Translation2d C = frc::Translation2d(194.2_in, 243.9_in);
+    static const frc::Translation2d C = frc::Translation2d(209.3_in, 244.4_in);
     static const frc::Translation2d D = frc::Translation2d(42_in, 45_in);
     static const frc::Translation2d F = frc::Translation2d(184.4_in, 124.6_in);
   }  // namespace balls
@@ -24,7 +24,7 @@ namespace field_points {
     static const frc::Pose2d W = frc::Pose2d(298.5_in, 72.18_in, -90_deg);
     static const frc::Pose2d X = frc::Pose2d(261.2_in, 105.6_in, -147.5_deg);
     static const frc::Pose2d Y = frc::Pose2d(247.37_in, 150.6_in, 180_deg);
-    static const frc::Pose2d Z = frc::Pose2d(239.9_in, 203.6_in, 135_deg);
+    static const frc::Pose2d Z = frc::Pose2d(252.3_in, 204.2_in, 135_deg);
   }  // namespace starting_positions
   namespace pickup_positions {
     static const frc::Pose2d W_A = frc::Pose2d(balls::A.X(),
@@ -33,8 +33,8 @@ namespace field_points {
 
     static const frc::Pose2d W_A_B = frc::Pose2d(balls::B.X(), balls::B.Y() + 1.5_ft, -200_deg);
 
-    static const frc::Pose2d D = frc::Pose2d(balls::D.X() + 4_in,
-                                             balls::D.Y() + 24_in,
+    static const frc::Pose2d D = frc::Pose2d(balls::D.X() + 18_in,
+                                             balls::D.Y() + 12_in,
                                              -135_deg);  ///< Approach at 45 degree angle
 
     static const frc::Pose2d HumanPlayer =
@@ -56,9 +56,9 @@ namespace field_points {
 
     static const frc::Pose2d Y_Y = frc::Pose2d(starting_positions::Y.X() - 48_in, starting_positions::Y.Y(), 180_deg);
 
-    static const frc::Pose2d Defense_Virt = frc::Pose2d(360_in, 180_in, 405_deg);
-    static const frc::Pose2d Defense_Right = frc::Pose2d(174_in - 4_ft, 126_in + 3_ft, 270_deg);
-    static const frc::Pose2d Defense_Left = frc::Pose2d(234_in, 228_in, 405_deg);
+    static const frc::Pose2d Defense_Virt = frc::Pose2d(360_in, 180_in, 45_deg);
+    static const frc::Pose2d Defense_Right = frc::Pose2d(174_in, 129.8_in, -90_deg);
+    static const frc::Pose2d Defense_Left = frc::Pose2d(247.9_in, 287.8_in, 45_deg);
 
   }  // namespace pickup_positions
 

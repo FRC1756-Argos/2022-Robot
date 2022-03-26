@@ -16,45 +16,32 @@ AutonomousCenterLeft2ballDefense::AutonomousCenterLeft2ballDefense(IntakeSubsyst
     , m_pShooter{pShooter}
     , m_pDrive{pDrive}
     , m_startDelay{600_ms}
-    , m_driveToBallC{m_pDrive,
-                     field_points::starting_positions::Z,
-                     field_points::starting_positions::Z.Rotation().Degrees(),
-                     field_points::pickup_positions::Z_C,
-                     field_points::pickup_positions::Z_C.Rotation().Degrees(),
-                     constraints::first_ball_path::linearConstraints,
-                     constraints::first_ball_path::rotationalConstraints}
     , m_driveDefenseRight{m_pDrive,
                           field_points::pickup_positions::Z_C,
                           field_points::pickup_positions::Z_C.Rotation().Degrees(),
                           field_points::pickup_positions::Defense_Right,
                           field_points::pickup_positions::Defense_Right.Rotation().Degrees(),
-                          constraints::first_ball_path::linearConstraints,
-                          constraints::first_ball_path::rotationalConstraints}
+                          constraints::defensive_right_path::linearConstraints,
+                          constraints::defensive_right_path::rotationalConstraints}
     , m_driveDefenseLeft{m_pDrive,
                          field_points::pickup_positions::Defense_Right,
                          field_points::pickup_positions::Defense_Right.Rotation().Degrees(),
                          field_points::pickup_positions::Defense_Left,
                          field_points::pickup_positions::Defense_Left.Rotation().Degrees(),
-                         constraints::first_ball_path::linearConstraints,
-                         constraints::first_ball_path::rotationalConstraints}
+                         constraints::defensive_right_path::linearConstraints,
+                         constraints::defensive_right_path::rotationalConstraints}
     , m_homeHoodCommand{m_pShooter}
     , m_intakeCommand{m_pIntake}
     , m_shootCommand{m_pIntake, 2, 1.2_s}
-    , m_aimBallC{m_pShooter, field_points::pickup_positions::Z_C}
     , m_aimDefenseBottom{m_pShooter, field_points::pickup_positions::Defense_Virt}
     , m_visionAim{m_pShooter}
     , m_initOdometry{m_pDrive, field_points::starting_positions::Z}
     , m_allCommands{} {
-  m_allCommands.AddCommands(
-      frc2::ParallelCommandGroup{frc2::SequentialCommandGroup{m_homeHoodCommand, m_aimBallC},
-                                 m_intakeCommand,
-                                 frc2::SequentialCommandGroup{m_initOdometry, m_startDelay, m_driveToBallC}},
-      m_visionAim,
-      m_shootCommand,
-      m_startDelay,
-      frc2::ParallelCommandGroup{m_aimDefenseBottom,
-                                 frc2::SequentialCommandGroup{m_driveDefenseRight, m_driveDefenseLeft}},
-      m_shootCommand);
+  m_allCommands.AddCommands(AutonomousCenterLeft2ball{m_pIntake, m_pShooter, m_pDrive},
+                            m_startDelay,
+                            frc2::ParallelCommandGroup{m_aimDefenseBottom, m_driveDefenseRight},
+                            //  frc2::SequentialCommandGroup{m_driveDefenseRight, m_driveDefenseLeft}},
+                            m_shootCommand);
 }
 
 // Called when the command is initially scheduled.

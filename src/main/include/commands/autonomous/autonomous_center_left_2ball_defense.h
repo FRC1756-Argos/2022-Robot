@@ -21,6 +21,7 @@
 
 #include <string>
 
+#include "autonomous_center_left_2ball.h"
 #include "autonomous_command.h"
 
 class AutonomousCenterLeft2ballDefense
@@ -52,13 +53,11 @@ class AutonomousCenterLeft2ballDefense
   SwerveDriveSubsystem* m_pDrive;
 
   DelayCommand m_startDelay;
-  DriveToLocation m_driveToBallC;
   DriveToLocation m_driveDefenseRight;
   DriveToLocation m_driveDefenseLeft;
   HomeHoodCommand m_homeHoodCommand;
   IntakeCommand m_intakeCommand;
   ShootCommand m_shootCommand;
-  AutoPositionAimCommand m_aimBallC;
   AutoPositionAimCommand m_aimDefenseBottom;
   AutoVisionAimCommand m_visionAim;
   InitializeOdometryCommand m_initOdometry;

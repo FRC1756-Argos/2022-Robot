@@ -44,4 +44,10 @@ namespace constraints {
     static const frc::TrapezoidProfile<units::degrees>::Constraints rotationalConstraints{
         units::degrees_per_second_t{360}, units::degrees_per_second_squared_t{360}};
   }  // namespace D_5_final
+  namespace defensive_right_path {
+    static const frc::TrapezoidProfile<units::inches>::Constraints linearConstraints{
+        6_fps, units::feet_per_second_squared_t{6}};
+    static const frc::TrapezoidProfile<units::degrees>::Constraints rotationalConstraints{
+        units::degrees_per_second_t{360}, units::degrees_per_second_squared_t{360}};
+  }  // namespace defensive_right_path
 }  // namespace constraints
