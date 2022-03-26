@@ -7,6 +7,7 @@ var interpolation__maps_8h =
     [ "hoodAngle", "interpolation__maps_8h.html#acc94363d15c3cecc0952d70074def851", null ],
     [ "hoodSpeed", "interpolation__maps_8h.html#a1dacaddb9145013bc537ff3ddf742751", null ],
     [ "hookSpeed", "interpolation__maps_8h.html#a32c5da49786d39390beceeea3a735887", null ],
+    [ "lateralSpeed", "interpolation__maps_8h.html#ae7cd535c22224d63b7cf4cd49c56bedc", null ],
     [ "shooterSpeed", "interpolation__maps_8h.html#a39ba488d6b48e6f42b8071c075157426", null ],
     [ "turretSpeed", "interpolation__maps_8h.html#addfaca7b509806dafab99c4008a9d250", null ]
 ];

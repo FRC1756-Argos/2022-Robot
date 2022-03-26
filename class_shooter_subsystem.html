@@ -105,6 +105,11 @@ Inheritance diagram for ShooterSubsystem:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_shooter_subsystem_1_1_aim_offsets.html">AimOffsets</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offsets useful for aiming while driving.  <a href="struct_shooter_subsystem_1_1_aim_offsets.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_shooter_subsystem_1_1_hub_relative_velocities.html">HubRelativeVelocities</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_shooter_subsystem_1_1_shooter_distance_setpoints.html">ShooterDistanceSetpoints</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hood and shooter setpoints for shooting at a known distance.  <a href="struct_shooter_subsystem_1_1_shooter_distance_setpoints.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,9 +134,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2466fbf822ddd62852b9bbd5e401f120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8d2e05a252f65c20c489049ae18efd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ad8d2e05a252f65c20c489049ae18efd5">Periodic</a> () override</td></tr>
 <tr class="separator:ad8d2e05a252f65c20c489049ae18efd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08a7e36a73d7b5294129d9e9a5239de5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a08a7e36a73d7b5294129d9e9a5239de5">AutoAim</a> ()</td></tr>
-<tr class="memdesc:a08a7e36a73d7b5294129d9e9a5239de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">auto aims shooter to hub  <a href="class_shooter_subsystem.html#a08a7e36a73d7b5294129d9e9a5239de5">More...</a><br /></td></tr>
-<tr class="separator:a08a7e36a73d7b5294129d9e9a5239de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0675445ea465110252bb9427b2c72a9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a0675445ea465110252bb9427b2c72a9d">AutoAim</a> (bool drivingAdjustment=false)</td></tr>
+<tr class="memdesc:a0675445ea465110252bb9427b2c72a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auto aims shooter to hub using vision.  <a href="class_shooter_subsystem.html#a0675445ea465110252bb9427b2c72a9d">More...</a><br /></td></tr>
+<tr class="separator:a0675445ea465110252bb9427b2c72a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add97f4ce7b4a5a152eaec050920012e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#add97f4ce7b4a5a152eaec050920012e1">Shoot</a> (double ballfiringspeed)</td></tr>
 <tr class="memdesc:add97f4ce7b4a5a152eaec050920012e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">pressing a button to fire a ball  <a href="class_shooter_subsystem.html#add97f4ce7b4a5a152eaec050920012e1">More...</a><br /></td></tr>
 <tr class="separator:add97f4ce7b4a5a152eaec050920012e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,6 +191,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abd3980d12fcd728ebec65e9e995f545b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b">DisableTurretSoftLimits</a> ()</td></tr>
 <tr class="memdesc:abd3980d12fcd728ebec65e9e995f545b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables soft angle limits for turret.  <a href="class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b">More...</a><br /></td></tr>
 <tr class="separator:abd3980d12fcd728ebec65e9e995f545b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad58d18af116533e283b6fe4aea1d1c7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ad58d18af116533e283b6fe4aea1d1c7f">SetHoodSoftLimits</a> ()</td></tr>
+<tr class="memdesc:ad58d18af116533e283b6fe4aea1d1c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets and enables soft angle limits for hood.  <a href="class_shooter_subsystem.html#ad58d18af116533e283b6fe4aea1d1c7f">More...</a><br /></td></tr>
+<tr class="separator:ad58d18af116533e283b6fe4aea1d1c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e2f3a7f1c07e22b18c5df43d7d927f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ae9e2f3a7f1c07e22b18c5df43d7d927f">DisableHoodSoftLimits</a> ()</td></tr>
+<tr class="memdesc:ae9e2f3a7f1c07e22b18c5df43d7d927f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables soft angle limits for hood.  <a href="class_shooter_subsystem.html#ae9e2f3a7f1c07e22b18c5df43d7d927f">More...</a><br /></td></tr>
+<tr class="separator:ae9e2f3a7f1c07e22b18c5df43d7d927f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b11bec1713a289dc29d9303337dbf6d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a8b11bec1713a289dc29d9303337dbf6d">IsManualOverride</a> ()</td></tr>
 <tr class="memdesc:a8b11bec1713a289dc29d9303337dbf6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if manual control has been enabled.  <a href="class_shooter_subsystem.html#a8b11bec1713a289dc29d9303337dbf6d">More...</a><br /></td></tr>
 <tr class="separator:a8b11bec1713a289dc29d9303337dbf6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,6 +242,11 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a4916934fd2d024941198510c05fe643c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c">AimedFeedback</a> () const</td></tr>
 <tr class="memdesc:a4916934fd2d024941198510c05fe643c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activate vibration feedback to indicate aimed.  <a href="class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c">More...</a><br /></td></tr>
 <tr class="separator:a4916934fd2d024941198510c05fe643c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1468389a7d823fcf7c84aea3308941df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_shooter_subsystem_1_1_hub_relative_velocities.html">HubRelativeVelocities</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a1468389a7d823fcf7c84aea3308941df">ChassisVelocitiesToHubVelocities</a> (const frc::ChassisSpeeds robotChassisSpeed, units::degree_t hubTurretAngle)</td></tr>
+<tr class="memdesc:a1468389a7d823fcf7c84aea3308941df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate hub-relative velocities for driving shot.  <a href="class_shooter_subsystem.html#a1468389a7d823fcf7c84aea3308941df">More...</a><br /></td></tr>
+<tr class="separator:a1468389a7d823fcf7c84aea3308941df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e25e2594b9650b8da3bb1e27ab063f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_shooter_subsystem_1_1_aim_offsets.html">AimOffsets</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ab2e25e2594b9650b8da3bb1e27ab063f">DrivingAimOffsets</a> (const <a class="el" href="struct_shooter_subsystem_1_1_hub_relative_velocities.html">HubRelativeVelocities</a> robotVelocity, units::foot_t hubDistance, units::degree_t hubAngle, units::second_t targetStaleness)</td></tr>
+<tr class="separator:ab2e25e2594b9650b8da3bb1e27ab063f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -261,6 +277,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ad04d8882bf020c2f52bc0c3112786edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a681fa3fe0e8aa3dc4a0d0fc4e61087f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt; decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size(), decltype(shooterRange::hoodAngle.front().outVal)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a681fa3fe0e8aa3dc4a0d0fc4e61087f6">m_hoodAngleMap</a></td></tr>
 <tr class="separator:a681fa3fe0e8aa3dc4a0d0fc4e61087f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c241e03443cb893a7078a4d0fa22c4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt; decltype(shooterRange::lateralSpeed.front().inVal), shooterRange::lateralSpeed.size(), decltype(shooterRange::lateralSpeed.front().outVal)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a0c241e03443cb893a7078a4d0fa22c4d">m_lateralSpeedMap</a></td></tr>
+<tr class="separator:a0c241e03443cb893a7078a4d0fa22c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2db46e10af9c9b611e5a2a5c7c02a8ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a2db46e10af9c9b611e5a2a5c7c02a8ef">m_hoodPIDTuner</a></td></tr>
 <tr class="separator:a2db46e10af9c9b611e5a2a5c7c02a8ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac50ce8c7cecef48d016c873d7af5347e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_n_t_motor_p_i_d_tuner.html">argos_lib::NTMotorPIDTuner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#ac50ce8c7cecef48d016c873d7af5347e">m_shooterPIDTuner</a></td></tr>
@@ -367,8 +385,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a08a7e36a73d7b5294129d9e9a5239de5" name="a08a7e36a73d7b5294129d9e9a5239de5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08a7e36a73d7b5294129d9e9a5239de5">&#9670;&nbsp;</a></span>AutoAim()</h2>
+<a id="a0675445ea465110252bb9427b2c72a9d" name="a0675445ea465110252bb9427b2c72a9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0675445ea465110252bb9427b2c72a9d">&#9670;&nbsp;</a></span>AutoAim()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -376,13 +394,67 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool ShooterSubsystem::AutoAim </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>drivingAdjustment</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>auto aims shooter to hub </p>
+<p>Auto aims shooter to hub using vision. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">drivingAdjustment</td><td>True enables aiming adjustment for robot motion </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True when aimed at vision target </dd></dl>
+
+</div>
+</div>
+<a id="a1468389a7d823fcf7c84aea3308941df" name="a1468389a7d823fcf7c84aea3308941df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1468389a7d823fcf7c84aea3308941df">&#9670;&nbsp;</a></span>ChassisVelocitiesToHubVelocities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_shooter_subsystem_1_1_hub_relative_velocities.html">ShooterSubsystem::HubRelativeVelocities</a> ShooterSubsystem::ChassisVelocitiesToHubVelocities </td>
+          <td>(</td>
+          <td class="paramtype">const frc::ChassisSpeeds&#160;</td>
+          <td class="paramname"><em>robotChassisSpeed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">units::degree_t&#160;</td>
+          <td class="paramname"><em>hubTurretAngle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate hub-relative velocities for driving shot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">robotChassisSpeed</td><td>Active robot velocity in chassis frame (x positive forward, y positive left, yaw positive CW) </td></tr>
+    <tr><td class="paramname">hubTurretAngle</td><td>Angle of hub in chassis reference frame (0 yaw is robot forward, positive is CW) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_shooter_subsystem_1_1_hub_relative_velocities.html">HubRelativeVelocities</a> <a class="el" href="class_robot.html">Robot</a>'s velocities relative to hub </dd></dl>
 
 </div>
 </div>
@@ -431,6 +503,25 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ae9e2f3a7f1c07e22b18c5df43d7d927f" name="ae9e2f3a7f1c07e22b18c5df43d7d927f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9e2f3a7f1c07e22b18c5df43d7d927f">&#9670;&nbsp;</a></span>DisableHoodSoftLimits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShooterSubsystem::DisableHoodSoftLimits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disables soft angle limits for hood. </p>
+
+</div>
+</div>
 <a id="abd3980d12fcd728ebec65e9e995f545b" name="abd3980d12fcd728ebec65e9e995f545b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abd3980d12fcd728ebec65e9e995f545b">&#9670;&nbsp;</a></span>DisableTurretSoftLimits()</h2>
 
@@ -447,6 +538,54 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Disables soft angle limits for turret. </p>
+
+</div>
+</div>
+<a id="ab2e25e2594b9650b8da3bb1e27ab063f" name="ab2e25e2594b9650b8da3bb1e27ab063f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2e25e2594b9650b8da3bb1e27ab063f">&#9670;&nbsp;</a></span>DrivingAimOffsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_shooter_subsystem_1_1_aim_offsets.html">ShooterSubsystem::AimOffsets</a> ShooterSubsystem::DrivingAimOffsets </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_shooter_subsystem_1_1_hub_relative_velocities.html">HubRelativeVelocities</a>&#160;</td>
+          <td class="paramname"><em>robotVelocity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">units::foot_t&#160;</td>
+          <td class="paramname"><em>hubDistance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">units::degree_t&#160;</td>
+          <td class="paramname"><em>hubAngle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">units::second_t&#160;</td>
+          <td class="paramname"><em>targetStaleness</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -982,6 +1121,25 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad58d18af116533e283b6fe4aea1d1c7f" name="ad58d18af116533e283b6fe4aea1d1c7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad58d18af116533e283b6fe4aea1d1c7f">&#9670;&nbsp;</a></span>SetHoodSoftLimits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShooterSubsystem::SetHoodSoftLimits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets and enables soft angle limits for hood. </p>
+
+</div>
+</div>
 <a id="a75e2e4984a63207c5cb82f7b555a4aa8" name="a75e2e4984a63207c5cb82f7b555a4aa8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a75e2e4984a63207c5cb82f7b555a4aa8">&#9670;&nbsp;</a></span>SetShooterDistance()</h2>
 
@@ -1289,6 +1447,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> ShooterSubsystem::m_instance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c241e03443cb893a7078a4d0fa22c4d" name="a0c241e03443cb893a7078a4d0fa22c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c241e03443cb893a7078a4d0fa22c4d">&#9670;&nbsp;</a></span>m_lateralSpeedMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt;decltype(shooterRange::lateralSpeed.front().inVal), shooterRange::lateralSpeed.size(), decltype(shooterRange::lateralSpeed.front().outVal)&gt; ShooterSubsystem::m_lateralSpeedMap</td>
         </tr>
       </table>
   </td>

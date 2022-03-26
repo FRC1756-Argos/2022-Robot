@@ -1,5 +1,7 @@
 var class_shooter_subsystem =
 [
+    [ "AimOffsets", "struct_shooter_subsystem_1_1_aim_offsets.html", "struct_shooter_subsystem_1_1_aim_offsets" ],
+    [ "HubRelativeVelocities", "struct_shooter_subsystem_1_1_hub_relative_velocities.html", "struct_shooter_subsystem_1_1_hub_relative_velocities" ],
     [ "ShooterDistanceSetpoints", "struct_shooter_subsystem_1_1_shooter_distance_setpoints.html", "struct_shooter_subsystem_1_1_shooter_distance_setpoints" ],
     [ "FixedPosState", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7d", [
       [ "Front", "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde", null ],
@@ -9,10 +11,13 @@ var class_shooter_subsystem =
     ] ],
     [ "ShooterSubsystem", "class_shooter_subsystem.html#a30322106fc6dc24dd08f421772f00b03", null ],
     [ "AimedFeedback", "class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c", null ],
-    [ "AutoAim", "class_shooter_subsystem.html#a08a7e36a73d7b5294129d9e9a5239de5", null ],
+    [ "AutoAim", "class_shooter_subsystem.html#a0675445ea465110252bb9427b2c72a9d", null ],
+    [ "ChassisVelocitiesToHubVelocities", "class_shooter_subsystem.html#a1468389a7d823fcf7c84aea3308941df", null ],
     [ "CloseLoopShoot", "class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1", null ],
     [ "Disable", "class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e", null ],
+    [ "DisableHoodSoftLimits", "class_shooter_subsystem.html#ae9e2f3a7f1c07e22b18c5df43d7d927f", null ],
     [ "DisableTurretSoftLimits", "class_shooter_subsystem.html#abd3980d12fcd728ebec65e9e995f545b", null ],
+    [ "DrivingAimOffsets", "class_shooter_subsystem.html#ab2e25e2594b9650b8da3bb1e27ab063f", null ],
     [ "FixedShooterPosition", "class_shooter_subsystem.html#afb9f4f1c883a840751a6520853c4d6ca", null ],
     [ "GetCameraTargetValues", "class_shooter_subsystem.html#a2466fbf822ddd62852b9bbd5e401f120", null ],
     [ "GetHoodPosition", "class_shooter_subsystem.html#a0b6e5229183b7173a3c2750b7fd5c22f", null ],
@@ -35,6 +40,7 @@ var class_shooter_subsystem =
     [ "MoveTurret", "class_shooter_subsystem.html#abcb5881c3a5210dbed3a6f5048b7599c", null ],
     [ "Periodic", "class_shooter_subsystem.html#ad8d2e05a252f65c20c489049ae18efd5", null ],
     [ "SetCameraDriverMode", "class_shooter_subsystem.html#af7a169dbea158372268ed2cccd7e3b5a", null ],
+    [ "SetHoodSoftLimits", "class_shooter_subsystem.html#ad58d18af116533e283b6fe4aea1d1c7f", null ],
     [ "SetShooterDistance", "class_shooter_subsystem.html#a75e2e4984a63207c5cb82f7b555a4aa8", null ],
     [ "SetTurretSoftLimits", "class_shooter_subsystem.html#a4227968828b96c7701f88453cda6cb62", null ],
     [ "Shoot", "class_shooter_subsystem.html#add97f4ce7b4a5a152eaec050920012e1", null ],
@@ -49,6 +55,7 @@ var class_shooter_subsystem =
     [ "m_hoodMotor", "class_shooter_subsystem.html#afbec09471a2be874b8280345f67a36a7", null ],
     [ "m_hoodPIDTuner", "class_shooter_subsystem.html#a2db46e10af9c9b611e5a2a5c7c02a8ef", null ],
     [ "m_instance", "class_shooter_subsystem.html#aefe186ca6547811ce0a1a0df5205e50f", null ],
+    [ "m_lateralSpeedMap", "class_shooter_subsystem.html#a0c241e03443cb893a7078a4d0fa22c4d", null ],
     [ "m_manualOverride", "class_shooter_subsystem.html#a7b30ad4a450d81f7df71f9989919a444", null ],
     [ "m_pControllers", "class_shooter_subsystem.html#ad1f2e6abd3ceed9b19294c01d163c64a", null ],
     [ "m_pDriveSubsystem", "class_shooter_subsystem.html#a68a46a6ceb044c0056e05eb3f0cf651c", null ],

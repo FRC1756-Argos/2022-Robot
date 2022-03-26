@@ -45,7 +45,6 @@ var sensor__conversions_8h =
     [ "sensorToMotorRev", "sensor__conversions_8h.html#a346f85819130b4b00ed9dd69009aecd1", null ],
     [ "sensorToMotorRev", "sensor__conversions_8h.html#acf3f3463fa0b891443f9461d9f26cc34", null ],
     [ "sensorUnitsPerMotorRevolution", "sensor__conversions_8h.html#a408a2e36a59053646773a7b0d32b5939", null ],
-    [ "sprocketRatio", "sensor__conversions_8h.html#a58c9f6523fb854f81357496c68539036", null ],
     [ "wheelCircumference", "sensor__conversions_8h.html#a11073b2c6d0c8813c6c429bc74332417", null ],
     [ "wheelDiameter", "sensor__conversions_8h.html#a6b018f639d7cc8cf05f2a5a62a27561b", null ]
 ];

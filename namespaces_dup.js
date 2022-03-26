@@ -13,18 +13,7 @@ var namespaces_dup =
     [ "ClimberSequence", "namespace_climber_sequence.html", [
       [ "sequence", "namespace_climber_sequence.html#ac3ab5d559b1339cf0ce880924019073f", null ]
     ] ],
-    [ "ClimberSetpoints", "namespace_climber_setpoints.html", [
-      [ "holdL3", "namespace_climber_setpoints.html#a4b0832f52646159b8bda67ed9c229d2c", null ],
-      [ "latchL2", "namespace_climber_setpoints.html#a31385a8bd295a45e3fdfab8bdb235c91", null ],
-      [ "latchL3", "namespace_climber_setpoints.html#a0048d937e165b67c4642a3ebff5504c9", null ],
-      [ "passL3", "namespace_climber_setpoints.html#aacff9851a7269115396ce281d60d720d", null ],
-      [ "prepL2", "namespace_climber_setpoints.html#ae9a53c0cbc5d709e7e86104a1d07faa0", null ],
-      [ "prepTransferL3", "namespace_climber_setpoints.html#a8a4f607db81b442b6b7fa64dc02c4528", null ],
-      [ "secureL2", "namespace_climber_setpoints.html#a717e755003cf2acd9a7ea0f84922e204", null ],
-      [ "setup", "namespace_climber_setpoints.html#aa477897e787b9496f3966289fe23515e", null ],
-      [ "storage", "namespace_climber_setpoints.html#a1f8c379911e85bbe38919d3cd263f07e", null ],
-      [ "transferL3", "namespace_climber_setpoints.html#a8d878e8773d94b3b442cf23a8c8024b3", null ]
-    ] ],
+    [ "ClimberSetpoints", "namespace_climber_setpoints.html", "namespace_climber_setpoints" ],
     [ "constraints", "namespaceconstraints.html", "namespaceconstraints" ],
     [ "controllerMap", "namespacecontroller_map.html", [
       [ "armSpeed", "namespacecontroller_map.html#a380aa1e65ee269eb4a4b8a701befcedc", null ],
@@ -49,6 +38,7 @@ var namespaces_dup =
     [ "sensor_conversions", "namespacesensor__conversions.html", "namespacesensor__conversions" ],
     [ "shooterRange", "namespaceshooter_range.html", [
       [ "hoodAngle", "namespaceshooter_range.html#acc94363d15c3cecc0952d70074def851", null ],
+      [ "lateralSpeed", "namespaceshooter_range.html#ae7cd535c22224d63b7cf4cd49c56bedc", null ],
       [ "shooterSpeed", "namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426", null ]
     ] ],
     [ "speeds", "namespacespeeds.html", "namespacespeeds" ],

@@ -5,7 +5,7 @@ var searchData=
   ['aimedfeedback_2',['AimedFeedback',['../class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c',1,'ShooterSubsystem']]],
   ['armsatposition_3',['ArmsAtPosition',['../class_climber_subsystem.html#ae4b165732db911f3d0f6471a83cc7251',1,'ClimberSubsystem']]],
   ['armsetposition_4',['ArmSetPosition',['../class_climber_subsystem.html#a1cdaf5e98ec061c20c2b1cc14903fc40',1,'ClimberSubsystem::ArmSetPosition(units::inch_t extension)'],['../class_climber_subsystem.html#a285c7e70deb1f44e0fbc03efa1ad2b3d',1,'ClimberSubsystem::ArmSetPosition(units::inch_t extension, units::inches_per_second_t cruiseVelocity, units::inches_per_second_squared_t acceleration)']]],
-  ['autoaim_5',['AutoAim',['../class_shooter_subsystem.html#a08a7e36a73d7b5294129d9e9a5239de5',1,'ShooterSubsystem']]],
+  ['autoaim_5',['AutoAim',['../class_shooter_subsystem.html#a0675445ea465110252bb9427b2c72a9d',1,'ShooterSubsystem']]],
   ['autonomouscenter1ball_6',['AutonomousCenter1ball',['../class_autonomous_center1ball.html#a45358a96f362a01b0b5428bd5a20f12a',1,'AutonomousCenter1ball']]],
   ['autonomouscenterleft2ball_7',['AutonomousCenterLeft2ball',['../class_autonomous_center_left2ball.html#af6d2921c34fb60ed840a185e556dc050',1,'AutonomousCenterLeft2ball']]],
   ['autonomouscenterleft2balldefense_8',['AutonomousCenterLeft2ballDefense',['../class_autonomous_center_left2ball_defense.html#a319639eae698284fd4250738b1c5a75f',1,'AutonomousCenterLeft2ballDefense']]],

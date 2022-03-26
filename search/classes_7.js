@@ -89,6 +89,7 @@ var searchData=
   ['homingstorageinterface_3c_20units_3a_3adegree_5ft_20_3e_86',['HomingStorageInterface&lt; units::degree_t &gt;',['../class_homing_storage_interface.html',1,'']]],
   ['hood_87',['hood',['../structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html',1,'controlLoop::comp_bot::shooter']]],
   ['hoodmotor_88',['hoodMotor',['../structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::comp_bot::shooter::hoodMotor'],['../structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html',1,'motorConfig::practice_bot::shooter::hoodMotor']]],
-  ['hysteresisfilter_89',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]],
-  ['hysteresisfilter_3c_20units_3a_3ainch_5ft_20_3e_90',['HysteresisFilter&lt; units::inch_t &gt;',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
+  ['hubrelativevelocities_89',['HubRelativeVelocities',['../struct_shooter_subsystem_1_1_hub_relative_velocities.html',1,'ShooterSubsystem']]],
+  ['hysteresisfilter_90',['HysteresisFilter',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]],
+  ['hysteresisfilter_3c_20units_3a_3ainch_5ft_20_3e_91',['HysteresisFilter&lt; units::inch_t &gt;',['../classargos__lib_1_1_hysteresis_filter.html',1,'argos_lib']]]
 ];
