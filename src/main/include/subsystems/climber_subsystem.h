@@ -6,6 +6,8 @@
 
 #include <frc2/command/SubsystemBase.h>
 
+#include <vector>
+
 #include "Constants.h"
 #include "argos_lib/config/robot_instance.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
@@ -15,9 +17,7 @@
 
 class ClimberSubsystem : public frc2::SubsystemBase {
  public:
-  enum class ClimberStatus { CLIMBER_STORAGE = 0, CLIMBER_READY = 1, CLIMBER_CLIMB = 2 };
-
-  explicit ClimberSubsystem(const argos_lib::RobotInstance instance);
+  explicit ClimberSubsystem(const argos_lib::RobotInstance instance, const std::vector<ClimberPoint>* preClimbPoints);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -179,13 +179,17 @@ class ClimberSubsystem : public frc2::SubsystemBase {
 
   bool ClimberAtPoint(ClimberPoint target);
 
-  void SetClimberReady();
+  // NEW STUFF EVALUATE WHAT NEEDS TO BE REMOVED
 
-  void SetClimberStorage();
+  void NextReadyPoint();
 
-  void SetClimberLatch();
+  void PreviousReadyPoint();
 
-  ClimberStatus GetClimberStatus();
+  void AllowReady();
+  void DisallowReady();
+  bool IsReadySequenceAllowed();
+
+  bool ClimberReadyToClimb();
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
@@ -197,12 +201,14 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   bool m_hookHomed;
   bool m_armHomed;
 
+  bool m_allowReady;
+
   bool m_manualOverride;
+  const std::vector<ClimberPoint>* m_pPreClimbPoints;
+  std::vector<ClimberPoint>::const_iterator m_itClimberPoint;
 
   argos_lib::NTMotorPIDTuner m_armPIDTuner;
   argos_lib::NTMotorPIDTuner m_hookPIDTuner;
-
-  ClimberSubsystem::ClimberStatus m_climberStatus;
 
   bool HooksAtPosition(units::inch_t target);
   bool ArmsAtPosition(units::inch_t target);

@@ -8,13 +8,16 @@
 #include "argos_lib/config/falcon_config.h"
 #include "frc/smartdashboard/SmartDashboard.h"
 
-ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
+ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance,
+                                   const std::vector<ClimberPoint>* preClimbPoints)
     : m_motorLiftRight(address::climber::liftRight)
     , m_motorLiftLeft(address::climber::liftLeft)
     , m_motorMoveHook(address::climber::moveHook)
     , m_hookHomed(false)
     , m_armHomed(false)
+    , m_allowReady(true)
     , m_manualOverride(false)
+    , m_pPreClimbPoints(preClimbPoints)
     , m_armPIDTuner{"argos/arm",
                     {&m_motorLiftLeft, &m_motorLiftRight},
                     0,
@@ -28,8 +31,7 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
                      argos_lib::ClosedLoopSensorConversions{
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension),
                          argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToVelocity),
-                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension)}}
-    , m_climberStatus{ClimberStatus::CLIMBER_STORAGE} {
+                         argos_lib::GetSensorConversionFactor(sensor_conversions::climb_hooks::ToExtension)}} {
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::climber::liftRight,
                                          motorConfig::practice_bot::climber::liftRight>(
       m_motorLiftRight, 50_ms, instance);
@@ -39,6 +41,8 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance)
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::climber::moveHook,
                                          motorConfig::practice_bot::climber::moveHook>(
       m_motorMoveHook, 50_ms, instance);
+
+  m_itClimberPoint = m_pPreClimbPoints->begin();
 }
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic() {}
@@ -194,31 +198,39 @@ bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {
   return (ArmsAtPosition(target.armExtension) && HooksAtPosition(target.hookExtension)) ? true : false;
 }
 
-void ClimberSubsystem::SetClimberReady() {
-  if (IsArmMoving() || IsHookMoving()) {
-    return;
+// NEW STUFF, EVALUATE WHAT NEEDS TO BE REMOVED ABOVE HERE
+
+void ClimberSubsystem::NextReadyPoint() {
+  ++m_itClimberPoint;
+  if (m_itClimberPoint < m_pPreClimbPoints->end()) {
+    ClimberToSetpoint(*m_itClimberPoint);
+  } else {
+    --m_itClimberPoint;
   }
-  ClimberToSetpoint(ClimberSetpoints::setup);
-  m_climberStatus = ClimberStatus::CLIMBER_READY;
 }
 
-void ClimberSubsystem::SetClimberStorage() {
-  if (m_climberStatus == ClimberStatus::CLIMBER_CLIMB) {
-    return;
+void ClimberSubsystem::PreviousReadyPoint() {
+  --m_itClimberPoint;
+  if (m_itClimberPoint >= m_pPreClimbPoints->begin()) {
+    ClimberToSetpoint(*m_itClimberPoint);
+  } else {
+    ++m_itClimberPoint;
   }
-
-  if (IsArmMoving() || IsHookMoving()) {
-    return;
-  }
-  ClimberToSetpoint(ClimberSetpoints::storage);
-  m_climberStatus = ClimberStatus::CLIMBER_STORAGE;
 }
 
-void ClimberSubsystem::SetClimberLatch() {
-  ClimberToSetpoint(ClimberSetpoints::latchL2);
-  m_climberStatus = ClimberStatus::CLIMBER_CLIMB;
+bool ClimberSubsystem::ClimberReadyToClimb() {
+  return ClimberAtPoint(
+      ClimberSetpoints::PreClimb::preClimbSequence[ClimberSetpoints::PreClimb::preClimbSequence.size() - 1]);
 }
 
-ClimberSubsystem::ClimberStatus ClimberSubsystem::GetClimberStatus() {
-  return m_climberStatus;
+void ClimberSubsystem::AllowReady() {
+  m_allowReady = true;
+}
+
+void ClimberSubsystem::DisallowReady() {
+  m_allowReady = false;
+}
+
+bool ClimberSubsystem::IsReadySequenceAllowed() {
+  return m_allowReady;
 }

@@ -70,7 +70,7 @@ namespace controlLoop {
         constexpr static double kP = 0.2;
         constexpr static double kI = 0.0;
         constexpr static double kD = 0.0;
-        constexpr static double kF = 0.05;
+        constexpr static double kF = 0.07;
         constexpr static double iZone = 200.0;
         constexpr static double allowableError = 0;
       }  // namespace hook
