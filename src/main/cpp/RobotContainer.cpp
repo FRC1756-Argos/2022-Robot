@@ -383,8 +383,6 @@ void RobotContainer::ConfigureButtonBindings() {
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kStart, {1500_ms, 0_ms});
   m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});
   m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kStart, {1500_ms, 0_ms});
-  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kRight, {1000_ms, 0_ms});
-  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kDown, {750_ms, 0_ms});
 
   // SWAP CONTROLLER TRIGGERS
   frc2::Trigger driverTriggerSwapCombo{[this]() {
@@ -395,6 +393,11 @@ void RobotContainer::ConfigureButtonBindings() {
     return m_controllers.OperatorController().GetDebouncedButton(
         {argos_lib::XboxController::Button::kBack, argos_lib::XboxController::Button::kStart});
   }};
+
+  // ---------------------------------------------------------------- CLIMBER ----------------------------------------------------------------
+
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kRight, {400_ms, 0_ms});
+  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kDown, {0_ms, 0_ms});
 
   // frc2::Trigger climbSetPoints{(frc2::Trigger{[this]() {
   //   return m_controllers.OperatorController().GetRawButton(argos_lib::XboxController::Button::kLeftTrigger);

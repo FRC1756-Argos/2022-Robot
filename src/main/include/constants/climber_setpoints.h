@@ -31,10 +31,18 @@ namespace ClimberSetpoints {
   constexpr ClimberPoint prepTransferL3 = {31.5_in, 29_in, 10_ips, 10_ips, 0};
   constexpr ClimberPoint transferL3 = {26_in, 29_in, 10_ips, 10_ips, 0};
   constexpr ClimberPoint holdL3 = {26_in, 31.1_in, 17_ips, 25_ips, 1};
+
+  namespace ClimbBeta {
+    constexpr ClimberPoint secureL2 = {3.48_in, 37_in, 18_ips, 18_ips, 1};
+    constexpr ClimberPoint prepReleaseL2 = {5.48_in, 31.1_in, 20_ips, 20_ips};
+    constexpr ClimberPoint releaseL2 = {12_in, 31.1_in, 18_ips, 18_ips, 1};
+  }  // namespace ClimbBeta
+
 }  // namespace ClimberSetpoints
 
 // the sequence to get fed into climb command
 namespace ClimberSequence {
-  const std::vector<ClimberPoint> sequence = {
-      ClimberSetpoints::secureL2, ClimberSetpoints::passL3, ClimberSetpoints::holdL3};
+  const std::vector<ClimberPoint> sequence = {ClimberSetpoints::ClimbBeta::secureL2,
+                                              ClimberSetpoints::ClimbBeta::prepReleaseL2,
+                                              ClimberSetpoints::ClimbBeta::releaseL2};
 }  // namespace ClimberSequence
