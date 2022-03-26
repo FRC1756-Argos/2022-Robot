@@ -170,7 +170,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    * @param drivingAdjustment True enables aiming adjustment for robot motion
    * @return True when aimed at vision target
    */
-  bool AutoAim(bool drivingAdjustment = true);
+  bool AutoAim(bool drivingAdjustment = false);
 
   /**
    * @brief pressing a button to fire a ball
