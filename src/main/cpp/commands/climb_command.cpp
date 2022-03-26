@@ -22,9 +22,13 @@ void ClimbCommand::Initialize() {
     return;
   }
 
-  // check if the robot is ready, if not, exit
-  if (m_pClimberSubsystem->GetClimberStatus() != ClimberSubsystem::ClimberStatus::CLIMBER_CLIMB ||
-      m_initPoints.empty()) {
+  if (m_initPoints.empty()) {
+    Cancel();
+    return;
+  }
+
+  // TEMP
+  if (m_initPoints.empty()) {
     Cancel();
     return;
   }
@@ -37,11 +41,6 @@ void ClimbCommand::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ClimbCommand::Execute() {
   if (m_pClimberSubsystem == nullptr || m_pClimberSubsystem->IsManualOverride()) {
-    Cancel();
-    return;
-  }
-
-  if (m_pClimberSubsystem->GetClimberStatus() != ClimberSubsystem::ClimberStatus::CLIMBER_CLIMB) {
     Cancel();
     return;
   }

@@ -32,8 +32,9 @@ RobotContainer::RobotContainer()
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable, m_instance)
     , m_intake(m_instance)
-    , m_pClimber(m_instance == argos_lib::RobotInstance::Competition ? std::make_unique<ClimberSubsystem>(m_instance) :
-                                                                       nullptr)
+    , m_pClimber(m_instance == argos_lib::RobotInstance::Competition ?
+                     std::make_unique<ClimberSubsystem>(m_instance, &ClimberSetpoints::PreClimb::preClimbSequence) :
+                     nullptr)
     , m_shooter(m_instance, &m_swerveDrive, &m_controllers)
     , m_homeHoodCommand(&m_shooter)
     , m_homeClimberArmCommand(m_pClimber.get())
@@ -182,7 +183,10 @@ RobotContainer::RobotContainer()
         .WhenActive(frc2::SequentialCommandGroup(
             m_homeClimberArmCommand,
             m_homeClimberHookCommand,
-            frc2::InstantCommand{[this]() { m_pClimber->SetClimberStorage(); }, {m_pClimber.get()}}));
+            frc2::InstantCommand{
+                // sets the climber to the first ready setpoint
+                [this]() { m_pClimber->ClimberToSetpoint(ClimberSetpoints::PreClimb::preClimbSequence[0]); },
+                {m_pClimber.get()}}));
   }
 
   // Re-enable compressor on enable
@@ -390,7 +394,6 @@ void RobotContainer::ConfigureButtonBindings() {
 
   // ---------------------------------------------------------------- CLIMBER ----------------------------------------------------------------
 
-  m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kRight, {400_ms, 0_ms});
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kDown, {0_ms, 0_ms});
 
   // frc2::Trigger climbSetPoints{(frc2::Trigger{[this]() {
@@ -411,58 +414,44 @@ void RobotContainer::ConfigureButtonBindings() {
   //     },
   //     {m_pClimber.get()});
 
-  frc2::Trigger climbReady{(frc2::Trigger{[this]() {
-    return m_controllers.DriverController().GetDebouncedButton(argos_lib::XboxController::Button::kRight);
+  frc2::Trigger climbPrevious{(frc2::Trigger{[this]() {
+    return m_controllers.DriverController().GetRawButtonPressed(argos_lib::XboxController::Button::kLeft);
   }})};
 
-  frc2::Trigger climbStorage{(frc2::Trigger{[this]() {
-    argos_lib::XboxController::UpdateStatus status =
-        m_controllers.DriverController().UpdateButton(argos_lib::XboxController::Button::kRight);
-    return (status.rawActive);
+  frc2::Trigger climbAdvance{(frc2::Trigger{[this]() {
+    return m_controllers.DriverController().GetRawButtonPressed(argos_lib::XboxController::Button::kRight);
   }})};
 
   frc2::Trigger climbConfirm{(frc2::Trigger{[this]() {
     return m_controllers.DriverController().GetDebouncedButtonPressed(argos_lib::XboxController::Button::kDown);
   }})};
 
-  climbReady.WhenActive(
+  climbPrevious.WhenActive(
       [this]() {
-        m_compressor.Disable();
-        m_shooter.Disable();
-        m_pClimber->SetClimberReady();
+        if (m_pClimber->IsReadySequenceAllowed()) {
+          m_pClimber->PreviousReadyPoint();
+        }
       },
       {m_pClimber.get(), &m_shooter});
 
-  climbStorage.WhenActive(
+  climbAdvance.WhenActive(
       [this]() {
-        m_compressor.EnableDigital();
-        m_pClimber->SetClimberStorage();
+        if (m_pClimber->IsReadySequenceAllowed()) {
+          m_pClimber->NextReadyPoint();
+        }
       },
       {m_pClimber.get()});
 
   climbConfirm.WhenActive(
       [this]() {
-        switch (m_pClimber->GetClimberStatus()) {
-          case ClimberSubsystem::ClimberStatus::CLIMBER_STORAGE:
-            return;
-            break;
-
-          case ClimberSubsystem::ClimberStatus::CLIMBER_READY:
-            m_compressor.Disable();
-            m_shooter.Disable();
-            m_pClimber->SetClimberLatch();
-            return;
-            break;
-
-          case ClimberSubsystem::ClimberStatus::CLIMBER_CLIMB:
-            m_compressor.Disable();
-            m_shooter.Disable();
-            m_climbCommand.Schedule();
-            break;
-
-          default:
-            break;
+        if (!m_pClimber->ClimberReadyToClimb()) {
+          return;
         }
+        m_compressor.Disable();
+        m_shooter.Disable();
+        // CONTROLS WEATHER ROBOT CAN GO THROUGH READY POSITIONS DURING AND AFTER CLIMB
+        m_pClimber->DisallowReady();
+        m_climbCommand.Schedule();
       },
       {m_pClimber.get(), &m_shooter});
 

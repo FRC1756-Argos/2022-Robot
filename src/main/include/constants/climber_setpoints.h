@@ -22,6 +22,7 @@ struct ClimberPoint {
 
 namespace ClimberSetpoints {
   constexpr ClimberPoint setup = {measure_up::climber_hook::maxExtension - 1_in, 37_in, 25_ips, 25_ips, 0};
+  constexpr ClimberPoint readyClimb = {measure_up::climber_hook::maxExtension - 1_in, 31.5_in, 25_ips, 25_ips, 0};
   constexpr ClimberPoint storage = {measure_up::climber_hook::maxExtension - 6_in, 21.5_in, 25_ips, 25_ips, 0};
   constexpr ClimberPoint latchL2 = {30.75_in, 37_in, 17_ips, 17_ips, 0};
   constexpr ClimberPoint prepL2 = {28.7_in, 35.8_in, 10_ips, 10_ips, 0};
@@ -33,10 +34,15 @@ namespace ClimberSetpoints {
   constexpr ClimberPoint holdL3 = {26_in, 31.1_in, 17_ips, 25_ips, 1};
 
   namespace ClimbBeta {
-    constexpr ClimberPoint secureL2 = {3.48_in, 37_in, 18_ips, 18_ips, 1};
-    constexpr ClimberPoint prepReleaseL2 = {5.48_in, 31.1_in, 20_ips, 20_ips};
-    constexpr ClimberPoint releaseL2 = {12_in, 31.1_in, 18_ips, 18_ips, 1};
+    constexpr ClimberPoint secureL2 = {3.48_in, 37_in, 20_ips, 18_ips, 1};
+    constexpr ClimberPoint prepReleaseL2 = {5.48_in, 31.1_in, 20_ips, 20_ips, 1};
+    constexpr ClimberPoint releaseL2 = {18_in, 31.1_in, 18_ips, 18_ips, 1};
   }  // namespace ClimbBeta
+
+  // all the setpoints for ready here
+  namespace PreClimb {
+    const std::vector<ClimberPoint> preClimbSequence = {storage, readyClimb, setup, latchL2};
+  }  // namespace PreClimb
 
 }  // namespace ClimberSetpoints
 
