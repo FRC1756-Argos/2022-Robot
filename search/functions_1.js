@@ -7,9 +7,10 @@ var searchData=
   ['chassisvelocitiestohubvelocities_4',['ChassisVelocitiesToHubVelocities',['../class_shooter_subsystem.html#a1468389a7d823fcf7c84aea3308941df',1,'ShooterSubsystem']]],
   ['climbcommand_5',['ClimbCommand',['../class_climb_command.html#aeeade2681ebdac1e730d068200fbd739',1,'ClimbCommand']]],
   ['climberatpoint_6',['ClimberAtPoint',['../class_climber_subsystem.html#a7985559dde2c6fec0cb5677ff59177d5',1,'ClimberSubsystem']]],
-  ['climbersubsystem_7',['ClimberSubsystem',['../class_climber_subsystem.html#ae3f5cf4dabad5e28e7da2df5e4c3290d',1,'ClimberSubsystem']]],
-  ['climbertosetpoint_8',['ClimberToSetpoint',['../class_climber_subsystem.html#a61857b644484218241e61af5071cdff5',1,'ClimberSubsystem']]],
-  ['closeloopshoot_9',['CloseLoopShoot',['../class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1',1,'ShooterSubsystem']]],
-  ['configurebuttonbindings_10',['ConfigureButtonBindings',['../class_robot_container.html#aa1b33cbe7d850dfd456ad0b352b82ba5',1,'RobotContainer']]],
-  ['constrainangle_11',['ConstrainAngle',['../namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653',1,'argos_lib::swerve::ConstrainAngle(units::degree_t inVal, units::degree_t minVal, units::degree_t maxVal)'],['../namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6',1,'argos_lib::swerve::ConstrainAngle(double inVal, double minVal, double maxVal)']]]
+  ['climberreadytoclimb_7',['ClimberReadyToClimb',['../class_climber_subsystem.html#ae9527f8f5deff3823080346c5b289300',1,'ClimberSubsystem']]],
+  ['climbersubsystem_8',['ClimberSubsystem',['../class_climber_subsystem.html#a9e469d56d961d878f355ca1248e89806',1,'ClimberSubsystem']]],
+  ['climbertosetpoint_9',['ClimberToSetpoint',['../class_climber_subsystem.html#a61857b644484218241e61af5071cdff5',1,'ClimberSubsystem']]],
+  ['closeloopshoot_10',['CloseLoopShoot',['../class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1',1,'ShooterSubsystem']]],
+  ['configurebuttonbindings_11',['ConfigureButtonBindings',['../class_robot_container.html#aa1b33cbe7d850dfd456ad0b352b82ba5',1,'RobotContainer']]],
+  ['constrainangle_12',['ConstrainAngle',['../namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653',1,'argos_lib::swerve::ConstrainAngle(units::degree_t inVal, units::degree_t minVal, units::degree_t maxVal)'],['../namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6',1,'argos_lib::swerve::ConstrainAngle(double inVal, double minVal, double maxVal)']]]
 ];

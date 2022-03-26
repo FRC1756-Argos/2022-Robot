@@ -28,9 +28,11 @@ var searchData=
   ['pose_5fcontinuity_5ffix_2eh_25',['pose_continuity_fix.h',['../pose__continuity__fix_8h.html',1,'']]],
   ['position_26',['position',['../structargos__lib_1_1_closed_loop_sensor_conversions.html#ab9a10d9abb462e2ffd44ecb8574a8293',1,'argos_lib::ClosedLoopSensorConversions']]],
   ['practice_27',['Practice',['../namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca8c004d7e3b8a5a850ab2459c3afc2f57',1,'argos_lib']]],
-  ['prepl2_28',['prepL2',['../namespace_climber_setpoints.html#ae9a53c0cbc5d709e7e86104a1d07faa0',1,'ClimberSetpoints']]],
-  ['prepreleasel2_29',['prepReleaseL2',['../namespace_climber_setpoints_1_1_climb_beta.html#a68761c0d6b89f0e43db08fe4ee9c46db',1,'ClimberSetpoints::ClimbBeta']]],
-  ['preptransferl3_30',['prepTransferL3',['../namespace_climber_setpoints.html#a8a4f607db81b442b6b7fa64dc02c4528',1,'ClimberSetpoints']]],
-  ['pressed_31',['pressed',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#a8b0dfa6c97d33cc308c1be26d6b3e180',1,'argos_lib::XboxController::UpdateStatus']]],
-  ['profileiscomplete_32',['ProfileIsComplete',['../class_swerve_drive_subsystem.html#a86dcd4de68ceea46c8039406e7eef04d',1,'SwerveDriveSubsystem']]]
+  ['preclimbsequence_28',['preClimbSequence',['../namespace_climber_setpoints_1_1_pre_climb.html#aa0773fdbeb2d0e3aa58b70d63f55a2f6',1,'ClimberSetpoints::PreClimb']]],
+  ['prepl2_29',['prepL2',['../namespace_climber_setpoints.html#ae9a53c0cbc5d709e7e86104a1d07faa0',1,'ClimberSetpoints']]],
+  ['prepreleasel2_30',['prepReleaseL2',['../namespace_climber_setpoints_1_1_climb_beta.html#a68761c0d6b89f0e43db08fe4ee9c46db',1,'ClimberSetpoints::ClimbBeta']]],
+  ['preptransferl3_31',['prepTransferL3',['../namespace_climber_setpoints.html#a8a4f607db81b442b6b7fa64dc02c4528',1,'ClimberSetpoints']]],
+  ['pressed_32',['pressed',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#a8b0dfa6c97d33cc308c1be26d6b3e180',1,'argos_lib::XboxController::UpdateStatus']]],
+  ['previousreadypoint_33',['PreviousReadyPoint',['../class_climber_subsystem.html#aa54606ea4f60697bc3a5e6f39da7a7f8',1,'ClimberSubsystem']]],
+  ['profileiscomplete_34',['ProfileIsComplete',['../class_swerve_drive_subsystem.html#a86dcd4de68ceea46c8039406e7eef04d',1,'SwerveDriveSubsystem']]]
 ];

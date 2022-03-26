@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['robotinstance_0',['RobotInstance',['../namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c',1,'argos_lib']]]
+  ['segmenttype_0',['SegmentType',['../swerve__trapezoidal__profile_8h.html#a45f8c604b4008a278fe9bde5156489ee',1,'swerve_trapezoidal_profile.h']]]
 ];

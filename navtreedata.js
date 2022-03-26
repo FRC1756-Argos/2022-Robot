@@ -68,13 +68,13 @@ var NAVTREEINDEX =
 "class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9",
 "class_swerve_module.html#a76388e8e69c98459a839f7c986417cc7",
 "classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86ae26bb0251a83bfaf870833ca25811eb7",
-"home__climber__arm__command_8h.html",
-"namespacecontrol_loop_1_1practice__bot_1_1shooter.html",
-"namespacespeeds_1_1intake.html#acdfcfef2fdb8df712d15c0a9a4458abe",
-"structargos__lib_1_1falcon__config_1_1has__nominal_output_reverse.html",
-"structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#adf85884ad0364f5f71e878162f04fa71",
-"structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html#a867c34ff2e93cd30623097ca0f4523ca",
-"structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html"
+"hierarchy.html",
+"namespacecontrol_loop_1_1practice__bot_1_1drive.html",
+"namespacespeeds_1_1intake.html",
+"structargos__lib_1_1falcon__config_1_1has__nominal_output_forward.html",
+"structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#a5a14708ec1196c49babfa550c1a793ff",
+"structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html#a6e7cb321991d64ee2361903cfc20a29e",
+"structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html#aa076af75caabcb39943d829825152171"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
