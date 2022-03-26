@@ -144,8 +144,9 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
         distanceToTarget,
         targetAngle.value(),
         targetValues.totalLatency);
-    distanceToTarget += drivingAdjustmentValues.distanceOffset;
-    targetAngle.value() -= drivingAdjustmentValues.yawOffset;
+    // Raw adjustments were too powerful...
+    distanceToTarget += (drivingAdjustmentValues.distanceOffset * 0.5);
+    targetAngle.value() -= (drivingAdjustmentValues.yawOffset * 0.5);
   }
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance final", distanceToTarget.to<double>());
@@ -275,7 +276,7 @@ void ShooterSubsystem::UpdateHoodHome() {
   m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(
       m_instance == argos_lib::RobotInstance::Competition ? measure_up::hood::comp_bot::homeAngle :
                                                             measure_up::hood::practice_bot::homeAngle));
-  SetHoodSoftLimits();
+  // SetHoodSoftLimits();
   m_hoodHomed = true;
 }
 
