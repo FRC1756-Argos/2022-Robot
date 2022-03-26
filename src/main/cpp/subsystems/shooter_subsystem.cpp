@@ -145,7 +145,7 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
         targetAngle.value(),
         targetValues.totalLatency);
     distanceToTarget += drivingAdjustmentValues.distanceOffset;
-    targetAngle.value() += drivingAdjustmentValues.yawOffset;
+    targetAngle.value() -= drivingAdjustmentValues.yawOffset;
   }
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance final", distanceToTarget.to<double>());

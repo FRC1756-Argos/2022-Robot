@@ -101,6 +101,7 @@ class RobotContainer {
   units::inches_per_second_t m_climberHookCruiseVelocity;
   units::inches_per_second_squared_t m_climberHookAccel;
   units::degree_t m_turretTargetPosition;
+  units::inch_t m_targetShotDistance;
   argos_lib::NTSubscriber m_NTMonitor;
 
   // Drive profile tuning
