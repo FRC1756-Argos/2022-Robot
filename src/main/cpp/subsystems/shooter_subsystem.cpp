@@ -154,8 +154,9 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   const auto shooterSetpoints = SetShooterDistance(distanceToTarget);
 
   const AimValues targets{
-      targetAngle ? targetAngle.value() : 0_deg, shooterSetpoints.hoodAngle, shooterSetpoints.shooterSpeed};
-  const AimValues currentValues{currentTurretAngle, GetHoodPosition(), GetShooterSpeed()};
+      (targetAngle ? targetAngle.value() : 0_deg), shooterSetpoints.hoodAngle, shooterSetpoints.shooterSpeed};
+  // Note, hood reads negative angles, so have to negage normalized position for range check
+  const AimValues currentValues{currentTurretAngle, GetHoodPosition() * -1, GetShooterSpeed()};
 
   if (targetAngle) {
     TurretSetPosition(targetAngle.value());
@@ -163,12 +164,11 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
 
   if (InAcceptableRanges(targets, currentValues)) {
     AimedFeedback();
-    // return true;
+    return true;
   } else {
     StopFeedback();
-    // return false;
+    return false;
   }
-  return true;
 }
 
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
@@ -277,7 +277,7 @@ void ShooterSubsystem::UpdateHoodHome() {
   m_hoodMotor.SetSelectedSensorPosition(sensor_conversions::hood::ToSensorUnit(
       m_instance == argos_lib::RobotInstance::Competition ? measure_up::hood::comp_bot::homeAngle :
                                                             measure_up::hood::practice_bot::homeAngle));
-  // SetHoodSoftLimits();
+  SetHoodSoftLimits();
   m_hoodHomed = true;
 }
 
@@ -370,18 +370,22 @@ void ShooterSubsystem::DisableTurretSoftLimits() {
 }
 
 void ShooterSubsystem::SetHoodSoftLimits() {
-  units::degree_t minAngle = m_instance == argos_lib::RobotInstance::Competition ?
-                                 measure_up::hood::comp_bot::homeAngle :
-                                 measure_up::hood::practice_bot::homeAngle;
-  units::degree_t maxAngle = m_hoodAngleMap(35_ft);
+  units::degree_t maxAngle = m_hoodAngleMap(0_ft) * -1;
+  units::degree_t minAngle = m_hoodAngleMap(35_ft) * -1;
 
-  m_hoodMotor.ConfigForwardSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(maxAngle));
-  m_hoodMotor.ConfigReverseSoftLimitThreshold(sensor_conversions::turret::ToSensorUnit(minAngle));
+  frc::SmartDashboard::PutNumber("(Hood) Forward Soft Limit", maxAngle.to<double>());
+  frc::SmartDashboard::PutNumber("(Hood) Reverse Soft Limit", minAngle.to<double>());
+
+  m_hoodMotor.ConfigForwardSoftLimitThreshold(sensor_conversions::hood::ToSensorUnit(maxAngle));
+  m_hoodMotor.ConfigReverseSoftLimitThreshold(sensor_conversions::hood::ToSensorUnit(minAngle));
   m_hoodMotor.ConfigForwardSoftLimitEnable(true);
   m_hoodMotor.ConfigReverseSoftLimitEnable(true);
 }
 
 void ShooterSubsystem::DisableHoodSoftLimits() {
+  frc::SmartDashboard::PutNumber("(Hood) Forward Soft Limit", NAN);
+  frc::SmartDashboard::PutNumber("(Hood) Reverse Soft Limit", NAN);
+
   m_hoodMotor.ConfigForwardSoftLimitEnable(false);
   m_hoodMotor.ConfigReverseSoftLimitEnable(false);
 }
@@ -470,6 +474,21 @@ bool ShooterSubsystem::InAcceptableRanges(const AimValues targets, const AimValu
       InThreshold(real.hoodTarget, targets.hoodTarget, threshholds::shooter::acceptableHoodError);
   const bool shooterAcceptableRange =
       InThreshold(real.shooterTarget, targets.shooterTarget, threshholds::shooter::acceptableWheelError);
+
+  frc::SmartDashboard::PutNumber("(Acceptable Error) Target - Turret", targets.turretTarget.to<double>());
+  frc::SmartDashboard::PutNumber("(Acceptable Error) Target - Hood", targets.hoodTarget.to<double>());
+  frc::SmartDashboard::PutNumber("(Acceptable Error) Target - Shooter", targets.shooterTarget.to<double>());
+
+  frc::SmartDashboard::PutNumber("(Acceptable Error) Current - Turret", real.turretTarget.to<double>());
+  frc::SmartDashboard::PutNumber("(Acceptable Error) Current - Hood", real.hoodTarget.to<double>());
+  frc::SmartDashboard::PutNumber("(Acceptable Error) Current - Shooter", real.shooterTarget.to<double>());
+
+  frc::SmartDashboard::PutNumber("(Acceptable Error) Tolerance - Turret",
+                                 threshholds::shooter::acceptableTurretError.to<double>());
+  frc::SmartDashboard::PutNumber("(Acceptable Error) Tolerance - Hood",
+                                 threshholds::shooter::acceptableHoodError.to<double>());
+  frc::SmartDashboard::PutNumber("(Acceptable Error) Tolerance - Shooter",
+                                 threshholds::shooter::acceptableWheelError.to<double>());
 
   frc::SmartDashboard::PutBoolean("(Acceptable Error) Turret", turretAcceptableRange);
   frc::SmartDashboard::PutBoolean("(Acceptable Error) Hood", hoodAcceptableRange);
