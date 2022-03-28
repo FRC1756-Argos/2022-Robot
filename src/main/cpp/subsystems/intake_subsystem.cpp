@@ -11,7 +11,7 @@
 #include "Constants.h"
 #include "argos_lib/config/talonsrx_config.h"
 
-IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
+IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance, const argos_lib::XboxController* controller)
     : m_beltDrive(address::intake::beltDrive)
     , m_intakeDrive(address::intake::intakeDrive)
     , m_intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake)
@@ -45,6 +45,11 @@ void IntakeSubsystem::Periodic() {
   lastCalled = currentTime;
 
   bool debouncerStatus = m_shooterTimeDebouncer(m_edgeDetector(GetBallPresentShooter()));
+
+  // vibrate controller if ball is at first sensor
+  if (GetBallPresentIntake()) {
+  } else {
+  }
 
   frc::SmartDashboard::PutNumber("Periodic Speed", periodicCallSpeed);
   frc::SmartDashboard::PutNumber("ToF Distance Intake",

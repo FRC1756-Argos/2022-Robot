@@ -18,7 +18,7 @@
 
 class IntakeSubsystem : public frc2::SubsystemBase {
  public:
-  explicit IntakeSubsystem(const argos_lib::RobotInstance instance);
+  IntakeSubsystem(const argos_lib::RobotInstance instance, const argos_lib::XboxController* controller);
 
   enum class IntakeState { Stop, Intaking, Outtaking };
 
@@ -120,6 +120,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   bool m_outtakeButtonPressed;
   bool m_shooterButtonPressed;
   bool m_firstShotMode;
+  const argos_lib::XboxController* m_controller;
 
   EdgeDetector m_edgeDetector;
 
