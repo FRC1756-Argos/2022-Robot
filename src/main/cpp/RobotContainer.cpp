@@ -421,11 +421,13 @@ void RobotContainer::ConfigureButtonBindings() {
   //     {m_pClimber.get()});
 
   frc2::Trigger climbPrevious{(frc2::Trigger{[this]() {
-    return m_controllers.DriverController().GetRawButtonPressed(argos_lib::XboxController::Button::kLeft);
+    return m_controllers.DriverController().GetRawButtonPressed(argos_lib::XboxController::Button::kLeft) ||
+           m_controllers.OperatorController().GetRawButtonPressed(argos_lib::XboxController::Button::kBumperLeft);
   }})};
 
   frc2::Trigger climbAdvance{(frc2::Trigger{[this]() {
-    return m_controllers.DriverController().GetRawButtonPressed(argos_lib::XboxController::Button::kRight);
+    return m_controllers.DriverController().GetRawButtonPressed(argos_lib::XboxController::Button::kRight) ||
+           m_controllers.OperatorController().GetRawButtonPressed(argos_lib::XboxController::Button::kBumperRight);
   }})};
 
   frc2::Trigger climbConfirm{(frc2::Trigger{[this]() {
