@@ -34,7 +34,7 @@ namespace field_points {
     static const frc::Pose2d W_A_B = frc::Pose2d(balls::B.X(), balls::B.Y() + 1.5_ft, -200_deg);
 
     static const frc::Pose2d D = frc::Pose2d(balls::D.X() + 18_in,
-                                             balls::D.Y() + 12_in,
+                                             balls::D.Y() + 24_in,
                                              -135_deg);  ///< Approach at 45 degree angle
 
     static const frc::Pose2d HumanPlayer =
