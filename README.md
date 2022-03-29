@@ -51,9 +51,9 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | Right JS X      | Turn |
 | Right JS Y      | Unused |
 | DPad Up         | Unused|
-| DPad Right      | Initialize (hold) / Cancel (press) climb |
-| DPad Down       | Confirm (hold) climb |
-| DPad Left       | Unused |
+| DPad Right      | Move Pre-Climb Forward One Position |
+| DPad Down       | Confirm climb |
+| DPad Left       | Move Pre-Climb Backward One Position |
 | A               | Home Swerve (hold with <kbd>B</kbd> and <kbd>X</kbd>) |
 | B               | Home Swerve (hold with <kbd>A</kbd> and <kbd>X</kbd>) |
 | X               | Home Swerve (hold with <kbd>A</kbd> and <kbd>B</kbd>) |
@@ -82,8 +82,8 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | DPad Right      | Right Close Up Shot |
 | DPad Down       | Back Close Up Shot |
 | DPad Left       | Left Close Up Shot |
-| LB              | Unused |
-| RB              | Unused |
+| LB              | Move Pre-Climb Backward One Position |
+| RB              | Move Pre-Climb Forward One Position |
 | LT              | Unused |
 | RT              | Vision Target |
 | Back            | Swap (hold with <kbd>Start</kbd>) |
