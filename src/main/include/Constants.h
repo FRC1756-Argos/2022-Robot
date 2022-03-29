@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <frc/PneumaticsModuleType.h>
 #include <units/length.h>
 #include <units/velocity.h>
 
@@ -48,6 +49,10 @@ namespace speeds {
 }  // namespace speeds
 
 namespace pneumatics {
+  namespace module {
+    constexpr auto moduleType = frc::PneumaticsModuleType::CTREPCM;
+    constexpr uint moduleAddr = 0;
+  }  // namespace module
   namespace directions {
     constexpr bool intakeExtend = true;
     constexpr bool intakeRetract = false;

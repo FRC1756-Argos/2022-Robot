@@ -14,7 +14,7 @@
 IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
     : m_beltDrive(address::intake::beltDrive)
     , m_intakeDrive(address::intake::intakeDrive)
-    , m_intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake)
+    , m_intakeDeploy(pneumatics::module::moduleAddr, pneumatics::module::moduleType, address::solenoids::intake)
     , m_ballPresentIntake(address::sensors::tofSensorIntake)
     , m_ballPresentShooter(address::sensors::tofSensorShooter)
     // , m_ballColor(address::sensors::colorSensor)
