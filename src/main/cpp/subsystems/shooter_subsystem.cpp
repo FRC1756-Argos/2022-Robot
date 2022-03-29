@@ -118,7 +118,7 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   // Get target distance & assign to hood & shooter
   units::length::inch_t distanceToTarget;
 
-  units::length::inch_t fudgeFactor = 0_in;  // 12_in at CIR
+  units::length::inch_t fudgeFactor = 12_in;  // 12_in at CIR and now comp bot on practice field?
 
   if (m_useCalculatedPitch) {
     units::degree_t newPitch = m_cameraInterface.GetNewPitch(
