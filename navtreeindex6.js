@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespacecontrol_loop_1_1comp__bot_1_1shooter.html":[2,0,7,0,3],
+"namespacecontrol_loop_1_1practice__bot.html":[2,0,7,1],
 "namespacecontrol_loop_1_1practice__bot_1_1drive.html":[2,0,7,1,0],
 "namespacecontrol_loop_1_1practice__bot_1_1drive.html#a30d7a6b028e52dbb9871f6020a660093":[2,0,7,1,0,1],
 "namespacecontrol_loop_1_1practice__bot_1_1drive.html#a8c6c3c5ce087979a874bbe615fd7fb62":[2,0,7,1,0,0],
@@ -93,8 +95,8 @@ var NAVTREEINDEX6 =
 "namespacemeasure__up_1_1turret.html#a657d6cfebd013ef5acbaa4f5273024c6":[2,0,10,7,1],
 "namespacemeasure__up_1_1turret.html#a85362a9066b4db683599902f64283eac":[2,0,10,7,0],
 "namespacemeasure__up_1_1turret.html#ad1eb07c86b30a2bb396ec5ef939b9214":[2,0,10,7,2],
-"namespacemembers.html":[2,1,0,0],
 "namespacemembers.html":[2,1,0],
+"namespacemembers.html":[2,1,0,0],
 "namespacemembers_b.html":[2,1,0,1],
 "namespacemembers_c.html":[2,1,0,2],
 "namespacemembers_d.html":[2,1,0,3],
@@ -117,8 +119,8 @@ var NAVTREEINDEX6 =
 "namespacemembers_type.html":[2,1,3],
 "namespacemembers_u.html":[2,1,0,18],
 "namespacemembers_v.html":[2,1,0,19],
-"namespacemembers_vars.html":[2,1,2,0],
 "namespacemembers_vars.html":[2,1,2],
+"namespacemembers_vars.html":[2,1,2,0],
 "namespacemembers_vars_b.html":[2,1,2,1],
 "namespacemembers_vars_c.html":[2,1,2,2],
 "namespacemembers_vars_d.html":[2,1,2,3],
@@ -189,6 +191,9 @@ var NAVTREEINDEX6 =
 "namespacepneumatics_1_1directions.html":[2,0,14,0],
 "namespacepneumatics_1_1directions.html#a39b4820304f320d7e16a166e323929c7":[2,0,14,0,1],
 "namespacepneumatics_1_1directions.html#a6e607a8f12b192fae355e3bace62c7d0":[2,0,14,0,0],
+"namespacepneumatics_1_1module.html":[2,0,14,1],
+"namespacepneumatics_1_1module.html#a47ef7659d7d7a3a101364e29cf2934ec":[2,0,14,1,1],
+"namespacepneumatics_1_1module.html#ad999b9f19a687ea78f7527aa8b7fe1b6":[2,0,14,1,0],
 "namespaces.html":[2,0],
 "namespacesensor__conversions.html":[2,0,15],
 "namespacesensor__conversions_1_1climb__arms.html":[2,0,15,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX6 =
 "namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31":[2,0,15,5,1],
 "namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6":[2,0,15,5,2],
 "namespaceshooter_range.html":[2,0,16],
-"namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426":[2,0,16,2],
-"namespaceshooter_range.html#acc94363d15c3cecc0952d70074def851":[2,0,16,0],
-"namespaceshooter_range.html#ae7cd535c22224d63b7cf4cd49c56bedc":[2,0,16,1],
-"namespacespeeds.html":[2,0,17],
-"namespacespeeds_1_1drive.html":[2,0,17,0],
-"namespacespeeds_1_1drive.html#aecb75fccf7b0cbb63a8e1cadb6504b93":[2,0,17,0,0]
+"namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426":[2,0,16,2]
 };
