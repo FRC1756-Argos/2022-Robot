@@ -167,7 +167,7 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
     return true;
   } else {
     StopFeedback();
-    return true;
+    return false;
   }
 }
 
