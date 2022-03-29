@@ -12,13 +12,14 @@
 #include "argos_lib/config/robot_instance.h"
 #include "argos_lib/general/debouncer.h"
 #include "argos_lib/general/hysteresis_filter.h"
+#include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "ctre/Phoenix.h"
 #include "frc/Solenoid.h"
 #include "utils/edge_detector.h"
 
 class IntakeSubsystem : public frc2::SubsystemBase {
  public:
-  IntakeSubsystem(const argos_lib::RobotInstance instance, const argos_lib::XboxController* controller);
+  IntakeSubsystem(const argos_lib::RobotInstance instance, argos_lib::SwappableControllersSubsystem* controller);
 
   enum class IntakeState { Stop, Intaking, Outtaking };
 
@@ -120,7 +121,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   bool m_outtakeButtonPressed;
   bool m_shooterButtonPressed;
   bool m_firstShotMode;
-  const argos_lib::XboxController* m_controller;
+  argos_lib::SwappableControllersSubsystem* m_pControllers;
 
   EdgeDetector m_edgeDetector;
 

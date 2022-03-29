@@ -10,13 +10,16 @@
 
 #include "Constants.h"
 #include "argos_lib/config/talonsrx_config.h"
+#include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 
-IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance, const argos_lib::XboxController* controller)
+IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance,
+                                 argos_lib::SwappableControllersSubsystem* controllers)
     : m_beltDrive(address::intake::beltDrive)
     , m_intakeDrive(address::intake::intakeDrive)
     , m_intakeDeploy(frc::PneumaticsModuleType::REVPH, address::solenoids::intake)
     , m_ballPresentIntake(address::sensors::tofSensorIntake)
     , m_ballPresentShooter(address::sensors::tofSensorShooter)
+    , m_pControllers(controllers)
     // , m_ballColor(address::sensors::colorSensor)
     , m_edgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_FALLING)
     , m_hysteresisIntake(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
@@ -48,7 +51,9 @@ void IntakeSubsystem::Periodic() {
 
   // vibrate controller if ball is at first sensor
   if (GetBallPresentIntake()) {
+    m_pControllers->DriverController().SetVibration(argos_lib::VibrationConstant(1));
   } else {
+    m_pControllers->DriverController().SetVibration(argos_lib::VibrationOff());
   }
 
   frc::SmartDashboard::PutNumber("Periodic Speed", periodicCallSpeed);

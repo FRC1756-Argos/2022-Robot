@@ -31,7 +31,7 @@ RobotContainer::RobotContainer()
     , m_compressor(1, frc::PneumaticsModuleType::REVPH)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable, m_instance)
-    , m_intake(m_instance)
+    , m_intake(m_instance, &m_controllers)
     , m_pClimber(m_instance == argos_lib::RobotInstance::Competition ?
                      std::make_unique<ClimberSubsystem>(m_instance, &ClimberSetpoints::PreClimb::preClimbSequence) :
                      nullptr)
