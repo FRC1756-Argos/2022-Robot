@@ -21,7 +21,8 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance,
     , m_ballPresentShooter(address::sensors::tofSensorShooter)
     , m_pControllers(controllers)
     // , m_ballColor(address::sensors::colorSensor)
-    , m_edgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_FALLING)
+    , m_ShooterEdgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_FALLING)
+    , m_IntakeEdgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_RISING)
     , m_hysteresisIntake(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
     , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
     , m_shooterTimeDebouncer({0_ms, 250_ms}, false) {
@@ -47,13 +48,11 @@ void IntakeSubsystem::Periodic() {
   double periodicCallSpeed = 1000 / lastCalledDuration.count();
   lastCalled = currentTime;
 
-  bool debouncerStatus = m_shooterTimeDebouncer(m_edgeDetector(GetBallPresentShooter()));
+  bool debouncerStatus = m_shooterTimeDebouncer(m_ShooterEdgeDetector(GetBallPresentShooter()));
 
   // vibrate controller if ball is at first sensor
-  if (GetBallPresentIntake()) {
-    m_pControllers->DriverController().SetVibration(argos_lib::VibrationConstant(1));
-  } else {
-    m_pControllers->DriverController().SetVibration(argos_lib::VibrationOff());
+  if (m_ShooterEdgeDetector(GetBallPresentShooter())) {
+    m_pControllers->DriverController().SetVibration(argos_lib::VibrationSyncPulse(500_ms, 1));
   }
 
   frc::SmartDashboard::PutNumber("Periodic Speed", periodicCallSpeed);

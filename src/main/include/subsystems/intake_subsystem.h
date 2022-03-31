@@ -123,7 +123,8 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   bool m_firstShotMode;
   argos_lib::SwappableControllersSubsystem* m_pControllers;
 
-  EdgeDetector m_edgeDetector;
+  EdgeDetector m_ShooterEdgeDetector;
+  EdgeDetector m_IntakeEdgeDetector;
 
   argos_lib::HysteresisFilter<units::inch_t> m_hysteresisIntake;
   argos_lib::HysteresisFilter<units::inch_t> m_hysteresisShooter;
