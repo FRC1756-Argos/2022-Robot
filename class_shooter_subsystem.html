@@ -227,6 +227,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af7a169dbea158372268ed2cccd7e3b5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#af7a169dbea158372268ed2cccd7e3b5a">SetCameraDriverMode</a> (bool driverMode)</td></tr>
 <tr class="memdesc:af7a169dbea158372268ed2cccd7e3b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set camera mode to driver mode without LEDs or targetting mode with LEDs.  <a href="class_shooter_subsystem.html#af7a169dbea158372268ed2cccd7e3b5a">More...</a><br /></td></tr>
 <tr class="separator:af7a169dbea158372268ed2cccd7e3b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a053e6a869985d50c1d55e0ae1c86aec3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a053e6a869985d50c1d55e0ae1c86aec3">StopFeedback</a> () const</td></tr>
+<tr class="memdesc:a053e6a869985d50c1d55e0ae1c86aec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop vibration feedback.  <a href="class_shooter_subsystem.html#a053e6a869985d50c1d55e0ae1c86aec3">More...</a><br /></td></tr>
+<tr class="separator:a053e6a869985d50c1d55e0ae1c86aec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4916934fd2d024941198510c05fe643c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c">AimedFeedback</a> () const</td></tr>
+<tr class="memdesc:a4916934fd2d024941198510c05fe643c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activate vibration feedback to indicate aimed.  <a href="class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c">More...</a><br /></td></tr>
+<tr class="separator:a4916934fd2d024941198510c05fe643c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -236,12 +242,6 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a053e6a869985d50c1d55e0ae1c86aec3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a053e6a869985d50c1d55e0ae1c86aec3">StopFeedback</a> () const</td></tr>
-<tr class="memdesc:a053e6a869985d50c1d55e0ae1c86aec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop vibration feedback.  <a href="class_shooter_subsystem.html#a053e6a869985d50c1d55e0ae1c86aec3">More...</a><br /></td></tr>
-<tr class="separator:a053e6a869985d50c1d55e0ae1c86aec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4916934fd2d024941198510c05fe643c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c">AimedFeedback</a> () const</td></tr>
-<tr class="memdesc:a4916934fd2d024941198510c05fe643c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activate vibration feedback to indicate aimed.  <a href="class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c">More...</a><br /></td></tr>
-<tr class="separator:a4916934fd2d024941198510c05fe643c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1468389a7d823fcf7c84aea3308941df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_shooter_subsystem_1_1_hub_relative_velocities.html">HubRelativeVelocities</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a1468389a7d823fcf7c84aea3308941df">ChassisVelocitiesToHubVelocities</a> (const frc::ChassisSpeeds robotChassisSpeed, units::degree_t hubTurretAngle)</td></tr>
 <tr class="memdesc:a1468389a7d823fcf7c84aea3308941df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate hub-relative velocities for driving shot.  <a href="class_shooter_subsystem.html#a1468389a7d823fcf7c84aea3308941df">More...</a><br /></td></tr>
 <tr class="separator:a1468389a7d823fcf7c84aea3308941df"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -363,9 +363,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ShooterSubsystem::AimedFeedback </td>
@@ -374,11 +371,6 @@ Private Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Activate vibration feedback to indicate aimed. </p>
@@ -1217,9 +1209,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ShooterSubsystem::StopFeedback </td>
@@ -1228,11 +1217,6 @@ Private Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Stop vibration feedback. </p>
