@@ -383,7 +383,6 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   static bool InAcceptableRanges(const AimValues targets, const AimValues real);
 
- private:
   /**
    * @brief Stop vibration feedback
    */
@@ -394,6 +393,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
    */
   void AimedFeedback() const;
 
+ private:
   /**
    * @brief Generate hub-relative velocities for driving shot
    *

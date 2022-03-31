@@ -36,7 +36,7 @@ void AutoVisionAimCommand::Execute() {
 // Called once the command ends or is interrupted.
 void AutoVisionAimCommand::End(bool interrupted) {
   if (m_pShooter != nullptr) {
-    // m_pShooter->SetCameraDriverMode(true);
+    m_pShooter->StopFeedback();
   }
 }
 
