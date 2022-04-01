@@ -477,9 +477,9 @@ void RobotContainer::ConfigureButtonBindings() {
 
   // INTAKE TRIGGER ACTIVATION
   auto nottake = !intake && !outtake;
-  intake.WhenActive([this]() { m_intake.Intake(); }, {&m_intake});
-  outtake.WhenActive([this]() { m_intake.DumpBall(); }, {&m_intake});
-  nottake.WhenActive([this]() { m_intake.StopIntake(); }, {&m_intake});
+  intake.WhenActive([this]() { m_intake.Intake(); }, {});
+  outtake.WhenActive([this]() { m_intake.DumpBall(); }, {});
+  nottake.WhenActive([this]() { m_intake.StopIntake(); }, {});
 
   // SHOOTER TRIGGER ACTIVATION
   // aimTrigger.WhenActive(
@@ -488,9 +488,9 @@ void RobotContainer::ConfigureButtonBindings() {
   //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
   //     },
   //     {&m_shooter});
-  shooter.WhenActive([this]() { m_intake.Shoot(); }, {&m_intake});
+  shooter.WhenActive([this]() { m_intake.Shoot(); }, {});
   // aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
-  shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {&m_intake});
+  shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {});
 
   // SHOOTER FIXED POS TRIGGER ACTIVATION
   fixedFrontTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },
