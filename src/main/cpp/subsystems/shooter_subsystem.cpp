@@ -166,10 +166,10 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   }
 
   if (InAcceptableRanges(targets, currentValues)) {
-    // AimedFeedback();
+    AimedFeedback();
     return true;
   } else {
-    // StopFeedback();
+    StopFeedback();
     return false;
   }
 }
