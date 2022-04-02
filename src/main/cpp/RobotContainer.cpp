@@ -327,6 +327,8 @@ void RobotContainer::ConfigureButtonBindings() {
 
   // TRIGGERS -----------------------------------------------------------------------------------------------
 
+  auto teleopEnableTrigger = (frc2::Trigger{[this]() { return frc::DriverStation::IsTeleopEnabled(); }});
+
   // Configure your button bindings here
   // INTAKE TRIGGERS
   auto intake = (frc2::Trigger{[this]() {
@@ -476,10 +478,10 @@ void RobotContainer::ConfigureButtonBindings() {
   fieldHome.WhenActive([this]() { m_swerveDrive.FieldHome(); }, {&m_swerveDrive});
 
   // INTAKE TRIGGER ACTIVATION
-  auto nottake = !intake && !outtake;
-  intake.WhenActive([this]() { m_intake.Intake(); }, {});
-  outtake.WhenActive([this]() { m_intake.DumpBall(); }, {});
-  nottake.WhenActive([this]() { m_intake.StopIntake(); }, {});
+  auto nottake = (!intake) && (!outtake);
+  (intake && teleopEnableTrigger).WhileActiveContinous([this]() { m_intake.Intake(); }, {});
+  (outtake && teleopEnableTrigger).WhileActiveContinous([this]() { m_intake.DumpBall(); }, {});
+  (nottake && teleopEnableTrigger).WhileActiveContinous([this]() { m_intake.StopIntake(); }, {});
 
   // SHOOTER TRIGGER ACTIVATION
   // aimTrigger.WhenActive(
@@ -488,9 +490,9 @@ void RobotContainer::ConfigureButtonBindings() {
   //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
   //     },
   //     {&m_shooter});
-  shooter.WhenActive([this]() { m_intake.Shoot(); }, {});
+  shooter.WhileActiveContinous([this]() { m_intake.Shoot(); }, {});
   // aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
-  shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {});
+  (!shooter).WhileActiveContinous([this]() { m_intake.StopShoot(); }, {});
 
   // SHOOTER FIXED POS TRIGGER ACTIVATION
   fixedFrontTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },
