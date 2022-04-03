@@ -52,10 +52,10 @@ void IntakeSubsystem::Periodic() {
   frc::SmartDashboard::PutNumber("ToF Distance Shooter",
                                  units::inch_t(units::millimeter_t(m_ballPresentShooter.GetRange())).to<double>());
 
-  if (((m_intakeButtonPressed == true || m_shooterButtonPressed == true) && m_outtakeButtonPressed == false)) {
-    m_intakeState = IntakeSubsystem::IntakeState::Intaking;
-  } else if (m_outtakeButtonPressed == true) {
+  if (m_outtakeButtonPressed) {
     m_intakeState = IntakeSubsystem::IntakeState::Outtaking;
+  } else if (m_intakeButtonPressed || m_shooterButtonPressed) {
+    m_intakeState = IntakeSubsystem::IntakeState::Intaking;
   } else {
     m_intakeState = IntakeSubsystem::IntakeState::Stop;
   }
@@ -66,20 +66,20 @@ void IntakeSubsystem::Periodic() {
       m_beltDrive.Set(0);
       break;
     case IntakeState::Intaking:
-      if (m_intakeButtonPressed == true) {
+      if (m_intakeButtonPressed) {
         m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
       } else {
         m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
       }
-      if (m_intakeButtonPressed == true) {
+      if (m_intakeButtonPressed) {
         m_intakeDrive.Set(GetBallPresentIntake() ? speeds::intake::intakeCreep : speeds::intake::intakeForward);
-      } else if (GetBallPresentIntake() == true && GetIsBallTeamColor() == false) {
+      } else if (GetBallPresentIntake() && !GetIsBallTeamColor()) {
         m_intakeDrive.Set(speeds::intake::intakeReverse);
       } else {
         m_intakeDrive.Set(0);
       }
-      if ((m_shooterButtonPressed == true && !debouncerStatus) ||
-          ((GetBallPresentIntake() == true && GetIsBallTeamColor() == true) && GetBallPresentShooter() == false)) {
+      if ((m_shooterButtonPressed && !debouncerStatus) ||
+          ((GetBallPresentIntake() && GetIsBallTeamColor()) && !GetBallPresentShooter())) {
         if (m_shooterButtonPressed) {
           m_beltDrive.Set(m_firstShotMode ? speeds::intake::beltFirstShot : speeds::intake::beltForwardShoot);
         } else {
