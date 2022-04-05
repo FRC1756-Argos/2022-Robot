@@ -80,7 +80,7 @@ namespace argos_lib {
      *
      * @brief Shorthand for InterpolationMap::Map()
      */
-    constexpr V operator()(const T inVal) { return Map(inVal); }
+    constexpr V operator()(const T inVal) const { return Map(inVal); }
 
    private:
     std::array<InterpMapPoint<T, V>, size> m_mapArray;

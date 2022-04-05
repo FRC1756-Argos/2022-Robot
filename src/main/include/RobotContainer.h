@@ -57,12 +57,8 @@ class RobotContainer {
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;
 
   // The robot's subsystems and commands are defined here...
-  argos_lib::InterpolationMap<decltype(controllerMap::driveLongSpeed.front().inVal),
-                              controllerMap::driveLongSpeed.size()>
-      m_driveLonSpeedMap;
-  argos_lib::InterpolationMap<decltype(controllerMap::driveLatSpeed.front().inVal),
-                              controllerMap::driveLongSpeed.size()>
-      m_driveLatSpeedMap;
+  argos_lib::InterpolationMap<decltype(controllerMap::driveSpeed.front().inVal), controllerMap::driveSpeed.size()>
+      m_driveSpeedMap;
   argos_lib::InterpolationMap<decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()>
       m_driveRotSpeed;
 

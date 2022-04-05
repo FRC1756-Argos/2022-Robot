@@ -20,8 +20,7 @@
 
 RobotContainer::RobotContainer()
     : m_pNetworkTable(std::make_shared<NetworkTablesWrapper>())
-    , m_driveLonSpeedMap(controllerMap::driveLongSpeed)
-    , m_driveLatSpeedMap(controllerMap::driveLatSpeed)
+    , m_driveSpeedMap(controllerMap::driveSpeed)
     , m_driveRotSpeed(controllerMap::driveRotSpeed)
     , m_hookSpeedMap(controllerMap::hookSpeed)
     , m_armSpeedMap(controllerMap::armSpeed)
@@ -113,12 +112,17 @@ RobotContainer::RobotContainer()
 
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
+        const auto deadbandTranslationSpeeds = argos_lib::swerve::CircularInterpolate(
+            argos_lib::swerve::TranslationSpeeds{
+                -m_controllers.DriverController().GetY(
+                    argos_lib::XboxController::JoystickHand::kLeftHand),  // Y axis is negative forward
+                -m_controllers.DriverController().GetX(
+                    argos_lib::XboxController::JoystickHand::
+                        kLeftHand)},  // X axis is positive right, but swerve coordinates are positive left
+            m_driveSpeedMap);
         m_swerveDrive.SwerveDrive(
-            m_driveLonSpeedMap(-m_controllers.DriverController().GetY(
-                argos_lib::XboxController::JoystickHand::kLeftHand)),  // Y axis is negative forward
-            m_driveLatSpeedMap(-m_controllers.DriverController().GetX(
-                argos_lib::XboxController::JoystickHand::
-                    kLeftHand)),  // X axis is positive right, but swerve coordinates are positive left
+            deadbandTranslationSpeeds.forwardSpeedPct,
+            deadbandTranslationSpeeds.leftSpeedPct,
             m_driveRotSpeed(-m_controllers.DriverController().GetX(
                 argos_lib::XboxController::JoystickHand::
                     kRightHand)));  // X axis is positive right (CW), but swerve coordinates are positive left (CCW)
