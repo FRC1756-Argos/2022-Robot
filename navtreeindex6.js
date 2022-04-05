@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"namespacecontrol_loop_1_1comp__bot_1_1shooter.html":[2,0,7,0,3],
 "namespacecontrol_loop_1_1practice__bot.html":[2,0,7,1],
 "namespacecontrol_loop_1_1practice__bot_1_1drive.html":[2,0,7,1,0],
 "namespacecontrol_loop_1_1practice__bot_1_1drive.html#a30d7a6b028e52dbb9871f6020a660093":[2,0,7,1,0,1],
@@ -12,13 +11,12 @@ var NAVTREEINDEX6 =
 "namespacecontrol_loop_1_1practice__bot_1_1shooter.html#a6255b1de5ae55e2b3403cc5e2a57ac33":[2,0,7,1,1,0],
 "namespacecontrol_loop_1_1practice__bot_1_1shooter.html#aef20c8aa2ee9c4a1bca7798585c72739":[2,0,7,1,1,2],
 "namespacecontroller_map.html":[2,0,6],
-"namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb":[2,0,6,3],
-"namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf":[2,0,6,2],
-"namespacecontroller_map.html#a1dacaddb9145013bc537ff3ddf742751":[2,0,6,4],
-"namespacecontroller_map.html#a32c5da49786d39390beceeea3a735887":[2,0,6,5],
+"namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb":[2,0,6,1],
+"namespacecontroller_map.html#a1dacaddb9145013bc537ff3ddf742751":[2,0,6,3],
+"namespacecontroller_map.html#a32c5da49786d39390beceeea3a735887":[2,0,6,4],
 "namespacecontroller_map.html#a380aa1e65ee269eb4a4b8a701befcedc":[2,0,6,0],
-"namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162":[2,0,6,1],
-"namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250":[2,0,6,6],
+"namespacecontroller_map.html#addfaca7b509806dafab99c4008a9d250":[2,0,6,5],
+"namespacecontroller_map.html#af644cfedd265db475e4761d862ed33b6":[2,0,6,2],
 "namespacefield__points.html":[2,0,8],
 "namespacefield__points.html#a20b44bacb7abbfc55cf968c5447a7867":[2,0,8,3],
 "namespacefield__points_1_1balls.html":[2,0,8,0],
@@ -119,8 +117,8 @@ var NAVTREEINDEX6 =
 "namespacemembers_type.html":[2,1,3],
 "namespacemembers_u.html":[2,1,0,18],
 "namespacemembers_v.html":[2,1,0,19],
-"namespacemembers_vars.html":[2,1,2],
 "namespacemembers_vars.html":[2,1,2,0],
+"namespacemembers_vars.html":[2,1,2],
 "namespacemembers_vars_b.html":[2,1,2,1],
 "namespacemembers_vars_c.html":[2,1,2,2],
 "namespacemembers_vars_d.html":[2,1,2,3],
@@ -249,5 +247,7 @@ var NAVTREEINDEX6 =
 "namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31":[2,0,15,5,1],
 "namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6":[2,0,15,5,2],
 "namespaceshooter_range.html":[2,0,16],
-"namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426":[2,0,16,2]
+"namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426":[2,0,16,2],
+"namespaceshooter_range.html#acc94363d15c3cecc0952d70074def851":[2,0,16,0],
+"namespaceshooter_range.html#ae7cd535c22224d63b7cf4cd49c56bedc":[2,0,16,1]
 };

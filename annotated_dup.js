@@ -84,7 +84,8 @@ var annotated_dup =
       [ "swerve", "namespaceargos__lib_1_1swerve.html", [
         [ "NetworkTablesHomingStorage", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage" ],
         [ "SwerveHomeStorageInterface", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface" ],
-        [ "SwerveModulePositions", "structargos__lib_1_1swerve_1_1_swerve_module_positions.html", "structargos__lib_1_1swerve_1_1_swerve_module_positions" ]
+        [ "SwerveModulePositions", "structargos__lib_1_1swerve_1_1_swerve_module_positions.html", "structargos__lib_1_1swerve_1_1_swerve_module_positions" ],
+        [ "TranslationSpeeds", "structargos__lib_1_1swerve_1_1_translation_speeds.html", "structargos__lib_1_1swerve_1_1_translation_speeds" ]
       ] ],
       [ "talonsrx_config", "namespaceargos__lib_1_1talonsrx__config.html", [
         [ "has_continuousCurrentLimit", "structargos__lib_1_1talonsrx__config_1_1has__continuous_current_limit.html", null ],

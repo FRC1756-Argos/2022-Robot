@@ -101,6 +101,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structargos__lib_1_1swerve_1_1_swerve_module_positions.html">SwerveModulePositions</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of the absolute encoder position of each module at home position.  <a href="structargos__lib_1_1swerve_1_1_swerve_module_positions.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structargos__lib_1_1swerve_1_1_translation_speeds.html">TranslationSpeeds</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translation speeds as percent max output.  <a href="structargos__lib_1_1swerve_1_1_translation_speeds.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -119,8 +122,68 @@ Functions</h2></td></tr>
 <tr class="memitem:acc421e76b48b21874789c52224edf454"><td class="memItemLeft" align="right" valign="top">frc::SwerveModuleState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454">Optimize</a> (frc::SwerveModuleState desiredState, units::degree_t currentModuleAngle, units::degrees_per_second_t currentModuleAngularRate, units::feet_per_second_t currentModuleDriveVel, units::feet_per_second_t maxVelocity)</td></tr>
 <tr class="memdesc:acc421e76b48b21874789c52224edf454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optimize swerve module to minimize rotations and drive direction changes.  <a href="namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454">More...</a><br /></td></tr>
 <tr class="separator:acc421e76b48b21874789c52224edf454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c603b206ac928b4d08d9fbaa89f9f63"><td class="memTemplParams" colspan="2">template&lt;class T , int size, class V &gt; </td></tr>
+<tr class="memitem:a9c603b206ac928b4d08d9fbaa89f9f63"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structargos__lib_1_1swerve_1_1_translation_speeds.html">TranslationSpeeds</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#a9c603b206ac928b4d08d9fbaa89f9f63">CircularInterpolate</a> (const <a class="el" href="structargos__lib_1_1swerve_1_1_translation_speeds.html">TranslationSpeeds</a> rawSpeeds, const <a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt; T, size, V &gt; interpMap)</td></tr>
+<tr class="memdesc:a9c603b206ac928b4d08d9fbaa89f9f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use <a class="el" href="classargos__lib_1_1_interpolation_map.html" title="Performs linear interpolation of a value based on a set of input-&gt;output mapping points.">argos_lib::InterpolationMap</a> to apply mapping according to joystick vector magnitude.  <a href="namespaceargos__lib_1_1swerve.html#a9c603b206ac928b4d08d9fbaa89f9f63">More...</a><br /></td></tr>
+<tr class="separator:a9c603b206ac928b4d08d9fbaa89f9f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a9c603b206ac928b4d08d9fbaa89f9f63" name="a9c603b206ac928b4d08d9fbaa89f9f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c603b206ac928b4d08d9fbaa89f9f63">&#9670;&nbsp;</a></span>CircularInterpolate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int size, class V &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structargos__lib_1_1swerve_1_1_translation_speeds.html">TranslationSpeeds</a> argos_lib::swerve::CircularInterpolate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structargos__lib_1_1swerve_1_1_translation_speeds.html">TranslationSpeeds</a>&#160;</td>
+          <td class="paramname"><em>rawSpeeds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt; T, size, V &gt;&#160;</td>
+          <td class="paramname"><em>interpMap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Use <a class="el" href="classargos__lib_1_1_interpolation_map.html" title="Performs linear interpolation of a value based on a set of input-&gt;output mapping points.">argos_lib::InterpolationMap</a> to apply mapping according to joystick vector magnitude. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of interpolated input </td></tr>
+    <tr><td class="paramname">size</td><td>Number of elements in interpolation map </td></tr>
+    <tr><td class="paramname">V</td><td>Type of interpolated output </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rawSpeeds</td><td>Joystick inputs as percentages </td></tr>
+    <tr><td class="paramname">interpMap</td><td>Interpolation map to apply to magnitudes </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Remapped joystick percentages. Angle of vector will match rawSpeeds, but magnitude will scale according to interpMap. This results in circular deadband and other mapping results. </dd></dl>
+
+</div>
+</div>
 <a id="acfd076978912bb2648916d8ec0cad3e6" name="acfd076978912bb2648916d8ec0cad3e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfd076978912bb2648916d8ec0cad3e6">&#9670;&nbsp;</a></span>ConstrainAngle() <span class="overload">[1/2]</span></h2>
 

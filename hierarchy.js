@@ -130,9 +130,8 @@ var hierarchy =
     [ "argos_lib::InterpMapPoint< T, V >", "structargos__lib_1_1_interp_map_point.html", null ],
     [ "argos_lib::InterpolationMap< T, size, V >", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::armSpeed.front().inVal), controllerMap::armSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
-    [ "argos_lib::InterpolationMap< decltype(controllerMap::driveLatSpeed.front().inVal), controllerMap::driveLongSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
-    [ "argos_lib::InterpolationMap< decltype(controllerMap::driveLongSpeed.front().inVal), controllerMap::driveLongSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::driveSpeed.front().inVal), controllerMap::driveSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::hoodSpeed.front().inVal), controllerMap::hoodSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::hookSpeed.front().inVal), controllerMap::hookSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "argos_lib::InterpolationMap< decltype(controllerMap::turretSpeed.front().inVal), controllerMap::turretSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
@@ -173,6 +172,7 @@ var hierarchy =
     [ "frc::TimedRobot", null, [
       [ "Robot", "class_robot.html", null ]
     ] ],
+    [ "argos_lib::swerve::TranslationSpeeds", "structargos__lib_1_1swerve_1_1_translation_speeds.html", null ],
     [ "std::true_type", null, [
       [ "argos_lib::cancoder_config::has_direction< T, decltype((void) T::direction, void())>", "structargos__lib_1_1cancoder__config_1_1has__direction_3_01_t_00_01decltype_07_07void_08_01_t_1_1direction_00_01void_07_08_08_4.html", null ],
       [ "argos_lib::cancoder_config::has_initMode< T, decltype((void) T::initMode, void())>", "structargos__lib_1_1cancoder__config_1_1has__init_mode_3_01_t_00_01decltype_07_07void_08_01_t_1_1init_mode_00_01void_07_08_08_4.html", null ],

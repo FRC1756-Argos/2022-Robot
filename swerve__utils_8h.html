@@ -95,6 +95,7 @@ $(document).ready(function(){initNavTree('swerve__utils_8h.html',''); initResiza
 <code>#include &lt;units/angular_velocity.h&gt;</code><br />
 <code>#include &lt;units/velocity.h&gt;</code><br />
 <code>#include &lt;optional&gt;</code><br />
+<code>#include &quot;<a class="el" href="interpolation_8h_source.html">interpolation.h</a>&quot;</code><br />
 </div>
 <p><a href="swerve__utils_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -102,6 +103,9 @@ $(document).ready(function(){initNavTree('swerve__utils_8h.html',''); initResiza
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structargos__lib_1_1swerve_1_1_swerve_module_positions.html">argos_lib::swerve::SwerveModulePositions</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of the absolute encoder position of each module at home position.  <a href="structargos__lib_1_1swerve_1_1_swerve_module_positions.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structargos__lib_1_1swerve_1_1_translation_speeds.html">argos_lib::swerve::TranslationSpeeds</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translation speeds as percent max output.  <a href="structargos__lib_1_1swerve_1_1_translation_speeds.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html">argos_lib::swerve::SwerveHomeStorageInterface</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface capable of saving and loading module home positions from persistent storage.  <a href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#details">More...</a><br /></td></tr>
@@ -131,6 +135,10 @@ Functions</h2></td></tr>
 <tr class="memitem:acc421e76b48b21874789c52224edf454"><td class="memItemLeft" align="right" valign="top">frc::SwerveModuleState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454">argos_lib::swerve::Optimize</a> (frc::SwerveModuleState desiredState, units::degree_t currentModuleAngle, units::degrees_per_second_t currentModuleAngularRate, units::feet_per_second_t currentModuleDriveVel, units::feet_per_second_t maxVelocity)</td></tr>
 <tr class="memdesc:acc421e76b48b21874789c52224edf454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optimize swerve module to minimize rotations and drive direction changes.  <a href="namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454">More...</a><br /></td></tr>
 <tr class="separator:acc421e76b48b21874789c52224edf454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c603b206ac928b4d08d9fbaa89f9f63"><td class="memTemplParams" colspan="2">template&lt;class T , int size, class V &gt; </td></tr>
+<tr class="memitem:a9c603b206ac928b4d08d9fbaa89f9f63"><td class="memTemplItemLeft" align="right" valign="top">constexpr TranslationSpeeds&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#a9c603b206ac928b4d08d9fbaa89f9f63">argos_lib::swerve::CircularInterpolate</a> (const TranslationSpeeds rawSpeeds, const <a class="el" href="classargos__lib_1_1_interpolation_map.html">argos_lib::InterpolationMap</a>&lt; T, size, V &gt; interpMap)</td></tr>
+<tr class="memdesc:a9c603b206ac928b4d08d9fbaa89f9f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use <a class="el" href="classargos__lib_1_1_interpolation_map.html" title="Performs linear interpolation of a value based on a set of input-&gt;output mapping points.">argos_lib::InterpolationMap</a> to apply mapping according to joystick vector magnitude.  <a href="namespaceargos__lib_1_1swerve.html#a9c603b206ac928b4d08d9fbaa89f9f63">More...</a><br /></td></tr>
+<tr class="separator:a9c603b206ac928b4d08d9fbaa89f9f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -35,14 +35,13 @@ var searchData=
   ['drive_5fto_5flocation_2eh_32',['drive_to_location.h',['../drive__to__location_8h.html',1,'']]],
   ['drivecontrolmode_33',['DriveControlMode',['../class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512c',1,'SwerveDriveSubsystem']]],
   ['drivegearratio_34',['driveGearRatio',['../namespacesensor__conversions_1_1swerve__drive_1_1drive.html#af6d473dbe46e61a31a3e016d2b33c2ce',1,'sensor_conversions::swerve_drive::drive']]],
-  ['drivelatspeed_35',['driveLatSpeed',['../namespacecontroller_map.html#adc91dc4d2e883f10ec2433773b906162',1,'controllerMap']]],
-  ['drivelongspeed_36',['driveLongSpeed',['../namespacecontroller_map.html#a05bdf6f0ae15f91cb8886e99ff5b17bf',1,'controllerMap']]],
-  ['driver_37',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
-  ['drivercontroller_38',['DriverController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#aab24f6aac86bd7a79f2e6af9de0d35e2',1,'argos_lib::SwappableControllersSubsystem']]],
-  ['driverotspeed_39',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]],
-  ['driverpipeline_40',['driverPipeline',['../namespacecamera.html#a3d35a57dd902ef20a7bb2726882b35c9',1,'camera']]],
-  ['drivesprocketteethperrevolution_41',['driveSprocketTeethPerRevolution',['../namespacesensor__conversions_1_1climb__hooks.html#a1eee946bb21b42bfdae9c04e084a33da',1,'sensor_conversions::climb_hooks']]],
-  ['drivetolocation_42',['DriveToLocation',['../class_drive_to_location.html',1,'DriveToLocation'],['../class_drive_to_location.html#ae5ea7893537447fade04abca51e3c3e2',1,'DriveToLocation::DriveToLocation()']]],
-  ['drivingaimoffsets_43',['DrivingAimOffsets',['../class_shooter_subsystem.html#ab2e25e2594b9650b8da3bb1e27ab063f',1,'ShooterSubsystem']]],
-  ['dumpball_44',['DumpBall',['../class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9',1,'IntakeSubsystem']]]
+  ['driver_35',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
+  ['drivercontroller_36',['DriverController',['../classargos__lib_1_1_swappable_controllers_subsystem.html#aab24f6aac86bd7a79f2e6af9de0d35e2',1,'argos_lib::SwappableControllersSubsystem']]],
+  ['driverotspeed_37',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]],
+  ['driverpipeline_38',['driverPipeline',['../namespacecamera.html#a3d35a57dd902ef20a7bb2726882b35c9',1,'camera']]],
+  ['drivespeed_39',['driveSpeed',['../namespacecontroller_map.html#af644cfedd265db475e4761d862ed33b6',1,'controllerMap']]],
+  ['drivesprocketteethperrevolution_40',['driveSprocketTeethPerRevolution',['../namespacesensor__conversions_1_1climb__hooks.html#a1eee946bb21b42bfdae9c04e084a33da',1,'sensor_conversions::climb_hooks']]],
+  ['drivetolocation_41',['DriveToLocation',['../class_drive_to_location.html',1,'DriveToLocation'],['../class_drive_to_location.html#ae5ea7893537447fade04abca51e3c3e2',1,'DriveToLocation::DriveToLocation()']]],
+  ['drivingaimoffsets_42',['DrivingAimOffsets',['../class_shooter_subsystem.html#ab2e25e2594b9650b8da3bb1e27ab063f',1,'ShooterSubsystem']]],
+  ['dumpball_43',['DumpBall',['../class_intake_subsystem.html#a6cc7f02d931d549824c96b35cadb37f9',1,'IntakeSubsystem']]]
 ];
