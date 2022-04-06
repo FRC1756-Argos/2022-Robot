@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespacecontrol_loop_1_1comp__bot_1_1drive.html":[2,0,7,0,2],
+"namespacecontrol_loop_1_1comp__bot_1_1shooter.html":[2,0,7,0,3],
 "namespacecontrol_loop_1_1practice__bot.html":[2,0,7,1],
 "namespacecontrol_loop_1_1practice__bot_1_1drive.html":[2,0,7,1,0],
 "namespacecontrol_loop_1_1practice__bot_1_1drive.html#a30d7a6b028e52dbb9871f6020a660093":[2,0,7,1,0,1],
@@ -54,10 +56,12 @@ var NAVTREEINDEX6 =
 "namespacemeasure__up.html#aab4edab9da55ffcc44189d07f1e03ac5":[2,0,10,9],
 "namespacemeasure__up.html#ae49efe93e07f5ad7579143b38853122a":[2,0,10,8],
 "namespacemeasure__up_1_1camera.html":[2,0,10,0],
-"namespacemeasure__up_1_1camera.html#a3c22068b76ca9c720e7c98dd4cd11c3e":[2,0,10,0,4],
-"namespacemeasure__up_1_1camera.html#a56a78f7e1115dee7de3d58028f4b6c7e":[2,0,10,0,3],
+"namespacemeasure__up_1_1camera.html#a3c22068b76ca9c720e7c98dd4cd11c3e":[2,0,10,0,6],
+"namespacemeasure__up_1_1camera.html#a56a78f7e1115dee7de3d58028f4b6c7e":[2,0,10,0,5],
 "namespacemeasure__up_1_1camera.html#a5b7be7d09cd2656c99739e759b9dbe80":[2,0,10,0,2],
 "namespacemeasure__up_1_1camera.html#a609f336767fd0a39791ff0f5b780be23":[2,0,10,0,1],
+"namespacemeasure__up_1_1camera.html#a670710ac576cc3e4186a23a1dd347b96":[2,0,10,0,3],
+"namespacemeasure__up_1_1camera.html#a767c50fb9319b5576a1c2c94ad038718":[2,0,10,0,4],
 "namespacemeasure__up_1_1camera.html#aa02156baaefca0333ca8e962e9c8f0cc":[2,0,10,0,0],
 "namespacemeasure__up_1_1chassis.html":[2,0,10,1],
 "namespacemeasure__up_1_1chassis.html#ae957e01d5b3460e5bce14a80300c2680":[2,0,10,1,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "namespacesensor__conversions_1_1turret.html":[2,0,15,5],
 "namespacesensor__conversions_1_1turret.html#a0bdc1122e95ea889aef812fde15e1e65":[2,0,15,5,0],
 "namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31":[2,0,15,5,1],
-"namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6":[2,0,15,5,2],
-"namespaceshooter_range.html":[2,0,16],
-"namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426":[2,0,16,2],
-"namespaceshooter_range.html#acc94363d15c3cecc0952d70074def851":[2,0,16,0],
-"namespaceshooter_range.html#ae7cd535c22224d63b7cf4cd49c56bedc":[2,0,16,1]
+"namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6":[2,0,15,5,2]
 };

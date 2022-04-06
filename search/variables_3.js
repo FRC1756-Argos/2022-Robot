@@ -8,11 +8,12 @@ var searchData=
   ['defense_5fright_5',['Defense_Right',['../namespacefield__points_1_1pickup__positions.html#a3c8020a4e48f15463fa5c36c73be2855',1,'field_points::pickup_positions']]],
   ['defense_5fvirt_6',['Defense_Virt',['../namespacefield__points_1_1pickup__positions.html#ad65e0b9a9137145a1f08bfabb1d13407',1,'field_points::pickup_positions']]],
   ['distanceoffset_7',['distanceOffset',['../struct_shooter_subsystem_1_1_aim_offsets.html#af967b22e2f7be3d2fc476ca0f6c8c378',1,'ShooterSubsystem::AimOffsets']]],
-  ['down_8',['down',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a43a245198029386d12c9cb8ed29ec218',1,'argos_lib::XboxController::DPadButtons']]],
-  ['drivegearratio_9',['driveGearRatio',['../namespacesensor__conversions_1_1swerve__drive_1_1drive.html#af6d473dbe46e61a31a3e016d2b33c2ce',1,'sensor_conversions::swerve_drive::drive']]],
-  ['driver_10',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
-  ['driverotspeed_11',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]],
-  ['driverpipeline_12',['driverPipeline',['../namespacecamera.html#a3d35a57dd902ef20a7bb2726882b35c9',1,'camera']]],
-  ['drivespeed_13',['driveSpeed',['../namespacecontroller_map.html#af644cfedd265db475e4761d862ed33b6',1,'controllerMap']]],
-  ['drivesprocketteethperrevolution_14',['driveSprocketTeethPerRevolution',['../namespacesensor__conversions_1_1climb__hooks.html#a1eee946bb21b42bfdae9c04e084a33da',1,'sensor_conversions::climb_hooks']]]
+  ['distortion_8',['distortion',['../namespacemeasure__up_1_1camera.html#a670710ac576cc3e4186a23a1dd347b96',1,'measure_up::camera']]],
+  ['down_9',['down',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a43a245198029386d12c9cb8ed29ec218',1,'argos_lib::XboxController::DPadButtons']]],
+  ['drivegearratio_10',['driveGearRatio',['../namespacesensor__conversions_1_1swerve__drive_1_1drive.html#af6d473dbe46e61a31a3e016d2b33c2ce',1,'sensor_conversions::swerve_drive::drive']]],
+  ['driver_11',['driver',['../namespaceaddress_1_1controllers.html#aa849663f6827b99ca886a1f050ba25ea',1,'address::controllers']]],
+  ['driverotspeed_12',['driveRotSpeed',['../namespacecontroller_map.html#a04beda5f52b8c7ec3a973c76113f6efb',1,'controllerMap']]],
+  ['driverpipeline_13',['driverPipeline',['../namespacecamera.html#a3d35a57dd902ef20a7bb2726882b35c9',1,'camera']]],
+  ['drivespeed_14',['driveSpeed',['../namespacecontroller_map.html#af644cfedd265db475e4761d862ed33b6',1,'controllerMap']]],
+  ['drivesprocketteethperrevolution_15',['driveSprocketTeethPerRevolution',['../namespacesensor__conversions_1_1climb__hooks.html#a1eee946bb21b42bfdae9c04e084a33da',1,'sensor_conversions::climb_hooks']]]
 ];

@@ -4,6 +4,8 @@ var namespacemeasure__up =
       [ "cameraHeight", "namespacemeasure__up_1_1camera.html#aa02156baaefca0333ca8e962e9c8f0cc", null ],
       [ "cameraMountAngle", "namespacemeasure__up_1_1camera.html#a609f336767fd0a39791ff0f5b780be23", null ],
       [ "cameraMountAnglePracticeBot", "namespacemeasure__up_1_1camera.html#a5b7be7d09cd2656c99739e759b9dbe80", null ],
+      [ "distortion", "namespacemeasure__up_1_1camera.html#a670710ac576cc3e4186a23a1dd347b96", null ],
+      [ "intrinsics", "namespacemeasure__up_1_1camera.html#a767c50fb9319b5576a1c2c94ad038718", null ],
       [ "toRotationCenter", "namespacemeasure__up_1_1camera.html#a56a78f7e1115dee7de3d58028f4b6c7e", null ],
       [ "upperHubHeight", "namespacemeasure__up_1_1camera.html#a3c22068b76ca9c720e7c98dd4cd11c3e", null ]
     ] ],

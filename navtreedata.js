@@ -69,12 +69,12 @@ var NAVTREEINDEX =
 "class_swerve_module.html#a63838269b7ebf621a7fc02a79699e335",
 "classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86a6f34c4ab25a9eaae98c6e7fd9ba4049e",
 "globals_func.html",
-"namespacecontrol_loop_1_1practice__bot.html",
-"namespacespeeds.html",
-"structargos__lib_1_1falcon__config_1_1has__neutral_mode.html",
-"structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a69cac3a7c7e855b414400f47ae8c16f1",
-"structmotor_config_1_1comp__bot_1_1drive_1_1front_left_turn.html#a32f1a19b620922ebb7336039bb4e140a",
-"structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html#a32d7443cdddc102d31d2603e1dc6a749"
+"namespacecontrol_loop_1_1comp__bot_1_1drive.html",
+"namespaceshooter_range.html",
+"structargos__lib_1_1falcon__config_1_1has__neutral_deadband.html",
+"structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a3265c55af241a3ae4040e6d38e193fa1",
+"structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#aee4d5c7be0b2e34e9a6ce7c22be0b3ec",
+"structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html#a0bc348a2f8149d827b845855ad75f082"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
