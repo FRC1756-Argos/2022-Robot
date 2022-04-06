@@ -30,7 +30,7 @@ void AutoVisionAimCommand::Execute() {
     return;
   }
 
-  m_pShooter->AutoAim();
+  m_pShooter->AutoAim(false);
 }
 
 // Called once the command ends or is interrupted.
@@ -46,5 +46,5 @@ bool AutoVisionAimCommand::IsFinished() {
     return true;
   }
 
-  return m_pShooter->AutoAim();
+  return m_pShooter->AutoAim(false);
 }
