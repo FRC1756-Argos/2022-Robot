@@ -28,12 +28,12 @@ def debugData(box):
         testVar = 0
 
 def drawDecorations(image):
-    cv2.putText(image, 
-        'ArgosVision!', 
-        (210, 20), 
-        cv2.FONT_HERSHEY_TRIPLEX, 
+    cv2.putText(image,
+        'ArgosVision!',
+        (210, 20),
+        cv2.FONT_HERSHEY_TRIPLEX,
         .5, (0, 255, 0), 1, cv2.LINE_AA)
-    
+
 # runPipeline() is called every frame by Limelight's backend.
 def runPipeline(image, llrobot):
 
@@ -44,7 +44,7 @@ def runPipeline(image, llrobot):
 
     # undistort
     dst = cv2.undistort(image, cameraMatrix, distortionCoeff, None, newcameramtx)
-    
+
     # method-2
     #mapx,mapy=cv2.initUndistortRectifyMap(cameraMatrix,distortionCoeff,None,newcameramtx,(wd,hd),5)
     #dst = cv2.remap(image,mapx,mapy,cv2.INTER_LINEAR)
@@ -57,12 +57,12 @@ def runPipeline(image, llrobot):
     #img_threshold = cv2.morphologyEx(img_threshold, cv2.MORPH_OPEN, kernel)
     img_threshold = cv2.dilate(img_threshold, kernel, iterations=1)
 
-    contours, _ = cv2.findContours(img_threshold, 
+    contours, _ = cv2.findContours(img_threshold,
     cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-  
+
     groupedSmartContour = np.array([[]])
     fittedRedBox = np.array([[]])
-    
+
     llpython = [0,0,0,0,0,0,0,0]
 
     if (len(contours) > 0 and len(contours) < 7):
@@ -79,7 +79,7 @@ def runPipeline(image, llrobot):
             if aspect_ratio > 0.3 and aspect_ratio < 5.0:
                 if areaPct > 0.001 and areaPct < 10.0:
                     filteredCountours.append(cnt)
-                    
+
         groupedSmartContour = np.concatenate(filteredCountours)
         #cv2.drawContours(image, groupedSmartContour, -1, (0,255,0), 2)
         #largestContour = max(contours, key=cv2.contourArea)
@@ -91,11 +91,11 @@ def runPipeline(image, llrobot):
         fittedRedBox = cv2.boxPoints(rect)
         fittedRedBox = np.int0(fittedRedBox)
         cv2.drawContours(dst,[fittedRedBox],0,(0,0,255),2)
-  
-    
+
+
     debugData(fittedRedBox)
     drawDecorations(dst)
-       
+
     # make sure to return a contour,
     # an image to stream,
     # and optionally an array of up to 8 values for the "llpython"
