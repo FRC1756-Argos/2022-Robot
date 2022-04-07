@@ -125,6 +125,8 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
       m_backLeft.m_encoder, 100_ms, instance);
 
   InitializeMotors();
+
+  m_rotationalPID.EnableContinuousInput(-180_deg, 180_deg);
 }
 
 void SwerveDriveSubsystem::Disable() {
@@ -214,15 +216,8 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
                                                                                    m_swerveProfileStartTime);
     if (!m_pActiveSwerveProfile->IsFinished(elapsedTime)) {
       desiredProfileState = m_pActiveSwerveProfile->Calculate(elapsedTime);
-      auto continuousOdometry = GetContinuousOdometry();
       const auto controllerChassisSpeeds = m_followerController.Calculate(
-          frc::Pose2d{
-              continuousOdometry.Translation(),
-              frc::Rotation2d{continuousOdometry.Rotation().Degrees() + m_pActiveSwerveProfile->GetOdometryOffset()}},
-          desiredProfileState,
-          m_pActiveSwerveProfile->GetEndAngle() + m_pActiveSwerveProfile->GetOdometryOffset());
-      // const auto controllerChassisSpeeds =  m_followerController.Calculate(GetContinuousOdometry(), desiredProfileState.pose, desiredProfileState.velocity, m_pActiveSwerveProfile->GetEndAngle());
-      // const auto swappedChassisSpeeds = frc::ChassisSpeeds{controllerChassisSpeeds.vy, controllerChassisSpeeds.vx, controllerChassisSpeeds.omega};
+          m_odometry.GetPose(), desiredProfileState, m_pActiveSwerveProfile->GetEndAngle());
       moduleStates = m_swerveDriveKinematics.ToSwerveModuleStates(controllerChassisSpeeds);
       frc::SmartDashboard::PutNumber("(SwerveFollower) Desired X",
                                      units::inch_t{desiredProfileState.pose.X()}.to<double>());
