@@ -184,31 +184,26 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
   units::inch_t offset = 0_in;
   double camDegOffsetAcounting;
-  if (m_instance == argos_lib::RobotInstance::Competition) {
+  const auto instance = m_instance;
+  if (instance == argos_lib::RobotInstance::Competition) {
     camDegOffsetAcounting = 2.928571;
   } else {
-    camDegOffsetAcounting = -17.071429;
+    if (actualDistance > 90_in) {
+      return units::inch_t{20 - 0.09350356 * actualDistance.to<double>() +
+                           0.000563018 * std::pow(actualDistance.to<double>(), 2)};
+    } else {
+      return 0_in;
+    }
   }
 
   if (actualDistance >= (units::inch_t)160) {
-    if (m_instance == argos_lib::RobotInstance::Competition) {
-      double y =
-          (50 - (0.4166667 * actualDistance.to<double>()) + (0.001388889 * std::pow(actualDistance.to<double>(), 2)));
-      offset = (units::inch_t)y;
-    } else {
-      double y = (8 - (0.1 * actualDistance.to<double>()) - (0.00028 * std::pow(actualDistance.to<double>(), 2)));
-      offset = (units::inch_t)y;
-    }
+    double y =
+        (50 - (0.4166667 * actualDistance.to<double>()) + (0.001388889 * std::pow(actualDistance.to<double>(), 2)));
+    offset = (units::inch_t)y;
   } else if (actualDistance >= (units::inch_t)90 && actualDistance < (units::inch_t)160) {
-    if (m_instance == argos_lib::RobotInstance::Competition) {
-      double y = (camDegOffsetAcounting - (0.1528571 * actualDistance.to<double>()) +
-                  (0.00148571 * std::pow(actualDistance.to<double>(), 2)));
-      offset = units::inch_t{y};
-    } else {
-      offset = -15_in;
-    }
-  } else if (m_instance == argos_lib::RobotInstance::Practice) {
-    offset = -18_in;  // for practice bot, needs further tuning!!!
+    double y = (camDegOffsetAcounting - (0.1528571 * actualDistance.to<double>()) +
+                (0.00148571 * std::pow(actualDistance.to<double>(), 2)));
+    offset = units::inch_t{y};
   }
   return offset;
 }

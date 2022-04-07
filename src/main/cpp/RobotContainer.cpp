@@ -27,7 +27,10 @@ RobotContainer::RobotContainer()
     , m_turretSpeedMap(controllerMap::turretSpeed)
     , m_hoodSpeedMap(controllerMap::hoodSpeed)
     , m_instance(argos_lib::GetRobotInstance())
-    , m_compressor(pneumatics::module::moduleAddr, pneumatics::module::moduleType)
+    , m_compressor(m_instance == argos_lib::RobotInstance::Competition ? pneumatics::comp_bot::module::moduleAddr :
+                                                                         pneumatics::practice::module::moduleAddr,
+                   m_instance == argos_lib::RobotInstance::Competition ? pneumatics::comp_bot::module::moduleType :
+                                                                         pneumatics::practice::module::moduleType)
     , m_controllers(address::controllers::driver, address::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable, m_instance)
     , m_intake(m_instance)
@@ -510,33 +513,33 @@ void RobotContainer::ConfigureButtonBindings() {
   // fixedFrontTrigger.WhenActive(
   //     [this]() {
   //       m_shooter.TurretSetPosition(360_deg);
-  //       m_shooter.SetShooterDistance(m_targetShotDistance);
-  //       // m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-  //       // m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //       // m_shooter.SetShooterDistance(m_targetShotDistance);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
   //     },
   //     {&m_shooter});
   // fixedLeftTrigger.WhenActive(
   //     [this]() {
   //       m_shooter.TurretSetPosition(90_deg);
-  //       m_shooter.SetShooterDistance(m_targetShotDistance);
-  //       // m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-  //       // m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //       // m_shooter.SetShooterDistance(m_targetShotDistance);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
   //     },
   //     {&m_shooter});
   // fixedRightTrigger.WhenActive(
   //     [this]() {
   //       m_shooter.TurretSetPosition(270_deg);
-  //       m_shooter.SetShooterDistance(m_targetShotDistance);
-  //       // m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-  //       // m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //       // m_shooter.SetShooterDistance(m_targetShotDistance);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
   //     },
   //     {&m_shooter});
   // fixedBackTrigger.WhenActive(
   //     [this]() {
   //       m_shooter.TurretSetPosition(180_deg);
-  //       m_shooter.SetShooterDistance(m_targetShotDistance);
-  //       // m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
-  //       // m_shooter.HoodSetPosition(m_hoodTargetPosition);
+  //       // m_shooter.SetShooterDistance(m_targetShotDistance);
+  //       m_shooter.CloseLoopShoot(m_shooterTargetVelocity);
+  //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
   //     },
   //     {&m_shooter});
 
