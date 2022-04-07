@@ -70,12 +70,11 @@ frc::Trajectory::State SwerveTrapezoidalProfileSegment::Calculate(units::second_
   frc::SmartDashboard::PutNumber("(SwerveFollower) Completion %",
                                  (linearState.position / m_relativeTranslation.Norm()).to<double>());
   // const auto newRotation = m_relativeRotation * (rotationalState.position / m_relativeRotation.Degrees()).to<double>();
-  return frc::Trajectory::State{
-      time,
-      linearState.velocity,
-      0_mps_sq,
-      frc::Pose2d{m_initialPosition.Translation() + newTranslation, m_motionAngle + m_odometryOffsetAngle},
-      units::curvature_t{0}};
+  return frc::Trajectory::State{time,
+                                linearState.velocity,
+                                0_mps_sq,
+                                frc::Pose2d{m_initialPosition.Translation() + newTranslation, m_motionAngle},
+                                units::curvature_t{0}};
 }
 
 bool SwerveTrapezoidalProfileSegment::IsFinished(units::second_t time) const {
