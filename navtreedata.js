@@ -64,17 +64,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_autonomous_right2ball.html#a12bca8e9e2ea7e966e05a16a650626bd",
-"class_intake_subsystem.html#a67a7f218c886abc11017f4ca5fd2f0e4",
-"class_swerve_module.html#a63838269b7ebf621a7fc02a79699e335",
-"classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86a6f34c4ab25a9eaae98c6e7fd9ba4049e",
-"globals_func.html",
-"namespacecontrol_loop_1_1comp__bot_1_1drive.html",
-"namespaceshooter_range.html",
-"structargos__lib_1_1falcon__config_1_1has__neutral_deadband.html",
-"structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a3265c55af241a3ae4040e6d38e193fa1",
-"structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#aee4d5c7be0b2e34e9a6ce7c22be0b3ec",
-"structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html#a0bc348a2f8149d827b845855ad75f082"
+"class_autonomous_nothing.html#aa2908fb4d86d40c82c815ef8e4033f8d",
+"class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097",
+"class_swerve_module.html",
+"classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86a5ca9b01dc72630050103311fe84c2972",
+"globals_defs.html",
+"namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#ae7795fe713d8f68285f446ee643fb554",
+"namespacesensor__conversions_1_1swerve__drive_1_1turn.html#a4d73a4d9acb90513dead3cda4951426d",
+"structargos__lib_1_1falcon__config_1_1has__forward_limit__source_3_01_t_00_01decltype_07_07void_81fab8e5132e69108d2fa80a116df1a2.html",
+"structcontrol_loop_1_1comp__bot_1_1drive_1_1rotate.html#acdf2f393b23a9b4b80704542feff21a8",
+"structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#abc313644650af1c8b9358f6e11954879",
+"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#ae84fc416e36b2dbd17c58779f1034b28"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

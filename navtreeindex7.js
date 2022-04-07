@@ -1,5 +1,12 @@
 var NAVTREEINDEX7 =
 {
+"namespacesensor__conversions_1_1swerve__drive_1_1turn.html#a4d73a4d9acb90513dead3cda4951426d":[2,0,15,4,1,1],
+"namespacesensor__conversions_1_1swerve__drive_1_1turn.html#aa61a71f1880ed76dfff77fec078d945b":[2,0,15,4,1,2],
+"namespacesensor__conversions_1_1swerve__drive_1_1turn.html#aaf39f7ec9d8a81711d00b2580878a4f6":[2,0,15,4,1,0],
+"namespacesensor__conversions_1_1turret.html":[2,0,15,5],
+"namespacesensor__conversions_1_1turret.html#a0bdc1122e95ea889aef812fde15e1e65":[2,0,15,5,0],
+"namespacesensor__conversions_1_1turret.html#a3d8efded09604ebfb921689c6fb44a31":[2,0,15,5,1],
+"namespacesensor__conversions_1_1turret.html#a3ed393bf376ec988ae1bb351c442aec6":[2,0,15,5,2],
 "namespaceshooter_range.html":[2,0,16],
 "namespaceshooter_range.html#a39ba488d6b48e6f42b8071c075157426":[2,0,16,2],
 "namespaceshooter_range.html#acc94363d15c3cecc0952d70074def851":[2,0,16,0],
@@ -191,8 +198,8 @@ var NAVTREEINDEX7 =
 "structargos__lib_1_1_vibration_status.html":[2,0,1,15],
 "structargos__lib_1_1_vibration_status.html#a8b6baa5946c60611d18dcbe97cd926c3":[3,0,0,14,1],
 "structargos__lib_1_1_vibration_status.html#a8b6baa5946c60611d18dcbe97cd926c3":[2,0,1,15,1],
-"structargos__lib_1_1_vibration_status.html#ad4388f73527addefbc8625c2874b948f":[2,0,1,15,0],
 "structargos__lib_1_1_vibration_status.html#ad4388f73527addefbc8625c2874b948f":[3,0,0,14,0],
+"structargos__lib_1_1_vibration_status.html#ad4388f73527addefbc8625c2874b948f":[2,0,1,15,0],
 "structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html":[3,0,0,15,0],
 "structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html":[2,0,1,16,0],
 "structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a3a7369d663e373845fcd218fd3e6e086":[2,0,1,16,0,1],
@@ -211,8 +218,8 @@ var NAVTREEINDEX7 =
 "structargos__lib_1_1_xbox_controller_1_1_update_status.html#a8b0dfa6c97d33cc308c1be26d6b3e180":[2,0,1,16,1,3],
 "structargos__lib_1_1_xbox_controller_1_1_update_status.html#ab2ccf7dddb335a48096822e9425e8d44":[3,0,0,15,1,1],
 "structargos__lib_1_1_xbox_controller_1_1_update_status.html#ab2ccf7dddb335a48096822e9425e8d44":[2,0,1,16,1,1],
-"structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac501c6389960221bfa08cf7615155eb3":[3,0,0,15,1,2],
 "structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac501c6389960221bfa08cf7615155eb3":[2,0,1,16,1,2],
+"structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac501c6389960221bfa08cf7615155eb3":[3,0,0,15,1,2],
 "structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac5ead71c2f9168bb43650a18606a104f":[3,0,0,15,1,4],
 "structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac5ead71c2f9168bb43650a18606a104f":[2,0,1,16,1,4],
 "structargos__lib_1_1_xbox_controller_1_1_update_status.html#ad769829e7275b925a9ec9cafc70e198e":[2,0,1,16,1,5],
@@ -242,12 +249,5 @@ var NAVTREEINDEX7 =
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__normal_state_3_01_t_00_01decltype_07_0ecc9d7a2c7e7d191f194154e369f1861.html":[2,0,1,1,3],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__normal_state_3_01_t_00_01decltype_07_0ecc9d7a2c7e7d191f194154e369f1861.html":[3,0,0,1,3],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__source.html":[3,0,0,1,4],
-"structargos__lib_1_1falcon__config_1_1has__forward_limit__source.html":[2,0,1,1,4],
-"structargos__lib_1_1falcon__config_1_1has__forward_limit__source_3_01_t_00_01decltype_07_07void_81fab8e5132e69108d2fa80a116df1a2.html":[2,0,1,1,5],
-"structargos__lib_1_1falcon__config_1_1has__forward_limit__source_3_01_t_00_01decltype_07_07void_81fab8e5132e69108d2fa80a116df1a2.html":[3,0,0,1,5],
-"structargos__lib_1_1falcon__config_1_1has__inverted.html":[3,0,0,1,6],
-"structargos__lib_1_1falcon__config_1_1has__inverted.html":[2,0,1,1,6],
-"structargos__lib_1_1falcon__config_1_1has__inverted_3_01_t_00_01decltype_07_07void_08_01_t_1_1inverted_00_01void_07_08_08_4.html":[2,0,1,1,7],
-"structargos__lib_1_1falcon__config_1_1has__inverted_3_01_t_00_01decltype_07_07void_08_01_t_1_1inverted_00_01void_07_08_08_4.html":[3,0,0,1,7],
-"structargos__lib_1_1falcon__config_1_1has__neutral_deadband.html":[3,0,0,1,8]
+"structargos__lib_1_1falcon__config_1_1has__forward_limit__source.html":[2,0,1,1,4]
 };

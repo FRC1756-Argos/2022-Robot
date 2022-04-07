@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"globals_defs.html":[4,1,3],
+"globals_enum.html":[4,1,2],
 "globals_func.html":[4,1,1],
 "hierarchy.html":[3,2],
 "home__climber__arm__command_8cpp.html":[4,0,0,1,0,0,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#a60901aab6c8bd22665f7c55d7cd36a4e":[2,0,7,0,1,1,2],
 "namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#a9966240799b68403e8197bda53f8669e":[2,0,7,0,1,1,1],
 "namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#a9f91e4c64b95cd7b214b004e1492c0e0":[2,0,7,0,1,1,3],
-"namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#ab0834804ce0081ba991c373786d8e826":[2,0,7,0,1,1,4],
-"namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#ae7795fe713d8f68285f446ee643fb554":[2,0,7,0,1,1,0],
-"namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#aff6989ac19c0f635dba5d5e40d9d764c":[2,0,7,0,1,1,5]
+"namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#ab0834804ce0081ba991c373786d8e826":[2,0,7,0,1,1,4]
 };
