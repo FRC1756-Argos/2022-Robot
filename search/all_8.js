@@ -29,7 +29,7 @@ var searchData=
   ['intakeretract_26',['intakeRetract',['../namespacepneumatics_1_1directions.html#a39b4820304f320d7e16a166e323929c7',1,'pneumatics::directions']]],
   ['intakereverse_27',['intakeReverse',['../namespacespeeds_1_1intake.html#aabb9a073e37743e986be8378d90fea41',1,'speeds::intake']]],
   ['intakestate_28',['IntakeState',['../class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7',1,'IntakeSubsystem']]],
-  ['intakesubsystem_29',['IntakeSubsystem',['../class_intake_subsystem.html',1,'IntakeSubsystem'],['../class_intake_subsystem.html#a73cfb9b735bde4d8e48fb03c361988ea',1,'IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)']]],
+  ['intakesubsystem_29',['IntakeSubsystem',['../class_intake_subsystem.html',1,'IntakeSubsystem'],['../class_intake_subsystem.html#a071b840539e70e2fffd6843d98dc3e7f',1,'IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance, argos_lib::SwappableControllersSubsystem *controller)']]],
   ['intaking_30',['Intaking',['../class_intake_subsystem.html#ada38c6a012dab8dfb0819cf8994217e7a50ab33317386710725c02921307f769e',1,'IntakeSubsystem']]],
   ['intensityleft_31',['intensityLeft',['../structargos__lib_1_1_vibration_status.html#ad4388f73527addefbc8625c2874b948f',1,'argos_lib::VibrationStatus']]],
   ['intensityright_32',['intensityRight',['../structargos__lib_1_1_vibration_status.html#a8b6baa5946c60611d18dcbe97cd926c3',1,'argos_lib::VibrationStatus']]],

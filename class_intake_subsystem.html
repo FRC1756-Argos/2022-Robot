@@ -110,8 +110,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a73cfb9b735bde4d8e48fb03c361988ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a73cfb9b735bde4d8e48fb03c361988ea">IntakeSubsystem</a> (const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance)</td></tr>
-<tr class="separator:a73cfb9b735bde4d8e48fb03c361988ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a071b840539e70e2fffd6843d98dc3e7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a071b840539e70e2fffd6843d98dc3e7f">IntakeSubsystem</a> (const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance, <a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a> *controller)</td></tr>
+<tr class="separator:a071b840539e70e2fffd6843d98dc3e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a88f5365448817ffeff0bcf1d315327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a1a88f5365448817ffeff0bcf1d315327">Disable</a> ()</td></tr>
 <tr class="memdesc:a1a88f5365448817ffeff0bcf1d315327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle robot disabling.  <a href="class_intake_subsystem.html#a1a88f5365448817ffeff0bcf1d315327">More...</a><br /></td></tr>
 <tr class="separator:a1a88f5365448817ffeff0bcf1d315327"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,8 +170,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a56edb3f3ff3a830b7e42ed1806f0e097"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69c26f0b78152da96ef265e512608714"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a69c26f0b78152da96ef265e512608714">m_firstShotMode</a></td></tr>
 <tr class="separator:a69c26f0b78152da96ef265e512608714"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67a7f218c886abc11017f4ca5fd2f0e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge_detector.html">EdgeDetector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a67a7f218c886abc11017f4ca5fd2f0e4">m_edgeDetector</a></td></tr>
-<tr class="separator:a67a7f218c886abc11017f4ca5fd2f0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d872d614ca9fafef9ca7b78c6eef363"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a9d872d614ca9fafef9ca7b78c6eef363">m_pControllers</a></td></tr>
+<tr class="separator:a9d872d614ca9fafef9ca7b78c6eef363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b9e7a61e663aefdb87b9a8d8efcff14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge_detector.html">EdgeDetector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a9b9e7a61e663aefdb87b9a8d8efcff14">m_ShooterEdgeDetector</a></td></tr>
+<tr class="separator:a9b9e7a61e663aefdb87b9a8d8efcff14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e685713a3568d7165ce1ce37766667"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge_detector.html">EdgeDetector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a40e685713a3568d7165ce1ce37766667">m_IntakeEdgeDetector</a></td></tr>
+<tr class="separator:a40e685713a3568d7165ce1ce37766667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5485814d18e72c925bb7a0a156dd3189"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_hysteresis_filter.html">argos_lib::HysteresisFilter</a>&lt; units::inch_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a5485814d18e72c925bb7a0a156dd3189">m_hysteresisIntake</a></td></tr>
 <tr class="separator:a5485814d18e72c925bb7a0a156dd3189"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a85c77f69a2e922197a50c5b3cadcee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargos__lib_1_1_hysteresis_filter.html">argos_lib::HysteresisFilter</a>&lt; units::inch_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a4a85c77f69a2e922197a50c5b3cadcee">m_hysteresisShooter</a></td></tr>
@@ -210,28 +214,30 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a73cfb9b735bde4d8e48fb03c361988ea" name="a73cfb9b735bde4d8e48fb03c361988ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73cfb9b735bde4d8e48fb03c361988ea">&#9670;&nbsp;</a></span>IntakeSubsystem()</h2>
+<a id="a071b840539e70e2fffd6843d98dc3e7f" name="a071b840539e70e2fffd6843d98dc3e7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a071b840539e70e2fffd6843d98dc3e7f">&#9670;&nbsp;</a></span>IntakeSubsystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">IntakeSubsystem::IntakeSubsystem </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a>&#160;</td>
-          <td class="paramname"><em>instance</em></td><td>)</td>
+          <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a> *&#160;</td>
+          <td class="paramname"><em>controllers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
 
@@ -551,28 +557,6 @@ false - Ball is not team color </dd></dl>
 
 </div>
 </div>
-<a id="a67a7f218c886abc11017f4ca5fd2f0e4" name="a67a7f218c886abc11017f4ca5fd2f0e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67a7f218c886abc11017f4ca5fd2f0e4">&#9670;&nbsp;</a></span>m_edgeDetector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_edge_detector.html">EdgeDetector</a> IntakeSubsystem::m_edgeDetector</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a69c26f0b78152da96ef265e512608714" name="a69c26f0b78152da96ef265e512608714"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a69c26f0b78152da96ef265e512608714">&#9670;&nbsp;</a></span>m_firstShotMode</h2>
 
@@ -709,6 +693,28 @@ false - Ball is not team color </dd></dl>
 
 </div>
 </div>
+<a id="a40e685713a3568d7165ce1ce37766667" name="a40e685713a3568d7165ce1ce37766667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e685713a3568d7165ce1ce37766667">&#9670;&nbsp;</a></span>m_IntakeEdgeDetector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge_detector.html">EdgeDetector</a> IntakeSubsystem::m_IntakeEdgeDetector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abc12b8e52981822a02b359c91f17375c" name="abc12b8e52981822a02b359c91f17375c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc12b8e52981822a02b359c91f17375c">&#9670;&nbsp;</a></span>m_intakeState</h2>
 
@@ -753,6 +759,28 @@ false - Ball is not team color </dd></dl>
 
 </div>
 </div>
+<a id="a9d872d614ca9fafef9ca7b78c6eef363" name="a9d872d614ca9fafef9ca7b78c6eef363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d872d614ca9fafef9ca7b78c6eef363">&#9670;&nbsp;</a></span>m_pControllers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a>* IntakeSubsystem::m_pControllers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a56edb3f3ff3a830b7e42ed1806f0e097" name="a56edb3f3ff3a830b7e42ed1806f0e097"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a56edb3f3ff3a830b7e42ed1806f0e097">&#9670;&nbsp;</a></span>m_shooterButtonPressed</h2>
 
@@ -764,6 +792,28 @@ false - Ball is not team color </dd></dl>
       <table class="memname">
         <tr>
           <td class="memname">bool IntakeSubsystem::m_shooterButtonPressed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b9e7a61e663aefdb87b9a8d8efcff14" name="a9b9e7a61e663aefdb87b9a8d8efcff14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b9e7a61e663aefdb87b9a8d8efcff14">&#9670;&nbsp;</a></span>m_ShooterEdgeDetector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge_detector.html">EdgeDetector</a> IntakeSubsystem::m_ShooterEdgeDetector</td>
         </tr>
       </table>
   </td>

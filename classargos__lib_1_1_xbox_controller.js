@@ -50,6 +50,7 @@ var classargos__lib_1_1_xbox_controller =
     [ "GetRawButtonReleased", "classargos__lib_1_1_xbox_controller.html#acd543af0f487a0c8c0b80a6377cf168e", null ],
     [ "GetRawButtonReleased", "classargos__lib_1_1_xbox_controller.html#a3bfc8bc7c676b5e375d6e05ca97c8937", null ],
     [ "GetTriggerAxis", "classargos__lib_1_1_xbox_controller.html#adfd321a87d96b003748b642fdf711601", null ],
+    [ "GetVibration", "classargos__lib_1_1_xbox_controller.html#ac2dbe34f55893300f05ff9694d8144de", null ],
     [ "GetX", "classargos__lib_1_1_xbox_controller.html#af845a5fb5316e2f8d9c68e8cb60966ff", null ],
     [ "GetY", "classargos__lib_1_1_xbox_controller.html#aa8e565e9547cea97e7bdd92143b7b8fa", null ],
     [ "SetButtonDebounce", "classargos__lib_1_1_xbox_controller.html#aeeddcd789554e899d6fc243b481edb90", null ],

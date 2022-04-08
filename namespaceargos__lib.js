@@ -40,6 +40,7 @@ var namespaceargos__lib =
     [ "GetSensorConversionFactor", "namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2", null ],
     [ "operator<", "namespaceargos__lib.html#ad64b1c60180c848877a6b120baf052e7", null ],
     [ "operator<", "namespaceargos__lib.html#a2503d5262181b3a6ba47396af30ab300", null ],
+    [ "TemporaryVibrationPattern", "namespaceargos__lib.html#adfd26102f3bb55fd38f1f624158cc235", null ],
     [ "VibrationAlternatePulse", "namespaceargos__lib.html#ad60f0b7c80267a6a8e576ef289de00e8", null ],
     [ "VibrationAlternateWave", "namespaceargos__lib.html#a489dff46429e8ae8064c6b37a744e2f5", null ],
     [ "VibrationConstant", "namespaceargos__lib.html#aadda81a361b1738ff80d513f9a74c32e", null ],

@@ -179,6 +179,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a489dff46429e8ae8064c6b37a744e2f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">VibrationModel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#a489dff46429e8ae8064c6b37a744e2f5">VibrationAlternateWave</a> (units::millisecond_t pulsePeriod, double intensityOn, double intensityOff=0.0)</td></tr>
 <tr class="memdesc:a489dff46429e8ae8064c6b37a744e2f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Smoothly transition vibration between intensityOn and intensityOff levels. Left output is in intensityOn phase while right output is in intensityOff phase and vice-versa.  <a href="namespaceargos__lib.html#a489dff46429e8ae8064c6b37a744e2f5">More...</a><br /></td></tr>
 <tr class="separator:a489dff46429e8ae8064c6b37a744e2f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd26102f3bb55fd38f1f624158cc235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">VibrationModel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#adfd26102f3bb55fd38f1f624158cc235">TemporaryVibrationPattern</a> (<a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">VibrationModel</a> temporaryModel, units::millisecond_t temporaryModelDuration, <a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">VibrationModel</a> lastingModel=<a class="el" href="namespaceargos__lib.html#a9bdc8d0bc40d923285b6350108692133">VibrationOff</a>())</td></tr>
+<tr class="memdesc:adfd26102f3bb55fd38f1f624158cc235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a vibration model for a specified duration, then run another model in perpetuity thereafter.  <a href="namespaceargos__lib.html#adfd26102f3bb55fd38f1f624158cc235">More...</a><br /></td></tr>
+<tr class="separator:adfd26102f3bb55fd38f1f624158cc235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad64b1c60180c848877a6b120baf052e7"><td class="memTemplParams" colspan="2">template&lt;class T , class V &gt; </td></tr>
 <tr class="memitem:ad64b1c60180c848877a6b120baf052e7"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceargos__lib.html#ad64b1c60180c848877a6b120baf052e7">operator&lt;</a> (const <a class="el" href="structargos__lib_1_1_interp_map_point.html">InterpMapPoint</a>&lt; T, V &gt; &amp;a, const T &amp;b)</td></tr>
 <tr class="separator:ad64b1c60180c848877a6b120baf052e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -376,6 +379,51 @@ template&lt;class T , class V &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfd26102f3bb55fd38f1f624158cc235" name="adfd26102f3bb55fd38f1f624158cc235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd26102f3bb55fd38f1f624158cc235">&#9670;&nbsp;</a></span>TemporaryVibrationPattern()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">VibrationModel</a> argos_lib::TemporaryVibrationPattern </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">argos_lib::VibrationModel</a>&#160;</td>
+          <td class="paramname"><em>temporaryModel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">units::millisecond_t&#160;</td>
+          <td class="paramname"><em>temporaryModelDuration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c">argos_lib::VibrationModel</a>&#160;</td>
+          <td class="paramname"><em>lastingModel</em> = <code><a class="el" href="namespaceargos__lib.html#a9bdc8d0bc40d923285b6350108692133">VibrationOff</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run a vibration model for a specified duration, then run another model in perpetuity thereafter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">temporaryModel</td><td>Model to run for the specified duration </td></tr>
+    <tr><td class="paramname">temporaryModelDuration</td><td>Amount of time to run temporaryModel </td></tr>
+    <tr><td class="paramname">lastingModel</td><td>Model to run forever after the specified duration </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>VibrationModel </dd></dl>
 
 </div>
 </div>

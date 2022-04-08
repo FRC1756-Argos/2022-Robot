@@ -44,8 +44,9 @@ var searchData=
   ['gettriggeraxis_41',['GetTriggerAxis',['../classargos__lib_1_1_xbox_controller.html#adfd321a87d96b003748b642fdf711601',1,'argos_lib::XboxController']]],
   ['getturretangletotarget_42',['GetTurretAngleToTarget',['../class_auto_position_aim_command.html#aae8c8a32e63ad47d9f4e9ee1e8e60ade',1,'AutoPositionAimCommand']]],
   ['getturrettargetangle_43',['GetTurretTargetAngle',['../class_shooter_subsystem.html#a53b9a2b56bb0e5943785fbbddbbecccd',1,'ShooterSubsystem']]],
-  ['getx_44',['GetX',['../classargos__lib_1_1_xbox_controller.html#af845a5fb5316e2f8d9c68e8cb60966ff',1,'argos_lib::XboxController']]],
-  ['getxvelocity_45',['GetXVelocity',['../class_swerve_trapezoidal_profile_segment.html#a7fb60a6039200f3f86bcfa37f4d135cd',1,'SwerveTrapezoidalProfileSegment']]],
-  ['gety_46',['GetY',['../classargos__lib_1_1_xbox_controller.html#aa8e565e9547cea97e7bdd92143b7b8fa',1,'argos_lib::XboxController']]],
-  ['getyvelocity_47',['GetYVelocity',['../class_swerve_trapezoidal_profile_segment.html#ad396ce2f97a0dc74789d2e26340f4c14',1,'SwerveTrapezoidalProfileSegment']]]
+  ['getvibration_44',['GetVibration',['../classargos__lib_1_1_xbox_controller.html#ac2dbe34f55893300f05ff9694d8144de',1,'argos_lib::XboxController']]],
+  ['getx_45',['GetX',['../classargos__lib_1_1_xbox_controller.html#af845a5fb5316e2f8d9c68e8cb60966ff',1,'argos_lib::XboxController']]],
+  ['getxvelocity_46',['GetXVelocity',['../class_swerve_trapezoidal_profile_segment.html#a7fb60a6039200f3f86bcfa37f4d135cd',1,'SwerveTrapezoidalProfileSegment']]],
+  ['gety_47',['GetY',['../classargos__lib_1_1_xbox_controller.html#aa8e565e9547cea97e7bdd92143b7b8fa',1,'argos_lib::XboxController']]],
+  ['getyvelocity_48',['GetYVelocity',['../class_swerve_trapezoidal_profile_segment.html#ad396ce2f97a0dc74789d2e26340f4c14',1,'SwerveTrapezoidalProfileSegment']]]
 ];
