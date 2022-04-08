@@ -42,11 +42,13 @@ namespace measure_up {
     constexpr auto maxAngle = 360_deg;
   }  // namespace turret
   namespace camera {
-    constexpr auto cameraHeight = 28.5_in;
+    // constexpr auto cameraHeight = 28.5_in; // Front camera
+    constexpr auto cameraHeight = 36.7_in;  // Rear camera
     constexpr auto upperHubHeight = 104_in;
     constexpr auto cameraMountAngle = 27_deg;               // actual current camera mount angle is 27.8 degrees
-    constexpr auto cameraMountAnglePracticeBot = 28.3_deg;  // actual currect camera mount angle is 29.1
-    constexpr auto toRotationCenter = 9_in;
+    constexpr auto cameraMountAnglePracticeBot = 27.8_deg;  // Rear camera
+    // constexpr auto toRotationCenter = 9_in; // Front camera
+    constexpr auto toRotationCenter = 7_in * -1;  // Rear camera
 
     // const float cameraIntrinsicValues[] =
     static const cv::Matx33d intrinsics{2.5751292067328632e+02,

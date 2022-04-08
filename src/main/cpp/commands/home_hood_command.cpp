@@ -4,6 +4,7 @@
 
 #include "commands/home_hood_command.h"
 
+#include "constants/interpolation_maps.h"
 #include "units/time.h"
 
 using namespace std::chrono_literals;
@@ -33,8 +34,10 @@ void HomeHoodCommand::Execute() {
 void HomeHoodCommand::End(bool interrupted) {
   if (!interrupted) {
     m_pShooter->UpdateHoodHome();
+    m_pShooter->HoodSetPosition(shooterRange::hoodAngle[0].outVal);  // Move to shortest setpoint on home success
+  } else {
+    m_pShooter->MoveHood(0.0);
   }
-  m_pShooter->MoveHood(0.0);
 }
 
 // Returns true when the command should end.

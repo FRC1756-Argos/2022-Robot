@@ -123,9 +123,13 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   if (m_useCalculatedPitch) {
     units::degree_t newPitch = m_cameraInterface.GetNewPitch(
         targetValues.yaw, targetValues.pitch, targetValues.bboxHor, targetValues.bboxVer, targetValues.skew);
-    distanceToTarget = GetTargetDistance(newPitch);
     frc::SmartDashboard::PutNumber("(Auto-Aim) Calculated Pitch", newPitch.to<double>());
+    m_cameraInterface.m_target.adjustPerspective(newPitch, targetValues.yaw);
+    distanceToTarget = GetTargetDistance(newPitch);
+    frc::SmartDashboard::PutNumber("(Auto-Aim) Perspective Adjusted Pitch", newPitch.to<double>());
   } else {
+    m_cameraInterface.m_target.adjustPerspective(targetValues.pitch, targetValues.yaw);
+    frc::SmartDashboard::PutNumber("(Auto-Aim) Perspective Adjusted Pitch", targetValues.pitch.to<double>());
     distanceToTarget = GetTargetDistance(targetValues.pitch);
   }
 
@@ -151,9 +155,9 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
         targetAngle.value(),
         targetValues.totalLatency);
     // Raw adjustments were too powerful...
-    distanceToTarget += (drivingAdjustmentValues.distanceOffset * 0.8);
+    distanceToTarget += (drivingAdjustmentValues.distanceOffset * 1.0);
     targetAngle.value() -=
-        (drivingAdjustmentValues.yawOffset * 0.5) * (m_instance == argos_lib::RobotInstance::Competition ? -1.0 : 1.0);
+        (drivingAdjustmentValues.yawOffset * 0.8) * (m_instance == argos_lib::RobotInstance::Competition ? -1.0 : 1.0);
   }
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance final", distanceToTarget.to<double>());
@@ -184,31 +188,26 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
   units::inch_t offset = 0_in;
   double camDegOffsetAcounting;
-  if (m_instance == argos_lib::RobotInstance::Competition) {
+  const auto instance = m_instance;
+  if (instance == argos_lib::RobotInstance::Competition) {
     camDegOffsetAcounting = 2.928571;
   } else {
-    camDegOffsetAcounting = -17.071429;
+    if (actualDistance > 90_in) {
+      return units::inch_t{20 - 0.09350356 * actualDistance.to<double>() +
+                           0.000563018 * std::pow(actualDistance.to<double>(), 2)};
+    } else {
+      return 0_in;
+    }
   }
 
   if (actualDistance >= (units::inch_t)160) {
-    if (m_instance == argos_lib::RobotInstance::Competition) {
-      double y =
-          (50 - (0.4166667 * actualDistance.to<double>()) + (0.001388889 * std::pow(actualDistance.to<double>(), 2)));
-      offset = (units::inch_t)y;
-    } else {
-      double y = (8 - (0.1 * actualDistance.to<double>()) - (0.00028 * std::pow(actualDistance.to<double>(), 2)));
-      offset = (units::inch_t)y;
-    }
+    double y =
+        (50 - (0.4166667 * actualDistance.to<double>()) + (0.001388889 * std::pow(actualDistance.to<double>(), 2)));
+    offset = (units::inch_t)y;
   } else if (actualDistance >= (units::inch_t)90 && actualDistance < (units::inch_t)160) {
-    if (m_instance == argos_lib::RobotInstance::Competition) {
-      double y = (camDegOffsetAcounting - (0.1528571 * actualDistance.to<double>()) +
-                  (0.00148571 * std::pow(actualDistance.to<double>(), 2)));
-      offset = units::inch_t{y};
-    } else {
-      offset = -15_in;
-    }
-  } else if (m_instance == argos_lib::RobotInstance::Practice) {
-    offset = -18_in;  // for practice bot, needs further tuning!!!
+    double y = (camDegOffsetAcounting - (0.1528571 * actualDistance.to<double>()) +
+                (0.00148571 * std::pow(actualDistance.to<double>(), 2)));
+    offset = units::inch_t{y};
   }
   return offset;
 }
@@ -679,4 +678,9 @@ LimelightTarget::tValues LimelightTarget::GetTarget() {
 
 bool LimelightTarget::HasTarget() {
   return m_hasTargets;
+}
+
+void LimelightTarget::adjustPerspective(units::degree_t& currentPitch, const units::degree_t& currentYaw) {
+  const double yaw_2 = std::pow(currentYaw.to<double>(), 2);
+  currentPitch = units::degree_t{(currentPitch.to<double>() * 16000 - yaw_2 * 60) / (16000 + (yaw_2 * 3))};
 }

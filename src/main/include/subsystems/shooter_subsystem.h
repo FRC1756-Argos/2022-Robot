@@ -65,6 +65,13 @@ class LimelightTarget {
    * @return false - The camera does not see a target
    */
   bool HasTarget();
+
+  /**
+   * @brief Adjusts pitch based on the current yaw to correct the camera perspective
+   *
+   * @param reported pitch and yaw
+   */
+  void adjustPerspective(units::degree_t& currentPitch, const units::degree_t& currentYaw);
 };
 
 /**

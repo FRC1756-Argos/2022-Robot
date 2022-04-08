@@ -49,10 +49,18 @@ namespace speeds {
 }  // namespace speeds
 
 namespace pneumatics {
-  namespace module {
-    constexpr auto moduleType = frc::PneumaticsModuleType::CTREPCM;
-    constexpr uint moduleAddr = 0;
-  }  // namespace module
+  namespace comp_bot {
+    namespace module {
+      constexpr auto moduleType = frc::PneumaticsModuleType::CTREPCM;
+      constexpr uint moduleAddr = 0;
+    }  // namespace module
+  }    // namespace comp_bot
+  namespace practice {
+    namespace module {
+      constexpr auto moduleType = frc::PneumaticsModuleType::REVPH;
+      constexpr uint moduleAddr = 1;
+    }  // namespace module
+  }    // namespace practice
   namespace directions {
     constexpr bool intakeExtend = true;
     constexpr bool intakeRetract = false;
