@@ -681,9 +681,6 @@ bool LimelightTarget::HasTarget() {
 }
 
 void LimelightTarget::adjustPerspective(units::degree_t& currentPitch, const units::degree_t& currentYaw) {
-  //units::degree_t pitchFactor = 0.001 * currentPitch;
-  //units::degree_t perspectiveOffset = pitchFactor * (std::pow(currentYaw.to<double>(), 2));
-  //currentPitch -= perspectiveOffset;
   const double yaw_2 = std::pow(currentYaw.to<double>(), 2);
   currentPitch = units::degree_t{(currentPitch.to<double>() * 16000 - yaw_2 * 60) / (16000 + (yaw_2 * 3))};
 }
