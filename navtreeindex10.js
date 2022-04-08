@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#a9cc2634af937ff6b0aeb836c768236f4":[3,0,2,0,1,1,6],
 "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#a9cc2634af937ff6b0aeb836c768236f4":[2,0,11,1,1,1,6],
 "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#aacd319f7143d4bee0c51b0a80f8db552":[2,0,11,1,1,1,9],
 "structmotor_config_1_1comp__bot_1_1drive_1_1back_right_turn.html#aacd319f7143d4bee0c51b0a80f8db552":[3,0,2,0,1,1,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#aa4238473b1f44b82277a9f953539b7eb":[2,0,11,1,3,3,5],
 "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#aa4238473b1f44b82277a9f953539b7eb":[3,0,2,0,3,3,5],
 "structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#aa6dcaba9e013e12ba189bd5105d20cac":[2,0,11,1,3,3,6],
-"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#aa6dcaba9e013e12ba189bd5105d20cac":[3,0,2,0,3,3,6],
-"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#aab42a7b116effdb1c0d35556ad1a98f8":[2,0,11,1,3,3,17]
+"structmotor_config_1_1comp__bot_1_1shooter_1_1turret_motor.html#aa6dcaba9e013e12ba189bd5105d20cac":[3,0,2,0,3,3,6]
 };

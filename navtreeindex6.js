@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1arm.html#ad93afed7b6adf15f93d4441595bacd06":[2,0,7,0,1,0,1],
 "namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html":[2,0,7,0,1,1],
 "namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#a60901aab6c8bd22665f7c55d7cd36a4e":[2,0,7,0,1,1,2],
 "namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1hook.html#a9966240799b68403e8197bda53f8669e":[2,0,7,0,1,1,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "namespacesensor__conversions_1_1swerve__drive_1_1drive.html":[2,0,15,4,0],
 "namespacesensor__conversions_1_1swerve__drive_1_1drive.html#a11073b2c6d0c8813c6c429bc74332417":[2,0,15,4,0,6],
 "namespacesensor__conversions_1_1swerve__drive_1_1drive.html#a30c4974d4cc69c9ada32e1f957d99854":[2,0,15,4,0,2],
-"namespacesensor__conversions_1_1swerve__drive_1_1drive.html#a408a2e36a59053646773a7b0d32b5939":[2,0,15,4,0,5],
-"namespacesensor__conversions_1_1swerve__drive_1_1drive.html#a6b018f639d7cc8cf05f2a5a62a27561b":[2,0,15,4,0,7]
+"namespacesensor__conversions_1_1swerve__drive_1_1drive.html#a408a2e36a59053646773a7b0d32b5939":[2,0,15,4,0,5]
 };

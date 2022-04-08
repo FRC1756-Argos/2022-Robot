@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"namespacesensor__conversions_1_1swerve__drive_1_1drive.html#a6b018f639d7cc8cf05f2a5a62a27561b":[2,0,15,4,0,7],
 "namespacesensor__conversions_1_1swerve__drive_1_1drive.html#a7c4ad51b7a6a626e04583f86dc390259":[2,0,15,4,0,1],
 "namespacesensor__conversions_1_1swerve__drive_1_1drive.html#aaaf34d2a3a36c7e66dee47dbce43941b":[2,0,15,4,0,0],
 "namespacesensor__conversions_1_1swerve__drive_1_1drive.html#af6d473dbe46e61a31a3e016d2b33c2ce":[2,0,15,4,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d.html":[3,0,0,1,0],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d.html":[2,0,1,1,0],
 "structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d_3_01_t_00_01decltype_07_07v44ebeb962e49a9b1f260a076090b52d3.html":[3,0,0,1,1],
-"structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d_3_01_t_00_01decltype_07_07v44ebeb962e49a9b1f260a076090b52d3.html":[2,0,1,1,1],
-"structargos__lib_1_1falcon__config_1_1has__forward_limit__normal_state.html":[3,0,0,1,2]
+"structargos__lib_1_1falcon__config_1_1has__forward_limit__device_i_d_3_01_t_00_01decltype_07_07v44ebeb962e49a9b1f260a076090b52d3.html":[2,0,1,1,1]
 };
