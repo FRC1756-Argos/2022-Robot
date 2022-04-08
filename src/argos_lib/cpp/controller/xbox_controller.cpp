@@ -128,6 +128,10 @@ bool XboxController::GetRawButtonReleased(std::initializer_list<Button> buttonCo
          std::any_of(updates.begin(), updates.end(), [](UpdateStatus newState) { return newState.released; });
 }
 
+VibrationModel XboxController::GetVibration() const {
+  return m_vibrationModel;
+}
+
 void XboxController::SetVibration(VibrationModel newVibrationModel) {
   m_vibrationModel = newVibrationModel;
   UpdateVibration();

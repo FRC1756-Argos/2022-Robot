@@ -51,8 +51,9 @@ void IntakeSubsystem::Periodic() {
   bool debouncerStatus = m_shooterTimeDebouncer(m_ShooterEdgeDetector(GetBallPresentShooter()));
 
   // vibrate controller if ball is at first sensor
-  if (m_ShooterEdgeDetector(GetBallPresentShooter())) {
-    m_pControllers->DriverController().SetVibration(argos_lib::VibrationSyncPulse(500_ms, 1));
+  if (m_IntakeEdgeDetector(GetBallPresentIntake())) {
+    m_pControllers->DriverController().SetVibration(argos_lib::TemporaryVibrationPattern(
+        argos_lib::VibrationConstant(1.0), 500_ms, m_pControllers->DriverController().GetVibration()));
   }
 
   frc::SmartDashboard::PutNumber("Periodic Speed", periodicCallSpeed);
