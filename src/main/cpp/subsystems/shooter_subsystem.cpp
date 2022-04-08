@@ -123,9 +123,13 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   if (m_useCalculatedPitch) {
     units::degree_t newPitch = m_cameraInterface.GetNewPitch(
         targetValues.yaw, targetValues.pitch, targetValues.bboxHor, targetValues.bboxVer, targetValues.skew);
-    distanceToTarget = GetTargetDistance(newPitch);
     frc::SmartDashboard::PutNumber("(Auto-Aim) Calculated Pitch", newPitch.to<double>());
+    m_cameraInterface.m_target.adjustPerspective(newPitch, targetValues.yaw);
+    distanceToTarget = GetTargetDistance(newPitch);
+    frc::SmartDashboard::PutNumber("(Auto-Aim) Perspective Adjusted Pitch", newPitch.to<double>());
   } else {
+    m_cameraInterface.m_target.adjustPerspective(targetValues.pitch, targetValues.yaw);
+    frc::SmartDashboard::PutNumber("(Auto-Aim) Perspective Adjusted Pitch", targetValues.pitch.to<double>());
     distanceToTarget = GetTargetDistance(targetValues.pitch);
   }
 
@@ -151,9 +155,9 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
         targetAngle.value(),
         targetValues.totalLatency);
     // Raw adjustments were too powerful...
-    distanceToTarget += (drivingAdjustmentValues.distanceOffset * 0.8);
+    distanceToTarget += (drivingAdjustmentValues.distanceOffset * 1.0);
     targetAngle.value() -=
-        (drivingAdjustmentValues.yawOffset * 0.5) * (m_instance == argos_lib::RobotInstance::Competition ? -1.0 : 1.0);
+        (drivingAdjustmentValues.yawOffset * 0.8) * (m_instance == argos_lib::RobotInstance::Competition ? -1.0 : 1.0);
   }
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance final", distanceToTarget.to<double>());
@@ -679,4 +683,12 @@ LimelightTarget::tValues LimelightTarget::GetTarget() {
 
 bool LimelightTarget::HasTarget() {
   return m_hasTargets;
+}
+
+void LimelightTarget::adjustPerspective(units::degree_t& currentPitch, const units::degree_t& currentYaw) {
+  //units::degree_t pitchFactor = 0.001 * currentPitch;
+  //units::degree_t perspectiveOffset = pitchFactor * (std::pow(currentYaw.to<double>(), 2));
+  //currentPitch -= perspectiveOffset;
+  const double yaw_2 = std::pow(currentYaw.to<double>(), 2);
+  currentPitch = units::degree_t{(currentPitch.to<double>() * 16000 - yaw_2 * 60) / (16000 + (yaw_2 * 3))};
 }
