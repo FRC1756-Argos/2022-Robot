@@ -10,8 +10,10 @@
 
 #include "Constants.h"
 #include "argos_lib/config/talonsrx_config.h"
+#include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 
-IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
+IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance,
+                                 argos_lib::SwappableControllersSubsystem* controllers)
     : m_beltDrive(address::intake::beltDrive)
     , m_intakeDrive(address::intake::intakeDrive)
     , m_intakeDeploy(instance == argos_lib::RobotInstance::Competition ? pneumatics::comp_bot::module::moduleAddr :
@@ -21,8 +23,10 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance)
                      address::solenoids::intake)
     , m_ballPresentIntake(address::sensors::tofSensorIntake)
     , m_ballPresentShooter(address::sensors::tofSensorShooter)
+    , m_pControllers(controllers)
     // , m_ballColor(address::sensors::colorSensor)
-    , m_edgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_FALLING)
+    , m_ShooterEdgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_FALLING)
+    , m_IntakeEdgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_RISING)
     , m_hysteresisIntake(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
     , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
     , m_shooterTimeDebouncer({0_ms, 250_ms}, false) {
@@ -48,7 +52,13 @@ void IntakeSubsystem::Periodic() {
   double periodicCallSpeed = 1000 / lastCalledDuration.count();
   lastCalled = currentTime;
 
-  bool debouncerStatus = m_shooterTimeDebouncer(m_edgeDetector(GetBallPresentShooter()));
+  bool debouncerStatus = m_shooterTimeDebouncer(m_ShooterEdgeDetector(GetBallPresentShooter()));
+
+  // vibrate controller if ball is at first sensor
+  if (m_IntakeEdgeDetector(GetBallPresentIntake())) {
+    m_pControllers->DriverController().SetVibration(argos_lib::TemporaryVibrationPattern(
+        argos_lib::VibrationConstant(1.0), 500_ms, m_pControllers->DriverController().GetVibration()));
+  }
 
   frc::SmartDashboard::PutNumber("Periodic Speed", periodicCallSpeed);
   frc::SmartDashboard::PutNumber("ToF Distance Intake",

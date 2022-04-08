@@ -199,11 +199,19 @@ namespace argos_lib {
     [[nodiscard]] bool GetRawButtonReleased(std::initializer_list<Button> buttonCombo);
 
     /**
+     * @brief Get the active vibration model
+     *
+     * @return Active vibration model
+     */
+    VibrationModel GetVibration() const;
+
+    /**
      * @brief Sets a new vibration pattern and updates vibration output based on that new model
      *
      * @param newVibrationModel Model to generate vibration output
      */
     void SetVibration(VibrationModel newVibrationModel);
+
     /**
      * @brief Update vibration output based on current vibration model
      */
