@@ -138,11 +138,11 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   // fitting 2nd degree polynomial to get the offset
   distanceToTarget -= GetPolynomialOffset(distanceToTarget);
 
-  // if (distanceToTarget >= 160_in) {
-  //   distanceToTarget -= 2_in;
-  // } else {
-  //   distanceToTarget += 2_in;
-  // }
+  if (distanceToTarget <= 90_in) {
+    fudgeFactor = 4_in;
+  } else if (distanceToTarget >= 240_in) {
+    fudgeFactor = 12_in;
+  }
 
   distanceToTarget += fudgeFactor;
 
