@@ -138,11 +138,11 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   // fitting 2nd degree polynomial to get the offset
   distanceToTarget -= GetPolynomialOffset(distanceToTarget);
 
-  if (distanceToTarget <= 90_in) {
-    fudgeFactor = 4_in;
-  } else if (distanceToTarget >= 240_in) {
-    fudgeFactor = 12_in;
-  }
+  // if (distanceToTarget <= 90_in) {
+  //   fudgeFactor = 4_in;
+  // } else if (distanceToTarget >= 240_in) {
+  //   fudgeFactor = 12_in;
+  // }
 
   distanceToTarget += fudgeFactor;
 
@@ -187,17 +187,16 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
 
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
   units::inch_t offset = 0_in;
-  double camDegOffsetAcounting;
+  double camDegOffsetAcounting = 0;
   const auto instance = m_instance;
   if (instance == argos_lib::RobotInstance::Competition) {
-    camDegOffsetAcounting = 2.928571;
+    // camDegOffsetAcounting = 2.928571;
+  }
+  if (actualDistance > 90_in) {
+    return units::inch_t{20 - 0.09350356 * actualDistance.to<double>() +
+                         0.000563018 * std::pow(actualDistance.to<double>(), 2)};
   } else {
-    if (actualDistance > 90_in) {
-      return units::inch_t{20 - 0.09350356 * actualDistance.to<double>() +
-                           0.000563018 * std::pow(actualDistance.to<double>(), 2)};
-    } else {
-      return 0_in;
-    }
+    return 0_in;
   }
 
   if (actualDistance >= (units::inch_t)160) {
