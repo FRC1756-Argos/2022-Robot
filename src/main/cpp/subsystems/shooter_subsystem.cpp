@@ -136,7 +136,7 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance without offset", distanceToTarget.to<double>());
 
   // fitting 2nd degree polynomial to get the offset
-  distanceToTarget -= GetPolynomialOffset(distanceToTarget);
+  // distanceToTarget -= GetPolynomialOffset(distanceToTarget);
 
   // if (distanceToTarget <= 90_in) {
   //   fudgeFactor = 4_in;
