@@ -136,13 +136,11 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance without offset", distanceToTarget.to<double>());
 
   // fitting 2nd degree polynomial to get the offset
-  // distanceToTarget -= GetPolynomialOffset(distanceToTarget);
+  distanceToTarget -= GetPolynomialOffset(distanceToTarget);
 
-  // if (distanceToTarget <= 90_in) {
-  //   fudgeFactor = 4_in;
-  // } else if (distanceToTarget >= 240_in) {
-  //   fudgeFactor = 12_in;
-  // }
+  if (distanceToTarget >= 270_in) {
+    fudgeFactor += 18_in;
+  }
 
   distanceToTarget += fudgeFactor;
 
@@ -186,29 +184,21 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
 }
 
 units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance) {
-  units::inch_t offset = 0_in;
-  double camDegOffsetAcounting = 0;
-  const auto instance = m_instance;
-  if (instance == argos_lib::RobotInstance::Competition) {
-    // camDegOffsetAcounting = 2.928571;
+  if (m_instance == argos_lib::RobotInstance::Competition) {
+    if (actualDistance >= 60_in) {
+      return units::inch_t{0.000563788 * std::pow(actualDistance.to<double>(), 2) -
+                           0.0757857 * actualDistance.to<double>() + 13.992};
+    } else {
+      return 0_in;
+    }
   }
+  // Practice bot
   if (actualDistance > 90_in) {
     return units::inch_t{20 - 0.09350356 * actualDistance.to<double>() +
                          0.000563018 * std::pow(actualDistance.to<double>(), 2)};
   } else {
     return 0_in;
   }
-
-  if (actualDistance >= (units::inch_t)160) {
-    double y =
-        (50 - (0.4166667 * actualDistance.to<double>()) + (0.001388889 * std::pow(actualDistance.to<double>(), 2)));
-    offset = (units::inch_t)y;
-  } else if (actualDistance >= (units::inch_t)90 && actualDistance < (units::inch_t)160) {
-    double y = (camDegOffsetAcounting - (0.1528571 * actualDistance.to<double>()) +
-                (0.00148571 * std::pow(actualDistance.to<double>(), 2)));
-    offset = units::inch_t{y};
-  }
-  return offset;
 }
 
 void ShooterSubsystem::FixedShooterPosition(FixedPosState fixedPosState) {

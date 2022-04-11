@@ -32,7 +32,7 @@ namespace motorConfig {
         constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
-        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::BasicFX;
+        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::LeaderFX;
         constexpr static auto pid0_selectedSensor = ctre::phoenix::motorcontrol::FeedbackDevice::IntegratedSensor;
         constexpr static auto pid0_kP = controlLoop::comp_bot::drive::drive::kP;
         constexpr static auto pid0_kI = controlLoop::comp_bot::drive::drive::kI;
@@ -47,7 +47,7 @@ namespace motorConfig {
         constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
-        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::BasicFX;
+        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::LeaderFX;
         constexpr static auto remoteFilter0_addr = address::encoders::frontLeftEncoder;
         constexpr static auto remoteFilter0_type =
             ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
@@ -65,7 +65,7 @@ namespace motorConfig {
         constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
-        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::BasicFX;
+        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::LeaderFX;
         constexpr static auto remoteFilter0_addr = address::encoders::frontRightEncoder;
         constexpr static auto remoteFilter0_type =
             ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
@@ -83,7 +83,7 @@ namespace motorConfig {
         constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
-        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::BasicFX;
+        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::LeaderFX;
         constexpr static auto remoteFilter0_addr = address::encoders::backRightEncoder;
         constexpr static auto remoteFilter0_type =
             ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;
@@ -101,7 +101,7 @@ namespace motorConfig {
         constexpr static auto neutralDeadband = motorConfig::common::neutralDeadband;
         constexpr static auto neutralMode = ctre::phoenix::motorcontrol::NeutralMode::Brake;
         constexpr static auto voltCompSat = motorConfig::common::voltCompSat;
-        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::BasicFX;
+        constexpr static auto statusFrameMotorMode = argos_lib::status_frame_config::MotorPresetMode::LeaderFX;
         constexpr static auto remoteFilter0_addr = address::encoders::backLeftEncoder;
         constexpr static auto remoteFilter0_type =
             ctre::phoenix::motorcontrol::RemoteSensorSource::RemoteSensorSource_CANCoder;

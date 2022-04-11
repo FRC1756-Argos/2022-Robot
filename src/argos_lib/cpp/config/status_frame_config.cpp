@@ -28,6 +28,7 @@ void argos_lib::status_frame_config::SetMotorStatusFrameRates(
       brushlessStatusPeriod = 200;
       [[fallthrough]];
     case argos_lib::status_frame_config::MotorPresetMode::Basic:
+      generalStatusPeriod = 100;
       feedback0Period = 100;
       break;
     case argos_lib::status_frame_config::MotorPresetMode::LeaderFX:
