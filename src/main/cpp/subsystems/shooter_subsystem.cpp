@@ -192,7 +192,7 @@ units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance
   if (m_instance == argos_lib::RobotInstance::Competition) {
     if (actualDistance >= 60_in) {
       return units::inch_t{0.000563788 * std::pow(actualDistance.to<double>(), 2) -
-                           0.0757857 * actualDistance.to<double>() + 9};
+                           0.0757857 * actualDistance.to<double>() + 8};
     } else {
       return 0_in;
     }
