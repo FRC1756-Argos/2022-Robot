@@ -10,16 +10,10 @@
 #include "constants/field_points.h"
 
 AutonomousRight2ballDelay::AutonomousRight2ballDelay(IntakeSubsystem* pIntake,
-                                             ShooterSubsystem* pShooter,
-                                             SwerveDriveSubsystem* pDrive)
-    : m_pIntake{pIntake}
-    , m_pShooter{pShooter}
-    , m_pDrive{pDrive}
-    , m_startDelay{5_s}
-    , m_allCommands{} {
-  m_allCommands.AddCommands(
-      m_startDelay, AutonomousRight2ballDelay{m_pIntake, m_pShooter, m_pDrive});
-
+                                                     ShooterSubsystem* pShooter,
+                                                     SwerveDriveSubsystem* pDrive)
+    : m_pIntake{pIntake}, m_pShooter{pShooter}, m_pDrive{pDrive}, m_startDelay{5_s}, m_allCommands{} {
+  m_allCommands.AddCommands(m_startDelay, AutonomousRight2ballDelay{m_pIntake, m_pShooter, m_pDrive});
 }
 
 // Called when the command is initially scheduled.

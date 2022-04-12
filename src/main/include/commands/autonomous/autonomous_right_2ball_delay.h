@@ -4,9 +4,7 @@
 
 #pragma once
 
-
 #include <commands/delay_command.h>
-
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 #include <frc2/command/SequentialCommandGroup.h>
@@ -18,6 +16,7 @@
 
 #include "autonomous_command.h"
 #include "autonomous_right_2ball.h"
+
 class AutonomousRight2ballDelay
     : public frc2::CommandHelper<frc2::CommandBase, AutonomousRight2ballDelay>
     , public AutonomousCommand {
@@ -47,7 +46,6 @@ class AutonomousRight2ballDelay
   SwerveDriveSubsystem* m_pDrive;
 
   DelayCommand m_startDelay;
-
 
   frc2::SequentialCommandGroup m_allCommands;
 };
