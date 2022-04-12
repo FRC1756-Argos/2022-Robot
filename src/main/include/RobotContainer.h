@@ -15,11 +15,15 @@
 #include "argos_lib/general/nt_subscriber.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "commands/autonomous/autonomous_center_1ball.h"
+#include "commands/autonomous/autonomous_center_1ball_delay.h"
+#include "commands/autonomous/autonomous_center_left_2ball_delay.h"
 #include "commands/autonomous/autonomous_center_left_2ball.h"
 #include "commands/autonomous/autonomous_center_left_2ball_defense.h"
 #include "commands/autonomous/autonomous_center_right_2ball.h"
+#include "commands/autonomous/autonomous_center_right_2ball_delay.h"
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_right_2ball.h"
+#include "commands/autonomous/autonomous_right_2ball_delay.h"
 #include "commands/autonomous/autonomous_right_5ball.h"
 #include "commands/autonomous/autonomous_right_5ballDef.h"
 #include "commands/autonomous/autonomous_right_5ball_gap.h"
@@ -119,14 +123,18 @@ class RobotContainer {
   units::degrees_per_second_squared_t m_driveProfileMaxRotationalAccel;
 
   // Autonomous Commands
-  AutonomousRight2ball m_autoRight2Ball;
-  AutonomousRight5ball m_autoRight5Ball;
-  AutonomousRight5ballGap m_autoRight5BallGap;
-  AutonomousRight5ballDef m_autoRight5BallDef;
-  AutonomousCenterRight2ball m_autoCenterRight2Ball;
   AutonomousCenter1ball m_autoCenter1ball;
+  AutonomousCenter1ballDelay m_autoCenter1ballDelay;
   AutonomousCenterLeft2ball m_autoCenterLeft2Ball;
   AutonomousCenterLeft2ballDefense m_autoCenterLeft2BallDefense;
+  AutonomousCenterLeft2ballDelay m_autoCenterLeft2BallDelay;
+  AutonomousCenterRight2ball m_autoCenterRight2Ball;
+  AutonomousCenterRight2ballDelay m_autoCenterRight2BallDelay;
+  AutonomousRight2ball m_autoRight2Ball;
+  AutonomousRight2ballDelay m_autoRight2BallDelay;
+  AutonomousRight5ball m_autoRight5Ball;
+  AutonomousRight5ballDef m_autoRight5BallDef;
+  AutonomousRight5ballGap m_autoRight5BallGap;
   AutonomousNothing m_autoNothing;
 
   // Autonomous Selector

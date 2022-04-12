@@ -83,22 +83,30 @@ RobotContainer::RobotContainer()
     , m_driveProfileMaxLinearAccel(units::feet_per_second_squared_t{10})
     , m_driveProfileMaxRotationalVel(60_rpm)
     , m_driveProfileMaxRotationalAccel(units::degrees_per_second_squared_t{360})
-    , m_autoRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
-    , m_autoRight5Ball{&m_intake, &m_shooter, &m_swerveDrive}
-    , m_autoRight5BallGap{&m_intake, &m_shooter, &m_swerveDrive}
-    , m_autoRight5BallDef{&m_intake, &m_shooter, &m_swerveDrive}
-    , m_autoCenterRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoCenter1ball{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoCenter1ballDelay{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoCenterLeft2Ball{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoCenterLeft2BallDefense{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoCenterLeft2BallDelay{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoCenterRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoCenterRight2BallDelay{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoRight2Ball{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoRight2BallDelay{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoRight5Ball{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoRight5BallDef{&m_intake, &m_shooter, &m_swerveDrive}
+    , m_autoRight5BallGap{&m_intake, &m_shooter, &m_swerveDrive}
     , m_autoNothing{}
     , m_autoRoutineSelector{{&m_autoRight2Ball,
+                             &m_autoRight2BallDelay,
                              // &m_autoRight5Ball,
                              &m_autoRight5BallGap,
                              // &m_autoRight5BallDef,
                              &m_autoCenterRight2Ball,
+                             &m_autoCenterRight2BallDelay,
                              &m_autoCenter1ball,
+                             &m_autoCenter1ballDelay,
                              &m_autoCenterLeft2Ball,
+                             &m_autoCenterLeft2BallDelay,
                              &m_autoCenterLeft2BallDefense,
                              &m_autoNothing},
                             &m_autoNothing} {
