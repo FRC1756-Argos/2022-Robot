@@ -140,6 +140,8 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
 
   if (distanceToTarget >= 270_in) {
     fudgeFactor += 18_in;
+  } else if (distanceToTarget < 100_in) {
+    fudgeFactor += 4_in;
   }
 
   distanceToTarget += fudgeFactor;
@@ -171,7 +173,10 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
       GetShooterSpeed()};
 
   if (targetAngle) {
-    TurretSetPosition(targetAngle.value());
+    units::angle::degree_t targetYaw = targetAngle.value();
+    if (distanceToTarget > 270_in)
+      targetYaw += 1.0_deg;  // adjust ball to go more into center at far distances
+    TurretSetPosition(targetYaw);
   }
 
   if (InAcceptableRanges(targets, currentValues)) {
@@ -187,7 +192,7 @@ units::inch_t ShooterSubsystem::GetPolynomialOffset(units::inch_t actualDistance
   if (m_instance == argos_lib::RobotInstance::Competition) {
     if (actualDistance >= 60_in) {
       return units::inch_t{0.000563788 * std::pow(actualDistance.to<double>(), 2) -
-                           0.0757857 * actualDistance.to<double>() + 13.992};
+                           0.0757857 * actualDistance.to<double>() + 9};
     } else {
       return 0_in;
     }
