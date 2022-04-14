@@ -40,3 +40,8 @@ Debouncer::Debouncer(const units::millisecond_t symmetricDebounceTime)
   m_rawStatus = newVal;
   return m_debouncedStatus;
 }
+
+void Debouncer::Reset(bool newVal) {
+  m_rawStatus = newVal;
+  m_debouncedStatus = newVal;
+}

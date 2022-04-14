@@ -292,6 +292,10 @@ bool ShooterSubsystem::IsHoodHomed() {
   return m_hoodHomed;
 }
 
+void ShooterSubsystem::ClearHoodHome() {
+  m_hoodHomed = false;
+}
+
 bool ShooterSubsystem::IsManualOverride() {
   return m_manualOverride;
 }

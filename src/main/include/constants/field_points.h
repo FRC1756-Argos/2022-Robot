@@ -42,7 +42,7 @@ namespace field_points {
 
     static const frc::Pose2d Shoot_D = frc::Pose2d(balls::B.X(),
                                                    balls::B.Y(),
-                                                   -225_deg);  ///< Approach at 45 degree angle
+                                                   -45_deg);  ///< Approach at 45 degree angle
 
     static const frc::Pose2d Shoot_F = frc::Pose2d(balls::F.X() + 12_in,
                                                    balls::F.Y(),

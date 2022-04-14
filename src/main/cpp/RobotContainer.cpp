@@ -339,6 +339,7 @@ void RobotContainer::ConfigureButtonBindings() {
   m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kX, {1500_ms, 0_ms});
   m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kA, {1500_ms, 0_ms});
   m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
+  m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kY, {1500_ms, 0_ms});
 
   // TRIGGERS -----------------------------------------------------------------------------------------------
 
@@ -398,6 +399,18 @@ void RobotContainer::ConfigureButtonBindings() {
                                                                   argos_lib::XboxController::Button::kB});
   }});
   homeTurret.WhenActive([this]() { m_shooter.UpdateTurretHome(); }, {&m_shooter});
+
+  auto homeHood = (frc2::Trigger{[this]() {
+    return m_controllers.OperatorController().GetDebouncedButton(argos_lib::XboxController::Button::kY);
+  }});
+  homeHood.WhenActive(frc2::SequentialCommandGroup(
+      frc2::InstantCommand{// reset hood home
+                           [this]() {
+                             m_shooter.DisableHoodSoftLimits();
+                             m_shooter.ClearHoodHome();
+                           },
+                           {&m_shooter}},
+      m_homeHoodCommand));
 
   // Swap controllers config
   m_controllers.DriverController().SetButtonDebounce(argos_lib::XboxController::Button::kBack, {1500_ms, 0_ms});

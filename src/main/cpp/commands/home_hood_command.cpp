@@ -16,6 +16,7 @@ HomeHoodCommand::HomeHoodCommand(ShooterSubsystem* shooter)
 
 // Called when the command is initially scheduled.
 void HomeHoodCommand::Initialize() {
+  m_hoodMovingDebounce.Reset(true);
   m_startTime = std::chrono::steady_clock::now();
   m_pShooter->DisableHoodSoftLimits();
   m_pShooter->MoveHood(0.2);

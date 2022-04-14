@@ -257,6 +257,11 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   bool IsHoodHomed();
 
   /**
+   * @brief Reset hood home status
+   */
+  void ClearHoodHome();
+
+  /**
    * @brief Update turret home position
    */
   void UpdateTurretHome();

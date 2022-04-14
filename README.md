@@ -77,7 +77,7 @@ You'll now have the linter run before each commit!  For compatibility with Windo
 | A               | Home Turret (hold with <kbd>X</kbd> and <kbd>B</kbd>) + Lower Arm |
 | B               | Home Turret (hold with <kbd>X</kbd> and <kbd>A</kbd>) + Extend Hook |
 | X               | Home Turret (hold with <kbd>A</kbd> and <kbd>B</kbd>) + Retract Hook |
-| Y               | Unused |
+| Y               | Home Hood (hold) |
 | DPad Up         | Front Close Up Shot |
 | DPad Right      | Right Close Up Shot |
 | DPad Down       | Back Close Up Shot |

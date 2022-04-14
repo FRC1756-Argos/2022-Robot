@@ -36,6 +36,13 @@ namespace argos_lib {
      */
     [[nodiscard]] bool operator()(bool newVal);
 
+    /**
+     * @brief Resets debouncer to a known status like at construction
+     *
+     * @param newVal Value to set to
+     */
+    void Reset(bool newVal);
+
    private:
     argos_lib::DebounceSettings m_debounceSettings;  ///< Configuration for asymmetric debouncer
     bool m_rawStatus;                                ///< Last raw value
