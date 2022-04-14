@@ -1,5 +1,8 @@
 var NAVTREEINDEX9 =
 {
+"structargos__lib_1_1talonsrx__config_1_1has__pid0__allowable_error_3_01_t_00_01decltype_07_07voi5493ef1e2db98309090f19c7439edbd9.html":[2,0,1,4,15],
+"structargos__lib_1_1talonsrx__config_1_1has__pid0__i_zone.html":[2,0,1,4,16],
+"structargos__lib_1_1talonsrx__config_1_1has__pid0__i_zone.html":[3,0,0,3,16],
 "structargos__lib_1_1talonsrx__config_1_1has__pid0__i_zone_3_01_t_00_01decltype_07_07void_08_01_tbf902fef88b68d24b562269713314f68.html":[2,0,1,4,17],
 "structargos__lib_1_1talonsrx__config_1_1has__pid0__i_zone_3_01_t_00_01decltype_07_07void_08_01_tbf902fef88b68d24b562269713314f68.html":[3,0,0,3,17],
 "structargos__lib_1_1talonsrx__config_1_1has__pid0__k_d.html":[2,0,1,4,18],
@@ -246,8 +249,5 @@ var NAVTREEINDEX9 =
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a76108e6a89650d6a59ee7c742c3b40db":[2,0,11,1,0,2,5],
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a7b406ded03a06f0f65d0c3021b43731c":[2,0,11,1,0,2,9],
 "structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a7b406ded03a06f0f65d0c3021b43731c":[3,0,2,0,0,2,9],
-"structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a8ea55a58236b6cd213472c0c3e690bef":[3,0,2,0,0,2,6],
-"structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a8ea55a58236b6cd213472c0c3e690bef":[2,0,11,1,0,2,6],
-"structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a8fe12a265f6c56e8ecd9bb4be15034d4":[2,0,11,1,0,2,12],
-"structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a8fe12a265f6c56e8ecd9bb4be15034d4":[3,0,2,0,0,2,12]
+"structmotor_config_1_1comp__bot_1_1climber_1_1move_hook.html#a8ea55a58236b6cd213472c0c3e690bef":[3,0,2,0,0,2,6]
 };

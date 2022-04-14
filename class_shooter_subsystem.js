@@ -13,6 +13,7 @@ var class_shooter_subsystem =
     [ "AimedFeedback", "class_shooter_subsystem.html#a4916934fd2d024941198510c05fe643c", null ],
     [ "AutoAim", "class_shooter_subsystem.html#a0675445ea465110252bb9427b2c72a9d", null ],
     [ "ChassisVelocitiesToHubVelocities", "class_shooter_subsystem.html#a1468389a7d823fcf7c84aea3308941df", null ],
+    [ "ClearHoodHome", "class_shooter_subsystem.html#af58d287cf68c9c975f569df9e280e729", null ],
     [ "CloseLoopShoot", "class_shooter_subsystem.html#a9e9dd762bb5d2db14c1ad03c21ad1cc1", null ],
     [ "Disable", "class_shooter_subsystem.html#a5b2c295a9e14a48f87874e1427296b2e", null ],
     [ "DisableHoodSoftLimits", "class_shooter_subsystem.html#ae9e2f3a7f1c07e22b18c5df43d7d927f", null ],
