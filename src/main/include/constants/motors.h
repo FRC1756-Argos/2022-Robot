@@ -329,8 +329,8 @@ namespace motorConfig {
         constexpr static auto peakCurrentLimit = 30_A;
         constexpr static auto peakCurrentDuration = 1_s;
         constexpr static auto continuousCurrentLimit = 20_A;
-        constexpr static auto peakOutputForward = 0.7;
-        constexpr static auto peakOutputReverse = -0.7;
+        constexpr static auto peakOutputForward = 1;
+        constexpr static auto peakOutputReverse = -1;
         constexpr static auto pid0_selectedSensor =
             ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative;
         constexpr static auto pid0_kP = controlLoop::practice_bot::shooter::turret::kP;
