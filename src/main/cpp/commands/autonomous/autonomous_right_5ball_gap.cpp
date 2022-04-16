@@ -15,8 +15,8 @@ AutonomousRight5ballGap::AutonomousRight5ballGap(IntakeSubsystem* pIntake,
     : m_pIntake{pIntake}
     , m_pShooter{pShooter}
     , m_pDrive{pDrive}  // , m_2ball{pIntake, pShooter, pDrive}
-    , m_humanPlayerDelay{1.5_s}
-    , m_shootDelay{500_ms}
+    , m_humanPlayerDelay{1.2_s}
+    , m_shootDelay{400_ms}
     , m_driveToBallB{m_pDrive,
                      field_points::pickup_positions::W_A,
                      field_points::pickup_positions::W_A.Rotation().Degrees(),
