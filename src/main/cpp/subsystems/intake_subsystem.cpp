@@ -23,6 +23,12 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance,
                      address::solenoids::intake)
     , m_ballPresentIntake(address::sensors::tofSensorIntake)
     , m_ballPresentShooter(address::sensors::tofSensorShooter)
+    , m_intakeState(IntakeSubsystem::IntakeState::Stop)
+    , m_intakeButtonPressed(false)
+    , m_slowIntakeRequested(false)
+    , m_outtakeButtonPressed(false)
+    , m_shooterButtonPressed(false)
+    , m_firstShotMode(false)
     , m_pControllers(controllers)
     // , m_ballColor(address::sensors::colorSensor)
     , m_ShooterEdgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_FALLING)
@@ -46,6 +52,9 @@ void IntakeSubsystem::Disable() {
 
 // This method will be called once per scheduler run
 void IntakeSubsystem::Periodic() {
+  const double intakeingSpeed =
+      m_slowIntakeRequested ? speeds::intake::intakeSlowForward : speeds::intake::intakeForward;
+
   auto currentTime = std::chrono::steady_clock::now();
   static auto lastCalled = currentTime;
   std::chrono::duration<double, std::milli> lastCalledDuration = currentTime - lastCalled;
@@ -86,7 +95,7 @@ void IntakeSubsystem::Periodic() {
         m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
       }
       if (m_intakeButtonPressed) {
-        m_intakeDrive.Set(GetBallPresentIntake() ? speeds::intake::intakeCreep : speeds::intake::intakeForward);
+        m_intakeDrive.Set(GetBallPresentIntake() ? speeds::intake::intakeCreep : intakeingSpeed);
       } else if (GetBallPresentIntake() && !GetIsBallTeamColor()) {
         m_intakeDrive.Set(speeds::intake::intakeReverse);
       } else {
@@ -132,31 +141,25 @@ bool IntakeSubsystem::GetIsBallTeamColor() {
 }
 
 void IntakeSubsystem::StopIntake() {
-  /*
-  m_intakeDeploy.Set(pneumatics::directions::intakeRetract);
-  m_intakeDrive.Set(0);
-  m_beltDrive.Set(0);
-  */
+  m_slowIntakeRequested = false;
   m_intakeButtonPressed = false;
   m_outtakeButtonPressed = false;
 }
 
+void IntakeSubsystem::SlowIntake() {
+  m_slowIntakeRequested = true;
+  m_intakeButtonPressed = true;
+  m_outtakeButtonPressed = false;
+}
+
 void IntakeSubsystem::Intake() {
-  /*
-  m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
-  m_intakeDrive.Set(speeds::intake::intakeForward);
-  m_beltDrive.Set(speeds::intake::beltForward);
-  */
+  m_slowIntakeRequested = false;
   m_intakeButtonPressed = true;
   m_outtakeButtonPressed = false;
 }
 
 void IntakeSubsystem::DumpBall() {
-  /*
-  m_intakeDeploy.Set(pneumatics::directions::intakeExtend);
-  m_intakeDrive.Set(speeds::intake::intakeReverse);
-  m_beltDrive.Set(speeds::intake::beltReverse);
-  */
+  m_slowIntakeRequested = false;
   m_outtakeButtonPressed = true;
   m_intakeButtonPressed = false;
 }

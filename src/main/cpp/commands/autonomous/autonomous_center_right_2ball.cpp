@@ -35,6 +35,7 @@ AutonomousCenterRight2ball::AutonomousCenterRight2ball(IntakeSubsystem* pIntake,
                                  m_intakeCommand,
                                  frc2::SequentialCommandGroup{m_initOdometry, m_startDelay, m_driveToBallB}},
       m_visionAim,
+      m_shootCommand,
       m_shootCommand);
 }
 

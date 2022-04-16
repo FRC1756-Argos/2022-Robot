@@ -35,6 +35,7 @@ AutonomousCenter1ball::AutonomousCenter1ball(IntakeSubsystem* pIntake,
                                  m_intakeCommand,
                                  frc2::SequentialCommandGroup{m_initOdometry, m_startDelay, m_driveToLocation}},
       m_visionAim,
+      m_shootCommand,
       m_shootCommand);
 }
 

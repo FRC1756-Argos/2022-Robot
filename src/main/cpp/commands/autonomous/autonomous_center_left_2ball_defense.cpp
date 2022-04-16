@@ -39,7 +39,7 @@ AutonomousCenterLeft2ballDefense::AutonomousCenterLeft2ballDefense(IntakeSubsyst
                          constraints::first_ball_path::rotationalConstraints}
     , m_homeHoodCommand{m_pShooter}
     , m_intakeCommand{m_pIntake}
-    , m_shootCommand{m_pIntake, 2, 1.2_s}
+    , m_shootCommand{m_pIntake, 2, 2.5_s}
     , m_aimBallC{m_pShooter, field_points::pickup_positions::Z_C}
     , m_aimDefenseBottom{m_pShooter, field_points::pickup_positions::Defense_Virt}
     , m_visionAim{m_pShooter}

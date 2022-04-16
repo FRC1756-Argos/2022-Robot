@@ -12,7 +12,7 @@ IntakeCommand::IntakeCommand(IntakeSubsystem* subsystem) : m_pIntake(subsystem) 
 
 // Called when the command is initially scheduled.
 void IntakeCommand::Initialize() {
-  m_pIntake->Intake();
+  m_pIntake->SlowIntake();
 }
 
 // Called repeatedly when this Command is scheduled to run

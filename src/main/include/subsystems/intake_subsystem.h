@@ -66,6 +66,13 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   void Intake();
 
   /**
+   * @brief Deploys intake and starts rollers inwards at slow speed. Handles elevator logic of cycling balls.
+   *        This is mostly useful for autonomous where fast intake sometimes spins ball before conveyor
+   *
+   */
+  void SlowIntake();
+
+  /**
    * @brief Retracts intake. Does not run rollers.
    *
    */
@@ -118,6 +125,7 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   IntakeState m_intakeState;
 
   bool m_intakeButtonPressed;
+  bool m_slowIntakeRequested;
   bool m_outtakeButtonPressed;
   bool m_shooterButtonPressed;
   bool m_firstShotMode;
