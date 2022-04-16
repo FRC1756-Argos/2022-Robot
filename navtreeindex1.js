@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"class_autonomous_center_left2ball_delay.html#a3612ce481372c2a7a863076617cff499":[3,0,8,1],
 "class_autonomous_center_left2ball_delay.html#a55fc712554f908ffdcca9d5af6caa2f1":[3,0,8,11],
 "class_autonomous_center_left2ball_delay.html#a6b58d54807c32636e0b518f763d9361b":[3,0,8,0],
 "class_autonomous_center_left2ball_delay.html#a955e9d9acf8bf93978980242a1f303be":[3,0,8,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "class_edge_detector.html#a7b80822f6e77d833bcd9f6c73f5efee8abb1ca97ec761fc37101737ba0aa2e7c5":[3,0,27,1,2],
 "class_edge_detector.html#ab21eee9433c65ae80560372ab487f485":[3,0,27,4],
 "class_edge_detector.html#ac4d5b680f8ac7b94370958ac9b88d205":[3,0,27,3],
-"class_f_s_homing_storage.html":[3,0,29],
-"class_f_s_homing_storage.html#a3afc0f832cd586775418302cf64814ce":[3,0,29,2]
+"class_f_s_homing_storage.html":[3,0,29]
 };

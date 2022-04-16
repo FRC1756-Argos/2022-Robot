@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"namespaceargos__lib_1_1cancoder__config.html#ad4761448a82be9f301cea9cb92f8631b":[2,0,1,0,9],
+"namespaceargos__lib_1_1falcon__config.html":[2,0,1,1],
+"namespaceargos__lib_1_1falcon__config.html#aa4173ae88db5e214c1deadbab92476ee":[2,0,1,1,69],
 "namespaceargos__lib_1_1falcon__config.html#ad61653d44b07300a67ca2f3afa116f3e":[2,0,1,1,68],
 "namespaceargos__lib_1_1status__frame__config.html":[2,0,1,2],
 "namespaceargos__lib_1_1status__frame__config.html#a9dd16ea44dbeab8949b98bbe24467391":[2,0,1,2,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "namespacemotor_config_1_1practice__bot_1_1drive.html#a262b9ee2577c82cc075c73826bea23d3":[2,0,11,2,1,0],
 "namespacemotor_config_1_1practice__bot_1_1drive.html#a3b37e049ab2db3a8869ed05083c88b0e":[2,0,11,2,1,1],
 "namespacemotor_config_1_1practice__bot_1_1drive.html#a6ddee846f1689715bb15e7f4d693ae1f":[2,0,11,2,1,4],
-"namespacemotor_config_1_1practice__bot_1_1drive.html#a8b2c8a03441ada032635893c8047a699":[2,0,11,2,1,2],
-"namespacemotor_config_1_1practice__bot_1_1drive.html#a8b4265b1cf0b6691ae138e5ea737ebbc":[2,0,11,2,1,3],
-"namespacemotor_config_1_1practice__bot_1_1intake.html":[2,0,11,2,2],
-"namespacemotor_config_1_1practice__bot_1_1intake.html#af9f456739476c2f74ee223d3bb69d1e0":[2,0,11,2,2,1]
+"namespacemotor_config_1_1practice__bot_1_1drive.html#a8b2c8a03441ada032635893c8047a699":[2,0,11,2,1,2]
 };

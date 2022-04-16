@@ -129,6 +129,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9b1cffda4410f7bfaff4d8ab4e8fe89a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a9b1cffda4410f7bfaff4d8ab4e8fe89a">Intake</a> ()</td></tr>
 <tr class="memdesc:a9b1cffda4410f7bfaff4d8ab4e8fe89a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deploys intake and starts rollers inwards. Handles elevator logic of cycling balls.  <a href="class_intake_subsystem.html#a9b1cffda4410f7bfaff4d8ab4e8fe89a">More...</a><br /></td></tr>
 <tr class="separator:a9b1cffda4410f7bfaff4d8ab4e8fe89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63765c450af47da39ced80e8664d39ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a63765c450af47da39ced80e8664d39ac">SlowIntake</a> ()</td></tr>
+<tr class="memdesc:a63765c450af47da39ced80e8664d39ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deploys intake and starts rollers inwards at slow speed. Handles elevator logic of cycling balls. This is mostly useful for autonomous where fast intake sometimes spins ball before conveyor.  <a href="class_intake_subsystem.html#a63765c450af47da39ced80e8664d39ac">More...</a><br /></td></tr>
+<tr class="separator:a63765c450af47da39ced80e8664d39ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad65167420b56ea554183d6e6fd81e95e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#ad65167420b56ea554183d6e6fd81e95e">StopIntake</a> ()</td></tr>
 <tr class="memdesc:ad65167420b56ea554183d6e6fd81e95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retracts intake. Does not run rollers.  <a href="class_intake_subsystem.html#ad65167420b56ea554183d6e6fd81e95e">More...</a><br /></td></tr>
 <tr class="separator:ad65167420b56ea554183d6e6fd81e95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,6 +167,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:abc12b8e52981822a02b359c91f17375c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ea4b501abc4614782316564df00ad6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a1ea4b501abc4614782316564df00ad6a">m_intakeButtonPressed</a></td></tr>
 <tr class="separator:a1ea4b501abc4614782316564df00ad6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c650139dc8fcf7c20834951b5776e42"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a9c650139dc8fcf7c20834951b5776e42">m_slowIntakeRequested</a></td></tr>
+<tr class="separator:a9c650139dc8fcf7c20834951b5776e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a591701b5ff203ee9c4b6e718ca48bf63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a591701b5ff203ee9c4b6e718ca48bf63">m_outtakeButtonPressed</a></td></tr>
 <tr class="separator:a591701b5ff203ee9c4b6e718ca48bf63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56edb3f3ff3a830b7e42ed1806f0e097"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097">m_shooterButtonPressed</a></td></tr>
@@ -447,6 +452,25 @@ false - Ball is not team color </dd></dl>
 </div><div class="memdoc">
 
 <p>Shoots ball. </p>
+
+</div>
+</div>
+<a id="a63765c450af47da39ced80e8664d39ac" name="a63765c450af47da39ced80e8664d39ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63765c450af47da39ced80e8664d39ac">&#9670;&nbsp;</a></span>SlowIntake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntakeSubsystem::SlowIntake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deploys intake and starts rollers inwards at slow speed. Handles elevator logic of cycling balls. This is mostly useful for autonomous where fast intake sometimes spins ball before conveyor. </p>
 
 </div>
 </div>
@@ -836,6 +860,28 @@ false - Ball is not team color </dd></dl>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classargos__lib_1_1_debouncer.html">argos_lib::Debouncer</a> IntakeSubsystem::m_shooterTimeDebouncer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c650139dc8fcf7c20834951b5776e42" name="a9c650139dc8fcf7c20834951b5776e42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c650139dc8fcf7c20834951b5776e42">&#9670;&nbsp;</a></span>m_slowIntakeRequested</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IntakeSubsystem::m_slowIntakeRequested</td>
         </tr>
       </table>
   </td>

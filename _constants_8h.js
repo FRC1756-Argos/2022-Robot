@@ -30,6 +30,7 @@ var _constants_8h =
     [ "intakeForward", "_constants_8h.html#a013668ebd822e7534817c655606cfee8", null ],
     [ "intakeRetract", "_constants_8h.html#a39b4820304f320d7e16a166e323929c7", null ],
     [ "intakeReverse", "_constants_8h.html#aabb9a073e37743e986be8378d90fea41", null ],
+    [ "intakeSlowForward", "_constants_8h.html#a0fb6cd2d4ae45d9140306cd3feee8aac", null ],
     [ "maxAngular", "_constants_8h.html#aecb75fccf7b0cbb63a8e1cadb6504b93", null ],
     [ "moduleAddr", "_constants_8h.html#ae349021a5772ee9e8e8d1541dd231eac", null ],
     [ "moduleAddr", "_constants_8h.html#a85e3c125223a85cc4adcc9308ccb3da9", null ],

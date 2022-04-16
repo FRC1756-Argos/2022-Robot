@@ -15,6 +15,7 @@ var class_intake_subsystem =
     [ "Intake", "class_intake_subsystem.html#a9b1cffda4410f7bfaff4d8ab4e8fe89a", null ],
     [ "Periodic", "class_intake_subsystem.html#ad2ccc2c89807a28001aa2c8d3bdc9bed", null ],
     [ "Shoot", "class_intake_subsystem.html#afbe996c1e7c8ebb04df1bc437cbd8ce9", null ],
+    [ "SlowIntake", "class_intake_subsystem.html#a63765c450af47da39ced80e8664d39ac", null ],
     [ "StopIntake", "class_intake_subsystem.html#ad65167420b56ea554183d6e6fd81e95e", null ],
     [ "StopShoot", "class_intake_subsystem.html#af5abc0a3db0b4bbc030d401f0302bd8d", null ],
     [ "m_ballPresentIntake", "class_intake_subsystem.html#aeddac30d1e8ac8fa744e66dc9f03e0c7", null ],
@@ -32,5 +33,6 @@ var class_intake_subsystem =
     [ "m_pControllers", "class_intake_subsystem.html#a9d872d614ca9fafef9ca7b78c6eef363", null ],
     [ "m_shooterButtonPressed", "class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097", null ],
     [ "m_ShooterEdgeDetector", "class_intake_subsystem.html#a9b9e7a61e663aefdb87b9a8d8efcff14", null ],
-    [ "m_shooterTimeDebouncer", "class_intake_subsystem.html#a83bf3505a5a2559d2ab029bdc48b6f74", null ]
+    [ "m_shooterTimeDebouncer", "class_intake_subsystem.html#a83bf3505a5a2559d2ab029bdc48b6f74", null ],
+    [ "m_slowIntakeRequested", "class_intake_subsystem.html#a9c650139dc8fcf7c20834951b5776e42", null ]
 ];

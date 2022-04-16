@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"namespacemotor_config_1_1practice__bot_1_1drive.html#a8b4265b1cf0b6691ae138e5ea737ebbc":[2,0,11,2,1,3],
+"namespacemotor_config_1_1practice__bot_1_1intake.html":[2,0,11,2,2],
+"namespacemotor_config_1_1practice__bot_1_1intake.html#af9f456739476c2f74ee223d3bb69d1e0":[2,0,11,2,2,1],
 "namespacemotor_config_1_1practice__bot_1_1shooter.html":[2,0,11,2,3],
 "namespacemotor_config_1_1practice__bot_1_1shooter.html#a8c69729f74795dba178d51f1cd6bdebf":[2,0,11,2,3,2],
 "namespacemotor_config_1_1practice__bot_1_1shooter.html#aa33e185552a1d40c4d359e65034fbdfc":[2,0,11,2,3,3],
@@ -93,6 +96,7 @@ var NAVTREEINDEX7 =
 "namespacespeeds_1_1drive.html#aecb75fccf7b0cbb63a8e1cadb6504b93":[2,0,17,0,0],
 "namespacespeeds_1_1intake.html":[2,0,17,1],
 "namespacespeeds_1_1intake.html#a013668ebd822e7534817c655606cfee8":[2,0,17,1,5],
+"namespacespeeds_1_1intake.html#a0fb6cd2d4ae45d9140306cd3feee8aac":[2,0,17,1,7],
 "namespacespeeds_1_1intake.html#a650ab2de9d2e28d1d16273504c6c5dcc":[2,0,17,1,0],
 "namespacespeeds_1_1intake.html#a66a26c3214e4f906700ba4a8816d4277":[2,0,17,1,4],
 "namespacespeeds_1_1intake.html#aabb9a073e37743e986be8378d90fea41":[2,0,17,1,6],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "struct_swerve_drive_subsystem_1_1_velocities.html#a4eb0a93944129feaf64f0169bcf3f83c":[3,0,44,0,2],
 "struct_swerve_drive_subsystem_1_1_velocities.html#a7609c8530bca30d8522f9d5ca81e4134":[3,0,44,0,1],
 "struct_swerve_drive_subsystem_1_1_velocities.html#ad917d51ac19a2d103b21620c98a5ffa7":[3,0,44,0,0],
-"structargos__lib_1_1_closed_loop_sensor_conversions.html":[2,0,1,5],
-"structargos__lib_1_1_closed_loop_sensor_conversions.html":[3,0,0,4],
-"structargos__lib_1_1_closed_loop_sensor_conversions.html#a8e14b6f5f83570e8a50acfcd75c06369":[3,0,0,4,2],
-"structargos__lib_1_1_closed_loop_sensor_conversions.html#a8e14b6f5f83570e8a50acfcd75c06369":[2,0,1,5,2],
-"structargos__lib_1_1_closed_loop_sensor_conversions.html#aaf9be32ee19cb40f0fdcf67b5efaa419":[3,0,0,4,1]
+"structargos__lib_1_1_closed_loop_sensor_conversions.html":[2,0,1,5]
 };
