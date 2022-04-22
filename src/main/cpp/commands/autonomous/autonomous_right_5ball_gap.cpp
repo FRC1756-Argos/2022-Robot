@@ -96,8 +96,7 @@ AutonomousRight5ballGap::AutonomousRight5ballGap(IntakeSubsystem* pIntake,
 // Called when the command is initially scheduled.
 void AutonomousRight5ballGap::Initialize() {
   m_pShooter->SetCameraDriverMode(false);
-  frc::DriverStation::Alliance alliance = frc::DriverStation::GetAlliance();
-  if (alliance == frc::DriverStation::Alliance::kRed) {
+  if (frc::DriverStation::GetAlliance() == frc::DriverStation::Alliance::kRed) {
     m_commandSet = &m_allCommandsRed;
   }
   m_commandSet->Initialize();
