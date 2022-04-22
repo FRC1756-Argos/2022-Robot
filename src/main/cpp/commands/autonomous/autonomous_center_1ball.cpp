@@ -19,14 +19,14 @@ AutonomousCenter1ball::AutonomousCenter1ball(IntakeSubsystem* pIntake,
     , m_driveToLocation{m_pDrive,
                         field_points::starting_positions::Y,
                         field_points::starting_positions::Y.Rotation().Degrees(),
-                        field_points::pickup_positions::Y_Y,
-                        field_points::pickup_positions::Y_Y.Rotation().Degrees(),
+                        field_points::pickup_positions::blue_alliance::Y_Y,
+                        field_points::pickup_positions::blue_alliance::Y_Y.Rotation().Degrees(),
                         constraints::first_ball_path::linearConstraints,
                         constraints::first_ball_path::rotationalConstraints}
     , m_homeHoodCommand{m_pShooter}
     , m_intakeCommand{m_pIntake}
     , m_shootCommand{m_pIntake, 2, 1.2_s}
-    , m_aimBall{m_pShooter, field_points::pickup_positions::Y_Y}
+    , m_aimBall{m_pShooter, field_points::pickup_positions::blue_alliance::Y_Y}
     , m_visionAim{m_pShooter}
     , m_initOdometry{m_pDrive, field_points::starting_positions::Y}
     , m_allCommands{} {

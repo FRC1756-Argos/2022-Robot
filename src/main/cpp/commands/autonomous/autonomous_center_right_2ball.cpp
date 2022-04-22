@@ -19,14 +19,14 @@ AutonomousCenterRight2ball::AutonomousCenterRight2ball(IntakeSubsystem* pIntake,
     , m_driveToBallB{m_pDrive,
                      field_points::starting_positions::X,
                      field_points::starting_positions::X.Rotation().Degrees(),
-                     field_points::pickup_positions::X_B,
-                     field_points::pickup_positions::X_B.Rotation().Degrees(),
+                     field_points::pickup_positions::blue_alliance::X_B,
+                     field_points::pickup_positions::blue_alliance::X_B.Rotation().Degrees(),
                      constraints::first_ball_path::linearConstraints,
                      constraints::first_ball_path::rotationalConstraints}
     , m_homeHoodCommand{m_pShooter}
     , m_intakeCommand{m_pIntake}
     , m_shootCommand{m_pIntake, 2, 1.2_s}
-    , m_aimBallB{m_pShooter, field_points::pickup_positions::X_B}
+    , m_aimBallB{m_pShooter, field_points::pickup_positions::blue_alliance::X_B}
     , m_visionAim{m_pShooter}
     , m_initOdometry{m_pDrive, field_points::starting_positions::X}
     , m_allCommands{} {

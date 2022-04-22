@@ -18,14 +18,14 @@ AutonomousRight5ballDef::AutonomousRight5ballDef(IntakeSubsystem* pIntake,
     , m_5ball{pIntake, pShooter, pDrive}
     , m_shootDelay{300_ms}
     , m_driveToBallF{m_pDrive,
-                     field_points::pickup_positions::Shoot_D,
-                     field_points::pickup_positions::Shoot_D.Rotation().Degrees(),
-                     field_points::pickup_positions::Shoot_F,
-                     field_points::pickup_positions::Shoot_F.Rotation().Degrees(),
+                     field_points::pickup_positions::blue_alliance::Shoot_D,
+                     field_points::pickup_positions::blue_alliance::Shoot_D.Rotation().Degrees(),
+                     field_points::pickup_positions::blue_alliance::Shoot_F,
+                     field_points::pickup_positions::blue_alliance::Shoot_F.Rotation().Degrees(),
                      constraints::BD_path::linearConstraints,
                      constraints::BD_path::rotationalConstraints}
     , m_shootOneBall{m_pIntake, 1, 1.2_s}
-    , m_aimBallF{m_pShooter, field_points::pickup_positions::Virtual_Shoot_F}
+    , m_aimBallF{m_pShooter, field_points::pickup_positions::blue_alliance::Virtual_Shoot_F}
     , m_allCommands{} {
   m_allCommands.AddCommands(AutonomousRight5ballGap{m_pIntake, m_pShooter, m_pDrive},
                             m_shootDelay,

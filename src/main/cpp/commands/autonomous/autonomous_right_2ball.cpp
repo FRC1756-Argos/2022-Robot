@@ -20,14 +20,14 @@ AutonomousRight2ball::AutonomousRight2ball(IntakeSubsystem* pIntake,
     , m_driveToBallA{m_pDrive,
                      field_points::starting_positions::W,
                      field_points::starting_positions::W.Rotation().Degrees(),
-                     field_points::pickup_positions::W_A,
-                     field_points::pickup_positions::W_A.Rotation().Degrees(),
+                     field_points::pickup_positions::blue_alliance::W_A,
+                     field_points::pickup_positions::blue_alliance::W_A.Rotation().Degrees(),
                      constraints::first_ball_path::linearConstraints,
                      constraints::first_ball_path::rotationalConstraints}
     , m_homeHoodCommand{m_pShooter}
     , m_intakeCommand{m_pIntake}
     , m_shootCommand{m_pIntake, 2, 1.2_s}
-    , m_aimBallA{m_pShooter, field_points::pickup_positions::W_A}
+    , m_aimBallA{m_pShooter, field_points::pickup_positions::blue_alliance::W_A}
     , m_visionAim{m_pShooter}
     , m_initOdometry{m_pDrive, field_points::starting_positions::W}
     , m_allCommands{} {
