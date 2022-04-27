@@ -12,5 +12,5 @@ var searchData=
   ['horizontalangleresolution_9',['horizontalAngleResolution',['../namespacecamera.html#a8dfca834192be2214c62ba7dac08bca6',1,'camera']]],
   ['horizontalpixelresolution_10',['horizontalPixelResolution',['../namespacecamera.html#a03415aaaebc486386de1820a14cc05a0',1,'camera']]],
   ['hub_11',['hub',['../namespacefield__points.html#a20b44bacb7abbfc55cf968c5447a7867',1,'field_points']]],
-  ['humanplayer_12',['HumanPlayer',['../namespacefield__points_1_1pickup__positions.html#ab8a36f59c60b9c8d2e434291750cb3c9',1,'field_points::pickup_positions']]]
+  ['humanplayer_12',['HumanPlayer',['../namespacefield__points_1_1pickup__positions_1_1blue__alliance.html#a156f06eabb601c2f7dff84f48a643ffa',1,'field_points::pickup_positions::blue_alliance::HumanPlayer()'],['../namespacefield__points_1_1pickup__positions_1_1red__alliance.html#a1997c4e534283fe64699b176742847bb',1,'field_points::pickup_positions::red_alliance::HumanPlayer()']]]
 ];

@@ -160,8 +160,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aabb545c5b4b04f98143ddff16be83428"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64120182a4777fba4b24dd80714fbd07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_auto_vision_aim_command.html">AutoVisionAimCommand</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_right5ball_gap.html#a64120182a4777fba4b24dd80714fbd07">m_visionAim</a></td></tr>
 <tr class="separator:a64120182a4777fba4b24dd80714fbd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32ddd0ea2c8b3fd7e4bd2b800844c8f8"><td class="memItemLeft" align="right" valign="top">frc2::SequentialCommandGroup&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_right5ball_gap.html#a32ddd0ea2c8b3fd7e4bd2b800844c8f8">m_allCommands</a></td></tr>
-<tr class="separator:a32ddd0ea2c8b3fd7e4bd2b800844c8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c9a431889a995fc0ae1e010d5054644"><td class="memItemLeft" align="right" valign="top">frc2::SequentialCommandGroup&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_right5ball_gap.html#a8c9a431889a995fc0ae1e010d5054644">m_allCommandsBlue</a></td></tr>
+<tr class="separator:a8c9a431889a995fc0ae1e010d5054644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add403e2df476008a8038e69a597b1437"><td class="memItemLeft" align="right" valign="top">frc2::SequentialCommandGroup&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_right5ball_gap.html#add403e2df476008a8038e69a597b1437">m_allCommandsRed</a></td></tr>
+<tr class="separator:add403e2df476008a8038e69a597b1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2166e1778fd37a8a8f6350f06f65b5cc"><td class="memItemLeft" align="right" valign="top">frc2::SequentialCommandGroup *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autonomous_right5ball_gap.html#a2166e1778fd37a8a8f6350f06f65b5cc">m_commandSet</a></td></tr>
+<tr class="separator:a2166e1778fd37a8a8f6350f06f65b5cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
@@ -408,8 +412,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a32ddd0ea2c8b3fd7e4bd2b800844c8f8" name="a32ddd0ea2c8b3fd7e4bd2b800844c8f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32ddd0ea2c8b3fd7e4bd2b800844c8f8">&#9670;&nbsp;</a></span>m_allCommands</h2>
+<a id="a8c9a431889a995fc0ae1e010d5054644" name="a8c9a431889a995fc0ae1e010d5054644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c9a431889a995fc0ae1e010d5054644">&#9670;&nbsp;</a></span>m_allCommandsBlue</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -418,7 +422,51 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">frc2::SequentialCommandGroup AutonomousRight5ballGap::m_allCommands</td>
+          <td class="memname">frc2::SequentialCommandGroup AutonomousRight5ballGap::m_allCommandsBlue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add403e2df476008a8038e69a597b1437" name="add403e2df476008a8038e69a597b1437"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add403e2df476008a8038e69a597b1437">&#9670;&nbsp;</a></span>m_allCommandsRed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc2::SequentialCommandGroup AutonomousRight5ballGap::m_allCommandsRed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2166e1778fd37a8a8f6350f06f65b5cc" name="a2166e1778fd37a8a8f6350f06f65b5cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2166e1778fd37a8a8f6350f06f65b5cc">&#9670;&nbsp;</a></span>m_commandSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">frc2::SequentialCommandGroup* AutonomousRight5ballGap::m_commandSet</td>
         </tr>
       </table>
   </td>

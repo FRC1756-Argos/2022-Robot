@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"class_edge_detector.html#ac4d5b680f8ac7b94370958ac9b88d205":[3,0,27,3],
+"class_f_s_homing_storage.html":[3,0,29],
 "class_f_s_homing_storage.html#a3afc0f832cd586775418302cf64814ce":[3,0,29,2],
 "class_f_s_homing_storage.html#a415054112c78d48a1eb48ee2124acacf":[3,0,29,3],
 "class_f_s_homing_storage.html#a87d092cc0d89e7090e8f6bd3e99e8026":[3,0,29,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "class_shooter_subsystem.html#a8b11bec1713a289dc29d9303337dbf6d":[3,0,43,28],
 "class_shooter_subsystem.html#a8f35dcd3ae62814b8136fb9c4ef2be5d":[3,0,43,31],
 "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7d":[3,0,43,3],
-"class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da0557fa923dcee4d0f86b1409f5c2167f":[3,0,43,3,3],
-"class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde":[3,0,43,3,0],
-"class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c":[3,0,43,3,2]
+"class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da0557fa923dcee4d0f86b1409f5c2167f":[3,0,43,3,3]
 };
