@@ -27,38 +27,76 @@ namespace field_points {
     static const frc::Pose2d Z = frc::Pose2d(252.3_in, 204.2_in, 135_deg);
   }  // namespace starting_positions
   namespace pickup_positions {
-    static const frc::Pose2d W_A = frc::Pose2d(balls::A.X(),
-                                               balls::A.Y() + (measure_up::chassis::length / 2) + 5_in,
-                                               -90_deg);  ///< Drive so intake goes 1 bumper width past ball center
+    namespace blue_alliance {
+      static const frc::Pose2d W_A = frc::Pose2d(balls::A.X(),
+                                                 balls::A.Y() + (measure_up::chassis::length / 2) + 5_in,
+                                                 -90_deg);  ///< Drive so intake goes 1 bumper width past ball center
 
-    static const frc::Pose2d W_A_B = frc::Pose2d(balls::B.X(), balls::B.Y() + 1.5_ft, -200_deg);
+      static const frc::Pose2d W_A_B = frc::Pose2d(balls::B.X(), balls::B.Y() + 1.5_ft, -200_deg);
 
-    static const frc::Pose2d D = frc::Pose2d(balls::D.X() + 13_in,
-                                             balls::D.Y() + 21_in,
-                                             -135_deg);  ///< Approach at 45 degree angle
+      static const frc::Pose2d D = frc::Pose2d(balls::D.X() + 10_in,
+                                               balls::D.Y() + 15_in,
+                                               -135_deg);  ///< Approach at 45 degree angle
 
-    static const frc::Pose2d HumanPlayer =
-        frc::Pose2d(pickup_positions::D.X() + 6_in, pickup_positions::D.Y() + 6_in, pickup_positions::D.Rotation());
+      static const frc::Pose2d HumanPlayer = frc::Pose2d(pickup_positions::blue_alliance::D.X() + 6_in,
+                                                         pickup_positions::blue_alliance::D.Y() + 6_in,
+                                                         pickup_positions::blue_alliance::D.Rotation());
 
-    static const frc::Pose2d Shoot_D = frc::Pose2d(balls::B.X(),
-                                                   balls::B.Y(),
-                                                   -45_deg);  ///< Approach at 45 degree angle
+      static const frc::Pose2d Shoot_D = frc::Pose2d(balls::B.X(),
+                                                     balls::B.Y(),
+                                                     -45_deg);  ///< Approach at 45 degree angle
 
-    static const frc::Pose2d Shoot_F = frc::Pose2d(balls::F.X() + 12_in,
-                                                   balls::F.Y(),
-                                                   -270_deg);  ///< Approach at 45 degree angle
+      static const frc::Pose2d Shoot_F = frc::Pose2d(balls::F.X() + 12_in,
+                                                     balls::F.Y(),
+                                                     -270_deg);  ///< Approach at 45 degree angle
 
-    static const frc::Pose2d Virtual_Shoot_F = frc::Pose2d(454.1_in, 77.1_in, Shoot_F.Rotation());
+      static const frc::Pose2d Virtual_Shoot_F = frc::Pose2d(454.1_in, 77.1_in, Shoot_F.Rotation());
 
-    static const frc::Pose2d X_B = frc::Pose2d(balls::B.X() + 6_in, balls::B.Y() - 12_in, -147.5_deg);
+      static const frc::Pose2d X_B = frc::Pose2d(balls::B.X() + 6_in, balls::B.Y() - 12_in, -147.5_deg);
 
-    static const frc::Pose2d Z_C = frc::Pose2d(balls::C.X(), balls::C.Y(), 135_deg);
+      static const frc::Pose2d Z_C = frc::Pose2d(balls::C.X(), balls::C.Y(), 135_deg);
 
-    static const frc::Pose2d Y_Y = frc::Pose2d(starting_positions::Y.X() - 48_in, starting_positions::Y.Y(), 180_deg);
+      static const frc::Pose2d Y_Y = frc::Pose2d(starting_positions::Y.X() - 48_in, starting_positions::Y.Y(), 180_deg);
 
-    static const frc::Pose2d Defense_Virt = frc::Pose2d(500_in, 162_in, 225_deg);
-    static const frc::Pose2d Defense_Right = frc::Pose2d(174_in, 126_in, 270_deg);
-    static const frc::Pose2d Defense_Left = frc::Pose2d(234_in + 6_in, 228_in + 60_in, 405_deg);
+      static const frc::Pose2d Defense_Virt = frc::Pose2d(500_in, 162_in, 225_deg);
+      static const frc::Pose2d Defense_Right = frc::Pose2d(174_in, 126_in, 270_deg);
+      static const frc::Pose2d Defense_Left = frc::Pose2d(234_in + 6_in, 228_in + 60_in, 405_deg);
+    }  // namespace blue_alliance
+    namespace red_alliance {
+      static const frc::Pose2d W_A = frc::Pose2d(balls::A.X(),
+                                                 balls::A.Y() + (measure_up::chassis::length / 2) + 5_in,
+                                                 -90_deg);  ///< Drive so intake goes 1 bumper width past ball center
+
+      static const frc::Pose2d W_A_B = frc::Pose2d(balls::B.X(), balls::B.Y() + 1.5_ft, -200_deg);
+
+      static const frc::Pose2d D = frc::Pose2d(balls::D.X(),
+                                               balls::D.Y() + 25_in,
+                                               -135_deg);  ///< Approach at 45 degree angle
+
+      static const frc::Pose2d HumanPlayer = frc::Pose2d(pickup_positions::blue_alliance::D.X() + 6_in,
+                                                         pickup_positions::blue_alliance::D.Y() + 6_in,
+                                                         pickup_positions::blue_alliance::D.Rotation());
+
+      static const frc::Pose2d Shoot_D = frc::Pose2d(balls::B.X(),
+                                                     balls::B.Y(),
+                                                     -45_deg);  ///< Approach at 45 degree angle
+
+      static const frc::Pose2d Shoot_F = frc::Pose2d(balls::F.X() + 12_in,
+                                                     balls::F.Y(),
+                                                     -270_deg);  ///< Approach at 45 degree angle
+
+      static const frc::Pose2d Virtual_Shoot_F = frc::Pose2d(454.1_in, 77.1_in, Shoot_F.Rotation());
+
+      static const frc::Pose2d X_B = frc::Pose2d(balls::B.X() + 6_in, balls::B.Y() - 12_in, -147.5_deg);
+
+      static const frc::Pose2d Z_C = frc::Pose2d(balls::C.X(), balls::C.Y(), 135_deg);
+
+      static const frc::Pose2d Y_Y = frc::Pose2d(starting_positions::Y.X() - 48_in, starting_positions::Y.Y(), 180_deg);
+
+      static const frc::Pose2d Defense_Virt = frc::Pose2d(500_in, 162_in, 225_deg);
+      static const frc::Pose2d Defense_Right = frc::Pose2d(174_in, 126_in, 270_deg);
+      static const frc::Pose2d Defense_Left = frc::Pose2d(234_in + 6_in, 228_in + 60_in, 405_deg);
+    }  // namespace red_alliance
 
   }  // namespace pickup_positions
 

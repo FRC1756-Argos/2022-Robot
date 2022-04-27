@@ -62,5 +62,7 @@ class AutonomousRight5ballGap
   AutoPositionAimCommand m_aimBallD;
   AutoVisionAimCommand m_visionAim;
 
-  frc2::SequentialCommandGroup m_allCommands;
+  frc2::SequentialCommandGroup m_allCommandsBlue;
+  frc2::SequentialCommandGroup m_allCommandsRed;
+  frc2::SequentialCommandGroup* m_commandSet;
 };

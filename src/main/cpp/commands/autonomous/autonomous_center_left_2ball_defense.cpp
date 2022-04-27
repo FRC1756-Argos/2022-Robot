@@ -19,29 +19,29 @@ AutonomousCenterLeft2ballDefense::AutonomousCenterLeft2ballDefense(IntakeSubsyst
     , m_driveToBallC{m_pDrive,
                      field_points::starting_positions::Z,
                      field_points::starting_positions::Z.Rotation().Degrees(),
-                     field_points::pickup_positions::Z_C,
-                     field_points::pickup_positions::Z_C.Rotation().Degrees(),
+                     field_points::pickup_positions::blue_alliance::Z_C,
+                     field_points::pickup_positions::blue_alliance::Z_C.Rotation().Degrees(),
                      constraints::first_ball_path::linearConstraints,
                      constraints::first_ball_path::rotationalConstraints}
     , m_driveDefenseRight{m_pDrive,
-                          field_points::pickup_positions::Z_C,
-                          field_points::pickup_positions::Z_C.Rotation().Degrees(),
-                          field_points::pickup_positions::Defense_Right,
-                          field_points::pickup_positions::Defense_Right.Rotation().Degrees(),
+                          field_points::pickup_positions::blue_alliance::Z_C,
+                          field_points::pickup_positions::blue_alliance::Z_C.Rotation().Degrees(),
+                          field_points::pickup_positions::blue_alliance::Defense_Right,
+                          field_points::pickup_positions::blue_alliance::Defense_Right.Rotation().Degrees(),
                           constraints::first_ball_path::linearConstraints,
                           constraints::first_ball_path::rotationalConstraints}
     , m_driveDefenseLeft{m_pDrive,
-                         field_points::pickup_positions::Defense_Right,
-                         field_points::pickup_positions::Defense_Right.Rotation().Degrees(),
-                         field_points::pickup_positions::Defense_Left,
-                         field_points::pickup_positions::Defense_Left.Rotation().Degrees(),
+                         field_points::pickup_positions::blue_alliance::Defense_Right,
+                         field_points::pickup_positions::blue_alliance::Defense_Right.Rotation().Degrees(),
+                         field_points::pickup_positions::blue_alliance::Defense_Left,
+                         field_points::pickup_positions::blue_alliance::Defense_Left.Rotation().Degrees(),
                          constraints::first_ball_path::linearConstraints,
                          constraints::first_ball_path::rotationalConstraints}
     , m_homeHoodCommand{m_pShooter}
     , m_intakeCommand{m_pIntake}
     , m_shootCommand{m_pIntake, 2, 2.5_s}
-    , m_aimBallC{m_pShooter, field_points::pickup_positions::Z_C}
-    , m_aimDefenseBottom{m_pShooter, field_points::pickup_positions::Defense_Virt}
+    , m_aimBallC{m_pShooter, field_points::pickup_positions::blue_alliance::Z_C}
+    , m_aimDefenseBottom{m_pShooter, field_points::pickup_positions::blue_alliance::Defense_Virt}
     , m_visionAim{m_pShooter}
     , m_initOdometry{m_pDrive, field_points::starting_positions::Z}
     , m_allCommands{} {

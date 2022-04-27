@@ -18,30 +18,30 @@ AutonomousRight5ball::AutonomousRight5ball(IntakeSubsystem* pIntake,
     , m_humanPlayerDelay{1.5_s}
     , m_shootDelay{300_ms}
     , m_driveToBallB{m_pDrive,
-                     field_points::pickup_positions::W_A,
-                     field_points::pickup_positions::W_A.Rotation().Degrees(),
-                     field_points::pickup_positions::W_A_B,
-                     field_points::pickup_positions::W_A_B.Rotation().Degrees(),
+                     field_points::pickup_positions::blue_alliance::W_A,
+                     field_points::pickup_positions::blue_alliance::W_A.Rotation().Degrees(),
+                     field_points::pickup_positions::blue_alliance::W_A_B,
+                     field_points::pickup_positions::blue_alliance::W_A_B.Rotation().Degrees(),
                      constraints::AB_path::linearConstraints,
                      constraints::AB_path::rotationalConstraints}
     , m_driveToBallD{m_pDrive,
-                     field_points::pickup_positions::W_A_B,
-                     field_points::pickup_positions::W_A_B.Rotation().Degrees(),
-                     field_points::pickup_positions::D,
-                     field_points::pickup_positions::D.Rotation().Degrees(),
+                     field_points::pickup_positions::blue_alliance::W_A_B,
+                     field_points::pickup_positions::blue_alliance::W_A_B.Rotation().Degrees(),
+                     field_points::pickup_positions::blue_alliance::D,
+                     field_points::pickup_positions::blue_alliance::D.Rotation().Degrees(),
                      constraints::BD_path::linearConstraints,
                      constraints::BD_path::rotationalConstraints}
     , m_driveToFinalShootPosition{m_pDrive,
-                                  field_points::pickup_positions::D,
-                                  field_points::pickup_positions::D.Rotation().Degrees(),
-                                  field_points::pickup_positions::Shoot_D,
-                                  field_points::pickup_positions::Shoot_D.Rotation().Degrees(),
+                                  field_points::pickup_positions::blue_alliance::D,
+                                  field_points::pickup_positions::blue_alliance::D.Rotation().Degrees(),
+                                  field_points::pickup_positions::blue_alliance::Shoot_D,
+                                  field_points::pickup_positions::blue_alliance::Shoot_D.Rotation().Degrees(),
                                   constraints::D_5_final::linearConstraints,
                                   constraints::D_5_final::rotationalConstraints}
     , m_shootOneBall{m_pIntake, 1, 1.2_s}
     , m_shootTwoBall{m_pIntake, 2, 1.5_s}
-    , m_aimBallB{m_pShooter, field_points::pickup_positions::W_A_B}
-    , m_aimBallD{m_pShooter, field_points::pickup_positions::Shoot_D}
+    , m_aimBallB{m_pShooter, field_points::pickup_positions::blue_alliance::W_A_B}
+    , m_aimBallD{m_pShooter, field_points::pickup_positions::blue_alliance::Shoot_D}
     , m_visionAim{m_pShooter}
     , m_allCommands{} {
   m_allCommands.AddCommands(
