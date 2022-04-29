@@ -4,6 +4,25 @@
 
 Robot code for 2022 FRC Season
 
+## Key Features
+
+ * Automated intake system with ball indexing [`IntakeSubsystem`](src/main/include/subsystems/intake_subsystem.h)
+   * Vibration feedback on cargo acquisition
+ * Semi-autonomous high-rung climb with configurable positions [`ClimberSubsystem`](src/main/include/subsystems/climber_subsystem.h)
+ * Modular swerve drive system built on [SDS Mk4](https://www.swervedrivespecialties.com/products/mk4-swerve-module) hardware and Falcon 500 motors [`SwerveDriveSubsystem`](src/main/include/subsystems/swerve_drive_subsystem.h)
+   * Custom module state optimizer with support for continuous module rotation [`argos_lib::swerve::Optimize`](src/argos_lib/general/swerve_utils.h)
+   * Persistent module homes using non-volatile memory [`FileSystemHomingStorage`](src/main/include/utils/file_system_homing_storage.h)
+ * 370-degree turret with full-field vision targeting [`ShooterSubsystem`](src/main/include/subsystems/shooter_subsystem.h)
+   * Vibration feedback on target lock
+   * Automatic hood angle and flywheel speed setpoints based on distance interpolation maps from 10 inches to 30 feet [`shooterRange`](src/main/include/constants/interpolation_maps.h)
+   * Target range estimation using target pitch and perspective distortion adjustment [`ShooterSubsystem::AutoAim`](src/main/include/subsystems/shooter_subsystem.h)
+   * Automatic hood homing [`HomeHoodCommand`](src/include/commands/home_hood_command.h)
+   * Persistent turret home using non-volatile memory [`FSHomingStorage`](src/main/include/utils/homing_storage_interface.h)
+ * Modular autonomous selection system [`AutoSelector`](src/main/include/utils/auto_selector.h)
+   * Autonomous routines for all starting positions with 1-ball, 2-ball, 5-ball, and 2-ball with defensive shots [commands/autonomous](src/main/include/commands/autonomous)
+   * Support for separate red and blue alliance position setpoints to account for field assembly variance
+   * Common absolute field position configuration for drive paths to reduce duplication [`field_points`](src/main/include/constants/field_points.h)
+
 ## Commissioning A Robot
 
 When commissioning a new robot, you should set the instance type to either "Competition" or "Practice" by creating a text file readable by `lvuser` on the RoboRIO at path `/home/lvuser/robotInstance`.  The content of this file should be just the text `Competition` or `Practice` with no whitespace preceding.  If no valid instance is found at runtime, competition instance will be used and an error will be generated.
