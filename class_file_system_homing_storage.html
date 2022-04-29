@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('class_file_system_homing_storage.html'
 </div><!--header-->
 <div class="contents">
 
+<p>Accesses swerve module home positions in a file saved on the RoboRIO.  
+ <a href="class_file_system_homing_storage.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="file__system__homing__storage_8h_source.html">file_system_homing_storage.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for FileSystemHomingStorage:</div>
@@ -108,12 +111,13 @@ Inheritance diagram for FileSystemHomingStorage:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adaa0e0fe5d447b7de4fe07430404e4be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_system_homing_storage.html#adaa0e0fe5d447b7de4fe07430404e4be">FileSystemHomingStorage</a> (const fs::path &amp;swerveHomesPath)</td></tr>
+<tr class="memdesc:adaa0e0fe5d447b7de4fe07430404e4be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new File System Homing Storage object.  <a href="class_file_system_homing_storage.html#adaa0e0fe5d447b7de4fe07430404e4be">More...</a><br /></td></tr>
 <tr class="separator:adaa0e0fe5d447b7de4fe07430404e4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a582327c64a7df23e77da9a4f3213f608"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_system_homing_storage.html#a582327c64a7df23e77da9a4f3213f608">Save</a> (const <a class="el" href="structargos__lib_1_1swerve_1_1_swerve_module_positions.html">argos_lib::swerve::SwerveModulePositions</a> &amp;homePosition) override</td></tr>
-<tr class="memdesc:a582327c64a7df23e77da9a4f3213f608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save home position to persistent storage.  <a href="class_file_system_homing_storage.html#a582327c64a7df23e77da9a4f3213f608">More...</a><br /></td></tr>
+<tr class="memdesc:a582327c64a7df23e77da9a4f3213f608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save positions as new homes.  <a href="class_file_system_homing_storage.html#a582327c64a7df23e77da9a4f3213f608">More...</a><br /></td></tr>
 <tr class="separator:a582327c64a7df23e77da9a4f3213f608"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2797d9c44b0c10f1393fb0a0850e7040"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structargos__lib_1_1swerve_1_1_swerve_module_positions.html">argos_lib::swerve::SwerveModulePositions</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_system_homing_storage.html#a2797d9c44b0c10f1393fb0a0850e7040">Load</a> () override</td></tr>
-<tr class="memdesc:a2797d9c44b0c10f1393fb0a0850e7040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load home position from persistent storage.  <a href="class_file_system_homing_storage.html#a2797d9c44b0c10f1393fb0a0850e7040">More...</a><br /></td></tr>
+<tr class="memdesc:a2797d9c44b0c10f1393fb0a0850e7040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load absolute positions that represent 0 degree module orientations.  <a href="class_file_system_homing_storage.html#a2797d9c44b0c10f1393fb0a0850e7040">More...</a><br /></td></tr>
 <tr class="separator:a2797d9c44b0c10f1393fb0a0850e7040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5be6c1c6349951055b78a4144fe64f6e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a5be6c1c6349951055b78a4144fe64f6e">Save</a> (const <a class="el" href="structargos__lib_1_1swerve_1_1_swerve_module_positions.html">SwerveModulePositions</a> &amp;homePosition)=0</td></tr>
 <tr class="memdesc:a5be6c1c6349951055b78a4144fe64f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save home position to persistent storage.  <a href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a5be6c1c6349951055b78a4144fe64f6e">More...</a><br /></td></tr>
@@ -125,15 +129,18 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a719fc1a4228d955902a4b5cc65668bc2"><td class="memItemLeft" align="right" valign="top">fs::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_system_homing_storage.html#a719fc1a4228d955902a4b5cc65668bc2">GetFilePath</a> ()</td></tr>
+<tr class="memdesc:a719fc1a4228d955902a4b5cc65668bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the path of the file to load from and save to.  <a href="class_file_system_homing_storage.html#a719fc1a4228d955902a4b5cc65668bc2">More...</a><br /></td></tr>
 <tr class="separator:a719fc1a4228d955902a4b5cc65668bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a5cff3a53495d9bfd7091de3cade8b4ec"><td class="memItemLeft" align="right" valign="top">const fs::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_system_homing_storage.html#a5cff3a53495d9bfd7091de3cade8b4ec">m_swerveHomesPath</a></td></tr>
+<tr class="memdesc:a5cff3a53495d9bfd7091de3cade8b4ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path of persistent storage file relative to home directory.  <a href="class_file_system_homing_storage.html#a5cff3a53495d9bfd7091de3cade8b4ec">More...</a><br /></td></tr>
 <tr class="separator:a5cff3a53495d9bfd7091de3cade8b4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
+<div class="textblock"><p >Accesses swerve module home positions in a file saved on the RoboRIO. </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adaa0e0fe5d447b7de4fe07430404e4be" name="adaa0e0fe5d447b7de4fe07430404e4be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adaa0e0fe5d447b7de4fe07430404e4be">&#9670;&nbsp;</a></span>FileSystemHomingStorage()</h2>
@@ -158,6 +165,14 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Construct a new File System Homing Storage object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">swerveHomesPath</td><td>File path relative to home directory to save into and load from</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) Argos FRC Team 1756. Open Source Software; you can modify and/or share it under the terms of the license file in the root directory of this project. </dd></dl>
 
 </div>
@@ -186,6 +201,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get the path of the file to load from and save to. </p>
+<dl class="section return"><dt>Returns</dt><dd>fs::path Absolute path of persistent storage file </dd></dl>
+
 </div>
 </div>
 <a id="a2797d9c44b0c10f1393fb0a0850e7040" name="a2797d9c44b0c10f1393fb0a0850e7040"></a>
@@ -211,8 +229,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Load home position from persistent storage. </p>
-<dl class="section return"><dt>Returns</dt><dd>Poisitions from persistent storage or std::nullopt if load failed or no positions were previously stored </dd></dl>
+<p>Load absolute positions that represent 0 degree module orientations. </p>
+<dl class="section return"><dt>Returns</dt><dd>Saved module positions if they exist, otherwise std::nullopt to indicate failure </dd></dl>
 
 <p>Implements <a class="el" href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a04d2e12d61fecb0bfab6d9456b9d5101">argos_lib::swerve::SwerveHomeStorageInterface</a>.</p>
 
@@ -242,16 +260,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Save home position to persistent storage. </p>
+<p>Save positions as new homes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">homePosition</td><td>Positions to store </td></tr>
+    <tr><td class="paramname">homePosition</td><td>Positions that represent 0 degree module orientations </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true Save successful </dd>
-<dd>
-false Error saving </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if save successful, false otherwise </dd></dl>
 
 <p>Implements <a class="el" href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#a5be6c1c6349951055b78a4144fe64f6e">argos_lib::swerve::SwerveHomeStorageInterface</a>.</p>
 
@@ -277,6 +293,8 @@ false Error saving </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Path of persistent storage file relative to home directory. </p>
 
 </div>
 </div>

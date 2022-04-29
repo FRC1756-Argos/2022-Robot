@@ -123,6 +123,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c">Right</a>
 , <a class="el" href="class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da0557fa923dcee4d0f86b1409f5c2167f">Back</a>
  }</td></tr>
+<tr class="memdesc:a97743880d5d6f161c3d110c5d61e6a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cardinal directions used for aiming without vision.  <a href="class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7d">More...</a><br /></td></tr>
 <tr class="separator:a97743880d5d6f161c3d110c5d61e6a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -130,6 +131,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a30322106fc6dc24dd08f421772f00b03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a30322106fc6dc24dd08f421772f00b03">ShooterSubsystem</a> (const <a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance, <a class="el" href="class_swerve_drive_subsystem.html">SwerveDriveSubsystem</a> *pDriveSubsystem, <a class="el" href="classargos__lib_1_1_swappable_controllers_subsystem.html">argos_lib::SwappableControllersSubsystem</a> *controllers=nullptr)</td></tr>
 <tr class="separator:a30322106fc6dc24dd08f421772f00b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53b9a2b56bb0e5943785fbbddbbecccd"><td class="memItemLeft" align="right" valign="top">std::optional&lt; units::degree_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a53b9a2b56bb0e5943785fbbddbbecccd">GetTurretTargetAngle</a> (<a class="el" href="struct_limelight_target_1_1t_values.html">LimelightTarget::tValues</a> target)</td></tr>
+<tr class="memdesc:a53b9a2b56bb0e5943785fbbddbbecccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the angle to aim at a specified target. 0 Degrees is toward intake, positive CCW.  <a href="class_shooter_subsystem.html#a53b9a2b56bb0e5943785fbbddbbecccd">More...</a><br /></td></tr>
 <tr class="separator:a53b9a2b56bb0e5943785fbbddbbecccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2466fbf822ddd62852b9bbd5e401f120"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_limelight_target_1_1t_values.html">LimelightTarget::tValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shooter_subsystem.html#a2466fbf822ddd62852b9bbd5e401f120">GetCameraTargetValues</a> ()</td></tr>
 <tr class="memdesc:a2466fbf822ddd62852b9bbd5e401f120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pitch and yaw of target.  <a href="class_shooter_subsystem.html#a2466fbf822ddd62852b9bbd5e401f120">More...</a><br /></td></tr>
@@ -317,11 +319,17 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Cardinal directions used for aiming without vision. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde" name="a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde"></a>Front&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a97743880d5d6f161c3d110c5d61e6a7da945d5e233cf7d6240f6b783b36a374ff" name="a97743880d5d6f161c3d110c5d61e6a7da945d5e233cf7d6240f6b783b36a374ff"></a>Left&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c" name="a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c"></a>Right&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a97743880d5d6f161c3d110c5d61e6a7da0557fa923dcee4d0f86b1409f5c2167f" name="a97743880d5d6f161c3d110c5d61e6a7da0557fa923dcee4d0f86b1409f5c2167f"></a>Back&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde" name="a97743880d5d6f161c3d110c5d61e6a7da5835bab1ade0060909e31a06af2e2cde"></a>Front&#160;</td><td class="fielddoc"><p >Toward intake. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a97743880d5d6f161c3d110c5d61e6a7da945d5e233cf7d6240f6b783b36a374ff" name="a97743880d5d6f161c3d110c5d61e6a7da945d5e233cf7d6240f6b783b36a374ff"></a>Left&#160;</td><td class="fielddoc"><p >90 degrees CCW from intake side </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c" name="a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c"></a>Right&#160;</td><td class="fielddoc"><p >90 degrees CW from intake side </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a97743880d5d6f161c3d110c5d61e6a7da0557fa923dcee4d0f86b1409f5c2167f" name="a97743880d5d6f161c3d110c5d61e6a7da0557fa923dcee4d0f86b1409f5c2167f"></a>Back&#160;</td><td class="fielddoc"><p >Opposite intake side. </p>
+</td></tr>
 </table>
 
 </div>
@@ -801,7 +809,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>document function </dd></dl>
+
+<p>Get the angle to aim at a specified target. 0 Degrees is toward intake, positive CCW. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>Target to aim toward </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Desired turret angle. std::nullopt if turret is not homed to generate a reference angle </dd></dl>
 
 </div>
 </div>
