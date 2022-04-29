@@ -156,9 +156,22 @@ class ShooterSubsystem : public frc2::SubsystemBase {
                    SwerveDriveSubsystem* pDriveSubsystem,
                    argos_lib::SwappableControllersSubsystem* controllers = nullptr);
 
-  enum class FixedPosState { Front, Left, Right, Back };
+  /**
+   * @brief Cardinal directions used for aiming without vision
+   */
+  enum class FixedPosState {
+    Front,  ///< Toward intake
+    Left,   ///< 90 degrees CCW from intake side
+    Right,  ///< 90 degrees CW from intake side
+    Back    ///< Opposite intake side
+  };
 
-  /// @todo document function
+  /**
+   * @brief Get the angle to aim at a specified target.  0 Degrees is toward intake, positive CCW.
+   *
+   * @param target Target to aim toward
+   * @return Desired turret angle.  std::nullopt if turret is not homed to generate a reference angle
+   */
   std::optional<units::degree_t> GetTurretTargetAngle(LimelightTarget::tValues target);
 
   /**
