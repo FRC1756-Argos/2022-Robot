@@ -121,3 +121,13 @@ You'll now have the linter run before each commit!  For compatibility with Windo
     3. Go through the climb sequence
 7. Wait for air
 8. Change battery
+
+## Software Versions
+
+As of the end of the 2022 season, we're using the following dependencies:
+
+ * [CTRE Phoenix 5.21.1](https://github.com/CrossTheRoadElec/Phoenix-Releases/releases/tag/v5.21.1.0)
+ * [Limelight 2022.2.3](https://docs.limelightvision.io/en/latest/software_change_log.html)
+ * [Playing With Fusion 2022.03.03](https://www.playingwithfusion.com/docview.php?docid=1205&catid=9012)
+ * [REVLib 2022.1.1](https://docs.revrobotics.com/sparkmax/software-resources/spark-max-api-information#changelog)
+ * [WPILib 2022.4.1](https://github.com/wpilibsuite/allwpilib/releases/tag/v2022.4.1)
