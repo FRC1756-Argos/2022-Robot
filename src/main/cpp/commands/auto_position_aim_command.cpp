@@ -75,7 +75,6 @@ units::degree_t AutoPositionAimCommand::GetOffsetAngle(frc::Translation2d curPos
 units::degree_t AutoPositionAimCommand::GetAngleToPoint(frc::Translation2d curPos, frc::Translation2d target) {
   units::degree_t offset = GetOffsetAngle(curPos, target);
   units::degree_t psi = units::math::acos((units::math::abs(target.X() - curPos.X()) / curPos.Distance(target)));
-  units::degree_t finalAngle;
   if (offset < 0_deg) {
     return units::math::abs(offset + psi);
   } else {
