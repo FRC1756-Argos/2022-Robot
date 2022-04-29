@@ -67,9 +67,11 @@ class LimelightTarget {
   bool HasTarget();
 
   /**
-   * @brief Adjusts pitch based on the current yaw to correct the camera perspective
+   * @brief Adjusts pitch based on the current yaw to correct the camera perspective.
+   *        Perspective distortion polynomial determined empirically.
    *
-   * @param reported pitch and yaw
+   * @param[in,out] currentPitch Pitch reported by camera; updated according to perspective distortion
+   * @param[in]     currentYaw Yaw reported by camera
    */
   void adjustPerspective(units::degree_t& currentPitch, const units::degree_t& currentYaw);
 };
