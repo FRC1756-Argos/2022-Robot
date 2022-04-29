@@ -17,4 +17,5 @@ modifiableFileExclude {
 generatedFileExclude {
    \.odg$
    \.pdf$
+   \.png$
 }

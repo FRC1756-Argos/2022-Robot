@@ -139,7 +139,8 @@ As of the end of the 2022 season, we're using the following dependencies:
    * [J. H. Benedict Co](https://www.jhbenedict.com/)
    * [Limestone Community High School](https://www.limestone310.org/)
    * [Playing With Fusion](https://www.playingwithfusion.com/)
-   * [Ward Powder Coating]()
+   * [Wadi Powder Coating](https://www.facebook.com/Wadipowdercoating/)
+ * [Doxygen Awesome](https://jothepro.github.io/doxygen-awesome-css/) - for making our [documentation](https://frc1756-argos.github.io/2022-Robot/) look great
 
 ## License
 This software is licensed under the [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). If you would like to use this software under the terms of a different license agreement, please [contact us](mailto:1756argos1756@limestone310.org).
