@@ -17,6 +17,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,6 +25,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="argos_small.png"/></td>
   <td id="projectalign">
    <div id="projectname">2022-Robot
    </div>
@@ -112,7 +114,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a009cd023168dcc8ae0e169265902ee5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the camera see a target?  <a href="class_limelight_target.html#a009cd023168dcc8ae0e169265902ee5c">More...</a><br /></td></tr>
 <tr class="separator:a009cd023168dcc8ae0e169265902ee5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab140ba8fda5a99cf2d2665d200ea71d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_limelight_target.html#ab140ba8fda5a99cf2d2665d200ea71d7">adjustPerspective</a> (units::degree_t &amp;currentPitch, const units::degree_t &amp;currentYaw)</td></tr>
-<tr class="memdesc:ab140ba8fda5a99cf2d2665d200ea71d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts pitch based on the current yaw to correct the camera perspective.  <a href="class_limelight_target.html#ab140ba8fda5a99cf2d2665d200ea71d7">More...</a><br /></td></tr>
+<tr class="memdesc:ab140ba8fda5a99cf2d2665d200ea71d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts pitch based on the current yaw to correct the camera perspective. Perspective distortion polynomial determined empirically.  <a href="class_limelight_target.html#ab140ba8fda5a99cf2d2665d200ea71d7">More...</a><br /></td></tr>
 <tr class="separator:ab140ba8fda5a99cf2d2665d200ea71d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -194,10 +196,11 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adjusts pitch based on the current yaw to correct the camera perspective. </p>
+<p>Adjusts pitch based on the current yaw to correct the camera perspective. Perspective distortion polynomial determined empirically. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">reported</td><td>pitch and yaw </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">currentPitch</td><td>Pitch reported by camera; updated according to perspective distortion </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">currentYaw</td><td>Yaw reported by camera </td></tr>
   </table>
   </dd>
 </dl>
