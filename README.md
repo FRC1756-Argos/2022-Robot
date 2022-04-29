@@ -131,3 +131,15 @@ As of the end of the 2022 season, we're using the following dependencies:
  * [Playing With Fusion 2022.03.03](https://www.playingwithfusion.com/docview.php?docid=1205&catid=9012)
  * [REVLib 2022.1.1](https://docs.revrobotics.com/sparkmax/software-resources/spark-max-api-information#changelog)
  * [WPILib 2022.4.1](https://github.com/wpilibsuite/allwpilib/releases/tag/v2022.4.1)
+
+## Special Thanks
+
+ * Our sponsors for the 2022 season.  Thank you for your continued support
+   * [Caterpillar](https://www.caterpillar.com/)
+   * [J. H. Benedict Co](https://www.jhbenedict.com/)
+   * [Limestone Community High School](https://www.limestone310.org/)
+   * [Playing With Fusion](https://www.playingwithfusion.com/)
+   * [Ward Powder Coating]()
+
+## License
+This software is licensed under the [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). If you would like to use this software under the terms of a different license agreement, please [contact us](mailto:1756argos1756@limestone310.org).

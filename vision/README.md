@@ -8,6 +8,8 @@ The pipelines are detailed below.
 
 ## Limelight
 
+The Limelight should have a static IP of `10.17.56.122` with subnet mask `255.255.255.0`.
+
 In the `limelight` directory, we have three pipelines:
  * `Driver.vpr` - This pipeline should be installed on pipeline index 1.  It turns off the LEDs and allows the operator to manually aim without blinding anyone
  * `Targeting.vpr` - This pipeline should be installed on pipeline index 0.  It outputs a track at the center of the vision target group and a bounding box.
