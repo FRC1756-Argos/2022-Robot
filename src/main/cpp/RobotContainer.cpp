@@ -516,9 +516,9 @@ void RobotContainer::ConfigureButtonBindings() {
   //       m_shooter.HoodSetPosition(m_hoodTargetPosition);
   //     },
   //     {&m_shooter});
-  shooter.WhileActiveContinous([this]() { m_intake.Shoot(); }, {});
+  shooter.WhenActive([this]() { m_intake.Shoot(); }, {});
   // aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
-  !shooter.WhileActiveContinous([this]() { m_intake.StopShoot(); }, {});
+  !shooter.WhenActive([this]() { m_intake.StopShoot(); }, {});
 
   // SHOOTER FIXED POS TRIGGER ACTIVATION
   fixedFrontTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },
