@@ -505,9 +505,9 @@ void RobotContainer::ConfigureButtonBindings() {
 
   // INTAKE TRIGGER ACTIVATION
   auto nottake = (!intake) && (!outtake);
-  intake.WhileActiveContinous([this]() { m_intake.Intake(); }, {});
-  outtake.WhileActiveContinous([this]() { m_intake.DumpBall(); }, {});
-  nottake.WhileActiveContinous([this]() { m_intake.StopIntake(); }, {});
+  intake.WhenActive([this]() { m_intake.Intake(); }, {});
+  outtake.WhenActive([this]() { m_intake.DumpBall(); }, {});
+  nottake.WhenActive([this]() { m_intake.StopIntake(); }, {});
 
   // SHOOTER TRIGGER ACTIVATION
   // aimTrigger.WhenActive(
