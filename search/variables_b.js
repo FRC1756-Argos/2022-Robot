@@ -152,7 +152,7 @@ var searchData=
   ['m_5flinearprofile_149',['m_linearProfile',['../class_swerve_trapezoidal_profile_segment.html#adeff5c64655860473abaac17c13dc49e',1,'SwerveTrapezoidalProfileSegment']]],
   ['m_5fmanualoverride_150',['m_manualOverride',['../class_shooter_subsystem.html#a7b30ad4a450d81f7df71f9989919a444',1,'ShooterSubsystem::m_manualOverride()'],['../class_climber_subsystem.html#a13ebfe07e6edc69494504ca5562b111a',1,'ClimberSubsystem::m_manualOverride()']]],
   ['m_5fmaparray_151',['m_mapArray',['../classargos__lib_1_1_interpolation_map.html#ad5111a9f9fd96af38bff4941c02ef6e9',1,'argos_lib::InterpolationMap']]],
-  ['m_5fmisclatency_152',['m_miscLatency',['../class_limelight_target.html#aee18283f304d27977feb94b3cb601812',1,'LimelightTarget']]],
+  ['m_5fmisclatency_152',['m_miscLatency',['../class_limelight_target.html#aa49acf43752ae1b6cd27b805236cca23',1,'LimelightTarget']]],
   ['m_5fmotionangle_153',['m_motionAngle',['../class_swerve_trapezoidal_profile_segment.html#a657e2e4055ef0310721d382eb3ec83d2',1,'SwerveTrapezoidalProfileSegment']]],
   ['m_5fmotorliftleft_154',['m_motorLiftLeft',['../class_climber_subsystem.html#a03a08344cc198c7313ac459e71dc2a9e',1,'ClimberSubsystem']]],
   ['m_5fmotorliftright_155',['m_motorLiftRight',['../class_climber_subsystem.html#a4ecb43bdfb48d8862b54002f6d68f840',1,'ClimberSubsystem']]],

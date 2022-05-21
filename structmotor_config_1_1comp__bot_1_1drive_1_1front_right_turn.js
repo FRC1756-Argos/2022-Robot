@@ -1,18 +1,18 @@
 var structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn =
 [
-    [ "inverted", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a8feb17db8a61830f94e1f2d9a2257c19", null ],
-    [ "neutralDeadband", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a5bb00c12ea2d734c077a4a49fe2aa4b7", null ],
-    [ "neutralMode", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#aa90323521df86bf65b2a49a9d133a10a", null ],
-    [ "pid0_allowableError", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a0abd1c608b99ecd5887d8dae6e350ffc", null ],
-    [ "pid0_iZone", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#abdb65d63660ada7ad687ae281886343c", null ],
-    [ "pid0_kD", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a2cfec794991ed53a42c8f5e575e0f04b", null ],
-    [ "pid0_kF", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a26d0c3bf0a5c47f33788c9e247832d87", null ],
-    [ "pid0_kI", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#aed1d5aa5f71a3cd4d889727ddb560227", null ],
-    [ "pid0_kP", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#ae9e6c8cec461131d1941d39e6b3cd5ef", null ],
-    [ "pid0_selectedSensor", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a5c9c2f5ba4e857058f128fbb1508564c", null ],
-    [ "remoteFilter0_addr", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#ae329ca1f52b23b63386d14dcfcc8dbbe", null ],
-    [ "remoteFilter0_type", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a67312590ec3e40db9df9d0ddec9c89c9", null ],
-    [ "sensorPhase", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a78aab5e724225d58b1d653118be833f0", null ],
-    [ "statusFrameMotorMode", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a57de0fd3afe380b0299359f84c5a1a23", null ],
-    [ "voltCompSat", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a88a7b1e04f71dacf90cccb4a3fba5c83", null ]
+    [ "inverted", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a00a5665cd983dcc5c62ca24302738d83", null ],
+    [ "neutralDeadband", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a70d396691c40a9ab43b381cc755cdbf1", null ],
+    [ "neutralMode", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a7bd78a48599ee83a082be7bda0edcdca", null ],
+    [ "pid0_allowableError", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a6f6d0c1e7baf8f29c4406964b2327d19", null ],
+    [ "pid0_iZone", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a698fa78e3749c982121de8a3bb9f42c7", null ],
+    [ "pid0_kD", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a380b2d791edb33ad5f43138f2627188d", null ],
+    [ "pid0_kF", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#af43541f7074511f7738867cf1059fb51", null ],
+    [ "pid0_kI", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a225b9ae10589576c38108a8c238c2d16", null ],
+    [ "pid0_kP", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#aea577901a2e41b59ccc661e2457d3c63", null ],
+    [ "pid0_selectedSensor", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a65aafe00c1827416e831f1bf5045696b", null ],
+    [ "remoteFilter0_addr", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a3f86d83f2a8820dc40e3bd12e88dcd6c", null ],
+    [ "remoteFilter0_type", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a62fda788108344e34098b27532fb89e2", null ],
+    [ "sensorPhase", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a377a76ae3a6d4258bb965d63fbfa2c80", null ],
+    [ "statusFrameMotorMode", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#a9906ecf1aa82b6fe12d8cbd69b66407e", null ],
+    [ "voltCompSat", "structmotor_config_1_1comp__bot_1_1drive_1_1front_right_turn.html#ad2fb3129a0860d5770f7f45048ff6893", null ]
 ];

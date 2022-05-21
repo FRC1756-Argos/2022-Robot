@@ -73,8 +73,8 @@ var NAVTREEINDEX =
 "namespacemembers_vars_t.html",
 "struct_aim_values.html#aaa0467d6fee4fa22d1c9aa453bf907ff",
 "structargos__lib_1_1swerve_1_1_translation_speeds.html#a2c1b846dae148fc6a7f31a0e07ec9826",
-"structmotor_config_1_1comp__bot_1_1climber_1_1lift_right.html#abd8e4769a66a156ae278ce04b92b1888",
-"structmotor_config_1_1comp__bot_1_1intake_1_1intake_drive.html#af3fde15aa72bb355dd81c5689dc47a88",
+"structmotor_config_1_1comp__bot_1_1climber_1_1lift_right.html#a9f65a09471357ea85bf891856820cb4d",
+"structmotor_config_1_1comp__bot_1_1intake_1_1intake_drive.html#af201f85755d40a8f1796982a96622c58",
 "xbox__controller_8h.html"
 ];
 

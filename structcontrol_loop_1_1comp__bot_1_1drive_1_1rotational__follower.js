@@ -1,8 +1,8 @@
 var structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower =
 [
-    [ "angularAcceleration", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a3265c55af241a3ae4040e6d38e193fa1", null ],
-    [ "angularVelocity", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a69cac3a7c7e855b414400f47ae8c16f1", null ],
-    [ "kD", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#ac6c10afe7b99f1a4f33dab8b9d337ae7", null ],
-    [ "kI", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#acbb919c7791a46023eba2e6e60e59399", null ],
-    [ "kP", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a55a42bc4ffc2cd7e3811ae51f4f7b62b", null ]
+    [ "angularAcceleration", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a92b23a1059db67ef9fc11b215436d5d2", null ],
+    [ "angularVelocity", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#af5b5038ef163a54896a7623141d06fc5", null ],
+    [ "kD", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a6d85ee579e4de6a61f6d1de853a1fafc", null ],
+    [ "kI", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a1ea491052fee538c37dd5a7e9d5e8472", null ],
+    [ "kP", "structcontrol_loop_1_1comp__bot_1_1drive_1_1rotational__follower.html#a555d4308b19c40b99886daf685b28f66", null ]
 ];

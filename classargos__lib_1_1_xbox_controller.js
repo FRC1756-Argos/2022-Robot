@@ -58,7 +58,7 @@ var classargos__lib_1_1_xbox_controller =
     [ "SwapSettings", "classargos__lib_1_1_xbox_controller.html#a34a99a66914262ee5e1e9b8dfbe46ef1", null ],
     [ "UpdateButton", "classargos__lib_1_1_xbox_controller.html#a9646359d9a7bd868f0973d53640c24dc", null ],
     [ "UpdateVibration", "classargos__lib_1_1_xbox_controller.html#a37e4539aa4e0cc854c05ffb9a24ba6db", null ],
-    [ "analogTriggerThresh", "classargos__lib_1_1_xbox_controller.html#a9afb840b2012d822c97c628b2e373ad6", null ],
+    [ "analogTriggerThresh", "classargos__lib_1_1_xbox_controller.html#a9de4fc8cd310d323311b520b2ecdedf5", null ],
     [ "m_buttonDebounceSettings", "classargos__lib_1_1_xbox_controller.html#a97e71d669cd4ce2cee33a0faf0352cef", null ],
     [ "m_buttonDebounceStatus", "classargos__lib_1_1_xbox_controller.html#a2da11ea2ed7b4947a99face443767ea4", null ],
     [ "m_buttonDebounceTransitionTime", "classargos__lib_1_1_xbox_controller.html#a745886a45f32be213304338d58f69e92", null ],

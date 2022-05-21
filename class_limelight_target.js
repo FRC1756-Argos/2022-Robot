@@ -9,7 +9,7 @@ var class_limelight_target =
     [ "m_bboxHor", "class_limelight_target.html#ae7b23bfbde7b6f21541458c061d95f92", null ],
     [ "m_bboxVer", "class_limelight_target.html#a65c05349653e43f30acb271cea4fd26a", null ],
     [ "m_hasTargets", "class_limelight_target.html#abee068d3d2eb44e696673365f6a21430", null ],
-    [ "m_miscLatency", "class_limelight_target.html#aee18283f304d27977feb94b3cb601812", null ],
+    [ "m_miscLatency", "class_limelight_target.html#aa49acf43752ae1b6cd27b805236cca23", null ],
     [ "m_pipelineLatency", "class_limelight_target.html#ae267c71c6d02413363a8eb9eeacadd60", null ],
     [ "m_pitch", "class_limelight_target.html#a1455d1ff4b011a001d6daaf07ff77322", null ],
     [ "m_skew", "class_limelight_target.html#aaebf51041f12acacd0da2ac0c2cff5de", null ],
