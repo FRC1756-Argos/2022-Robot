@@ -15,7 +15,7 @@
 class ShootCommand : public frc2::CommandHelper<frc2::CommandBase, ShootCommand> {
  public:
   explicit ShootCommand(IntakeSubsystem* subsystem);
-  ShootCommand(IntakeSubsystem* subsystem, uint numCargo, units::millisecond_t timeout);
+  ShootCommand(IntakeSubsystem* subsystem, unsigned int numCargo, units::millisecond_t timeout);
 
   void Initialize() override;
 
@@ -28,8 +28,8 @@ class ShootCommand : public frc2::CommandHelper<frc2::CommandBase, ShootCommand>
  private:
   IntakeSubsystem* m_pIntake;
   bool m_previousBallPresent;
-  uint m_totalCargo;  ///< Total cargo we expect to shoot.  0 indicates shoot until timeout
-  uint m_cargoShot;   ///< Cargo shot so far
+  unsigned int m_totalCargo;  ///< Total cargo we expect to shoot.  0 indicates shoot until timeout
+  unsigned int m_cargoShot;   ///< Cargo shot so far
 
   std::chrono::time_point<std::chrono::steady_clock> m_startTime;  ///< When the command began
   units::millisecond_t m_timeout;                                  ///< 0 indicates no timeout

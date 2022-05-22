@@ -3,6 +3,11 @@
 ///            the license file in the root directory of this project.
 
 #pragma once
+// Required for MS compile
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 #include "units/acceleration.h"
 #include "units/angle.h"
 #include "units/angular_velocity.h"

@@ -6,6 +6,11 @@
 
 #include <chrono>
 
+// Required for MS compile
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 using namespace argos_lib;
 
 VibrationModel argos_lib::VibrationOff() {

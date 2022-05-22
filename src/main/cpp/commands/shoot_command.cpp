@@ -6,7 +6,7 @@
 
 ShootCommand::ShootCommand(IntakeSubsystem* subsystem) : ShootCommand(subsystem, 1, 0_ms) {}
 
-ShootCommand::ShootCommand(IntakeSubsystem* subsystem, uint numCargo, units::millisecond_t timeout)
+ShootCommand::ShootCommand(IntakeSubsystem* subsystem, unsigned int numCargo, units::millisecond_t timeout)
     : m_pIntake{subsystem}, m_totalCargo{numCargo}, m_cargoShot{0}, m_timeout{timeout} {
   AddRequirements(m_pIntake);
 }

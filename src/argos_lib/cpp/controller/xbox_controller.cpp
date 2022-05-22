@@ -4,6 +4,8 @@
 
 #include "argos_lib/controller/xbox_controller.h"
 
+#include <algorithm>
+
 using namespace argos_lib;
 
 XboxController::XboxController(int port) : frc::GenericHID(port), m_vibrationModel(VibrationOff()) {
