@@ -7,7 +7,7 @@
 #include <frc2/command/SubsystemBase.h>
 
 #include "Constants.h"
-#include "argos_lib/config/robot_instance.h"
+#include "argos_lib/config/config_types.h"
 #include "argos_lib/general/interpolation.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
@@ -435,6 +435,11 @@ class ShooterSubsystem : public frc2::SubsystemBase {
                                units::foot_t hubDistance,
                                units::degree_t hubAngle,
                                units::second_t targetStaleness);
+
+  const argos_lib::CANAddress m_shooterWheelLeftAddr;
+  const argos_lib::CANAddress m_shooterWheelRightAddr;
+  const argos_lib::CANAddress m_hoodMotorAddr;
+  const argos_lib::CANAddress m_turretMotorAddr;
 
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.

@@ -2,11 +2,10 @@
 ///            Open Source Software; you can modify and/or share it under the terms of
 ///            the license file in the root directory of this project.
 
-#include "argos_lib/config/robot_instance.h"
-
 #include <fstream>
 #include <iostream>
 
+#include "argos_lib/config/config_types.h"
 #include "wpi/fs.h"
 
 argos_lib::RobotInstance argos_lib::GetRobotInstance() {

@@ -22,11 +22,31 @@ using namespace argos_lib::swerve;
 SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable,
                                            const argos_lib::RobotInstance instance)
     : m_controlMode(SwerveDriveSubsystem::DriveControlMode::fieldCentricControl)
-    , m_frontLeft(address::drive::frontLeftDrive, address::drive::frontLeftTurn, address::encoders::frontLeftEncoder)
-    , m_frontRight(
-          address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
-    , m_backRight(address::drive::backRightDrive, address::drive::backRightTurn, address::encoders::backRightEncoder)
-    , m_backLeft(address::drive::backLeftDrive, address::drive::backLeftTurn, address::encoders::backLeftEncoder)
+    , m_frontLeft(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::frontLeftDrive :
+                                                                      address::practice_bot::drive::frontLeftDrive,
+                  instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::frontLeftTurn :
+                                                                      address::practice_bot::drive::frontLeftTurn,
+                  instance == argos_lib::RobotInstance::Competition ? address::comp_bot::encoders::frontLeftEncoder :
+                                                                      address::practice_bot::encoders::frontLeftEncoder)
+    , m_frontRight(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::frontRightDrive :
+                                                                       address::practice_bot::drive::frontRightDrive,
+                   instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::frontRightTurn :
+                                                                       address::practice_bot::drive::frontRightTurn,
+                   instance == argos_lib::RobotInstance::Competition ?
+                       address::comp_bot::encoders::frontRightEncoder :
+                       address::practice_bot::encoders::frontRightEncoder)
+    , m_backRight(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::backRightDrive :
+                                                                      address::practice_bot::drive::backRightDrive,
+                  instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::backRightTurn :
+                                                                      address::practice_bot::drive::backRightTurn,
+                  instance == argos_lib::RobotInstance::Competition ? address::comp_bot::encoders::backRightEncoder :
+                                                                      address::practice_bot::encoders::backRightEncoder)
+    , m_backLeft(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::backLeftDrive :
+                                                                     address::practice_bot::drive::backLeftDrive,
+                 instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::backLeftTurn :
+                                                                     address::practice_bot::drive::backLeftTurn,
+                 instance == argos_lib::RobotInstance::Competition ? address::comp_bot::encoders::backLeftEncoder :
+                                                                     address::practice_bot::encoders::backLeftEncoder)
     , m_imu(frc::ADIS16448_IMU::kZ, frc::SPI::Port::kMXP, frc::ADIS16448_IMU::CalibrationTime::_8s)
     , m_swerveDriveKinematics(
           // Forward is positive X, left is positive Y
@@ -512,8 +532,12 @@ void SwerveDriveSubsystem::InitializeMotorsFromFS() {
 }
 
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
-SwerveModule::SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr)
-    : m_drive(driveAddr), m_turn(turnAddr), m_encoder(encoderAddr) {}
+SwerveModule::SwerveModule(const argos_lib::CANAddress& driveAddr,
+                           const argos_lib::CANAddress& turnAddr,
+                           const argos_lib::CANAddress& encoderAddr)
+    : m_drive(driveAddr.address, std::string(driveAddr.busName))
+    , m_turn(turnAddr.address, std::string(turnAddr.busName))
+    , m_encoder(encoderAddr.address, std::string(encoderAddr.busName)) {}
 
 frc::SwerveModuleState SwerveModule::GetState() {
   return frc::SwerveModuleState{

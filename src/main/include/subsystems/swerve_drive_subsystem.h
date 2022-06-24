@@ -14,7 +14,7 @@
 
 #include <memory>
 
-#include "argos_lib/config/robot_instance.h"
+#include "argos_lib/config/config_types.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 #include "utils/file_system_homing_storage.h"
@@ -36,7 +36,9 @@ class SwerveModule {
    * @param turnAddr address of the turn motor on the module
    * @param encoderAddr address of the encoder on this module
    */
-  SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr);
+  SwerveModule(const argos_lib::CANAddress& driveAddr,
+               const argos_lib::CANAddress& turnAddr,
+               const argos_lib::CANAddress& encoderAddr);
 
   frc::SwerveModuleState GetState();
 };

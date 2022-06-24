@@ -10,9 +10,16 @@
 
 ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance,
                                    const std::vector<ClimberPoint>* preClimbPoints)
-    : m_motorLiftRight(address::climber::liftRight)
-    , m_motorLiftLeft(address::climber::liftLeft)
-    , m_motorMoveHook(address::climber::moveHook)
+    : m_motorLiftRightAddr(instance == argos_lib::RobotInstance::Competition ?
+                               address::comp_bot::climber::liftRight :
+                               address::practice_bot::climber::liftRight)
+    , m_motorLiftLeftAddr(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::climber::liftLeft :
+                                                                              address::practice_bot::climber::liftLeft)
+    , m_motorMoveHookAddr(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::climber::moveHook :
+                                                                              address::practice_bot::climber::moveHook)
+    , m_motorLiftRight(m_motorLiftRightAddr.address, std::string(m_motorLiftRightAddr.busName))
+    , m_motorLiftLeft(m_motorLiftLeftAddr.address, std::string(m_motorLiftLeftAddr.busName))
+    , m_motorMoveHook(m_motorMoveHookAddr.address, std::string(m_motorMoveHookAddr.busName))
     , m_hookHomed(false)
     , m_armHomed(false)
     , m_allowReady(true)

@@ -8,7 +8,7 @@
 #include <units/time.h>
 #include <units/voltage.h>
 
-#include "argos_lib/config/robot_instance.h"
+#include "argos_lib/config/config_types.h"
 #include "compile_time_member_check.h"
 #include "ctre/Phoenix.h"
 #include "status_frame_config.h"
@@ -87,7 +87,7 @@ namespace argos_lib {
       }
       if constexpr (has_remoteFilter0_addr<T>{} && has_remoteFilter0_type<T>{}) {
         ctre::phoenix::motorcontrol::can::FilterConfiguration filterConfig;
-        filterConfig.remoteSensorDeviceID = T::remoteFilter0_addr;
+        filterConfig.remoteSensorDeviceID = T::remoteFilter0_addr.address;
         filterConfig.remoteSensorSource = T::remoteFilter0_type;
         config.remoteFilter0 = filterConfig;
       }

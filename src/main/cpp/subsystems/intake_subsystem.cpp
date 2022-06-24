@@ -14,15 +14,24 @@
 
 IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance,
                                  argos_lib::SwappableControllersSubsystem* controllers)
-    : m_beltDrive(address::intake::beltDrive)
-    , m_intakeDrive(address::intake::intakeDrive)
+    : m_beltDriveAddr(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::intake::beltDrive :
+                                                                          address::practice_bot::intake::beltDrive)
+    , m_intakeDriveAddr(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::intake::intakeDrive :
+                                                                            address::practice_bot::intake::intakeDrive)
+    , m_beltDrive(m_beltDriveAddr.address)
+    , m_intakeDrive(m_intakeDriveAddr.address)
     , m_intakeDeploy(instance == argos_lib::RobotInstance::Competition ? pneumatics::comp_bot::module::moduleAddr :
                                                                          pneumatics::practice::module::moduleAddr,
                      instance == argos_lib::RobotInstance::Competition ? pneumatics::comp_bot::module::moduleType :
                                                                          pneumatics::practice::module::moduleType,
-                     address::solenoids::intake)
-    , m_ballPresentIntake(address::sensors::tofSensorIntake)
-    , m_ballPresentShooter(address::sensors::tofSensorShooter)
+                     instance == argos_lib::RobotInstance::Competition ? address::comp_bot::solenoids::intake :
+                                                                         address::practice_bot::solenoids::intake)
+    , m_ballPresentIntake(instance == argos_lib::RobotInstance::Competition ?
+                              address::comp_bot::sensors::tofSensorIntake :
+                              address::practice_bot::sensors::tofSensorIntake)
+    , m_ballPresentShooter(instance == argos_lib::RobotInstance::Competition ?
+                               address::comp_bot::sensors::tofSensorShooter :
+                               address::practice_bot::sensors::tofSensorShooter)
     , m_intakeState(IntakeSubsystem::IntakeState::Stop)
     , m_intakeButtonPressed(false)
     , m_slowIntakeRequested(false)
