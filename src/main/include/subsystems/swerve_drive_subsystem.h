@@ -185,6 +185,8 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   frc::ChassisSpeeds GetChassisVelocity();
 
  private:
+  argos_lib::RobotInstance m_instance;
+
   DriveControlMode m_controlMode;  ///< Active control mode
 
   SwerveModule m_frontLeft;   ///< Front left swerve module
@@ -194,6 +196,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
 
   // GYROSCOPIC SENSORS
   frc::ADIS16448_IMU m_imu;
+  Pigeon2 m_pigeonIMU;
 
   units::degree_t m_fieldHomeOffset;  ///< Offset from IMU angle to 0 field angle (intake away from driver station)
 
@@ -258,4 +261,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
    *
    */
   void InitializeMotorsFromFS();
+
+  units::degree_t GetIMUYaw() const;
+  void ResetIMUYaw();
 };
