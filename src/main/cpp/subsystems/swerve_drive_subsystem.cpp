@@ -590,7 +590,7 @@ units::degree_t SwerveDriveSubsystem::GetIMUYaw() const {
   if (m_instance == argos_lib::RobotInstance::Competition) {
     return m_imu.GetAngle();
   }
-  return units::degree_t{m_pigeonIMU.GetYaw()};
+  return -units::degree_t{m_pigeonIMU.GetYaw()};
 }
 
 void SwerveDriveSubsystem::ResetIMUYaw() {
