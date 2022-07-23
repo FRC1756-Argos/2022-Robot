@@ -6,6 +6,11 @@
 
 namespace argos_lib {
 
+  /**
+ * @brief A simple hysteresis filter for giving a bool output for a threshold
+ *
+ * @tparam T Type of threshold values
+ */
   template <typename T>
   class HysteresisFilter {
    public:
@@ -24,7 +29,7 @@ namespace argos_lib {
      * @brief Gets new status after applying hysteresis
      *
      * @param newValue Latest raw value to update the filter
-     * @return Filtered value after applyint newValue
+     * @return Filtered value after applying newValue
      */
     [[nodiscard]] bool operator()(T newValue) {
       if (m_currentState) {

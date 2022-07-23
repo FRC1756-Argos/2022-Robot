@@ -17,10 +17,18 @@
 #include "frc/Solenoid.h"
 #include "utils/edge_detector.h"
 
+/**
+ * @brief Controls the Intake of the robot and provides internal ball position state info
+ *
+ */
 class IntakeSubsystem : public frc2::SubsystemBase {
  public:
   IntakeSubsystem(const argos_lib::RobotInstance instance, argos_lib::SwappableControllersSubsystem* controller);
 
+  /**
+ * @brief Possible intake states
+ *
+ */
   enum class IntakeState { Stop, Intaking, Outtaking };
 
   /**
@@ -116,26 +124,28 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   frc::Solenoid m_intakeDeploy;  ///< Solenoid for intake actuation (True is extend, False is retract)
 
   // SENSORS
-  frc::TimeOfFlight m_ballPresentIntake;
-  frc::TimeOfFlight m_ballPresentShooter;
+  frc::TimeOfFlight m_ballPresentIntake;   ///< TOF sensor capable of detecting ball at intake
+  frc::TimeOfFlight m_ballPresentShooter;  ///< TOF sensor capable of detecting ball at shooter
   // frc::TMD37003 m_ballColor;  ///< at intake
 
   // CARGO MANAGEMENT
 
-  IntakeState m_intakeState;
+  IntakeState m_intakeState;  ///< Current intake state
 
-  bool m_intakeButtonPressed;
-  bool m_slowIntakeRequested;
-  bool m_outtakeButtonPressed;
-  bool m_shooterButtonPressed;
-  bool m_firstShotMode;
-  argos_lib::SwappableControllersSubsystem* m_pControllers;
+  bool m_intakeButtonPressed;                                ///< True if intake button is pressed
+  bool m_slowIntakeRequested;                                ///< True if a slow intake is needed
+  bool m_outtakeButtonPressed;                               ///< True if the outake button is pressed
+  bool m_shooterButtonPressed;                               ///< True if the shooter button is pressed
+  bool m_firstShotMode;                                      ///<  True if there was NOT a ball in the shooter
+  argos_lib::SwappableControllersSubsystem* m_pControllers;  ///< The driver and operator controllers
 
-  EdgeDetector m_ShooterEdgeDetector;
-  EdgeDetector m_IntakeEdgeDetector;
+  EdgeDetector m_ShooterEdgeDetector;  ///< an edge detector used for detecting a ball leaving the shooter
+  EdgeDetector m_IntakeEdgeDetector;   ///< Edge detector detecting a ball entering the intake
 
-  argos_lib::HysteresisFilter<units::inch_t> m_hysteresisIntake;
-  argos_lib::HysteresisFilter<units::inch_t> m_hysteresisShooter;
+  argos_lib::HysteresisFilter<units::inch_t>
+      m_hysteresisIntake;  ///< Filter for converting from ball distance to bool, True when TOF sensor reads a ball in front
+  argos_lib::HysteresisFilter<units::inch_t>
+      m_hysteresisShooter;  ///< Filter for converting from ball distance to bool, True when TOF sensor reads a ball in front
 
-  argos_lib::Debouncer m_shooterTimeDebouncer;
+  argos_lib::Debouncer m_shooterTimeDebouncer;  ///< Simple de-bouncer for delaying shooter shots
 };

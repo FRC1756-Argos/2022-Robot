@@ -61,6 +61,7 @@ class RobotContainer {
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;
 
   // The robot's subsystems and commands are defined here...
+  // Interpolation of controller inputs. Used for making the inputs non-linear, allowing finer control of how the robot responds to the joystick.
   argos_lib::InterpolationMap<decltype(controllerMap::driveSpeed.front().inVal), controllerMap::driveSpeed.size()>
       m_driveSpeedMap;
   argos_lib::InterpolationMap<decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()>

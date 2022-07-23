@@ -12,6 +12,10 @@
 
 #include "subsystems/climber_subsystem.h"
 
+/**
+ * @brief Works with the climber subsystem to execute a series of setpoints, automating the climb sequence
+ *
+ */
 class ClimbCommand : public frc2::CommandHelper<frc2::CommandBase, ClimbCommand> {
  public:
   ClimbCommand(ClimberSubsystem* subsystem, std::vector<ClimberPoint> points);

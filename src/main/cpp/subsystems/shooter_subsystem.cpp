@@ -118,7 +118,7 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
   // Get target distance & assign to hood & shooter
   units::length::inch_t distanceToTarget;
 
-  units::length::inch_t fudgeFactor = 0_in;  // 12_in at CIR and now comp bot on practice field?
+  units::length::inch_t fudgeFactor = 0_in;  // Allows "fudging" of shooter distance on-the-fly
 
   if (m_useCalculatedPitch) {
     units::degree_t newPitch = m_cameraInterface.GetNewPitch(
@@ -135,9 +135,10 @@ bool ShooterSubsystem::AutoAim(bool drivingAdjustment) {
 
   frc::SmartDashboard::PutNumber("(Auto-Aim) Target distance without offset", distanceToTarget.to<double>());
 
-  // fitting 2nd degree polynomial to get the offset
+  // fitting 2nd degree polynomial to get the offset of distance past a particular distance
   distanceToTarget -= GetPolynomialOffset(distanceToTarget);
 
+  // fudge bigger if further away
   if (distanceToTarget >= 270_in) {
     fudgeFactor += 18_in;
   } else if (distanceToTarget < 100_in) {

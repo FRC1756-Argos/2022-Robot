@@ -41,6 +41,10 @@ class SwerveModule {
   frc::SwerveModuleState GetState();
 };
 
+/**
+ * @brief Subsystem for controlling the swerve drivetrain of the robot
+ *
+ */
 class SwerveDriveSubsystem : public frc2::SubsystemBase {
  public:
   /**
@@ -191,7 +195,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   SwerveModule m_backLeft;    ///< Back left swerve module
 
   // GYROSCOPIC SENSORS
-  frc::ADIS16448_IMU m_imu;
+  frc::ADIS16448_IMU m_imu;  ///< IMU for field-centric control
 
   units::degree_t m_fieldHomeOffset;  ///< Offset from IMU angle to 0 field angle (intake away from driver station)
 
@@ -215,7 +219,7 @@ class SwerveDriveSubsystem : public frc2::SubsystemBase {
   std::shared_ptr<NetworkTablesWrapper> m_pNetworkTable;  ///< Instance of network table class
 
   // std::FILE SYSTEM HOMING STORAGE
-  FileSystemHomingStorage m_fsStorage;
+  FileSystemHomingStorage m_fsStorage;  ///< Roborio filesystem access for homes
 
   bool m_followingProfile;  ///< True when an incomplete drive profile is being run
   bool m_profileComplete;   ///< True once a drive profile has been completed

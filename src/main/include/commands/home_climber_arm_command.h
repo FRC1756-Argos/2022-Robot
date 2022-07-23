@@ -12,6 +12,10 @@
 #include "argos_lib/general/debouncer.h"
 #include "subsystems/climber_subsystem.h"
 
+/**
+ * @brief Moves arms slowly down, upon reaching known position will reset relative positioning
+ *
+ */
 class HomeClimberArmCommand : public frc2::CommandHelper<frc2::CommandBase, HomeClimberArmCommand> {
  public:
   explicit HomeClimberArmCommand(ClimberSubsystem* subsystem);

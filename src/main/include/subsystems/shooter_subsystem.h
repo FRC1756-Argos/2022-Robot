@@ -23,32 +23,35 @@
 #include "units/length.h"
 #include "utils/homing_storage_interface.h"
 
+/**
+ * @brief Wraps a limelight target in a usable object
+ *
+ */
 class LimelightTarget {
  private:
-  units::degree_t m_pitch;
-  units::degree_t m_yaw;
-  double m_bboxHor;
-  double m_bboxVer;
-  units::degree_t m_skew;
-  int m_area;
-  bool m_hasTargets;
-  units::millisecond_t m_pipelineLatency;
-  constexpr static units::millisecond_t m_miscLatency{11_ms};
+  units::degree_t m_pitch;                 ///< Pitch of target relative to camera -20.5 to 20.5 degrees
+  units::degree_t m_yaw;                   ///< Yaw of target relative to camera -27 to 27 degrees
+  double m_bboxHor;                        ///< Longest edge of bounding box (horizontal in our case) in px
+  double m_bboxVer;                        ///< Shortest edge of bounding box (vertical in our case) in px
+  units::degree_t m_skew;                  ///< The skew or rotation -90 to 0 degrees
+  bool m_hasTargets;                       ///< True if the camera has a target it can read
+  units::millisecond_t m_pipelineLatency;  ///< Pipeline latency contribution
+  constexpr static units::millisecond_t m_miscLatency{11_ms};  ///< Any extra latency to account for
 
  public:
   LimelightTarget() = default;
 
   /**
-   * @brief Describes the values of vision target
+   * @brief Wraps members of LimelightTarget for use elsewhere
    *
    */
   struct tValues {
-    units::degree_t pitch;
-    units::degree_t yaw;
-    double bboxHor;
-    double bboxVer;
-    units::degree_t skew;
-    units::millisecond_t totalLatency;
+    units::degree_t pitch;              ///< See LimelightTarget::m_pitch
+    units::degree_t yaw;                ///< See LimelightTarget::m_yaw
+    double bboxHor;                     ///< See LimelightTarget::m_bboxHor
+    double bboxVer;                     ///< See LimelightTarget::m_m_bboxVer
+    units::degree_t skew;               ///< See LimelightTarget::m_skew
+    units::millisecond_t totalLatency;  ///< See LimelightTarget::m_pipelineLatency
   };
 
   /**
@@ -80,16 +83,20 @@ class LimelightTarget {
  * @brief Shooter aiming parameters
  */
 struct AimValues {
-  units::degree_t turretTarget;
-  units::degree_t hoodTarget;
-  units::angular_velocity::revolutions_per_minute_t shooterTarget;
+  units::degree_t turretTarget;                                     ///< Shooter turret angle target
+  units::degree_t hoodTarget;                                       ///< Hood and target
+  units::angular_velocity::revolutions_per_minute_t shooterTarget;  ///< Shooter wheel velocity target
 };
 
+/**
+ * @brief Provides methods for interacting with the camera on a high level
+ *
+ */
 class CameraInterface {
  public:
   CameraInterface();
 
-  LimelightTarget m_target;  ///< object that holds the current target
+  LimelightTarget m_target;  ///< object that holds the current target seen by the camera
 
   /**
    * @brief Get the highest target the camera can see CAN RETURN NONE
@@ -438,14 +445,14 @@ class ShooterSubsystem : public frc2::SubsystemBase {
 
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  WPI_TalonFX m_shooterWheelLeft;
-  WPI_TalonFX m_shooterWheelRight;
-  WPI_TalonSRX m_hoodMotor;
-  WPI_TalonSRX m_turretMotor;
+  WPI_TalonFX m_shooterWheelLeft;   ///< Left shooter wheel drive motor
+  WPI_TalonFX m_shooterWheelRight;  ///< Right shooter wheel drive motor
+  WPI_TalonSRX m_hoodMotor;         ///< Hood articulation drive motor
+  WPI_TalonSRX m_turretMotor;       ///< Turret rotation motor
 
-  CameraInterface m_cameraInterface;
+  CameraInterface m_cameraInterface;  ///< Interface to limelight camera
 
-  FSHomingStorage<units::degree_t> m_turretHomingStorage;
+  FSHomingStorage<units::degree_t> m_turretHomingStorage;  ///< Filesystem storage for turret rotation
 
   bool m_hoodHomed;    ///< True when hood has known closed loop position
   bool m_turretHomed;  ///< True when turret has known closed loop position
@@ -455,21 +462,22 @@ class ShooterSubsystem : public frc2::SubsystemBase {
   argos_lib::InterpolationMap<decltype(shooterRange::shooterSpeed.front().inVal),
                               shooterRange::shooterSpeed.size(),
                               decltype(shooterRange::shooterSpeed.front().outVal)>
-      m_shooterSpeedMap;
+      m_shooterSpeedMap;  ///< Maps distance to a shooter wheel speed
   argos_lib::InterpolationMap<decltype(shooterRange::hoodAngle.front().inVal),
                               shooterRange::hoodAngle.size(),
                               decltype(shooterRange::hoodAngle.front().outVal)>
-      m_hoodAngleMap;
+      m_hoodAngleMap;  ///< Maps a distance to a hood angle
   argos_lib::InterpolationMap<decltype(shooterRange::lateralSpeed.front().inVal),
                               shooterRange::lateralSpeed.size(),
                               decltype(shooterRange::lateralSpeed.front().outVal)>
       m_lateralSpeedMap;
 
-  argos_lib::NTMotorPIDTuner m_hoodPIDTuner;
-  argos_lib::NTMotorPIDTuner m_shooterPIDTuner;
-  argos_lib::NTMotorPIDTuner m_turretPIDTuner;
+  argos_lib::NTMotorPIDTuner m_hoodPIDTuner;     ///< Assists hood PID tuning
+  argos_lib::NTMotorPIDTuner m_shooterPIDTuner;  ///< Assists shooter PID tuning
+  argos_lib::NTMotorPIDTuner m_turretPIDTuner;   ///< Assists turret PID tuning
 
-  argos_lib::RobotInstance m_instance;
-  SwerveDriveSubsystem* m_pDriveSubsystem;
-  argos_lib::SwappableControllersSubsystem* m_pControllers;
+  argos_lib::RobotInstance
+      m_instance;  ///< Contains either the competition bot or practice bot. Differentiates between the two
+  SwerveDriveSubsystem* m_pDriveSubsystem;                   ///< Pointer to drivetrain for reading some odometry
+  argos_lib::SwappableControllersSubsystem* m_pControllers;  ///< Pointer to controller subsystem for vibration feedback
 };

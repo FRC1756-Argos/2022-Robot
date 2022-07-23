@@ -15,6 +15,10 @@
 #include "units/length.h"
 #include "utils/sensor_conversions.h"
 
+/**
+ * @brief Controls the climber of the robot
+ *
+ */
 class ClimberSubsystem : public frc2::SubsystemBase {
  public:
   explicit ClimberSubsystem(const argos_lib::RobotInstance instance, const std::vector<ClimberPoint>* preClimbPoints);
@@ -173,43 +177,106 @@ class ClimberSubsystem : public frc2::SubsystemBase {
     return value >= target - threshold && value <= target + threshold;
   }
 
+  /**
+ * @brief Closed-loop climber to set-point
+ *
+ * @param setPoint Point to send the climber to
+ */
   void ClimberToSetpoint(ClimberPoint setPoint);
 
+  /**
+ * @brief Set Climb Motors PID slot to change power
+ *
+ * @param slot Motor PID slot (see CTRE Falcon 500 docs)
+ */
   void SetClimbMotorsPID(char slot);
 
+  /**
+ * @brief  Determing if the climber is at a setpoint
+ *
+ * @param target Target point
+ * @return true The climber is at the given point within acceptable error
+ * @return false Climber not at point, or outside acceptable error
+ */
   bool ClimberAtPoint(ClimberPoint target);
 
   // NEW STUFF EVALUATE WHAT NEEDS TO BE REMOVED
 
+  /**
+   * @brief Go to the next ClimberPoint in the pre-climb sequence
+   *
+   */
   void NextReadyPoint();
 
+  /**
+   * @brief Go to the previous ClimberPoint in the pre-climb sequence
+   *
+   */
   void PreviousReadyPoint();
 
+  /**
+   * @brief Allow climber to go through the ready sequence freely. Publicly exposes m_allowReady
+   *
+   */
   void AllowReady();
+
+  /**
+   * @brief Disable ability to go through ready sequence. Publicly exposes m_allowReady
+   *
+   */
   void DisallowReady();
+
+  /**
+   * @brief Publicly exposes m_allowReady
+   *
+   * @return true Traversing through the ready sequence is allowed
+   * @return false Traversing through the ready sequence is not allowed
+   */
   bool IsReadySequenceAllowed();
 
+  /**
+   * @brief Determines if climber is able to climb current position
+   *
+   * @return true Climber is a the end of the ready sequence, can climb
+   * @return false Climber is not at the end of the ready sequence, cannot climb
+   */
   bool ClimberReadyToClimb();
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  WPI_TalonFX m_motorLiftRight;
-  WPI_TalonFX m_motorLiftLeft;
-  WPI_TalonFX m_motorMoveHook;
+  WPI_TalonFX m_motorLiftRight;  ///< Right ball-screw driver motor for raising arms
+  WPI_TalonFX m_motorLiftLeft;   ///< Left ball-screw driver motor for raising arms
+  WPI_TalonFX m_motorMoveHook;   ///< Hook chain drive motor
 
-  bool m_hookHomed;
-  bool m_armHomed;
+  bool m_hookHomed;  ///< True if the hooks are homed
+  bool m_armHomed;   ///< True if the arms are homed
 
-  bool m_allowReady;
+  bool m_allowReady;  ///< True if the climber can go through ready sequence
 
-  bool m_manualOverride;
-  const std::vector<ClimberPoint>* m_pPreClimbPoints;
-  std::vector<ClimberPoint>::const_iterator m_itClimberPoint;
+  bool m_manualOverride;  ///< True if the operator has manually overriden while closed-loop is running
+  const std::vector<ClimberPoint>* m_pPreClimbPoints;  ///< std::vector containing ClimberPoints in the ready sequence
+  std::vector<ClimberPoint>::const_iterator
+      m_itClimberPoint;  ///< Random-Access iterator that points to a specific ClimberPoint in the readySequence (used as bi-directional)
 
-  argos_lib::NTMotorPIDTuner m_armPIDTuner;
-  argos_lib::NTMotorPIDTuner m_hookPIDTuner;
+  argos_lib::NTMotorPIDTuner m_armPIDTuner;   ///< Member for tuning arm PID controls
+  argos_lib::NTMotorPIDTuner m_hookPIDTuner;  ///< Member for tuning hook controls
 
+  /**
+   * @brief Detects if the hooks are at a particular target
+   *
+   * @param target Target (in inches) the hooks should be at along their rails
+   * @return true Hooks are at target position
+   * @return false Hooks are outside target position
+   */
   bool HooksAtPosition(units::inch_t target);
+
+  /**
+   * @brief  Detects if the arms are at a particular target
+   *
+   * @param target Target (height in inches) the arms should be at
+   * @return true Arms are at target position
+   * @return false Arms are outside target position
+   */
   bool ArmsAtPosition(units::inch_t target);
 };

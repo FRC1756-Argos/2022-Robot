@@ -121,7 +121,9 @@ namespace sensor_conversions {
       return ToSensorVelocity(accel * 1_s);
     }
 
-    constexpr units::meters_per_second_squared_t ToAccel(double sensorAccel) { return ToVelocity(sensorAccel) / 1_s; }
+    constexpr units::meters_per_second_squared_t ToAccel(double sensorAccel) {
+      return ToVelocity(sensorAccel) / 1_s;
+    }
 
   }  // namespace climb_arms
   namespace climb_hooks {
@@ -152,6 +154,8 @@ namespace sensor_conversions {
       return ToSensorVelocity(accel * 1_s);
     }
 
-    constexpr units::meters_per_second_squared_t ToAccel(double sensorAccel) { return ToVelocity(sensorAccel) / 1_s; }
+    constexpr units::meters_per_second_squared_t ToAccel(double sensorAccel) {
+      return ToVelocity(sensorAccel) / 1_s;
+    }
   }  // namespace climb_hooks
 }  // namespace sensor_conversions
