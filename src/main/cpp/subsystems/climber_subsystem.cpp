@@ -6,6 +6,7 @@
 
 #include "Constants.h"
 #include "argos_lib/config/falcon_config.h"
+#include "argos_lib/general/motor_tools.h"
 #include "frc/smartdashboard/SmartDashboard.h"
 
 ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance,
@@ -81,46 +82,57 @@ void ClimberSubsystem::UpdateArmHome() {
   m_armHomed = true;
 }
 
-void ClimberSubsystem::ArmSetPosition(units::inch_t extension) {
+void ClimberSubsystem::ArmSetPosition(units::inch_t extension, char profileSlot) {
   if (m_armHomed) {
     m_manualOverride = false;
-    m_motorLiftLeft.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                        sensor_conversions::climb_arms::ToSensorUnit(extension));
-    m_motorLiftRight.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                         sensor_conversions::climb_arms::ToSensorUnit(extension));
+    SetWithPID(
+        m_motorLiftLeft, ControlMode::Position, sensor_conversions::climb_arms::ToSensorUnit(extension), profileSlot);
+    SetWithPID(
+        m_motorLiftRight, ControlMode::Position, sensor_conversions::climb_arms::ToSensorUnit(extension), profileSlot);
   }
 }
 
 void ClimberSubsystem::ArmSetPosition(units::inch_t extension,
                                       units::inches_per_second_t cruiseVelocity,
-                                      units::inches_per_second_squared_t acceleration) {
+                                      units::inches_per_second_squared_t acceleration,
+                                      char profileSlot) {
   if (m_armHomed) {
     m_manualOverride = false;
     m_motorLiftLeft.ConfigMotionCruiseVelocity(sensor_conversions::climb_arms::ToSensorVelocity(cruiseVelocity));
     m_motorLiftRight.ConfigMotionCruiseVelocity(sensor_conversions::climb_arms::ToSensorVelocity(cruiseVelocity));
     m_motorLiftLeft.ConfigMotionAcceleration(sensor_conversions::climb_arms::ToSensorAccel(acceleration));
     m_motorLiftRight.ConfigMotionAcceleration(sensor_conversions::climb_arms::ToSensorAccel(acceleration));
-    m_motorLiftLeft.Set(ControlMode::MotionMagic, sensor_conversions::climb_arms::ToSensorUnit(extension));
-    m_motorLiftRight.Set(ControlMode::MotionMagic, sensor_conversions::climb_arms::ToSensorUnit(extension));
+    SetWithPID(m_motorLiftLeft,
+               ControlMode::MotionMagic,
+               sensor_conversions::climb_arms::ToSensorUnit(extension),
+               profileSlot);
+    SetWithPID(m_motorLiftRight,
+               ControlMode::MotionMagic,
+               sensor_conversions::climb_arms::ToSensorUnit(extension),
+               profileSlot);
   }
 }
 
-void ClimberSubsystem::HooksSetPosition(units::inch_t extension) {
+void ClimberSubsystem::HooksSetPosition(units::inch_t extension, char profileSlot) {
   if (m_hookHomed) {
     m_manualOverride = false;
-    m_motorMoveHook.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
-                        sensor_conversions::climb_hooks::ToSensorUnit(extension));
+    SetWithPID(
+        m_motorMoveHook, ControlMode::Position, sensor_conversions::climb_hooks::ToSensorUnit(extension), profileSlot);
   }
 }
 
 void ClimberSubsystem::HooksSetPosition(units::inch_t extension,
                                         units::inches_per_second_t cruiseVelocity,
-                                        units::inches_per_second_squared_t acceleration) {
+                                        units::inches_per_second_squared_t acceleration,
+                                        char profileSlot) {
   if (m_hookHomed) {
     m_manualOverride = false;
     m_motorMoveHook.ConfigMotionCruiseVelocity(sensor_conversions::climb_hooks::ToSensorVelocity(cruiseVelocity));
     m_motorMoveHook.ConfigMotionAcceleration(sensor_conversions::climb_hooks::ToSensorAccel(acceleration));
-    m_motorMoveHook.Set(ControlMode::MotionMagic, sensor_conversions::climb_hooks::ToSensorUnit(extension));
+    SetWithPID(m_motorMoveHook,
+               ControlMode::MotionMagic,
+               sensor_conversions::climb_hooks::ToSensorUnit(extension),
+               profileSlot);
   }
 }
 
@@ -172,16 +184,13 @@ void ClimberSubsystem::DisableHookSoftLimits() {
   m_motorMoveHook.ConfigReverseSoftLimitEnable(false);
 }
 
-void ClimberSubsystem::ClimberToSetpoint(ClimberPoint setPoint) {
-  SetClimbMotorsPID(setPoint.pidSlot);
-  ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 20_ips2);
-  HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 20_ips2);
+void ClimberSubsystem::ClimberToSetpoint(ClimberPoint setPoint, char profileSlot) {
+  ArmSetPosition(setPoint.armExtension, setPoint.armSpeed, 20_ips2, profileSlot);
+  HooksSetPosition(setPoint.hookExtension, setPoint.hookSpeed, 20_ips2, profileSlot);
 }
 
 void ClimberSubsystem::SetClimbMotorsPID(char slot) {
-  m_motorMoveHook.SelectProfileSlot(slot, 0);
-  m_motorLiftLeft.SelectProfileSlot(slot, 0);
-  m_motorLiftRight.SelectProfileSlot(slot, 0);
+  SetMotorsPID(slot, 0, m_motorMoveHook, m_motorLiftLeft, m_motorLiftRight);
 }
 
 bool ClimberSubsystem::HooksAtPosition(units::inch_t target) {
@@ -203,7 +212,7 @@ bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {
 void ClimberSubsystem::NextReadyPoint() {
   ++m_itClimberPoint;
   if (m_itClimberPoint < m_pPreClimbPoints->end()) {
-    ClimberToSetpoint(*m_itClimberPoint);
+    ClimberToSetpoint(*m_itClimberPoint, 0);
   } else {
     --m_itClimberPoint;
   }
@@ -212,7 +221,7 @@ void ClimberSubsystem::NextReadyPoint() {
 void ClimberSubsystem::PreviousReadyPoint() {
   --m_itClimberPoint;
   if (m_itClimberPoint >= m_pPreClimbPoints->begin()) {
-    ClimberToSetpoint(*m_itClimberPoint);
+    ClimberToSetpoint(*m_itClimberPoint, 0);
   } else {
     ++m_itClimberPoint;
   }

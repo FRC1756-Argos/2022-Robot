@@ -64,8 +64,9 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    * @brief Sets arm linear actuator positions under closed loop control
    *
    * @param extension Arm position where positive is upward
+   * @param profileSlot Profile slot to use on the motor
    */
-  void ArmSetPosition(units::inch_t extension);
+  void ArmSetPosition(units::inch_t extension, char profileSlot);
 
   /**
    * @brief Sets arm linear actuator positions under closed loop control using motion magic
@@ -73,17 +74,20 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    * @param extension Arm position where positive is upward
    * @param cruiseVelocity Max movement velocity
    * @param acceleration Max movement acceleration
+   * @param profileSlot Profile slot to use on the motor
    */
   void ArmSetPosition(units::inch_t extension,
                       units::inches_per_second_t cruiseVelocity,
-                      units::inches_per_second_squared_t acceleration);
+                      units::inches_per_second_squared_t acceleration,
+                      char profileSlot);
 
   /**
    * @brief Set hooks to a given position under closed-loop control
    *
    * @param extension Hook position where 0 is at the shoulder and positive is outward
+   * @param profileSlot Profile slot to use on the motor
    */
-  void HooksSetPosition(units::inch_t extension);
+  void HooksSetPosition(units::inch_t extension, char profileSlot);
 
   /**
    * @brief Set hooks to a given position under closed-loop control using motion magic
@@ -91,10 +95,12 @@ class ClimberSubsystem : public frc2::SubsystemBase {
    * @param extension Hook position where 0 is at the shoulder and positive is outward
    * @param cruiseVelocity Max movement velocity
    * @param acceleration Max movement acceleration
+   * @param profileSlot Profile slot to use on the motor
    */
   void HooksSetPosition(units::inch_t extension,
                         units::inches_per_second_t cruiseVelocity,
-                        units::inches_per_second_squared_t acceleration);
+                        units::inches_per_second_squared_t acceleration,
+                        char profileSlot);
 
   /**
    * @brief Detect if hook homing is complete
@@ -173,7 +179,7 @@ class ClimberSubsystem : public frc2::SubsystemBase {
     return value >= target - threshold && value <= target + threshold;
   }
 
-  void ClimberToSetpoint(ClimberPoint setPoint);
+  void ClimberToSetpoint(ClimberPoint setPoint, char profileSlot);
 
   void SetClimbMotorsPID(char slot);
 

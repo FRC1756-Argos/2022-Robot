@@ -50,7 +50,7 @@ void ClimbCommand::Execute() {
     m_climbPoints.pop();
     return;
   } else {
-    m_pClimberSubsystem->ClimberToSetpoint(curPoint);
+    m_pClimberSubsystem->ClimberToSetpoint(curPoint, 1);
   }
 }
 

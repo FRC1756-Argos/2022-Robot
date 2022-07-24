@@ -202,7 +202,7 @@ RobotContainer::RobotContainer()
             m_homeClimberHookCommand,
             frc2::InstantCommand{
                 // sets the climber to the first ready setpoint
-                [this]() { m_pClimber->ClimberToSetpoint(ClimberSetpoints::PreClimb::preClimbSequence[0]); },
+                [this]() { m_pClimber->ClimberToSetpoint(ClimberSetpoints::PreClimb::preClimbSequence[0], 0); },
                 {m_pClimber.get()}}));
   }
 
