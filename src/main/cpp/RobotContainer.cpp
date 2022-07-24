@@ -115,12 +115,13 @@ RobotContainer::RobotContainer()
 
   frc::CameraServer::StartAutomaticCapture();
 
-  // ALLOW ACCESS TO CAMERA STREAM OVER USB
+  // ================== ALLOW CAMERA ACCESS OVER USB ==================
   wpi::PortForwarder::GetInstance().Add(5800, "10.17.56.122", 5800);
   wpi::PortForwarder::GetInstance().Add(5800, "10.17.56.122", 5801);
   wpi::PortForwarder::GetInstance().Add(1181, "10.17.56.122", 1181);
   wpi::PortForwarder::GetInstance().Add(1182, "10.17.56.122", 1182);
 
+  // ================== DEFAULT COMMANDS ===============================
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
       [this] {
         const auto deadbandTranslationSpeeds = argos_lib::swerve::CircularInterpolate(
@@ -166,6 +167,8 @@ RobotContainer::RobotContainer()
         },
         {m_pClimber.get()}));
   }
+
+  // ===================== TRIGGERS ===================
 
   // Robot state triggers
   auto robotEnableTrigger = (frc2::Trigger{[this]() { return frc::DriverStation::IsEnabled(); }});
@@ -213,6 +216,8 @@ RobotContainer::RobotContainer()
   if (m_pClimber) {
     climberOverrideTrigger.WhenActive([this]() { m_pClimber->ManualOverride(); }, {m_pClimber.get()});
   }
+
+  // ============================ NETWORK TABLES MONITORING ============================
 
   m_NTMonitor.AddMonitor(
       "manualSetpoints/hoodAngle",
@@ -341,7 +346,7 @@ void RobotContainer::ConfigureButtonBindings() {
   m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kB, {1500_ms, 0_ms});
   m_controllers.OperatorController().SetButtonDebounce(argos_lib::XboxController::Button::kY, {1500_ms, 0_ms});
 
-  // TRIGGERS -----------------------------------------------------------------------------------------------
+  // TRIGGERS ==================================================================================
 
   // Configure your button bindings here
   // INTAKE TRIGGERS

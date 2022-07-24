@@ -12,6 +12,10 @@
 #include "argos_lib/general/debouncer.h"
 #include "subsystems/climber_subsystem.h"
 
+/**
+ * @brief Slowly moves hooks down the rail, upon reaching known position will reset relative positioning
+ *
+ */
 class HomeClimberHookCommand : public frc2::CommandHelper<frc2::CommandBase, HomeClimberHookCommand> {
  public:
   explicit HomeClimberHookCommand(ClimberSubsystem* subsystem);

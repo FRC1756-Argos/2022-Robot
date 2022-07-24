@@ -12,6 +12,10 @@
 #include "argos_lib/general/debouncer.h"
 #include "subsystems/shooter_subsystem.h"
 
+/**
+ * @brief Moves hood slowly down, until hitting a known position then resets relative positioning.
+ *
+ */
 class HomeHoodCommand : public frc2::CommandHelper<frc2::CommandBase, HomeHoodCommand> {
  public:
   explicit HomeHoodCommand(ShooterSubsystem* shooter);

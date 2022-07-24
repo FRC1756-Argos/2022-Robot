@@ -48,6 +48,7 @@ ClimberSubsystem::ClimberSubsystem(const argos_lib::RobotInstance instance,
 void ClimberSubsystem::Periodic() {}
 
 void ClimberSubsystem::ManualControl(double hookSpeed, double armSpeed) {
+  // Moves system manually, and sets manual override to true
   if (hookSpeed != 0 || armSpeed != 0) {
     m_manualOverride = true;
   }
@@ -67,6 +68,7 @@ void ClimberSubsystem::MoveArm(double armSpeed) {
 }
 
 void ClimberSubsystem::UpdateHookHome() {
+  // Update onboard relative encoder to have a pre-defined value at a known position
   m_motorMoveHook.SetSelectedSensorPosition(
       sensor_conversions::climb_hooks::ToSensorUnit(measure_up::climber_hook::homeExtension));
   m_hookHomed = true;
@@ -74,6 +76,7 @@ void ClimberSubsystem::UpdateHookHome() {
 }
 
 void ClimberSubsystem::UpdateArmHome() {
+  // Update onboard relative encoder to have a pre-defined value at a known position
   m_motorLiftLeft.SetSelectedSensorPosition(
       sensor_conversions::climb_arms::ToSensorUnit(measure_up::climber_arm::homeExtension));
   m_motorLiftRight.SetSelectedSensorPosition(
@@ -82,6 +85,8 @@ void ClimberSubsystem::UpdateArmHome() {
 }
 
 void ClimberSubsystem::ArmSetPosition(units::inch_t extension) {
+  // Closed loop position control, only active when arms are homed
+  // see CTRE Motion Magic closed-loop control docs
   if (m_armHomed) {
     m_manualOverride = false;
     m_motorLiftLeft.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
@@ -94,6 +99,8 @@ void ClimberSubsystem::ArmSetPosition(units::inch_t extension) {
 void ClimberSubsystem::ArmSetPosition(units::inch_t extension,
                                       units::inches_per_second_t cruiseVelocity,
                                       units::inches_per_second_squared_t acceleration) {
+  // Closed loop position control, only active when arms are homed
+  // see CTRE Motion Magic closed-loop control docs
   if (m_armHomed) {
     m_manualOverride = false;
     m_motorLiftLeft.ConfigMotionCruiseVelocity(sensor_conversions::climb_arms::ToSensorVelocity(cruiseVelocity));
@@ -106,6 +113,8 @@ void ClimberSubsystem::ArmSetPosition(units::inch_t extension,
 }
 
 void ClimberSubsystem::HooksSetPosition(units::inch_t extension) {
+  // Closed loop position control, only active when hooks are homed
+  // see CTRE Motion Magic closed-loop control docs
   if (m_hookHomed) {
     m_manualOverride = false;
     m_motorMoveHook.Set(ctre::phoenix::motorcontrol::ControlMode::Position,
@@ -116,6 +125,8 @@ void ClimberSubsystem::HooksSetPosition(units::inch_t extension) {
 void ClimberSubsystem::HooksSetPosition(units::inch_t extension,
                                         units::inches_per_second_t cruiseVelocity,
                                         units::inches_per_second_squared_t acceleration) {
+  // Closed loop position control, only active when hooks are homed
+  // see CTRE Motion Magic closed-loop control docs
   if (m_hookHomed) {
     m_manualOverride = false;
     m_motorMoveHook.ConfigMotionCruiseVelocity(sensor_conversions::climb_hooks::ToSensorVelocity(cruiseVelocity));
@@ -146,6 +157,7 @@ bool ClimberSubsystem::IsManualOverride() {
 }
 
 void ClimberSubsystem::Disable() {
+  // Stop everything
   m_manualOverride = false;
   m_motorLiftRight.Set(0);
   m_motorLiftLeft.Set(0);
@@ -157,6 +169,7 @@ void ClimberSubsystem::ManualOverride() {
 }
 
 void ClimberSubsystem::SetHookSoftLimits() {
+  // If hooks are homed, set software limits to prevent hardware damage
   if (m_hookHomed) {
     m_motorMoveHook.ConfigForwardSoftLimitThreshold(
         sensor_conversions::climb_hooks::ToSensorUnit(measure_up::climber_hook::maxExtension));
@@ -168,6 +181,7 @@ void ClimberSubsystem::SetHookSoftLimits() {
 }
 
 void ClimberSubsystem::DisableHookSoftLimits() {
+  // Disable software limits of hooks
   m_motorMoveHook.ConfigForwardSoftLimitEnable(false);
   m_motorMoveHook.ConfigReverseSoftLimitEnable(false);
 }
@@ -179,19 +193,28 @@ void ClimberSubsystem::ClimberToSetpoint(ClimberPoint setPoint) {
 }
 
 void ClimberSubsystem::SetClimbMotorsPID(char slot) {
+  // useful for using less power during ready, more during climb
   m_motorMoveHook.SelectProfileSlot(slot, 0);
   m_motorLiftLeft.SelectProfileSlot(slot, 0);
   m_motorLiftRight.SelectProfileSlot(slot, 0);
 }
 
 bool ClimberSubsystem::HooksAtPosition(units::inch_t target) {
+  /* Note that this function can become inacurate as the arms raise. As the linear actuators
+  * extend, they cause a small amount of turning on the shaft driving the hooks,
+  * without the motor moving, causing the encoder to miss it. This is largely accounted for in the constant
+  * values dictating ClimberPoint setpoints.
+  */
+
+  // Convert from encoder sensor units to inches
   units::inch_t curPosition = sensor_conversions::climb_hooks::ToExtension(m_motorMoveHook.GetSelectedSensorPosition());
-  return InThreshold<units::inch_t>(curPosition, target, 0.125_in);
+  return InThreshold<units::inch_t>(curPosition, target, 0.125_in);  // 1/8 inch error
 }
 
 bool ClimberSubsystem::ArmsAtPosition(units::inch_t target) {
+  // Convert from encoder sensor units to inches
   units::inch_t curPosition = sensor_conversions::climb_arms::ToExtension(m_motorLiftRight.GetSelectedSensorPosition());
-  return InThreshold<units::inch_t>(curPosition, target, 0.125_in);
+  return InThreshold<units::inch_t>(curPosition, target, 0.125_in);  // 1/8 inch error
 }
 
 bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {
@@ -202,7 +225,9 @@ bool ClimberSubsystem::ClimberAtPoint(ClimberPoint target) {
 
 void ClimberSubsystem::NextReadyPoint() {
   ++m_itClimberPoint;
-  if (m_itClimberPoint < m_pPreClimbPoints->end()) {
+  // if the iterator is < the end of the vector,
+  // move to the setpoint the iterator points to
+  if (m_itClimberPoint < m_pPreClimbPoints->end()) {  // end is right after the last element
     ClimberToSetpoint(*m_itClimberPoint);
   } else {
     --m_itClimberPoint;
@@ -211,7 +236,9 @@ void ClimberSubsystem::NextReadyPoint() {
 
 void ClimberSubsystem::PreviousReadyPoint() {
   --m_itClimberPoint;
-  if (m_itClimberPoint >= m_pPreClimbPoints->begin()) {
+  // if the iterator is not < the begining of the vector,
+  // move to the setpoint the iterator points to
+  if (m_itClimberPoint >= m_pPreClimbPoints->begin()) {  // begin is first element
     ClimberToSetpoint(*m_itClimberPoint);
   } else {
     ++m_itClimberPoint;
