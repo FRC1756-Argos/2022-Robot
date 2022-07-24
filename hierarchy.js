@@ -125,14 +125,27 @@ var hierarchy =
     [ "HomingStorageInterface< T >", "class_homing_storage_interface.html", [
       [ "FSHomingStorage< T >", "class_f_s_homing_storage.html", null ]
     ] ],
+    [ "HomingStorageInterface< units::degree_t >", "class_homing_storage_interface.html", [
+      [ "FSHomingStorage< units::degree_t >", "class_f_s_homing_storage.html", null ]
+    ] ],
     [ "controlLoop::comp_bot::shooter::hood", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html", null ],
     [ "motorConfig::comp_bot::shooter::hoodMotor", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html", null ],
     [ "motorConfig::practice_bot::shooter::hoodMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html", null ],
     [ "ShooterSubsystem::HubRelativeVelocities", "struct_shooter_subsystem_1_1_hub_relative_velocities.html", null ],
     [ "argos_lib::HysteresisFilter< T >", "classargos__lib_1_1_hysteresis_filter.html", null ],
+    [ "argos_lib::HysteresisFilter< units::inch_t >", "classargos__lib_1_1_hysteresis_filter.html", null ],
     [ "motorConfig::comp_bot::intake::intakeDrive", "structmotor_config_1_1comp__bot_1_1intake_1_1intake_drive.html", null ],
     [ "argos_lib::InterpMapPoint< T, V >", "structargos__lib_1_1_interp_map_point.html", null ],
     [ "argos_lib::InterpolationMap< T, size, V >", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::armSpeed.front().inVal), controllerMap::armSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::driveRotSpeed.front().inVal), controllerMap::driveRotSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::driveSpeed.front().inVal), controllerMap::driveSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::hoodSpeed.front().inVal), controllerMap::hoodSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::hookSpeed.front().inVal), controllerMap::hookSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(controllerMap::turretSpeed.front().inVal), controllerMap::turretSpeed.size()>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(shooterRange::hoodAngle.front().inVal), shooterRange::hoodAngle.size(), decltype(shooterRange::hoodAngle.front().outVal)>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(shooterRange::lateralSpeed.front().inVal), shooterRange::lateralSpeed.size(), decltype(shooterRange::lateralSpeed.front().outVal)>", "classargos__lib_1_1_interpolation_map.html", null ],
+    [ "argos_lib::InterpolationMap< decltype(shooterRange::shooterSpeed.front().inVal), shooterRange::shooterSpeed.size(), decltype(shooterRange::shooterSpeed.front().outVal)>", "classargos__lib_1_1_interpolation_map.html", null ],
     [ "motorConfig::comp_bot::climber::liftLeft", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html", null ],
     [ "motorConfig::comp_bot::climber::liftRight", "structmotor_config_1_1comp__bot_1_1climber_1_1lift_right.html", null ],
     [ "LimelightTarget", "class_limelight_target.html", null ],

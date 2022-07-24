@@ -1,9 +1,9 @@
 var structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood =
 [
-    [ "allowableError", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#a4fd5c7b2706625f5dd16bb0abc9b3d93", null ],
-    [ "iZone", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#add1f9a6a900a19535ee2b9d68da76b4f", null ],
-    [ "kD", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#a21d544e799c1d5e8507e03afbf76b34a", null ],
-    [ "kF", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#a35435a59bceff10a6ebdf7cde987b7ce", null ],
-    [ "kI", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#a82a55f8ad0875d3ef6b12dd3732c667b", null ],
-    [ "kP", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#a969d3a88c67cf804c76ef17f71e620f1", null ]
+    [ "allowableError", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#adf85884ad0364f5f71e878162f04fa71", null ],
+    [ "iZone", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#a5a14708ec1196c49babfa550c1a793ff", null ],
+    [ "kD", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#af57021f23b0550177c4164172593e523", null ],
+    [ "kF", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#a647e9ad874b371cd6ffcf643dfe5d1a7", null ],
+    [ "kI", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#af01b4652eb4500e6dadc79890dbb9fd4", null ],
+    [ "kP", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html#a29319e9fcd7cc13ca49df3eb43d772ce", null ]
 ];

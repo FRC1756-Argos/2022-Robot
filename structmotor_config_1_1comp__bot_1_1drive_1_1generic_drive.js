@@ -1,16 +1,16 @@
 var structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive =
 [
-    [ "inverted", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#acb85804332bb0efc3f5f539e6851f0a2", null ],
-    [ "neutralDeadband", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a99271879c39a7bea11d34b75da6ea53c", null ],
-    [ "neutralMode", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a04c0449d13cbf055f489f451b86c1aa3", null ],
-    [ "pid0_allowableError", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#aa84af06f8c2811fc1b9b4f2a9358d746", null ],
-    [ "pid0_iZone", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a998d366b552c868f74e5c1b15e45091f", null ],
-    [ "pid0_kD", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#af2195912da11005183e2900d39595b2d", null ],
-    [ "pid0_kF", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#aeb4678e65098ce103878f073e15f106c", null ],
-    [ "pid0_kI", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a8ee2f2ff0317394fdde4784e5e6a5df6", null ],
-    [ "pid0_kP", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#ae1b80931af57490ddd32982491961914", null ],
-    [ "pid0_selectedSensor", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a407369650cc8bc3920574b6e0b1450e4", null ],
-    [ "sensorPhase", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a1e9e1c6c9718dcab02ed57945df36e33", null ],
-    [ "statusFrameMotorMode", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a6e7a201a591d2c2a3e713384bf44f83e", null ],
-    [ "voltCompSat", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#af5d730363cb53123dc60923393edd5f0", null ]
+    [ "inverted", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#af7d5db6396a27d5b66c02f2ca2406ea5", null ],
+    [ "neutralDeadband", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a027a20202d0e6aba1a6cee2f3c7e06f6", null ],
+    [ "neutralMode", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a246826c681314de8b561d1a710399a24", null ],
+    [ "pid0_allowableError", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a2c590d799c82039c0f87304ae8c1c294", null ],
+    [ "pid0_iZone", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a6fd79400ee71e872d02a8dc0369e818b", null ],
+    [ "pid0_kD", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a1f93fe1ddd6d760da92bc83d6ec2a645", null ],
+    [ "pid0_kF", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a5d865fdcfc7719356f547a46792acf64", null ],
+    [ "pid0_kI", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a6813890f90b7dfcb0d4786324d7f7454", null ],
+    [ "pid0_kP", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#ab767d75e460c5f483d732a3ed5d25506", null ],
+    [ "pid0_selectedSensor", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a90c0b118157839321ec13eb3d06aad68", null ],
+    [ "sensorPhase", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#ac67d51307a1d044cb7038358d692b142", null ],
+    [ "statusFrameMotorMode", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#ad58448bf31aedf23a78808924cacb3ab", null ],
+    [ "voltCompSat", "structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a10deed81057a8fb8406def531e198d6a", null ]
 ];

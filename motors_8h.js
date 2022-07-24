@@ -28,6 +28,6 @@ var motors_8h =
     [ "moveHook", "motors_8h.html#a6b4020be8fd110333417c29c17ba9017", null ],
     [ "shooterWheelLeft", "motors_8h.html#a8c69729f74795dba178d51f1cd6bdebf", null ],
     [ "shooterWheelRight", "motors_8h.html#aa33e185552a1d40c4d359e65034fbdfc", null ],
-    [ "neutralDeadband", "motors_8h.html#ab0341e9af24944d26068a3721c962a6d", null ],
-    [ "voltCompSat", "motors_8h.html#a1482385e1392ee2d9c19018310c95f12", null ]
+    [ "neutralDeadband", "motors_8h.html#a3679b4e3502526ea0e804ca68112b659", null ],
+    [ "voltCompSat", "motors_8h.html#a3906f374b7c80508236f7b30bf2fe2bc", null ]
 ];

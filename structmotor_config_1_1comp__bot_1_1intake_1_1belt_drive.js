@@ -1,12 +1,12 @@
 var structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive =
 [
-    [ "continuousCurrentLimit", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#ab41386b119b3627e7638def8edf26393", null ],
-    [ "inverted", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a391c358e1f66f0f7cce28dbbdfdb8f59", null ],
-    [ "neutralDeadband", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a7dfd7cca437ab8c9965d80847922e729", null ],
-    [ "neutralMode", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a9fc6832e92d5d977f24b38a3f4dfa24f", null ],
-    [ "peakCurrentDuration", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a273c324ff4743db596dbaafe7af18816", null ],
-    [ "peakCurrentLimit", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a18bc7cc509e1da0e3cd6eeb645143d59", null ],
-    [ "sensorPhase", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#aef2dfe645bf52fd81154426e92b3e13b", null ],
-    [ "statusFrameMotorMode", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a5c1f7e915f1cc4ef0043b987d5893709", null ],
-    [ "voltCompSat", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a80932cef2e6b4b9b764da8cf1b5f5a7a", null ]
+    [ "continuousCurrentLimit", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#afe38256934fd58e0ff069f1a017048e1", null ],
+    [ "inverted", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#ab0383c734445b2fa035ff0be322bcf3d", null ],
+    [ "neutralDeadband", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a1aca5d975d5c7ff52453a6063980a15e", null ],
+    [ "neutralMode", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a95270ed268596e8d7860038b51cfe2d4", null ],
+    [ "peakCurrentDuration", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a4c043f9948e95f5a39e4244f541f80e1", null ],
+    [ "peakCurrentLimit", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a1ee03fcc1479102d1f9a7c27695e2a35", null ],
+    [ "sensorPhase", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a02d1ea09269c1a421c674b60953cc468", null ],
+    [ "statusFrameMotorMode", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a0ac4e22087072f56b791b42c1b2134b6", null ],
+    [ "voltCompSat", "structmotor_config_1_1comp__bot_1_1intake_1_1belt_drive.html#a60ec56364e57a0c15ccbb759581cb5f5", null ]
 ];

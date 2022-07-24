@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"namespacemembers_vars_t.html":[2,1,2,16],
 "namespacemembers_vars_u.html":[2,1,2,17],
 "namespacemembers_vars_v.html":[2,1,2,18],
 "namespacemembers_vars_w.html":[2,1,2,19],
@@ -13,8 +12,8 @@ var NAVTREEINDEX7 =
 "namespacemembers_z.html":[2,1,0,23],
 "namespacemotor_config.html":[2,0,11],
 "namespacemotor_config_1_1common.html":[2,0,11,0],
-"namespacemotor_config_1_1common.html#a1482385e1392ee2d9c19018310c95f12":[2,0,11,0,1],
-"namespacemotor_config_1_1common.html#ab0341e9af24944d26068a3721c962a6d":[2,0,11,0,0],
+"namespacemotor_config_1_1common.html#a3679b4e3502526ea0e804ca68112b659":[2,0,11,0,0],
+"namespacemotor_config_1_1common.html#a3906f374b7c80508236f7b30bf2fe2bc":[2,0,11,0,1],
 "namespacemotor_config_1_1comp__bot.html":[2,0,11,1],
 "namespacemotor_config_1_1comp__bot_1_1climber.html":[2,0,11,1,0],
 "namespacemotor_config_1_1comp__bot_1_1drive.html":[2,0,11,1,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6af276da87ddfccdb55db7bde49c938904":[4,0,0,0,1,0,1,4,0,5],
 "status__frame__config_8h_source.html":[4,0,0,0,1,0,1,4],
 "struct_aim_values.html":[3,0,3],
-"struct_aim_values.html#a24f90587101f3635b4ed19b010bc08d3":[3,0,3,0]
+"struct_aim_values.html#a24f90587101f3635b4ed19b010bc08d3":[3,0,3,0],
+"struct_aim_values.html#aaa0467d6fee4fa22d1c9aa453bf907ff":[3,0,3,1]
 };
