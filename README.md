@@ -53,6 +53,8 @@ First install the prerequisites:
   * clang-format - `pip install clang-format`
   * pre-commit - `pip install pre-commit`
 
+  Make sure to run `pip install <package>` commands in an administrator terminal if installing in windows
+
 Then initialize:
 
 ```
