@@ -18,6 +18,7 @@
 
 ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
                                    SwerveDriveSubsystem* pDriveSubsystem,
+                                   std::shared_ptr<LightsSubsystem> lights,
                                    argos_lib::SwappableControllersSubsystem* controllers)
     : m_shooterWheelLeft(address::shooter::shooterWheelLeft)
     , m_shooterWheelRight(address::shooter::shooterWheelRight)
@@ -55,7 +56,8 @@ ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
                            argos_lib::GetSensorConversionFactor(sensor_conversions::turret::ToAngle)}}
     , m_instance(instance)
     , m_pDriveSubsystem(pDriveSubsystem)
-    , m_pControllers(controllers) {
+    , m_pControllers(controllers)
+    , m_plights(lights) {
   argos_lib::falcon_config::FalconConfig<motorConfig::comp_bot::shooter::shooterWheelLeft,
                                          motorConfig::practice_bot::shooter::shooterWheelLeft>(
       m_shooterWheelLeft, 50_ms, instance);
@@ -510,6 +512,7 @@ void ShooterSubsystem::StopFeedback() const {
     m_pControllers->DriverController().SetVibration(argos_lib::VibrationOff());
     m_pControllers->OperatorController().SetVibration(argos_lib::VibrationOff());
   }
+  m_plights->SetRed();
 }
 
 void ShooterSubsystem::AimedFeedback() const {
@@ -517,6 +520,7 @@ void ShooterSubsystem::AimedFeedback() const {
     m_pControllers->DriverController().SetVibration(argos_lib::VibrationAlternatePulse(500_ms, 1.0));
     m_pControllers->OperatorController().SetVibration(argos_lib::VibrationAlternatePulse(500_ms, 1.0));
   }
+  m_plights->SetGreen();
 }
 
 ShooterSubsystem::HubRelativeVelocities ShooterSubsystem::ChassisVelocitiesToHubVelocities(

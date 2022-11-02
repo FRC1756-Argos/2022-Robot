@@ -35,6 +35,7 @@
 #include "subsystems/intake_subsystem.h"
 #include "subsystems/shooter_subsystem.h"
 #include "subsystems/swerve_drive_subsystem.h"
+#include "subsystems/lights_subsystem.h"
 #include "utils/auto_selector.h"
 #include "utils/network_tables_wrapper.h"
 #include "utils/sensor_conversions.h"
@@ -85,6 +86,7 @@ class RobotContainer {
   SwerveDriveSubsystem m_swerveDrive;
   IntakeSubsystem m_intake;
   std::unique_ptr<ClimberSubsystem> m_pClimber;
+  LightsSubsystem m_lights;
   ShooterSubsystem m_shooter;
 
   HomeHoodCommand m_homeHoodCommand;

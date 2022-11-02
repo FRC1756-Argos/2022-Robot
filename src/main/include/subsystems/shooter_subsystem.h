@@ -18,6 +18,7 @@
 #include "networktables/NetworkTableValue.h"
 #include "photonlib/PhotonCamera.h"
 #include "swerve_drive_subsystem.h"
+#include "lights_subsystem.h"
 #include "units/angle.h"
 #include "units/angular_velocity.h"
 #include "units/length.h"
@@ -161,6 +162,7 @@ class ShooterSubsystem : public frc2::SubsystemBase {
 
   ShooterSubsystem(const argos_lib::RobotInstance instance,
                    SwerveDriveSubsystem* pDriveSubsystem,
+                   std::shared_ptr<LightsSubsystem> lights,
                    argos_lib::SwappableControllersSubsystem* controllers = nullptr);
 
   /**
@@ -480,4 +482,5 @@ class ShooterSubsystem : public frc2::SubsystemBase {
       m_instance;  ///< Contains either the competition bot or practice bot. Differentiates between the two
   SwerveDriveSubsystem* m_pDriveSubsystem;                   ///< Pointer to drivetrain for reading some odometry
   argos_lib::SwappableControllersSubsystem* m_pControllers;  ///< Pointer to controller subsystem for vibration feedback
+  std::shared_ptr<LightsSubsystem> m_plights;
 };

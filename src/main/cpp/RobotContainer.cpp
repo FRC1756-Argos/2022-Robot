@@ -37,7 +37,9 @@ RobotContainer::RobotContainer()
     , m_pClimber(m_instance == argos_lib::RobotInstance::Competition ?
                      std::make_unique<ClimberSubsystem>(m_instance, &ClimberSetpoints::PreClimb::preClimbSequence) :
                      nullptr)
-    , m_shooter(m_instance, &m_swerveDrive, &m_controllers)
+    // TODO find out how many leds there are
+    , m_lights{8, 1, "Drive"}
+    , m_shooter(m_instance, &m_swerveDrive, std::make_shared<LightsSubsystem>(m_lights), &m_controllers)
     , m_homeHoodCommand(&m_shooter)
     , m_homeClimberArmCommand(m_pClimber.get())
     , m_homeClimberHookCommand(m_pClimber.get())
@@ -120,6 +122,9 @@ RobotContainer::RobotContainer()
   wpi::PortForwarder::GetInstance().Add(5800, "10.17.56.122", 5801);
   wpi::PortForwarder::GetInstance().Add(1181, "10.17.56.122", 1181);
   wpi::PortForwarder::GetInstance().Add(1182, "10.17.56.122", 1182);
+
+  // by deafult, set LEDs to orange
+  m_lights.setOrange();
 
   // ================== DEFAULT COMMANDS ===============================
   m_swerveDrive.SetDefaultCommand(frc2::RunCommand(
