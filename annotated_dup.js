@@ -1,5 +1,17 @@
 var annotated_dup =
 [
+    [ "address", "namespaceaddress.html", [
+      [ "comp_bot", "namespaceaddress_1_1comp__bot.html", [
+        [ "climber", "structaddress_1_1comp__bot_1_1climber.html", "structaddress_1_1comp__bot_1_1climber" ],
+        [ "controllers", "structaddress_1_1comp__bot_1_1controllers.html", "structaddress_1_1comp__bot_1_1controllers" ],
+        [ "drive", "structaddress_1_1comp__bot_1_1drive.html", "structaddress_1_1comp__bot_1_1drive" ],
+        [ "encoders", "structaddress_1_1comp__bot_1_1encoders.html", "structaddress_1_1comp__bot_1_1encoders" ],
+        [ "intake", "structaddress_1_1comp__bot_1_1intake.html", "structaddress_1_1comp__bot_1_1intake" ],
+        [ "sensors", "structaddress_1_1comp__bot_1_1sensors.html", "structaddress_1_1comp__bot_1_1sensors" ],
+        [ "shooter", "structaddress_1_1comp__bot_1_1shooter.html", "structaddress_1_1comp__bot_1_1shooter" ],
+        [ "solenoids", "structaddress_1_1comp__bot_1_1solenoids.html", "structaddress_1_1comp__bot_1_1solenoids" ]
+      ] ]
+    ] ],
     [ "argos_lib", "namespaceargos__lib.html", [
       [ "cancoder_config", "namespaceargos__lib_1_1cancoder__config.html", [
         [ "has_direction", "structargos__lib_1_1cancoder__config_1_1has__direction.html", null ],
@@ -127,6 +139,7 @@ var annotated_dup =
         [ "has_voltCompSat", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html", null ],
         [ "has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ]
       ] ],
+      [ "CANAddress", "structargos__lib_1_1_c_a_n_address.html", "structargos__lib_1_1_c_a_n_address" ],
       [ "ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", "structargos__lib_1_1_closed_loop_sensor_conversions" ],
       [ "Debouncer", "classargos__lib_1_1_debouncer.html", "classargos__lib_1_1_debouncer" ],
       [ "DebounceSettings", "structargos__lib_1_1_debounce_settings.html", "structargos__lib_1_1_debounce_settings" ],
@@ -181,6 +194,12 @@ var annotated_dup =
         ] ]
       ] ],
       [ "practice_bot", "namespacemotor_config_1_1practice__bot.html", [
+        [ "drive", "namespacemotor_config_1_1practice__bot_1_1drive.html", [
+          [ "backLeftTurn", "structmotor_config_1_1practice__bot_1_1drive_1_1back_left_turn.html", "structmotor_config_1_1practice__bot_1_1drive_1_1back_left_turn" ],
+          [ "backRightTurn", "structmotor_config_1_1practice__bot_1_1drive_1_1back_right_turn.html", "structmotor_config_1_1practice__bot_1_1drive_1_1back_right_turn" ],
+          [ "frontLeftTurn", "structmotor_config_1_1practice__bot_1_1drive_1_1front_left_turn.html", "structmotor_config_1_1practice__bot_1_1drive_1_1front_left_turn" ],
+          [ "frontRightTurn", "structmotor_config_1_1practice__bot_1_1drive_1_1front_right_turn.html", "structmotor_config_1_1practice__bot_1_1drive_1_1front_right_turn" ]
+        ] ],
         [ "intake", "namespacemotor_config_1_1practice__bot_1_1intake.html", [
           [ "beltDrive", "structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive.html", "structmotor_config_1_1practice__bot_1_1intake_1_1belt_drive" ]
         ] ],

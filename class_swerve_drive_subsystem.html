@@ -197,9 +197,15 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a4a6d907f1012c9494cef0fa2ed912be1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a4a6d907f1012c9494cef0fa2ed912be1">InitializeMotorsFromFS</a> ()</td></tr>
 <tr class="memdesc:a4a6d907f1012c9494cef0fa2ed912be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize motors from saved file.  <a href="class_swerve_drive_subsystem.html#a4a6d907f1012c9494cef0fa2ed912be1">More...</a><br /></td></tr>
 <tr class="separator:a4a6d907f1012c9494cef0fa2ed912be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ad72789056f6e17a631796564927e8"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a76ad72789056f6e17a631796564927e8">GetIMUYaw</a> () const</td></tr>
+<tr class="separator:a76ad72789056f6e17a631796564927e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7c97d9b088879b61ccece2be457e708"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#ad7c97d9b088879b61ccece2be457e708">ResetIMUYaw</a> ()</td></tr>
+<tr class="separator:ad7c97d9b088879b61ccece2be457e708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:afeb350e66f8f194d745cfaecca74b7f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#afeb350e66f8f194d745cfaecca74b7f6">m_instance</a></td></tr>
+<tr class="separator:afeb350e66f8f194d745cfaecca74b7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f7a1b2acb107dd18f2cf9f03ccb396d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512c">DriveControlMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a5f7a1b2acb107dd18f2cf9f03ccb396d">m_controlMode</a></td></tr>
 <tr class="memdesc:a5f7a1b2acb107dd18f2cf9f03ccb396d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active control mode.  <a href="class_swerve_drive_subsystem.html#a5f7a1b2acb107dd18f2cf9f03ccb396d">More...</a><br /></td></tr>
 <tr class="separator:a5f7a1b2acb107dd18f2cf9f03ccb396d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,8 +222,9 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a5b74616606cb8b4fdfb5c8e699e2e5fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Back left swerve module.  <a href="class_swerve_drive_subsystem.html#a5b74616606cb8b4fdfb5c8e699e2e5fb">More...</a><br /></td></tr>
 <tr class="separator:a5b74616606cb8b4fdfb5c8e699e2e5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94814ca86481c09185e6c308ec008892"><td class="memItemLeft" align="right" valign="top">frc::ADIS16448_IMU&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a94814ca86481c09185e6c308ec008892">m_imu</a></td></tr>
-<tr class="memdesc:a94814ca86481c09185e6c308ec008892"><td class="mdescLeft">&#160;</td><td class="mdescRight">IMU for field-centric control.  <a href="class_swerve_drive_subsystem.html#a94814ca86481c09185e6c308ec008892">More...</a><br /></td></tr>
 <tr class="separator:a94814ca86481c09185e6c308ec008892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd48237b8d9b22fe1cc9e4c4d65ef9f7"><td class="memItemLeft" align="right" valign="top">Pigeon2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#abd48237b8d9b22fe1cc9e4c4d65ef9f7">m_pigeonIMU</a></td></tr>
+<tr class="separator:abd48237b8d9b22fe1cc9e4c4d65ef9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37214334cb707509a1191baeda8d452e"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swerve_drive_subsystem.html#a37214334cb707509a1191baeda8d452e">m_fieldHomeOffset</a></td></tr>
 <tr class="memdesc:a37214334cb707509a1191baeda8d452e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset from IMU angle to 0 field angle (intake away from driver station)  <a href="class_swerve_drive_subsystem.html#a37214334cb707509a1191baeda8d452e">More...</a><br /></td></tr>
 <tr class="separator:a37214334cb707509a1191baeda8d452e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -502,6 +509,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a76ad72789056f6e17a631796564927e8" name="a76ad72789056f6e17a631796564927e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ad72789056f6e17a631796564927e8">&#9670;&nbsp;</a></span>GetIMUYaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">units::degree_t SwerveDriveSubsystem::GetIMUYaw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0441f3752ec287551c35a5be2ab027b1" name="a0441f3752ec287551c35a5be2ab027b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0441f3752ec287551c35a5be2ab027b1">&#9670;&nbsp;</a></span>GetPoseEstimate()</h2>
 
@@ -706,6 +738,31 @@ Private Attributes</h2></td></tr>
 
 <p>Check if a driving profile path has been completed. </p>
 <dl class="section return"><dt>Returns</dt><dd>true when a path is completed and not canceled </dd></dl>
+
+</div>
+</div>
+<a id="ad7c97d9b088879b61ccece2be457e708" name="ad7c97d9b088879b61ccece2be457e708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c97d9b088879b61ccece2be457e708">&#9670;&nbsp;</a></span>ResetIMUYaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwerveDriveSubsystem::ResetIMUYaw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1235,7 +1292,27 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>IMU for field-centric control. </p>
+</div>
+</div>
+<a id="afeb350e66f8f194d745cfaecca74b7f6" name="afeb350e66f8f194d745cfaecca74b7f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeb350e66f8f194d745cfaecca74b7f6">&#9670;&nbsp;</a></span>m_instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> SwerveDriveSubsystem::m_instance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1308,6 +1385,28 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Profile to execute. </p>
+
+</div>
+</div>
+<a id="abd48237b8d9b22fe1cc9e4c4d65ef9f7" name="abd48237b8d9b22fe1cc9e4c4d65ef9f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd48237b8d9b22fe1cc9e4c4d65ef9f7">&#9670;&nbsp;</a></span>m_pigeonIMU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Pigeon2 SwerveDriveSubsystem::m_pigeonIMU</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

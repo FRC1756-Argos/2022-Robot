@@ -1,21 +1,21 @@
 var searchData=
 [
   ['b_0',['B',['../namespacefield__points_1_1balls.html#afba2a6a9495e0e39405c75121509d5b6',1,'field_points::balls']]],
-  ['backleftdrive_1',['backLeftDrive',['../namespaceaddress_1_1drive.html#a98a7e02054821ec30e4fd64260815f7e',1,'address::drive']]],
-  ['backleftencoder_2',['backLeftEncoder',['../namespaceaddress_1_1encoders.html#a03266ba3f13ff6f4dcec6b6bb1fe60a7',1,'address::encoders']]],
+  ['backleftdrive_1',['backLeftDrive',['../structaddress_1_1comp__bot_1_1drive.html#a2e8988ad0b3b8747415d16d062afd897',1,'address::comp_bot::drive::backLeftDrive()'],['../namespaceaddress_1_1practice__bot_1_1drive.html#a9b953edcae0ef64cbc97d2894ccbb3d8',1,'address::practice_bot::drive::backLeftDrive()']]],
+  ['backleftencoder_2',['backLeftEncoder',['../structaddress_1_1comp__bot_1_1encoders.html#acc112af60dd101c25a636f78415458a9',1,'address::comp_bot::encoders::backLeftEncoder()'],['../namespaceaddress_1_1practice__bot_1_1encoders.html#a4d2c08e445d97589c366c3086d6c3d0c',1,'address::practice_bot::encoders::backLeftEncoder()']]],
   ['backleftindex_3',['backLeftIndex',['../namespaceindexes_1_1swerve_modules.html#afda1c6bed84d2c9a557ad2a37d86545c',1,'indexes::swerveModules']]],
   ['backleftloffset_4',['backLeftLOffset',['../namespacemeasure__up_1_1swerve__offsets.html#a14928f156e9603af6c6ecb0833ce4168',1,'measure_up::swerve_offsets']]],
-  ['backleftturn_5',['backLeftTurn',['../namespaceaddress_1_1drive.html#a1535782909380d160c010c6353ea0690',1,'address::drive']]],
+  ['backleftturn_5',['backLeftTurn',['../structaddress_1_1comp__bot_1_1drive.html#ab150ca0f0e2f3ff2884c486dd4420ae5',1,'address::comp_bot::drive::backLeftTurn()'],['../namespaceaddress_1_1practice__bot_1_1drive.html#ab3b66eec8ed4b5f94446bacce055b6ba',1,'address::practice_bot::drive::backLeftTurn()']]],
   ['backleftwoffset_6',['backLeftWOffset',['../namespacemeasure__up_1_1swerve__offsets.html#af2179c18778f9f25d833c806053f3190',1,'measure_up::swerve_offsets']]],
-  ['backrightdrive_7',['backRightDrive',['../namespaceaddress_1_1drive.html#a5c83d1926e47524b4c0e7f3c2da0c475',1,'address::drive']]],
-  ['backrightencoder_8',['backRightEncoder',['../namespaceaddress_1_1encoders.html#ae0880094fd486fca6311b59533a1518e',1,'address::encoders']]],
+  ['backrightdrive_7',['backRightDrive',['../structaddress_1_1comp__bot_1_1drive.html#a865e0ffe8a9b4ebc88b0710339271760',1,'address::comp_bot::drive::backRightDrive()'],['../namespaceaddress_1_1practice__bot_1_1drive.html#a95e6ec90e2d272d1243cf84a8332c709',1,'address::practice_bot::drive::backRightDrive()']]],
+  ['backrightencoder_8',['backRightEncoder',['../structaddress_1_1comp__bot_1_1encoders.html#a67718243281203c852ba0800343b7187',1,'address::comp_bot::encoders::backRightEncoder()'],['../namespaceaddress_1_1practice__bot_1_1encoders.html#a4587f783e7cff4b12c87812a26e3c178',1,'address::practice_bot::encoders::backRightEncoder()']]],
   ['backrightindex_9',['backRightIndex',['../namespaceindexes_1_1swerve_modules.html#a3bbc6a04c968b7b8cdb3733eb01f07ed',1,'indexes::swerveModules']]],
   ['backrightloffset_10',['backRightLOffset',['../namespacemeasure__up_1_1swerve__offsets.html#ab7f31ac9d15a17d67ebcc2e0976aa861',1,'measure_up::swerve_offsets']]],
-  ['backrightturn_11',['backRightTurn',['../namespaceaddress_1_1drive.html#aa479489eb896adaf260b2cf03b030ece',1,'address::drive']]],
+  ['backrightturn_11',['backRightTurn',['../structaddress_1_1comp__bot_1_1drive.html#a5a65bdb3634ab0512ff679b6380d1579',1,'address::comp_bot::drive::backRightTurn()'],['../namespaceaddress_1_1practice__bot_1_1drive.html#a817d8f22e2c37ca8e0ce42c7201a73bb',1,'address::practice_bot::drive::backRightTurn()']]],
   ['backrightwoffset_12',['backRightWOffset',['../namespacemeasure__up_1_1swerve__offsets.html#a4a79bffd93818af42fe1894b26de550b',1,'measure_up::swerve_offsets']]],
   ['bboxhor_13',['bboxHor',['../struct_limelight_target_1_1t_values.html#af5bda79c04bed5a41a9b60b830430775',1,'LimelightTarget::tValues']]],
   ['bboxver_14',['bboxVer',['../struct_limelight_target_1_1t_values.html#af5cbd18d588c9269ed5798c02eac723c',1,'LimelightTarget::tValues']]],
-  ['beltdrive_15',['beltDrive',['../namespaceaddress_1_1intake.html#a37e5b3b6891613c3d9e6e473d3ee8d95',1,'address::intake']]],
+  ['beltdrive_15',['beltDrive',['../structaddress_1_1comp__bot_1_1intake.html#a35dcf1bcbad92c7e6ab391d3033b2291',1,'address::comp_bot::intake']]],
   ['beltfirstshot_16',['beltFirstShot',['../namespacespeeds_1_1intake.html#a650ab2de9d2e28d1d16273504c6c5dcc',1,'speeds::intake']]],
   ['beltforwardintake_17',['beltForwardIntake',['../namespacespeeds_1_1intake.html#af0f4543dea537005feecf29e5237bfda',1,'speeds::intake']]],
   ['beltforwardshoot_18',['beltForwardShoot',['../namespacespeeds_1_1intake.html#acdfcfef2fdb8df712d15c0a9a4458abe',1,'speeds::intake']]],
@@ -24,5 +24,6 @@ var searchData=
   ['blhomefullpath_21',['blHomeFullPath',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a5c47b6bcf26065b0aab95a2644692047',1,'networkTables::swerveHomes::keys']]],
   ['brhome_22',['brHome',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#a76ecc849d0d8ed33ee48f5443e59a4f7',1,'networkTables::swerveHomes::keys']]],
   ['brhomefullpath_23',['brHomeFullPath',['../namespacenetwork_tables_1_1swerve_homes_1_1keys.html#aa8d9ed48bb92f653121fc87052fe5392',1,'networkTables::swerveHomes::keys']]],
-  ['bumperextension_24',['bumperExtension',['../namespacemeasure__up.html#ae49efe93e07f5ad7579143b38853122a',1,'measure_up']]]
+  ['bumperextension_24',['bumperExtension',['../namespacemeasure__up.html#ae49efe93e07f5ad7579143b38853122a',1,'measure_up']]],
+  ['busname_25',['busName',['../structargos__lib_1_1_c_a_n_address.html#a6787fc599d47aa792bd67951eb0fd1d4',1,'argos_lib::CANAddress']]]
 ];

@@ -54,6 +54,7 @@ var class_shooter_subsystem =
     [ "m_hoodAngleMap", "class_shooter_subsystem.html#a681fa3fe0e8aa3dc4a0d0fc4e61087f6", null ],
     [ "m_hoodHomed", "class_shooter_subsystem.html#ad90bf281ed60ec82338ca05b2fe84d14", null ],
     [ "m_hoodMotor", "class_shooter_subsystem.html#afbec09471a2be874b8280345f67a36a7", null ],
+    [ "m_hoodMotorAddr", "class_shooter_subsystem.html#a0197a576d1e880d135cd8abc83275105", null ],
     [ "m_hoodPIDTuner", "class_shooter_subsystem.html#a2db46e10af9c9b611e5a2a5c7c02a8ef", null ],
     [ "m_instance", "class_shooter_subsystem.html#aefe186ca6547811ce0a1a0df5205e50f", null ],
     [ "m_lateralSpeedMap", "class_shooter_subsystem.html#a0c241e03443cb893a7078a4d0fa22c4d", null ],
@@ -63,10 +64,13 @@ var class_shooter_subsystem =
     [ "m_shooterPIDTuner", "class_shooter_subsystem.html#ac50ce8c7cecef48d016c873d7af5347e", null ],
     [ "m_shooterSpeedMap", "class_shooter_subsystem.html#ad04d8882bf020c2f52bc0c3112786edf", null ],
     [ "m_shooterWheelLeft", "class_shooter_subsystem.html#ab026571200330d9eeebf10140c44be56", null ],
+    [ "m_shooterWheelLeftAddr", "class_shooter_subsystem.html#a7247643f90565cb3252f06f5d1b577f6", null ],
     [ "m_shooterWheelRight", "class_shooter_subsystem.html#a485e72749ee5d5294167d2fe66140af6", null ],
+    [ "m_shooterWheelRightAddr", "class_shooter_subsystem.html#a829409bffa48edd30357f2feace3aee4", null ],
     [ "m_turretHomed", "class_shooter_subsystem.html#a75f4da6b9d4e5874fa70f6607084187c", null ],
     [ "m_turretHomingStorage", "class_shooter_subsystem.html#a5a50798ecf835239bef0b9b5324044d8", null ],
     [ "m_turretMotor", "class_shooter_subsystem.html#aea7115a3578a514d19877c79c5268a90", null ],
+    [ "m_turretMotorAddr", "class_shooter_subsystem.html#a702cfc98277cb3c8080b91201beb878b", null ],
     [ "m_turretPIDTuner", "class_shooter_subsystem.html#ad27554d9f1ba1e5b70a360b16433a5d2", null ],
     [ "m_useCalculatedPitch", "class_shooter_subsystem.html#a293c1b85a541732d6cc6033461ad534f", null ]
 ];

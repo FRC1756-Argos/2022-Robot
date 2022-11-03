@@ -41,7 +41,10 @@ var class_climber_subsystem =
     [ "m_itClimberPoint", "class_climber_subsystem.html#a12cb0ed66037ac68417f3136844ca4c2", null ],
     [ "m_manualOverride", "class_climber_subsystem.html#a13ebfe07e6edc69494504ca5562b111a", null ],
     [ "m_motorLiftLeft", "class_climber_subsystem.html#a03a08344cc198c7313ac459e71dc2a9e", null ],
+    [ "m_motorLiftLeftAddr", "class_climber_subsystem.html#a5a6c4d4bd208f84eb5d6784e39beb96b", null ],
     [ "m_motorLiftRight", "class_climber_subsystem.html#a4ecb43bdfb48d8862b54002f6d68f840", null ],
+    [ "m_motorLiftRightAddr", "class_climber_subsystem.html#a669b38e57af2a0f04a23deedadc4a715", null ],
     [ "m_motorMoveHook", "class_climber_subsystem.html#a630667b5f6f5aaa0ae04ebda98cc0017", null ],
+    [ "m_motorMoveHookAddr", "class_climber_subsystem.html#a77c42faf5b7b5a4bfee712c8417504f5", null ],
     [ "m_pPreClimbPoints", "class_climber_subsystem.html#a1817a11f6bd1b6c443c7027678c66dab", null ]
 ];

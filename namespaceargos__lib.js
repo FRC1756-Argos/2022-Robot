@@ -19,6 +19,7 @@ var namespaceargos__lib =
     ] ],
     [ "swerve", "namespaceargos__lib_1_1swerve.html", "namespaceargos__lib_1_1swerve" ],
     [ "talonsrx_config", "namespaceargos__lib_1_1talonsrx__config.html", "namespaceargos__lib_1_1talonsrx__config" ],
+    [ "CANAddress", "structargos__lib_1_1_c_a_n_address.html", "structargos__lib_1_1_c_a_n_address" ],
     [ "ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", "structargos__lib_1_1_closed_loop_sensor_conversions" ],
     [ "Debouncer", "classargos__lib_1_1_debouncer.html", "classargos__lib_1_1_debouncer" ],
     [ "DebounceSettings", "structargos__lib_1_1_debounce_settings.html", "structargos__lib_1_1_debounce_settings" ],

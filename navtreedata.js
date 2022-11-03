@@ -64,18 +64,18 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_constants_8h.html",
-"class_autonomous_center_left2ball_delay.html#a3612ce481372c2a7a863076617cff499",
-"class_edge_detector.html#ac4d5b680f8ac7b94370958ac9b88d205",
+"class_autonomous_center_right2ball.html#a09c54cd60464388b0de97f68fa164a08",
+"class_f_s_homing_storage.html#ac814c56681025dd5df8d37e59c2558a7",
 "class_shooter_subsystem.html#a97743880d5d6f161c3d110c5d61e6a7da92b09c7c48c520c3c55e497875da437c",
-"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca7a5854def4bae2b036ead0ec71aa487c",
-"field__points_8h.html#a93a2bc4ae7e415ffbb27e0bb8e5b65c6",
-"namespaceargos__lib.html#a489dff46429e8ae8064c6b37a744e2f5",
-"namespacemembers_vars_u.html",
-"struct_aim_values.html#adc727078129e601206b924478707ceb6",
-"structargos__lib_1_1swerve_1_1_translation_speeds.html#aa0cbf8154965ba46b3e176b50f5f9e70",
-"structmotor_config_1_1comp__bot_1_1climber_1_1lift_right.html#ac01c578eba0e61036d2c45527c963204",
-"structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html",
-"xbox__controller_8h_source.html"
+"classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca4905ac9d6a22bdfc1ae096094ce6248d",
+"field__points_8h.html#a46cd978f2033978441b7cad86e038f35",
+"namespaceargos__lib.html#ae562daa4c83e3bdb85b2a17aadd00855",
+"namespacemembers_x.html",
+"struct_shooter_subsystem_1_1_hub_relative_velocities.html",
+"structargos__lib_1_1falcon__config_1_1has__pid1__k_i.html",
+"structmotor_config_1_1comp__bot_1_1climber_1_1lift_left.html#a62e11f3aa93a88a2633ffb4c4431bf0d",
+"structmotor_config_1_1comp__bot_1_1drive_1_1generic_drive.html#a027a20202d0e6aba1a6cee2f3c7e06f6",
+"structmotor_config_1_1practice__bot_1_1drive_1_1front_left_turn.html#a3337b60decccbcff0b260bdb145c60ad"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
