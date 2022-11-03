@@ -9,7 +9,7 @@
 #include <TMD37003.h>
 #include <TimeOfFlight.h>
 
-#include "argos_lib/config/robot_instance.h"
+#include "argos_lib/config/config_types.h"
 #include "argos_lib/general/debouncer.h"
 #include "argos_lib/general/hysteresis_filter.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
@@ -113,6 +113,9 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   void ElevatorCycle(bool direction, bool cycleLength);
 
  private:
+  const argos_lib::CANAddress m_beltDriveAddr;
+  const argos_lib::CANAddress m_intakeDriveAddr;
+
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   // MOTORS

@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <string_view>
+
 namespace argos_lib {
   /**
    * @brief Differentiates between practice robot and competition robot
@@ -19,4 +21,12 @@ namespace argos_lib {
    * @return RobotInstance
    */
   RobotInstance GetRobotInstance();
+
+  struct CANAddress {
+    int address;
+    std::string_view busName;
+
+    CANAddress() = delete;
+    constexpr CANAddress(int address, const std::string_view& busName = "rio") : address(address), busName(busName) {}
+  };
 }  // namespace argos_lib

@@ -31,7 +31,7 @@ RobotContainer::RobotContainer()
                                                                          pneumatics::practice::module::moduleAddr,
                    m_instance == argos_lib::RobotInstance::Competition ? pneumatics::comp_bot::module::moduleType :
                                                                          pneumatics::practice::module::moduleType)
-    , m_controllers(address::controllers::driver, address::controllers::secondary)
+    , m_controllers(address::comp_bot::controllers::driver, address::comp_bot::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable, m_instance)
     , m_intake(m_instance, &m_controllers)
     , m_pClimber(m_instance == argos_lib::RobotInstance::Competition ?

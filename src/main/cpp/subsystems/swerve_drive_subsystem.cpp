@@ -21,13 +21,39 @@ using namespace argos_lib::swerve;
 
 SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper> networkTable,
                                            const argos_lib::RobotInstance instance)
-    : m_controlMode(SwerveDriveSubsystem::DriveControlMode::fieldCentricControl)
-    , m_frontLeft(address::drive::frontLeftDrive, address::drive::frontLeftTurn, address::encoders::frontLeftEncoder)
-    , m_frontRight(
-          address::drive::frontRightDrive, address::drive::frontRightTurn, address::encoders::frontRightEncoder)
-    , m_backRight(address::drive::backRightDrive, address::drive::backRightTurn, address::encoders::backRightEncoder)
-    , m_backLeft(address::drive::backLeftDrive, address::drive::backLeftTurn, address::encoders::backLeftEncoder)
+    : m_instance(instance)
+    , m_controlMode(SwerveDriveSubsystem::DriveControlMode::fieldCentricControl)
+    , m_frontLeft(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::frontLeftDrive :
+                                                                      address::practice_bot::drive::frontLeftDrive,
+                  instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::frontLeftTurn :
+                                                                      address::practice_bot::drive::frontLeftTurn,
+                  instance == argos_lib::RobotInstance::Competition ? address::comp_bot::encoders::frontLeftEncoder :
+                                                                      address::practice_bot::encoders::frontLeftEncoder)
+    , m_frontRight(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::frontRightDrive :
+                                                                       address::practice_bot::drive::frontRightDrive,
+                   instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::frontRightTurn :
+                                                                       address::practice_bot::drive::frontRightTurn,
+                   instance == argos_lib::RobotInstance::Competition ?
+                       address::comp_bot::encoders::frontRightEncoder :
+                       address::practice_bot::encoders::frontRightEncoder)
+    , m_backRight(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::backRightDrive :
+                                                                      address::practice_bot::drive::backRightDrive,
+                  instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::backRightTurn :
+                                                                      address::practice_bot::drive::backRightTurn,
+                  instance == argos_lib::RobotInstance::Competition ? address::comp_bot::encoders::backRightEncoder :
+                                                                      address::practice_bot::encoders::backRightEncoder)
+    , m_backLeft(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::backLeftDrive :
+                                                                     address::practice_bot::drive::backLeftDrive,
+                 instance == argos_lib::RobotInstance::Competition ? address::comp_bot::drive::backLeftTurn :
+                                                                     address::practice_bot::drive::backLeftTurn,
+                 instance == argos_lib::RobotInstance::Competition ? address::comp_bot::encoders::backLeftEncoder :
+                                                                     address::practice_bot::encoders::backLeftEncoder)
     , m_imu(frc::ADIS16448_IMU::kZ, frc::SPI::Port::kMXP, frc::ADIS16448_IMU::CalibrationTime::_8s)
+    , m_pigeonIMU(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::sensors::pigeonIMU.address :
+                                                                      address::practice_bot::sensors::pigeonIMU.address,
+                  std::string(instance == argos_lib::RobotInstance::Competition ?
+                                  address::comp_bot::sensors::pigeonIMU.busName :
+                                  address::practice_bot::sensors::pigeonIMU.busName))
     , m_swerveDriveKinematics(
           // Forward is positive X, left is positive Y
           // Front Left
@@ -42,7 +68,7 @@ SwerveDriveSubsystem::SwerveDriveSubsystem(std::shared_ptr<NetworkTablesWrapper>
           // Back Left
           frc::Translation2d(-measure_up::chassis::length / 2 + measure_up::swerve_offsets::backLeftLOffset,
                              measure_up::chassis::width / 2 - measure_up::swerve_offsets::backLeftWOffset))
-    , m_odometry(m_swerveDriveKinematics, frc::Rotation2d(m_imu.GetAngle()))
+    , m_odometry(m_swerveDriveKinematics, frc::Rotation2d(GetIMUYaw()))
     , m_prevOdometryAngle{0_deg}
     , m_continuousOdometryOffset{0_deg}
     , m_pNetworkTable(networkTable)
@@ -207,6 +233,7 @@ void SwerveDriveSubsystem::SwerveDrive(const double& fwVelocity,
   frc::SmartDashboard::PutNumber("(DRIVETRAIN) rotVelocity", rotVelocity);
   frc::SmartDashboard::PutNumber("CONTROL MODE", m_controlMode);
   frc::SmartDashboard::PutNumber("IMU ANGLE", m_imu.GetAngle().to<double>());
+  frc::SmartDashboard::PutNumber("IMU PIGEON ANGLE", m_pigeonIMU.GetYaw());
 
   // SET MODULES BASED OFF OF CONTROL MODE
   auto moduleStates = GetCurrentModuleStates();
@@ -393,7 +420,7 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
   HomeToFS(angle);
 
   // RE-ZERO THE IMU
-  m_imu.Reset();
+  ResetIMUYaw();
 
   // SetPosition expects a value in degrees
   m_frontLeft.m_encoder.SetPosition(angle.to<double>(), 50);
@@ -403,18 +430,18 @@ void SwerveDriveSubsystem::Home(const units::degree_t& angle) {
 }
 
 void SwerveDriveSubsystem::FieldHome(units::degree_t homeAngle, bool updateOdometry) {
-  m_fieldHomeOffset = -m_imu.GetAngle() - homeAngle;
+  m_fieldHomeOffset = -GetIMUYaw() - homeAngle;
   if (updateOdometry) {
     // Update odometry as well
     const auto currentPose = m_odometry.GetPose();
-    m_odometry.ResetPosition(frc::Pose2d{currentPose.Translation(), frc::Rotation2d(homeAngle)}, -m_imu.GetAngle());
+    m_odometry.ResetPosition(frc::Pose2d{currentPose.Translation(), frc::Rotation2d(homeAngle)}, -GetIMUYaw());
     m_prevOdometryAngle = m_odometry.GetPose().Rotation().Degrees();
     m_continuousOdometryOffset = 0_deg;
   }
 }
 
 void SwerveDriveSubsystem::InitializeOdometry(const frc::Pose2d& currentPose) {
-  m_odometry.ResetPosition(currentPose, -m_imu.GetAngle());
+  m_odometry.ResetPosition(currentPose, -GetIMUYaw());
   m_prevOdometryAngle = m_odometry.GetPose().Rotation().Degrees();
   m_continuousOdometryOffset = 0_deg;
   // Since we know the position, might as well update the driving orientation as well
@@ -440,7 +467,7 @@ frc::Pose2d SwerveDriveSubsystem::GetContinuousOdometry() {
 }
 
 frc::Pose2d SwerveDriveSubsystem::UpdateOdometry() {
-  const auto newPose = m_odometry.Update(frc::Rotation2d{-m_imu.GetAngle()},
+  const auto newPose = m_odometry.Update(frc::Rotation2d{-GetIMUYaw()},
                                          m_frontLeft.GetState(),
                                          m_frontRight.GetState(),
                                          m_backRight.GetState(),
@@ -454,7 +481,7 @@ frc::Pose2d SwerveDriveSubsystem::UpdateOdometry() {
 }
 
 units::degree_t SwerveDriveSubsystem::GetFieldCentricAngle() const {
-  return -m_imu.GetAngle() - m_fieldHomeOffset;
+  return -GetIMUYaw() - m_fieldHomeOffset;
 }
 
 frc::Pose2d SwerveDriveSubsystem::GetPoseEstimate() {
@@ -512,8 +539,12 @@ void SwerveDriveSubsystem::InitializeMotorsFromFS() {
 }
 
 // SWERVE MODULE SUBSYSTEM FUNCTIONS
-SwerveModule::SwerveModule(const char driveAddr, const char turnAddr, const char encoderAddr)
-    : m_drive(driveAddr), m_turn(turnAddr), m_encoder(encoderAddr) {}
+SwerveModule::SwerveModule(const argos_lib::CANAddress& driveAddr,
+                           const argos_lib::CANAddress& turnAddr,
+                           const argos_lib::CANAddress& encoderAddr)
+    : m_drive(driveAddr.address, std::string(driveAddr.busName))
+    , m_turn(turnAddr.address, std::string(turnAddr.busName))
+    , m_encoder(encoderAddr.address, std::string(encoderAddr.busName)) {}
 
 frc::SwerveModuleState SwerveModule::GetState() {
   return frc::SwerveModuleState{
@@ -553,6 +584,14 @@ void SwerveDriveSubsystem::CancelDrivingProfile() {
 
 bool SwerveDriveSubsystem::ProfileIsComplete() const {
   return m_profileComplete;
+}
+
+units::degree_t SwerveDriveSubsystem::GetIMUYaw() const {
+  return -units::degree_t{m_pigeonIMU.GetYaw()};
+}
+
+void SwerveDriveSubsystem::ResetIMUYaw() {
+  m_pigeonIMU.SetYaw(0);
 }
 
 frc::ChassisSpeeds SwerveDriveSubsystem::GetChassisVelocity() {

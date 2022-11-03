@@ -19,10 +19,20 @@
 ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
                                    SwerveDriveSubsystem* pDriveSubsystem,
                                    argos_lib::SwappableControllersSubsystem* controllers)
-    : m_shooterWheelLeft(address::shooter::shooterWheelLeft)
-    , m_shooterWheelRight(address::shooter::shooterWheelRight)
-    , m_hoodMotor(address::shooter::hoodMotor)
-    , m_turretMotor(address::shooter::turretMotor)
+    : m_shooterWheelLeftAddr(instance == argos_lib::RobotInstance::Competition ?
+                                 address::comp_bot::shooter::shooterWheelLeft :
+                                 address::practice_bot::shooter::shooterWheelLeft)
+    , m_shooterWheelRightAddr(instance == argos_lib::RobotInstance::Competition ?
+                                  address::comp_bot::shooter::shooterWheelRight :
+                                  address::practice_bot::shooter::shooterWheelRight)
+    , m_hoodMotorAddr(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::shooter::hoodMotor :
+                                                                          address::practice_bot::shooter::hoodMotor)
+    , m_turretMotorAddr(instance == argos_lib::RobotInstance::Competition ? address::comp_bot::shooter::turretMotor :
+                                                                            address::practice_bot::shooter::turretMotor)
+    , m_shooterWheelLeft(m_shooterWheelLeftAddr.address, std::string(m_shooterWheelLeftAddr.busName))
+    , m_shooterWheelRight(m_shooterWheelRightAddr.address, std::string(m_shooterWheelRightAddr.busName))
+    , m_hoodMotor(m_hoodMotorAddr.address)
+    , m_turretMotor(m_turretMotorAddr.address)
     , m_cameraInterface()
     , m_turretHomingStorage(paths::turretHomePath)
     , m_hoodHomed(false)
