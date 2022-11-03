@@ -31,7 +31,7 @@ RobotContainer::RobotContainer()
                                                                          pneumatics::practice::module::moduleAddr,
                    m_instance == argos_lib::RobotInstance::Competition ? pneumatics::comp_bot::module::moduleType :
                                                                          pneumatics::practice::module::moduleType)
-    , m_controllers(address::controllers::driver, address::controllers::secondary)
+    , m_controllers(address::comp_bot::controllers::driver, address::comp_bot::controllers::secondary)
     , m_swerveDrive(m_pNetworkTable, m_instance)
     , m_intake(m_instance, &m_controllers)
     , m_pClimber(m_instance == argos_lib::RobotInstance::Competition ?
@@ -523,7 +523,7 @@ void RobotContainer::ConfigureButtonBindings() {
   //     {&m_shooter});
   shooter.WhenActive([this]() { m_intake.Shoot(); }, {});
   // aimTrigger.WhenInactive([this]() { m_shooter.Shoot(0); }, {&m_shooter});
-  !shooter.WhenActive([this]() { m_intake.StopShoot(); }, {});
+  shooter.WhenInactive([this]() { m_intake.StopShoot(); }, {});
 
   // SHOOTER FIXED POS TRIGGER ACTIVATION
   fixedFrontTrigger.WhenActive([this]() { m_shooter.FixedShooterPosition(ShooterSubsystem::FixedPosState::Front); },

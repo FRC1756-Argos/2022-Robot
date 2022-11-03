@@ -9,7 +9,7 @@
 #include <vector>
 
 #include "Constants.h"
-#include "argos_lib/config/robot_instance.h"
+#include "argos_lib/config/config_types.h"
 #include "argos_lib/general/nt_motor_pid_tuner.h"
 #include "ctre/Phoenix.h"
 #include "units/length.h"
@@ -243,6 +243,9 @@ class ClimberSubsystem : public frc2::SubsystemBase {
   bool ClimberReadyToClimb();
 
  private:
+  const argos_lib::CANAddress m_motorLiftRightAddr;
+  const argos_lib::CANAddress m_motorLiftLeftAddr;
+  const argos_lib::CANAddress m_motorMoveHookAddr;
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
   WPI_TalonFX m_motorLiftRight;  ///< Right ball-screw driver motor for raising arms
