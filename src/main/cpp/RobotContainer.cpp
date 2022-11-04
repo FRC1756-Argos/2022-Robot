@@ -469,7 +469,7 @@ void RobotContainer::ConfigureButtonBindings() {
 
   climbPrevious.WhenActive(
       [this]() {
-        if (m_pClimber->IsReadySequenceAllowed()) {
+        if (m_pClimber && m_pClimber->IsReadySequenceAllowed()) {
           m_pClimber->PreviousReadyPoint();
         }
       },
@@ -477,7 +477,7 @@ void RobotContainer::ConfigureButtonBindings() {
 
   climbAdvance.WhenActive(
       [this]() {
-        if (m_pClimber->IsReadySequenceAllowed()) {
+        if (m_pClimber && m_pClimber->IsReadySequenceAllowed()) {
           m_pClimber->NextReadyPoint();
         }
       },
@@ -485,7 +485,7 @@ void RobotContainer::ConfigureButtonBindings() {
 
   climbConfirm.WhenActive(
       [this]() {
-        if (!m_pClimber->ClimberReadyToClimb()) {
+        if (m_pClimber && !m_pClimber->ClimberReadyToClimb()) {
           return;
         }
         m_compressor.Disable();
