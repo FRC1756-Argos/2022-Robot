@@ -1,4 +1,4 @@
 var edge__detector_8h =
 [
-    [ "EdgeDetector", "class_edge_detector.html", "class_edge_detector" ]
+    [ "argos_lib::EdgeDetector", "classargos__lib_1_1_edge_detector.html", "classargos__lib_1_1_edge_detector" ]
 ];

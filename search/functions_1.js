@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['calculate_0',['Calculate',['../class_swerve_trapezoidal_profile_segment.html#a3e337ac9db3382f9192a6c384bce925b',1,'SwerveTrapezoidalProfileSegment::Calculate()'],['../class_edge_detector.html#ac4d5b680f8ac7b94370958ac9b88d205',1,'EdgeDetector::Calculate()']]],
+  ['calculate_0',['Calculate',['../class_swerve_trapezoidal_profile_segment.html#a3e337ac9db3382f9192a6c384bce925b',1,'SwerveTrapezoidalProfileSegment::Calculate()'],['../classargos__lib_1_1_edge_detector.html#ac4d5b680f8ac7b94370958ac9b88d205',1,'argos_lib::EdgeDetector::Calculate()']]],
   ['camerainterface_1',['CameraInterface',['../class_camera_interface.html#a62af2e7390904d839c465d2b07d0fcab',1,'CameraInterface']]],
   ['canaddress_2',['CANAddress',['../structargos__lib_1_1_c_a_n_address.html#a2601ce7996890236997b5dbdc8160e36',1,'argos_lib::CANAddress::CANAddress()=delete'],['../structargos__lib_1_1_c_a_n_address.html#a06541b2d1af01f34327caa6faf2ebfff',1,'argos_lib::CANAddress::CANAddress(int address, const std::string_view &amp;busName=&quot;rio&quot;)']]],
   ['canceldrivingprofile_3',['CancelDrivingProfile',['../class_swerve_drive_subsystem.html#a3238d024639a5df1af633317e4f21b74',1,'SwerveDriveSubsystem']]],

@@ -62,7 +62,7 @@ var hierarchy =
     [ "argos_lib::XboxController::DPadButtons", "structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html", null ],
     [ "address::comp_bot::drive", "structaddress_1_1comp__bot_1_1drive.html", null ],
     [ "controlLoop::comp_bot::drive::drive", "structcontrol_loop_1_1comp__bot_1_1drive_1_1drive.html", null ],
-    [ "EdgeDetector", "class_edge_detector.html", null ],
+    [ "argos_lib::EdgeDetector", "classargos__lib_1_1_edge_detector.html", null ],
     [ "address::comp_bot::encoders", "structaddress_1_1comp__bot_1_1encoders.html", null ],
     [ "std::false_type", null, [
       [ "argos_lib::cancoder_config::has_direction< T, typename >", "structargos__lib_1_1cancoder__config_1_1has__direction.html", null ],
@@ -132,11 +132,10 @@ var hierarchy =
       [ "argos_lib::XboxController", "classargos__lib_1_1_xbox_controller.html", null ]
     ] ],
     [ "HomingStorageInterface< T >", "class_homing_storage_interface.html", [
+      [ "FSHomingStorage< units::degree_t >", "class_f_s_homing_storage.html", null ],
       [ "FSHomingStorage< T >", "class_f_s_homing_storage.html", null ]
     ] ],
-    [ "HomingStorageInterface< units::degree_t >", "class_homing_storage_interface.html", [
-      [ "FSHomingStorage< units::degree_t >", "class_f_s_homing_storage.html", null ]
-    ] ],
+    [ "HomingStorageInterface< units::degree_t >", "class_homing_storage_interface.html", null ],
     [ "controlLoop::comp_bot::shooter::hood", "structcontrol_loop_1_1comp__bot_1_1shooter_1_1hood.html", null ],
     [ "motorConfig::comp_bot::shooter::hoodMotor", "structmotor_config_1_1comp__bot_1_1shooter_1_1hood_motor.html", null ],
     [ "motorConfig::practice_bot::shooter::hoodMotor", "structmotor_config_1_1practice__bot_1_1shooter_1_1hood_motor.html", null ],

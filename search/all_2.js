@@ -4,7 +4,7 @@ var searchData=
   ['arm_1',['arm',['../namespacecontrol_loop_1_1comp__bot_1_1climber_1_1arm.html',1,'controlLoop::comp_bot::climber::arm'],['../namespacecontrol_loop_1_1comp__bot_1_1climber__loaded_1_1arm.html',1,'controlLoop::comp_bot::climber_loaded::arm']]],
   ['bd_5fpath_2',['BD_path',['../namespaceconstraints_1_1_b_d__path.html',1,'constraints']]],
   ['c_3',['C',['../namespacefield__points_1_1balls.html#aea4612ff7a9608118a9696124d89e9bd',1,'field_points::balls']]],
-  ['calculate_4',['Calculate',['../class_swerve_trapezoidal_profile_segment.html#a3e337ac9db3382f9192a6c384bce925b',1,'SwerveTrapezoidalProfileSegment::Calculate()'],['../class_edge_detector.html#ac4d5b680f8ac7b94370958ac9b88d205',1,'EdgeDetector::Calculate()']]],
+  ['calculate_4',['Calculate',['../class_swerve_trapezoidal_profile_segment.html#a3e337ac9db3382f9192a6c384bce925b',1,'SwerveTrapezoidalProfileSegment::Calculate()'],['../classargos__lib_1_1_edge_detector.html#ac4d5b680f8ac7b94370958ac9b88d205',1,'argos_lib::EdgeDetector::Calculate()']]],
   ['camera_5',['camera',['../namespacecamera.html',1,'']]],
   ['cameraheight_6',['cameraHeight',['../namespacemeasure__up_1_1camera.html#aa02156baaefca0333ca8e962e9c8f0cc',1,'measure_up::camera']]],
   ['camerainterface_7',['CameraInterface',['../class_camera_interface.html#a62af2e7390904d839c465d2b07d0fcab',1,'CameraInterface::CameraInterface()'],['../class_camera_interface.html',1,'CameraInterface']]],

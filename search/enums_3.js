@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['edgedetectsettings_0',['EdgeDetectSettings',['../class_edge_detector.html#a1ffd51c720e9c3a2fb357af6e0fd7da7',1,'EdgeDetector']]],
-  ['edgestatus_1',['edgeStatus',['../class_edge_detector.html#a7b80822f6e77d833bcd9f6c73f5efee8',1,'EdgeDetector']]]
+  ['edgedetectsettings_0',['EdgeDetectSettings',['../classargos__lib_1_1_edge_detector.html#ae125e05a416bb2c2e72b21394c8ad0df',1,'argos_lib::EdgeDetector']]],
+  ['edgestatus_1',['edgeStatus',['../classargos__lib_1_1_edge_detector.html#a018f1887cd0eb8a500297a96e133ec5f',1,'argos_lib::EdgeDetector']]]
 ];

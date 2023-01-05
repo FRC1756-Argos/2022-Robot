@@ -5,7 +5,7 @@ var searchData=
   ['f_2',['F',['../namespacefield__points_1_1balls.html#a55b0560d5c6f5654f42839282bb814cf',1,'field_points::balls']]],
   ['falcon_5fconfig_2eh_3',['falcon_config.h',['../falcon__config_8h.html',1,'']]],
   ['falconconfig_4',['FalconConfig',['../namespaceargos__lib_1_1falcon__config.html#ad61653d44b07300a67ca2f3afa116f3e',1,'argos_lib::falcon_config::FalconConfig(TalonFX &amp;motorController, units::millisecond_t configTimeout)'],['../namespaceargos__lib_1_1falcon__config.html#aa4173ae88db5e214c1deadbab92476ee',1,'argos_lib::falcon_config::FalconConfig(WPI_TalonFX &amp;motorController, units::millisecond_t configTimeout, argos_lib::RobotInstance instance)']]],
-  ['falling_5',['FALLING',['../class_edge_detector.html#a7b80822f6e77d833bcd9f6c73f5efee8a4f9d4539ac1e11a251e2afe022eba4e6',1,'EdgeDetector']]],
+  ['falling_5',['FALLING',['../classargos__lib_1_1_edge_detector.html#a018f1887cd0eb8a500297a96e133ec5fa4f9d4539ac1e11a251e2afe022eba4e6',1,'argos_lib::EdgeDetector']]],
   ['field_5fpoints_6',['field_points',['../namespacefield__points.html',1,'']]],
   ['field_5fpoints_2eh_7',['field_points.h',['../field__points_8h.html',1,'']]],
   ['fieldcentriccontrol_8',['fieldCentricControl',['../class_swerve_drive_subsystem.html#a2c302fd1392bd8bca475c407248d512ca3f177987a8009176687209fe6af21136',1,'SwerveDriveSubsystem']]],

@@ -29,12 +29,12 @@ var class_intake_subsystem =
     [ "m_intakeDeploy", "class_intake_subsystem.html#aee66e46400271a45b259fe94ca1f7f9d", null ],
     [ "m_intakeDrive", "class_intake_subsystem.html#a1d466b7211176f3fd7332bfbcdb026eb", null ],
     [ "m_intakeDriveAddr", "class_intake_subsystem.html#a541f7066eef43ea0adea432825adacd7", null ],
-    [ "m_IntakeEdgeDetector", "class_intake_subsystem.html#a40e685713a3568d7165ce1ce37766667", null ],
+    [ "m_IntakeEdgeDetector", "class_intake_subsystem.html#ac99cef9f8596f709d1eb73dd9aee9ed3", null ],
     [ "m_intakeState", "class_intake_subsystem.html#abc12b8e52981822a02b359c91f17375c", null ],
     [ "m_outtakeButtonPressed", "class_intake_subsystem.html#a591701b5ff203ee9c4b6e718ca48bf63", null ],
     [ "m_pControllers", "class_intake_subsystem.html#a9d872d614ca9fafef9ca7b78c6eef363", null ],
     [ "m_shooterButtonPressed", "class_intake_subsystem.html#a56edb3f3ff3a830b7e42ed1806f0e097", null ],
-    [ "m_ShooterEdgeDetector", "class_intake_subsystem.html#a9b9e7a61e663aefdb87b9a8d8efcff14", null ],
+    [ "m_ShooterEdgeDetector", "class_intake_subsystem.html#a3576a38266bb48d6bf29fbb3de483a5d", null ],
     [ "m_shooterTimeDebouncer", "class_intake_subsystem.html#a83bf3505a5a2559d2ab029bdc48b6f74", null ],
     [ "m_slowIntakeRequested", "class_intake_subsystem.html#a9c650139dc8fcf7c20834951b5776e42", null ]
 ];
