@@ -4,7 +4,9 @@
 
 #pragma once
 
-/**
+namespace argos_lib {
+
+  /**
    * @brief Detect if a value is within a threshold of a target value
    *
    * @tparam T Type that implements operator+(), operator-(), operator<=() and operator>=()
@@ -13,7 +15,8 @@
    * @param threshold Allowable error from target
    * @return true when value is within threshold of target, false otherwise
    */
-template <typename T>
-constexpr static bool InThreshold(const T value, const T target, const T threshold) {
-  return value >= target - threshold && value <= target + threshold;
-}
+  template <typename T>
+  constexpr static bool InThreshold(const T value, const T target, const T threshold) {
+    return value >= target - threshold && value <= target + threshold;
+  }
+}  // namespace argos_lib

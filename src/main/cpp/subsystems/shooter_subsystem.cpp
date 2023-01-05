@@ -10,10 +10,10 @@
 #include "Constants.h"
 #include "argos_lib/config/falcon_config.h"
 #include "argos_lib/config/talonsrx_config.h"
+#include "argos_lib/general/general.h"
 #include "argos_lib/general/swerve_utils.h"
 #include "frc/smartdashboard/SmartDashboard.h"
 #include "units/length.h"
-#include "utils/general.h"
 #include "utils/sensor_conversions.h"
 
 ShooterSubsystem::ShooterSubsystem(const argos_lib::RobotInstance instance,
@@ -487,11 +487,11 @@ void ShooterSubsystem::SetCameraDriverMode(bool driverMode) {
 
 bool ShooterSubsystem::InAcceptableRanges(const AimValues targets, const AimValues real) {
   const bool turretAcceptableRange =
-      InThreshold(real.turretTarget, targets.turretTarget, threshholds::shooter::acceptableTurretError);
+      argos_lib::InThreshold(real.turretTarget, targets.turretTarget, threshholds::shooter::acceptableTurretError);
   const bool hoodAcceptableRange =
-      InThreshold(real.hoodTarget, targets.hoodTarget, threshholds::shooter::acceptableHoodError);
+      argos_lib::InThreshold(real.hoodTarget, targets.hoodTarget, threshholds::shooter::acceptableHoodError);
   const bool shooterAcceptableRange =
-      InThreshold(real.shooterTarget, targets.shooterTarget, threshholds::shooter::acceptableWheelError);
+      argos_lib::InThreshold(real.shooterTarget, targets.shooterTarget, threshholds::shooter::acceptableWheelError);
 
   frc::SmartDashboard::PutNumber("(Acceptable Error) Target - Turret", targets.turretTarget.to<double>());
   frc::SmartDashboard::PutNumber("(Acceptable Error) Target - Hood", targets.hoodTarget.to<double>());

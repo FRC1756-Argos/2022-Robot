@@ -21,7 +21,7 @@ jobs:
       - name: Install clang-format
         run: sudo apt-get update -q && sudo apt-get install -y clang-format-10
       - name: Install wpiformat
-        run: pip3 install wpiformat
+        run: pip3 install wpiformat==2022.21
       - name: Rename branch
         if: ${{ github.ref != 'refs/heads/main' }}
         run: git checkout -b main HEAD

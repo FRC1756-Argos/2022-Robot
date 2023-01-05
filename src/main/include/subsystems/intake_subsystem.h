@@ -11,11 +11,11 @@
 
 #include "argos_lib/config/config_types.h"
 #include "argos_lib/general/debouncer.h"
+#include "argos_lib/general/edge_detector.h"
 #include "argos_lib/general/hysteresis_filter.h"
 #include "argos_lib/subsystems/swappable_controllers_subsystem.h"
 #include "ctre/Phoenix.h"
 #include "frc/Solenoid.h"
-#include "utils/edge_detector.h"
 
 /**
  * @brief Controls the Intake of the robot and provides internal ball position state info
@@ -142,8 +142,8 @@ class IntakeSubsystem : public frc2::SubsystemBase {
   bool m_firstShotMode;                                      ///<  True if there was NOT a ball in the shooter
   argos_lib::SwappableControllersSubsystem* m_pControllers;  ///< The driver and operator controllers
 
-  EdgeDetector m_ShooterEdgeDetector;  ///< an edge detector used for detecting a ball leaving the shooter
-  EdgeDetector m_IntakeEdgeDetector;   ///< Edge detector detecting a ball entering the intake
+  argos_lib::EdgeDetector m_ShooterEdgeDetector;  ///< an edge detector used for detecting a ball leaving the shooter
+  argos_lib::EdgeDetector m_IntakeEdgeDetector;   ///< Edge detector detecting a ball entering the intake
 
   argos_lib::HysteresisFilter<units::inch_t>
       m_hysteresisIntake;  ///< Filter for converting from ball distance to bool, True when TOF sensor reads a ball in front

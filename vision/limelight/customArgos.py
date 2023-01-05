@@ -10,24 +10,18 @@ S_max = 255
 V_min = 71
 V_max = 242
 
-cameraMatrix = np.array(
-    [
-        [772.53876202 / 3.0, 0, 479.132337442 / 3.0],
-        [0, 769.052151477 / 3.0, 359.143001808 / 3.0],
-        [0, 0, 1.0],
-    ]
-)
-distortionCoeff = np.array(
-    [
-        [
-            2.9684613693070039e-01,
-            -1.4380252254747885e00,
-            -2.2098421479494509e-03,
-            -3.3894563533907176e-03,
-            2.5344430354806740e00,
-        ]
-    ]
-)
+cameraMatrix = np.array([
+    [772.53876202 / 3.0, 0, 479.132337442 / 3.0],
+    [0, 769.052151477 / 3.0, 359.143001808 / 3.0],
+    [0, 0, 1.0],
+])
+distortionCoeff = np.array([[
+    2.9684613693070039e-01,
+    -1.4380252254747885e00,
+    -2.2098421479494509e-03,
+    -3.3894563533907176e-03,
+    2.5344430354806740e00,
+]])
 
 distortedPts1 = np.float32([[-30, -30], [160, 0], [0, 240], [160, 240]])
 desiredPts1 = np.float32([[0, 0], [160, 0], [0, 240], [160, 240]])
@@ -107,15 +101,15 @@ def runPipeline(image, llrobot):
     # dst = cv2.remap(image,mapx,mapy,cv2.INTER_LINEAR)
 
     img_hsv = cv2.cvtColor(dst, cv2.COLOR_BGR2HSV)
-    img_threshold = cv2.inRange(img_hsv, (H_min, S_min, V_min), (H_max, S_max, V_max))
+    img_threshold = cv2.inRange(img_hsv, (H_min, S_min, V_min),
+                                (H_max, S_max, V_max))
 
     kernel = np.ones((1, 1), np.uint8)
     # img_threshold = cv2.morphologyEx(img_threshold, cv2.MORPH_OPEN, kernel)
     img_threshold = cv2.dilate(img_threshold, kernel, iterations=1)
 
-    contours, _ = cv2.findContours(
-        img_threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
-    )
+    contours, _ = cv2.findContours(img_threshold, cv2.RETR_EXTERNAL,
+                                   cv2.CHAIN_APPROX_SIMPLE)
 
     groupedSmartContour = np.array([[]])
     fittedRedBox = np.array([[]])

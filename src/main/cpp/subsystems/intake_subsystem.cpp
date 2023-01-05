@@ -40,8 +40,8 @@ IntakeSubsystem::IntakeSubsystem(const argos_lib::RobotInstance instance,
     , m_firstShotMode(false)
     , m_pControllers(controllers)
     // , m_ballColor(address::sensors::colorSensor)
-    , m_ShooterEdgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_FALLING)
-    , m_IntakeEdgeDetector(EdgeDetector::EdgeDetectSettings::DETECT_RISING)
+    , m_ShooterEdgeDetector(argos_lib::EdgeDetector::EdgeDetectSettings::DETECT_FALLING)
+    , m_IntakeEdgeDetector(argos_lib::EdgeDetector::EdgeDetectSettings::DETECT_RISING)
     , m_hysteresisIntake(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
     , m_hysteresisShooter(threshholds::intake::intakeDeactivate, threshholds::intake::intakeActivate)
     , m_shooterTimeDebouncer({0_ms, 250_ms}, false) {

@@ -2,9 +2,11 @@
 ///            Open Source Software; you can modify and/or share it under the terms of
 ///            the license file in the root directory of this project.
 
-#include "utils/edge_detector.h"
+#include "argos_lib/general/edge_detector.h"
 
 #include "frc/smartdashboard/SmartDashboard.h"
+
+using argos_lib::EdgeDetector;
 
 EdgeDetector::EdgeDetector(EdgeDetector::EdgeDetectSettings _settings, bool initialValue) {
   m_settings = _settings;
